@@ -1,0 +1,2532 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >IPC.KripkeSemantics</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="IPC.KripkeSemantics.html#1" class="Module"
+      >IPC.KripkeSemantics</a
+      ><a name="27"
+      > </a
+      ><a name="28" class="Keyword"
+      >where</a
+      ><a name="33"
+      >
+
+</a
+      ><a name="35" class="Keyword"
+      >open</a
+      ><a name="39"
+      > </a
+      ><a name="40" class="Keyword"
+      >import</a
+      ><a name="46"
+      > </a
+      ><a name="47" href="IPC.html#1" class="Module"
+      >IPC</a
+      ><a name="50"
+      > </a
+      ><a name="51" class="Keyword"
+      >public</a
+      ><a name="57"
+      >
+
+
+</a
+      ><a name="60" class="Comment"
+      >-- Intuitionistic Kripke-CPS models, following Ilik.</a
+      ><a name="112"
+      >
+
+</a
+      ><a name="114" class="Keyword"
+      >record</a
+      ><a name="120"
+      > </a
+      ><a name="121" href="IPC.KripkeSemantics.html#121" class="Record"
+      >Model</a
+      ><a name="126"
+      > </a
+      ><a name="127" class="Symbol"
+      >:</a
+      ><a name="128"
+      > </a
+      ><a name="129" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="133"
+      > </a
+      ><a name="134" class="Keyword"
+      >where</a
+      ><a name="139"
+      >
+  </a
+      ><a name="142" class="Keyword"
+      >infix</a
+      ><a name="147"
+      > </a
+      ><a name="148" class="Number"
+      >3</a
+      ><a name="149"
+      > _&#8874;&#7493;_
+  </a
+      ><a name="157" class="Keyword"
+      >field</a
+      ><a name="162"
+      >
+    </a
+      ><a name="167" href="IPC.KripkeSemantics.html#167" class="Field"
+      >World</a
+      ><a name="172"
+      > </a
+      ><a name="173" class="Symbol"
+      >:</a
+      ><a name="174"
+      > </a
+      ><a name="175" class="PrimitiveType"
+      >Set</a
+      ><a name="178"
+      >
+
+    </a
+      ><a name="184" class="Comment"
+      >-- Intuitionistic accessibility; preorder.</a
+      ><a name="226"
+      >
+    </a
+      ><a name="231" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="234"
+      >    </a
+      ><a name="238" class="Symbol"
+      >:</a
+      ><a name="239"
+      > </a
+      ><a name="240" href="IPC.KripkeSemantics.html#167" class="Field"
+      >World</a
+      ><a name="245"
+      > </a
+      ><a name="246" class="Symbol"
+      >&#8594;</a
+      ><a name="247"
+      > </a
+      ><a name="248" href="IPC.KripkeSemantics.html#167" class="Field"
+      >World</a
+      ><a name="253"
+      > </a
+      ><a name="254" class="Symbol"
+      >&#8594;</a
+      ><a name="255"
+      > </a
+      ><a name="256" class="PrimitiveType"
+      >Set</a
+      ><a name="259"
+      >
+    </a
+      ><a name="264" href="IPC.KripkeSemantics.html#264" class="Field"
+      >refl&#8804;</a
+      ><a name="269"
+      >  </a
+      ><a name="271" class="Symbol"
+      >:</a
+      ><a name="272"
+      > </a
+      ><a name="273" class="Symbol"
+      >&#8704;</a
+      ><a name="274"
+      > </a
+      ><a name="275" class="Symbol"
+      >{</a
+      ><a name="276" href="IPC.KripkeSemantics.html#276" class="Bound"
+      >w</a
+      ><a name="277" class="Symbol"
+      >}</a
+      ><a name="278"
+      > </a
+      ><a name="279" class="Symbol"
+      >&#8594;</a
+      ><a name="280"
+      > </a
+      ><a name="281" href="IPC.KripkeSemantics.html#276" class="Bound"
+      >w</a
+      ><a name="282"
+      > </a
+      ><a name="283" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="284"
+      > </a
+      ><a name="285" href="IPC.KripkeSemantics.html#276" class="Bound"
+      >w</a
+      ><a name="286"
+      >
+    </a
+      ><a name="291" href="IPC.KripkeSemantics.html#291" class="Field"
+      >trans&#8804;</a
+      ><a name="297"
+      > </a
+      ><a name="298" class="Symbol"
+      >:</a
+      ><a name="299"
+      > </a
+      ><a name="300" class="Symbol"
+      >&#8704;</a
+      ><a name="301"
+      > </a
+      ><a name="302" class="Symbol"
+      >{</a
+      ><a name="303" href="IPC.KripkeSemantics.html#303" class="Bound"
+      >w</a
+      ><a name="304"
+      > </a
+      ><a name="305" href="IPC.KripkeSemantics.html#305" class="Bound"
+      >w&#8242;</a
+      ><a name="307"
+      > </a
+      ><a name="308" href="IPC.KripkeSemantics.html#308" class="Bound"
+      >w&#8243;</a
+      ><a name="310" class="Symbol"
+      >}</a
+      ><a name="311"
+      > </a
+      ><a name="312" class="Symbol"
+      >&#8594;</a
+      ><a name="313"
+      > </a
+      ><a name="314" href="IPC.KripkeSemantics.html#303" class="Bound"
+      >w</a
+      ><a name="315"
+      > </a
+      ><a name="316" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="317"
+      > </a
+      ><a name="318" href="IPC.KripkeSemantics.html#305" class="Bound"
+      >w&#8242;</a
+      ><a name="320"
+      > </a
+      ><a name="321" class="Symbol"
+      >&#8594;</a
+      ><a name="322"
+      > </a
+      ><a name="323" href="IPC.KripkeSemantics.html#305" class="Bound"
+      >w&#8242;</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="327"
+      > </a
+      ><a name="328" href="IPC.KripkeSemantics.html#308" class="Bound"
+      >w&#8243;</a
+      ><a name="330"
+      > </a
+      ><a name="331" class="Symbol"
+      >&#8594;</a
+      ><a name="332"
+      > </a
+      ><a name="333" href="IPC.KripkeSemantics.html#303" class="Bound"
+      >w</a
+      ><a name="334"
+      > </a
+      ><a name="335" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="336"
+      > </a
+      ><a name="337" href="IPC.KripkeSemantics.html#308" class="Bound"
+      >w&#8243;</a
+      ><a name="339"
+      >
+
+    </a
+      ><a name="345" class="Comment"
+      >-- Strong forcing for atomic propositions; monotonic.</a
+      ><a name="398"
+      >
+    </a
+      ><a name="403" href="IPC.KripkeSemantics.html#403" class="Field Operator"
+      >_&#8874;&#7493;_</a
+      ><a name="407"
+      >   </a
+      ><a name="410" class="Symbol"
+      >:</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="IPC.KripkeSemantics.html#167" class="Field"
+      >World</a
+      ><a name="417"
+      > </a
+      ><a name="418" class="Symbol"
+      >&#8594;</a
+      ><a name="419"
+      > </a
+      ><a name="420" href="Common.html#1004" class="Postulate"
+      >Atom</a
+      ><a name="424"
+      > </a
+      ><a name="425" class="Symbol"
+      >&#8594;</a
+      ><a name="426"
+      > </a
+      ><a name="427" class="PrimitiveType"
+      >Set</a
+      ><a name="430"
+      >
+    </a
+      ><a name="435" href="IPC.KripkeSemantics.html#435" class="Field"
+      >mono&#8874;&#7493;</a
+      ><a name="441"
+      > </a
+      ><a name="442" class="Symbol"
+      >:</a
+      ><a name="443"
+      > </a
+      ><a name="444" class="Symbol"
+      >&#8704;</a
+      ><a name="445"
+      > </a
+      ><a name="446" class="Symbol"
+      >{</a
+      ><a name="447" href="IPC.KripkeSemantics.html#447" class="Bound"
+      >P</a
+      ><a name="448"
+      > </a
+      ><a name="449" href="IPC.KripkeSemantics.html#449" class="Bound"
+      >w</a
+      ><a name="450"
+      > </a
+      ><a name="451" href="IPC.KripkeSemantics.html#451" class="Bound"
+      >w&#8242;</a
+      ><a name="453" class="Symbol"
+      >}</a
+      ><a name="454"
+      > </a
+      ><a name="455" class="Symbol"
+      >&#8594;</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="IPC.KripkeSemantics.html#449" class="Bound"
+      >w</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="460"
+      > </a
+      ><a name="461" href="IPC.KripkeSemantics.html#451" class="Bound"
+      >w&#8242;</a
+      ><a name="463"
+      > </a
+      ><a name="464" class="Symbol"
+      >&#8594;</a
+      ><a name="465"
+      > </a
+      ><a name="466" href="IPC.KripkeSemantics.html#449" class="Bound"
+      >w</a
+      ><a name="467"
+      > </a
+      ><a name="468" href="IPC.KripkeSemantics.html#403" class="Field Operator"
+      >&#8874;&#7493;</a
+      ><a name="470"
+      > </a
+      ><a name="471" href="IPC.KripkeSemantics.html#447" class="Bound"
+      >P</a
+      ><a name="472"
+      > </a
+      ><a name="473" class="Symbol"
+      >&#8594;</a
+      ><a name="474"
+      > </a
+      ><a name="475" href="IPC.KripkeSemantics.html#451" class="Bound"
+      >w&#8242;</a
+      ><a name="477"
+      > </a
+      ><a name="478" href="IPC.KripkeSemantics.html#403" class="Field Operator"
+      >&#8874;&#7493;</a
+      ><a name="480"
+      > </a
+      ><a name="481" href="IPC.KripkeSemantics.html#447" class="Bound"
+      >P</a
+      ><a name="482"
+      >
+
+    </a
+      ><a name="488" class="Comment"
+      >-- Exploding for propositions.</a
+      ><a name="518"
+      >
+    </a
+      ><a name="523" href="IPC.KripkeSemantics.html#523" class="Field Operator"
+      >_&#8252;_</a
+      ><a name="526"
+      > </a
+      ><a name="527" class="Symbol"
+      >:</a
+      ><a name="528"
+      > </a
+      ><a name="529" href="IPC.KripkeSemantics.html#167" class="Field"
+      >World</a
+      ><a name="534"
+      > </a
+      ><a name="535" class="Symbol"
+      >&#8594;</a
+      ><a name="536"
+      > </a
+      ><a name="537" href="IPC.html#158" class="Datatype"
+      >Ty</a
+      ><a name="539"
+      > </a
+      ><a name="540" class="Symbol"
+      >&#8594;</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="PrimitiveType"
+      >Set</a
+      ><a name="545"
+      >
+
+</a
+      ><a name="547" class="Keyword"
+      >open</a
+      ><a name="551"
+      > </a
+      ><a name="552" href="IPC.KripkeSemantics.html#121" class="Module"
+      >Model</a
+      ><a name="557"
+      > </a
+      ><a name="558" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="563"
+      > </a
+      ><a name="564" class="Keyword"
+      >public</a
+      ><a name="570"
+      >
+
+
+</a
+      ><a name="573" class="Comment"
+      >-- Strong forcing for propositions; forcing for propositions and contexts.</a
+      ><a name="647"
+      >
+
+</a
+      ><a name="649" class="Keyword"
+      >module</a
+      ><a name="655"
+      > </a
+      ><a name="656" href="IPC.KripkeSemantics.html#656" class="Module"
+      >_</a
+      ><a name="657"
+      > </a
+      ><a name="658" class="Symbol"
+      >{{</a
+      ><a name="660" href="IPC.KripkeSemantics.html#660" class="Bound"
+      >_</a
+      ><a name="661"
+      > </a
+      ><a name="662" class="Symbol"
+      >:</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="IPC.KripkeSemantics.html#121" class="Record"
+      >Model</a
+      ><a name="669" class="Symbol"
+      >}}</a
+      ><a name="671"
+      > </a
+      ><a name="672" class="Keyword"
+      >where</a
+      ><a name="677"
+      >
+  </a
+      ><a name="680" class="Keyword"
+      >mutual</a
+      ><a name="686"
+      >
+    </a
+      ><a name="691" class="Keyword"
+      >infix</a
+      ><a name="696"
+      > </a
+      ><a name="697" class="Number"
+      >3</a
+      ><a name="698"
+      > _&#8874;_
+    </a
+      ><a name="707" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >_&#8874;_</a
+      ><a name="710"
+      > </a
+      ><a name="711" class="Symbol"
+      >:</a
+      ><a name="712"
+      > </a
+      ><a name="713" href="IPC.KripkeSemantics.html#167" class="Field"
+      >World</a
+      ><a name="718"
+      > </a
+      ><a name="719" class="Symbol"
+      >&#8594;</a
+      ><a name="720"
+      > </a
+      ><a name="721" href="IPC.html#158" class="Datatype"
+      >Ty</a
+      ><a name="723"
+      > </a
+      ><a name="724" class="Symbol"
+      >&#8594;</a
+      ><a name="725"
+      > </a
+      ><a name="726" class="PrimitiveType"
+      >Set</a
+      ><a name="729"
+      >
+    </a
+      ><a name="734" href="IPC.KripkeSemantics.html#734" class="Bound"
+      >w</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="IPC.html#175" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="739"
+      > </a
+      ><a name="740" href="IPC.KripkeSemantics.html#740" class="Bound"
+      >P</a
+      ><a name="741"
+      >   </a
+      ><a name="744" class="Symbol"
+      >=</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="IPC.KripkeSemantics.html#734" class="Bound"
+      >w</a
+      ><a name="747"
+      > </a
+      ><a name="748" href="IPC.KripkeSemantics.html#403" class="Field Operator"
+      >&#8874;&#7493;</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="IPC.KripkeSemantics.html#740" class="Bound"
+      >P</a
+      ><a name="752"
+      >
+    </a
+      ><a name="757" href="IPC.KripkeSemantics.html#757" class="Bound"
+      >w</a
+      ><a name="758"
+      > </a
+      ><a name="759" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="760"
+      > </a
+      ><a name="761" href="IPC.KripkeSemantics.html#761" class="Bound"
+      >A</a
+      ><a name="762"
+      > </a
+      ><a name="763" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="764"
+      > </a
+      ><a name="765" href="IPC.KripkeSemantics.html#765" class="Bound"
+      >B</a
+      ><a name="766"
+      > </a
+      ><a name="767" class="Symbol"
+      >=</a
+      ><a name="768"
+      > </a
+      ><a name="769" class="Symbol"
+      >&#8704;</a
+      ><a name="770"
+      > </a
+      ><a name="771" class="Symbol"
+      >{</a
+      ><a name="772" href="IPC.KripkeSemantics.html#772" class="Bound"
+      >w&#8242;</a
+      ><a name="774" class="Symbol"
+      >}</a
+      ><a name="775"
+      > </a
+      ><a name="776" class="Symbol"
+      >&#8594;</a
+      ><a name="777"
+      > </a
+      ><a name="778" href="IPC.KripkeSemantics.html#757" class="Bound"
+      >w</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="IPC.KripkeSemantics.html#772" class="Bound"
+      >w&#8242;</a
+      ><a name="784"
+      > </a
+      ><a name="785" class="Symbol"
+      >&#8594;</a
+      ><a name="786"
+      > </a
+      ><a name="787" href="IPC.KripkeSemantics.html#772" class="Bound"
+      >w&#8242;</a
+      ><a name="789"
+      > </a
+      ><a name="790" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="791"
+      > </a
+      ><a name="792" href="IPC.KripkeSemantics.html#761" class="Bound"
+      >A</a
+      ><a name="793"
+      > </a
+      ><a name="794" class="Symbol"
+      >&#8594;</a
+      ><a name="795"
+      > </a
+      ><a name="796" href="IPC.KripkeSemantics.html#772" class="Bound"
+      >w&#8242;</a
+      ><a name="798"
+      > </a
+      ><a name="799" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="800"
+      > </a
+      ><a name="801" href="IPC.KripkeSemantics.html#765" class="Bound"
+      >B</a
+      ><a name="802"
+      >
+    </a
+      ><a name="807" href="IPC.KripkeSemantics.html#807" class="Bound"
+      >w</a
+      ><a name="808"
+      > </a
+      ><a name="809" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="810"
+      > </a
+      ><a name="811" href="IPC.KripkeSemantics.html#811" class="Bound"
+      >A</a
+      ><a name="812"
+      > </a
+      ><a name="813" href="IPC.html#214" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="814"
+      > </a
+      ><a name="815" href="IPC.KripkeSemantics.html#815" class="Bound"
+      >B</a
+      ><a name="816"
+      > </a
+      ><a name="817" class="Symbol"
+      >=</a
+      ><a name="818"
+      > </a
+      ><a name="819" href="IPC.KripkeSemantics.html#807" class="Bound"
+      >w</a
+      ><a name="820"
+      > </a
+      ><a name="821" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="822"
+      > </a
+      ><a name="823" href="IPC.KripkeSemantics.html#811" class="Bound"
+      >A</a
+      ><a name="824"
+      > </a
+      ><a name="825" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="IPC.KripkeSemantics.html#807" class="Bound"
+      >w</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="830"
+      > </a
+      ><a name="831" href="IPC.KripkeSemantics.html#815" class="Bound"
+      >B</a
+      ><a name="832"
+      >
+    </a
+      ><a name="837" href="IPC.KripkeSemantics.html#837" class="Bound"
+      >w</a
+      ><a name="838"
+      > </a
+      ><a name="839" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="840"
+      > </a
+      ><a name="841" href="IPC.html#235" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="842"
+      >    </a
+      ><a name="846" class="Symbol"
+      >=</a
+      ><a name="847"
+      > </a
+      ><a name="848" href="Agda.Builtin.Unit.html#41" class="Record"
+      >Top</a
+      ><a name="851"
+      >
+    </a
+      ><a name="856" href="IPC.KripkeSemantics.html#856" class="Bound"
+      >w</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="859"
+      > </a
+      ><a name="860" href="IPC.html#245" class="InductiveConstructor"
+      >&#8869;</a
+      ><a name="861"
+      >    </a
+      ><a name="865" class="Symbol"
+      >=</a
+      ><a name="866"
+      > </a
+      ><a name="867" href="Data.Empty.html#243" class="Datatype"
+      >Bot</a
+      ><a name="870"
+      >
+    </a
+      ><a name="875" href="IPC.KripkeSemantics.html#875" class="Bound"
+      >w</a
+      ><a name="876"
+      > </a
+      ><a name="877" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="878"
+      > </a
+      ><a name="879" href="IPC.KripkeSemantics.html#879" class="Bound"
+      >A</a
+      ><a name="880"
+      > </a
+      ><a name="881" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="882"
+      > </a
+      ><a name="883" href="IPC.KripkeSemantics.html#883" class="Bound"
+      >B</a
+      ><a name="884"
+      > </a
+      ><a name="885" class="Symbol"
+      >=</a
+      ><a name="886"
+      > </a
+      ><a name="887" href="IPC.KripkeSemantics.html#875" class="Bound"
+      >w</a
+      ><a name="888"
+      > </a
+      ><a name="889" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="IPC.KripkeSemantics.html#879" class="Bound"
+      >A</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="Data.Sum.html#433" class="Datatype Operator"
+      >&#8846;</a
+      ><a name="894"
+      > </a
+      ><a name="895" href="IPC.KripkeSemantics.html#875" class="Bound"
+      >w</a
+      ><a name="896"
+      > </a
+      ><a name="897" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="IPC.KripkeSemantics.html#883" class="Bound"
+      >B</a
+      ><a name="900"
+      >
+
+    </a
+      ><a name="906" class="Keyword"
+      >infix</a
+      ><a name="911"
+      > </a
+      ><a name="912" class="Number"
+      >3</a
+      ><a name="913"
+      > _&#8873;_
+    </a
+      ><a name="922" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >_&#8873;_</a
+      ><a name="925"
+      > </a
+      ><a name="926" class="Symbol"
+      >:</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="IPC.KripkeSemantics.html#167" class="Field"
+      >World</a
+      ><a name="933"
+      > </a
+      ><a name="934" class="Symbol"
+      >&#8594;</a
+      ><a name="935"
+      > </a
+      ><a name="936" href="IPC.html#158" class="Datatype"
+      >Ty</a
+      ><a name="938"
+      > </a
+      ><a name="939" class="Symbol"
+      >&#8594;</a
+      ><a name="940"
+      > </a
+      ><a name="941" class="PrimitiveType"
+      >Set</a
+      ><a name="944"
+      >
+    </a
+      ><a name="949" href="IPC.KripkeSemantics.html#949" class="Bound"
+      >w</a
+      ><a name="950"
+      > </a
+      ><a name="951" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="952"
+      > </a
+      ><a name="953" href="IPC.KripkeSemantics.html#953" class="Bound"
+      >A</a
+      ><a name="954"
+      > </a
+      ><a name="955" class="Symbol"
+      >=</a
+      ><a name="956"
+      > </a
+      ><a name="957" class="Symbol"
+      >&#8704;</a
+      ><a name="958"
+      > </a
+      ><a name="959" class="Symbol"
+      >{</a
+      ><a name="960" href="IPC.KripkeSemantics.html#960" class="Bound"
+      >w&#8242;</a
+      ><a name="962"
+      > </a
+      ><a name="963" href="IPC.KripkeSemantics.html#963" class="Bound"
+      >C</a
+      ><a name="964" class="Symbol"
+      >}</a
+      ><a name="965"
+      > </a
+      ><a name="966" class="Symbol"
+      >&#8594;</a
+      ><a name="967"
+      > </a
+      ><a name="968" href="IPC.KripkeSemantics.html#949" class="Bound"
+      >w</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="IPC.KripkeSemantics.html#960" class="Bound"
+      >w&#8242;</a
+      ><a name="974"
+      > </a
+      ><a name="975" class="Symbol"
+      >&#8594;</a
+      ><a name="976"
+      > </a
+      ><a name="977" class="Symbol"
+      >(&#8704;</a
+      ><a name="979"
+      > </a
+      ><a name="980" class="Symbol"
+      >{</a
+      ><a name="981" href="IPC.KripkeSemantics.html#981" class="Bound"
+      >w&#8243;</a
+      ><a name="983" class="Symbol"
+      >}</a
+      ><a name="984"
+      > </a
+      ><a name="985" class="Symbol"
+      >&#8594;</a
+      ><a name="986"
+      > </a
+      ><a name="987" href="IPC.KripkeSemantics.html#960" class="Bound"
+      >w&#8242;</a
+      ><a name="989"
+      > </a
+      ><a name="990" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="991"
+      > </a
+      ><a name="992" href="IPC.KripkeSemantics.html#981" class="Bound"
+      >w&#8243;</a
+      ><a name="994"
+      > </a
+      ><a name="995" class="Symbol"
+      >&#8594;</a
+      ><a name="996"
+      > </a
+      ><a name="997" href="IPC.KripkeSemantics.html#981" class="Bound"
+      >w&#8243;</a
+      ><a name="999"
+      > </a
+      ><a name="1000" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" href="IPC.KripkeSemantics.html#953" class="Bound"
+      >A</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" class="Symbol"
+      >&#8594;</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="IPC.KripkeSemantics.html#981" class="Bound"
+      >w&#8243;</a
+      ><a name="1008"
+      > </a
+      ><a name="1009" href="IPC.KripkeSemantics.html#523" class="Field Operator"
+      >&#8252;</a
+      ><a name="1010"
+      > </a
+      ><a name="1011" href="IPC.KripkeSemantics.html#963" class="Bound"
+      >C</a
+      ><a name="1012" class="Symbol"
+      >)</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" class="Symbol"
+      >&#8594;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" href="IPC.KripkeSemantics.html#960" class="Bound"
+      >w&#8242;</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" href="IPC.KripkeSemantics.html#523" class="Field Operator"
+      >&#8252;</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="IPC.KripkeSemantics.html#963" class="Bound"
+      >C</a
+      ><a name="1022"
+      >
+
+  </a
+      ><a name="1026" class="Keyword"
+      >infix</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" class="Number"
+      >3</a
+      ><a name="1033"
+      > _&#8873;&#8902;_
+  </a
+      ><a name="1041" href="IPC.KripkeSemantics.html#1041" class="Function Operator"
+      >_&#8873;&#8902;_</a
+      ><a name="1045"
+      > </a
+      ><a name="1046" class="Symbol"
+      >:</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" href="IPC.KripkeSemantics.html#167" class="Field"
+      >World</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" class="Symbol"
+      >&#8594;</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1058"
+      > </a
+      ><a name="1059" href="IPC.html#158" class="Datatype"
+      >Ty</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" class="Symbol"
+      >&#8594;</a
+      ><a name="1063"
+      > </a
+      ><a name="1064" class="PrimitiveType"
+      >Set</a
+      ><a name="1067"
+      >
+  </a
+      ><a name="1070" href="IPC.KripkeSemantics.html#1070" class="Bound"
+      >w</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" href="IPC.KripkeSemantics.html#1041" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1076"
+      >     </a
+      ><a name="1081" class="Symbol"
+      >=</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="Agda.Builtin.Unit.html#41" class="Record"
+      >Top</a
+      ><a name="1086"
+      >
+  </a
+      ><a name="1089" href="IPC.KripkeSemantics.html#1089" class="Bound"
+      >w</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="IPC.KripkeSemantics.html#1041" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="IPC.KripkeSemantics.html#1094" class="Bound"
+      >&#915;</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="IPC.KripkeSemantics.html#1098" class="Bound"
+      >A</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" class="Symbol"
+      >=</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="IPC.KripkeSemantics.html#1089" class="Bound"
+      >w</a
+      ><a name="1103"
+      > </a
+      ><a name="1104" href="IPC.KripkeSemantics.html#1041" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="IPC.KripkeSemantics.html#1094" class="Bound"
+      >&#915;</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="IPC.KripkeSemantics.html#1089" class="Bound"
+      >w</a
+      ><a name="1112"
+      > </a
+      ><a name="1113" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="1114"
+      > </a
+      ><a name="1115" href="IPC.KripkeSemantics.html#1098" class="Bound"
+      >A</a
+      ><a name="1116"
+      >
+
+
+  </a
+      ><a name="1121" class="Comment"
+      >-- Monotonicity with respect to intuitionistic accessibility.</a
+      ><a name="1182"
+      >
+
+  </a
+      ><a name="1186" class="Keyword"
+      >mutual</a
+      ><a name="1192"
+      >
+    </a
+      ><a name="1197" href="IPC.KripkeSemantics.html#1197" class="Function"
+      >mono&#8873;</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" class="Symbol"
+      >:</a
+      ><a name="1204"
+      > </a
+      ><a name="1205" class="Symbol"
+      >&#8704;</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" class="Symbol"
+      >{</a
+      ><a name="1208" href="IPC.KripkeSemantics.html#1208" class="Bound"
+      >A</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" href="IPC.KripkeSemantics.html#1210" class="Bound"
+      >w</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="IPC.KripkeSemantics.html#1212" class="Bound"
+      >w&#8242;</a
+      ><a name="1214" class="Symbol"
+      >}</a
+      ><a name="1215"
+      > </a
+      ><a name="1216" class="Symbol"
+      >&#8594;</a
+      ><a name="1217"
+      > </a
+      ><a name="1218" href="IPC.KripkeSemantics.html#1210" class="Bound"
+      >w</a
+      ><a name="1219"
+      > </a
+      ><a name="1220" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="1221"
+      > </a
+      ><a name="1222" href="IPC.KripkeSemantics.html#1212" class="Bound"
+      >w&#8242;</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" class="Symbol"
+      >&#8594;</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" href="IPC.KripkeSemantics.html#1210" class="Bound"
+      >w</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="IPC.KripkeSemantics.html#1208" class="Bound"
+      >A</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" class="Symbol"
+      >&#8594;</a
+      ><a name="1234"
+      > </a
+      ><a name="1235" href="IPC.KripkeSemantics.html#1212" class="Bound"
+      >w&#8242;</a
+      ><a name="1237"
+      > </a
+      ><a name="1238" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="1239"
+      > </a
+      ><a name="1240" href="IPC.KripkeSemantics.html#1208" class="Bound"
+      >A</a
+      ><a name="1241"
+      >
+    </a
+      ><a name="1246" href="IPC.KripkeSemantics.html#1197" class="Function"
+      >mono&#8873;</a
+      ><a name="1251"
+      > </a
+      ><a name="1252" href="IPC.KripkeSemantics.html#1252" class="Bound"
+      >&#958;</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" href="IPC.KripkeSemantics.html#1254" class="Bound"
+      >a</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" class="Symbol"
+      >=</a
+      ><a name="1257"
+      > </a
+      ><a name="1258" class="Symbol"
+      >&#955;</a
+      ><a name="1259"
+      > </a
+      ><a name="1260" href="IPC.KripkeSemantics.html#1260" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1262"
+      > </a
+      ><a name="1263" href="IPC.KripkeSemantics.html#1263" class="Bound"
+      >k&#8242;</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" class="Symbol"
+      >&#8594;</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" href="IPC.KripkeSemantics.html#1254" class="Bound"
+      >a</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" class="Symbol"
+      >(</a
+      ><a name="1271" href="IPC.KripkeSemantics.html#291" class="Field"
+      >trans&#8804;</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" href="IPC.KripkeSemantics.html#1252" class="Bound"
+      >&#958;</a
+      ><a name="1279"
+      > </a
+      ><a name="1280" href="IPC.KripkeSemantics.html#1260" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1282" class="Symbol"
+      >)</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="IPC.KripkeSemantics.html#1263" class="Bound"
+      >k&#8242;</a
+      ><a name="1286"
+      >
+
+    </a
+      ><a name="1292" href="IPC.KripkeSemantics.html#1292" class="Function"
+      >mono&#8874;</a
+      ><a name="1297"
+      > </a
+      ><a name="1298" class="Symbol"
+      >:</a
+      ><a name="1299"
+      > </a
+      ><a name="1300" class="Symbol"
+      >&#8704;</a
+      ><a name="1301"
+      > </a
+      ><a name="1302" class="Symbol"
+      >{</a
+      ><a name="1303" href="IPC.KripkeSemantics.html#1303" class="Bound"
+      >A</a
+      ><a name="1304"
+      > </a
+      ><a name="1305" href="IPC.KripkeSemantics.html#1305" class="Bound"
+      >w</a
+      ><a name="1306"
+      > </a
+      ><a name="1307" href="IPC.KripkeSemantics.html#1307" class="Bound"
+      >w&#8242;</a
+      ><a name="1309" class="Symbol"
+      >}</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" class="Symbol"
+      >&#8594;</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="IPC.KripkeSemantics.html#1305" class="Bound"
+      >w</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="IPC.KripkeSemantics.html#1307" class="Bound"
+      >w&#8242;</a
+      ><a name="1319"
+      > </a
+      ><a name="1320" class="Symbol"
+      >&#8594;</a
+      ><a name="1321"
+      > </a
+      ><a name="1322" href="IPC.KripkeSemantics.html#1305" class="Bound"
+      >w</a
+      ><a name="1323"
+      > </a
+      ><a name="1324" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" href="IPC.KripkeSemantics.html#1303" class="Bound"
+      >A</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" class="Symbol"
+      >&#8594;</a
+      ><a name="1329"
+      > </a
+      ><a name="1330" href="IPC.KripkeSemantics.html#1307" class="Bound"
+      >w&#8242;</a
+      ><a name="1332"
+      > </a
+      ><a name="1333" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" href="IPC.KripkeSemantics.html#1303" class="Bound"
+      >A</a
+      ><a name="1336"
+      >
+    </a
+      ><a name="1341" href="IPC.KripkeSemantics.html#1292" class="Function"
+      >mono&#8874;</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" class="Symbol"
+      >{</a
+      ><a name="1348" href="IPC.html#175" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1349"
+      > </a
+      ><a name="1350" href="IPC.KripkeSemantics.html#1350" class="Bound"
+      >P</a
+      ><a name="1351" class="Symbol"
+      >}</a
+      ><a name="1352"
+      >   </a
+      ><a name="1355" href="IPC.KripkeSemantics.html#1355" class="Bound"
+      >&#958;</a
+      ><a name="1356"
+      > </a
+      ><a name="1357" href="IPC.KripkeSemantics.html#1357" class="Bound"
+      >s</a
+      ><a name="1358"
+      >       </a
+      ><a name="1365" class="Symbol"
+      >=</a
+      ><a name="1366"
+      > </a
+      ><a name="1367" href="IPC.KripkeSemantics.html#435" class="Field"
+      >mono&#8874;&#7493;</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="IPC.KripkeSemantics.html#1355" class="Bound"
+      >&#958;</a
+      ><a name="1375"
+      > </a
+      ><a name="1376" href="IPC.KripkeSemantics.html#1357" class="Bound"
+      >s</a
+      ><a name="1377"
+      >
+    </a
+      ><a name="1382" href="IPC.KripkeSemantics.html#1292" class="Function"
+      >mono&#8874;</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" class="Symbol"
+      >{</a
+      ><a name="1389" href="IPC.KripkeSemantics.html#1389" class="Bound"
+      >A</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="IPC.KripkeSemantics.html#1393" class="Bound"
+      >B</a
+      ><a name="1394" class="Symbol"
+      >}</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" href="IPC.KripkeSemantics.html#1396" class="Bound"
+      >&#958;</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" href="IPC.KripkeSemantics.html#1398" class="Bound"
+      >f</a
+      ><a name="1399"
+      >       </a
+      ><a name="1406" class="Symbol"
+      >=</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" class="Symbol"
+      >&#955;</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" href="IPC.KripkeSemantics.html#1410" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1412"
+      > </a
+      ><a name="1413" href="IPC.KripkeSemantics.html#1413" class="Bound"
+      >a</a
+      ><a name="1414"
+      > </a
+      ><a name="1415" class="Symbol"
+      >&#8594;</a
+      ><a name="1416"
+      > </a
+      ><a name="1417" href="IPC.KripkeSemantics.html#1398" class="Bound"
+      >f</a
+      ><a name="1418"
+      > </a
+      ><a name="1419" class="Symbol"
+      >(</a
+      ><a name="1420" href="IPC.KripkeSemantics.html#291" class="Field"
+      >trans&#8804;</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" href="IPC.KripkeSemantics.html#1396" class="Bound"
+      >&#958;</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" href="IPC.KripkeSemantics.html#1410" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1431" class="Symbol"
+      >)</a
+      ><a name="1432"
+      > </a
+      ><a name="1433" href="IPC.KripkeSemantics.html#1413" class="Bound"
+      >a</a
+      ><a name="1434"
+      >
+    </a
+      ><a name="1439" href="IPC.KripkeSemantics.html#1292" class="Function"
+      >mono&#8874;</a
+      ><a name="1444"
+      > </a
+      ><a name="1445" class="Symbol"
+      >{</a
+      ><a name="1446" href="IPC.KripkeSemantics.html#1446" class="Bound"
+      >A</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" href="IPC.html#214" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" href="IPC.KripkeSemantics.html#1450" class="Bound"
+      >B</a
+      ><a name="1451" class="Symbol"
+      >}</a
+      ><a name="1452"
+      > </a
+      ><a name="1453" href="IPC.KripkeSemantics.html#1453" class="Bound"
+      >&#958;</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" class="Symbol"
+      >(</a
+      ><a name="1456" href="IPC.KripkeSemantics.html#1456" class="Bound"
+      >a</a
+      ><a name="1457"
+      > </a
+      ><a name="1458" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1459"
+      > </a
+      ><a name="1460" href="IPC.KripkeSemantics.html#1460" class="Bound"
+      >b</a
+      ><a name="1461" class="Symbol"
+      >)</a
+      ><a name="1462"
+      > </a
+      ><a name="1463" class="Symbol"
+      >=</a
+      ><a name="1464"
+      > </a
+      ><a name="1465" href="IPC.KripkeSemantics.html#1197" class="Function"
+      >mono&#8873;</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" class="Symbol"
+      >{</a
+      ><a name="1472" href="IPC.KripkeSemantics.html#1446" class="Bound"
+      >A</a
+      ><a name="1473" class="Symbol"
+      >}</a
+      ><a name="1474"
+      > </a
+      ><a name="1475" href="IPC.KripkeSemantics.html#1453" class="Bound"
+      >&#958;</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" href="IPC.KripkeSemantics.html#1456" class="Bound"
+      >a</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1480"
+      > </a
+      ><a name="1481" href="IPC.KripkeSemantics.html#1197" class="Function"
+      >mono&#8873;</a
+      ><a name="1486"
+      > </a
+      ><a name="1487" class="Symbol"
+      >{</a
+      ><a name="1488" href="IPC.KripkeSemantics.html#1450" class="Bound"
+      >B</a
+      ><a name="1489" class="Symbol"
+      >}</a
+      ><a name="1490"
+      > </a
+      ><a name="1491" href="IPC.KripkeSemantics.html#1453" class="Bound"
+      >&#958;</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" href="IPC.KripkeSemantics.html#1460" class="Bound"
+      >b</a
+      ><a name="1494"
+      >
+    </a
+      ><a name="1499" href="IPC.KripkeSemantics.html#1292" class="Function"
+      >mono&#8874;</a
+      ><a name="1504"
+      > </a
+      ><a name="1505" class="Symbol"
+      >{</a
+      ><a name="1506" href="IPC.html#235" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1507" class="Symbol"
+      >}</a
+      ><a name="1508"
+      >    </a
+      ><a name="1512" href="IPC.KripkeSemantics.html#1512" class="Bound"
+      >&#958;</a
+      ><a name="1513"
+      > </a
+      ><a name="1514" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1515"
+      >       </a
+      ><a name="1522" class="Symbol"
+      >=</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1525"
+      >
+    </a
+      ><a name="1530" href="IPC.KripkeSemantics.html#1292" class="Function"
+      >mono&#8874;</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" class="Symbol"
+      >{</a
+      ><a name="1537" href="IPC.html#245" class="InductiveConstructor"
+      >&#8869;</a
+      ><a name="1538" class="Symbol"
+      >}</a
+      ><a name="1539"
+      >    </a
+      ><a name="1543" href="IPC.KripkeSemantics.html#1543" class="Bound"
+      >&#958;</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" class="Symbol"
+      >()</a
+      ><a name="1547"
+      >
+    </a
+      ><a name="1552" href="IPC.KripkeSemantics.html#1292" class="Function"
+      >mono&#8874;</a
+      ><a name="1557"
+      > </a
+      ><a name="1558" class="Symbol"
+      >{</a
+      ><a name="1559" href="IPC.KripkeSemantics.html#1559" class="Bound"
+      >A</a
+      ><a name="1560"
+      > </a
+      ><a name="1561" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" href="IPC.KripkeSemantics.html#1563" class="Bound"
+      >B</a
+      ><a name="1564" class="Symbol"
+      >}</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" href="IPC.KripkeSemantics.html#1566" class="Bound"
+      >&#958;</a
+      ><a name="1567"
+      > </a
+      ><a name="1568" class="Symbol"
+      >(</a
+      ><a name="1569" href="Data.Sum.html#489" class="InductiveConstructor"
+      >&#953;&#8321;</a
+      ><a name="1571"
+      > </a
+      ><a name="1572" href="IPC.KripkeSemantics.html#1572" class="Bound"
+      >a</a
+      ><a name="1573" class="Symbol"
+      >)</a
+      ><a name="1574"
+      >  </a
+      ><a name="1576" class="Symbol"
+      >=</a
+      ><a name="1577"
+      > </a
+      ><a name="1578" href="Data.Sum.html#489" class="InductiveConstructor"
+      >&#953;&#8321;</a
+      ><a name="1580"
+      > </a
+      ><a name="1581" class="Symbol"
+      >(</a
+      ><a name="1582" href="IPC.KripkeSemantics.html#1197" class="Function"
+      >mono&#8873;</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" class="Symbol"
+      >{</a
+      ><a name="1589" href="IPC.KripkeSemantics.html#1559" class="Bound"
+      >A</a
+      ><a name="1590" class="Symbol"
+      >}</a
+      ><a name="1591"
+      > </a
+      ><a name="1592" href="IPC.KripkeSemantics.html#1566" class="Bound"
+      >&#958;</a
+      ><a name="1593"
+      > </a
+      ><a name="1594" href="IPC.KripkeSemantics.html#1572" class="Bound"
+      >a</a
+      ><a name="1595" class="Symbol"
+      >)</a
+      ><a name="1596"
+      >
+    </a
+      ><a name="1601" href="IPC.KripkeSemantics.html#1292" class="Function"
+      >mono&#8874;</a
+      ><a name="1606"
+      > </a
+      ><a name="1607" class="Symbol"
+      >{</a
+      ><a name="1608" href="IPC.KripkeSemantics.html#1608" class="Bound"
+      >A</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" href="IPC.KripkeSemantics.html#1612" class="Bound"
+      >B</a
+      ><a name="1613" class="Symbol"
+      >}</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="IPC.KripkeSemantics.html#1615" class="Bound"
+      >&#958;</a
+      ><a name="1616"
+      > </a
+      ><a name="1617" class="Symbol"
+      >(</a
+      ><a name="1618" href="Data.Sum.html#514" class="InductiveConstructor"
+      >&#953;&#8322;</a
+      ><a name="1620"
+      > </a
+      ><a name="1621" href="IPC.KripkeSemantics.html#1621" class="Bound"
+      >b</a
+      ><a name="1622" class="Symbol"
+      >)</a
+      ><a name="1623"
+      >  </a
+      ><a name="1625" class="Symbol"
+      >=</a
+      ><a name="1626"
+      > </a
+      ><a name="1627" href="Data.Sum.html#514" class="InductiveConstructor"
+      >&#953;&#8322;</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" class="Symbol"
+      >(</a
+      ><a name="1631" href="IPC.KripkeSemantics.html#1197" class="Function"
+      >mono&#8873;</a
+      ><a name="1636"
+      > </a
+      ><a name="1637" class="Symbol"
+      >{</a
+      ><a name="1638" href="IPC.KripkeSemantics.html#1612" class="Bound"
+      >B</a
+      ><a name="1639" class="Symbol"
+      >}</a
+      ><a name="1640"
+      > </a
+      ><a name="1641" href="IPC.KripkeSemantics.html#1615" class="Bound"
+      >&#958;</a
+      ><a name="1642"
+      > </a
+      ><a name="1643" href="IPC.KripkeSemantics.html#1621" class="Bound"
+      >b</a
+      ><a name="1644" class="Symbol"
+      >)</a
+      ><a name="1645"
+      >
+
+  </a
+      ><a name="1649" href="IPC.KripkeSemantics.html#1649" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="1655"
+      > </a
+      ><a name="1656" class="Symbol"
+      >:</a
+      ><a name="1657"
+      > </a
+      ><a name="1658" class="Symbol"
+      >&#8704;</a
+      ><a name="1659"
+      > </a
+      ><a name="1660" class="Symbol"
+      >{</a
+      ><a name="1661" href="IPC.KripkeSemantics.html#1661" class="Bound"
+      >&#915;</a
+      ><a name="1662"
+      > </a
+      ><a name="1663" href="IPC.KripkeSemantics.html#1663" class="Bound"
+      >w</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" href="IPC.KripkeSemantics.html#1665" class="Bound"
+      >w&#8242;</a
+      ><a name="1667" class="Symbol"
+      >}</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" class="Symbol"
+      >&#8594;</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="IPC.KripkeSemantics.html#1663" class="Bound"
+      >w</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" href="IPC.KripkeSemantics.html#1665" class="Bound"
+      >w&#8242;</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" class="Symbol"
+      >&#8594;</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" href="IPC.KripkeSemantics.html#1663" class="Bound"
+      >w</a
+      ><a name="1681"
+      > </a
+      ><a name="1682" href="IPC.KripkeSemantics.html#1041" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1684"
+      > </a
+      ><a name="1685" href="IPC.KripkeSemantics.html#1661" class="Bound"
+      >&#915;</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" class="Symbol"
+      >&#8594;</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" href="IPC.KripkeSemantics.html#1665" class="Bound"
+      >w&#8242;</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" href="IPC.KripkeSemantics.html#1041" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1694"
+      > </a
+      ><a name="1695" href="IPC.KripkeSemantics.html#1661" class="Bound"
+      >&#915;</a
+      ><a name="1696"
+      >
+  </a
+      ><a name="1699" href="IPC.KripkeSemantics.html#1649" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" class="Symbol"
+      >{</a
+      ><a name="1707" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1708" class="Symbol"
+      >}</a
+      ><a name="1709"
+      >     </a
+      ><a name="1714" href="IPC.KripkeSemantics.html#1714" class="Bound"
+      >&#958;</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1717"
+      >       </a
+      ><a name="1724" class="Symbol"
+      >=</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1727"
+      >
+  </a
+      ><a name="1730" href="IPC.KripkeSemantics.html#1649" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="1736"
+      > </a
+      ><a name="1737" class="Symbol"
+      >{</a
+      ><a name="1738" href="IPC.KripkeSemantics.html#1738" class="Bound"
+      >&#915;</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1741"
+      > </a
+      ><a name="1742" href="IPC.KripkeSemantics.html#1742" class="Bound"
+      >A</a
+      ><a name="1743" class="Symbol"
+      >}</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" href="IPC.KripkeSemantics.html#1745" class="Bound"
+      >&#958;</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" class="Symbol"
+      >(</a
+      ><a name="1748" href="IPC.KripkeSemantics.html#1748" class="Bound"
+      >&#947;</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" href="IPC.KripkeSemantics.html#1752" class="Bound"
+      >a</a
+      ><a name="1753" class="Symbol"
+      >)</a
+      ><a name="1754"
+      > </a
+      ><a name="1755" class="Symbol"
+      >=</a
+      ><a name="1756"
+      > </a
+      ><a name="1757" href="IPC.KripkeSemantics.html#1649" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="1763"
+      > </a
+      ><a name="1764" class="Symbol"
+      >{</a
+      ><a name="1765" href="IPC.KripkeSemantics.html#1738" class="Bound"
+      >&#915;</a
+      ><a name="1766" class="Symbol"
+      >}</a
+      ><a name="1767"
+      > </a
+      ><a name="1768" href="IPC.KripkeSemantics.html#1745" class="Bound"
+      >&#958;</a
+      ><a name="1769"
+      > </a
+      ><a name="1770" href="IPC.KripkeSemantics.html#1748" class="Bound"
+      >&#947;</a
+      ><a name="1771"
+      > </a
+      ><a name="1772" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" href="IPC.KripkeSemantics.html#1197" class="Function"
+      >mono&#8873;</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" class="Symbol"
+      >{</a
+      ><a name="1781" href="IPC.KripkeSemantics.html#1742" class="Bound"
+      >A</a
+      ><a name="1782" class="Symbol"
+      >}</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" href="IPC.KripkeSemantics.html#1745" class="Bound"
+      >&#958;</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" href="IPC.KripkeSemantics.html#1752" class="Bound"
+      >a</a
+      ><a name="1787"
+      >
+
+
+  </a
+      ><a name="1792" class="Comment"
+      >-- The CPS monad.</a
+      ><a name="1809"
+      >
+
+  </a
+      ><a name="1813" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" class="Symbol"
+      >:</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" class="Symbol"
+      >&#8704;</a
+      ><a name="1823"
+      > </a
+      ><a name="1824" class="Symbol"
+      >{</a
+      ><a name="1825" href="IPC.KripkeSemantics.html#1825" class="Bound"
+      >A</a
+      ><a name="1826"
+      > </a
+      ><a name="1827" href="IPC.KripkeSemantics.html#1827" class="Bound"
+      >w</a
+      ><a name="1828" class="Symbol"
+      >}</a
+      ><a name="1829"
+      > </a
+      ><a name="1830" class="Symbol"
+      >&#8594;</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" href="IPC.KripkeSemantics.html#1827" class="Bound"
+      >w</a
+      ><a name="1833"
+      > </a
+      ><a name="1834" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" href="IPC.KripkeSemantics.html#1825" class="Bound"
+      >A</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" class="Symbol"
+      >&#8594;</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="IPC.KripkeSemantics.html#1827" class="Bound"
+      >w</a
+      ><a name="1841"
+      > </a
+      ><a name="1842" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="1843"
+      > </a
+      ><a name="1844" href="IPC.KripkeSemantics.html#1825" class="Bound"
+      >A</a
+      ><a name="1845"
+      >
+  </a
+      ><a name="1848" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1854"
+      > </a
+      ><a name="1855" class="Symbol"
+      >{</a
+      ><a name="1856" href="IPC.KripkeSemantics.html#1856" class="Bound"
+      >A</a
+      ><a name="1857" class="Symbol"
+      >}</a
+      ><a name="1858"
+      > </a
+      ><a name="1859" href="IPC.KripkeSemantics.html#1859" class="Bound"
+      >a</a
+      ><a name="1860"
+      > </a
+      ><a name="1861" class="Symbol"
+      >=</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" class="Symbol"
+      >&#955;</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" href="IPC.KripkeSemantics.html#1865" class="Bound"
+      >&#958;</a
+      ><a name="1866"
+      > </a
+      ><a name="1867" href="IPC.KripkeSemantics.html#1867" class="Bound"
+      >k</a
+      ><a name="1868"
+      > </a
+      ><a name="1869" class="Symbol"
+      >&#8594;</a
+      ><a name="1870"
+      > </a
+      ><a name="1871" href="IPC.KripkeSemantics.html#1867" class="Bound"
+      >k</a
+      ><a name="1872"
+      > </a
+      ><a name="1873" href="IPC.KripkeSemantics.html#264" class="Field"
+      >refl&#8804;</a
+      ><a name="1878"
+      > </a
+      ><a name="1879" class="Symbol"
+      >(</a
+      ><a name="1880" href="IPC.KripkeSemantics.html#1292" class="Function"
+      >mono&#8874;</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" class="Symbol"
+      >{</a
+      ><a name="1887" href="IPC.KripkeSemantics.html#1856" class="Bound"
+      >A</a
+      ><a name="1888" class="Symbol"
+      >}</a
+      ><a name="1889"
+      > </a
+      ><a name="1890" href="IPC.KripkeSemantics.html#1865" class="Bound"
+      >&#958;</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" href="IPC.KripkeSemantics.html#1859" class="Bound"
+      >a</a
+      ><a name="1893" class="Symbol"
+      >)</a
+      ><a name="1894"
+      >
+
+  </a
+      ><a name="1898" href="IPC.KripkeSemantics.html#1898" class="Function"
+      >bind</a
+      ><a name="1902"
+      > </a
+      ><a name="1903" class="Symbol"
+      >:</a
+      ><a name="1904"
+      > </a
+      ><a name="1905" class="Symbol"
+      >&#8704;</a
+      ><a name="1906"
+      > </a
+      ><a name="1907" class="Symbol"
+      >{</a
+      ><a name="1908" href="IPC.KripkeSemantics.html#1908" class="Bound"
+      >A</a
+      ><a name="1909"
+      > </a
+      ><a name="1910" href="IPC.KripkeSemantics.html#1910" class="Bound"
+      >B</a
+      ><a name="1911"
+      > </a
+      ><a name="1912" href="IPC.KripkeSemantics.html#1912" class="Bound"
+      >w</a
+      ><a name="1913" class="Symbol"
+      >}</a
+      ><a name="1914"
+      > </a
+      ><a name="1915" class="Symbol"
+      >&#8594;</a
+      ><a name="1916"
+      > </a
+      ><a name="1917" href="IPC.KripkeSemantics.html#1912" class="Bound"
+      >w</a
+      ><a name="1918"
+      > </a
+      ><a name="1919" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="1920"
+      > </a
+      ><a name="1921" href="IPC.KripkeSemantics.html#1908" class="Bound"
+      >A</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" class="Symbol"
+      >&#8594;</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" class="Symbol"
+      >(&#8704;</a
+      ><a name="1927"
+      > </a
+      ><a name="1928" class="Symbol"
+      >{</a
+      ><a name="1929" href="IPC.KripkeSemantics.html#1929" class="Bound"
+      >w&#8242;</a
+      ><a name="1931" class="Symbol"
+      >}</a
+      ><a name="1932"
+      > </a
+      ><a name="1933" class="Symbol"
+      >&#8594;</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" href="IPC.KripkeSemantics.html#1912" class="Bound"
+      >w</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" href="IPC.KripkeSemantics.html#231" class="Field Operator"
+      >&#8804;</a
+      ><a name="1938"
+      > </a
+      ><a name="1939" href="IPC.KripkeSemantics.html#1929" class="Bound"
+      >w&#8242;</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" class="Symbol"
+      >&#8594;</a
+      ><a name="1943"
+      > </a
+      ><a name="1944" href="IPC.KripkeSemantics.html#1929" class="Bound"
+      >w&#8242;</a
+      ><a name="1946"
+      > </a
+      ><a name="1947" href="IPC.KripkeSemantics.html#707" class="Function Operator"
+      >&#8874;</a
+      ><a name="1948"
+      > </a
+      ><a name="1949" href="IPC.KripkeSemantics.html#1908" class="Bound"
+      >A</a
+      ><a name="1950"
+      > </a
+      ><a name="1951" class="Symbol"
+      >&#8594;</a
+      ><a name="1952"
+      > </a
+      ><a name="1953" href="IPC.KripkeSemantics.html#1929" class="Bound"
+      >w&#8242;</a
+      ><a name="1955"
+      > </a
+      ><a name="1956" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" href="IPC.KripkeSemantics.html#1910" class="Bound"
+      >B</a
+      ><a name="1959" class="Symbol"
+      >)</a
+      ><a name="1960"
+      > </a
+      ><a name="1961" class="Symbol"
+      >&#8594;</a
+      ><a name="1962"
+      > </a
+      ><a name="1963" href="IPC.KripkeSemantics.html#1912" class="Bound"
+      >w</a
+      ><a name="1964"
+      > </a
+      ><a name="1965" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="1966"
+      > </a
+      ><a name="1967" href="IPC.KripkeSemantics.html#1910" class="Bound"
+      >B</a
+      ><a name="1968"
+      >
+  </a
+      ><a name="1971" href="IPC.KripkeSemantics.html#1898" class="Function"
+      >bind</a
+      ><a name="1975"
+      > </a
+      ><a name="1976" href="IPC.KripkeSemantics.html#1976" class="Bound"
+      >a</a
+      ><a name="1977"
+      > </a
+      ><a name="1978" href="IPC.KripkeSemantics.html#1978" class="Bound"
+      >k</a
+      ><a name="1979"
+      > </a
+      ><a name="1980" class="Symbol"
+      >=</a
+      ><a name="1981"
+      > </a
+      ><a name="1982" class="Symbol"
+      >&#955;</a
+      ><a name="1983"
+      > </a
+      ><a name="1984" href="IPC.KripkeSemantics.html#1984" class="Bound"
+      >&#958;</a
+      ><a name="1985"
+      > </a
+      ><a name="1986" href="IPC.KripkeSemantics.html#1986" class="Bound"
+      >k&#8242;</a
+      ><a name="1988"
+      > </a
+      ><a name="1989" class="Symbol"
+      >&#8594;</a
+      ><a name="1990"
+      > </a
+      ><a name="1991" href="IPC.KripkeSemantics.html#1976" class="Bound"
+      >a</a
+      ><a name="1992"
+      > </a
+      ><a name="1993" href="IPC.KripkeSemantics.html#1984" class="Bound"
+      >&#958;</a
+      ><a name="1994"
+      > </a
+      ><a name="1995" class="Symbol"
+      >(&#955;</a
+      ><a name="1997"
+      > </a
+      ><a name="1998" href="IPC.KripkeSemantics.html#1998" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2000"
+      > </a
+      ><a name="2001" href="IPC.KripkeSemantics.html#2001" class="Bound"
+      >a&#8242;</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" class="Symbol"
+      >&#8594;</a
+      ><a name="2005"
+      > </a
+      ><a name="2006" href="IPC.KripkeSemantics.html#1978" class="Bound"
+      >k</a
+      ><a name="2007"
+      > </a
+      ><a name="2008" class="Symbol"
+      >(</a
+      ><a name="2009" href="IPC.KripkeSemantics.html#291" class="Field"
+      >trans&#8804;</a
+      ><a name="2015"
+      > </a
+      ><a name="2016" href="IPC.KripkeSemantics.html#1984" class="Bound"
+      >&#958;</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" href="IPC.KripkeSemantics.html#1998" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2020" class="Symbol"
+      >)</a
+      ><a name="2021"
+      > </a
+      ><a name="2022" href="IPC.KripkeSemantics.html#2001" class="Bound"
+      >a&#8242;</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" href="IPC.KripkeSemantics.html#264" class="Field"
+      >refl&#8804;</a
+      ><a name="2030"
+      > </a
+      ><a name="2031" class="Symbol"
+      >(&#955;</a
+      ><a name="2033"
+      > </a
+      ><a name="2034" href="IPC.KripkeSemantics.html#2034" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="2036"
+      > </a
+      ><a name="2037" href="IPC.KripkeSemantics.html#2037" class="Bound"
+      >a&#8243;</a
+      ><a name="2039"
+      > </a
+      ><a name="2040" class="Symbol"
+      >&#8594;</a
+      ><a name="2041"
+      > </a
+      ><a name="2042" href="IPC.KripkeSemantics.html#1986" class="Bound"
+      >k&#8242;</a
+      ><a name="2044"
+      > </a
+      ><a name="2045" class="Symbol"
+      >(</a
+      ><a name="2046" href="IPC.KripkeSemantics.html#291" class="Field"
+      >trans&#8804;</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" href="IPC.KripkeSemantics.html#1998" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2055"
+      > </a
+      ><a name="2056" href="IPC.KripkeSemantics.html#2034" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="2058" class="Symbol"
+      >)</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" href="IPC.KripkeSemantics.html#2037" class="Bound"
+      >a&#8243;</a
+      ><a name="2062" class="Symbol"
+      >))</a
+      ><a name="2064"
+      >
+
+
+</a
+      ><a name="2067" class="Comment"
+      >-- Forcing in all models.</a
+      ><a name="2092"
+      >
+
+</a
+      ><a name="2094" class="Keyword"
+      >infix</a
+      ><a name="2099"
+      > </a
+      ><a name="2100" class="Number"
+      >3</a
+      ><a name="2101"
+      > _&#7481;&#8873;_
+</a
+      ><a name="2107" href="IPC.KripkeSemantics.html#2107" class="Function Operator"
+      >_&#7481;&#8873;_</a
+      ><a name="2111"
+      > </a
+      ><a name="2112" class="Symbol"
+      >:</a
+      ><a name="2113"
+      > </a
+      ><a name="2114" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2116"
+      > </a
+      ><a name="2117" href="IPC.html#158" class="Datatype"
+      >Ty</a
+      ><a name="2119"
+      > </a
+      ><a name="2120" class="Symbol"
+      >&#8594;</a
+      ><a name="2121"
+      > </a
+      ><a name="2122" href="IPC.html#158" class="Datatype"
+      >Ty</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" class="Symbol"
+      >&#8594;</a
+      ><a name="2126"
+      > </a
+      ><a name="2127" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="2131"
+      >
+</a
+      ><a name="2132" href="IPC.KripkeSemantics.html#2132" class="Bound"
+      >&#915;</a
+      ><a name="2133"
+      > </a
+      ><a name="2134" href="IPC.KripkeSemantics.html#2107" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="2136"
+      > </a
+      ><a name="2137" href="IPC.KripkeSemantics.html#2137" class="Bound"
+      >A</a
+      ><a name="2138"
+      > </a
+      ><a name="2139" class="Symbol"
+      >=</a
+      ><a name="2140"
+      > </a
+      ><a name="2141" class="Symbol"
+      >&#8704;</a
+      ><a name="2142"
+      > </a
+      ><a name="2143" class="Symbol"
+      >{{</a
+      ><a name="2145" href="IPC.KripkeSemantics.html#2145" class="Bound"
+      >_</a
+      ><a name="2146"
+      > </a
+      ><a name="2147" class="Symbol"
+      >:</a
+      ><a name="2148"
+      > </a
+      ><a name="2149" href="IPC.KripkeSemantics.html#121" class="Record"
+      >Model</a
+      ><a name="2154" class="Symbol"
+      >}}</a
+      ><a name="2156"
+      > </a
+      ><a name="2157" class="Symbol"
+      >{</a
+      ><a name="2158" href="IPC.KripkeSemantics.html#2158" class="Bound"
+      >w</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" class="Symbol"
+      >:</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" href="IPC.KripkeSemantics.html#167" class="Field"
+      >World</a
+      ><a name="2167" class="Symbol"
+      >}</a
+      ><a name="2168"
+      > </a
+      ><a name="2169" class="Symbol"
+      >&#8594;</a
+      ><a name="2170"
+      > </a
+      ><a name="2171" href="IPC.KripkeSemantics.html#2158" class="Bound"
+      >w</a
+      ><a name="2172"
+      > </a
+      ><a name="2173" href="IPC.KripkeSemantics.html#1041" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2175"
+      > </a
+      ><a name="2176" href="IPC.KripkeSemantics.html#2132" class="Bound"
+      >&#915;</a
+      ><a name="2177"
+      > </a
+      ><a name="2178" class="Symbol"
+      >&#8594;</a
+      ><a name="2179"
+      > </a
+      ><a name="2180" href="IPC.KripkeSemantics.html#2158" class="Bound"
+      >w</a
+      ><a name="2181"
+      > </a
+      ><a name="2182" href="IPC.KripkeSemantics.html#922" class="Function Operator"
+      >&#8873;</a
+      ><a name="2183"
+      > </a
+      ><a name="2184" href="IPC.KripkeSemantics.html#2137" class="Bound"
+      >A</a
+      ><a name="2185"
+      >
+
+
+</a
+      ><a name="2188" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="2219"
+      >
+
+</a
+      ><a name="2221" href="IPC.KripkeSemantics.html#2221" class="Function"
+      >lookup</a
+      ><a name="2227"
+      > </a
+      ><a name="2228" class="Symbol"
+      >:</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" class="Symbol"
+      >&#8704;</a
+      ><a name="2231"
+      > </a
+      ><a name="2232" class="Symbol"
+      >{</a
+      ><a name="2233" href="IPC.KripkeSemantics.html#2233" class="Bound"
+      >A</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" href="IPC.KripkeSemantics.html#2235" class="Bound"
+      >&#915;</a
+      ><a name="2236" class="Symbol"
+      >}</a
+      ><a name="2237"
+      > </a
+      ><a name="2238" class="Symbol"
+      >&#8594;</a
+      ><a name="2239"
+      > </a
+      ><a name="2240" href="IPC.KripkeSemantics.html#2233" class="Bound"
+      >A</a
+      ><a name="2241"
+      > </a
+      ><a name="2242" href="Common.Context.html#404" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" href="IPC.KripkeSemantics.html#2235" class="Bound"
+      >&#915;</a
+      ><a name="2245"
+      > </a
+      ><a name="2246" class="Symbol"
+      >&#8594;</a
+      ><a name="2247"
+      > </a
+      ><a name="2248" href="IPC.KripkeSemantics.html#2235" class="Bound"
+      >&#915;</a
+      ><a name="2249"
+      > </a
+      ><a name="2250" href="IPC.KripkeSemantics.html#2107" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="2252"
+      > </a
+      ><a name="2253" href="IPC.KripkeSemantics.html#2233" class="Bound"
+      >A</a
+      ><a name="2254"
+      >
+</a
+      ><a name="2255" href="IPC.KripkeSemantics.html#2221" class="Function"
+      >lookup</a
+      ><a name="2261"
+      > </a
+      ><a name="2262" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="2265"
+      >     </a
+      ><a name="2270" class="Symbol"
+      >(</a
+      ><a name="2271" href="IPC.KripkeSemantics.html#2271" class="Bound"
+      >&#947;</a
+      ><a name="2272"
+      > </a
+      ><a name="2273" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2274"
+      > </a
+      ><a name="2275" href="IPC.KripkeSemantics.html#2275" class="Bound"
+      >a</a
+      ><a name="2276" class="Symbol"
+      >)</a
+      ><a name="2277"
+      > </a
+      ><a name="2278" class="Symbol"
+      >=</a
+      ><a name="2279"
+      > </a
+      ><a name="2280" href="IPC.KripkeSemantics.html#2275" class="Bound"
+      >a</a
+      ><a name="2281"
+      >
+</a
+      ><a name="2282" href="IPC.KripkeSemantics.html#2221" class="Function"
+      >lookup</a
+      ><a name="2288"
+      > </a
+      ><a name="2289" class="Symbol"
+      >(</a
+      ><a name="2290" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="2293"
+      > </a
+      ><a name="2294" href="IPC.KripkeSemantics.html#2294" class="Bound"
+      >i</a
+      ><a name="2295" class="Symbol"
+      >)</a
+      ><a name="2296"
+      > </a
+      ><a name="2297" class="Symbol"
+      >(</a
+      ><a name="2298" href="IPC.KripkeSemantics.html#2298" class="Bound"
+      >&#947;</a
+      ><a name="2299"
+      > </a
+      ><a name="2300" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2301"
+      > </a
+      ><a name="2302" href="IPC.KripkeSemantics.html#2302" class="Bound"
+      >b</a
+      ><a name="2303" class="Symbol"
+      >)</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" class="Symbol"
+      >=</a
+      ><a name="2306"
+      > </a
+      ><a name="2307" href="IPC.KripkeSemantics.html#2221" class="Function"
+      >lookup</a
+      ><a name="2313"
+      > </a
+      ><a name="2314" href="IPC.KripkeSemantics.html#2294" class="Bound"
+      >i</a
+      ><a name="2315"
+      > </a
+      ><a name="2316" href="IPC.KripkeSemantics.html#2298" class="Bound"
+      >&#947;</a
+      ><a name="2317"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

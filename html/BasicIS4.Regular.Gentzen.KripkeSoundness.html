@@ -1,0 +1,1770 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Regular.Gentzen.KripkeSoundness</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1" class="Module"
+      >BasicIS4.Regular.Gentzen.KripkeSoundness</a
+      ><a name="48"
+      > </a
+      ><a name="49" class="Keyword"
+      >where</a
+      ><a name="54"
+      >
+
+</a
+      ><a name="56" class="Keyword"
+      >open</a
+      ><a name="60"
+      > </a
+      ><a name="61" class="Keyword"
+      >import</a
+      ><a name="67"
+      > </a
+      ><a name="68" href="BasicIS4.Regular.Gentzen.html#1" class="Module"
+      >BasicIS4.Regular.Gentzen</a
+      ><a name="92"
+      > </a
+      ><a name="93" class="Keyword"
+      >public</a
+      ><a name="99"
+      >
+
+</a
+      ><a name="101" class="Keyword"
+      >import</a
+      ><a name="107"
+      > </a
+      ><a name="108" href="BasicIS4.Regular.Hilbert.KripkeSoundness.html#1" class="Module"
+      >BasicIS4.Regular.Hilbert.KripkeSoundness</a
+      ><a name="148"
+      > </a
+      ><a name="149" class="Symbol"
+      >as</a
+      ><a name="151"
+      > </a
+      ><a name="152" class="Module"
+      >KS</a
+      ><a name="154"
+      >
+</a
+      ><a name="155" class="Keyword"
+      >import</a
+      ><a name="161"
+      > </a
+      ><a name="162" href="BasicIS4.Regular.Translation.html#1" class="Module"
+      >BasicIS4.Regular.Translation</a
+      ><a name="190"
+      > </a
+      ><a name="191" class="Symbol"
+      >as</a
+      ><a name="193"
+      > </a
+      ><a name="194" class="Module"
+      >T</a
+      ><a name="195"
+      >
+
+
+</a
+      ><a name="198" class="Comment"
+      >-- NOTE: Round-tripping via Hilbert-style soundness is not fully satisfactory.</a
+      ><a name="276"
+      >
+
+</a
+      ><a name="278" class="Keyword"
+      >module</a
+      ><a name="284"
+      > </a
+      ><a name="285" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#285" class="Module"
+      >Ono</a
+      ><a name="288"
+      > </a
+      ><a name="289" class="Keyword"
+      >where</a
+      ><a name="294"
+      >
+  </a
+      ><a name="297" class="Keyword"
+      >open</a
+      ><a name="301"
+      > </a
+      ><a name="302" class="Keyword"
+      >import</a
+      ><a name="308"
+      > </a
+      ><a name="309" href="BasicIS4.KripkeSemantics.Ono.html#1" class="Module"
+      >BasicIS4.KripkeSemantics.Ono</a
+      ><a name="337"
+      >
+
+  </a
+      ><a name="341" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#341" class="Function"
+      >eval</a
+      ><a name="345"
+      > </a
+      ><a name="346" class="Symbol"
+      >:</a
+      ><a name="347"
+      > </a
+      ><a name="348" class="Symbol"
+      >&#8704;</a
+      ><a name="349"
+      > </a
+      ><a name="350" class="Symbol"
+      >{</a
+      ><a name="351" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#351" class="Bound"
+      >A</a
+      ><a name="352"
+      > </a
+      ><a name="353" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#353" class="Bound"
+      >&#915;</a
+      ><a name="354" class="Symbol"
+      >}</a
+      ><a name="355"
+      > </a
+      ><a name="356" class="Symbol"
+      >&#8594;</a
+      ><a name="357"
+      > </a
+      ><a name="358" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#353" class="Bound"
+      >&#915;</a
+      ><a name="359"
+      > </a
+      ><a name="360" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="361"
+      > </a
+      ><a name="362" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#351" class="Bound"
+      >A</a
+      ><a name="363"
+      > </a
+      ><a name="364" class="Symbol"
+      >&#8594;</a
+      ><a name="365"
+      > </a
+      ><a name="366" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#353" class="Bound"
+      >&#915;</a
+      ><a name="367"
+      > </a
+      ><a name="368" href="BasicIS4.KripkeSemantics.Ono.html#1857" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#351" class="Bound"
+      >A</a
+      ><a name="372"
+      >
+  </a
+      ><a name="375" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#341" class="Function"
+      >eval</a
+      ><a name="379"
+      > </a
+      ><a name="380" class="Symbol"
+      >=</a
+      ><a name="381"
+      > </a
+      ><a name="382" href="BasicIS4.Regular.Hilbert.KripkeSoundness.html#327" class="Function"
+      >KS.Ono.eval</a
+      ><a name="393"
+      > </a
+      ><a name="394" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="395"
+      > </a
+      ><a name="396" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >T.g&#8594;hn</a
+      ><a name="402"
+      >
+
+  </a
+      ><a name="406" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#406" class="Function"
+      >eval&#8902;</a
+      ><a name="411"
+      > </a
+      ><a name="412" class="Symbol"
+      >:</a
+      ><a name="413"
+      > </a
+      ><a name="414" class="Symbol"
+      >&#8704;</a
+      ><a name="415"
+      > </a
+      ><a name="416" class="Symbol"
+      >{</a
+      ><a name="417" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#417" class="Bound"
+      >&#928;</a
+      ><a name="418"
+      > </a
+      ><a name="419" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#419" class="Bound"
+      >&#915;</a
+      ><a name="420" class="Symbol"
+      >}</a
+      ><a name="421"
+      > </a
+      ><a name="422" class="Symbol"
+      >&#8594;</a
+      ><a name="423"
+      > </a
+      ><a name="424" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#419" class="Bound"
+      >&#915;</a
+      ><a name="425"
+      > </a
+      ><a name="426" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#417" class="Bound"
+      >&#928;</a
+      ><a name="430"
+      > </a
+      ><a name="431" class="Symbol"
+      >&#8594;</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#419" class="Bound"
+      >&#915;</a
+      ><a name="434"
+      > </a
+      ><a name="435" href="BasicIS4.KripkeSemantics.Ono.html#1951" class="Function Operator"
+      >&#7481;&#8873;&#8902;</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#417" class="Bound"
+      >&#928;</a
+      ><a name="440"
+      >
+  </a
+      ><a name="443" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#406" class="Function"
+      >eval&#8902;</a
+      ><a name="448"
+      > </a
+      ><a name="449" class="Symbol"
+      >{</a
+      ><a name="450" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="451" class="Symbol"
+      >}</a
+      ><a name="452"
+      >     </a
+      ><a name="457" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="458"
+      >        </a
+      ><a name="466" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#466" class="Bound"
+      >&#947;</a
+      ><a name="467"
+      > </a
+      ><a name="468" class="Symbol"
+      >=</a
+      ><a name="469"
+      > </a
+      ><a name="470" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="471"
+      >
+  </a
+      ><a name="474" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#406" class="Function"
+      >eval&#8902;</a
+      ><a name="479"
+      > </a
+      ><a name="480" class="Symbol"
+      >{</a
+      ><a name="481" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#481" class="Bound"
+      >&#928;</a
+      ><a name="482"
+      > </a
+      ><a name="483" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="484"
+      > </a
+      ><a name="485" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#485" class="Bound"
+      >A</a
+      ><a name="486" class="Symbol"
+      >}</a
+      ><a name="487"
+      > </a
+      ><a name="488" class="Symbol"
+      >(</a
+      ><a name="489" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#489" class="Bound"
+      >ts</a
+      ><a name="491"
+      > </a
+      ><a name="492" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="493"
+      > </a
+      ><a name="494" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#494" class="Bound"
+      >t</a
+      ><a name="495" class="Symbol"
+      >)</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#497" class="Bound"
+      >&#947;</a
+      ><a name="498"
+      > </a
+      ><a name="499" class="Symbol"
+      >=</a
+      ><a name="500"
+      > </a
+      ><a name="501" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#406" class="Function"
+      >eval&#8902;</a
+      ><a name="506"
+      > </a
+      ><a name="507" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#489" class="Bound"
+      >ts</a
+      ><a name="509"
+      > </a
+      ><a name="510" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#497" class="Bound"
+      >&#947;</a
+      ><a name="511"
+      > </a
+      ><a name="512" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="513"
+      > </a
+      ><a name="514" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#341" class="Function"
+      >eval</a
+      ><a name="518"
+      > </a
+      ><a name="519" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#494" class="Bound"
+      >t</a
+      ><a name="520"
+      > </a
+      ><a name="521" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#497" class="Bound"
+      >&#947;</a
+      ><a name="522"
+      >
+
+
+</a
+      ><a name="525" class="Keyword"
+      >module</a
+      ><a name="531"
+      > </a
+      ><a name="532" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#532" class="Module"
+      >BozicDosen</a
+      ><a name="542"
+      > </a
+      ><a name="543" class="Keyword"
+      >where</a
+      ><a name="548"
+      >
+  </a
+      ><a name="551" class="Keyword"
+      >open</a
+      ><a name="555"
+      > </a
+      ><a name="556" class="Keyword"
+      >import</a
+      ><a name="562"
+      > </a
+      ><a name="563" href="BasicIS4.KripkeSemantics.BozicDosen.html#1" class="Module"
+      >BasicIS4.KripkeSemantics.BozicDosen</a
+      ><a name="598"
+      >
+
+  </a
+      ><a name="602" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#602" class="Function"
+      >eval</a
+      ><a name="606"
+      > </a
+      ><a name="607" class="Symbol"
+      >:</a
+      ><a name="608"
+      > </a
+      ><a name="609" class="Symbol"
+      >&#8704;</a
+      ><a name="610"
+      > </a
+      ><a name="611" class="Symbol"
+      >{</a
+      ><a name="612" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#612" class="Bound"
+      >A</a
+      ><a name="613"
+      > </a
+      ><a name="614" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#614" class="Bound"
+      >&#915;</a
+      ><a name="615" class="Symbol"
+      >}</a
+      ><a name="616"
+      > </a
+      ><a name="617" class="Symbol"
+      >&#8594;</a
+      ><a name="618"
+      > </a
+      ><a name="619" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#614" class="Bound"
+      >&#915;</a
+      ><a name="620"
+      > </a
+      ><a name="621" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="622"
+      > </a
+      ><a name="623" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#612" class="Bound"
+      >A</a
+      ><a name="624"
+      > </a
+      ><a name="625" class="Symbol"
+      >&#8594;</a
+      ><a name="626"
+      > </a
+      ><a name="627" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#614" class="Bound"
+      >&#915;</a
+      ><a name="628"
+      > </a
+      ><a name="629" href="BasicIS4.KripkeSemantics.BozicDosen.html#2254" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="631"
+      > </a
+      ><a name="632" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#612" class="Bound"
+      >A</a
+      ><a name="633"
+      >
+  </a
+      ><a name="636" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#602" class="Function"
+      >eval</a
+      ><a name="640"
+      > </a
+      ><a name="641" class="Symbol"
+      >=</a
+      ><a name="642"
+      > </a
+      ><a name="643" href="BasicIS4.Regular.Hilbert.KripkeSoundness.html#1442" class="Function"
+      >KS.BozicDosen.eval</a
+      ><a name="661"
+      > </a
+      ><a name="662" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >T.g&#8594;hn</a
+      ><a name="670"
+      >
+
+  </a
+      ><a name="674" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#674" class="Function"
+      >eval&#8902;</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >:</a
+      ><a name="681"
+      > </a
+      ><a name="682" class="Symbol"
+      >&#8704;</a
+      ><a name="683"
+      > </a
+      ><a name="684" class="Symbol"
+      >{</a
+      ><a name="685" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#685" class="Bound"
+      >&#928;</a
+      ><a name="686"
+      > </a
+      ><a name="687" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#687" class="Bound"
+      >&#915;</a
+      ><a name="688" class="Symbol"
+      >}</a
+      ><a name="689"
+      > </a
+      ><a name="690" class="Symbol"
+      >&#8594;</a
+      ><a name="691"
+      > </a
+      ><a name="692" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#687" class="Bound"
+      >&#915;</a
+      ><a name="693"
+      > </a
+      ><a name="694" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#685" class="Bound"
+      >&#928;</a
+      ><a name="698"
+      > </a
+      ><a name="699" class="Symbol"
+      >&#8594;</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#687" class="Bound"
+      >&#915;</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="BasicIS4.KripkeSemantics.BozicDosen.html#2348" class="Function Operator"
+      >&#7481;&#8873;&#8902;</a
+      ><a name="706"
+      > </a
+      ><a name="707" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#685" class="Bound"
+      >&#928;</a
+      ><a name="708"
+      >
+  </a
+      ><a name="711" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#674" class="Function"
+      >eval&#8902;</a
+      ><a name="716"
+      > </a
+      ><a name="717" class="Symbol"
+      >{</a
+      ><a name="718" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="719" class="Symbol"
+      >}</a
+      ><a name="720"
+      >     </a
+      ><a name="725" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="726"
+      >        </a
+      ><a name="734" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#734" class="Bound"
+      >&#947;</a
+      ><a name="735"
+      > </a
+      ><a name="736" class="Symbol"
+      >=</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="739"
+      >
+  </a
+      ><a name="742" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#674" class="Function"
+      >eval&#8902;</a
+      ><a name="747"
+      > </a
+      ><a name="748" class="Symbol"
+      >{</a
+      ><a name="749" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#749" class="Bound"
+      >&#928;</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="752"
+      > </a
+      ><a name="753" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#753" class="Bound"
+      >A</a
+      ><a name="754" class="Symbol"
+      >}</a
+      ><a name="755"
+      > </a
+      ><a name="756" class="Symbol"
+      >(</a
+      ><a name="757" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#757" class="Bound"
+      >ts</a
+      ><a name="759"
+      > </a
+      ><a name="760" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="761"
+      > </a
+      ><a name="762" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#762" class="Bound"
+      >t</a
+      ><a name="763" class="Symbol"
+      >)</a
+      ><a name="764"
+      > </a
+      ><a name="765" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#765" class="Bound"
+      >&#947;</a
+      ><a name="766"
+      > </a
+      ><a name="767" class="Symbol"
+      >=</a
+      ><a name="768"
+      > </a
+      ><a name="769" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#674" class="Function"
+      >eval&#8902;</a
+      ><a name="774"
+      > </a
+      ><a name="775" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#757" class="Bound"
+      >ts</a
+      ><a name="777"
+      > </a
+      ><a name="778" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#765" class="Bound"
+      >&#947;</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#602" class="Function"
+      >eval</a
+      ><a name="786"
+      > </a
+      ><a name="787" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#762" class="Bound"
+      >t</a
+      ><a name="788"
+      > </a
+      ><a name="789" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#765" class="Bound"
+      >&#947;</a
+      ><a name="790"
+      >
+
+
+</a
+      ><a name="793" class="Keyword"
+      >module</a
+      ><a name="799"
+      > </a
+      ><a name="800" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#800" class="Module"
+      >EwaldEtAl</a
+      ><a name="809"
+      > </a
+      ><a name="810" class="Keyword"
+      >where</a
+      ><a name="815"
+      >
+  </a
+      ><a name="818" class="Keyword"
+      >open</a
+      ><a name="822"
+      > </a
+      ><a name="823" class="Keyword"
+      >import</a
+      ><a name="829"
+      > </a
+      ><a name="830" href="BasicIS4.KripkeSemantics.EwaldEtAl.html#1" class="Module"
+      >BasicIS4.KripkeSemantics.EwaldEtAl</a
+      ><a name="864"
+      >
+
+  </a
+      ><a name="868" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#868" class="Function"
+      >eval</a
+      ><a name="872"
+      > </a
+      ><a name="873" class="Symbol"
+      >:</a
+      ><a name="874"
+      > </a
+      ><a name="875" class="Symbol"
+      >&#8704;</a
+      ><a name="876"
+      > </a
+      ><a name="877" class="Symbol"
+      >{</a
+      ><a name="878" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#878" class="Bound"
+      >A</a
+      ><a name="879"
+      > </a
+      ><a name="880" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#880" class="Bound"
+      >&#915;</a
+      ><a name="881" class="Symbol"
+      >}</a
+      ><a name="882"
+      > </a
+      ><a name="883" class="Symbol"
+      >&#8594;</a
+      ><a name="884"
+      > </a
+      ><a name="885" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#880" class="Bound"
+      >&#915;</a
+      ><a name="886"
+      > </a
+      ><a name="887" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="888"
+      > </a
+      ><a name="889" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#878" class="Bound"
+      >A</a
+      ><a name="890"
+      > </a
+      ><a name="891" class="Symbol"
+      >&#8594;</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#880" class="Bound"
+      >&#915;</a
+      ><a name="894"
+      > </a
+      ><a name="895" href="BasicIS4.KripkeSemantics.EwaldEtAl.html#2358" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#878" class="Bound"
+      >A</a
+      ><a name="899"
+      >
+  </a
+      ><a name="902" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#868" class="Function"
+      >eval</a
+      ><a name="906"
+      > </a
+      ><a name="907" class="Symbol"
+      >=</a
+      ><a name="908"
+      > </a
+      ><a name="909" href="BasicIS4.Regular.Hilbert.KripkeSoundness.html#3780" class="Function"
+      >KS.EwaldEtAl.eval</a
+      ><a name="926"
+      > </a
+      ><a name="927" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="928"
+      > </a
+      ><a name="929" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >T.g&#8594;hn</a
+      ><a name="935"
+      >
+
+  </a
+      ><a name="939" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#939" class="Function"
+      >eval&#8902;</a
+      ><a name="944"
+      > </a
+      ><a name="945" class="Symbol"
+      >:</a
+      ><a name="946"
+      > </a
+      ><a name="947" class="Symbol"
+      >&#8704;</a
+      ><a name="948"
+      > </a
+      ><a name="949" class="Symbol"
+      >{</a
+      ><a name="950" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#950" class="Bound"
+      >&#928;</a
+      ><a name="951"
+      > </a
+      ><a name="952" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#952" class="Bound"
+      >&#915;</a
+      ><a name="953" class="Symbol"
+      >}</a
+      ><a name="954"
+      > </a
+      ><a name="955" class="Symbol"
+      >&#8594;</a
+      ><a name="956"
+      > </a
+      ><a name="957" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#952" class="Bound"
+      >&#915;</a
+      ><a name="958"
+      > </a
+      ><a name="959" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="961"
+      > </a
+      ><a name="962" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#950" class="Bound"
+      >&#928;</a
+      ><a name="963"
+      > </a
+      ><a name="964" class="Symbol"
+      >&#8594;</a
+      ><a name="965"
+      > </a
+      ><a name="966" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#952" class="Bound"
+      >&#915;</a
+      ><a name="967"
+      > </a
+      ><a name="968" href="BasicIS4.KripkeSemantics.EwaldEtAl.html#2452" class="Function Operator"
+      >&#7481;&#8873;&#8902;</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#950" class="Bound"
+      >&#928;</a
+      ><a name="973"
+      >
+  </a
+      ><a name="976" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#939" class="Function"
+      >eval&#8902;</a
+      ><a name="981"
+      > </a
+      ><a name="982" class="Symbol"
+      >{</a
+      ><a name="983" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="984" class="Symbol"
+      >}</a
+      ><a name="985"
+      >     </a
+      ><a name="990" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="991"
+      >        </a
+      ><a name="999" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#999" class="Bound"
+      >&#947;</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" class="Symbol"
+      >=</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1004"
+      >
+  </a
+      ><a name="1007" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#939" class="Function"
+      >eval&#8902;</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" class="Symbol"
+      >{</a
+      ><a name="1014" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1014" class="Bound"
+      >&#928;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1018" class="Bound"
+      >A</a
+      ><a name="1019" class="Symbol"
+      >}</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" class="Symbol"
+      >(</a
+      ><a name="1022" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1022" class="Bound"
+      >ts</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1027" class="Bound"
+      >t</a
+      ><a name="1028" class="Symbol"
+      >)</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1030" class="Bound"
+      >&#947;</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" class="Symbol"
+      >=</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#939" class="Function"
+      >eval&#8902;</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1022" class="Bound"
+      >ts</a
+      ><a name="1042"
+      > </a
+      ><a name="1043" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1030" class="Bound"
+      >&#947;</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1046"
+      > </a
+      ><a name="1047" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#868" class="Function"
+      >eval</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1027" class="Bound"
+      >t</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1030" class="Bound"
+      >&#947;</a
+      ><a name="1055"
+      >
+
+
+</a
+      ><a name="1058" class="Keyword"
+      >module</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1065" class="Module"
+      >AlechinaEtAl</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" class="Keyword"
+      >where</a
+      ><a name="1083"
+      >
+  </a
+      ><a name="1086" class="Keyword"
+      >open</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" class="Keyword"
+      >import</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1" class="Module"
+      >BasicIS4.KripkeSemantics.AlechinaEtAl</a
+      ><a name="1135"
+      >
+
+  </a
+      ><a name="1139" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1139" class="Function"
+      >eval</a
+      ><a name="1143"
+      > </a
+      ><a name="1144" class="Symbol"
+      >:</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" class="Symbol"
+      >&#8704;</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" class="Symbol"
+      >{</a
+      ><a name="1149" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1149" class="Bound"
+      >A</a
+      ><a name="1150"
+      > </a
+      ><a name="1151" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1151" class="Bound"
+      >&#915;</a
+      ><a name="1152" class="Symbol"
+      >}</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" class="Symbol"
+      >&#8594;</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1151" class="Bound"
+      >&#915;</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1159"
+      > </a
+      ><a name="1160" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1149" class="Bound"
+      >A</a
+      ><a name="1161"
+      > </a
+      ><a name="1162" class="Symbol"
+      >&#8594;</a
+      ><a name="1163"
+      > </a
+      ><a name="1164" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1151" class="Bound"
+      >&#915;</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2208" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1149" class="Bound"
+      >A</a
+      ><a name="1170"
+      >
+  </a
+      ><a name="1173" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1139" class="Function"
+      >eval</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" class="Symbol"
+      >=</a
+      ><a name="1179"
+      > </a
+      ><a name="1180" href="BasicIS4.Regular.Hilbert.KripkeSoundness.html#4972" class="Function"
+      >KS.AlechinaEtAl.eval</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >T.g&#8594;hn</a
+      ><a name="1209"
+      >
+
+  </a
+      ><a name="1213" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1213" class="Function"
+      >eval&#8902;</a
+      ><a name="1218"
+      > </a
+      ><a name="1219" class="Symbol"
+      >:</a
+      ><a name="1220"
+      > </a
+      ><a name="1221" class="Symbol"
+      >&#8704;</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" class="Symbol"
+      >{</a
+      ><a name="1224" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1224" class="Bound"
+      >&#928;</a
+      ><a name="1225"
+      > </a
+      ><a name="1226" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1226" class="Bound"
+      >&#915;</a
+      ><a name="1227" class="Symbol"
+      >}</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" class="Symbol"
+      >&#8594;</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1226" class="Bound"
+      >&#915;</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1235"
+      > </a
+      ><a name="1236" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1224" class="Bound"
+      >&#928;</a
+      ><a name="1237"
+      > </a
+      ><a name="1238" class="Symbol"
+      >&#8594;</a
+      ><a name="1239"
+      > </a
+      ><a name="1240" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1226" class="Bound"
+      >&#915;</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2302" class="Function Operator"
+      >&#7481;&#8873;&#8902;</a
+      ><a name="1245"
+      > </a
+      ><a name="1246" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1224" class="Bound"
+      >&#928;</a
+      ><a name="1247"
+      >
+  </a
+      ><a name="1250" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1213" class="Function"
+      >eval&#8902;</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" class="Symbol"
+      >{</a
+      ><a name="1257" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1258" class="Symbol"
+      >}</a
+      ><a name="1259"
+      >     </a
+      ><a name="1264" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1265"
+      >        </a
+      ><a name="1273" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1273" class="Bound"
+      >&#947;</a
+      ><a name="1274"
+      > </a
+      ><a name="1275" class="Symbol"
+      >=</a
+      ><a name="1276"
+      > </a
+      ><a name="1277" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1278"
+      >
+  </a
+      ><a name="1281" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1213" class="Function"
+      >eval&#8902;</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" class="Symbol"
+      >{</a
+      ><a name="1288" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1288" class="Bound"
+      >&#928;</a
+      ><a name="1289"
+      > </a
+      ><a name="1290" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1291"
+      > </a
+      ><a name="1292" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1292" class="Bound"
+      >A</a
+      ><a name="1293" class="Symbol"
+      >}</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" class="Symbol"
+      >(</a
+      ><a name="1296" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1296" class="Bound"
+      >ts</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1301" class="Bound"
+      >t</a
+      ><a name="1302" class="Symbol"
+      >)</a
+      ><a name="1303"
+      > </a
+      ><a name="1304" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1304" class="Bound"
+      >&#947;</a
+      ><a name="1305"
+      > </a
+      ><a name="1306" class="Symbol"
+      >=</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1213" class="Function"
+      >eval&#8902;</a
+      ><a name="1313"
+      > </a
+      ><a name="1314" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1296" class="Bound"
+      >ts</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1304" class="Bound"
+      >&#947;</a
+      ><a name="1318"
+      > </a
+      ><a name="1319" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1320"
+      > </a
+      ><a name="1321" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1139" class="Function"
+      >eval</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1301" class="Bound"
+      >t</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" href="BasicIS4.Regular.Gentzen.KripkeSoundness.html#1304" class="Bound"
+      >&#947;</a
+      ><a name="1329"
+      >
+
+
+</a
+      ><a name="1332" class="Comment"
+      >-- NOTE: For each semantics, &#9633; introduction is the problematic case.</a
+      ><a name="1400"
+      >
+
+</a
+      ><a name="1402" class="Comment"
+      >-- module Ono where</a
+      ><a name="1421"
+      >
+</a
+      ><a name="1422" class="Comment"
+      >--   open import BasicIS4.KripkeSemantics.Ono public</a
+      ><a name="1474"
+      >
+
+</a
+      ><a name="1476" class="Comment"
+      >--   --   w&#8242;  R  v&#8242;</a
+      ><a name="1495"
+      >
+</a
+      ><a name="1496" class="Comment"
+      >--   --   &#9679;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9679;</a
+      ><a name="1514"
+      >
+</a
+      ><a name="1515" class="Comment"
+      >--   --   &#9474;     &#8944;</a
+      ><a name="1532"
+      >
+</a
+      ><a name="1533" class="Comment"
+      >--   -- &#8804; &#9474;   R</a
+      ><a name="1548"
+      >
+</a
+      ><a name="1549" class="Comment"
+      >--   --   &#9474; &#8944;</a
+      ><a name="1562"
+      >
+</a
+      ><a name="1563" class="Comment"
+      >--   --   &#9679;</a
+      ><a name="1574"
+      >
+</a
+      ><a name="1575" class="Comment"
+      >--   --   w</a
+      ><a name="1586"
+      >
+</a
+      ><a name="1587" class="Comment"
+      >--   --</a
+      ><a name="1594"
+      >
+</a
+      ><a name="1595" class="Comment"
+      >--   -- cutR : &#8704; {v&#8242; w w&#8242;} &#8594; w&#8242; R v&#8242; &#8594; w &#8804; w&#8242; &#8594; w R v&#8242;</a
+      ><a name="1649"
+      >
+
+</a
+      ><a name="1651" class="Comment"
+      >--   mutual</a
+      ><a name="1662"
+      >
+</a
+      ><a name="1663" class="Comment"
+      >--     eval : &#8704; {A &#915;} &#8594; &#915; &#8866; A &#8594; &#915; &#7481;&#8873; A</a
+      ><a name="1701"
+      >
+</a
+      ><a name="1702" class="Comment"
+      >--     eval (var i)         &#947; = lookup i &#947;</a
+      ><a name="1744"
+      >
+</a
+      ><a name="1745" class="Comment"
+      >--     eval (lam t)         &#947; = &#955; &#958; a &#8594; eval t (mono&#8873;&#8902; &#958; &#947; , a)</a
+      ><a name="1808"
+      >
+</a
+      ><a name="1809" class="Comment"
+      >--     eval (app t u)       &#947; = (eval t &#947;) refl&#8804; (eval u &#947;)</a
+      ><a name="1868"
+      >
+</a
+      ><a name="1869" class="Comment"
+      >--     eval (multibox ts u) &#947; = &#955; &#950; &#8594; {!!}</a
+      ><a name="1911"
+      >
+</a
+      ><a name="1912" class="Comment"
+      >--     eval (down t)        &#947; = (eval t &#947;) reflR</a
+      ><a name="1960"
+      >
+</a
+      ><a name="1961" class="Comment"
+      >--     eval (pair t u)      &#947; = eval t &#947; , eval u &#947;</a
+      ><a name="2012"
+      >
+</a
+      ><a name="2013" class="Comment"
+      >--     eval (fst t)         &#947; = &#960;&#8321; (eval t &#947;)</a
+      ><a name="2058"
+      >
+</a
+      ><a name="2059" class="Comment"
+      >--     eval (snd t)         &#947; = &#960;&#8322; (eval t &#947;)</a
+      ><a name="2104"
+      >
+</a
+      ><a name="2105" class="Comment"
+      >--     eval tt              &#947; = &#8729;</a
+      ><a name="2138"
+      >
+
+</a
+      ><a name="2140" class="Comment"
+      >--     eval&#8902; : &#8704; {&#928; &#915;} &#8594; &#915; &#8866;&#8902; &#928; &#8594; &#915; &#7481;&#8873;&#8902; &#928;</a
+      ><a name="2181"
+      >
+</a
+      ><a name="2182" class="Comment"
+      >--     eval&#8902; {&#8960;}     &#8729;        &#947; = &#8729;</a
+      ><a name="2217"
+      >
+</a
+      ><a name="2218" class="Comment"
+      >--     eval&#8902; {&#928; , A} (ts , t) &#947; = eval&#8902; ts &#947; , eval t &#947;</a
+      ><a name="2273"
+      >
+
+
+</a
+      ><a name="2276" class="Comment"
+      >-- module BozicDosen where</a
+      ><a name="2302"
+      >
+</a
+      ><a name="2303" class="Comment"
+      >--   open import BasicIS4.KripkeSemantics.BozicDosen public</a
+      ><a name="2362"
+      >
+
+</a
+      ><a name="2364" class="Comment"
+      >--   --   w&#8242;  R  v&#8242;</a
+      ><a name="2383"
+      >
+</a
+      ><a name="2384" class="Comment"
+      >--   --   &#9679;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9679;</a
+      ><a name="2402"
+      >
+</a
+      ><a name="2403" class="Comment"
+      >--   --   &#9474;      &#9482;</a
+      ><a name="2421"
+      >
+</a
+      ><a name="2422" class="Comment"
+      >--   -- &#8804; &#9474;      &#9482; &#8804;</a
+      ><a name="2442"
+      >
+</a
+      ><a name="2443" class="Comment"
+      >--   --   &#9474;      &#9482;</a
+      ><a name="2461"
+      >
+</a
+      ><a name="2462" class="Comment"
+      >--   --   &#9679;&#9548;&#9548;&#9548;&#9548;&#9548;&#9548;&#9676;</a
+      ><a name="2480"
+      >
+</a
+      ><a name="2481" class="Comment"
+      >--   --   w   R  v</a
+      ><a name="2499"
+      >
+</a
+      ><a name="2500" class="Comment"
+      >--   --</a
+      ><a name="2507"
+      >
+</a
+      ><a name="2508" class="Comment"
+      >--   -- cutR&#10814;&#8804; : &#8704; {v&#8242; w w&#8242;} &#8594; w&#8242; R v&#8242; &#8594; w &#8804; w&#8242; &#8594; &#8707; (&#955; v &#8594; w R v &#215; v &#8804; v&#8242;)</a
+      ><a name="2582"
+      >
+
+</a
+      ><a name="2584" class="Comment"
+      >--   mutual</a
+      ><a name="2595"
+      >
+</a
+      ><a name="2596" class="Comment"
+      >--     eval : &#8704; {A &#915;} &#8594; &#915; &#8866; A &#8594; &#915; &#7481;&#8873; A</a
+      ><a name="2634"
+      >
+</a
+      ><a name="2635" class="Comment"
+      >--     eval (var i)         &#947; = lookup i &#947;</a
+      ><a name="2677"
+      >
+</a
+      ><a name="2678" class="Comment"
+      >--     eval (lam t)         &#947; = &#955; &#958; a &#8594; eval t (mono&#8873;&#8902; &#958; &#947; , a)</a
+      ><a name="2741"
+      >
+</a
+      ><a name="2742" class="Comment"
+      >--     eval (app t u)       &#947; = (eval t &#947;) refl&#8804; (eval u &#947;)</a
+      ><a name="2801"
+      >
+</a
+      ><a name="2802" class="Comment"
+      >--     eval (multibox ts u) &#947; = &#955; &#950; &#8594; {!!}</a
+      ><a name="2844"
+      >
+</a
+      ><a name="2845" class="Comment"
+      >--     eval (down t)        &#947; = (eval t &#947;) reflR</a
+      ><a name="2893"
+      >
+</a
+      ><a name="2894" class="Comment"
+      >--     eval (pair t u)      &#947; = eval t &#947; , eval u &#947;</a
+      ><a name="2945"
+      >
+</a
+      ><a name="2946" class="Comment"
+      >--     eval (fst t)         &#947; = &#960;&#8321; (eval t &#947;)</a
+      ><a name="2991"
+      >
+</a
+      ><a name="2992" class="Comment"
+      >--     eval (snd t)         &#947; = &#960;&#8322; (eval t &#947;)</a
+      ><a name="3037"
+      >
+</a
+      ><a name="3038" class="Comment"
+      >--     eval tt              &#947; = &#8729;</a
+      ><a name="3071"
+      >
+
+</a
+      ><a name="3073" class="Comment"
+      >--     eval&#8902; : &#8704; {&#928; &#915;} &#8594; &#915; &#8866;&#8902; &#928; &#8594; &#915; &#7481;&#8873;&#8902; &#928;</a
+      ><a name="3114"
+      >
+</a
+      ><a name="3115" class="Comment"
+      >--     eval&#8902; {&#8960;}     &#8729;        &#947; = &#8729;</a
+      ><a name="3150"
+      >
+</a
+      ><a name="3151" class="Comment"
+      >--     eval&#8902; {&#928; , A} (ts , t) &#947; = eval&#8902; ts &#947; , eval t &#947;</a
+      ><a name="3206"
+      >
+
+
+</a
+      ><a name="3209" class="Comment"
+      >-- module Wijesekera where</a
+      ><a name="3235"
+      >
+</a
+      ><a name="3236" class="Comment"
+      >--   open import BasicIS4.KripkeSemantics.Wijesekera public</a
+      ><a name="3295"
+      >
+
+</a
+      ><a name="3297" class="Comment"
+      >--   mutual</a
+      ><a name="3308"
+      >
+</a
+      ><a name="3309" class="Comment"
+      >--     eval : &#8704; {A &#915;} &#8594; &#915; &#8866; A &#8594; &#915; &#7481;&#8873; A</a
+      ><a name="3347"
+      >
+</a
+      ><a name="3348" class="Comment"
+      >--     eval (var i)         &#947; = lookup i &#947;</a
+      ><a name="3390"
+      >
+</a
+      ><a name="3391" class="Comment"
+      >--     eval (lam t)         &#947; = &#955; &#958; a &#8594; eval t (mono&#8873;&#8902; &#958; &#947; , a)</a
+      ><a name="3454"
+      >
+</a
+      ><a name="3455" class="Comment"
+      >--     eval (app t u)       &#947; = (eval t &#947;) refl&#8804; (eval u &#947;)</a
+      ><a name="3514"
+      >
+</a
+      ><a name="3515" class="Comment"
+      >--     eval (multibox ts u) &#947; = &#955; &#958; &#950; &#8594; {!!}</a
+      ><a name="3559"
+      >
+</a
+      ><a name="3560" class="Comment"
+      >--     eval (down t)        &#947; = (eval t &#947;) refl&#8804; reflR</a
+      ><a name="3614"
+      >
+</a
+      ><a name="3615" class="Comment"
+      >--     eval (pair t u)      &#947; = eval t &#947; , eval u &#947;</a
+      ><a name="3666"
+      >
+</a
+      ><a name="3667" class="Comment"
+      >--     eval (fst t)         &#947; = &#960;&#8321; (eval t &#947;)</a
+      ><a name="3712"
+      >
+</a
+      ><a name="3713" class="Comment"
+      >--     eval (snd t)         &#947; = &#960;&#8322; (eval t &#947;)</a
+      ><a name="3758"
+      >
+</a
+      ><a name="3759" class="Comment"
+      >--     eval tt              &#947; = &#8729;</a
+      ><a name="3792"
+      >
+
+</a
+      ><a name="3794" class="Comment"
+      >--     eval&#8902; : &#8704; {&#928; &#915;} &#8594; &#915; &#8866;&#8902; &#928; &#8594; &#915; &#7481;&#8873;&#8902; &#928;</a
+      ><a name="3835"
+      >
+</a
+      ><a name="3836" class="Comment"
+      >--     eval&#8902; {&#8960;}     &#8729;        &#947; = &#8729;</a
+      ><a name="3871"
+      >
+</a
+      ><a name="3872" class="Comment"
+      >--     eval&#8902; {&#928; , A} (ts , t) &#947; = eval&#8902; ts &#947; , eval t &#947;</a
+      ><a name="3927"
+      >
+
+
+</a
+      ><a name="3930" class="Comment"
+      >-- module EwaldEtAl where</a
+      ><a name="3955"
+      >
+</a
+      ><a name="3956" class="Comment"
+      >--   open import BasicIS4.KripkeSemantics.EwaldEtAl public</a
+      ><a name="4014"
+      >
+
+</a
+      ><a name="4016" class="Comment"
+      >--   --   w&#8242;  R  v&#8242;      w&#8242;  R  v&#8242;</a
+      ><a name="4050"
+      >
+</a
+      ><a name="4051" class="Comment"
+      >--   --   &#9679;&#9548;&#9548;&#9548;&#9548;&#9548;&#9548;&#9676;       &#9676;&#9548;&#9548;&#9548;&#9548;&#9548;&#9548;&#9679;</a
+      ><a name="4084"
+      >
+</a
+      ><a name="4085" class="Comment"
+      >--   --   &#9474;      &#9482;       &#9482;      &#9474;</a
+      ><a name="4118"
+      >
+</a
+      ><a name="4119" class="Comment"
+      >--   -- &#8804; &#9474;   &#8321;  &#9482; &#8804;   &#8804; &#9482;   &#8322;  &#9474; &#8804;</a
+      ><a name="4154"
+      >
+</a
+      ><a name="4155" class="Comment"
+      >--   --   &#9474;      &#9482;       &#9482;      &#9474;</a
+      ><a name="4188"
+      >
+</a
+      ><a name="4189" class="Comment"
+      >--   --   &#9679;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9679;       &#9679;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9679;</a
+      ><a name="4222"
+      >
+</a
+      ><a name="4223" class="Comment"
+      >--   --   w   R  v       w   R  v</a
+      ><a name="4256"
+      >
+</a
+      ><a name="4257" class="Comment"
+      >--   --</a
+      ><a name="4264"
+      >
+</a
+      ><a name="4265" class="Comment"
+      >--   -- slice  : &#8704; {v w w&#8242;} &#8594; w R v &#8594; w &#8804; w&#8242; &#8594; &#8707; (&#955; v&#8242; &#8594; w&#8242; R v&#8242; &#215; v &#8804; v&#8242;)</a
+      ><a name="4339"
+      >
+</a
+      ><a name="4340" class="Comment"
+      >--   -- cut&#8804;&#10814;R : &#8704; {w v v&#8242;} &#8594; v &#8804; v&#8242; &#8594; w R v &#8594; &#8707; (&#955; w&#8242; &#8594; w &#8804; w&#8242; &#215; w&#8242; R v&#8242;)</a
+      ><a name="4414"
+      >
+
+</a
+      ><a name="4416" class="Comment"
+      >--   mutual</a
+      ><a name="4427"
+      >
+</a
+      ><a name="4428" class="Comment"
+      >--     eval : &#8704; {A &#915;} &#8594; &#915; &#8866; A &#8594; &#915; &#7481;&#8873; A</a
+      ><a name="4466"
+      >
+</a
+      ><a name="4467" class="Comment"
+      >--     eval (var i)         &#947; = lookup i &#947;</a
+      ><a name="4509"
+      >
+</a
+      ><a name="4510" class="Comment"
+      >--     eval (lam t)         &#947; = &#955; &#958; a &#8594; eval t (mono&#8873;&#8902; &#958; &#947; , a)</a
+      ><a name="4573"
+      >
+</a
+      ><a name="4574" class="Comment"
+      >--     eval (app t u)       &#947; = (eval t &#947;) refl&#8804; (eval u &#947;)</a
+      ><a name="4633"
+      >
+</a
+      ><a name="4634" class="Comment"
+      >--     eval (multibox ts u) &#947; = &#955; &#958; &#950; &#8594; {!!}</a
+      ><a name="4678"
+      >
+</a
+      ><a name="4679" class="Comment"
+      >--     eval (down t)        &#947; = (eval t &#947;) refl&#8804; reflR</a
+      ><a name="4733"
+      >
+</a
+      ><a name="4734" class="Comment"
+      >--     eval (pair t u)      &#947; = eval t &#947; , eval u &#947;</a
+      ><a name="4785"
+      >
+</a
+      ><a name="4786" class="Comment"
+      >--     eval (fst t)         &#947; = &#960;&#8321; (eval t &#947;)</a
+      ><a name="4831"
+      >
+</a
+      ><a name="4832" class="Comment"
+      >--     eval (snd t)         &#947; = &#960;&#8322; (eval t &#947;)</a
+      ><a name="4877"
+      >
+</a
+      ><a name="4878" class="Comment"
+      >--     eval tt              &#947; = &#8729;</a
+      ><a name="4911"
+      >
+
+</a
+      ><a name="4913" class="Comment"
+      >--     eval&#8902; : &#8704; {&#928; &#915;} &#8594; &#915; &#8866;&#8902; &#928; &#8594; &#915; &#7481;&#8873;&#8902; &#928;</a
+      ><a name="4954"
+      >
+</a
+      ><a name="4955" class="Comment"
+      >--     eval&#8902; {&#8960;}     &#8729;        &#947; = &#8729;</a
+      ><a name="4990"
+      >
+</a
+      ><a name="4991" class="Comment"
+      >--     eval&#8902; {&#928; , A} (ts , t) &#947; = eval&#8902; ts &#947; , eval t &#947;</a
+      ><a name="5046"
+      >
+
+
+</a
+      ><a name="5049" class="Comment"
+      >-- module AlechinaEtAl where</a
+      ><a name="5077"
+      >
+</a
+      ><a name="5078" class="Comment"
+      >--   open import BasicIS4.KripkeSemantics.AlechinaEtAl public</a
+      ><a name="5139"
+      >
+
+</a
+      ><a name="5141" class="Comment"
+      >--   --   w&#8242;  R  v&#8242;</a
+      ><a name="5160"
+      >
+</a
+      ><a name="5161" class="Comment"
+      >--   --   &#9676;&#9548;&#9548;&#9548;&#9548;&#9548;&#9548;&#9679;</a
+      ><a name="5179"
+      >
+</a
+      ><a name="5180" class="Comment"
+      >--   --   &#9482;      &#9474;</a
+      ><a name="5198"
+      >
+</a
+      ><a name="5199" class="Comment"
+      >--   -- &#8804; &#9482;   &#8322;  &#9474; &#8804;</a
+      ><a name="5219"
+      >
+</a
+      ><a name="5220" class="Comment"
+      >--   --   &#9482;      &#9474;</a
+      ><a name="5238"
+      >
+</a
+      ><a name="5239" class="Comment"
+      >--   --   &#9679;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9679;</a
+      ><a name="5257"
+      >
+</a
+      ><a name="5258" class="Comment"
+      >--   --   w   R  v</a
+      ><a name="5276"
+      >
+</a
+      ><a name="5277" class="Comment"
+      >--   --</a
+      ><a name="5284"
+      >
+</a
+      ><a name="5285" class="Comment"
+      >--   -- cut&#8804;&#10814;R : &#8704; {w v v&#8242;} &#8594; v &#8804; v&#8242; &#8594; w R v &#8594; &#8707; (&#955; w&#8242; &#8594; w &#8804; w&#8242; &#215; w&#8242; R v&#8242;)</a
+      ><a name="5359"
+      >
+
+</a
+      ><a name="5361" class="Comment"
+      >--   mutual</a
+      ><a name="5372"
+      >
+</a
+      ><a name="5373" class="Comment"
+      >--     eval : &#8704; {A &#915;} &#8594; &#915; &#8866; A &#8594; &#915; &#7481;&#8873; A</a
+      ><a name="5411"
+      >
+</a
+      ><a name="5412" class="Comment"
+      >--     eval (var i)         &#947; = lookup i &#947;</a
+      ><a name="5454"
+      >
+</a
+      ><a name="5455" class="Comment"
+      >--     eval (lam t)         &#947; = &#955; &#958; a &#8594; eval t (mono&#8873;&#8902; &#958; &#947; , a)</a
+      ><a name="5518"
+      >
+</a
+      ><a name="5519" class="Comment"
+      >--     eval (app t u)       &#947; = (eval t &#947;) refl&#8804; (eval u &#947;)</a
+      ><a name="5578"
+      >
+</a
+      ><a name="5579" class="Comment"
+      >--     eval (multibox ts u) &#947; = &#955; &#958; &#950; &#8594; {!!}</a
+      ><a name="5623"
+      >
+</a
+      ><a name="5624" class="Comment"
+      >--     eval (down t)        &#947; = (eval t &#947;) refl&#8804; reflR</a
+      ><a name="5678"
+      >
+</a
+      ><a name="5679" class="Comment"
+      >--     eval (pair t u)      &#947; = eval t &#947; , eval u &#947;</a
+      ><a name="5730"
+      >
+</a
+      ><a name="5731" class="Comment"
+      >--     eval (fst t)         &#947; = &#960;&#8321; (eval t &#947;)</a
+      ><a name="5776"
+      >
+</a
+      ><a name="5777" class="Comment"
+      >--     eval (snd t)         &#947; = &#960;&#8322; (eval t &#947;)</a
+      ><a name="5822"
+      >
+</a
+      ><a name="5823" class="Comment"
+      >--     eval tt              &#947; = &#8729;</a
+      ><a name="5856"
+      >
+
+</a
+      ><a name="5858" class="Comment"
+      >--     eval&#8902; : &#8704; {&#928; &#915;} &#8594; &#915; &#8866;&#8902; &#928; &#8594; &#915; &#7481;&#8873;&#8902; &#928;</a
+      ><a name="5899"
+      >
+</a
+      ><a name="5900" class="Comment"
+      >--     eval&#8902; {&#8960;}     &#8729;        &#947; = &#8729;</a
+      ><a name="5935"
+      >
+</a
+      ><a name="5936" class="Comment"
+      >--     eval&#8902; {&#928; , A} (ts , t) &#947; = eval&#8902; ts &#947; , eval t &#947;</a
+      ><a name="5991"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

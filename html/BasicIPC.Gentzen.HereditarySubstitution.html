@@ -1,0 +1,5821 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIPC.Gentzen.HereditarySubstitution</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIPC.Gentzen.HereditarySubstitution.html#1" class="Module"
+      >BasicIPC.Gentzen.HereditarySubstitution</a
+      ><a name="47"
+      > </a
+      ><a name="48" class="Keyword"
+      >where</a
+      ><a name="53"
+      >
+
+</a
+      ><a name="55" class="Keyword"
+      >open</a
+      ><a name="59"
+      > </a
+      ><a name="60" class="Keyword"
+      >import</a
+      ><a name="66"
+      > </a
+      ><a name="67" href="BasicIPC.Gentzen.html#1" class="Module"
+      >BasicIPC.Gentzen</a
+      ><a name="83"
+      > </a
+      ><a name="84" class="Keyword"
+      >public</a
+      ><a name="90"
+      >
+
+
+</a
+      ><a name="93" class="Comment"
+      >-- Derivations, as Gentzen-style natural deduction trees, following Keller and Altenkirch.</a
+      ><a name="183"
+      >
+
+</a
+      ><a name="185" class="Keyword"
+      >mutual</a
+      ><a name="191"
+      >
+  </a
+      ><a name="194" class="Comment"
+      >-- Normal forms, or introductions.</a
+      ><a name="228"
+      >
+  </a
+      ><a name="231" class="Keyword"
+      >infix</a
+      ><a name="236"
+      > </a
+      ><a name="237" class="Number"
+      >3</a
+      ><a name="238"
+      > _&#8866;&#8319;&#7584;_
+  </a
+      ><a name="247" class="Keyword"
+      >data</a
+      ><a name="251"
+      > </a
+      ><a name="252" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >_&#8866;&#8319;&#7584;_</a
+      ><a name="257"
+      > </a
+      ><a name="258" class="Symbol"
+      >(</a
+      ><a name="259" href="BasicIPC.Gentzen.HereditarySubstitution.html#259" class="Bound"
+      >&#915;</a
+      ><a name="260"
+      > </a
+      ><a name="261" class="Symbol"
+      >:</a
+      ><a name="262"
+      > </a
+      ><a name="263" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="265"
+      > </a
+      ><a name="266" href="BasicIPC.html#166" class="Datatype"
+      >Ty</a
+      ><a name="268" class="Symbol"
+      >)</a
+      ><a name="269"
+      > </a
+      ><a name="270" class="Symbol"
+      >:</a
+      ><a name="271"
+      > </a
+      ><a name="272" href="BasicIPC.html#166" class="Datatype"
+      >Ty</a
+      ><a name="274"
+      > </a
+      ><a name="275" class="Symbol"
+      >&#8594;</a
+      ><a name="276"
+      > </a
+      ><a name="277" class="PrimitiveType"
+      >Set</a
+      ><a name="280"
+      > </a
+      ><a name="281" class="Keyword"
+      >where</a
+      ><a name="286"
+      >
+    </a
+      ><a name="291" href="BasicIPC.Gentzen.HereditarySubstitution.html#291" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="295"
+      >   </a
+      ><a name="298" class="Symbol"
+      >:</a
+      ><a name="299"
+      > </a
+      ><a name="300" class="Symbol"
+      >&#8704;</a
+      ><a name="301"
+      > </a
+      ><a name="302" class="Symbol"
+      >{</a
+      ><a name="303" href="BasicIPC.Gentzen.HereditarySubstitution.html#303" class="Bound"
+      >P</a
+      ><a name="304" class="Symbol"
+      >}</a
+      ><a name="305"
+      >   </a
+      ><a name="308" class="Symbol"
+      >&#8594;</a
+      ><a name="309"
+      > </a
+      ><a name="310" href="BasicIPC.Gentzen.HereditarySubstitution.html#259" class="Bound"
+      >&#915;</a
+      ><a name="311"
+      > </a
+      ><a name="312" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="315"
+      > </a
+      ><a name="316" href="BasicIPC.html#183" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="317"
+      > </a
+      ><a name="318" href="BasicIPC.Gentzen.HereditarySubstitution.html#303" class="Bound"
+      >P</a
+      ><a name="319"
+      > </a
+      ><a name="320" class="Symbol"
+      >&#8594;</a
+      ><a name="321"
+      > </a
+      ><a name="322" href="BasicIPC.Gentzen.HereditarySubstitution.html#259" class="Bound"
+      >&#915;</a
+      ><a name="323"
+      > </a
+      ><a name="324" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="327"
+      > </a
+      ><a name="328" href="BasicIPC.html#183" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="329"
+      > </a
+      ><a name="330" href="BasicIPC.Gentzen.HereditarySubstitution.html#303" class="Bound"
+      >P</a
+      ><a name="331"
+      >
+    </a
+      ><a name="336" href="BasicIPC.Gentzen.HereditarySubstitution.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="341"
+      >  </a
+      ><a name="343" class="Symbol"
+      >:</a
+      ><a name="344"
+      > </a
+      ><a name="345" class="Symbol"
+      >&#8704;</a
+      ><a name="346"
+      > </a
+      ><a name="347" class="Symbol"
+      >{</a
+      ><a name="348" href="BasicIPC.Gentzen.HereditarySubstitution.html#348" class="Bound"
+      >A</a
+      ><a name="349"
+      > </a
+      ><a name="350" href="BasicIPC.Gentzen.HereditarySubstitution.html#350" class="Bound"
+      >B</a
+      ><a name="351" class="Symbol"
+      >}</a
+      ><a name="352"
+      > </a
+      ><a name="353" class="Symbol"
+      >&#8594;</a
+      ><a name="354"
+      > </a
+      ><a name="355" href="BasicIPC.Gentzen.HereditarySubstitution.html#259" class="Bound"
+      >&#915;</a
+      ><a name="356"
+      > </a
+      ><a name="357" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="358"
+      > </a
+      ><a name="359" href="BasicIPC.Gentzen.HereditarySubstitution.html#348" class="Bound"
+      >A</a
+      ><a name="360"
+      > </a
+      ><a name="361" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="BasicIPC.Gentzen.HereditarySubstitution.html#350" class="Bound"
+      >B</a
+      ><a name="366"
+      > </a
+      ><a name="367" class="Symbol"
+      >&#8594;</a
+      ><a name="368"
+      > </a
+      ><a name="369" href="BasicIPC.Gentzen.HereditarySubstitution.html#259" class="Bound"
+      >&#915;</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="374"
+      > </a
+      ><a name="375" href="BasicIPC.Gentzen.HereditarySubstitution.html#348" class="Bound"
+      >A</a
+      ><a name="376"
+      > </a
+      ><a name="377" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="378"
+      > </a
+      ><a name="379" href="BasicIPC.Gentzen.HereditarySubstitution.html#350" class="Bound"
+      >B</a
+      ><a name="380"
+      >
+    </a
+      ><a name="385" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="391"
+      > </a
+      ><a name="392" class="Symbol"
+      >:</a
+      ><a name="393"
+      > </a
+      ><a name="394" class="Symbol"
+      >&#8704;</a
+      ><a name="395"
+      > </a
+      ><a name="396" class="Symbol"
+      >{</a
+      ><a name="397" href="BasicIPC.Gentzen.HereditarySubstitution.html#397" class="Bound"
+      >A</a
+      ><a name="398"
+      > </a
+      ><a name="399" href="BasicIPC.Gentzen.HereditarySubstitution.html#399" class="Bound"
+      >B</a
+      ><a name="400" class="Symbol"
+      >}</a
+      ><a name="401"
+      > </a
+      ><a name="402" class="Symbol"
+      >&#8594;</a
+      ><a name="403"
+      > </a
+      ><a name="404" href="BasicIPC.Gentzen.HereditarySubstitution.html#259" class="Bound"
+      >&#915;</a
+      ><a name="405"
+      > </a
+      ><a name="406" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="409"
+      > </a
+      ><a name="410" href="BasicIPC.Gentzen.HereditarySubstitution.html#397" class="Bound"
+      >A</a
+      ><a name="411"
+      > </a
+      ><a name="412" class="Symbol"
+      >&#8594;</a
+      ><a name="413"
+      > </a
+      ><a name="414" href="BasicIPC.Gentzen.HereditarySubstitution.html#259" class="Bound"
+      >&#915;</a
+      ><a name="415"
+      > </a
+      ><a name="416" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="419"
+      > </a
+      ><a name="420" href="BasicIPC.Gentzen.HereditarySubstitution.html#399" class="Bound"
+      >B</a
+      ><a name="421"
+      > </a
+      ><a name="422" class="Symbol"
+      >&#8594;</a
+      ><a name="423"
+      > </a
+      ><a name="424" href="BasicIPC.Gentzen.HereditarySubstitution.html#259" class="Bound"
+      >&#915;</a
+      ><a name="425"
+      > </a
+      ><a name="426" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="429"
+      > </a
+      ><a name="430" href="BasicIPC.Gentzen.HereditarySubstitution.html#397" class="Bound"
+      >A</a
+      ><a name="431"
+      > </a
+      ><a name="432" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="433"
+      > </a
+      ><a name="434" href="BasicIPC.Gentzen.HereditarySubstitution.html#399" class="Bound"
+      >B</a
+      ><a name="435"
+      >
+    </a
+      ><a name="440" href="BasicIPC.Gentzen.HereditarySubstitution.html#440" class="InductiveConstructor"
+      >tt&#8319;&#7584;</a
+      ><a name="444"
+      >   </a
+      ><a name="447" class="Symbol"
+      >:</a
+      ><a name="448"
+      > </a
+      ><a name="449" href="BasicIPC.Gentzen.HereditarySubstitution.html#259" class="Bound"
+      >&#915;</a
+      ><a name="450"
+      > </a
+      ><a name="451" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="454"
+      > </a
+      ><a name="455" href="BasicIPC.html#243" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="456"
+      >
+
+  </a
+      ><a name="460" class="Comment"
+      >-- Neutrals, or eliminations.</a
+      ><a name="489"
+      >
+  </a
+      ><a name="492" class="Keyword"
+      >infix</a
+      ><a name="497"
+      > </a
+      ><a name="498" class="Number"
+      >3</a
+      ><a name="499"
+      > _&#8866;&#8319;&#7497;_
+  </a
+      ><a name="508" class="Keyword"
+      >data</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >_&#8866;&#8319;&#7497;_</a
+      ><a name="518"
+      > </a
+      ><a name="519" class="Symbol"
+      >(</a
+      ><a name="520" href="BasicIPC.Gentzen.HereditarySubstitution.html#520" class="Bound"
+      >&#915;</a
+      ><a name="521"
+      > </a
+      ><a name="522" class="Symbol"
+      >:</a
+      ><a name="523"
+      > </a
+      ><a name="524" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="526"
+      > </a
+      ><a name="527" href="BasicIPC.html#166" class="Datatype"
+      >Ty</a
+      ><a name="529" class="Symbol"
+      >)</a
+      ><a name="530"
+      > </a
+      ><a name="531" class="Symbol"
+      >:</a
+      ><a name="532"
+      > </a
+      ><a name="533" href="BasicIPC.html#166" class="Datatype"
+      >Ty</a
+      ><a name="535"
+      > </a
+      ><a name="536" class="Symbol"
+      >&#8594;</a
+      ><a name="537"
+      > </a
+      ><a name="538" class="PrimitiveType"
+      >Set</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="Keyword"
+      >where</a
+      ><a name="547"
+      >
+    </a
+      ><a name="552" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="556"
+      > </a
+      ><a name="557" class="Symbol"
+      >:</a
+      ><a name="558"
+      > </a
+      ><a name="559" class="Symbol"
+      >&#8704;</a
+      ><a name="560"
+      > </a
+      ><a name="561" class="Symbol"
+      >{</a
+      ><a name="562" href="BasicIPC.Gentzen.HereditarySubstitution.html#562" class="Bound"
+      >A</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicIPC.Gentzen.HereditarySubstitution.html#564" class="Bound"
+      >C</a
+      ><a name="565" class="Symbol"
+      >}</a
+      ><a name="566"
+      > </a
+      ><a name="567" class="Symbol"
+      >&#8594;</a
+      ><a name="568"
+      > </a
+      ><a name="569" href="BasicIPC.Gentzen.HereditarySubstitution.html#562" class="Bound"
+      >A</a
+      ><a name="570"
+      > </a
+      ><a name="571" href="Common.Context.html#404" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="572"
+      > </a
+      ><a name="573" href="BasicIPC.Gentzen.HereditarySubstitution.html#520" class="Bound"
+      >&#915;</a
+      ><a name="574"
+      > </a
+      ><a name="575" class="Symbol"
+      >&#8594;</a
+      ><a name="576"
+      > </a
+      ><a name="577" href="BasicIPC.Gentzen.HereditarySubstitution.html#520" class="Bound"
+      >&#915;</a
+      ><a name="578"
+      > </a
+      ><a name="579" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="582"
+      > </a
+      ><a name="583" href="BasicIPC.Gentzen.HereditarySubstitution.html#562" class="Bound"
+      >A</a
+      ><a name="584"
+      > </a
+      ><a name="585" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="586"
+      > </a
+      ><a name="587" href="BasicIPC.Gentzen.HereditarySubstitution.html#564" class="Bound"
+      >C</a
+      ><a name="588"
+      > </a
+      ><a name="589" class="Symbol"
+      >&#8594;</a
+      ><a name="590"
+      > </a
+      ><a name="591" href="BasicIPC.Gentzen.HereditarySubstitution.html#520" class="Bound"
+      >&#915;</a
+      ><a name="592"
+      > </a
+      ><a name="593" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="596"
+      > </a
+      ><a name="597" href="BasicIPC.Gentzen.HereditarySubstitution.html#564" class="Bound"
+      >C</a
+      ><a name="598"
+      >
+
+  </a
+      ><a name="602" class="Comment"
+      >-- Spines.</a
+      ><a name="612"
+      >
+  </a
+      ><a name="615" class="Keyword"
+      >infix</a
+      ><a name="620"
+      > </a
+      ><a name="621" class="Number"
+      >3</a
+      ><a name="622"
+      > _&#8866;&#738;&#7510;_&#10649;_
+  </a
+      ><a name="633" class="Keyword"
+      >data</a
+      ><a name="637"
+      > </a
+      ><a name="638" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >_&#8866;&#738;&#7510;_&#10649;_</a
+      ><a name="645"
+      > </a
+      ><a name="646" class="Symbol"
+      >(</a
+      ><a name="647" href="BasicIPC.Gentzen.HereditarySubstitution.html#647" class="Bound"
+      >&#915;</a
+      ><a name="648"
+      > </a
+      ><a name="649" class="Symbol"
+      >:</a
+      ><a name="650"
+      > </a
+      ><a name="651" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="653"
+      > </a
+      ><a name="654" href="BasicIPC.html#166" class="Datatype"
+      >Ty</a
+      ><a name="656" class="Symbol"
+      >)</a
+      ><a name="657"
+      > </a
+      ><a name="658" class="Symbol"
+      >:</a
+      ><a name="659"
+      > </a
+      ><a name="660" href="BasicIPC.html#166" class="Datatype"
+      >Ty</a
+      ><a name="662"
+      > </a
+      ><a name="663" class="Symbol"
+      >&#8594;</a
+      ><a name="664"
+      > </a
+      ><a name="665" href="BasicIPC.html#166" class="Datatype"
+      >Ty</a
+      ><a name="667"
+      > </a
+      ><a name="668" class="Symbol"
+      >&#8594;</a
+      ><a name="669"
+      > </a
+      ><a name="670" class="PrimitiveType"
+      >Set</a
+      ><a name="673"
+      > </a
+      ><a name="674" class="Keyword"
+      >where</a
+      ><a name="679"
+      >
+    </a
+      ><a name="684" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="689"
+      > </a
+      ><a name="690" class="Symbol"
+      >:</a
+      ><a name="691"
+      > </a
+      ><a name="692" class="Symbol"
+      >&#8704;</a
+      ><a name="693"
+      > </a
+      ><a name="694" class="Symbol"
+      >{</a
+      ><a name="695" href="BasicIPC.Gentzen.HereditarySubstitution.html#695" class="Bound"
+      >C</a
+      ><a name="696" class="Symbol"
+      >}</a
+      ><a name="697"
+      >     </a
+      ><a name="702" class="Symbol"
+      >&#8594;</a
+      ><a name="703"
+      > </a
+      ><a name="704" href="BasicIPC.Gentzen.HereditarySubstitution.html#647" class="Bound"
+      >&#915;</a
+      ><a name="705"
+      > </a
+      ><a name="706" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="709"
+      > </a
+      ><a name="710" href="BasicIPC.Gentzen.HereditarySubstitution.html#695" class="Bound"
+      >C</a
+      ><a name="711"
+      > </a
+      ><a name="712" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="713"
+      > </a
+      ><a name="714" href="BasicIPC.Gentzen.HereditarySubstitution.html#695" class="Bound"
+      >C</a
+      ><a name="715"
+      >
+    </a
+      ><a name="720" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="725"
+      > </a
+      ><a name="726" class="Symbol"
+      >:</a
+      ><a name="727"
+      > </a
+      ><a name="728" class="Symbol"
+      >&#8704;</a
+      ><a name="729"
+      > </a
+      ><a name="730" class="Symbol"
+      >{</a
+      ><a name="731" href="BasicIPC.Gentzen.HereditarySubstitution.html#731" class="Bound"
+      >A</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="BasicIPC.Gentzen.HereditarySubstitution.html#733" class="Bound"
+      >B</a
+      ><a name="734"
+      > </a
+      ><a name="735" href="BasicIPC.Gentzen.HereditarySubstitution.html#735" class="Bound"
+      >C</a
+      ><a name="736" class="Symbol"
+      >}</a
+      ><a name="737"
+      > </a
+      ><a name="738" class="Symbol"
+      >&#8594;</a
+      ><a name="739"
+      > </a
+      ><a name="740" href="BasicIPC.Gentzen.HereditarySubstitution.html#647" class="Bound"
+      >&#915;</a
+      ><a name="741"
+      > </a
+      ><a name="742" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="BasicIPC.Gentzen.HereditarySubstitution.html#733" class="Bound"
+      >B</a
+      ><a name="747"
+      > </a
+      ><a name="748" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="BasicIPC.Gentzen.HereditarySubstitution.html#735" class="Bound"
+      >C</a
+      ><a name="751"
+      > </a
+      ><a name="752" class="Symbol"
+      >&#8594;</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="BasicIPC.Gentzen.HereditarySubstitution.html#647" class="Bound"
+      >&#915;</a
+      ><a name="755"
+      > </a
+      ><a name="756" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="759"
+      > </a
+      ><a name="760" href="BasicIPC.Gentzen.HereditarySubstitution.html#731" class="Bound"
+      >A</a
+      ><a name="761"
+      > </a
+      ><a name="762" class="Symbol"
+      >&#8594;</a
+      ><a name="763"
+      > </a
+      ><a name="764" href="BasicIPC.Gentzen.HereditarySubstitution.html#647" class="Bound"
+      >&#915;</a
+      ><a name="765"
+      > </a
+      ><a name="766" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="769"
+      > </a
+      ><a name="770" href="BasicIPC.Gentzen.HereditarySubstitution.html#731" class="Bound"
+      >A</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="773"
+      > </a
+      ><a name="774" href="BasicIPC.Gentzen.HereditarySubstitution.html#733" class="Bound"
+      >B</a
+      ><a name="775"
+      > </a
+      ><a name="776" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="777"
+      > </a
+      ><a name="778" href="BasicIPC.Gentzen.HereditarySubstitution.html#735" class="Bound"
+      >C</a
+      ><a name="779"
+      >
+    </a
+      ><a name="784" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="789"
+      > </a
+      ><a name="790" class="Symbol"
+      >:</a
+      ><a name="791"
+      > </a
+      ><a name="792" class="Symbol"
+      >&#8704;</a
+      ><a name="793"
+      > </a
+      ><a name="794" class="Symbol"
+      >{</a
+      ><a name="795" href="BasicIPC.Gentzen.HereditarySubstitution.html#795" class="Bound"
+      >A</a
+      ><a name="796"
+      > </a
+      ><a name="797" href="BasicIPC.Gentzen.HereditarySubstitution.html#797" class="Bound"
+      >B</a
+      ><a name="798"
+      > </a
+      ><a name="799" href="BasicIPC.Gentzen.HereditarySubstitution.html#799" class="Bound"
+      >C</a
+      ><a name="800" class="Symbol"
+      >}</a
+      ><a name="801"
+      > </a
+      ><a name="802" class="Symbol"
+      >&#8594;</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="BasicIPC.Gentzen.HereditarySubstitution.html#647" class="Bound"
+      >&#915;</a
+      ><a name="805"
+      > </a
+      ><a name="806" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="809"
+      > </a
+      ><a name="810" href="BasicIPC.Gentzen.HereditarySubstitution.html#795" class="Bound"
+      >A</a
+      ><a name="811"
+      > </a
+      ><a name="812" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="813"
+      > </a
+      ><a name="814" href="BasicIPC.Gentzen.HereditarySubstitution.html#799" class="Bound"
+      >C</a
+      ><a name="815"
+      > </a
+      ><a name="816" class="Symbol"
+      >&#8594;</a
+      ><a name="817"
+      > </a
+      ><a name="818" href="BasicIPC.Gentzen.HereditarySubstitution.html#647" class="Bound"
+      >&#915;</a
+      ><a name="819"
+      > </a
+      ><a name="820" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="823"
+      > </a
+      ><a name="824" href="BasicIPC.Gentzen.HereditarySubstitution.html#795" class="Bound"
+      >A</a
+      ><a name="825"
+      > </a
+      ><a name="826" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="827"
+      > </a
+      ><a name="828" href="BasicIPC.Gentzen.HereditarySubstitution.html#797" class="Bound"
+      >B</a
+      ><a name="829"
+      > </a
+      ><a name="830" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="831"
+      > </a
+      ><a name="832" href="BasicIPC.Gentzen.HereditarySubstitution.html#799" class="Bound"
+      >C</a
+      ><a name="833"
+      >
+    </a
+      ><a name="838" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="843"
+      > </a
+      ><a name="844" class="Symbol"
+      >:</a
+      ><a name="845"
+      > </a
+      ><a name="846" class="Symbol"
+      >&#8704;</a
+      ><a name="847"
+      > </a
+      ><a name="848" class="Symbol"
+      >{</a
+      ><a name="849" href="BasicIPC.Gentzen.HereditarySubstitution.html#849" class="Bound"
+      >A</a
+      ><a name="850"
+      > </a
+      ><a name="851" href="BasicIPC.Gentzen.HereditarySubstitution.html#851" class="Bound"
+      >B</a
+      ><a name="852"
+      > </a
+      ><a name="853" href="BasicIPC.Gentzen.HereditarySubstitution.html#853" class="Bound"
+      >C</a
+      ><a name="854" class="Symbol"
+      >}</a
+      ><a name="855"
+      > </a
+      ><a name="856" class="Symbol"
+      >&#8594;</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="BasicIPC.Gentzen.HereditarySubstitution.html#647" class="Bound"
+      >&#915;</a
+      ><a name="859"
+      > </a
+      ><a name="860" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="863"
+      > </a
+      ><a name="864" href="BasicIPC.Gentzen.HereditarySubstitution.html#851" class="Bound"
+      >B</a
+      ><a name="865"
+      > </a
+      ><a name="866" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="867"
+      > </a
+      ><a name="868" href="BasicIPC.Gentzen.HereditarySubstitution.html#853" class="Bound"
+      >C</a
+      ><a name="869"
+      > </a
+      ><a name="870" class="Symbol"
+      >&#8594;</a
+      ><a name="871"
+      > </a
+      ><a name="872" href="BasicIPC.Gentzen.HereditarySubstitution.html#647" class="Bound"
+      >&#915;</a
+      ><a name="873"
+      > </a
+      ><a name="874" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="BasicIPC.Gentzen.HereditarySubstitution.html#849" class="Bound"
+      >A</a
+      ><a name="879"
+      > </a
+      ><a name="880" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="881"
+      > </a
+      ><a name="882" href="BasicIPC.Gentzen.HereditarySubstitution.html#851" class="Bound"
+      >B</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="885"
+      > </a
+      ><a name="886" href="BasicIPC.Gentzen.HereditarySubstitution.html#853" class="Bound"
+      >C</a
+      ><a name="887"
+      >
+
+
+</a
+      ><a name="890" class="Comment"
+      >-- Translation to simple terms.</a
+      ><a name="921"
+      >
+
+</a
+      ><a name="923" class="Keyword"
+      >mutual</a
+      ><a name="929"
+      >
+  </a
+      ><a name="932" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="937"
+      > </a
+      ><a name="938" class="Symbol"
+      >:</a
+      ><a name="939"
+      > </a
+      ><a name="940" class="Symbol"
+      >&#8704;</a
+      ><a name="941"
+      > </a
+      ><a name="942" class="Symbol"
+      >{</a
+      ><a name="943" href="BasicIPC.Gentzen.HereditarySubstitution.html#943" class="Bound"
+      >A</a
+      ><a name="944"
+      > </a
+      ><a name="945" href="BasicIPC.Gentzen.HereditarySubstitution.html#945" class="Bound"
+      >&#915;</a
+      ><a name="946" class="Symbol"
+      >}</a
+      ><a name="947"
+      > </a
+      ><a name="948" class="Symbol"
+      >&#8594;</a
+      ><a name="949"
+      > </a
+      ><a name="950" href="BasicIPC.Gentzen.HereditarySubstitution.html#945" class="Bound"
+      >&#915;</a
+      ><a name="951"
+      > </a
+      ><a name="952" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="955"
+      > </a
+      ><a name="956" href="BasicIPC.Gentzen.HereditarySubstitution.html#943" class="Bound"
+      >A</a
+      ><a name="957"
+      > </a
+      ><a name="958" class="Symbol"
+      >&#8594;</a
+      ><a name="959"
+      > </a
+      ><a name="960" href="BasicIPC.Gentzen.HereditarySubstitution.html#945" class="Bound"
+      >&#915;</a
+      ><a name="961"
+      > </a
+      ><a name="962" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="963"
+      > </a
+      ><a name="964" href="BasicIPC.Gentzen.HereditarySubstitution.html#943" class="Bound"
+      >A</a
+      ><a name="965"
+      >
+  </a
+      ><a name="968" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="973"
+      > </a
+      ><a name="974" class="Symbol"
+      >(</a
+      ><a name="975" href="BasicIPC.Gentzen.HereditarySubstitution.html#291" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="979"
+      > </a
+      ><a name="980" href="BasicIPC.Gentzen.HereditarySubstitution.html#980" class="Bound"
+      >t</a
+      ><a name="981" class="Symbol"
+      >)</a
+      ><a name="982"
+      >     </a
+      ><a name="987" class="Symbol"
+      >=</a
+      ><a name="988"
+      > </a
+      ><a name="989" href="BasicIPC.Gentzen.HereditarySubstitution.html#1111" class="Function"
+      >ne&#8594;tm</a
+      ><a name="994"
+      > </a
+      ><a name="995" href="BasicIPC.Gentzen.HereditarySubstitution.html#980" class="Bound"
+      >t</a
+      ><a name="996"
+      >
+  </a
+      ><a name="999" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1004"
+      > </a
+      ><a name="1005" class="Symbol"
+      >(</a
+      ><a name="1006" href="BasicIPC.Gentzen.HereditarySubstitution.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="BasicIPC.Gentzen.HereditarySubstitution.html#1012" class="Bound"
+      >t</a
+      ><a name="1013" class="Symbol"
+      >)</a
+      ><a name="1014"
+      >    </a
+      ><a name="1018" class="Symbol"
+      >=</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" href="BasicIPC.Gentzen.html#206" class="InductiveConstructor"
+      >lam</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" class="Symbol"
+      >(</a
+      ><a name="1025" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="BasicIPC.Gentzen.HereditarySubstitution.html#1012" class="Bound"
+      >t</a
+      ><a name="1032" class="Symbol"
+      >)</a
+      ><a name="1033"
+      >
+  </a
+      ><a name="1036" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" class="Symbol"
+      >(</a
+      ><a name="1043" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="1049"
+      > </a
+      ><a name="1050" href="BasicIPC.Gentzen.HereditarySubstitution.html#1050" class="Bound"
+      >t</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" href="BasicIPC.Gentzen.HereditarySubstitution.html#1052" class="Bound"
+      >u</a
+      ><a name="1053" class="Symbol"
+      >)</a
+      ><a name="1054"
+      > </a
+      ><a name="1055" class="Symbol"
+      >=</a
+      ><a name="1056"
+      > </a
+      ><a name="1057" href="BasicIPC.Gentzen.html#292" class="InductiveConstructor"
+      >pair</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" class="Symbol"
+      >(</a
+      ><a name="1063" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" href="BasicIPC.Gentzen.HereditarySubstitution.html#1050" class="Bound"
+      >t</a
+      ><a name="1070" class="Symbol"
+      >)</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" class="Symbol"
+      >(</a
+      ><a name="1073" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="BasicIPC.Gentzen.HereditarySubstitution.html#1052" class="Bound"
+      >u</a
+      ><a name="1080" class="Symbol"
+      >)</a
+      ><a name="1081"
+      >
+  </a
+      ><a name="1084" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="BasicIPC.Gentzen.HereditarySubstitution.html#440" class="InductiveConstructor"
+      >tt&#8319;&#7584;</a
+      ><a name="1094"
+      >         </a
+      ><a name="1103" class="Symbol"
+      >=</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="BasicIPC.Gentzen.html#411" class="InductiveConstructor"
+      >tt</a
+      ><a name="1107"
+      >
+
+  </a
+      ><a name="1111" href="BasicIPC.Gentzen.HereditarySubstitution.html#1111" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" class="Symbol"
+      >:</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" class="Symbol"
+      >&#8704;</a
+      ><a name="1120"
+      > </a
+      ><a name="1121" class="Symbol"
+      >{</a
+      ><a name="1122" href="BasicIPC.Gentzen.HereditarySubstitution.html#1122" class="Bound"
+      >A</a
+      ><a name="1123"
+      > </a
+      ><a name="1124" href="BasicIPC.Gentzen.HereditarySubstitution.html#1124" class="Bound"
+      >&#915;</a
+      ><a name="1125" class="Symbol"
+      >}</a
+      ><a name="1126"
+      > </a
+      ><a name="1127" class="Symbol"
+      >&#8594;</a
+      ><a name="1128"
+      > </a
+      ><a name="1129" href="BasicIPC.Gentzen.HereditarySubstitution.html#1124" class="Bound"
+      >&#915;</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" href="BasicIPC.Gentzen.HereditarySubstitution.html#1122" class="Bound"
+      >A</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" class="Symbol"
+      >&#8594;</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" href="BasicIPC.Gentzen.HereditarySubstitution.html#1124" class="Bound"
+      >&#915;</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" href="BasicIPC.Gentzen.HereditarySubstitution.html#1122" class="Bound"
+      >A</a
+      ><a name="1144"
+      >
+  </a
+      ><a name="1147" href="BasicIPC.Gentzen.HereditarySubstitution.html#1111" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1152"
+      > </a
+      ><a name="1153" class="Symbol"
+      >(</a
+      ><a name="1154" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" href="BasicIPC.Gentzen.HereditarySubstitution.html#1159" class="Bound"
+      >i</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="BasicIPC.Gentzen.HereditarySubstitution.html#1161" class="Bound"
+      >xs</a
+      ><a name="1163" class="Symbol"
+      >)</a
+      ><a name="1164"
+      > </a
+      ><a name="1165" class="Symbol"
+      >=</a
+      ><a name="1166"
+      > </a
+      ><a name="1167" href="BasicIPC.Gentzen.HereditarySubstitution.html#1187" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1172"
+      > </a
+      ><a name="1173" class="Symbol"
+      >(</a
+      ><a name="1174" href="BasicIPC.Gentzen.html#173" class="InductiveConstructor"
+      >var</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" href="BasicIPC.Gentzen.HereditarySubstitution.html#1159" class="Bound"
+      >i</a
+      ><a name="1179" class="Symbol"
+      >)</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" href="BasicIPC.Gentzen.HereditarySubstitution.html#1161" class="Bound"
+      >xs</a
+      ><a name="1183"
+      >
+
+  </a
+      ><a name="1187" href="BasicIPC.Gentzen.HereditarySubstitution.html#1187" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1192"
+      > </a
+      ><a name="1193" class="Symbol"
+      >:</a
+      ><a name="1194"
+      > </a
+      ><a name="1195" class="Symbol"
+      >&#8704;</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" class="Symbol"
+      >{</a
+      ><a name="1198" href="BasicIPC.Gentzen.HereditarySubstitution.html#1198" class="Bound"
+      >A</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" href="BasicIPC.Gentzen.HereditarySubstitution.html#1200" class="Bound"
+      >C</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" href="BasicIPC.Gentzen.HereditarySubstitution.html#1202" class="Bound"
+      >&#915;</a
+      ><a name="1203" class="Symbol"
+      >}</a
+      ><a name="1204"
+      > </a
+      ><a name="1205" class="Symbol"
+      >&#8594;</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" href="BasicIPC.Gentzen.HereditarySubstitution.html#1202" class="Bound"
+      >&#915;</a
+      ><a name="1208"
+      > </a
+      ><a name="1209" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1210"
+      > </a
+      ><a name="1211" href="BasicIPC.Gentzen.HereditarySubstitution.html#1198" class="Bound"
+      >A</a
+      ><a name="1212"
+      > </a
+      ><a name="1213" class="Symbol"
+      >&#8594;</a
+      ><a name="1214"
+      > </a
+      ><a name="1215" href="BasicIPC.Gentzen.HereditarySubstitution.html#1202" class="Bound"
+      >&#915;</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1220"
+      > </a
+      ><a name="1221" href="BasicIPC.Gentzen.HereditarySubstitution.html#1198" class="Bound"
+      >A</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" href="BasicIPC.Gentzen.HereditarySubstitution.html#1200" class="Bound"
+      >C</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" class="Symbol"
+      >&#8594;</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" href="BasicIPC.Gentzen.HereditarySubstitution.html#1202" class="Bound"
+      >&#915;</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" href="BasicIPC.Gentzen.HereditarySubstitution.html#1200" class="Bound"
+      >C</a
+      ><a name="1234"
+      >
+  </a
+      ><a name="1237" href="BasicIPC.Gentzen.HereditarySubstitution.html#1187" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" href="BasicIPC.Gentzen.HereditarySubstitution.html#1243" class="Bound"
+      >t</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="1250"
+      >        </a
+      ><a name="1258" class="Symbol"
+      >=</a
+      ><a name="1259"
+      > </a
+      ><a name="1260" href="BasicIPC.Gentzen.HereditarySubstitution.html#1243" class="Bound"
+      >t</a
+      ><a name="1261"
+      >
+  </a
+      ><a name="1264" href="BasicIPC.Gentzen.HereditarySubstitution.html#1187" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" href="BasicIPC.Gentzen.HereditarySubstitution.html#1270" class="Bound"
+      >t</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" class="Symbol"
+      >(</a
+      ><a name="1273" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="1278"
+      > </a
+      ><a name="1279" href="BasicIPC.Gentzen.HereditarySubstitution.html#1279" class="Bound"
+      >xs</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" href="BasicIPC.Gentzen.HereditarySubstitution.html#1282" class="Bound"
+      >u</a
+      ><a name="1283" class="Symbol"
+      >)</a
+      ><a name="1284"
+      > </a
+      ><a name="1285" class="Symbol"
+      >=</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" href="BasicIPC.Gentzen.HereditarySubstitution.html#1187" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" class="Symbol"
+      >(</a
+      ><a name="1294" href="BasicIPC.Gentzen.html#247" class="InductiveConstructor"
+      >app</a
+      ><a name="1297"
+      > </a
+      ><a name="1298" href="BasicIPC.Gentzen.HereditarySubstitution.html#1270" class="Bound"
+      >t</a
+      ><a name="1299"
+      > </a
+      ><a name="1300" class="Symbol"
+      >(</a
+      ><a name="1301" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1306"
+      > </a
+      ><a name="1307" href="BasicIPC.Gentzen.HereditarySubstitution.html#1282" class="Bound"
+      >u</a
+      ><a name="1308" class="Symbol"
+      >))</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" href="BasicIPC.Gentzen.HereditarySubstitution.html#1279" class="Bound"
+      >xs</a
+      ><a name="1313"
+      >
+  </a
+      ><a name="1316" href="BasicIPC.Gentzen.HereditarySubstitution.html#1187" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1321"
+      > </a
+      ><a name="1322" href="BasicIPC.Gentzen.HereditarySubstitution.html#1322" class="Bound"
+      >t</a
+      ><a name="1323"
+      > </a
+      ><a name="1324" class="Symbol"
+      >(</a
+      ><a name="1325" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="1330"
+      > </a
+      ><a name="1331" href="BasicIPC.Gentzen.HereditarySubstitution.html#1331" class="Bound"
+      >xs</a
+      ><a name="1333" class="Symbol"
+      >)</a
+      ><a name="1334"
+      >   </a
+      ><a name="1337" class="Symbol"
+      >=</a
+      ><a name="1338"
+      > </a
+      ><a name="1339" href="BasicIPC.Gentzen.HereditarySubstitution.html#1187" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1344"
+      > </a
+      ><a name="1345" class="Symbol"
+      >(</a
+      ><a name="1346" href="BasicIPC.Gentzen.html#337" class="InductiveConstructor"
+      >fst</a
+      ><a name="1349"
+      > </a
+      ><a name="1350" href="BasicIPC.Gentzen.HereditarySubstitution.html#1322" class="Bound"
+      >t</a
+      ><a name="1351" class="Symbol"
+      >)</a
+      ><a name="1352"
+      > </a
+      ><a name="1353" href="BasicIPC.Gentzen.HereditarySubstitution.html#1331" class="Bound"
+      >xs</a
+      ><a name="1355"
+      >
+  </a
+      ><a name="1358" href="BasicIPC.Gentzen.HereditarySubstitution.html#1187" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1363"
+      > </a
+      ><a name="1364" href="BasicIPC.Gentzen.HereditarySubstitution.html#1364" class="Bound"
+      >t</a
+      ><a name="1365"
+      > </a
+      ><a name="1366" class="Symbol"
+      >(</a
+      ><a name="1367" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="1372"
+      > </a
+      ><a name="1373" href="BasicIPC.Gentzen.HereditarySubstitution.html#1373" class="Bound"
+      >xs</a
+      ><a name="1375" class="Symbol"
+      >)</a
+      ><a name="1376"
+      >   </a
+      ><a name="1379" class="Symbol"
+      >=</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" href="BasicIPC.Gentzen.HereditarySubstitution.html#1187" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1386"
+      > </a
+      ><a name="1387" class="Symbol"
+      >(</a
+      ><a name="1388" href="BasicIPC.Gentzen.html#374" class="InductiveConstructor"
+      >snd</a
+      ><a name="1391"
+      > </a
+      ><a name="1392" href="BasicIPC.Gentzen.HereditarySubstitution.html#1364" class="Bound"
+      >t</a
+      ><a name="1393" class="Symbol"
+      >)</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" href="BasicIPC.Gentzen.HereditarySubstitution.html#1373" class="Bound"
+      >xs</a
+      ><a name="1397"
+      >
+
+
+</a
+      ><a name="1400" class="Comment"
+      >-- Monotonicity with respect to context inclusion.</a
+      ><a name="1450"
+      >
+
+</a
+      ><a name="1452" class="Keyword"
+      >mutual</a
+      ><a name="1458"
+      >
+  </a
+      ><a name="1461" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" class="Symbol"
+      >:</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" class="Symbol"
+      >&#8704;</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" class="Symbol"
+      >{</a
+      ><a name="1474" href="BasicIPC.Gentzen.HereditarySubstitution.html#1474" class="Bound"
+      >A</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="BasicIPC.Gentzen.HereditarySubstitution.html#1476" class="Bound"
+      >&#915;</a
+      ><a name="1477"
+      > </a
+      ><a name="1478" href="BasicIPC.Gentzen.HereditarySubstitution.html#1478" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1480" class="Symbol"
+      >}</a
+      ><a name="1481"
+      > </a
+      ><a name="1482" class="Symbol"
+      >&#8594;</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" href="BasicIPC.Gentzen.HereditarySubstitution.html#1476" class="Bound"
+      >&#915;</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" href="Common.Context.html#801" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1487"
+      > </a
+      ><a name="1488" href="BasicIPC.Gentzen.HereditarySubstitution.html#1478" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1490"
+      > </a
+      ><a name="1491" class="Symbol"
+      >&#8594;</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" href="BasicIPC.Gentzen.HereditarySubstitution.html#1476" class="Bound"
+      >&#915;</a
+      ><a name="1494"
+      > </a
+      ><a name="1495" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1498"
+      > </a
+      ><a name="1499" href="BasicIPC.Gentzen.HereditarySubstitution.html#1474" class="Bound"
+      >A</a
+      ><a name="1500"
+      > </a
+      ><a name="1501" class="Symbol"
+      >&#8594;</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" href="BasicIPC.Gentzen.HereditarySubstitution.html#1478" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" href="BasicIPC.Gentzen.HereditarySubstitution.html#1474" class="Bound"
+      >A</a
+      ><a name="1511"
+      >
+  </a
+      ><a name="1514" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="1521"
+      > </a
+      ><a name="1522" href="BasicIPC.Gentzen.HereditarySubstitution.html#1522" class="Bound"
+      >&#951;</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" class="Symbol"
+      >(</a
+      ><a name="1525" href="BasicIPC.Gentzen.HereditarySubstitution.html#291" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="1529"
+      > </a
+      ><a name="1530" href="BasicIPC.Gentzen.HereditarySubstitution.html#1530" class="Bound"
+      >t</a
+      ><a name="1531" class="Symbol"
+      >)</a
+      ><a name="1532"
+      >     </a
+      ><a name="1537" class="Symbol"
+      >=</a
+      ><a name="1538"
+      > </a
+      ><a name="1539" href="BasicIPC.Gentzen.HereditarySubstitution.html#291" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="1543"
+      > </a
+      ><a name="1544" class="Symbol"
+      >(</a
+      ><a name="1545" href="BasicIPC.Gentzen.HereditarySubstitution.html#1709" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="1552"
+      > </a
+      ><a name="1553" href="BasicIPC.Gentzen.HereditarySubstitution.html#1522" class="Bound"
+      >&#951;</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="BasicIPC.Gentzen.HereditarySubstitution.html#1530" class="Bound"
+      >t</a
+      ><a name="1556" class="Symbol"
+      >)</a
+      ><a name="1557"
+      >
+  </a
+      ><a name="1560" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="1567"
+      > </a
+      ><a name="1568" href="BasicIPC.Gentzen.HereditarySubstitution.html#1568" class="Bound"
+      >&#951;</a
+      ><a name="1569"
+      > </a
+      ><a name="1570" class="Symbol"
+      >(</a
+      ><a name="1571" href="BasicIPC.Gentzen.HereditarySubstitution.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="1576"
+      > </a
+      ><a name="1577" href="BasicIPC.Gentzen.HereditarySubstitution.html#1577" class="Bound"
+      >t</a
+      ><a name="1578" class="Symbol"
+      >)</a
+      ><a name="1579"
+      >    </a
+      ><a name="1583" class="Symbol"
+      >=</a
+      ><a name="1584"
+      > </a
+      ><a name="1585" href="BasicIPC.Gentzen.HereditarySubstitution.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" class="Symbol"
+      >(</a
+      ><a name="1592" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="1599"
+      > </a
+      ><a name="1600" class="Symbol"
+      >(</a
+      ><a name="1601" href="Common.Context.html#896" class="InductiveConstructor"
+      >keep</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" href="BasicIPC.Gentzen.HereditarySubstitution.html#1568" class="Bound"
+      >&#951;</a
+      ><a name="1607" class="Symbol"
+      >)</a
+      ><a name="1608"
+      > </a
+      ><a name="1609" href="BasicIPC.Gentzen.HereditarySubstitution.html#1577" class="Bound"
+      >t</a
+      ><a name="1610" class="Symbol"
+      >)</a
+      ><a name="1611"
+      >
+  </a
+      ><a name="1614" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="1621"
+      > </a
+      ><a name="1622" href="BasicIPC.Gentzen.HereditarySubstitution.html#1622" class="Bound"
+      >&#951;</a
+      ><a name="1623"
+      > </a
+      ><a name="1624" class="Symbol"
+      >(</a
+      ><a name="1625" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" href="BasicIPC.Gentzen.HereditarySubstitution.html#1632" class="Bound"
+      >t</a
+      ><a name="1633"
+      > </a
+      ><a name="1634" href="BasicIPC.Gentzen.HereditarySubstitution.html#1634" class="Bound"
+      >u</a
+      ><a name="1635" class="Symbol"
+      >)</a
+      ><a name="1636"
+      > </a
+      ><a name="1637" class="Symbol"
+      >=</a
+      ><a name="1638"
+      > </a
+      ><a name="1639" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="1645"
+      > </a
+      ><a name="1646" class="Symbol"
+      >(</a
+      ><a name="1647" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" href="BasicIPC.Gentzen.HereditarySubstitution.html#1622" class="Bound"
+      >&#951;</a
+      ><a name="1656"
+      > </a
+      ><a name="1657" href="BasicIPC.Gentzen.HereditarySubstitution.html#1632" class="Bound"
+      >t</a
+      ><a name="1658" class="Symbol"
+      >)</a
+      ><a name="1659"
+      > </a
+      ><a name="1660" class="Symbol"
+      >(</a
+      ><a name="1661" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="BasicIPC.Gentzen.HereditarySubstitution.html#1622" class="Bound"
+      >&#951;</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="BasicIPC.Gentzen.HereditarySubstitution.html#1634" class="Bound"
+      >u</a
+      ><a name="1672" class="Symbol"
+      >)</a
+      ><a name="1673"
+      >
+  </a
+      ><a name="1676" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="1683"
+      > </a
+      ><a name="1684" href="BasicIPC.Gentzen.HereditarySubstitution.html#1684" class="Bound"
+      >&#951;</a
+      ><a name="1685"
+      > </a
+      ><a name="1686" href="BasicIPC.Gentzen.HereditarySubstitution.html#440" class="InductiveConstructor"
+      >tt&#8319;&#7584;</a
+      ><a name="1690"
+      >         </a
+      ><a name="1699" class="Symbol"
+      >=</a
+      ><a name="1700"
+      > </a
+      ><a name="1701" href="BasicIPC.Gentzen.HereditarySubstitution.html#440" class="InductiveConstructor"
+      >tt&#8319;&#7584;</a
+      ><a name="1705"
+      >
+
+  </a
+      ><a name="1709" href="BasicIPC.Gentzen.HereditarySubstitution.html#1709" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" class="Symbol"
+      >:</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" class="Symbol"
+      >&#8704;</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" class="Symbol"
+      >{</a
+      ><a name="1722" href="BasicIPC.Gentzen.HereditarySubstitution.html#1722" class="Bound"
+      >A</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" href="BasicIPC.Gentzen.HereditarySubstitution.html#1724" class="Bound"
+      >&#915;</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="BasicIPC.Gentzen.HereditarySubstitution.html#1726" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1728" class="Symbol"
+      >}</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" class="Symbol"
+      >&#8594;</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" href="BasicIPC.Gentzen.HereditarySubstitution.html#1724" class="Bound"
+      >&#915;</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="Common.Context.html#801" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="BasicIPC.Gentzen.HereditarySubstitution.html#1726" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1738"
+      > </a
+      ><a name="1739" class="Symbol"
+      >&#8594;</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" href="BasicIPC.Gentzen.HereditarySubstitution.html#1724" class="Bound"
+      >&#915;</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" href="BasicIPC.Gentzen.HereditarySubstitution.html#1722" class="Bound"
+      >A</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" class="Symbol"
+      >&#8594;</a
+      ><a name="1750"
+      > </a
+      ><a name="1751" href="BasicIPC.Gentzen.HereditarySubstitution.html#1726" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="BasicIPC.Gentzen.HereditarySubstitution.html#1722" class="Bound"
+      >A</a
+      ><a name="1759"
+      >
+  </a
+      ><a name="1762" href="BasicIPC.Gentzen.HereditarySubstitution.html#1709" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="1769"
+      > </a
+      ><a name="1770" href="BasicIPC.Gentzen.HereditarySubstitution.html#1770" class="Bound"
+      >&#951;</a
+      ><a name="1771"
+      > </a
+      ><a name="1772" class="Symbol"
+      >(</a
+      ><a name="1773" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" href="BasicIPC.Gentzen.HereditarySubstitution.html#1778" class="Bound"
+      >i</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" href="BasicIPC.Gentzen.HereditarySubstitution.html#1780" class="Bound"
+      >xs</a
+      ><a name="1782" class="Symbol"
+      >)</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" class="Symbol"
+      >=</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="1790"
+      > </a
+      ><a name="1791" class="Symbol"
+      >(</a
+      ><a name="1792" href="Common.Context.html#1647" class="Function"
+      >mono&#8712;</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="BasicIPC.Gentzen.HereditarySubstitution.html#1770" class="Bound"
+      >&#951;</a
+      ><a name="1799"
+      > </a
+      ><a name="1800" href="BasicIPC.Gentzen.HereditarySubstitution.html#1778" class="Bound"
+      >i</a
+      ><a name="1801" class="Symbol"
+      >)</a
+      ><a name="1802"
+      > </a
+      ><a name="1803" class="Symbol"
+      >(</a
+      ><a name="1804" href="BasicIPC.Gentzen.HereditarySubstitution.html#1821" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="1811"
+      > </a
+      ><a name="1812" href="BasicIPC.Gentzen.HereditarySubstitution.html#1770" class="Bound"
+      >&#951;</a
+      ><a name="1813"
+      > </a
+      ><a name="1814" href="BasicIPC.Gentzen.HereditarySubstitution.html#1780" class="Bound"
+      >xs</a
+      ><a name="1816" class="Symbol"
+      >)</a
+      ><a name="1817"
+      >
+
+  </a
+      ><a name="1821" href="BasicIPC.Gentzen.HereditarySubstitution.html#1821" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="1828"
+      > </a
+      ><a name="1829" class="Symbol"
+      >:</a
+      ><a name="1830"
+      > </a
+      ><a name="1831" class="Symbol"
+      >&#8704;</a
+      ><a name="1832"
+      > </a
+      ><a name="1833" class="Symbol"
+      >{</a
+      ><a name="1834" href="BasicIPC.Gentzen.HereditarySubstitution.html#1834" class="Bound"
+      >A</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" href="BasicIPC.Gentzen.HereditarySubstitution.html#1836" class="Bound"
+      >C</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" href="BasicIPC.Gentzen.HereditarySubstitution.html#1838" class="Bound"
+      >&#915;</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="BasicIPC.Gentzen.HereditarySubstitution.html#1840" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1842" class="Symbol"
+      >}</a
+      ><a name="1843"
+      > </a
+      ><a name="1844" class="Symbol"
+      >&#8594;</a
+      ><a name="1845"
+      > </a
+      ><a name="1846" href="BasicIPC.Gentzen.HereditarySubstitution.html#1838" class="Bound"
+      >&#915;</a
+      ><a name="1847"
+      > </a
+      ><a name="1848" href="Common.Context.html#801" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1849"
+      > </a
+      ><a name="1850" href="BasicIPC.Gentzen.HereditarySubstitution.html#1840" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1852"
+      > </a
+      ><a name="1853" class="Symbol"
+      >&#8594;</a
+      ><a name="1854"
+      > </a
+      ><a name="1855" href="BasicIPC.Gentzen.HereditarySubstitution.html#1838" class="Bound"
+      >&#915;</a
+      ><a name="1856"
+      > </a
+      ><a name="1857" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1860"
+      > </a
+      ><a name="1861" href="BasicIPC.Gentzen.HereditarySubstitution.html#1834" class="Bound"
+      >A</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" href="BasicIPC.Gentzen.HereditarySubstitution.html#1836" class="Bound"
+      >C</a
+      ><a name="1866"
+      > </a
+      ><a name="1867" class="Symbol"
+      >&#8594;</a
+      ><a name="1868"
+      > </a
+      ><a name="1869" href="BasicIPC.Gentzen.HereditarySubstitution.html#1840" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1871"
+      > </a
+      ><a name="1872" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" href="BasicIPC.Gentzen.HereditarySubstitution.html#1834" class="Bound"
+      >A</a
+      ><a name="1877"
+      > </a
+      ><a name="1878" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" href="BasicIPC.Gentzen.HereditarySubstitution.html#1836" class="Bound"
+      >C</a
+      ><a name="1881"
+      >
+  </a
+      ><a name="1884" href="BasicIPC.Gentzen.HereditarySubstitution.html#1821" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" href="BasicIPC.Gentzen.HereditarySubstitution.html#1892" class="Bound"
+      >&#951;</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="1899"
+      >        </a
+      ><a name="1907" class="Symbol"
+      >=</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="1914"
+      >
+  </a
+      ><a name="1917" href="BasicIPC.Gentzen.HereditarySubstitution.html#1821" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" href="BasicIPC.Gentzen.HereditarySubstitution.html#1925" class="Bound"
+      >&#951;</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" class="Symbol"
+      >(</a
+      ><a name="1928" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="BasicIPC.Gentzen.HereditarySubstitution.html#1934" class="Bound"
+      >xs</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" href="BasicIPC.Gentzen.HereditarySubstitution.html#1937" class="Bound"
+      >u</a
+      ><a name="1938" class="Symbol"
+      >)</a
+      ><a name="1939"
+      > </a
+      ><a name="1940" class="Symbol"
+      >=</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" class="Symbol"
+      >(</a
+      ><a name="1949" href="BasicIPC.Gentzen.HereditarySubstitution.html#1821" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="1956"
+      > </a
+      ><a name="1957" href="BasicIPC.Gentzen.HereditarySubstitution.html#1925" class="Bound"
+      >&#951;</a
+      ><a name="1958"
+      > </a
+      ><a name="1959" href="BasicIPC.Gentzen.HereditarySubstitution.html#1934" class="Bound"
+      >xs</a
+      ><a name="1961" class="Symbol"
+      >)</a
+      ><a name="1962"
+      > </a
+      ><a name="1963" class="Symbol"
+      >(</a
+      ><a name="1964" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" href="BasicIPC.Gentzen.HereditarySubstitution.html#1925" class="Bound"
+      >&#951;</a
+      ><a name="1973"
+      > </a
+      ><a name="1974" href="BasicIPC.Gentzen.HereditarySubstitution.html#1937" class="Bound"
+      >u</a
+      ><a name="1975" class="Symbol"
+      >)</a
+      ><a name="1976"
+      >
+  </a
+      ><a name="1979" href="BasicIPC.Gentzen.HereditarySubstitution.html#1821" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="1986"
+      > </a
+      ><a name="1987" href="BasicIPC.Gentzen.HereditarySubstitution.html#1987" class="Bound"
+      >&#951;</a
+      ><a name="1988"
+      > </a
+      ><a name="1989" class="Symbol"
+      >(</a
+      ><a name="1990" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="1995"
+      > </a
+      ><a name="1996" href="BasicIPC.Gentzen.HereditarySubstitution.html#1996" class="Bound"
+      >xs</a
+      ><a name="1998" class="Symbol"
+      >)</a
+      ><a name="1999"
+      >   </a
+      ><a name="2002" class="Symbol"
+      >=</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="2009"
+      > </a
+      ><a name="2010" class="Symbol"
+      >(</a
+      ><a name="2011" href="BasicIPC.Gentzen.HereditarySubstitution.html#1821" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2018"
+      > </a
+      ><a name="2019" href="BasicIPC.Gentzen.HereditarySubstitution.html#1987" class="Bound"
+      >&#951;</a
+      ><a name="2020"
+      > </a
+      ><a name="2021" href="BasicIPC.Gentzen.HereditarySubstitution.html#1996" class="Bound"
+      >xs</a
+      ><a name="2023" class="Symbol"
+      >)</a
+      ><a name="2024"
+      >
+  </a
+      ><a name="2027" href="BasicIPC.Gentzen.HereditarySubstitution.html#1821" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2034"
+      > </a
+      ><a name="2035" href="BasicIPC.Gentzen.HereditarySubstitution.html#2035" class="Bound"
+      >&#951;</a
+      ><a name="2036"
+      > </a
+      ><a name="2037" class="Symbol"
+      >(</a
+      ><a name="2038" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" href="BasicIPC.Gentzen.HereditarySubstitution.html#2044" class="Bound"
+      >xs</a
+      ><a name="2046" class="Symbol"
+      >)</a
+      ><a name="2047"
+      >   </a
+      ><a name="2050" class="Symbol"
+      >=</a
+      ><a name="2051"
+      > </a
+      ><a name="2052" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="2057"
+      > </a
+      ><a name="2058" class="Symbol"
+      >(</a
+      ><a name="2059" href="BasicIPC.Gentzen.HereditarySubstitution.html#1821" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2066"
+      > </a
+      ><a name="2067" href="BasicIPC.Gentzen.HereditarySubstitution.html#2035" class="Bound"
+      >&#951;</a
+      ><a name="2068"
+      > </a
+      ><a name="2069" href="BasicIPC.Gentzen.HereditarySubstitution.html#2044" class="Bound"
+      >xs</a
+      ><a name="2071" class="Symbol"
+      >)</a
+      ><a name="2072"
+      >
+
+
+</a
+      ><a name="2075" class="Comment"
+      >-- Hereditary substitution and reduction.</a
+      ><a name="2116"
+      >
+
+</a
+      ><a name="2118" class="Keyword"
+      >mutual</a
+      ><a name="2124"
+      >
+  </a
+      ><a name="2127" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[_&#8788;_]&#8319;&#7584;_</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" class="Symbol"
+      >:</a
+      ><a name="2137"
+      > </a
+      ><a name="2138" class="Symbol"
+      >&#8704;</a
+      ><a name="2139"
+      > </a
+      ><a name="2140" class="Symbol"
+      >{</a
+      ><a name="2141" href="BasicIPC.Gentzen.HereditarySubstitution.html#2141" class="Bound"
+      >A</a
+      ><a name="2142"
+      > </a
+      ><a name="2143" href="BasicIPC.Gentzen.HereditarySubstitution.html#2143" class="Bound"
+      >B</a
+      ><a name="2144"
+      > </a
+      ><a name="2145" href="BasicIPC.Gentzen.HereditarySubstitution.html#2145" class="Bound"
+      >&#915;</a
+      ><a name="2146" class="Symbol"
+      >}</a
+      ><a name="2147"
+      > </a
+      ><a name="2148" class="Symbol"
+      >&#8594;</a
+      ><a name="2149"
+      > </a
+      ><a name="2150" class="Symbol"
+      >(</a
+      ><a name="2151" href="BasicIPC.Gentzen.HereditarySubstitution.html#2151" class="Bound"
+      >i</a
+      ><a name="2152"
+      > </a
+      ><a name="2153" class="Symbol"
+      >:</a
+      ><a name="2154"
+      > </a
+      ><a name="2155" href="BasicIPC.Gentzen.HereditarySubstitution.html#2141" class="Bound"
+      >A</a
+      ><a name="2156"
+      > </a
+      ><a name="2157" href="Common.Context.html#404" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="2158"
+      > </a
+      ><a name="2159" href="BasicIPC.Gentzen.HereditarySubstitution.html#2145" class="Bound"
+      >&#915;</a
+      ><a name="2160" class="Symbol"
+      >)</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" class="Symbol"
+      >&#8594;</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="BasicIPC.Gentzen.HereditarySubstitution.html#2145" class="Bound"
+      >&#915;</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" href="Common.Context.html#2856" class="Function Operator"
+      >-</a
+      ><a name="2167"
+      > </a
+      ><a name="2168" href="BasicIPC.Gentzen.HereditarySubstitution.html#2151" class="Bound"
+      >i</a
+      ><a name="2169"
+      > </a
+      ><a name="2170" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" href="BasicIPC.Gentzen.HereditarySubstitution.html#2141" class="Bound"
+      >A</a
+      ><a name="2175"
+      > </a
+      ><a name="2176" class="Symbol"
+      >&#8594;</a
+      ><a name="2177"
+      > </a
+      ><a name="2178" href="BasicIPC.Gentzen.HereditarySubstitution.html#2145" class="Bound"
+      >&#915;</a
+      ><a name="2179"
+      > </a
+      ><a name="2180" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2183"
+      > </a
+      ><a name="2184" href="BasicIPC.Gentzen.HereditarySubstitution.html#2143" class="Bound"
+      >B</a
+      ><a name="2185"
+      > </a
+      ><a name="2186" class="Symbol"
+      >&#8594;</a
+      ><a name="2187"
+      > </a
+      ><a name="2188" href="BasicIPC.Gentzen.HereditarySubstitution.html#2145" class="Bound"
+      >&#915;</a
+      ><a name="2189"
+      > </a
+      ><a name="2190" href="Common.Context.html#2856" class="Function Operator"
+      >-</a
+      ><a name="2191"
+      > </a
+      ><a name="2192" href="BasicIPC.Gentzen.HereditarySubstitution.html#2151" class="Bound"
+      >i</a
+      ><a name="2193"
+      > </a
+      ><a name="2194" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2197"
+      > </a
+      ><a name="2198" href="BasicIPC.Gentzen.HereditarySubstitution.html#2143" class="Bound"
+      >B</a
+      ><a name="2199"
+      >
+  </a
+      ><a name="2202" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2203"
+      > </a
+      ><a name="2204" href="BasicIPC.Gentzen.HereditarySubstitution.html#2204" class="Bound"
+      >i</a
+      ><a name="2205"
+      > </a
+      ><a name="2206" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2207"
+      > </a
+      ><a name="2208" href="BasicIPC.Gentzen.HereditarySubstitution.html#2208" class="Bound"
+      >s</a
+      ><a name="2209"
+      > </a
+      ><a name="2210" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2213"
+      > </a
+      ><a name="2214" href="BasicIPC.Gentzen.HereditarySubstitution.html#291" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2218"
+      > </a
+      ><a name="2219" class="Symbol"
+      >(</a
+      ><a name="2220" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="2224"
+      > </a
+      ><a name="2225" href="BasicIPC.Gentzen.HereditarySubstitution.html#2225" class="Bound"
+      >j</a
+      ><a name="2226"
+      >  </a
+      ><a name="2228" href="BasicIPC.Gentzen.HereditarySubstitution.html#2228" class="Bound"
+      >xs</a
+      ><a name="2230" class="Symbol"
+      >)</a
+      ><a name="2231"
+      > </a
+      ><a name="2232" class="Keyword"
+      >with</a
+      ><a name="2236"
+      > </a
+      ><a name="2237" href="BasicIPC.Gentzen.HereditarySubstitution.html#2204" class="Bound"
+      >i</a
+      ><a name="2238"
+      > </a
+      ><a name="2239" href="Common.Context.html#3253" class="Function Operator"
+      >&#8799;&#8712;</a
+      ><a name="2241"
+      > </a
+      ><a name="2242" href="BasicIPC.Gentzen.HereditarySubstitution.html#2225" class="Bound"
+      >j</a
+      ><a name="2243"
+      >
+  </a
+      ><a name="2246" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2247"
+      > </a
+      ><a name="2248" href="BasicIPC.Gentzen.HereditarySubstitution.html#2248" class="Bound"
+      >i</a
+      ><a name="2249"
+      > </a
+      ><a name="2250" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2251"
+      > </a
+      ><a name="2252" href="BasicIPC.Gentzen.HereditarySubstitution.html#2252" class="Bound"
+      >s</a
+      ><a name="2253"
+      > </a
+      ><a name="2254" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2257"
+      > </a
+      ><a name="2258" href="BasicIPC.Gentzen.HereditarySubstitution.html#291" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2262"
+      > </a
+      ><a name="2263" class="Symbol"
+      >(</a
+      ><a name="2264" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="2268"
+      > </a
+      ><a name="2269" class="DottedPattern Symbol"
+      >.</a
+      ><a name="2270" href="BasicIPC.Gentzen.HereditarySubstitution.html#2248" class="DottedPattern Bound"
+      >i</a
+      ><a name="2271"
+      > </a
+      ><a name="2272" href="BasicIPC.Gentzen.HereditarySubstitution.html#2272" class="Bound"
+      >xs</a
+      ><a name="2274" class="Symbol"
+      >)</a
+      ><a name="2275"
+      > </a
+      ><a name="2276" class="Symbol"
+      >|</a
+      ><a name="2277"
+      > </a
+      ><a name="2278" href="Common.Context.html#3176" class="InductiveConstructor"
+      >same</a
+      ><a name="2282"
+      >   </a
+      ><a name="2285" class="Symbol"
+      >=</a
+      ><a name="2286"
+      > </a
+      ><a name="2287" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="2293"
+      > </a
+      ><a name="2294" href="BasicIPC.Gentzen.HereditarySubstitution.html#2252" class="Bound"
+      >s</a
+      ><a name="2295"
+      > </a
+      ><a name="2296" class="Symbol"
+      >(</a
+      ><a name="2297" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[</a
+      ><a name="2298"
+      > </a
+      ><a name="2299" href="BasicIPC.Gentzen.HereditarySubstitution.html#2248" class="Bound"
+      >i</a
+      ><a name="2300"
+      > </a
+      ><a name="2301" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >&#8788;</a
+      ><a name="2302"
+      > </a
+      ><a name="2303" href="BasicIPC.Gentzen.HereditarySubstitution.html#2252" class="Bound"
+      >s</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >]&#738;&#7510;</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" href="BasicIPC.Gentzen.HereditarySubstitution.html#2272" class="Bound"
+      >xs</a
+      ><a name="2311" class="Symbol"
+      >)</a
+      ><a name="2312"
+      >
+  </a
+      ><a name="2315" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2316"
+      > </a
+      ><a name="2317" href="BasicIPC.Gentzen.HereditarySubstitution.html#2317" class="Bound"
+      >i</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2320"
+      > </a
+      ><a name="2321" href="BasicIPC.Gentzen.HereditarySubstitution.html#2321" class="Bound"
+      >s</a
+      ><a name="2322"
+      > </a
+      ><a name="2323" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" href="BasicIPC.Gentzen.HereditarySubstitution.html#291" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2331"
+      > </a
+      ><a name="2332" class="Symbol"
+      >(</a
+      ><a name="2333" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="2337"
+      > </a
+      ><a name="2338" class="DottedPattern Symbol"
+      >._</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" href="BasicIPC.Gentzen.HereditarySubstitution.html#2341" class="Bound"
+      >xs</a
+      ><a name="2343" class="Symbol"
+      >)</a
+      ><a name="2344"
+      > </a
+      ><a name="2345" class="Symbol"
+      >|</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" href="Common.Context.html#3194" class="InductiveConstructor"
+      >diff</a
+      ><a name="2351"
+      > </a
+      ><a name="2352" href="BasicIPC.Gentzen.HereditarySubstitution.html#2352" class="Bound"
+      >j</a
+      ><a name="2353"
+      > </a
+      ><a name="2354" class="Symbol"
+      >=</a
+      ><a name="2355"
+      > </a
+      ><a name="2356" href="BasicIPC.Gentzen.HereditarySubstitution.html#291" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2360"
+      > </a
+      ><a name="2361" class="Symbol"
+      >(</a
+      ><a name="2362" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="2366"
+      > </a
+      ><a name="2367" href="BasicIPC.Gentzen.HereditarySubstitution.html#2352" class="Bound"
+      >j</a
+      ><a name="2368"
+      > </a
+      ><a name="2369" class="Symbol"
+      >(</a
+      ><a name="2370" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[</a
+      ><a name="2371"
+      > </a
+      ><a name="2372" href="BasicIPC.Gentzen.HereditarySubstitution.html#2317" class="Bound"
+      >i</a
+      ><a name="2373"
+      > </a
+      ><a name="2374" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >&#8788;</a
+      ><a name="2375"
+      > </a
+      ><a name="2376" href="BasicIPC.Gentzen.HereditarySubstitution.html#2321" class="Bound"
+      >s</a
+      ><a name="2377"
+      > </a
+      ><a name="2378" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >]&#738;&#7510;</a
+      ><a name="2381"
+      > </a
+      ><a name="2382" href="BasicIPC.Gentzen.HereditarySubstitution.html#2341" class="Bound"
+      >xs</a
+      ><a name="2384" class="Symbol"
+      >))</a
+      ><a name="2386"
+      >
+  </a
+      ><a name="2389" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2390"
+      > </a
+      ><a name="2391" href="BasicIPC.Gentzen.HereditarySubstitution.html#2391" class="Bound"
+      >i</a
+      ><a name="2392"
+      > </a
+      ><a name="2393" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" href="BasicIPC.Gentzen.HereditarySubstitution.html#2395" class="Bound"
+      >s</a
+      ><a name="2396"
+      > </a
+      ><a name="2397" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2400"
+      > </a
+      ><a name="2401" href="BasicIPC.Gentzen.HereditarySubstitution.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="2406"
+      > </a
+      ><a name="2407" href="BasicIPC.Gentzen.HereditarySubstitution.html#2407" class="Bound"
+      >t</a
+      ><a name="2408"
+      >           </a
+      ><a name="2419" class="Symbol"
+      >=</a
+      ><a name="2420"
+      > </a
+      ><a name="2421" href="BasicIPC.Gentzen.HereditarySubstitution.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="2426"
+      > </a
+      ><a name="2427" class="Symbol"
+      >(</a
+      ><a name="2428" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2429"
+      > </a
+      ><a name="2430" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" href="BasicIPC.Gentzen.HereditarySubstitution.html#2391" class="Bound"
+      >i</a
+      ><a name="2435"
+      > </a
+      ><a name="2436" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" href="BasicIPC.Gentzen.HereditarySubstitution.html#1461" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2445"
+      > </a
+      ><a name="2446" href="Common.Context.html#1467" class="Function"
+      >weak&#8838;</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" href="BasicIPC.Gentzen.HereditarySubstitution.html#2395" class="Bound"
+      >s</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2457"
+      > </a
+      ><a name="2458" href="BasicIPC.Gentzen.HereditarySubstitution.html#2407" class="Bound"
+      >t</a
+      ><a name="2459" class="Symbol"
+      >)</a
+      ><a name="2460"
+      >
+  </a
+      ><a name="2463" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2464"
+      > </a
+      ><a name="2465" href="BasicIPC.Gentzen.HereditarySubstitution.html#2465" class="Bound"
+      >i</a
+      ><a name="2466"
+      > </a
+      ><a name="2467" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2468"
+      > </a
+      ><a name="2469" href="BasicIPC.Gentzen.HereditarySubstitution.html#2469" class="Bound"
+      >s</a
+      ><a name="2470"
+      > </a
+      ><a name="2471" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2474"
+      > </a
+      ><a name="2475" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="2481"
+      > </a
+      ><a name="2482" href="BasicIPC.Gentzen.HereditarySubstitution.html#2482" class="Bound"
+      >t</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" href="BasicIPC.Gentzen.HereditarySubstitution.html#2484" class="Bound"
+      >u</a
+      ><a name="2485"
+      >        </a
+      ><a name="2493" class="Symbol"
+      >=</a
+      ><a name="2494"
+      > </a
+      ><a name="2495" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="2501"
+      > </a
+      ><a name="2502" class="Symbol"
+      >(</a
+      ><a name="2503" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2504"
+      > </a
+      ><a name="2505" href="BasicIPC.Gentzen.HereditarySubstitution.html#2465" class="Bound"
+      >i</a
+      ><a name="2506"
+      > </a
+      ><a name="2507" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2508"
+      > </a
+      ><a name="2509" href="BasicIPC.Gentzen.HereditarySubstitution.html#2469" class="Bound"
+      >s</a
+      ><a name="2510"
+      > </a
+      ><a name="2511" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2514"
+      > </a
+      ><a name="2515" href="BasicIPC.Gentzen.HereditarySubstitution.html#2482" class="Bound"
+      >t</a
+      ><a name="2516" class="Symbol"
+      >)</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" class="Symbol"
+      >(</a
+      ><a name="2519" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2520"
+      > </a
+      ><a name="2521" href="BasicIPC.Gentzen.HereditarySubstitution.html#2465" class="Bound"
+      >i</a
+      ><a name="2522"
+      > </a
+      ><a name="2523" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2524"
+      > </a
+      ><a name="2525" href="BasicIPC.Gentzen.HereditarySubstitution.html#2469" class="Bound"
+      >s</a
+      ><a name="2526"
+      > </a
+      ><a name="2527" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2530"
+      > </a
+      ><a name="2531" href="BasicIPC.Gentzen.HereditarySubstitution.html#2484" class="Bound"
+      >u</a
+      ><a name="2532" class="Symbol"
+      >)</a
+      ><a name="2533"
+      >
+  </a
+      ><a name="2536" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2537"
+      > </a
+      ><a name="2538" href="BasicIPC.Gentzen.HereditarySubstitution.html#2538" class="Bound"
+      >i</a
+      ><a name="2539"
+      > </a
+      ><a name="2540" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2541"
+      > </a
+      ><a name="2542" href="BasicIPC.Gentzen.HereditarySubstitution.html#2542" class="Bound"
+      >s</a
+      ><a name="2543"
+      > </a
+      ><a name="2544" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2547"
+      > </a
+      ><a name="2548" href="BasicIPC.Gentzen.HereditarySubstitution.html#440" class="InductiveConstructor"
+      >tt&#8319;&#7584;</a
+      ><a name="2552"
+      >              </a
+      ><a name="2566" class="Symbol"
+      >=</a
+      ><a name="2567"
+      > </a
+      ><a name="2568" href="BasicIPC.Gentzen.HereditarySubstitution.html#440" class="InductiveConstructor"
+      >tt&#8319;&#7584;</a
+      ><a name="2572"
+      >
+
+  </a
+      ><a name="2576" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[_&#8788;_]&#738;&#7510;_</a
+      ><a name="2584"
+      > </a
+      ><a name="2585" class="Symbol"
+      >:</a
+      ><a name="2586"
+      > </a
+      ><a name="2587" class="Symbol"
+      >&#8704;</a
+      ><a name="2588"
+      > </a
+      ><a name="2589" class="Symbol"
+      >{</a
+      ><a name="2590" href="BasicIPC.Gentzen.HereditarySubstitution.html#2590" class="Bound"
+      >A</a
+      ><a name="2591"
+      > </a
+      ><a name="2592" href="BasicIPC.Gentzen.HereditarySubstitution.html#2592" class="Bound"
+      >B</a
+      ><a name="2593"
+      > </a
+      ><a name="2594" href="BasicIPC.Gentzen.HereditarySubstitution.html#2594" class="Bound"
+      >C</a
+      ><a name="2595"
+      > </a
+      ><a name="2596" href="BasicIPC.Gentzen.HereditarySubstitution.html#2596" class="Bound"
+      >&#915;</a
+      ><a name="2597" class="Symbol"
+      >}</a
+      ><a name="2598"
+      > </a
+      ><a name="2599" class="Symbol"
+      >&#8594;</a
+      ><a name="2600"
+      > </a
+      ><a name="2601" class="Symbol"
+      >(</a
+      ><a name="2602" href="BasicIPC.Gentzen.HereditarySubstitution.html#2602" class="Bound"
+      >i</a
+      ><a name="2603"
+      > </a
+      ><a name="2604" class="Symbol"
+      >:</a
+      ><a name="2605"
+      > </a
+      ><a name="2606" href="BasicIPC.Gentzen.HereditarySubstitution.html#2590" class="Bound"
+      >A</a
+      ><a name="2607"
+      > </a
+      ><a name="2608" href="Common.Context.html#404" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="2609"
+      > </a
+      ><a name="2610" href="BasicIPC.Gentzen.HereditarySubstitution.html#2596" class="Bound"
+      >&#915;</a
+      ><a name="2611" class="Symbol"
+      >)</a
+      ><a name="2612"
+      > </a
+      ><a name="2613" class="Symbol"
+      >&#8594;</a
+      ><a name="2614"
+      > </a
+      ><a name="2615" href="BasicIPC.Gentzen.HereditarySubstitution.html#2596" class="Bound"
+      >&#915;</a
+      ><a name="2616"
+      > </a
+      ><a name="2617" href="Common.Context.html#2856" class="Function Operator"
+      >-</a
+      ><a name="2618"
+      > </a
+      ><a name="2619" href="BasicIPC.Gentzen.HereditarySubstitution.html#2602" class="Bound"
+      >i</a
+      ><a name="2620"
+      > </a
+      ><a name="2621" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2624"
+      > </a
+      ><a name="2625" href="BasicIPC.Gentzen.HereditarySubstitution.html#2590" class="Bound"
+      >A</a
+      ><a name="2626"
+      > </a
+      ><a name="2627" class="Symbol"
+      >&#8594;</a
+      ><a name="2628"
+      > </a
+      ><a name="2629" href="BasicIPC.Gentzen.HereditarySubstitution.html#2596" class="Bound"
+      >&#915;</a
+      ><a name="2630"
+      > </a
+      ><a name="2631" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="2634"
+      > </a
+      ><a name="2635" href="BasicIPC.Gentzen.HereditarySubstitution.html#2592" class="Bound"
+      >B</a
+      ><a name="2636"
+      > </a
+      ><a name="2637" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="2638"
+      > </a
+      ><a name="2639" href="BasicIPC.Gentzen.HereditarySubstitution.html#2594" class="Bound"
+      >C</a
+      ><a name="2640"
+      > </a
+      ><a name="2641" class="Symbol"
+      >&#8594;</a
+      ><a name="2642"
+      > </a
+      ><a name="2643" href="BasicIPC.Gentzen.HereditarySubstitution.html#2596" class="Bound"
+      >&#915;</a
+      ><a name="2644"
+      > </a
+      ><a name="2645" href="Common.Context.html#2856" class="Function Operator"
+      >-</a
+      ><a name="2646"
+      > </a
+      ><a name="2647" href="BasicIPC.Gentzen.HereditarySubstitution.html#2602" class="Bound"
+      >i</a
+      ><a name="2648"
+      > </a
+      ><a name="2649" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="2652"
+      > </a
+      ><a name="2653" href="BasicIPC.Gentzen.HereditarySubstitution.html#2592" class="Bound"
+      >B</a
+      ><a name="2654"
+      > </a
+      ><a name="2655" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="2656"
+      > </a
+      ><a name="2657" href="BasicIPC.Gentzen.HereditarySubstitution.html#2594" class="Bound"
+      >C</a
+      ><a name="2658"
+      >
+  </a
+      ><a name="2661" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[</a
+      ><a name="2662"
+      > </a
+      ><a name="2663" href="BasicIPC.Gentzen.HereditarySubstitution.html#2663" class="Bound"
+      >i</a
+      ><a name="2664"
+      > </a
+      ><a name="2665" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >&#8788;</a
+      ><a name="2666"
+      > </a
+      ><a name="2667" href="BasicIPC.Gentzen.HereditarySubstitution.html#2667" class="Bound"
+      >s</a
+      ><a name="2668"
+      > </a
+      ><a name="2669" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >]&#738;&#7510;</a
+      ><a name="2672"
+      > </a
+      ><a name="2673" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="2678"
+      >      </a
+      ><a name="2684" class="Symbol"
+      >=</a
+      ><a name="2685"
+      > </a
+      ><a name="2686" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="2691"
+      >
+  </a
+      ><a name="2694" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[</a
+      ><a name="2695"
+      > </a
+      ><a name="2696" href="BasicIPC.Gentzen.HereditarySubstitution.html#2696" class="Bound"
+      >i</a
+      ><a name="2697"
+      > </a
+      ><a name="2698" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >&#8788;</a
+      ><a name="2699"
+      > </a
+      ><a name="2700" href="BasicIPC.Gentzen.HereditarySubstitution.html#2700" class="Bound"
+      >s</a
+      ><a name="2701"
+      > </a
+      ><a name="2702" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >]&#738;&#7510;</a
+      ><a name="2705"
+      > </a
+      ><a name="2706" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="2711"
+      > </a
+      ><a name="2712" href="BasicIPC.Gentzen.HereditarySubstitution.html#2712" class="Bound"
+      >xs</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" href="BasicIPC.Gentzen.HereditarySubstitution.html#2715" class="Bound"
+      >u</a
+      ><a name="2716"
+      > </a
+      ><a name="2717" class="Symbol"
+      >=</a
+      ><a name="2718"
+      > </a
+      ><a name="2719" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="2724"
+      > </a
+      ><a name="2725" class="Symbol"
+      >(</a
+      ><a name="2726" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[</a
+      ><a name="2727"
+      > </a
+      ><a name="2728" href="BasicIPC.Gentzen.HereditarySubstitution.html#2696" class="Bound"
+      >i</a
+      ><a name="2729"
+      > </a
+      ><a name="2730" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >&#8788;</a
+      ><a name="2731"
+      > </a
+      ><a name="2732" href="BasicIPC.Gentzen.HereditarySubstitution.html#2700" class="Bound"
+      >s</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >]&#738;&#7510;</a
+      ><a name="2737"
+      > </a
+      ><a name="2738" href="BasicIPC.Gentzen.HereditarySubstitution.html#2712" class="Bound"
+      >xs</a
+      ><a name="2740" class="Symbol"
+      >)</a
+      ><a name="2741"
+      > </a
+      ><a name="2742" class="Symbol"
+      >(</a
+      ><a name="2743" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2744"
+      > </a
+      ><a name="2745" href="BasicIPC.Gentzen.HereditarySubstitution.html#2696" class="Bound"
+      >i</a
+      ><a name="2746"
+      > </a
+      ><a name="2747" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="2748"
+      > </a
+      ><a name="2749" href="BasicIPC.Gentzen.HereditarySubstitution.html#2700" class="Bound"
+      >s</a
+      ><a name="2750"
+      > </a
+      ><a name="2751" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="2754"
+      > </a
+      ><a name="2755" href="BasicIPC.Gentzen.HereditarySubstitution.html#2715" class="Bound"
+      >u</a
+      ><a name="2756" class="Symbol"
+      >)</a
+      ><a name="2757"
+      >
+  </a
+      ><a name="2760" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[</a
+      ><a name="2761"
+      > </a
+      ><a name="2762" href="BasicIPC.Gentzen.HereditarySubstitution.html#2762" class="Bound"
+      >i</a
+      ><a name="2763"
+      > </a
+      ><a name="2764" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >&#8788;</a
+      ><a name="2765"
+      > </a
+      ><a name="2766" href="BasicIPC.Gentzen.HereditarySubstitution.html#2766" class="Bound"
+      >s</a
+      ><a name="2767"
+      > </a
+      ><a name="2768" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >]&#738;&#7510;</a
+      ><a name="2771"
+      > </a
+      ><a name="2772" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="2777"
+      > </a
+      ><a name="2778" href="BasicIPC.Gentzen.HereditarySubstitution.html#2778" class="Bound"
+      >xs</a
+      ><a name="2780"
+      >   </a
+      ><a name="2783" class="Symbol"
+      >=</a
+      ><a name="2784"
+      > </a
+      ><a name="2785" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="2790"
+      > </a
+      ><a name="2791" class="Symbol"
+      >(</a
+      ><a name="2792" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[</a
+      ><a name="2793"
+      > </a
+      ><a name="2794" href="BasicIPC.Gentzen.HereditarySubstitution.html#2762" class="Bound"
+      >i</a
+      ><a name="2795"
+      > </a
+      ><a name="2796" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >&#8788;</a
+      ><a name="2797"
+      > </a
+      ><a name="2798" href="BasicIPC.Gentzen.HereditarySubstitution.html#2766" class="Bound"
+      >s</a
+      ><a name="2799"
+      > </a
+      ><a name="2800" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >]&#738;&#7510;</a
+      ><a name="2803"
+      > </a
+      ><a name="2804" href="BasicIPC.Gentzen.HereditarySubstitution.html#2778" class="Bound"
+      >xs</a
+      ><a name="2806" class="Symbol"
+      >)</a
+      ><a name="2807"
+      >
+  </a
+      ><a name="2810" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[</a
+      ><a name="2811"
+      > </a
+      ><a name="2812" href="BasicIPC.Gentzen.HereditarySubstitution.html#2812" class="Bound"
+      >i</a
+      ><a name="2813"
+      > </a
+      ><a name="2814" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >&#8788;</a
+      ><a name="2815"
+      > </a
+      ><a name="2816" href="BasicIPC.Gentzen.HereditarySubstitution.html#2816" class="Bound"
+      >s</a
+      ><a name="2817"
+      > </a
+      ><a name="2818" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >]&#738;&#7510;</a
+      ><a name="2821"
+      > </a
+      ><a name="2822" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="2827"
+      > </a
+      ><a name="2828" href="BasicIPC.Gentzen.HereditarySubstitution.html#2828" class="Bound"
+      >xs</a
+      ><a name="2830"
+      >   </a
+      ><a name="2833" class="Symbol"
+      >=</a
+      ><a name="2834"
+      > </a
+      ><a name="2835" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="2840"
+      > </a
+      ><a name="2841" class="Symbol"
+      >(</a
+      ><a name="2842" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >[</a
+      ><a name="2843"
+      > </a
+      ><a name="2844" href="BasicIPC.Gentzen.HereditarySubstitution.html#2812" class="Bound"
+      >i</a
+      ><a name="2845"
+      > </a
+      ><a name="2846" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >&#8788;</a
+      ><a name="2847"
+      > </a
+      ><a name="2848" href="BasicIPC.Gentzen.HereditarySubstitution.html#2816" class="Bound"
+      >s</a
+      ><a name="2849"
+      > </a
+      ><a name="2850" href="BasicIPC.Gentzen.HereditarySubstitution.html#2576" class="Function Operator"
+      >]&#738;&#7510;</a
+      ><a name="2853"
+      > </a
+      ><a name="2854" href="BasicIPC.Gentzen.HereditarySubstitution.html#2828" class="Bound"
+      >xs</a
+      ><a name="2856" class="Symbol"
+      >)</a
+      ><a name="2857"
+      >
+
+  </a
+      ><a name="2861" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="2867"
+      > </a
+      ><a name="2868" class="Symbol"
+      >:</a
+      ><a name="2869"
+      > </a
+      ><a name="2870" class="Symbol"
+      >&#8704;</a
+      ><a name="2871"
+      > </a
+      ><a name="2872" class="Symbol"
+      >{</a
+      ><a name="2873" href="BasicIPC.Gentzen.HereditarySubstitution.html#2873" class="Bound"
+      >A</a
+      ><a name="2874"
+      > </a
+      ><a name="2875" href="BasicIPC.Gentzen.HereditarySubstitution.html#2875" class="Bound"
+      >C</a
+      ><a name="2876"
+      > </a
+      ><a name="2877" href="BasicIPC.Gentzen.HereditarySubstitution.html#2877" class="Bound"
+      >&#915;</a
+      ><a name="2878" class="Symbol"
+      >}</a
+      ><a name="2879"
+      > </a
+      ><a name="2880" class="Symbol"
+      >&#8594;</a
+      ><a name="2881"
+      > </a
+      ><a name="2882" href="BasicIPC.Gentzen.HereditarySubstitution.html#2877" class="Bound"
+      >&#915;</a
+      ><a name="2883"
+      > </a
+      ><a name="2884" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2887"
+      > </a
+      ><a name="2888" href="BasicIPC.Gentzen.HereditarySubstitution.html#2873" class="Bound"
+      >A</a
+      ><a name="2889"
+      > </a
+      ><a name="2890" class="Symbol"
+      >&#8594;</a
+      ><a name="2891"
+      > </a
+      ><a name="2892" href="BasicIPC.Gentzen.HereditarySubstitution.html#2877" class="Bound"
+      >&#915;</a
+      ><a name="2893"
+      > </a
+      ><a name="2894" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="2897"
+      > </a
+      ><a name="2898" href="BasicIPC.Gentzen.HereditarySubstitution.html#2873" class="Bound"
+      >A</a
+      ><a name="2899"
+      > </a
+      ><a name="2900" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="2901"
+      > </a
+      ><a name="2902" href="BasicIPC.Gentzen.HereditarySubstitution.html#2875" class="Bound"
+      >C</a
+      ><a name="2903"
+      > </a
+      ><a name="2904" class="Symbol"
+      >&#8594;</a
+      ><a name="2905"
+      > </a
+      ><a name="2906" href="BasicIPC.Gentzen.HereditarySubstitution.html#2877" class="Bound"
+      >&#915;</a
+      ><a name="2907"
+      > </a
+      ><a name="2908" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2911"
+      > </a
+      ><a name="2912" href="BasicIPC.Gentzen.HereditarySubstitution.html#2875" class="Bound"
+      >C</a
+      ><a name="2913"
+      >
+  </a
+      ><a name="2916" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="2922"
+      > </a
+      ><a name="2923" href="BasicIPC.Gentzen.HereditarySubstitution.html#2923" class="Bound"
+      >t</a
+      ><a name="2924"
+      >            </a
+      ><a name="2936" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="2941"
+      >        </a
+      ><a name="2949" class="Symbol"
+      >=</a
+      ><a name="2950"
+      > </a
+      ><a name="2951" href="BasicIPC.Gentzen.HereditarySubstitution.html#2923" class="Bound"
+      >t</a
+      ><a name="2952"
+      >
+  </a
+      ><a name="2955" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="2961"
+      > </a
+      ><a name="2962" class="Symbol"
+      >(</a
+      ><a name="2963" href="BasicIPC.Gentzen.HereditarySubstitution.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="2968"
+      > </a
+      ><a name="2969" href="BasicIPC.Gentzen.HereditarySubstitution.html#2969" class="Bound"
+      >t</a
+      ><a name="2970" class="Symbol"
+      >)</a
+      ><a name="2971"
+      >    </a
+      ><a name="2975" class="Symbol"
+      >(</a
+      ><a name="2976" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="2981"
+      > </a
+      ><a name="2982" href="BasicIPC.Gentzen.HereditarySubstitution.html#2982" class="Bound"
+      >xs</a
+      ><a name="2984"
+      > </a
+      ><a name="2985" href="BasicIPC.Gentzen.HereditarySubstitution.html#2985" class="Bound"
+      >u</a
+      ><a name="2986" class="Symbol"
+      >)</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" class="Symbol"
+      >=</a
+      ><a name="2989"
+      > </a
+      ><a name="2990" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="2996"
+      > </a
+      ><a name="2997" class="Symbol"
+      >(</a
+      ><a name="2998" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >[</a
+      ><a name="2999"
+      > </a
+      ><a name="3000" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="3003"
+      > </a
+      ><a name="3004" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >&#8788;</a
+      ><a name="3005"
+      > </a
+      ><a name="3006" href="BasicIPC.Gentzen.HereditarySubstitution.html#2985" class="Bound"
+      >u</a
+      ><a name="3007"
+      > </a
+      ><a name="3008" href="BasicIPC.Gentzen.HereditarySubstitution.html#2127" class="Function Operator"
+      >]&#8319;&#7584;</a
+      ><a name="3011"
+      > </a
+      ><a name="3012" href="BasicIPC.Gentzen.HereditarySubstitution.html#2969" class="Bound"
+      >t</a
+      ><a name="3013" class="Symbol"
+      >)</a
+      ><a name="3014"
+      > </a
+      ><a name="3015" href="BasicIPC.Gentzen.HereditarySubstitution.html#2982" class="Bound"
+      >xs</a
+      ><a name="3017"
+      >
+  </a
+      ><a name="3020" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="3026"
+      > </a
+      ><a name="3027" class="Symbol"
+      >(</a
+      ><a name="3028" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="3034"
+      > </a
+      ><a name="3035" href="BasicIPC.Gentzen.HereditarySubstitution.html#3035" class="Bound"
+      >t</a
+      ><a name="3036"
+      > </a
+      ><a name="3037" href="BasicIPC.Gentzen.HereditarySubstitution.html#3037" class="Bound"
+      >u</a
+      ><a name="3038" class="Symbol"
+      >)</a
+      ><a name="3039"
+      > </a
+      ><a name="3040" class="Symbol"
+      >(</a
+      ><a name="3041" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="3046"
+      > </a
+      ><a name="3047" href="BasicIPC.Gentzen.HereditarySubstitution.html#3047" class="Bound"
+      >xs</a
+      ><a name="3049" class="Symbol"
+      >)</a
+      ><a name="3050"
+      >   </a
+      ><a name="3053" class="Symbol"
+      >=</a
+      ><a name="3054"
+      > </a
+      ><a name="3055" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="3061"
+      > </a
+      ><a name="3062" href="BasicIPC.Gentzen.HereditarySubstitution.html#3035" class="Bound"
+      >t</a
+      ><a name="3063"
+      > </a
+      ><a name="3064" href="BasicIPC.Gentzen.HereditarySubstitution.html#3047" class="Bound"
+      >xs</a
+      ><a name="3066"
+      >
+  </a
+      ><a name="3069" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="3075"
+      > </a
+      ><a name="3076" class="Symbol"
+      >(</a
+      ><a name="3077" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="3083"
+      > </a
+      ><a name="3084" href="BasicIPC.Gentzen.HereditarySubstitution.html#3084" class="Bound"
+      >t</a
+      ><a name="3085"
+      > </a
+      ><a name="3086" href="BasicIPC.Gentzen.HereditarySubstitution.html#3086" class="Bound"
+      >u</a
+      ><a name="3087" class="Symbol"
+      >)</a
+      ><a name="3088"
+      > </a
+      ><a name="3089" class="Symbol"
+      >(</a
+      ><a name="3090" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="3095"
+      > </a
+      ><a name="3096" href="BasicIPC.Gentzen.HereditarySubstitution.html#3096" class="Bound"
+      >xs</a
+      ><a name="3098" class="Symbol"
+      >)</a
+      ><a name="3099"
+      >   </a
+      ><a name="3102" class="Symbol"
+      >=</a
+      ><a name="3103"
+      > </a
+      ><a name="3104" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" href="BasicIPC.Gentzen.HereditarySubstitution.html#3086" class="Bound"
+      >u</a
+      ><a name="3112"
+      > </a
+      ><a name="3113" href="BasicIPC.Gentzen.HereditarySubstitution.html#3096" class="Bound"
+      >xs</a
+      ><a name="3115"
+      >
+
+
+</a
+      ><a name="3118" class="Comment"
+      >-- Reduction-based normal forms.</a
+      ><a name="3150"
+      >
+
+</a
+      ><a name="3152" href="BasicIPC.Gentzen.HereditarySubstitution.html#3152" class="Function"
+      >app&#8319;&#7584;</a
+      ><a name="3157"
+      > </a
+      ><a name="3158" class="Symbol"
+      >:</a
+      ><a name="3159"
+      > </a
+      ><a name="3160" class="Symbol"
+      >&#8704;</a
+      ><a name="3161"
+      > </a
+      ><a name="3162" class="Symbol"
+      >{</a
+      ><a name="3163" href="BasicIPC.Gentzen.HereditarySubstitution.html#3163" class="Bound"
+      >A</a
+      ><a name="3164"
+      > </a
+      ><a name="3165" href="BasicIPC.Gentzen.HereditarySubstitution.html#3165" class="Bound"
+      >B</a
+      ><a name="3166"
+      > </a
+      ><a name="3167" href="BasicIPC.Gentzen.HereditarySubstitution.html#3167" class="Bound"
+      >&#915;</a
+      ><a name="3168" class="Symbol"
+      >}</a
+      ><a name="3169"
+      > </a
+      ><a name="3170" class="Symbol"
+      >&#8594;</a
+      ><a name="3171"
+      > </a
+      ><a name="3172" href="BasicIPC.Gentzen.HereditarySubstitution.html#3167" class="Bound"
+      >&#915;</a
+      ><a name="3173"
+      > </a
+      ><a name="3174" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="3177"
+      > </a
+      ><a name="3178" href="BasicIPC.Gentzen.HereditarySubstitution.html#3163" class="Bound"
+      >A</a
+      ><a name="3179"
+      > </a
+      ><a name="3180" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="3181"
+      > </a
+      ><a name="3182" href="BasicIPC.Gentzen.HereditarySubstitution.html#3165" class="Bound"
+      >B</a
+      ><a name="3183"
+      > </a
+      ><a name="3184" class="Symbol"
+      >&#8594;</a
+      ><a name="3185"
+      > </a
+      ><a name="3186" href="BasicIPC.Gentzen.HereditarySubstitution.html#3167" class="Bound"
+      >&#915;</a
+      ><a name="3187"
+      > </a
+      ><a name="3188" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="3191"
+      > </a
+      ><a name="3192" href="BasicIPC.Gentzen.HereditarySubstitution.html#3163" class="Bound"
+      >A</a
+      ><a name="3193"
+      > </a
+      ><a name="3194" class="Symbol"
+      >&#8594;</a
+      ><a name="3195"
+      > </a
+      ><a name="3196" href="BasicIPC.Gentzen.HereditarySubstitution.html#3167" class="Bound"
+      >&#915;</a
+      ><a name="3197"
+      > </a
+      ><a name="3198" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="3201"
+      > </a
+      ><a name="3202" href="BasicIPC.Gentzen.HereditarySubstitution.html#3165" class="Bound"
+      >B</a
+      ><a name="3203"
+      >
+</a
+      ><a name="3204" href="BasicIPC.Gentzen.HereditarySubstitution.html#3152" class="Function"
+      >app&#8319;&#7584;</a
+      ><a name="3209"
+      > </a
+      ><a name="3210" href="BasicIPC.Gentzen.HereditarySubstitution.html#3210" class="Bound"
+      >t</a
+      ><a name="3211"
+      > </a
+      ><a name="3212" href="BasicIPC.Gentzen.HereditarySubstitution.html#3212" class="Bound"
+      >u</a
+      ><a name="3213"
+      > </a
+      ><a name="3214" class="Symbol"
+      >=</a
+      ><a name="3215"
+      > </a
+      ><a name="3216" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="3222"
+      > </a
+      ><a name="3223" href="BasicIPC.Gentzen.HereditarySubstitution.html#3210" class="Bound"
+      >t</a
+      ><a name="3224"
+      > </a
+      ><a name="3225" class="Symbol"
+      >(</a
+      ><a name="3226" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="3231"
+      > </a
+      ><a name="3232" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="3237"
+      > </a
+      ><a name="3238" href="BasicIPC.Gentzen.HereditarySubstitution.html#3212" class="Bound"
+      >u</a
+      ><a name="3239" class="Symbol"
+      >)</a
+      ><a name="3240"
+      >
+
+</a
+      ><a name="3242" href="BasicIPC.Gentzen.HereditarySubstitution.html#3242" class="Function"
+      >fst&#8319;&#7584;</a
+      ><a name="3247"
+      > </a
+      ><a name="3248" class="Symbol"
+      >:</a
+      ><a name="3249"
+      > </a
+      ><a name="3250" class="Symbol"
+      >&#8704;</a
+      ><a name="3251"
+      > </a
+      ><a name="3252" class="Symbol"
+      >{</a
+      ><a name="3253" href="BasicIPC.Gentzen.HereditarySubstitution.html#3253" class="Bound"
+      >A</a
+      ><a name="3254"
+      > </a
+      ><a name="3255" href="BasicIPC.Gentzen.HereditarySubstitution.html#3255" class="Bound"
+      >B</a
+      ><a name="3256"
+      > </a
+      ><a name="3257" href="BasicIPC.Gentzen.HereditarySubstitution.html#3257" class="Bound"
+      >&#915;</a
+      ><a name="3258" class="Symbol"
+      >}</a
+      ><a name="3259"
+      > </a
+      ><a name="3260" class="Symbol"
+      >&#8594;</a
+      ><a name="3261"
+      > </a
+      ><a name="3262" href="BasicIPC.Gentzen.HereditarySubstitution.html#3257" class="Bound"
+      >&#915;</a
+      ><a name="3263"
+      > </a
+      ><a name="3264" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="3267"
+      > </a
+      ><a name="3268" href="BasicIPC.Gentzen.HereditarySubstitution.html#3253" class="Bound"
+      >A</a
+      ><a name="3269"
+      > </a
+      ><a name="3270" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3271"
+      > </a
+      ><a name="3272" href="BasicIPC.Gentzen.HereditarySubstitution.html#3255" class="Bound"
+      >B</a
+      ><a name="3273"
+      > </a
+      ><a name="3274" class="Symbol"
+      >&#8594;</a
+      ><a name="3275"
+      > </a
+      ><a name="3276" href="BasicIPC.Gentzen.HereditarySubstitution.html#3257" class="Bound"
+      >&#915;</a
+      ><a name="3277"
+      > </a
+      ><a name="3278" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="3281"
+      > </a
+      ><a name="3282" href="BasicIPC.Gentzen.HereditarySubstitution.html#3253" class="Bound"
+      >A</a
+      ><a name="3283"
+      >
+</a
+      ><a name="3284" href="BasicIPC.Gentzen.HereditarySubstitution.html#3242" class="Function"
+      >fst&#8319;&#7584;</a
+      ><a name="3289"
+      > </a
+      ><a name="3290" href="BasicIPC.Gentzen.HereditarySubstitution.html#3290" class="Bound"
+      >t</a
+      ><a name="3291"
+      > </a
+      ><a name="3292" class="Symbol"
+      >=</a
+      ><a name="3293"
+      > </a
+      ><a name="3294" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="3300"
+      > </a
+      ><a name="3301" href="BasicIPC.Gentzen.HereditarySubstitution.html#3290" class="Bound"
+      >t</a
+      ><a name="3302"
+      > </a
+      ><a name="3303" class="Symbol"
+      >(</a
+      ><a name="3304" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="3309"
+      > </a
+      ><a name="3310" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="3315" class="Symbol"
+      >)</a
+      ><a name="3316"
+      >
+
+</a
+      ><a name="3318" href="BasicIPC.Gentzen.HereditarySubstitution.html#3318" class="Function"
+      >snd&#8319;&#7584;</a
+      ><a name="3323"
+      > </a
+      ><a name="3324" class="Symbol"
+      >:</a
+      ><a name="3325"
+      > </a
+      ><a name="3326" class="Symbol"
+      >&#8704;</a
+      ><a name="3327"
+      > </a
+      ><a name="3328" class="Symbol"
+      >{</a
+      ><a name="3329" href="BasicIPC.Gentzen.HereditarySubstitution.html#3329" class="Bound"
+      >A</a
+      ><a name="3330"
+      > </a
+      ><a name="3331" href="BasicIPC.Gentzen.HereditarySubstitution.html#3331" class="Bound"
+      >B</a
+      ><a name="3332"
+      > </a
+      ><a name="3333" href="BasicIPC.Gentzen.HereditarySubstitution.html#3333" class="Bound"
+      >&#915;</a
+      ><a name="3334" class="Symbol"
+      >}</a
+      ><a name="3335"
+      > </a
+      ><a name="3336" class="Symbol"
+      >&#8594;</a
+      ><a name="3337"
+      > </a
+      ><a name="3338" href="BasicIPC.Gentzen.HereditarySubstitution.html#3333" class="Bound"
+      >&#915;</a
+      ><a name="3339"
+      > </a
+      ><a name="3340" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="3343"
+      > </a
+      ><a name="3344" href="BasicIPC.Gentzen.HereditarySubstitution.html#3329" class="Bound"
+      >A</a
+      ><a name="3345"
+      > </a
+      ><a name="3346" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3347"
+      > </a
+      ><a name="3348" href="BasicIPC.Gentzen.HereditarySubstitution.html#3331" class="Bound"
+      >B</a
+      ><a name="3349"
+      > </a
+      ><a name="3350" class="Symbol"
+      >&#8594;</a
+      ><a name="3351"
+      > </a
+      ><a name="3352" href="BasicIPC.Gentzen.HereditarySubstitution.html#3333" class="Bound"
+      >&#915;</a
+      ><a name="3353"
+      > </a
+      ><a name="3354" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="3357"
+      > </a
+      ><a name="3358" href="BasicIPC.Gentzen.HereditarySubstitution.html#3331" class="Bound"
+      >B</a
+      ><a name="3359"
+      >
+</a
+      ><a name="3360" href="BasicIPC.Gentzen.HereditarySubstitution.html#3318" class="Function"
+      >snd&#8319;&#7584;</a
+      ><a name="3365"
+      > </a
+      ><a name="3366" href="BasicIPC.Gentzen.HereditarySubstitution.html#3366" class="Bound"
+      >t</a
+      ><a name="3367"
+      > </a
+      ><a name="3368" class="Symbol"
+      >=</a
+      ><a name="3369"
+      > </a
+      ><a name="3370" href="BasicIPC.Gentzen.HereditarySubstitution.html#2861" class="Function"
+      >reduce</a
+      ><a name="3376"
+      > </a
+      ><a name="3377" href="BasicIPC.Gentzen.HereditarySubstitution.html#3366" class="Bound"
+      >t</a
+      ><a name="3378"
+      > </a
+      ><a name="3379" class="Symbol"
+      >(</a
+      ><a name="3380" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="3385"
+      > </a
+      ><a name="3386" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="3391" class="Symbol"
+      >)</a
+      ><a name="3392"
+      >
+
+
+</a
+      ><a name="3395" class="Comment"
+      >-- Useful equipment for deriving neutrals.</a
+      ><a name="3437"
+      >
+
+</a
+      ><a name="3439" href="BasicIPC.Gentzen.HereditarySubstitution.html#3439" class="Function"
+      >&#8810;app&#738;&#7510;</a
+      ><a name="3445"
+      > </a
+      ><a name="3446" class="Symbol"
+      >:</a
+      ><a name="3447"
+      > </a
+      ><a name="3448" class="Symbol"
+      >&#8704;</a
+      ><a name="3449"
+      > </a
+      ><a name="3450" class="Symbol"
+      >{</a
+      ><a name="3451" href="BasicIPC.Gentzen.HereditarySubstitution.html#3451" class="Bound"
+      >A</a
+      ><a name="3452"
+      > </a
+      ><a name="3453" href="BasicIPC.Gentzen.HereditarySubstitution.html#3453" class="Bound"
+      >B</a
+      ><a name="3454"
+      > </a
+      ><a name="3455" href="BasicIPC.Gentzen.HereditarySubstitution.html#3455" class="Bound"
+      >C</a
+      ><a name="3456"
+      > </a
+      ><a name="3457" href="BasicIPC.Gentzen.HereditarySubstitution.html#3457" class="Bound"
+      >&#915;</a
+      ><a name="3458" class="Symbol"
+      >}</a
+      ><a name="3459"
+      > </a
+      ><a name="3460" class="Symbol"
+      >&#8594;</a
+      ><a name="3461"
+      > </a
+      ><a name="3462" href="BasicIPC.Gentzen.HereditarySubstitution.html#3457" class="Bound"
+      >&#915;</a
+      ><a name="3463"
+      > </a
+      ><a name="3464" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="3467"
+      > </a
+      ><a name="3468" href="BasicIPC.Gentzen.HereditarySubstitution.html#3455" class="Bound"
+      >C</a
+      ><a name="3469"
+      > </a
+      ><a name="3470" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="3471"
+      > </a
+      ><a name="3472" href="BasicIPC.Gentzen.HereditarySubstitution.html#3451" class="Bound"
+      >A</a
+      ><a name="3473"
+      > </a
+      ><a name="3474" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="3475"
+      > </a
+      ><a name="3476" href="BasicIPC.Gentzen.HereditarySubstitution.html#3453" class="Bound"
+      >B</a
+      ><a name="3477"
+      > </a
+      ><a name="3478" class="Symbol"
+      >&#8594;</a
+      ><a name="3479"
+      > </a
+      ><a name="3480" href="BasicIPC.Gentzen.HereditarySubstitution.html#3457" class="Bound"
+      >&#915;</a
+      ><a name="3481"
+      > </a
+      ><a name="3482" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="3485"
+      > </a
+      ><a name="3486" href="BasicIPC.Gentzen.HereditarySubstitution.html#3451" class="Bound"
+      >A</a
+      ><a name="3487"
+      > </a
+      ><a name="3488" class="Symbol"
+      >&#8594;</a
+      ><a name="3489"
+      > </a
+      ><a name="3490" href="BasicIPC.Gentzen.HereditarySubstitution.html#3457" class="Bound"
+      >&#915;</a
+      ><a name="3491"
+      > </a
+      ><a name="3492" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="3495"
+      > </a
+      ><a name="3496" href="BasicIPC.Gentzen.HereditarySubstitution.html#3455" class="Bound"
+      >C</a
+      ><a name="3497"
+      > </a
+      ><a name="3498" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="3499"
+      > </a
+      ><a name="3500" href="BasicIPC.Gentzen.HereditarySubstitution.html#3453" class="Bound"
+      >B</a
+      ><a name="3501"
+      >
+</a
+      ><a name="3502" href="BasicIPC.Gentzen.HereditarySubstitution.html#3439" class="Function"
+      >&#8810;app&#738;&#7510;</a
+      ><a name="3508"
+      > </a
+      ><a name="3509" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="3514"
+      >        </a
+      ><a name="3522" href="BasicIPC.Gentzen.HereditarySubstitution.html#3522" class="Bound"
+      >t</a
+      ><a name="3523"
+      > </a
+      ><a name="3524" class="Symbol"
+      >=</a
+      ><a name="3525"
+      > </a
+      ><a name="3526" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="3531"
+      > </a
+      ><a name="3532" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="3537"
+      > </a
+      ><a name="3538" href="BasicIPC.Gentzen.HereditarySubstitution.html#3522" class="Bound"
+      >t</a
+      ><a name="3539"
+      >
+</a
+      ><a name="3540" href="BasicIPC.Gentzen.HereditarySubstitution.html#3439" class="Function"
+      >&#8810;app&#738;&#7510;</a
+      ><a name="3546"
+      > </a
+      ><a name="3547" class="Symbol"
+      >(</a
+      ><a name="3548" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="3553"
+      > </a
+      ><a name="3554" href="BasicIPC.Gentzen.HereditarySubstitution.html#3554" class="Bound"
+      >xs</a
+      ><a name="3556"
+      > </a
+      ><a name="3557" href="BasicIPC.Gentzen.HereditarySubstitution.html#3557" class="Bound"
+      >u</a
+      ><a name="3558" class="Symbol"
+      >)</a
+      ><a name="3559"
+      > </a
+      ><a name="3560" href="BasicIPC.Gentzen.HereditarySubstitution.html#3560" class="Bound"
+      >t</a
+      ><a name="3561"
+      > </a
+      ><a name="3562" class="Symbol"
+      >=</a
+      ><a name="3563"
+      > </a
+      ><a name="3564" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="3569"
+      > </a
+      ><a name="3570" class="Symbol"
+      >(</a
+      ><a name="3571" href="BasicIPC.Gentzen.HereditarySubstitution.html#3439" class="Function"
+      >&#8810;app&#738;&#7510;</a
+      ><a name="3577"
+      > </a
+      ><a name="3578" href="BasicIPC.Gentzen.HereditarySubstitution.html#3554" class="Bound"
+      >xs</a
+      ><a name="3580"
+      > </a
+      ><a name="3581" href="BasicIPC.Gentzen.HereditarySubstitution.html#3560" class="Bound"
+      >t</a
+      ><a name="3582" class="Symbol"
+      >)</a
+      ><a name="3583"
+      > </a
+      ><a name="3584" href="BasicIPC.Gentzen.HereditarySubstitution.html#3557" class="Bound"
+      >u</a
+      ><a name="3585"
+      >
+</a
+      ><a name="3586" href="BasicIPC.Gentzen.HereditarySubstitution.html#3439" class="Function"
+      >&#8810;app&#738;&#7510;</a
+      ><a name="3592"
+      > </a
+      ><a name="3593" class="Symbol"
+      >(</a
+      ><a name="3594" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="3599"
+      > </a
+      ><a name="3600" href="BasicIPC.Gentzen.HereditarySubstitution.html#3600" class="Bound"
+      >xs</a
+      ><a name="3602" class="Symbol"
+      >)</a
+      ><a name="3603"
+      >   </a
+      ><a name="3606" href="BasicIPC.Gentzen.HereditarySubstitution.html#3606" class="Bound"
+      >t</a
+      ><a name="3607"
+      > </a
+      ><a name="3608" class="Symbol"
+      >=</a
+      ><a name="3609"
+      > </a
+      ><a name="3610" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="3615"
+      > </a
+      ><a name="3616" class="Symbol"
+      >(</a
+      ><a name="3617" href="BasicIPC.Gentzen.HereditarySubstitution.html#3439" class="Function"
+      >&#8810;app&#738;&#7510;</a
+      ><a name="3623"
+      > </a
+      ><a name="3624" href="BasicIPC.Gentzen.HereditarySubstitution.html#3600" class="Bound"
+      >xs</a
+      ><a name="3626"
+      > </a
+      ><a name="3627" href="BasicIPC.Gentzen.HereditarySubstitution.html#3606" class="Bound"
+      >t</a
+      ><a name="3628" class="Symbol"
+      >)</a
+      ><a name="3629"
+      >
+</a
+      ><a name="3630" href="BasicIPC.Gentzen.HereditarySubstitution.html#3439" class="Function"
+      >&#8810;app&#738;&#7510;</a
+      ><a name="3636"
+      > </a
+      ><a name="3637" class="Symbol"
+      >(</a
+      ><a name="3638" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="3643"
+      > </a
+      ><a name="3644" href="BasicIPC.Gentzen.HereditarySubstitution.html#3644" class="Bound"
+      >xs</a
+      ><a name="3646" class="Symbol"
+      >)</a
+      ><a name="3647"
+      >   </a
+      ><a name="3650" href="BasicIPC.Gentzen.HereditarySubstitution.html#3650" class="Bound"
+      >t</a
+      ><a name="3651"
+      > </a
+      ><a name="3652" class="Symbol"
+      >=</a
+      ><a name="3653"
+      > </a
+      ><a name="3654" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="3659"
+      > </a
+      ><a name="3660" class="Symbol"
+      >(</a
+      ><a name="3661" href="BasicIPC.Gentzen.HereditarySubstitution.html#3439" class="Function"
+      >&#8810;app&#738;&#7510;</a
+      ><a name="3667"
+      > </a
+      ><a name="3668" href="BasicIPC.Gentzen.HereditarySubstitution.html#3644" class="Bound"
+      >xs</a
+      ><a name="3670"
+      > </a
+      ><a name="3671" href="BasicIPC.Gentzen.HereditarySubstitution.html#3650" class="Bound"
+      >t</a
+      ><a name="3672" class="Symbol"
+      >)</a
+      ><a name="3673"
+      >
+
+</a
+      ><a name="3675" href="BasicIPC.Gentzen.HereditarySubstitution.html#3675" class="Function"
+      >&#8810;fst&#738;&#7510;</a
+      ><a name="3681"
+      > </a
+      ><a name="3682" class="Symbol"
+      >:</a
+      ><a name="3683"
+      > </a
+      ><a name="3684" class="Symbol"
+      >&#8704;</a
+      ><a name="3685"
+      > </a
+      ><a name="3686" class="Symbol"
+      >{</a
+      ><a name="3687" href="BasicIPC.Gentzen.HereditarySubstitution.html#3687" class="Bound"
+      >A</a
+      ><a name="3688"
+      > </a
+      ><a name="3689" href="BasicIPC.Gentzen.HereditarySubstitution.html#3689" class="Bound"
+      >B</a
+      ><a name="3690"
+      > </a
+      ><a name="3691" href="BasicIPC.Gentzen.HereditarySubstitution.html#3691" class="Bound"
+      >C</a
+      ><a name="3692"
+      > </a
+      ><a name="3693" href="BasicIPC.Gentzen.HereditarySubstitution.html#3693" class="Bound"
+      >&#915;</a
+      ><a name="3694" class="Symbol"
+      >}</a
+      ><a name="3695"
+      > </a
+      ><a name="3696" class="Symbol"
+      >&#8594;</a
+      ><a name="3697"
+      > </a
+      ><a name="3698" href="BasicIPC.Gentzen.HereditarySubstitution.html#3693" class="Bound"
+      >&#915;</a
+      ><a name="3699"
+      > </a
+      ><a name="3700" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="3703"
+      > </a
+      ><a name="3704" href="BasicIPC.Gentzen.HereditarySubstitution.html#3691" class="Bound"
+      >C</a
+      ><a name="3705"
+      > </a
+      ><a name="3706" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="3707"
+      > </a
+      ><a name="3708" href="BasicIPC.Gentzen.HereditarySubstitution.html#3687" class="Bound"
+      >A</a
+      ><a name="3709"
+      > </a
+      ><a name="3710" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3711"
+      > </a
+      ><a name="3712" href="BasicIPC.Gentzen.HereditarySubstitution.html#3689" class="Bound"
+      >B</a
+      ><a name="3713"
+      > </a
+      ><a name="3714" class="Symbol"
+      >&#8594;</a
+      ><a name="3715"
+      > </a
+      ><a name="3716" href="BasicIPC.Gentzen.HereditarySubstitution.html#3693" class="Bound"
+      >&#915;</a
+      ><a name="3717"
+      > </a
+      ><a name="3718" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="3721"
+      > </a
+      ><a name="3722" href="BasicIPC.Gentzen.HereditarySubstitution.html#3691" class="Bound"
+      >C</a
+      ><a name="3723"
+      > </a
+      ><a name="3724" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="3725"
+      > </a
+      ><a name="3726" href="BasicIPC.Gentzen.HereditarySubstitution.html#3687" class="Bound"
+      >A</a
+      ><a name="3727"
+      >
+</a
+      ><a name="3728" href="BasicIPC.Gentzen.HereditarySubstitution.html#3675" class="Function"
+      >&#8810;fst&#738;&#7510;</a
+      ><a name="3734"
+      > </a
+      ><a name="3735" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="3740"
+      >        </a
+      ><a name="3748" class="Symbol"
+      >=</a
+      ><a name="3749"
+      > </a
+      ><a name="3750" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="3755"
+      > </a
+      ><a name="3756" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="3761"
+      >
+</a
+      ><a name="3762" href="BasicIPC.Gentzen.HereditarySubstitution.html#3675" class="Function"
+      >&#8810;fst&#738;&#7510;</a
+      ><a name="3768"
+      > </a
+      ><a name="3769" class="Symbol"
+      >(</a
+      ><a name="3770" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="3775"
+      > </a
+      ><a name="3776" href="BasicIPC.Gentzen.HereditarySubstitution.html#3776" class="Bound"
+      >xs</a
+      ><a name="3778"
+      > </a
+      ><a name="3779" href="BasicIPC.Gentzen.HereditarySubstitution.html#3779" class="Bound"
+      >u</a
+      ><a name="3780" class="Symbol"
+      >)</a
+      ><a name="3781"
+      > </a
+      ><a name="3782" class="Symbol"
+      >=</a
+      ><a name="3783"
+      > </a
+      ><a name="3784" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="3789"
+      > </a
+      ><a name="3790" class="Symbol"
+      >(</a
+      ><a name="3791" href="BasicIPC.Gentzen.HereditarySubstitution.html#3675" class="Function"
+      >&#8810;fst&#738;&#7510;</a
+      ><a name="3797"
+      > </a
+      ><a name="3798" href="BasicIPC.Gentzen.HereditarySubstitution.html#3776" class="Bound"
+      >xs</a
+      ><a name="3800" class="Symbol"
+      >)</a
+      ><a name="3801"
+      > </a
+      ><a name="3802" href="BasicIPC.Gentzen.HereditarySubstitution.html#3779" class="Bound"
+      >u</a
+      ><a name="3803"
+      >
+</a
+      ><a name="3804" href="BasicIPC.Gentzen.HereditarySubstitution.html#3675" class="Function"
+      >&#8810;fst&#738;&#7510;</a
+      ><a name="3810"
+      > </a
+      ><a name="3811" class="Symbol"
+      >(</a
+      ><a name="3812" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="3817"
+      > </a
+      ><a name="3818" href="BasicIPC.Gentzen.HereditarySubstitution.html#3818" class="Bound"
+      >xs</a
+      ><a name="3820" class="Symbol"
+      >)</a
+      ><a name="3821"
+      >   </a
+      ><a name="3824" class="Symbol"
+      >=</a
+      ><a name="3825"
+      > </a
+      ><a name="3826" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="3831"
+      > </a
+      ><a name="3832" class="Symbol"
+      >(</a
+      ><a name="3833" href="BasicIPC.Gentzen.HereditarySubstitution.html#3675" class="Function"
+      >&#8810;fst&#738;&#7510;</a
+      ><a name="3839"
+      > </a
+      ><a name="3840" href="BasicIPC.Gentzen.HereditarySubstitution.html#3818" class="Bound"
+      >xs</a
+      ><a name="3842" class="Symbol"
+      >)</a
+      ><a name="3843"
+      >
+</a
+      ><a name="3844" href="BasicIPC.Gentzen.HereditarySubstitution.html#3675" class="Function"
+      >&#8810;fst&#738;&#7510;</a
+      ><a name="3850"
+      > </a
+      ><a name="3851" class="Symbol"
+      >(</a
+      ><a name="3852" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="3857"
+      > </a
+      ><a name="3858" href="BasicIPC.Gentzen.HereditarySubstitution.html#3858" class="Bound"
+      >xs</a
+      ><a name="3860" class="Symbol"
+      >)</a
+      ><a name="3861"
+      >   </a
+      ><a name="3864" class="Symbol"
+      >=</a
+      ><a name="3865"
+      > </a
+      ><a name="3866" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="3871"
+      > </a
+      ><a name="3872" class="Symbol"
+      >(</a
+      ><a name="3873" href="BasicIPC.Gentzen.HereditarySubstitution.html#3675" class="Function"
+      >&#8810;fst&#738;&#7510;</a
+      ><a name="3879"
+      > </a
+      ><a name="3880" href="BasicIPC.Gentzen.HereditarySubstitution.html#3858" class="Bound"
+      >xs</a
+      ><a name="3882" class="Symbol"
+      >)</a
+      ><a name="3883"
+      >
+
+</a
+      ><a name="3885" href="BasicIPC.Gentzen.HereditarySubstitution.html#3885" class="Function"
+      >&#8810;snd&#738;&#7510;</a
+      ><a name="3891"
+      > </a
+      ><a name="3892" class="Symbol"
+      >:</a
+      ><a name="3893"
+      > </a
+      ><a name="3894" class="Symbol"
+      >&#8704;</a
+      ><a name="3895"
+      > </a
+      ><a name="3896" class="Symbol"
+      >{</a
+      ><a name="3897" href="BasicIPC.Gentzen.HereditarySubstitution.html#3897" class="Bound"
+      >A</a
+      ><a name="3898"
+      > </a
+      ><a name="3899" href="BasicIPC.Gentzen.HereditarySubstitution.html#3899" class="Bound"
+      >B</a
+      ><a name="3900"
+      > </a
+      ><a name="3901" href="BasicIPC.Gentzen.HereditarySubstitution.html#3901" class="Bound"
+      >C</a
+      ><a name="3902"
+      > </a
+      ><a name="3903" href="BasicIPC.Gentzen.HereditarySubstitution.html#3903" class="Bound"
+      >&#915;</a
+      ><a name="3904" class="Symbol"
+      >}</a
+      ><a name="3905"
+      > </a
+      ><a name="3906" class="Symbol"
+      >&#8594;</a
+      ><a name="3907"
+      > </a
+      ><a name="3908" href="BasicIPC.Gentzen.HereditarySubstitution.html#3903" class="Bound"
+      >&#915;</a
+      ><a name="3909"
+      > </a
+      ><a name="3910" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="3913"
+      > </a
+      ><a name="3914" href="BasicIPC.Gentzen.HereditarySubstitution.html#3901" class="Bound"
+      >C</a
+      ><a name="3915"
+      > </a
+      ><a name="3916" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="3917"
+      > </a
+      ><a name="3918" href="BasicIPC.Gentzen.HereditarySubstitution.html#3897" class="Bound"
+      >A</a
+      ><a name="3919"
+      > </a
+      ><a name="3920" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3921"
+      > </a
+      ><a name="3922" href="BasicIPC.Gentzen.HereditarySubstitution.html#3899" class="Bound"
+      >B</a
+      ><a name="3923"
+      > </a
+      ><a name="3924" class="Symbol"
+      >&#8594;</a
+      ><a name="3925"
+      > </a
+      ><a name="3926" href="BasicIPC.Gentzen.HereditarySubstitution.html#3903" class="Bound"
+      >&#915;</a
+      ><a name="3927"
+      > </a
+      ><a name="3928" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="3931"
+      > </a
+      ><a name="3932" href="BasicIPC.Gentzen.HereditarySubstitution.html#3901" class="Bound"
+      >C</a
+      ><a name="3933"
+      > </a
+      ><a name="3934" href="BasicIPC.Gentzen.HereditarySubstitution.html#638" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="3935"
+      > </a
+      ><a name="3936" href="BasicIPC.Gentzen.HereditarySubstitution.html#3899" class="Bound"
+      >B</a
+      ><a name="3937"
+      >
+</a
+      ><a name="3938" href="BasicIPC.Gentzen.HereditarySubstitution.html#3885" class="Function"
+      >&#8810;snd&#738;&#7510;</a
+      ><a name="3944"
+      > </a
+      ><a name="3945" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="3950"
+      >        </a
+      ><a name="3958" class="Symbol"
+      >=</a
+      ><a name="3959"
+      > </a
+      ><a name="3960" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="3965"
+      > </a
+      ><a name="3966" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="3971"
+      >
+</a
+      ><a name="3972" href="BasicIPC.Gentzen.HereditarySubstitution.html#3885" class="Function"
+      >&#8810;snd&#738;&#7510;</a
+      ><a name="3978"
+      > </a
+      ><a name="3979" class="Symbol"
+      >(</a
+      ><a name="3980" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="3985"
+      > </a
+      ><a name="3986" href="BasicIPC.Gentzen.HereditarySubstitution.html#3986" class="Bound"
+      >xs</a
+      ><a name="3988"
+      > </a
+      ><a name="3989" href="BasicIPC.Gentzen.HereditarySubstitution.html#3989" class="Bound"
+      >u</a
+      ><a name="3990" class="Symbol"
+      >)</a
+      ><a name="3991"
+      > </a
+      ><a name="3992" class="Symbol"
+      >=</a
+      ><a name="3993"
+      > </a
+      ><a name="3994" href="BasicIPC.Gentzen.HereditarySubstitution.html#720" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="3999"
+      > </a
+      ><a name="4000" class="Symbol"
+      >(</a
+      ><a name="4001" href="BasicIPC.Gentzen.HereditarySubstitution.html#3885" class="Function"
+      >&#8810;snd&#738;&#7510;</a
+      ><a name="4007"
+      > </a
+      ><a name="4008" href="BasicIPC.Gentzen.HereditarySubstitution.html#3986" class="Bound"
+      >xs</a
+      ><a name="4010" class="Symbol"
+      >)</a
+      ><a name="4011"
+      > </a
+      ><a name="4012" href="BasicIPC.Gentzen.HereditarySubstitution.html#3989" class="Bound"
+      >u</a
+      ><a name="4013"
+      >
+</a
+      ><a name="4014" href="BasicIPC.Gentzen.HereditarySubstitution.html#3885" class="Function"
+      >&#8810;snd&#738;&#7510;</a
+      ><a name="4020"
+      > </a
+      ><a name="4021" class="Symbol"
+      >(</a
+      ><a name="4022" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="4027"
+      > </a
+      ><a name="4028" href="BasicIPC.Gentzen.HereditarySubstitution.html#4028" class="Bound"
+      >xs</a
+      ><a name="4030" class="Symbol"
+      >)</a
+      ><a name="4031"
+      >   </a
+      ><a name="4034" class="Symbol"
+      >=</a
+      ><a name="4035"
+      > </a
+      ><a name="4036" href="BasicIPC.Gentzen.HereditarySubstitution.html#784" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="4041"
+      > </a
+      ><a name="4042" class="Symbol"
+      >(</a
+      ><a name="4043" href="BasicIPC.Gentzen.HereditarySubstitution.html#3885" class="Function"
+      >&#8810;snd&#738;&#7510;</a
+      ><a name="4049"
+      > </a
+      ><a name="4050" href="BasicIPC.Gentzen.HereditarySubstitution.html#4028" class="Bound"
+      >xs</a
+      ><a name="4052" class="Symbol"
+      >)</a
+      ><a name="4053"
+      >
+</a
+      ><a name="4054" href="BasicIPC.Gentzen.HereditarySubstitution.html#3885" class="Function"
+      >&#8810;snd&#738;&#7510;</a
+      ><a name="4060"
+      > </a
+      ><a name="4061" class="Symbol"
+      >(</a
+      ><a name="4062" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="4067"
+      > </a
+      ><a name="4068" href="BasicIPC.Gentzen.HereditarySubstitution.html#4068" class="Bound"
+      >xs</a
+      ><a name="4070" class="Symbol"
+      >)</a
+      ><a name="4071"
+      >   </a
+      ><a name="4074" class="Symbol"
+      >=</a
+      ><a name="4075"
+      > </a
+      ><a name="4076" href="BasicIPC.Gentzen.HereditarySubstitution.html#838" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="4081"
+      > </a
+      ><a name="4082" class="Symbol"
+      >(</a
+      ><a name="4083" href="BasicIPC.Gentzen.HereditarySubstitution.html#3885" class="Function"
+      >&#8810;snd&#738;&#7510;</a
+      ><a name="4089"
+      > </a
+      ><a name="4090" href="BasicIPC.Gentzen.HereditarySubstitution.html#4068" class="Bound"
+      >xs</a
+      ><a name="4092" class="Symbol"
+      >)</a
+      ><a name="4093"
+      >
+
+
+</a
+      ><a name="4096" class="Comment"
+      >-- Derived neutrals.</a
+      ><a name="4116"
+      >
+
+</a
+      ><a name="4118" href="BasicIPC.Gentzen.HereditarySubstitution.html#4118" class="Function"
+      >var&#8319;&#7497;</a
+      ><a name="4123"
+      > </a
+      ><a name="4124" class="Symbol"
+      >:</a
+      ><a name="4125"
+      > </a
+      ><a name="4126" class="Symbol"
+      >&#8704;</a
+      ><a name="4127"
+      > </a
+      ><a name="4128" class="Symbol"
+      >{</a
+      ><a name="4129" href="BasicIPC.Gentzen.HereditarySubstitution.html#4129" class="Bound"
+      >A</a
+      ><a name="4130"
+      > </a
+      ><a name="4131" href="BasicIPC.Gentzen.HereditarySubstitution.html#4131" class="Bound"
+      >&#915;</a
+      ><a name="4132" class="Symbol"
+      >}</a
+      ><a name="4133"
+      > </a
+      ><a name="4134" class="Symbol"
+      >&#8594;</a
+      ><a name="4135"
+      > </a
+      ><a name="4136" href="BasicIPC.Gentzen.HereditarySubstitution.html#4129" class="Bound"
+      >A</a
+      ><a name="4137"
+      > </a
+      ><a name="4138" href="Common.Context.html#404" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="4139"
+      > </a
+      ><a name="4140" href="BasicIPC.Gentzen.HereditarySubstitution.html#4131" class="Bound"
+      >&#915;</a
+      ><a name="4141"
+      > </a
+      ><a name="4142" class="Symbol"
+      >&#8594;</a
+      ><a name="4143"
+      > </a
+      ><a name="4144" href="BasicIPC.Gentzen.HereditarySubstitution.html#4131" class="Bound"
+      >&#915;</a
+      ><a name="4145"
+      > </a
+      ><a name="4146" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="4149"
+      > </a
+      ><a name="4150" href="BasicIPC.Gentzen.HereditarySubstitution.html#4129" class="Bound"
+      >A</a
+      ><a name="4151"
+      >
+</a
+      ><a name="4152" href="BasicIPC.Gentzen.HereditarySubstitution.html#4118" class="Function"
+      >var&#8319;&#7497;</a
+      ><a name="4157"
+      > </a
+      ><a name="4158" href="BasicIPC.Gentzen.HereditarySubstitution.html#4158" class="Bound"
+      >i</a
+      ><a name="4159"
+      > </a
+      ><a name="4160" class="Symbol"
+      >=</a
+      ><a name="4161"
+      > </a
+      ><a name="4162" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="4166"
+      > </a
+      ><a name="4167" href="BasicIPC.Gentzen.HereditarySubstitution.html#4158" class="Bound"
+      >i</a
+      ><a name="4168"
+      > </a
+      ><a name="4169" href="BasicIPC.Gentzen.HereditarySubstitution.html#684" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="4174"
+      >
+
+</a
+      ><a name="4176" href="BasicIPC.Gentzen.HereditarySubstitution.html#4176" class="Function"
+      >app&#8319;&#7497;</a
+      ><a name="4181"
+      > </a
+      ><a name="4182" class="Symbol"
+      >:</a
+      ><a name="4183"
+      > </a
+      ><a name="4184" class="Symbol"
+      >&#8704;</a
+      ><a name="4185"
+      > </a
+      ><a name="4186" class="Symbol"
+      >{</a
+      ><a name="4187" href="BasicIPC.Gentzen.HereditarySubstitution.html#4187" class="Bound"
+      >A</a
+      ><a name="4188"
+      > </a
+      ><a name="4189" href="BasicIPC.Gentzen.HereditarySubstitution.html#4189" class="Bound"
+      >B</a
+      ><a name="4190"
+      > </a
+      ><a name="4191" href="BasicIPC.Gentzen.HereditarySubstitution.html#4191" class="Bound"
+      >&#915;</a
+      ><a name="4192" class="Symbol"
+      >}</a
+      ><a name="4193"
+      > </a
+      ><a name="4194" class="Symbol"
+      >&#8594;</a
+      ><a name="4195"
+      > </a
+      ><a name="4196" href="BasicIPC.Gentzen.HereditarySubstitution.html#4191" class="Bound"
+      >&#915;</a
+      ><a name="4197"
+      > </a
+      ><a name="4198" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="4201"
+      > </a
+      ><a name="4202" href="BasicIPC.Gentzen.HereditarySubstitution.html#4187" class="Bound"
+      >A</a
+      ><a name="4203"
+      > </a
+      ><a name="4204" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="4205"
+      > </a
+      ><a name="4206" href="BasicIPC.Gentzen.HereditarySubstitution.html#4189" class="Bound"
+      >B</a
+      ><a name="4207"
+      > </a
+      ><a name="4208" class="Symbol"
+      >&#8594;</a
+      ><a name="4209"
+      > </a
+      ><a name="4210" href="BasicIPC.Gentzen.HereditarySubstitution.html#4191" class="Bound"
+      >&#915;</a
+      ><a name="4211"
+      > </a
+      ><a name="4212" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="4215"
+      > </a
+      ><a name="4216" href="BasicIPC.Gentzen.HereditarySubstitution.html#4187" class="Bound"
+      >A</a
+      ><a name="4217"
+      > </a
+      ><a name="4218" class="Symbol"
+      >&#8594;</a
+      ><a name="4219"
+      > </a
+      ><a name="4220" href="BasicIPC.Gentzen.HereditarySubstitution.html#4191" class="Bound"
+      >&#915;</a
+      ><a name="4221"
+      > </a
+      ><a name="4222" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="4225"
+      > </a
+      ><a name="4226" href="BasicIPC.Gentzen.HereditarySubstitution.html#4189" class="Bound"
+      >B</a
+      ><a name="4227"
+      >
+</a
+      ><a name="4228" href="BasicIPC.Gentzen.HereditarySubstitution.html#4176" class="Function"
+      >app&#8319;&#7497;</a
+      ><a name="4233"
+      > </a
+      ><a name="4234" class="Symbol"
+      >(</a
+      ><a name="4235" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="4239"
+      > </a
+      ><a name="4240" href="BasicIPC.Gentzen.HereditarySubstitution.html#4240" class="Bound"
+      >i</a
+      ><a name="4241"
+      > </a
+      ><a name="4242" href="BasicIPC.Gentzen.HereditarySubstitution.html#4242" class="Bound"
+      >xs</a
+      ><a name="4244" class="Symbol"
+      >)</a
+      ><a name="4245"
+      > </a
+      ><a name="4246" href="BasicIPC.Gentzen.HereditarySubstitution.html#4246" class="Bound"
+      >t</a
+      ><a name="4247"
+      > </a
+      ><a name="4248" class="Symbol"
+      >=</a
+      ><a name="4249"
+      > </a
+      ><a name="4250" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="4254"
+      > </a
+      ><a name="4255" href="BasicIPC.Gentzen.HereditarySubstitution.html#4240" class="Bound"
+      >i</a
+      ><a name="4256"
+      > </a
+      ><a name="4257" class="Symbol"
+      >(</a
+      ><a name="4258" href="BasicIPC.Gentzen.HereditarySubstitution.html#3439" class="Function"
+      >&#8810;app&#738;&#7510;</a
+      ><a name="4264"
+      > </a
+      ><a name="4265" href="BasicIPC.Gentzen.HereditarySubstitution.html#4242" class="Bound"
+      >xs</a
+      ><a name="4267"
+      > </a
+      ><a name="4268" href="BasicIPC.Gentzen.HereditarySubstitution.html#4246" class="Bound"
+      >t</a
+      ><a name="4269" class="Symbol"
+      >)</a
+      ><a name="4270"
+      >
+
+</a
+      ><a name="4272" href="BasicIPC.Gentzen.HereditarySubstitution.html#4272" class="Function"
+      >fst&#8319;&#7497;</a
+      ><a name="4277"
+      > </a
+      ><a name="4278" class="Symbol"
+      >:</a
+      ><a name="4279"
+      > </a
+      ><a name="4280" class="Symbol"
+      >&#8704;</a
+      ><a name="4281"
+      > </a
+      ><a name="4282" class="Symbol"
+      >{</a
+      ><a name="4283" href="BasicIPC.Gentzen.HereditarySubstitution.html#4283" class="Bound"
+      >A</a
+      ><a name="4284"
+      > </a
+      ><a name="4285" href="BasicIPC.Gentzen.HereditarySubstitution.html#4285" class="Bound"
+      >B</a
+      ><a name="4286"
+      > </a
+      ><a name="4287" href="BasicIPC.Gentzen.HereditarySubstitution.html#4287" class="Bound"
+      >&#915;</a
+      ><a name="4288" class="Symbol"
+      >}</a
+      ><a name="4289"
+      > </a
+      ><a name="4290" class="Symbol"
+      >&#8594;</a
+      ><a name="4291"
+      > </a
+      ><a name="4292" href="BasicIPC.Gentzen.HereditarySubstitution.html#4287" class="Bound"
+      >&#915;</a
+      ><a name="4293"
+      > </a
+      ><a name="4294" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="4297"
+      > </a
+      ><a name="4298" href="BasicIPC.Gentzen.HereditarySubstitution.html#4283" class="Bound"
+      >A</a
+      ><a name="4299"
+      > </a
+      ><a name="4300" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="4301"
+      > </a
+      ><a name="4302" href="BasicIPC.Gentzen.HereditarySubstitution.html#4285" class="Bound"
+      >B</a
+      ><a name="4303"
+      > </a
+      ><a name="4304" class="Symbol"
+      >&#8594;</a
+      ><a name="4305"
+      > </a
+      ><a name="4306" href="BasicIPC.Gentzen.HereditarySubstitution.html#4287" class="Bound"
+      >&#915;</a
+      ><a name="4307"
+      > </a
+      ><a name="4308" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="4311"
+      > </a
+      ><a name="4312" href="BasicIPC.Gentzen.HereditarySubstitution.html#4283" class="Bound"
+      >A</a
+      ><a name="4313"
+      >
+</a
+      ><a name="4314" href="BasicIPC.Gentzen.HereditarySubstitution.html#4272" class="Function"
+      >fst&#8319;&#7497;</a
+      ><a name="4319"
+      > </a
+      ><a name="4320" class="Symbol"
+      >(</a
+      ><a name="4321" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="4325"
+      > </a
+      ><a name="4326" href="BasicIPC.Gentzen.HereditarySubstitution.html#4326" class="Bound"
+      >i</a
+      ><a name="4327"
+      > </a
+      ><a name="4328" href="BasicIPC.Gentzen.HereditarySubstitution.html#4328" class="Bound"
+      >xs</a
+      ><a name="4330" class="Symbol"
+      >)</a
+      ><a name="4331"
+      > </a
+      ><a name="4332" class="Symbol"
+      >=</a
+      ><a name="4333"
+      > </a
+      ><a name="4334" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="4338"
+      > </a
+      ><a name="4339" href="BasicIPC.Gentzen.HereditarySubstitution.html#4326" class="Bound"
+      >i</a
+      ><a name="4340"
+      > </a
+      ><a name="4341" class="Symbol"
+      >(</a
+      ><a name="4342" href="BasicIPC.Gentzen.HereditarySubstitution.html#3675" class="Function"
+      >&#8810;fst&#738;&#7510;</a
+      ><a name="4348"
+      > </a
+      ><a name="4349" href="BasicIPC.Gentzen.HereditarySubstitution.html#4328" class="Bound"
+      >xs</a
+      ><a name="4351" class="Symbol"
+      >)</a
+      ><a name="4352"
+      >
+
+</a
+      ><a name="4354" href="BasicIPC.Gentzen.HereditarySubstitution.html#4354" class="Function"
+      >snd&#8319;&#7497;</a
+      ><a name="4359"
+      > </a
+      ><a name="4360" class="Symbol"
+      >:</a
+      ><a name="4361"
+      > </a
+      ><a name="4362" class="Symbol"
+      >&#8704;</a
+      ><a name="4363"
+      > </a
+      ><a name="4364" class="Symbol"
+      >{</a
+      ><a name="4365" href="BasicIPC.Gentzen.HereditarySubstitution.html#4365" class="Bound"
+      >A</a
+      ><a name="4366"
+      > </a
+      ><a name="4367" href="BasicIPC.Gentzen.HereditarySubstitution.html#4367" class="Bound"
+      >B</a
+      ><a name="4368"
+      > </a
+      ><a name="4369" href="BasicIPC.Gentzen.HereditarySubstitution.html#4369" class="Bound"
+      >&#915;</a
+      ><a name="4370" class="Symbol"
+      >}</a
+      ><a name="4371"
+      > </a
+      ><a name="4372" class="Symbol"
+      >&#8594;</a
+      ><a name="4373"
+      > </a
+      ><a name="4374" href="BasicIPC.Gentzen.HereditarySubstitution.html#4369" class="Bound"
+      >&#915;</a
+      ><a name="4375"
+      > </a
+      ><a name="4376" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="4379"
+      > </a
+      ><a name="4380" href="BasicIPC.Gentzen.HereditarySubstitution.html#4365" class="Bound"
+      >A</a
+      ><a name="4381"
+      > </a
+      ><a name="4382" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="4383"
+      > </a
+      ><a name="4384" href="BasicIPC.Gentzen.HereditarySubstitution.html#4367" class="Bound"
+      >B</a
+      ><a name="4385"
+      > </a
+      ><a name="4386" class="Symbol"
+      >&#8594;</a
+      ><a name="4387"
+      > </a
+      ><a name="4388" href="BasicIPC.Gentzen.HereditarySubstitution.html#4369" class="Bound"
+      >&#915;</a
+      ><a name="4389"
+      > </a
+      ><a name="4390" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="4393"
+      > </a
+      ><a name="4394" href="BasicIPC.Gentzen.HereditarySubstitution.html#4367" class="Bound"
+      >B</a
+      ><a name="4395"
+      >
+</a
+      ><a name="4396" href="BasicIPC.Gentzen.HereditarySubstitution.html#4354" class="Function"
+      >snd&#8319;&#7497;</a
+      ><a name="4401"
+      > </a
+      ><a name="4402" class="Symbol"
+      >(</a
+      ><a name="4403" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="4407"
+      > </a
+      ><a name="4408" href="BasicIPC.Gentzen.HereditarySubstitution.html#4408" class="Bound"
+      >i</a
+      ><a name="4409"
+      > </a
+      ><a name="4410" href="BasicIPC.Gentzen.HereditarySubstitution.html#4410" class="Bound"
+      >xs</a
+      ><a name="4412" class="Symbol"
+      >)</a
+      ><a name="4413"
+      > </a
+      ><a name="4414" class="Symbol"
+      >=</a
+      ><a name="4415"
+      > </a
+      ><a name="4416" href="BasicIPC.Gentzen.HereditarySubstitution.html#552" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="4420"
+      > </a
+      ><a name="4421" href="BasicIPC.Gentzen.HereditarySubstitution.html#4408" class="Bound"
+      >i</a
+      ><a name="4422"
+      > </a
+      ><a name="4423" class="Symbol"
+      >(</a
+      ><a name="4424" href="BasicIPC.Gentzen.HereditarySubstitution.html#3885" class="Function"
+      >&#8810;snd&#738;&#7510;</a
+      ><a name="4430"
+      > </a
+      ><a name="4431" href="BasicIPC.Gentzen.HereditarySubstitution.html#4410" class="Bound"
+      >xs</a
+      ><a name="4433" class="Symbol"
+      >)</a
+      ><a name="4434"
+      >
+
+
+</a
+      ><a name="4437" class="Comment"
+      >-- Iterated expansion.</a
+      ><a name="4459"
+      >
+
+</a
+      ><a name="4461" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4467"
+      > </a
+      ><a name="4468" class="Symbol"
+      >:</a
+      ><a name="4469"
+      > </a
+      ><a name="4470" class="Symbol"
+      >&#8704;</a
+      ><a name="4471"
+      > </a
+      ><a name="4472" class="Symbol"
+      >{</a
+      ><a name="4473" href="BasicIPC.Gentzen.HereditarySubstitution.html#4473" class="Bound"
+      >A</a
+      ><a name="4474"
+      > </a
+      ><a name="4475" href="BasicIPC.Gentzen.HereditarySubstitution.html#4475" class="Bound"
+      >&#915;</a
+      ><a name="4476" class="Symbol"
+      >}</a
+      ><a name="4477"
+      > </a
+      ><a name="4478" class="Symbol"
+      >&#8594;</a
+      ><a name="4479"
+      > </a
+      ><a name="4480" href="BasicIPC.Gentzen.HereditarySubstitution.html#4475" class="Bound"
+      >&#915;</a
+      ><a name="4481"
+      > </a
+      ><a name="4482" href="BasicIPC.Gentzen.HereditarySubstitution.html#513" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="4485"
+      > </a
+      ><a name="4486" href="BasicIPC.Gentzen.HereditarySubstitution.html#4473" class="Bound"
+      >A</a
+      ><a name="4487"
+      > </a
+      ><a name="4488" class="Symbol"
+      >&#8594;</a
+      ><a name="4489"
+      > </a
+      ><a name="4490" href="BasicIPC.Gentzen.HereditarySubstitution.html#4475" class="Bound"
+      >&#915;</a
+      ><a name="4491"
+      > </a
+      ><a name="4492" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="4495"
+      > </a
+      ><a name="4496" href="BasicIPC.Gentzen.HereditarySubstitution.html#4473" class="Bound"
+      >A</a
+      ><a name="4497"
+      >
+</a
+      ><a name="4498" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4504"
+      > </a
+      ><a name="4505" class="Symbol"
+      >{</a
+      ><a name="4506" href="BasicIPC.html#183" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="4507"
+      > </a
+      ><a name="4508" href="BasicIPC.Gentzen.HereditarySubstitution.html#4508" class="Bound"
+      >P</a
+      ><a name="4509" class="Symbol"
+      >}</a
+      ><a name="4510"
+      >   </a
+      ><a name="4513" href="BasicIPC.Gentzen.HereditarySubstitution.html#4513" class="Bound"
+      >t</a
+      ><a name="4514"
+      > </a
+      ><a name="4515" class="Symbol"
+      >=</a
+      ><a name="4516"
+      > </a
+      ><a name="4517" href="BasicIPC.Gentzen.HereditarySubstitution.html#291" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="4521"
+      > </a
+      ><a name="4522" href="BasicIPC.Gentzen.HereditarySubstitution.html#4513" class="Bound"
+      >t</a
+      ><a name="4523"
+      >
+</a
+      ><a name="4524" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4530"
+      > </a
+      ><a name="4531" class="Symbol"
+      >{</a
+      ><a name="4532" href="BasicIPC.Gentzen.HereditarySubstitution.html#4532" class="Bound"
+      >A</a
+      ><a name="4533"
+      > </a
+      ><a name="4534" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="4535"
+      > </a
+      ><a name="4536" href="BasicIPC.Gentzen.HereditarySubstitution.html#4536" class="Bound"
+      >B</a
+      ><a name="4537" class="Symbol"
+      >}</a
+      ><a name="4538"
+      > </a
+      ><a name="4539" href="BasicIPC.Gentzen.HereditarySubstitution.html#4539" class="Bound"
+      >t</a
+      ><a name="4540"
+      > </a
+      ><a name="4541" class="Symbol"
+      >=</a
+      ><a name="4542"
+      > </a
+      ><a name="4543" href="BasicIPC.Gentzen.HereditarySubstitution.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="4548"
+      > </a
+      ><a name="4549" class="Symbol"
+      >(</a
+      ><a name="4550" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4556"
+      > </a
+      ><a name="4557" class="Symbol"
+      >(</a
+      ><a name="4558" href="BasicIPC.Gentzen.HereditarySubstitution.html#4176" class="Function"
+      >app&#8319;&#7497;</a
+      ><a name="4563"
+      > </a
+      ><a name="4564" class="Symbol"
+      >(</a
+      ><a name="4565" href="BasicIPC.Gentzen.HereditarySubstitution.html#1709" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="4572"
+      > </a
+      ><a name="4573" href="Common.Context.html#1467" class="Function"
+      >weak&#8838;</a
+      ><a name="4578"
+      > </a
+      ><a name="4579" href="BasicIPC.Gentzen.HereditarySubstitution.html#4539" class="Bound"
+      >t</a
+      ><a name="4580" class="Symbol"
+      >)</a
+      ><a name="4581"
+      > </a
+      ><a name="4582" class="Symbol"
+      >(</a
+      ><a name="4583" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4589"
+      > </a
+      ><a name="4590" class="Symbol"
+      >(</a
+      ><a name="4591" href="BasicIPC.Gentzen.HereditarySubstitution.html#4118" class="Function"
+      >var&#8319;&#7497;</a
+      ><a name="4596"
+      > </a
+      ><a name="4597" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="4600" class="Symbol"
+      >))))</a
+      ><a name="4604"
+      >
+</a
+      ><a name="4605" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4611"
+      > </a
+      ><a name="4612" class="Symbol"
+      >{</a
+      ><a name="4613" href="BasicIPC.Gentzen.HereditarySubstitution.html#4613" class="Bound"
+      >A</a
+      ><a name="4614"
+      > </a
+      ><a name="4615" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="4616"
+      > </a
+      ><a name="4617" href="BasicIPC.Gentzen.HereditarySubstitution.html#4617" class="Bound"
+      >B</a
+      ><a name="4618" class="Symbol"
+      >}</a
+      ><a name="4619"
+      > </a
+      ><a name="4620" href="BasicIPC.Gentzen.HereditarySubstitution.html#4620" class="Bound"
+      >t</a
+      ><a name="4621"
+      > </a
+      ><a name="4622" class="Symbol"
+      >=</a
+      ><a name="4623"
+      > </a
+      ><a name="4624" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="4630"
+      > </a
+      ><a name="4631" class="Symbol"
+      >(</a
+      ><a name="4632" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4638"
+      > </a
+      ><a name="4639" class="Symbol"
+      >(</a
+      ><a name="4640" href="BasicIPC.Gentzen.HereditarySubstitution.html#4272" class="Function"
+      >fst&#8319;&#7497;</a
+      ><a name="4645"
+      > </a
+      ><a name="4646" href="BasicIPC.Gentzen.HereditarySubstitution.html#4620" class="Bound"
+      >t</a
+      ><a name="4647" class="Symbol"
+      >))</a
+      ><a name="4649"
+      > </a
+      ><a name="4650" class="Symbol"
+      >(</a
+      ><a name="4651" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4657"
+      > </a
+      ><a name="4658" class="Symbol"
+      >(</a
+      ><a name="4659" href="BasicIPC.Gentzen.HereditarySubstitution.html#4354" class="Function"
+      >snd&#8319;&#7497;</a
+      ><a name="4664"
+      > </a
+      ><a name="4665" href="BasicIPC.Gentzen.HereditarySubstitution.html#4620" class="Bound"
+      >t</a
+      ><a name="4666" class="Symbol"
+      >))</a
+      ><a name="4668"
+      >
+</a
+      ><a name="4669" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4675"
+      > </a
+      ><a name="4676" class="Symbol"
+      >{</a
+      ><a name="4677" href="BasicIPC.html#243" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="4678" class="Symbol"
+      >}</a
+      ><a name="4679"
+      >    </a
+      ><a name="4683" href="BasicIPC.Gentzen.HereditarySubstitution.html#4683" class="Bound"
+      >t</a
+      ><a name="4684"
+      > </a
+      ><a name="4685" class="Symbol"
+      >=</a
+      ><a name="4686"
+      > </a
+      ><a name="4687" href="BasicIPC.Gentzen.HereditarySubstitution.html#440" class="InductiveConstructor"
+      >tt&#8319;&#7584;</a
+      ><a name="4691"
+      >
+
+
+</a
+      ><a name="4694" class="Comment"
+      >-- Expansion-based normal forms.</a
+      ><a name="4726"
+      >
+
+</a
+      ><a name="4728" href="BasicIPC.Gentzen.HereditarySubstitution.html#4728" class="Function"
+      >var&#8319;&#7584;</a
+      ><a name="4733"
+      > </a
+      ><a name="4734" class="Symbol"
+      >:</a
+      ><a name="4735"
+      > </a
+      ><a name="4736" class="Symbol"
+      >&#8704;</a
+      ><a name="4737"
+      > </a
+      ><a name="4738" class="Symbol"
+      >{</a
+      ><a name="4739" href="BasicIPC.Gentzen.HereditarySubstitution.html#4739" class="Bound"
+      >A</a
+      ><a name="4740"
+      > </a
+      ><a name="4741" href="BasicIPC.Gentzen.HereditarySubstitution.html#4741" class="Bound"
+      >&#915;</a
+      ><a name="4742" class="Symbol"
+      >}</a
+      ><a name="4743"
+      > </a
+      ><a name="4744" class="Symbol"
+      >&#8594;</a
+      ><a name="4745"
+      > </a
+      ><a name="4746" href="BasicIPC.Gentzen.HereditarySubstitution.html#4739" class="Bound"
+      >A</a
+      ><a name="4747"
+      > </a
+      ><a name="4748" href="Common.Context.html#404" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="4749"
+      > </a
+      ><a name="4750" href="BasicIPC.Gentzen.HereditarySubstitution.html#4741" class="Bound"
+      >&#915;</a
+      ><a name="4751"
+      > </a
+      ><a name="4752" class="Symbol"
+      >&#8594;</a
+      ><a name="4753"
+      > </a
+      ><a name="4754" href="BasicIPC.Gentzen.HereditarySubstitution.html#4741" class="Bound"
+      >&#915;</a
+      ><a name="4755"
+      > </a
+      ><a name="4756" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="4759"
+      > </a
+      ><a name="4760" href="BasicIPC.Gentzen.HereditarySubstitution.html#4739" class="Bound"
+      >A</a
+      ><a name="4761"
+      >
+</a
+      ><a name="4762" href="BasicIPC.Gentzen.HereditarySubstitution.html#4728" class="Function"
+      >var&#8319;&#7584;</a
+      ><a name="4767"
+      > </a
+      ><a name="4768" href="BasicIPC.Gentzen.HereditarySubstitution.html#4768" class="Bound"
+      >i</a
+      ><a name="4769"
+      > </a
+      ><a name="4770" class="Symbol"
+      >=</a
+      ><a name="4771"
+      > </a
+      ><a name="4772" href="BasicIPC.Gentzen.HereditarySubstitution.html#4461" class="Function"
+      >expand</a
+      ><a name="4778"
+      > </a
+      ><a name="4779" class="Symbol"
+      >(</a
+      ><a name="4780" href="BasicIPC.Gentzen.HereditarySubstitution.html#4118" class="Function"
+      >var&#8319;&#7497;</a
+      ><a name="4785"
+      > </a
+      ><a name="4786" href="BasicIPC.Gentzen.HereditarySubstitution.html#4768" class="Bound"
+      >i</a
+      ><a name="4787" class="Symbol"
+      >)</a
+      ><a name="4788"
+      >
+
+
+</a
+      ><a name="4791" class="Comment"
+      >-- Translation from terms to normal forms.</a
+      ><a name="4833"
+      >
+
+</a
+      ><a name="4835" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="4840"
+      > </a
+      ><a name="4841" class="Symbol"
+      >:</a
+      ><a name="4842"
+      > </a
+      ><a name="4843" class="Symbol"
+      >&#8704;</a
+      ><a name="4844"
+      > </a
+      ><a name="4845" class="Symbol"
+      >{</a
+      ><a name="4846" href="BasicIPC.Gentzen.HereditarySubstitution.html#4846" class="Bound"
+      >A</a
+      ><a name="4847"
+      > </a
+      ><a name="4848" href="BasicIPC.Gentzen.HereditarySubstitution.html#4848" class="Bound"
+      >&#915;</a
+      ><a name="4849" class="Symbol"
+      >}</a
+      ><a name="4850"
+      > </a
+      ><a name="4851" class="Symbol"
+      >&#8594;</a
+      ><a name="4852"
+      > </a
+      ><a name="4853" href="BasicIPC.Gentzen.HereditarySubstitution.html#4848" class="Bound"
+      >&#915;</a
+      ><a name="4854"
+      > </a
+      ><a name="4855" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4856"
+      > </a
+      ><a name="4857" href="BasicIPC.Gentzen.HereditarySubstitution.html#4846" class="Bound"
+      >A</a
+      ><a name="4858"
+      > </a
+      ><a name="4859" class="Symbol"
+      >&#8594;</a
+      ><a name="4860"
+      > </a
+      ><a name="4861" href="BasicIPC.Gentzen.HereditarySubstitution.html#4848" class="Bound"
+      >&#915;</a
+      ><a name="4862"
+      > </a
+      ><a name="4863" href="BasicIPC.Gentzen.HereditarySubstitution.html#252" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="4866"
+      > </a
+      ><a name="4867" href="BasicIPC.Gentzen.HereditarySubstitution.html#4846" class="Bound"
+      >A</a
+      ><a name="4868"
+      >
+</a
+      ><a name="4869" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="4874"
+      > </a
+      ><a name="4875" class="Symbol"
+      >(</a
+      ><a name="4876" href="BasicIPC.Gentzen.html#173" class="InductiveConstructor"
+      >var</a
+      ><a name="4879"
+      > </a
+      ><a name="4880" href="BasicIPC.Gentzen.HereditarySubstitution.html#4880" class="Bound"
+      >i</a
+      ><a name="4881" class="Symbol"
+      >)</a
+      ><a name="4882"
+      >    </a
+      ><a name="4886" class="Symbol"
+      >=</a
+      ><a name="4887"
+      > </a
+      ><a name="4888" href="BasicIPC.Gentzen.HereditarySubstitution.html#4728" class="Function"
+      >var&#8319;&#7584;</a
+      ><a name="4893"
+      > </a
+      ><a name="4894" href="BasicIPC.Gentzen.HereditarySubstitution.html#4880" class="Bound"
+      >i</a
+      ><a name="4895"
+      >
+</a
+      ><a name="4896" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="4901"
+      > </a
+      ><a name="4902" class="Symbol"
+      >(</a
+      ><a name="4903" href="BasicIPC.Gentzen.html#206" class="InductiveConstructor"
+      >lam</a
+      ><a name="4906"
+      > </a
+      ><a name="4907" href="BasicIPC.Gentzen.HereditarySubstitution.html#4907" class="Bound"
+      >t</a
+      ><a name="4908" class="Symbol"
+      >)</a
+      ><a name="4909"
+      >    </a
+      ><a name="4913" class="Symbol"
+      >=</a
+      ><a name="4914"
+      > </a
+      ><a name="4915" href="BasicIPC.Gentzen.HereditarySubstitution.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="4920"
+      > </a
+      ><a name="4921" class="Symbol"
+      >(</a
+      ><a name="4922" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="4927"
+      > </a
+      ><a name="4928" href="BasicIPC.Gentzen.HereditarySubstitution.html#4907" class="Bound"
+      >t</a
+      ><a name="4929" class="Symbol"
+      >)</a
+      ><a name="4930"
+      >
+</a
+      ><a name="4931" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="4936"
+      > </a
+      ><a name="4937" class="Symbol"
+      >(</a
+      ><a name="4938" href="BasicIPC.Gentzen.html#247" class="InductiveConstructor"
+      >app</a
+      ><a name="4941"
+      > </a
+      ><a name="4942" href="BasicIPC.Gentzen.HereditarySubstitution.html#4942" class="Bound"
+      >t</a
+      ><a name="4943"
+      > </a
+      ><a name="4944" href="BasicIPC.Gentzen.HereditarySubstitution.html#4944" class="Bound"
+      >u</a
+      ><a name="4945" class="Symbol"
+      >)</a
+      ><a name="4946"
+      >  </a
+      ><a name="4948" class="Symbol"
+      >=</a
+      ><a name="4949"
+      > </a
+      ><a name="4950" href="BasicIPC.Gentzen.HereditarySubstitution.html#3152" class="Function"
+      >app&#8319;&#7584;</a
+      ><a name="4955"
+      > </a
+      ><a name="4956" class="Symbol"
+      >(</a
+      ><a name="4957" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="4962"
+      > </a
+      ><a name="4963" href="BasicIPC.Gentzen.HereditarySubstitution.html#4942" class="Bound"
+      >t</a
+      ><a name="4964" class="Symbol"
+      >)</a
+      ><a name="4965"
+      > </a
+      ><a name="4966" class="Symbol"
+      >(</a
+      ><a name="4967" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="4972"
+      > </a
+      ><a name="4973" href="BasicIPC.Gentzen.HereditarySubstitution.html#4944" class="Bound"
+      >u</a
+      ><a name="4974" class="Symbol"
+      >)</a
+      ><a name="4975"
+      >
+</a
+      ><a name="4976" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="4981"
+      > </a
+      ><a name="4982" class="Symbol"
+      >(</a
+      ><a name="4983" href="BasicIPC.Gentzen.html#292" class="InductiveConstructor"
+      >pair</a
+      ><a name="4987"
+      > </a
+      ><a name="4988" href="BasicIPC.Gentzen.HereditarySubstitution.html#4988" class="Bound"
+      >t</a
+      ><a name="4989"
+      > </a
+      ><a name="4990" href="BasicIPC.Gentzen.HereditarySubstitution.html#4990" class="Bound"
+      >u</a
+      ><a name="4991" class="Symbol"
+      >)</a
+      ><a name="4992"
+      > </a
+      ><a name="4993" class="Symbol"
+      >=</a
+      ><a name="4994"
+      > </a
+      ><a name="4995" href="BasicIPC.Gentzen.HereditarySubstitution.html#385" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="5001"
+      > </a
+      ><a name="5002" class="Symbol"
+      >(</a
+      ><a name="5003" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="5008"
+      > </a
+      ><a name="5009" href="BasicIPC.Gentzen.HereditarySubstitution.html#4988" class="Bound"
+      >t</a
+      ><a name="5010" class="Symbol"
+      >)</a
+      ><a name="5011"
+      > </a
+      ><a name="5012" class="Symbol"
+      >(</a
+      ><a name="5013" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="5018"
+      > </a
+      ><a name="5019" href="BasicIPC.Gentzen.HereditarySubstitution.html#4990" class="Bound"
+      >u</a
+      ><a name="5020" class="Symbol"
+      >)</a
+      ><a name="5021"
+      >
+</a
+      ><a name="5022" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="5027"
+      > </a
+      ><a name="5028" class="Symbol"
+      >(</a
+      ><a name="5029" href="BasicIPC.Gentzen.html#337" class="InductiveConstructor"
+      >fst</a
+      ><a name="5032"
+      > </a
+      ><a name="5033" href="BasicIPC.Gentzen.HereditarySubstitution.html#5033" class="Bound"
+      >t</a
+      ><a name="5034" class="Symbol"
+      >)</a
+      ><a name="5035"
+      >    </a
+      ><a name="5039" class="Symbol"
+      >=</a
+      ><a name="5040"
+      > </a
+      ><a name="5041" href="BasicIPC.Gentzen.HereditarySubstitution.html#3242" class="Function"
+      >fst&#8319;&#7584;</a
+      ><a name="5046"
+      > </a
+      ><a name="5047" class="Symbol"
+      >(</a
+      ><a name="5048" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="5053"
+      > </a
+      ><a name="5054" href="BasicIPC.Gentzen.HereditarySubstitution.html#5033" class="Bound"
+      >t</a
+      ><a name="5055" class="Symbol"
+      >)</a
+      ><a name="5056"
+      >
+</a
+      ><a name="5057" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="5062"
+      > </a
+      ><a name="5063" class="Symbol"
+      >(</a
+      ><a name="5064" href="BasicIPC.Gentzen.html#374" class="InductiveConstructor"
+      >snd</a
+      ><a name="5067"
+      > </a
+      ><a name="5068" href="BasicIPC.Gentzen.HereditarySubstitution.html#5068" class="Bound"
+      >t</a
+      ><a name="5069" class="Symbol"
+      >)</a
+      ><a name="5070"
+      >    </a
+      ><a name="5074" class="Symbol"
+      >=</a
+      ><a name="5075"
+      > </a
+      ><a name="5076" href="BasicIPC.Gentzen.HereditarySubstitution.html#3318" class="Function"
+      >snd&#8319;&#7584;</a
+      ><a name="5081"
+      > </a
+      ><a name="5082" class="Symbol"
+      >(</a
+      ><a name="5083" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="5088"
+      > </a
+      ><a name="5089" href="BasicIPC.Gentzen.HereditarySubstitution.html#5068" class="Bound"
+      >t</a
+      ><a name="5090" class="Symbol"
+      >)</a
+      ><a name="5091"
+      >
+</a
+      ><a name="5092" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="5097"
+      > </a
+      ><a name="5098" href="BasicIPC.Gentzen.html#411" class="InductiveConstructor"
+      >tt</a
+      ><a name="5100"
+      >         </a
+      ><a name="5109" class="Symbol"
+      >=</a
+      ><a name="5110"
+      > </a
+      ><a name="5111" href="BasicIPC.Gentzen.HereditarySubstitution.html#440" class="InductiveConstructor"
+      >tt&#8319;&#7584;</a
+      ><a name="5115"
+      >
+
+
+</a
+      ><a name="5118" class="Comment"
+      >-- Normalisation.</a
+      ><a name="5135"
+      >
+
+</a
+      ><a name="5137" href="BasicIPC.Gentzen.HereditarySubstitution.html#5137" class="Function"
+      >norm</a
+      ><a name="5141"
+      > </a
+      ><a name="5142" class="Symbol"
+      >:</a
+      ><a name="5143"
+      > </a
+      ><a name="5144" class="Symbol"
+      >&#8704;</a
+      ><a name="5145"
+      > </a
+      ><a name="5146" class="Symbol"
+      >{</a
+      ><a name="5147" href="BasicIPC.Gentzen.HereditarySubstitution.html#5147" class="Bound"
+      >A</a
+      ><a name="5148"
+      > </a
+      ><a name="5149" href="BasicIPC.Gentzen.HereditarySubstitution.html#5149" class="Bound"
+      >&#915;</a
+      ><a name="5150" class="Symbol"
+      >}</a
+      ><a name="5151"
+      > </a
+      ><a name="5152" class="Symbol"
+      >&#8594;</a
+      ><a name="5153"
+      > </a
+      ><a name="5154" href="BasicIPC.Gentzen.HereditarySubstitution.html#5149" class="Bound"
+      >&#915;</a
+      ><a name="5155"
+      > </a
+      ><a name="5156" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5157"
+      > </a
+      ><a name="5158" href="BasicIPC.Gentzen.HereditarySubstitution.html#5147" class="Bound"
+      >A</a
+      ><a name="5159"
+      > </a
+      ><a name="5160" class="Symbol"
+      >&#8594;</a
+      ><a name="5161"
+      > </a
+      ><a name="5162" href="BasicIPC.Gentzen.HereditarySubstitution.html#5149" class="Bound"
+      >&#915;</a
+      ><a name="5163"
+      > </a
+      ><a name="5164" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5165"
+      > </a
+      ><a name="5166" href="BasicIPC.Gentzen.HereditarySubstitution.html#5147" class="Bound"
+      >A</a
+      ><a name="5167"
+      >
+</a
+      ><a name="5168" href="BasicIPC.Gentzen.HereditarySubstitution.html#5137" class="Function"
+      >norm</a
+      ><a name="5172"
+      > </a
+      ><a name="5173" class="Symbol"
+      >=</a
+      ><a name="5174"
+      > </a
+      ><a name="5175" href="BasicIPC.Gentzen.HereditarySubstitution.html#932" class="Function"
+      >nf&#8594;tm</a
+      ><a name="5180"
+      > </a
+      ><a name="5181" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="5182"
+      > </a
+      ><a name="5183" href="BasicIPC.Gentzen.HereditarySubstitution.html#4835" class="Function"
+      >tm&#8594;nf</a
+      ><a name="5188"
+      >
+
+
+</a
+      ><a name="5191" class="Comment"
+      >-- TODO: Correctness with respect to conversion.</a
+      ><a name="5239"
+      >
+
+</a
+      ><a name="5241" class="Comment"
+      >-- coco : &#8704; {A &#915;} {t t&#8242; : &#915; &#8866; A} &#8594; t &#8658; t&#8242; &#8594; norm t &#8801; norm t&#8242;</a
+      ><a name="5301"
+      >
+</a
+      ><a name="5302" class="Comment"
+      >-- coco refl&#8658;           = refl</a
+      ><a name="5332"
+      >
+</a
+      ><a name="5333" class="Comment"
+      >-- coco (trans&#8658; p q)    = trans (coco p) (coco q)</a
+      ><a name="5382"
+      >
+</a
+      ><a name="5383" class="Comment"
+      >-- coco (sym&#8658; p)        = sym (coco p)</a
+      ><a name="5421"
+      >
+</a
+      ><a name="5422" class="Comment"
+      >-- coco (cong&#8658;lam p)    = cong lam (coco p)</a
+      ><a name="5465"
+      >
+</a
+      ><a name="5466" class="Comment"
+      >-- coco (cong&#8658;app p q)  = cong&#8322; {!!} (coco p) (coco q)</a
+      ><a name="5520"
+      >
+</a
+      ><a name="5521" class="Comment"
+      >-- coco (cong&#8658;pair p q) = cong&#8322; pair (coco p) (coco q)</a
+      ><a name="5575"
+      >
+</a
+      ><a name="5576" class="Comment"
+      >-- coco (cong&#8658;fst p)    = cong {!!} (coco p)</a
+      ><a name="5620"
+      >
+</a
+      ><a name="5621" class="Comment"
+      >-- coco (cong&#8658;snd p)    = cong {!!} (coco p)</a
+      ><a name="5665"
+      >
+</a
+      ><a name="5666" class="Comment"
+      >-- coco conv&#8658;lam        = {!!}</a
+      ><a name="5696"
+      >
+</a
+      ><a name="5697" class="Comment"
+      >-- coco conv&#8658;app        = {!!}</a
+      ><a name="5727"
+      >
+</a
+      ><a name="5728" class="Comment"
+      >-- coco conv&#8658;pair       = {!!}</a
+      ><a name="5758"
+      >
+</a
+      ><a name="5759" class="Comment"
+      >-- coco conv&#8658;fst        = refl</a
+      ><a name="5789"
+      >
+</a
+      ><a name="5790" class="Comment"
+      >-- coco conv&#8658;snd        = refl</a
+      ><a name="5820"
+      >
+</a
+      ><a name="5821" class="Comment"
+      >-- coco conv&#8658;tt         = {!!}</a
+      ><a name="5851"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

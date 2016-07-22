@@ -1,0 +1,3323 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Regular.Translation</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.Regular.Translation.html#1" class="Module"
+      >BasicIS4.Regular.Translation</a
+      ><a name="36"
+      > </a
+      ><a name="37" class="Keyword"
+      >where</a
+      ><a name="42"
+      >
+
+</a
+      ><a name="44" class="Keyword"
+      >open</a
+      ><a name="48"
+      > </a
+      ><a name="49" class="Keyword"
+      >import</a
+      ><a name="55"
+      > </a
+      ><a name="56" href="BasicIS4.html#1" class="Module"
+      >BasicIS4</a
+      ><a name="64"
+      > </a
+      ><a name="65" class="Keyword"
+      >public</a
+      ><a name="71"
+      >
+
+</a
+      ><a name="73" class="Keyword"
+      >import</a
+      ><a name="79"
+      > </a
+      ><a name="80" href="BasicIS4.Regular.Hilbert.Sequential.html#1" class="Module"
+      >BasicIS4.Regular.Hilbert.Sequential</a
+      ><a name="115"
+      > </a
+      ><a name="116" class="Symbol"
+      >as</a
+      ><a name="118"
+      > </a
+      ><a name="119" class="Module"
+      >HS</a
+      ><a name="121"
+      >
+</a
+      ><a name="122" class="Keyword"
+      >import</a
+      ><a name="128"
+      > </a
+      ><a name="129" href="BasicIS4.Regular.Hilbert.Nested.html#1" class="Module"
+      >BasicIS4.Regular.Hilbert.Nested</a
+      ><a name="160"
+      > </a
+      ><a name="161" class="Symbol"
+      >as</a
+      ><a name="163"
+      > </a
+      ><a name="164" class="Module"
+      >HN</a
+      ><a name="166"
+      >
+</a
+      ><a name="167" class="Keyword"
+      >import</a
+      ><a name="173"
+      > </a
+      ><a name="174" href="BasicIS4.Regular.Gentzen.html#1" class="Module"
+      >BasicIS4.Regular.Gentzen</a
+      ><a name="198"
+      > </a
+      ><a name="199" class="Symbol"
+      >as</a
+      ><a name="201"
+      > </a
+      ><a name="202" class="Module"
+      >G</a
+      ><a name="203"
+      >
+
+</a
+      ><a name="205" class="Keyword"
+      >open</a
+      ><a name="209"
+      > </a
+      ><a name="210" href="BasicIS4.Regular.Hilbert.Sequential.html#1" class="Module"
+      >HS</a
+      ><a name="212"
+      > </a
+      ><a name="213" class="Keyword"
+      >using</a
+      ><a name="218"
+      > </a
+      ><a name="219" class="Symbol"
+      >()</a
+      ><a name="221"
+      > </a
+      ><a name="222" class="Keyword"
+      >renaming</a
+      ><a name="230"
+      > </a
+      ><a name="231" class="Symbol"
+      >(</a
+      ><a name="232" href="BasicIS4.Regular.Hilbert.Sequential.html#155" class="Datatype Operator"
+      >_&#8866;&#215;_</a
+      ><a name="236"
+      > </a
+      ><a name="237" class="Symbol"
+      >to</a
+      ><a name="239"
+      > </a
+      ><a name="240" href="BasicIS4.Regular.Hilbert.Sequential.html#155" class="Datatype Operator"
+      >HS&#10216;_&#8866;&#215;_&#10217;</a
+      ><a name="248"
+      > </a
+      ><a name="249" class="Symbol"
+      >;</a
+      ><a name="250"
+      > </a
+      ><a name="251" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >_&#8866;_</a
+      ><a name="254"
+      > </a
+      ><a name="255" class="Symbol"
+      >to</a
+      ><a name="257"
+      > </a
+      ><a name="258" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >HS&#10216;_&#8866;_&#10217;</a
+      ><a name="265" class="Symbol"
+      >)</a
+      ><a name="266"
+      > </a
+      ><a name="267" class="Keyword"
+      >public</a
+      ><a name="273"
+      >
+</a
+      ><a name="274" class="Keyword"
+      >open</a
+      ><a name="278"
+      > </a
+      ><a name="279" href="BasicIS4.Regular.Hilbert.Nested.html#1" class="Module"
+      >HN</a
+      ><a name="281"
+      > </a
+      ><a name="282" class="Keyword"
+      >using</a
+      ><a name="287"
+      > </a
+      ><a name="288" class="Symbol"
+      >()</a
+      ><a name="290"
+      > </a
+      ><a name="291" class="Keyword"
+      >renaming</a
+      ><a name="299"
+      > </a
+      ><a name="300" class="Symbol"
+      >(</a
+      ><a name="301" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >_&#8866;_</a
+      ><a name="304"
+      > </a
+      ><a name="305" class="Symbol"
+      >to</a
+      ><a name="307"
+      > </a
+      ><a name="308" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >HN&#10216;_&#8866;_&#10217;</a
+      ><a name="315"
+      > </a
+      ><a name="316" class="Symbol"
+      >;</a
+      ><a name="317"
+      > </a
+      ><a name="318" href="BasicIS4.Regular.Hilbert.Nested.html#719" class="Function Operator"
+      >_&#8866;&#8902;_</a
+      ><a name="322"
+      > </a
+      ><a name="323" class="Symbol"
+      >to</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="BasicIS4.Regular.Hilbert.Nested.html#719" class="Function Operator"
+      >HN&#10216;_&#8866;&#8902;_&#10217;</a
+      ><a name="334" class="Symbol"
+      >)</a
+      ><a name="335"
+      > </a
+      ><a name="336" class="Keyword"
+      >public</a
+      ><a name="342"
+      >
+</a
+      ><a name="343" class="Keyword"
+      >open</a
+      ><a name="347"
+      > </a
+      ><a name="348" href="BasicIS4.Regular.Gentzen.html#1" class="Module"
+      >G</a
+      ><a name="349"
+      > </a
+      ><a name="350" class="Keyword"
+      >using</a
+      ><a name="355"
+      >  </a
+      ><a name="357" class="Symbol"
+      >()</a
+      ><a name="359"
+      > </a
+      ><a name="360" class="Keyword"
+      >renaming</a
+      ><a name="368"
+      > </a
+      ><a name="369" class="Symbol"
+      >(</a
+      ><a name="370" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >_&#8866;_</a
+      ><a name="373"
+      > </a
+      ><a name="374" class="Symbol"
+      >to</a
+      ><a name="376"
+      > </a
+      ><a name="377" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >G&#10216;_&#8866;_&#10217;</a
+      ><a name="383"
+      > </a
+      ><a name="384" class="Symbol"
+      >;</a
+      ><a name="385"
+      > </a
+      ><a name="386" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >_&#8866;&#8902;_</a
+      ><a name="390"
+      > </a
+      ><a name="391" class="Symbol"
+      >to</a
+      ><a name="393"
+      > </a
+      ><a name="394" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >G&#10216;_&#8866;&#8902;_&#10217;</a
+      ><a name="401" class="Symbol"
+      >)</a
+      ><a name="402"
+      > </a
+      ><a name="403" class="Keyword"
+      >public</a
+      ><a name="409"
+      >
+
+
+</a
+      ><a name="412" class="Comment"
+      >-- Translation from sequential Hilbert-style to nested.</a
+      ><a name="467"
+      >
+
+</a
+      ><a name="469" href="BasicIS4.Regular.Translation.html#469" class="Function"
+      >hs&#8594;hn</a
+      ><a name="474"
+      > </a
+      ><a name="475" class="Symbol"
+      >:</a
+      ><a name="476"
+      > </a
+      ><a name="477" class="Symbol"
+      >&#8704;</a
+      ><a name="478"
+      > </a
+      ><a name="479" class="Symbol"
+      >{</a
+      ><a name="480" href="BasicIS4.Regular.Translation.html#480" class="Bound"
+      >A</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="BasicIS4.Regular.Translation.html#482" class="Bound"
+      >&#915;</a
+      ><a name="483" class="Symbol"
+      >}</a
+      ><a name="484"
+      > </a
+      ><a name="485" class="Symbol"
+      >&#8594;</a
+      ><a name="486"
+      > </a
+      ><a name="487" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >HS&#10216;</a
+      ><a name="490"
+      > </a
+      ><a name="491" href="BasicIS4.Regular.Translation.html#482" class="Bound"
+      >&#915;</a
+      ><a name="492"
+      > </a
+      ><a name="493" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#8866;</a
+      ><a name="494"
+      > </a
+      ><a name="495" href="BasicIS4.Regular.Translation.html#480" class="Bound"
+      >A</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#10217;</a
+      ><a name="498"
+      > </a
+      ><a name="499" class="Symbol"
+      >&#8594;</a
+      ><a name="500"
+      > </a
+      ><a name="501" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >HN&#10216;</a
+      ><a name="504"
+      > </a
+      ><a name="505" href="BasicIS4.Regular.Translation.html#482" class="Bound"
+      >&#915;</a
+      ><a name="506"
+      > </a
+      ><a name="507" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="508"
+      > </a
+      ><a name="509" href="BasicIS4.Regular.Translation.html#480" class="Bound"
+      >A</a
+      ><a name="510"
+      > </a
+      ><a name="511" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="512"
+      >
+</a
+      ><a name="513" href="BasicIS4.Regular.Translation.html#469" class="Function"
+      >hs&#8594;hn</a
+      ><a name="518"
+      > </a
+      ><a name="519" class="Symbol"
+      >(</a
+      ><a name="520" href="BasicIS4.Regular.Translation.html#520" class="Bound"
+      >&#928;</a
+      ><a name="521"
+      > </a
+      ><a name="522" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="523"
+      > </a
+      ><a name="524" href="BasicIS4.Regular.Translation.html#524" class="Bound"
+      >ts</a
+      ><a name="526" class="Symbol"
+      >)</a
+      ><a name="527"
+      > </a
+      ><a name="528" class="Symbol"
+      >=</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="533"
+      > </a
+      ><a name="534" href="BasicIS4.Regular.Translation.html#524" class="Bound"
+      >ts</a
+      ><a name="536"
+      > </a
+      ><a name="537" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="540"
+      >
+  </a
+      ><a name="543" class="Keyword"
+      >where</a
+      ><a name="548"
+      >
+    </a
+      ><a name="553" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="556"
+      > </a
+      ><a name="557" class="Symbol"
+      >:</a
+      ><a name="558"
+      > </a
+      ><a name="559" class="Symbol"
+      >&#8704;</a
+      ><a name="560"
+      > </a
+      ><a name="561" class="Symbol"
+      >{</a
+      ><a name="562" href="BasicIS4.Regular.Translation.html#562" class="Bound"
+      >A</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicIS4.Regular.Translation.html#564" class="Bound"
+      >&#915;</a
+      ><a name="565"
+      > </a
+      ><a name="566" href="BasicIS4.Regular.Translation.html#566" class="Bound"
+      >&#928;</a
+      ><a name="567" class="Symbol"
+      >}</a
+      ><a name="568"
+      > </a
+      ><a name="569" class="Symbol"
+      >&#8594;</a
+      ><a name="570"
+      > </a
+      ><a name="571" href="BasicIS4.Regular.Hilbert.Sequential.html#155" class="Datatype Operator"
+      >HS&#10216;</a
+      ><a name="574"
+      > </a
+      ><a name="575" href="BasicIS4.Regular.Translation.html#564" class="Bound"
+      >&#915;</a
+      ><a name="576"
+      > </a
+      ><a name="577" href="BasicIS4.Regular.Hilbert.Sequential.html#155" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="579"
+      > </a
+      ><a name="580" href="BasicIS4.Regular.Translation.html#566" class="Bound"
+      >&#928;</a
+      ><a name="581"
+      > </a
+      ><a name="582" href="BasicIS4.Regular.Hilbert.Sequential.html#155" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="583"
+      > </a
+      ><a name="584" class="Symbol"
+      >&#8594;</a
+      ><a name="585"
+      > </a
+      ><a name="586" href="BasicIS4.Regular.Translation.html#562" class="Bound"
+      >A</a
+      ><a name="587"
+      > </a
+      ><a name="588" href="Common.Context.html#404" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="589"
+      > </a
+      ><a name="590" href="BasicIS4.Regular.Translation.html#566" class="Bound"
+      >&#928;</a
+      ><a name="591"
+      > </a
+      ><a name="592" class="Symbol"
+      >&#8594;</a
+      ><a name="593"
+      > </a
+      ><a name="594" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >HN&#10216;</a
+      ><a name="597"
+      > </a
+      ><a name="598" href="BasicIS4.Regular.Translation.html#564" class="Bound"
+      >&#915;</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="601"
+      > </a
+      ><a name="602" href="BasicIS4.Regular.Translation.html#562" class="Bound"
+      >A</a
+      ><a name="603"
+      > </a
+      ><a name="604" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="605"
+      >
+    </a
+      ><a name="610" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="613"
+      > </a
+      ><a name="614" class="Symbol"
+      >(</a
+      ><a name="615" href="BasicIS4.Regular.Hilbert.Sequential.html#211" class="InductiveConstructor"
+      >HS.var</a
+      ><a name="621"
+      > </a
+      ><a name="622" href="BasicIS4.Regular.Translation.html#622" class="Bound"
+      >i</a
+      ><a name="623"
+      > </a
+      ><a name="624" href="BasicIS4.Regular.Translation.html#624" class="Bound"
+      >ts</a
+      ><a name="626" class="Symbol"
+      >)</a
+      ><a name="627"
+      >  </a
+      ><a name="629" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="632"
+      >     </a
+      ><a name="637" class="Symbol"
+      >=</a
+      ><a name="638"
+      > </a
+      ><a name="639" href="BasicIS4.Regular.Hilbert.Nested.html#213" class="InductiveConstructor"
+      >HN.var</a
+      ><a name="645"
+      > </a
+      ><a name="646" href="BasicIS4.Regular.Translation.html#622" class="Bound"
+      >i</a
+      ><a name="647"
+      >
+    </a
+      ><a name="652" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Symbol"
+      >(</a
+      ><a name="657" href="BasicIS4.Regular.Hilbert.Sequential.html#263" class="InductiveConstructor"
+      >HS.mp</a
+      ><a name="662"
+      > </a
+      ><a name="663" href="BasicIS4.Regular.Translation.html#663" class="Bound"
+      >i</a
+      ><a name="664"
+      > </a
+      ><a name="665" href="BasicIS4.Regular.Translation.html#665" class="Bound"
+      >j</a
+      ><a name="666"
+      > </a
+      ><a name="667" href="BasicIS4.Regular.Translation.html#667" class="Bound"
+      >ts</a
+      ><a name="669" class="Symbol"
+      >)</a
+      ><a name="670"
+      > </a
+      ><a name="671" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="674"
+      >     </a
+      ><a name="679" class="Symbol"
+      >=</a
+      ><a name="680"
+      > </a
+      ><a name="681" href="BasicIS4.Regular.Hilbert.Nested.html#249" class="InductiveConstructor"
+      >HN.app</a
+      ><a name="687"
+      > </a
+      ><a name="688" class="Symbol"
+      >(</a
+      ><a name="689" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="BasicIS4.Regular.Translation.html#667" class="Bound"
+      >ts</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="BasicIS4.Regular.Translation.html#663" class="Bound"
+      >i</a
+      ><a name="697" class="Symbol"
+      >)</a
+      ><a name="698"
+      > </a
+      ><a name="699" class="Symbol"
+      >(</a
+      ><a name="700" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="703"
+      > </a
+      ><a name="704" href="BasicIS4.Regular.Translation.html#667" class="Bound"
+      >ts</a
+      ><a name="706"
+      > </a
+      ><a name="707" href="BasicIS4.Regular.Translation.html#665" class="Bound"
+      >j</a
+      ><a name="708" class="Symbol"
+      >)</a
+      ><a name="709"
+      >
+    </a
+      ><a name="714" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="717"
+      > </a
+      ><a name="718" class="Symbol"
+      >(</a
+      ><a name="719" href="BasicIS4.Regular.Hilbert.Sequential.html#327" class="InductiveConstructor"
+      >HS.ci</a
+      ><a name="724"
+      > </a
+      ><a name="725" href="BasicIS4.Regular.Translation.html#725" class="Bound"
+      >ts</a
+      ><a name="727" class="Symbol"
+      >)</a
+      ><a name="728"
+      >     </a
+      ><a name="733" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="736"
+      >     </a
+      ><a name="741" class="Symbol"
+      >=</a
+      ><a name="742"
+      > </a
+      ><a name="743" href="BasicIS4.Regular.Hilbert.Nested.html#297" class="InductiveConstructor"
+      >HN.ci</a
+      ><a name="748"
+      >
+    </a
+      ><a name="753" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="756"
+      > </a
+      ><a name="757" class="Symbol"
+      >(</a
+      ><a name="758" href="BasicIS4.Regular.Hilbert.Sequential.html#375" class="InductiveConstructor"
+      >HS.ck</a
+      ><a name="763"
+      > </a
+      ><a name="764" href="BasicIS4.Regular.Translation.html#764" class="Bound"
+      >ts</a
+      ><a name="766" class="Symbol"
+      >)</a
+      ><a name="767"
+      >     </a
+      ><a name="772" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="775"
+      >     </a
+      ><a name="780" class="Symbol"
+      >=</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="BasicIS4.Regular.Hilbert.Nested.html#329" class="InductiveConstructor"
+      >HN.ck</a
+      ><a name="787"
+      >
+    </a
+      ><a name="792" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="795"
+      > </a
+      ><a name="796" class="Symbol"
+      >(</a
+      ><a name="797" href="BasicIS4.Regular.Hilbert.Sequential.html#427" class="InductiveConstructor"
+      >HS.cs</a
+      ><a name="802"
+      > </a
+      ><a name="803" href="BasicIS4.Regular.Translation.html#803" class="Bound"
+      >ts</a
+      ><a name="805" class="Symbol"
+      >)</a
+      ><a name="806"
+      >     </a
+      ><a name="811" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="814"
+      >     </a
+      ><a name="819" class="Symbol"
+      >=</a
+      ><a name="820"
+      > </a
+      ><a name="821" href="BasicIS4.Regular.Hilbert.Nested.html#365" class="InductiveConstructor"
+      >HN.cs</a
+      ><a name="826"
+      >
+    </a
+      ><a name="831" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="834"
+      > </a
+      ><a name="835" class="Symbol"
+      >(</a
+      ><a name="836" href="BasicIS4.Regular.Hilbert.Sequential.html#499" class="InductiveConstructor"
+      >HS.nec</a
+      ><a name="842"
+      > </a
+      ><a name="843" href="BasicIS4.Regular.Translation.html#843" class="Bound"
+      >ss</a
+      ><a name="845"
+      > </a
+      ><a name="846" href="BasicIS4.Regular.Translation.html#846" class="Bound"
+      >ts</a
+      ><a name="848" class="Symbol"
+      >)</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="853"
+      >     </a
+      ><a name="858" class="Symbol"
+      >=</a
+      ><a name="859"
+      > </a
+      ><a name="860" href="BasicIS4.Regular.Hilbert.Nested.html#421" class="InductiveConstructor"
+      >HN.box</a
+      ><a name="866"
+      > </a
+      ><a name="867" class="Symbol"
+      >(</a
+      ><a name="868" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="871"
+      > </a
+      ><a name="872" href="BasicIS4.Regular.Translation.html#843" class="Bound"
+      >ss</a
+      ><a name="874"
+      > </a
+      ><a name="875" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="878" class="Symbol"
+      >)</a
+      ><a name="879"
+      >
+    </a
+      ><a name="884" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="887"
+      > </a
+      ><a name="888" class="Symbol"
+      >(</a
+      ><a name="889" href="BasicIS4.Regular.Hilbert.Sequential.html#558" class="InductiveConstructor"
+      >HS.cdist</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="BasicIS4.Regular.Translation.html#898" class="Bound"
+      >ts</a
+      ><a name="900" class="Symbol"
+      >)</a
+      ><a name="901"
+      >  </a
+      ><a name="903" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="906"
+      >     </a
+      ><a name="911" class="Symbol"
+      >=</a
+      ><a name="912"
+      > </a
+      ><a name="913" href="BasicIS4.Regular.Hilbert.Nested.html#459" class="InductiveConstructor"
+      >HN.cdist</a
+      ><a name="921"
+      >
+    </a
+      ><a name="926" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="929"
+      > </a
+      ><a name="930" class="Symbol"
+      >(</a
+      ><a name="931" href="BasicIS4.Regular.Hilbert.Sequential.html#622" class="InductiveConstructor"
+      >HS.cup</a
+      ><a name="937"
+      > </a
+      ><a name="938" href="BasicIS4.Regular.Translation.html#938" class="Bound"
+      >ts</a
+      ><a name="940" class="Symbol"
+      >)</a
+      ><a name="941"
+      >    </a
+      ><a name="945" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="948"
+      >     </a
+      ><a name="953" class="Symbol"
+      >=</a
+      ><a name="954"
+      > </a
+      ><a name="955" href="BasicIS4.Regular.Hilbert.Nested.html#507" class="InductiveConstructor"
+      >HN.cup</a
+      ><a name="961"
+      >
+    </a
+      ><a name="966" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="969"
+      > </a
+      ><a name="970" class="Symbol"
+      >(</a
+      ><a name="971" href="BasicIS4.Regular.Hilbert.Sequential.html#676" class="InductiveConstructor"
+      >HS.cdown</a
+      ><a name="979"
+      > </a
+      ><a name="980" href="BasicIS4.Regular.Translation.html#980" class="Bound"
+      >ts</a
+      ><a name="982" class="Symbol"
+      >)</a
+      ><a name="983"
+      >  </a
+      ><a name="985" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="988"
+      >     </a
+      ><a name="993" class="Symbol"
+      >=</a
+      ><a name="994"
+      > </a
+      ><a name="995" href="BasicIS4.Regular.Hilbert.Nested.html#545" class="InductiveConstructor"
+      >HN.cdown</a
+      ><a name="1003"
+      >
+    </a
+      ><a name="1008" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" class="Symbol"
+      >(</a
+      ><a name="1013" href="BasicIS4.Regular.Hilbert.Sequential.html#726" class="InductiveConstructor"
+      >HS.cpair</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="BasicIS4.Regular.Translation.html#1022" class="Bound"
+      >ts</a
+      ><a name="1024" class="Symbol"
+      >)</a
+      ><a name="1025"
+      >  </a
+      ><a name="1027" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="1030"
+      >     </a
+      ><a name="1035" class="Symbol"
+      >=</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" href="BasicIS4.Regular.Hilbert.Nested.html#579" class="InductiveConstructor"
+      >HN.cpair</a
+      ><a name="1045"
+      >
+    </a
+      ><a name="1050" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" class="Symbol"
+      >(</a
+      ><a name="1055" href="BasicIS4.Regular.Hilbert.Sequential.html#782" class="InductiveConstructor"
+      >HS.cfst</a
+      ><a name="1062"
+      > </a
+      ><a name="1063" href="BasicIS4.Regular.Translation.html#1063" class="Bound"
+      >ts</a
+      ><a name="1065" class="Symbol"
+      >)</a
+      ><a name="1066"
+      >   </a
+      ><a name="1069" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="1072"
+      >     </a
+      ><a name="1077" class="Symbol"
+      >=</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="BasicIS4.Regular.Hilbert.Nested.html#619" class="InductiveConstructor"
+      >HN.cfst</a
+      ><a name="1086"
+      >
+    </a
+      ><a name="1091" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1094"
+      > </a
+      ><a name="1095" class="Symbol"
+      >(</a
+      ><a name="1096" href="BasicIS4.Regular.Hilbert.Sequential.html#834" class="InductiveConstructor"
+      >HS.csnd</a
+      ><a name="1103"
+      > </a
+      ><a name="1104" href="BasicIS4.Regular.Translation.html#1104" class="Bound"
+      >ts</a
+      ><a name="1106" class="Symbol"
+      >)</a
+      ><a name="1107"
+      >   </a
+      ><a name="1110" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="1113"
+      >     </a
+      ><a name="1118" class="Symbol"
+      >=</a
+      ><a name="1119"
+      > </a
+      ><a name="1120" href="BasicIS4.Regular.Hilbert.Nested.html#655" class="InductiveConstructor"
+      >HN.csnd</a
+      ><a name="1127"
+      >
+    </a
+      ><a name="1132" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1135"
+      > </a
+      ><a name="1136" class="Symbol"
+      >(</a
+      ><a name="1137" href="BasicIS4.Regular.Hilbert.Sequential.html#886" class="InductiveConstructor"
+      >HS.tt</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" href="BasicIS4.Regular.Translation.html#1143" class="Bound"
+      >ts</a
+      ><a name="1145" class="Symbol"
+      >)</a
+      ><a name="1146"
+      >     </a
+      ><a name="1151" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="1154"
+      >     </a
+      ><a name="1159" class="Symbol"
+      >=</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="BasicIS4.Regular.Hilbert.Nested.html#691" class="InductiveConstructor"
+      >HN.tt</a
+      ><a name="1166"
+      >
+    </a
+      ><a name="1171" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" class="Symbol"
+      >(</a
+      ><a name="1176" href="BasicIS4.Regular.Hilbert.Sequential.html#211" class="InductiveConstructor"
+      >HS.var</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" href="BasicIS4.Regular.Translation.html#1183" class="Bound"
+      >i</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" href="BasicIS4.Regular.Translation.html#1185" class="Bound"
+      >ts</a
+      ><a name="1187" class="Symbol"
+      >)</a
+      ><a name="1188"
+      >  </a
+      ><a name="1190" class="Symbol"
+      >(</a
+      ><a name="1191" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1194"
+      > </a
+      ><a name="1195" href="BasicIS4.Regular.Translation.html#1195" class="Bound"
+      >k</a
+      ><a name="1196" class="Symbol"
+      >)</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" class="Symbol"
+      >=</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1203"
+      > </a
+      ><a name="1204" href="BasicIS4.Regular.Translation.html#1185" class="Bound"
+      >ts</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" href="BasicIS4.Regular.Translation.html#1195" class="Bound"
+      >k</a
+      ><a name="1208"
+      >
+    </a
+      ><a name="1213" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" class="Symbol"
+      >(</a
+      ><a name="1218" href="BasicIS4.Regular.Hilbert.Sequential.html#263" class="InductiveConstructor"
+      >HS.mp</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" href="BasicIS4.Regular.Translation.html#1224" class="Bound"
+      >i</a
+      ><a name="1225"
+      > </a
+      ><a name="1226" href="BasicIS4.Regular.Translation.html#1226" class="Bound"
+      >j</a
+      ><a name="1227"
+      > </a
+      ><a name="1228" href="BasicIS4.Regular.Translation.html#1228" class="Bound"
+      >ts</a
+      ><a name="1230" class="Symbol"
+      >)</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" class="Symbol"
+      >(</a
+      ><a name="1233" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1236"
+      > </a
+      ><a name="1237" href="BasicIS4.Regular.Translation.html#1237" class="Bound"
+      >k</a
+      ><a name="1238" class="Symbol"
+      >)</a
+      ><a name="1239"
+      > </a
+      ><a name="1240" class="Symbol"
+      >=</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1245"
+      > </a
+      ><a name="1246" href="BasicIS4.Regular.Translation.html#1228" class="Bound"
+      >ts</a
+      ><a name="1248"
+      > </a
+      ><a name="1249" href="BasicIS4.Regular.Translation.html#1237" class="Bound"
+      >k</a
+      ><a name="1250"
+      >
+    </a
+      ><a name="1255" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" class="Symbol"
+      >(</a
+      ><a name="1260" href="BasicIS4.Regular.Hilbert.Sequential.html#327" class="InductiveConstructor"
+      >HS.ci</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" href="BasicIS4.Regular.Translation.html#1266" class="Bound"
+      >ts</a
+      ><a name="1268" class="Symbol"
+      >)</a
+      ><a name="1269"
+      >     </a
+      ><a name="1274" class="Symbol"
+      >(</a
+      ><a name="1275" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1278"
+      > </a
+      ><a name="1279" href="BasicIS4.Regular.Translation.html#1279" class="Bound"
+      >k</a
+      ><a name="1280" class="Symbol"
+      >)</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" class="Symbol"
+      >=</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1287"
+      > </a
+      ><a name="1288" href="BasicIS4.Regular.Translation.html#1266" class="Bound"
+      >ts</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" href="BasicIS4.Regular.Translation.html#1279" class="Bound"
+      >k</a
+      ><a name="1292"
+      >
+    </a
+      ><a name="1297" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" class="Symbol"
+      >(</a
+      ><a name="1302" href="BasicIS4.Regular.Hilbert.Sequential.html#375" class="InductiveConstructor"
+      >HS.ck</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" href="BasicIS4.Regular.Translation.html#1308" class="Bound"
+      >ts</a
+      ><a name="1310" class="Symbol"
+      >)</a
+      ><a name="1311"
+      >     </a
+      ><a name="1316" class="Symbol"
+      >(</a
+      ><a name="1317" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1320"
+      > </a
+      ><a name="1321" href="BasicIS4.Regular.Translation.html#1321" class="Bound"
+      >k</a
+      ><a name="1322" class="Symbol"
+      >)</a
+      ><a name="1323"
+      > </a
+      ><a name="1324" class="Symbol"
+      >=</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1329"
+      > </a
+      ><a name="1330" href="BasicIS4.Regular.Translation.html#1308" class="Bound"
+      >ts</a
+      ><a name="1332"
+      > </a
+      ><a name="1333" href="BasicIS4.Regular.Translation.html#1321" class="Bound"
+      >k</a
+      ><a name="1334"
+      >
+    </a
+      ><a name="1339" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1342"
+      > </a
+      ><a name="1343" class="Symbol"
+      >(</a
+      ><a name="1344" href="BasicIS4.Regular.Hilbert.Sequential.html#427" class="InductiveConstructor"
+      >HS.cs</a
+      ><a name="1349"
+      > </a
+      ><a name="1350" href="BasicIS4.Regular.Translation.html#1350" class="Bound"
+      >ts</a
+      ><a name="1352" class="Symbol"
+      >)</a
+      ><a name="1353"
+      >     </a
+      ><a name="1358" class="Symbol"
+      >(</a
+      ><a name="1359" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1362"
+      > </a
+      ><a name="1363" href="BasicIS4.Regular.Translation.html#1363" class="Bound"
+      >k</a
+      ><a name="1364" class="Symbol"
+      >)</a
+      ><a name="1365"
+      > </a
+      ><a name="1366" class="Symbol"
+      >=</a
+      ><a name="1367"
+      > </a
+      ><a name="1368" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1371"
+      > </a
+      ><a name="1372" href="BasicIS4.Regular.Translation.html#1350" class="Bound"
+      >ts</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" href="BasicIS4.Regular.Translation.html#1363" class="Bound"
+      >k</a
+      ><a name="1376"
+      >
+    </a
+      ><a name="1381" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1384"
+      > </a
+      ><a name="1385" class="Symbol"
+      >(</a
+      ><a name="1386" href="BasicIS4.Regular.Hilbert.Sequential.html#499" class="InductiveConstructor"
+      >HS.nec</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="BasicIS4.Regular.Translation.html#1393" class="Bound"
+      >ss</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" href="BasicIS4.Regular.Translation.html#1396" class="Bound"
+      >ts</a
+      ><a name="1398" class="Symbol"
+      >)</a
+      ><a name="1399"
+      > </a
+      ><a name="1400" class="Symbol"
+      >(</a
+      ><a name="1401" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1404"
+      > </a
+      ><a name="1405" href="BasicIS4.Regular.Translation.html#1405" class="Bound"
+      >k</a
+      ><a name="1406" class="Symbol"
+      >)</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" class="Symbol"
+      >=</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1413"
+      > </a
+      ><a name="1414" href="BasicIS4.Regular.Translation.html#1396" class="Bound"
+      >ts</a
+      ><a name="1416"
+      > </a
+      ><a name="1417" href="BasicIS4.Regular.Translation.html#1405" class="Bound"
+      >k</a
+      ><a name="1418"
+      >
+    </a
+      ><a name="1423" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" class="Symbol"
+      >(</a
+      ><a name="1428" href="BasicIS4.Regular.Hilbert.Sequential.html#558" class="InductiveConstructor"
+      >HS.cdist</a
+      ><a name="1436"
+      > </a
+      ><a name="1437" href="BasicIS4.Regular.Translation.html#1437" class="Bound"
+      >ts</a
+      ><a name="1439" class="Symbol"
+      >)</a
+      ><a name="1440"
+      >  </a
+      ><a name="1442" class="Symbol"
+      >(</a
+      ><a name="1443" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1446"
+      > </a
+      ><a name="1447" href="BasicIS4.Regular.Translation.html#1447" class="Bound"
+      >k</a
+      ><a name="1448" class="Symbol"
+      >)</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" class="Symbol"
+      >=</a
+      ><a name="1451"
+      > </a
+      ><a name="1452" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1455"
+      > </a
+      ><a name="1456" href="BasicIS4.Regular.Translation.html#1437" class="Bound"
+      >ts</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" href="BasicIS4.Regular.Translation.html#1447" class="Bound"
+      >k</a
+      ><a name="1460"
+      >
+    </a
+      ><a name="1465" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" class="Symbol"
+      >(</a
+      ><a name="1470" href="BasicIS4.Regular.Hilbert.Sequential.html#622" class="InductiveConstructor"
+      >HS.cup</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" href="BasicIS4.Regular.Translation.html#1477" class="Bound"
+      >ts</a
+      ><a name="1479" class="Symbol"
+      >)</a
+      ><a name="1480"
+      >    </a
+      ><a name="1484" class="Symbol"
+      >(</a
+      ><a name="1485" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1488"
+      > </a
+      ><a name="1489" href="BasicIS4.Regular.Translation.html#1489" class="Bound"
+      >k</a
+      ><a name="1490" class="Symbol"
+      >)</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" class="Symbol"
+      >=</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="BasicIS4.Regular.Translation.html#1477" class="Bound"
+      >ts</a
+      ><a name="1500"
+      > </a
+      ><a name="1501" href="BasicIS4.Regular.Translation.html#1489" class="Bound"
+      >k</a
+      ><a name="1502"
+      >
+    </a
+      ><a name="1507" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1510"
+      > </a
+      ><a name="1511" class="Symbol"
+      >(</a
+      ><a name="1512" href="BasicIS4.Regular.Hilbert.Sequential.html#676" class="InductiveConstructor"
+      >HS.cdown</a
+      ><a name="1520"
+      > </a
+      ><a name="1521" href="BasicIS4.Regular.Translation.html#1521" class="Bound"
+      >ts</a
+      ><a name="1523" class="Symbol"
+      >)</a
+      ><a name="1524"
+      >  </a
+      ><a name="1526" class="Symbol"
+      >(</a
+      ><a name="1527" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1530"
+      > </a
+      ><a name="1531" href="BasicIS4.Regular.Translation.html#1531" class="Bound"
+      >k</a
+      ><a name="1532" class="Symbol"
+      >)</a
+      ><a name="1533"
+      > </a
+      ><a name="1534" class="Symbol"
+      >=</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1539"
+      > </a
+      ><a name="1540" href="BasicIS4.Regular.Translation.html#1521" class="Bound"
+      >ts</a
+      ><a name="1542"
+      > </a
+      ><a name="1543" href="BasicIS4.Regular.Translation.html#1531" class="Bound"
+      >k</a
+      ><a name="1544"
+      >
+    </a
+      ><a name="1549" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1552"
+      > </a
+      ><a name="1553" class="Symbol"
+      >(</a
+      ><a name="1554" href="BasicIS4.Regular.Hilbert.Sequential.html#726" class="InductiveConstructor"
+      >HS.cpair</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" href="BasicIS4.Regular.Translation.html#1563" class="Bound"
+      >ts</a
+      ><a name="1565" class="Symbol"
+      >)</a
+      ><a name="1566"
+      >  </a
+      ><a name="1568" class="Symbol"
+      >(</a
+      ><a name="1569" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1572"
+      > </a
+      ><a name="1573" href="BasicIS4.Regular.Translation.html#1573" class="Bound"
+      >k</a
+      ><a name="1574" class="Symbol"
+      >)</a
+      ><a name="1575"
+      > </a
+      ><a name="1576" class="Symbol"
+      >=</a
+      ><a name="1577"
+      > </a
+      ><a name="1578" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1581"
+      > </a
+      ><a name="1582" href="BasicIS4.Regular.Translation.html#1563" class="Bound"
+      >ts</a
+      ><a name="1584"
+      > </a
+      ><a name="1585" href="BasicIS4.Regular.Translation.html#1573" class="Bound"
+      >k</a
+      ><a name="1586"
+      >
+    </a
+      ><a name="1591" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" class="Symbol"
+      >(</a
+      ><a name="1596" href="BasicIS4.Regular.Hilbert.Sequential.html#782" class="InductiveConstructor"
+      >HS.cfst</a
+      ><a name="1603"
+      > </a
+      ><a name="1604" href="BasicIS4.Regular.Translation.html#1604" class="Bound"
+      >ts</a
+      ><a name="1606" class="Symbol"
+      >)</a
+      ><a name="1607"
+      >   </a
+      ><a name="1610" class="Symbol"
+      >(</a
+      ><a name="1611" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="BasicIS4.Regular.Translation.html#1615" class="Bound"
+      >k</a
+      ><a name="1616" class="Symbol"
+      >)</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" class="Symbol"
+      >=</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1623"
+      > </a
+      ><a name="1624" href="BasicIS4.Regular.Translation.html#1604" class="Bound"
+      >ts</a
+      ><a name="1626"
+      > </a
+      ><a name="1627" href="BasicIS4.Regular.Translation.html#1615" class="Bound"
+      >k</a
+      ><a name="1628"
+      >
+    </a
+      ><a name="1633" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1636"
+      > </a
+      ><a name="1637" class="Symbol"
+      >(</a
+      ><a name="1638" href="BasicIS4.Regular.Hilbert.Sequential.html#834" class="InductiveConstructor"
+      >HS.csnd</a
+      ><a name="1645"
+      > </a
+      ><a name="1646" href="BasicIS4.Regular.Translation.html#1646" class="Bound"
+      >ts</a
+      ><a name="1648" class="Symbol"
+      >)</a
+      ><a name="1649"
+      >   </a
+      ><a name="1652" class="Symbol"
+      >(</a
+      ><a name="1653" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1656"
+      > </a
+      ><a name="1657" href="BasicIS4.Regular.Translation.html#1657" class="Bound"
+      >k</a
+      ><a name="1658" class="Symbol"
+      >)</a
+      ><a name="1659"
+      > </a
+      ><a name="1660" class="Symbol"
+      >=</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1665"
+      > </a
+      ><a name="1666" href="BasicIS4.Regular.Translation.html#1646" class="Bound"
+      >ts</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="BasicIS4.Regular.Translation.html#1657" class="Bound"
+      >k</a
+      ><a name="1670"
+      >
+    </a
+      ><a name="1675" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1678"
+      > </a
+      ><a name="1679" class="Symbol"
+      >(</a
+      ><a name="1680" href="BasicIS4.Regular.Hilbert.Sequential.html#886" class="InductiveConstructor"
+      >HS.tt</a
+      ><a name="1685"
+      > </a
+      ><a name="1686" href="BasicIS4.Regular.Translation.html#1686" class="Bound"
+      >ts</a
+      ><a name="1688" class="Symbol"
+      >)</a
+      ><a name="1689"
+      >     </a
+      ><a name="1694" class="Symbol"
+      >(</a
+      ><a name="1695" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="1698"
+      > </a
+      ><a name="1699" href="BasicIS4.Regular.Translation.html#1699" class="Bound"
+      >k</a
+      ><a name="1700" class="Symbol"
+      >)</a
+      ><a name="1701"
+      > </a
+      ><a name="1702" class="Symbol"
+      >=</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" href="BasicIS4.Regular.Translation.html#553" class="Function"
+      >aux</a
+      ><a name="1707"
+      > </a
+      ><a name="1708" href="BasicIS4.Regular.Translation.html#1686" class="Bound"
+      >ts</a
+      ><a name="1710"
+      > </a
+      ><a name="1711" href="BasicIS4.Regular.Translation.html#1699" class="Bound"
+      >k</a
+      ><a name="1712"
+      >
+
+
+</a
+      ><a name="1715" class="Comment"
+      >-- Translation from nested Hilbert-style to sequential.</a
+      ><a name="1770"
+      >
+
+</a
+      ><a name="1772" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" class="Symbol"
+      >:</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" class="Symbol"
+      >&#8704;</a
+      ><a name="1781"
+      > </a
+      ><a name="1782" class="Symbol"
+      >{</a
+      ><a name="1783" href="BasicIS4.Regular.Translation.html#1783" class="Bound"
+      >A</a
+      ><a name="1784"
+      > </a
+      ><a name="1785" href="BasicIS4.Regular.Translation.html#1785" class="Bound"
+      >&#915;</a
+      ><a name="1786" class="Symbol"
+      >}</a
+      ><a name="1787"
+      > </a
+      ><a name="1788" class="Symbol"
+      >&#8594;</a
+      ><a name="1789"
+      > </a
+      ><a name="1790" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >HN&#10216;</a
+      ><a name="1793"
+      > </a
+      ><a name="1794" href="BasicIS4.Regular.Translation.html#1785" class="Bound"
+      >&#915;</a
+      ><a name="1795"
+      > </a
+      ><a name="1796" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="BasicIS4.Regular.Translation.html#1783" class="Bound"
+      >A</a
+      ><a name="1799"
+      > </a
+      ><a name="1800" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1801"
+      > </a
+      ><a name="1802" class="Symbol"
+      >&#8594;</a
+      ><a name="1803"
+      > </a
+      ><a name="1804" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >HS&#10216;</a
+      ><a name="1807"
+      > </a
+      ><a name="1808" href="BasicIS4.Regular.Translation.html#1785" class="Bound"
+      >&#915;</a
+      ><a name="1809"
+      > </a
+      ><a name="1810" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#8866;</a
+      ><a name="1811"
+      > </a
+      ><a name="1812" href="BasicIS4.Regular.Translation.html#1783" class="Bound"
+      >A</a
+      ><a name="1813"
+      > </a
+      ><a name="1814" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#10217;</a
+      ><a name="1815"
+      >
+</a
+      ><a name="1816" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" class="Symbol"
+      >(</a
+      ><a name="1823" href="BasicIS4.Regular.Hilbert.Nested.html#213" class="InductiveConstructor"
+      >HN.var</a
+      ><a name="1829"
+      > </a
+      ><a name="1830" href="BasicIS4.Regular.Translation.html#1830" class="Bound"
+      >i</a
+      ><a name="1831" class="Symbol"
+      >)</a
+      ><a name="1832"
+      >   </a
+      ><a name="1835" class="Symbol"
+      >=</a
+      ><a name="1836"
+      > </a
+      ><a name="1837" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1838"
+      > </a
+      ><a name="1839" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1840"
+      > </a
+      ><a name="1841" href="BasicIS4.Regular.Hilbert.Sequential.html#211" class="InductiveConstructor"
+      >HS.var</a
+      ><a name="1847"
+      > </a
+      ><a name="1848" href="BasicIS4.Regular.Translation.html#1830" class="Bound"
+      >i</a
+      ><a name="1849"
+      > </a
+      ><a name="1850" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="1856"
+      >
+</a
+      ><a name="1857" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" class="Symbol"
+      >(</a
+      ><a name="1864" href="BasicIS4.Regular.Hilbert.Nested.html#249" class="InductiveConstructor"
+      >HN.app</a
+      ><a name="1870"
+      > </a
+      ><a name="1871" href="BasicIS4.Regular.Translation.html#1871" class="Bound"
+      >t</a
+      ><a name="1872"
+      > </a
+      ><a name="1873" href="BasicIS4.Regular.Translation.html#1873" class="Bound"
+      >u</a
+      ><a name="1874" class="Symbol"
+      >)</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" class="Symbol"
+      >=</a
+      ><a name="1877"
+      > </a
+      ><a name="1878" href="BasicIS4.Regular.Hilbert.Sequential.html#2362" class="Function"
+      >HS.app</a
+      ><a name="1884"
+      > </a
+      ><a name="1885" class="Symbol"
+      >(</a
+      ><a name="1886" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" href="BasicIS4.Regular.Translation.html#1871" class="Bound"
+      >t</a
+      ><a name="1893" class="Symbol"
+      >)</a
+      ><a name="1894"
+      > </a
+      ><a name="1895" class="Symbol"
+      >(</a
+      ><a name="1896" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" href="BasicIS4.Regular.Translation.html#1873" class="Bound"
+      >u</a
+      ><a name="1903" class="Symbol"
+      >)</a
+      ><a name="1904"
+      >
+</a
+      ><a name="1905" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" href="BasicIS4.Regular.Hilbert.Nested.html#297" class="InductiveConstructor"
+      >HN.ci</a
+      ><a name="1916"
+      >        </a
+      ><a name="1924" class="Symbol"
+      >=</a
+      ><a name="1925"
+      > </a
+      ><a name="1926" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1927"
+      > </a
+      ><a name="1928" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" href="BasicIS4.Regular.Hilbert.Sequential.html#327" class="InductiveConstructor"
+      >HS.ci</a
+      ><a name="1935"
+      > </a
+      ><a name="1936" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="1942"
+      >
+</a
+      ><a name="1943" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="1948"
+      > </a
+      ><a name="1949" href="BasicIS4.Regular.Hilbert.Nested.html#329" class="InductiveConstructor"
+      >HN.ck</a
+      ><a name="1954"
+      >        </a
+      ><a name="1962" class="Symbol"
+      >=</a
+      ><a name="1963"
+      > </a
+      ><a name="1964" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" href="BasicIS4.Regular.Hilbert.Sequential.html#375" class="InductiveConstructor"
+      >HS.ck</a
+      ><a name="1973"
+      > </a
+      ><a name="1974" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="1980"
+      >
+</a
+      ><a name="1981" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="1986"
+      > </a
+      ><a name="1987" href="BasicIS4.Regular.Hilbert.Nested.html#365" class="InductiveConstructor"
+      >HN.cs</a
+      ><a name="1992"
+      >        </a
+      ><a name="2000" class="Symbol"
+      >=</a
+      ><a name="2001"
+      > </a
+      ><a name="2002" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2005"
+      > </a
+      ><a name="2006" href="BasicIS4.Regular.Hilbert.Sequential.html#427" class="InductiveConstructor"
+      >HS.cs</a
+      ><a name="2011"
+      > </a
+      ><a name="2012" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="2018"
+      >
+</a
+      ><a name="2019" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" class="Symbol"
+      >(</a
+      ><a name="2026" href="BasicIS4.Regular.Hilbert.Nested.html#421" class="InductiveConstructor"
+      >HN.box</a
+      ><a name="2032"
+      > </a
+      ><a name="2033" href="BasicIS4.Regular.Translation.html#2033" class="Bound"
+      >t</a
+      ><a name="2034" class="Symbol"
+      >)</a
+      ><a name="2035"
+      >   </a
+      ><a name="2038" class="Symbol"
+      >=</a
+      ><a name="2039"
+      > </a
+      ><a name="2040" href="BasicIS4.Regular.Hilbert.Sequential.html#2548" class="Function"
+      >HS.box</a
+      ><a name="2046"
+      > </a
+      ><a name="2047" class="Symbol"
+      >(</a
+      ><a name="2048" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2053"
+      > </a
+      ><a name="2054" href="BasicIS4.Regular.Translation.html#2033" class="Bound"
+      >t</a
+      ><a name="2055" class="Symbol"
+      >)</a
+      ><a name="2056"
+      >
+</a
+      ><a name="2057" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2062"
+      > </a
+      ><a name="2063" href="BasicIS4.Regular.Hilbert.Nested.html#459" class="InductiveConstructor"
+      >HN.cdist</a
+      ><a name="2071"
+      >     </a
+      ><a name="2076" class="Symbol"
+      >=</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2079"
+      > </a
+      ><a name="2080" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2081"
+      > </a
+      ><a name="2082" href="BasicIS4.Regular.Hilbert.Sequential.html#558" class="InductiveConstructor"
+      >HS.cdist</a
+      ><a name="2090"
+      > </a
+      ><a name="2091" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="2097"
+      >
+</a
+      ><a name="2098" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2103"
+      > </a
+      ><a name="2104" href="BasicIS4.Regular.Hilbert.Nested.html#507" class="InductiveConstructor"
+      >HN.cup</a
+      ><a name="2110"
+      >       </a
+      ><a name="2117" class="Symbol"
+      >=</a
+      ><a name="2118"
+      > </a
+      ><a name="2119" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2120"
+      > </a
+      ><a name="2121" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2122"
+      > </a
+      ><a name="2123" href="BasicIS4.Regular.Hilbert.Sequential.html#622" class="InductiveConstructor"
+      >HS.cup</a
+      ><a name="2129"
+      > </a
+      ><a name="2130" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="2136"
+      >
+</a
+      ><a name="2137" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2142"
+      > </a
+      ><a name="2143" href="BasicIS4.Regular.Hilbert.Nested.html#545" class="InductiveConstructor"
+      >HN.cdown</a
+      ><a name="2151"
+      >     </a
+      ><a name="2156" class="Symbol"
+      >=</a
+      ><a name="2157"
+      > </a
+      ><a name="2158" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" href="BasicIS4.Regular.Hilbert.Sequential.html#676" class="InductiveConstructor"
+      >HS.cdown</a
+      ><a name="2170"
+      > </a
+      ><a name="2171" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="2177"
+      >
+</a
+      ><a name="2178" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2183"
+      > </a
+      ><a name="2184" href="BasicIS4.Regular.Hilbert.Nested.html#579" class="InductiveConstructor"
+      >HN.cpair</a
+      ><a name="2192"
+      >     </a
+      ><a name="2197" class="Symbol"
+      >=</a
+      ><a name="2198"
+      > </a
+      ><a name="2199" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2200"
+      > </a
+      ><a name="2201" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" href="BasicIS4.Regular.Hilbert.Sequential.html#726" class="InductiveConstructor"
+      >HS.cpair</a
+      ><a name="2211"
+      > </a
+      ><a name="2212" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="2218"
+      >
+</a
+      ><a name="2219" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2224"
+      > </a
+      ><a name="2225" href="BasicIS4.Regular.Hilbert.Nested.html#619" class="InductiveConstructor"
+      >HN.cfst</a
+      ><a name="2232"
+      >      </a
+      ><a name="2238" class="Symbol"
+      >=</a
+      ><a name="2239"
+      > </a
+      ><a name="2240" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2241"
+      > </a
+      ><a name="2242" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" href="BasicIS4.Regular.Hilbert.Sequential.html#782" class="InductiveConstructor"
+      >HS.cfst</a
+      ><a name="2251"
+      > </a
+      ><a name="2252" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="2258"
+      >
+</a
+      ><a name="2259" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2264"
+      > </a
+      ><a name="2265" href="BasicIS4.Regular.Hilbert.Nested.html#655" class="InductiveConstructor"
+      >HN.csnd</a
+      ><a name="2272"
+      >      </a
+      ><a name="2278" class="Symbol"
+      >=</a
+      ><a name="2279"
+      > </a
+      ><a name="2280" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2281"
+      > </a
+      ><a name="2282" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2283"
+      > </a
+      ><a name="2284" href="BasicIS4.Regular.Hilbert.Sequential.html#834" class="InductiveConstructor"
+      >HS.csnd</a
+      ><a name="2291"
+      > </a
+      ><a name="2292" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="2298"
+      >
+</a
+      ><a name="2299" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" href="BasicIS4.Regular.Hilbert.Nested.html#691" class="InductiveConstructor"
+      >HN.tt</a
+      ><a name="2310"
+      >        </a
+      ><a name="2318" class="Symbol"
+      >=</a
+      ><a name="2319"
+      > </a
+      ><a name="2320" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2321"
+      > </a
+      ><a name="2322" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2323"
+      > </a
+      ><a name="2324" href="BasicIS4.Regular.Hilbert.Sequential.html#886" class="InductiveConstructor"
+      >HS.tt</a
+      ><a name="2329"
+      > </a
+      ><a name="2330" href="BasicIS4.Regular.Hilbert.Sequential.html#194" class="InductiveConstructor"
+      >HS.nil</a
+      ><a name="2336"
+      >
+
+
+</a
+      ><a name="2339" class="Comment"
+      >-- Deduction theorem for sequential Hilbert-style.</a
+      ><a name="2389"
+      >
+
+</a
+      ><a name="2391" href="BasicIS4.Regular.Translation.html#2391" class="Function"
+      >hs-lam</a
+      ><a name="2397"
+      > </a
+      ><a name="2398" class="Symbol"
+      >:</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" class="Symbol"
+      >&#8704;</a
+      ><a name="2401"
+      > </a
+      ><a name="2402" class="Symbol"
+      >{</a
+      ><a name="2403" href="BasicIS4.Regular.Translation.html#2403" class="Bound"
+      >A</a
+      ><a name="2404"
+      > </a
+      ><a name="2405" href="BasicIS4.Regular.Translation.html#2405" class="Bound"
+      >B</a
+      ><a name="2406"
+      > </a
+      ><a name="2407" href="BasicIS4.Regular.Translation.html#2407" class="Bound"
+      >&#915;</a
+      ><a name="2408" class="Symbol"
+      >}</a
+      ><a name="2409"
+      > </a
+      ><a name="2410" class="Symbol"
+      >&#8594;</a
+      ><a name="2411"
+      > </a
+      ><a name="2412" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >HS&#10216;</a
+      ><a name="2415"
+      > </a
+      ><a name="2416" href="BasicIS4.Regular.Translation.html#2407" class="Bound"
+      >&#915;</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2419"
+      > </a
+      ><a name="2420" href="BasicIS4.Regular.Translation.html#2403" class="Bound"
+      >A</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#8866;</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" href="BasicIS4.Regular.Translation.html#2405" class="Bound"
+      >B</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#10217;</a
+      ><a name="2427"
+      > </a
+      ><a name="2428" class="Symbol"
+      >&#8594;</a
+      ><a name="2429"
+      > </a
+      ><a name="2430" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >HS&#10216;</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" href="BasicIS4.Regular.Translation.html#2407" class="Bound"
+      >&#915;</a
+      ><a name="2435"
+      > </a
+      ><a name="2436" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#8866;</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" href="BasicIS4.Regular.Translation.html#2403" class="Bound"
+      >A</a
+      ><a name="2439"
+      > </a
+      ><a name="2440" href="BasicIS4.html#197" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="2441"
+      > </a
+      ><a name="2442" href="BasicIS4.Regular.Translation.html#2405" class="Bound"
+      >B</a
+      ><a name="2443"
+      > </a
+      ><a name="2444" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#10217;</a
+      ><a name="2445"
+      >
+</a
+      ><a name="2446" href="BasicIS4.Regular.Translation.html#2391" class="Function"
+      >hs-lam</a
+      ><a name="2452"
+      > </a
+      ><a name="2453" class="Symbol"
+      >=</a
+      ><a name="2454"
+      > </a
+      ><a name="2455" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="2460"
+      > </a
+      ><a name="2461" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="2462"
+      > </a
+      ><a name="2463" href="BasicIS4.Regular.Hilbert.Nested.html#1568" class="Function"
+      >HN.lam</a
+      ><a name="2469"
+      > </a
+      ><a name="2470" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="2471"
+      > </a
+      ><a name="2472" href="BasicIS4.Regular.Translation.html#469" class="Function"
+      >hs&#8594;hn</a
+      ><a name="2477"
+      >
+
+
+</a
+      ><a name="2480" class="Comment"
+      >-- Translation from Hilbert-style to Gentzen-style.</a
+      ><a name="2531"
+      >
+
+</a
+      ><a name="2533" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2537"
+      > </a
+      ><a name="2538" class="Symbol"
+      >:</a
+      ><a name="2539"
+      > </a
+      ><a name="2540" class="Symbol"
+      >&#8704;</a
+      ><a name="2541"
+      > </a
+      ><a name="2542" class="Symbol"
+      >{</a
+      ><a name="2543" href="BasicIS4.Regular.Translation.html#2543" class="Bound"
+      >A</a
+      ><a name="2544"
+      > </a
+      ><a name="2545" href="BasicIS4.Regular.Translation.html#2545" class="Bound"
+      >&#915;</a
+      ><a name="2546" class="Symbol"
+      >}</a
+      ><a name="2547"
+      > </a
+      ><a name="2548" class="Symbol"
+      >&#8594;</a
+      ><a name="2549"
+      > </a
+      ><a name="2550" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >HN&#10216;</a
+      ><a name="2553"
+      > </a
+      ><a name="2554" href="BasicIS4.Regular.Translation.html#2545" class="Bound"
+      >&#915;</a
+      ><a name="2555"
+      > </a
+      ><a name="2556" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2557"
+      > </a
+      ><a name="2558" href="BasicIS4.Regular.Translation.html#2543" class="Bound"
+      >A</a
+      ><a name="2559"
+      > </a
+      ><a name="2560" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="2561"
+      > </a
+      ><a name="2562" class="Symbol"
+      >&#8594;</a
+      ><a name="2563"
+      > </a
+      ><a name="2564" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >G&#10216;</a
+      ><a name="2566"
+      > </a
+      ><a name="2567" href="BasicIS4.Regular.Translation.html#2545" class="Bound"
+      >&#915;</a
+      ><a name="2568"
+      > </a
+      ><a name="2569" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2570"
+      > </a
+      ><a name="2571" href="BasicIS4.Regular.Translation.html#2543" class="Bound"
+      >A</a
+      ><a name="2572"
+      > </a
+      ><a name="2573" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="2574"
+      >
+</a
+      ><a name="2575" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2579"
+      > </a
+      ><a name="2580" class="Symbol"
+      >(</a
+      ><a name="2581" href="BasicIS4.Regular.Hilbert.Nested.html#213" class="InductiveConstructor"
+      >HN.var</a
+      ><a name="2587"
+      > </a
+      ><a name="2588" href="BasicIS4.Regular.Translation.html#2588" class="Bound"
+      >i</a
+      ><a name="2589" class="Symbol"
+      >)</a
+      ><a name="2590"
+      >   </a
+      ><a name="2593" class="Symbol"
+      >=</a
+      ><a name="2594"
+      > </a
+      ><a name="2595" href="BasicIS4.Regular.Gentzen.html#226" class="InductiveConstructor"
+      >G.var</a
+      ><a name="2600"
+      > </a
+      ><a name="2601" href="BasicIS4.Regular.Translation.html#2588" class="Bound"
+      >i</a
+      ><a name="2602"
+      >
+</a
+      ><a name="2603" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2607"
+      > </a
+      ><a name="2608" class="Symbol"
+      >(</a
+      ><a name="2609" href="BasicIS4.Regular.Hilbert.Nested.html#249" class="InductiveConstructor"
+      >HN.app</a
+      ><a name="2615"
+      > </a
+      ><a name="2616" href="BasicIS4.Regular.Translation.html#2616" class="Bound"
+      >t</a
+      ><a name="2617"
+      > </a
+      ><a name="2618" href="BasicIS4.Regular.Translation.html#2618" class="Bound"
+      >u</a
+      ><a name="2619" class="Symbol"
+      >)</a
+      ><a name="2620"
+      > </a
+      ><a name="2621" class="Symbol"
+      >=</a
+      ><a name="2622"
+      > </a
+      ><a name="2623" href="BasicIS4.Regular.Gentzen.html#312" class="InductiveConstructor"
+      >G.app</a
+      ><a name="2628"
+      > </a
+      ><a name="2629" class="Symbol"
+      >(</a
+      ><a name="2630" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2634"
+      > </a
+      ><a name="2635" href="BasicIS4.Regular.Translation.html#2616" class="Bound"
+      >t</a
+      ><a name="2636" class="Symbol"
+      >)</a
+      ><a name="2637"
+      > </a
+      ><a name="2638" class="Symbol"
+      >(</a
+      ><a name="2639" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2643"
+      > </a
+      ><a name="2644" href="BasicIS4.Regular.Translation.html#2618" class="Bound"
+      >u</a
+      ><a name="2645" class="Symbol"
+      >)</a
+      ><a name="2646"
+      >
+</a
+      ><a name="2647" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2651"
+      > </a
+      ><a name="2652" href="BasicIS4.Regular.Hilbert.Nested.html#297" class="InductiveConstructor"
+      >HN.ci</a
+      ><a name="2657"
+      >        </a
+      ><a name="2665" class="Symbol"
+      >=</a
+      ><a name="2666"
+      > </a
+      ><a name="2667" href="BasicIS4.Regular.Gentzen.html#3209" class="Function"
+      >G.ci</a
+      ><a name="2671"
+      >
+</a
+      ><a name="2672" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" href="BasicIS4.Regular.Hilbert.Nested.html#329" class="InductiveConstructor"
+      >HN.ck</a
+      ><a name="2682"
+      >        </a
+      ><a name="2690" class="Symbol"
+      >=</a
+      ><a name="2691"
+      > </a
+      ><a name="2692" href="BasicIS4.Regular.Gentzen.html#3247" class="Function"
+      >G.ck</a
+      ><a name="2696"
+      >
+</a
+      ><a name="2697" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2701"
+      > </a
+      ><a name="2702" href="BasicIS4.Regular.Hilbert.Nested.html#365" class="InductiveConstructor"
+      >HN.cs</a
+      ><a name="2707"
+      >        </a
+      ><a name="2715" class="Symbol"
+      >=</a
+      ><a name="2716"
+      > </a
+      ><a name="2717" href="BasicIS4.Regular.Gentzen.html#3297" class="Function"
+      >G.cs</a
+      ><a name="2721"
+      >
+</a
+      ><a name="2722" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2726"
+      > </a
+      ><a name="2727" class="Symbol"
+      >(</a
+      ><a name="2728" href="BasicIS4.Regular.Hilbert.Nested.html#421" class="InductiveConstructor"
+      >HN.box</a
+      ><a name="2734"
+      > </a
+      ><a name="2735" href="BasicIS4.Regular.Translation.html#2735" class="Bound"
+      >t</a
+      ><a name="2736" class="Symbol"
+      >)</a
+      ><a name="2737"
+      >   </a
+      ><a name="2740" class="Symbol"
+      >=</a
+      ><a name="2741"
+      > </a
+      ><a name="2742" href="BasicIS4.Regular.Gentzen.html#3036" class="Function"
+      >G.box</a
+      ><a name="2747"
+      > </a
+      ><a name="2748" class="Symbol"
+      >(</a
+      ><a name="2749" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2753"
+      > </a
+      ><a name="2754" href="BasicIS4.Regular.Translation.html#2735" class="Bound"
+      >t</a
+      ><a name="2755" class="Symbol"
+      >)</a
+      ><a name="2756"
+      >
+</a
+      ><a name="2757" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2761"
+      > </a
+      ><a name="2762" href="BasicIS4.Regular.Hilbert.Nested.html#459" class="InductiveConstructor"
+      >HN.cdist</a
+      ><a name="2770"
+      >     </a
+      ><a name="2775" class="Symbol"
+      >=</a
+      ><a name="2776"
+      > </a
+      ><a name="2777" href="BasicIS4.Regular.Gentzen.html#3402" class="Function"
+      >G.cdist</a
+      ><a name="2784"
+      >
+</a
+      ><a name="2785" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2789"
+      > </a
+      ><a name="2790" href="BasicIS4.Regular.Hilbert.Nested.html#507" class="InductiveConstructor"
+      >HN.cup</a
+      ><a name="2796"
+      >       </a
+      ><a name="2803" class="Symbol"
+      >=</a
+      ><a name="2804"
+      > </a
+      ><a name="2805" href="BasicIS4.Regular.Gentzen.html#3480" class="Function"
+      >G.cup</a
+      ><a name="2810"
+      >
+</a
+      ><a name="2811" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2815"
+      > </a
+      ><a name="2816" href="BasicIS4.Regular.Hilbert.Nested.html#545" class="InductiveConstructor"
+      >HN.cdown</a
+      ><a name="2824"
+      >     </a
+      ><a name="2829" class="Symbol"
+      >=</a
+      ><a name="2830"
+      > </a
+      ><a name="2831" href="BasicIS4.Regular.Gentzen.html#3531" class="Function"
+      >G.cdown</a
+      ><a name="2838"
+      >
+</a
+      ><a name="2839" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2843"
+      > </a
+      ><a name="2844" href="BasicIS4.Regular.Hilbert.Nested.html#579" class="InductiveConstructor"
+      >HN.cpair</a
+      ><a name="2852"
+      >     </a
+      ><a name="2857" class="Symbol"
+      >=</a
+      ><a name="2858"
+      > </a
+      ><a name="2859" href="BasicIS4.Regular.Gentzen.html#3750" class="Function"
+      >G.cpair</a
+      ><a name="2866"
+      >
+</a
+      ><a name="2867" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2871"
+      > </a
+      ><a name="2872" href="BasicIS4.Regular.Hilbert.Nested.html#619" class="InductiveConstructor"
+      >HN.cfst</a
+      ><a name="2879"
+      >      </a
+      ><a name="2885" class="Symbol"
+      >=</a
+      ><a name="2886"
+      > </a
+      ><a name="2887" href="BasicIS4.Regular.Gentzen.html#3820" class="Function"
+      >G.cfst</a
+      ><a name="2893"
+      >
+</a
+      ><a name="2894" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2898"
+      > </a
+      ><a name="2899" href="BasicIS4.Regular.Hilbert.Nested.html#655" class="InductiveConstructor"
+      >HN.csnd</a
+      ><a name="2906"
+      >      </a
+      ><a name="2912" class="Symbol"
+      >=</a
+      ><a name="2913"
+      > </a
+      ><a name="2914" href="BasicIS4.Regular.Gentzen.html#3874" class="Function"
+      >G.csnd</a
+      ><a name="2920"
+      >
+</a
+      ><a name="2921" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="2925"
+      > </a
+      ><a name="2926" href="BasicIS4.Regular.Hilbert.Nested.html#691" class="InductiveConstructor"
+      >HN.tt</a
+      ><a name="2931"
+      >        </a
+      ><a name="2939" class="Symbol"
+      >=</a
+      ><a name="2940"
+      > </a
+      ><a name="2941" href="BasicIS4.Regular.Gentzen.html#597" class="InductiveConstructor"
+      >G.tt</a
+      ><a name="2945"
+      >
+
+</a
+      ><a name="2947" href="BasicIS4.Regular.Translation.html#2947" class="Function"
+      >hs&#8594;g</a
+      ><a name="2951"
+      > </a
+      ><a name="2952" class="Symbol"
+      >:</a
+      ><a name="2953"
+      > </a
+      ><a name="2954" class="Symbol"
+      >&#8704;</a
+      ><a name="2955"
+      > </a
+      ><a name="2956" class="Symbol"
+      >{</a
+      ><a name="2957" href="BasicIS4.Regular.Translation.html#2957" class="Bound"
+      >A</a
+      ><a name="2958"
+      > </a
+      ><a name="2959" href="BasicIS4.Regular.Translation.html#2959" class="Bound"
+      >&#915;</a
+      ><a name="2960" class="Symbol"
+      >}</a
+      ><a name="2961"
+      > </a
+      ><a name="2962" class="Symbol"
+      >&#8594;</a
+      ><a name="2963"
+      > </a
+      ><a name="2964" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >HS&#10216;</a
+      ><a name="2967"
+      > </a
+      ><a name="2968" href="BasicIS4.Regular.Translation.html#2959" class="Bound"
+      >&#915;</a
+      ><a name="2969"
+      > </a
+      ><a name="2970" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#8866;</a
+      ><a name="2971"
+      > </a
+      ><a name="2972" href="BasicIS4.Regular.Translation.html#2957" class="Bound"
+      >A</a
+      ><a name="2973"
+      > </a
+      ><a name="2974" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#10217;</a
+      ><a name="2975"
+      > </a
+      ><a name="2976" class="Symbol"
+      >&#8594;</a
+      ><a name="2977"
+      > </a
+      ><a name="2978" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >G&#10216;</a
+      ><a name="2980"
+      > </a
+      ><a name="2981" href="BasicIS4.Regular.Translation.html#2959" class="Bound"
+      >&#915;</a
+      ><a name="2982"
+      > </a
+      ><a name="2983" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2984"
+      > </a
+      ><a name="2985" href="BasicIS4.Regular.Translation.html#2957" class="Bound"
+      >A</a
+      ><a name="2986"
+      > </a
+      ><a name="2987" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="2988"
+      >
+</a
+      ><a name="2989" href="BasicIS4.Regular.Translation.html#2947" class="Function"
+      >hs&#8594;g</a
+      ><a name="2993"
+      > </a
+      ><a name="2994" class="Symbol"
+      >=</a
+      ><a name="2995"
+      > </a
+      ><a name="2996" href="BasicIS4.Regular.Translation.html#2533" class="Function"
+      >hn&#8594;g</a
+      ><a name="3000"
+      > </a
+      ><a name="3001" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3002"
+      > </a
+      ><a name="3003" href="BasicIS4.Regular.Translation.html#469" class="Function"
+      >hs&#8594;hn</a
+      ><a name="3008"
+      >
+
+
+</a
+      ><a name="3011" class="Comment"
+      >-- Translation from Gentzen-style to Hilbert-style.</a
+      ><a name="3062"
+      >
+
+</a
+      ><a name="3064" class="Keyword"
+      >mutual</a
+      ><a name="3070"
+      >
+  </a
+      ><a name="3073" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3077"
+      > </a
+      ><a name="3078" class="Symbol"
+      >:</a
+      ><a name="3079"
+      > </a
+      ><a name="3080" class="Symbol"
+      >&#8704;</a
+      ><a name="3081"
+      > </a
+      ><a name="3082" class="Symbol"
+      >{</a
+      ><a name="3083" href="BasicIS4.Regular.Translation.html#3083" class="Bound"
+      >A</a
+      ><a name="3084"
+      > </a
+      ><a name="3085" href="BasicIS4.Regular.Translation.html#3085" class="Bound"
+      >&#915;</a
+      ><a name="3086" class="Symbol"
+      >}</a
+      ><a name="3087"
+      > </a
+      ><a name="3088" class="Symbol"
+      >&#8594;</a
+      ><a name="3089"
+      > </a
+      ><a name="3090" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >G&#10216;</a
+      ><a name="3092"
+      > </a
+      ><a name="3093" href="BasicIS4.Regular.Translation.html#3085" class="Bound"
+      >&#915;</a
+      ><a name="3094"
+      > </a
+      ><a name="3095" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3096"
+      > </a
+      ><a name="3097" href="BasicIS4.Regular.Translation.html#3083" class="Bound"
+      >A</a
+      ><a name="3098"
+      > </a
+      ><a name="3099" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="3100"
+      > </a
+      ><a name="3101" class="Symbol"
+      >&#8594;</a
+      ><a name="3102"
+      > </a
+      ><a name="3103" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >HN&#10216;</a
+      ><a name="3106"
+      > </a
+      ><a name="3107" href="BasicIS4.Regular.Translation.html#3085" class="Bound"
+      >&#915;</a
+      ><a name="3108"
+      > </a
+      ><a name="3109" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" href="BasicIS4.Regular.Translation.html#3083" class="Bound"
+      >A</a
+      ><a name="3112"
+      > </a
+      ><a name="3113" href="BasicIS4.Regular.Hilbert.Nested.html#178" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="3114"
+      >
+  </a
+      ><a name="3117" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3121"
+      > </a
+      ><a name="3122" class="Symbol"
+      >(</a
+      ><a name="3123" href="BasicIS4.Regular.Gentzen.html#226" class="InductiveConstructor"
+      >G.var</a
+      ><a name="3128"
+      > </a
+      ><a name="3129" href="BasicIS4.Regular.Translation.html#3129" class="Bound"
+      >i</a
+      ><a name="3130" class="Symbol"
+      >)</a
+      ><a name="3131"
+      >         </a
+      ><a name="3140" class="Symbol"
+      >=</a
+      ><a name="3141"
+      > </a
+      ><a name="3142" href="BasicIS4.Regular.Hilbert.Nested.html#213" class="InductiveConstructor"
+      >HN.var</a
+      ><a name="3148"
+      > </a
+      ><a name="3149" href="BasicIS4.Regular.Translation.html#3129" class="Bound"
+      >i</a
+      ><a name="3150"
+      >
+  </a
+      ><a name="3153" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3157"
+      > </a
+      ><a name="3158" class="Symbol"
+      >(</a
+      ><a name="3159" href="BasicIS4.Regular.Gentzen.html#265" class="InductiveConstructor"
+      >G.lam</a
+      ><a name="3164"
+      > </a
+      ><a name="3165" href="BasicIS4.Regular.Translation.html#3165" class="Bound"
+      >t</a
+      ><a name="3166" class="Symbol"
+      >)</a
+      ><a name="3167"
+      >         </a
+      ><a name="3176" class="Symbol"
+      >=</a
+      ><a name="3177"
+      > </a
+      ><a name="3178" href="BasicIS4.Regular.Hilbert.Nested.html#1568" class="Function"
+      >HN.lam</a
+      ><a name="3184"
+      > </a
+      ><a name="3185" class="Symbol"
+      >(</a
+      ><a name="3186" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3190"
+      > </a
+      ><a name="3191" href="BasicIS4.Regular.Translation.html#3165" class="Bound"
+      >t</a
+      ><a name="3192" class="Symbol"
+      >)</a
+      ><a name="3193"
+      >
+  </a
+      ><a name="3196" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3200"
+      > </a
+      ><a name="3201" class="Symbol"
+      >(</a
+      ><a name="3202" href="BasicIS4.Regular.Gentzen.html#312" class="InductiveConstructor"
+      >G.app</a
+      ><a name="3207"
+      > </a
+      ><a name="3208" href="BasicIS4.Regular.Translation.html#3208" class="Bound"
+      >t</a
+      ><a name="3209"
+      > </a
+      ><a name="3210" href="BasicIS4.Regular.Translation.html#3210" class="Bound"
+      >u</a
+      ><a name="3211" class="Symbol"
+      >)</a
+      ><a name="3212"
+      >       </a
+      ><a name="3219" class="Symbol"
+      >=</a
+      ><a name="3220"
+      > </a
+      ><a name="3221" href="BasicIS4.Regular.Hilbert.Nested.html#249" class="InductiveConstructor"
+      >HN.app</a
+      ><a name="3227"
+      > </a
+      ><a name="3228" class="Symbol"
+      >(</a
+      ><a name="3229" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3233"
+      > </a
+      ><a name="3234" href="BasicIS4.Regular.Translation.html#3208" class="Bound"
+      >t</a
+      ><a name="3235" class="Symbol"
+      >)</a
+      ><a name="3236"
+      > </a
+      ><a name="3237" class="Symbol"
+      >(</a
+      ><a name="3238" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3242"
+      > </a
+      ><a name="3243" href="BasicIS4.Regular.Translation.html#3210" class="Bound"
+      >u</a
+      ><a name="3244" class="Symbol"
+      >)</a
+      ><a name="3245"
+      >
+  </a
+      ><a name="3248" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3252"
+      > </a
+      ><a name="3253" class="Symbol"
+      >(</a
+      ><a name="3254" href="BasicIS4.Regular.Gentzen.html#363" class="InductiveConstructor"
+      >G.multibox</a
+      ><a name="3264"
+      > </a
+      ><a name="3265" href="BasicIS4.Regular.Translation.html#3265" class="Bound"
+      >ts</a
+      ><a name="3267"
+      > </a
+      ><a name="3268" href="BasicIS4.Regular.Translation.html#3268" class="Bound"
+      >u</a
+      ><a name="3269" class="Symbol"
+      >)</a
+      ><a name="3270"
+      > </a
+      ><a name="3271" class="Symbol"
+      >=</a
+      ><a name="3272"
+      > </a
+      ><a name="3273" href="BasicIS4.Regular.Hilbert.Nested.html#3612" class="Function"
+      >HN.multibox</a
+      ><a name="3284"
+      > </a
+      ><a name="3285" class="Symbol"
+      >(</a
+      ><a name="3286" href="BasicIS4.Regular.Translation.html#3524" class="Function"
+      >g&#8594;hn&#8902;</a
+      ><a name="3291"
+      > </a
+      ><a name="3292" href="BasicIS4.Regular.Translation.html#3265" class="Bound"
+      >ts</a
+      ><a name="3294" class="Symbol"
+      >)</a
+      ><a name="3295"
+      > </a
+      ><a name="3296" class="Symbol"
+      >(</a
+      ><a name="3297" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3301"
+      > </a
+      ><a name="3302" href="BasicIS4.Regular.Translation.html#3268" class="Bound"
+      >u</a
+      ><a name="3303" class="Symbol"
+      >)</a
+      ><a name="3304"
+      >
+  </a
+      ><a name="3307" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3311"
+      > </a
+      ><a name="3312" class="Symbol"
+      >(</a
+      ><a name="3313" href="BasicIS4.Regular.Gentzen.html#419" class="InductiveConstructor"
+      >G.down</a
+      ><a name="3319"
+      > </a
+      ><a name="3320" href="BasicIS4.Regular.Translation.html#3320" class="Bound"
+      >t</a
+      ><a name="3321" class="Symbol"
+      >)</a
+      ><a name="3322"
+      >        </a
+      ><a name="3330" class="Symbol"
+      >=</a
+      ><a name="3331"
+      > </a
+      ><a name="3332" href="BasicIS4.Regular.Hilbert.Nested.html#3395" class="Function"
+      >HN.down</a
+      ><a name="3339"
+      > </a
+      ><a name="3340" class="Symbol"
+      >(</a
+      ><a name="3341" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3345"
+      > </a
+      ><a name="3346" href="BasicIS4.Regular.Translation.html#3320" class="Bound"
+      >t</a
+      ><a name="3347" class="Symbol"
+      >)</a
+      ><a name="3348"
+      >
+  </a
+      ><a name="3351" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3355"
+      > </a
+      ><a name="3356" class="Symbol"
+      >(</a
+      ><a name="3357" href="BasicIS4.Regular.Gentzen.html#460" class="InductiveConstructor"
+      >G.pair</a
+      ><a name="3363"
+      > </a
+      ><a name="3364" href="BasicIS4.Regular.Translation.html#3364" class="Bound"
+      >t</a
+      ><a name="3365"
+      > </a
+      ><a name="3366" href="BasicIS4.Regular.Translation.html#3366" class="Bound"
+      >u</a
+      ><a name="3367" class="Symbol"
+      >)</a
+      ><a name="3368"
+      >      </a
+      ><a name="3374" class="Symbol"
+      >=</a
+      ><a name="3375"
+      > </a
+      ><a name="3376" href="BasicIS4.Regular.Hilbert.Nested.html#3764" class="Function"
+      >HN.pair</a
+      ><a name="3383"
+      > </a
+      ><a name="3384" class="Symbol"
+      >(</a
+      ><a name="3385" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3389"
+      > </a
+      ><a name="3390" href="BasicIS4.Regular.Translation.html#3364" class="Bound"
+      >t</a
+      ><a name="3391" class="Symbol"
+      >)</a
+      ><a name="3392"
+      > </a
+      ><a name="3393" class="Symbol"
+      >(</a
+      ><a name="3394" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3398"
+      > </a
+      ><a name="3399" href="BasicIS4.Regular.Translation.html#3366" class="Bound"
+      >u</a
+      ><a name="3400" class="Symbol"
+      >)</a
+      ><a name="3401"
+      >
+  </a
+      ><a name="3404" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3408"
+      > </a
+      ><a name="3409" class="Symbol"
+      >(</a
+      ><a name="3410" href="BasicIS4.Regular.Gentzen.html#511" class="InductiveConstructor"
+      >G.fst</a
+      ><a name="3415"
+      > </a
+      ><a name="3416" href="BasicIS4.Regular.Translation.html#3416" class="Bound"
+      >t</a
+      ><a name="3417" class="Symbol"
+      >)</a
+      ><a name="3418"
+      >         </a
+      ><a name="3427" class="Symbol"
+      >=</a
+      ><a name="3428"
+      > </a
+      ><a name="3429" href="BasicIS4.Regular.Hilbert.Nested.html#3841" class="Function"
+      >HN.fst</a
+      ><a name="3435"
+      > </a
+      ><a name="3436" class="Symbol"
+      >(</a
+      ><a name="3437" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3441"
+      > </a
+      ><a name="3442" href="BasicIS4.Regular.Translation.html#3416" class="Bound"
+      >t</a
+      ><a name="3443" class="Symbol"
+      >)</a
+      ><a name="3444"
+      >
+  </a
+      ><a name="3447" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3451"
+      > </a
+      ><a name="3452" class="Symbol"
+      >(</a
+      ><a name="3453" href="BasicIS4.Regular.Gentzen.html#554" class="InductiveConstructor"
+      >G.snd</a
+      ><a name="3458"
+      > </a
+      ><a name="3459" href="BasicIS4.Regular.Translation.html#3459" class="Bound"
+      >t</a
+      ><a name="3460" class="Symbol"
+      >)</a
+      ><a name="3461"
+      >         </a
+      ><a name="3470" class="Symbol"
+      >=</a
+      ><a name="3471"
+      > </a
+      ><a name="3472" href="BasicIS4.Regular.Hilbert.Nested.html#3897" class="Function"
+      >HN.snd</a
+      ><a name="3478"
+      > </a
+      ><a name="3479" class="Symbol"
+      >(</a
+      ><a name="3480" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3484"
+      > </a
+      ><a name="3485" href="BasicIS4.Regular.Translation.html#3459" class="Bound"
+      >t</a
+      ><a name="3486" class="Symbol"
+      >)</a
+      ><a name="3487"
+      >
+  </a
+      ><a name="3490" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3494"
+      > </a
+      ><a name="3495" href="BasicIS4.Regular.Gentzen.html#597" class="InductiveConstructor"
+      >G.tt</a
+      ><a name="3499"
+      >              </a
+      ><a name="3513" class="Symbol"
+      >=</a
+      ><a name="3514"
+      > </a
+      ><a name="3515" href="BasicIS4.Regular.Hilbert.Nested.html#691" class="InductiveConstructor"
+      >HN.tt</a
+      ><a name="3520"
+      >
+
+  </a
+      ><a name="3524" href="BasicIS4.Regular.Translation.html#3524" class="Function"
+      >g&#8594;hn&#8902;</a
+      ><a name="3529"
+      > </a
+      ><a name="3530" class="Symbol"
+      >:</a
+      ><a name="3531"
+      > </a
+      ><a name="3532" class="Symbol"
+      >&#8704;</a
+      ><a name="3533"
+      > </a
+      ><a name="3534" class="Symbol"
+      >{</a
+      ><a name="3535" href="BasicIS4.Regular.Translation.html#3535" class="Bound"
+      >&#928;</a
+      ><a name="3536"
+      > </a
+      ><a name="3537" href="BasicIS4.Regular.Translation.html#3537" class="Bound"
+      >&#915;</a
+      ><a name="3538" class="Symbol"
+      >}</a
+      ><a name="3539"
+      > </a
+      ><a name="3540" class="Symbol"
+      >&#8594;</a
+      ><a name="3541"
+      > </a
+      ><a name="3542" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >G&#10216;</a
+      ><a name="3544"
+      > </a
+      ><a name="3545" href="BasicIS4.Regular.Translation.html#3537" class="Bound"
+      >&#915;</a
+      ><a name="3546"
+      > </a
+      ><a name="3547" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="3549"
+      > </a
+      ><a name="3550" href="BasicIS4.Regular.Translation.html#3535" class="Bound"
+      >&#928;</a
+      ><a name="3551"
+      > </a
+      ><a name="3552" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >&#10217;</a
+      ><a name="3553"
+      > </a
+      ><a name="3554" class="Symbol"
+      >&#8594;</a
+      ><a name="3555"
+      > </a
+      ><a name="3556" href="BasicIS4.Regular.Hilbert.Nested.html#719" class="Function Operator"
+      >HN&#10216;</a
+      ><a name="3559"
+      > </a
+      ><a name="3560" href="BasicIS4.Regular.Translation.html#3537" class="Bound"
+      >&#915;</a
+      ><a name="3561"
+      > </a
+      ><a name="3562" href="BasicIS4.Regular.Hilbert.Nested.html#719" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="3564"
+      > </a
+      ><a name="3565" href="BasicIS4.Regular.Translation.html#3535" class="Bound"
+      >&#928;</a
+      ><a name="3566"
+      > </a
+      ><a name="3567" href="BasicIS4.Regular.Hilbert.Nested.html#719" class="Function Operator"
+      >&#10217;</a
+      ><a name="3568"
+      >
+  </a
+      ><a name="3571" href="BasicIS4.Regular.Translation.html#3524" class="Function"
+      >g&#8594;hn&#8902;</a
+      ><a name="3576"
+      > </a
+      ><a name="3577" class="Symbol"
+      >{</a
+      ><a name="3578" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="3579" class="Symbol"
+      >}</a
+      ><a name="3580"
+      >     </a
+      ><a name="3585" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3586"
+      >        </a
+      ><a name="3594" class="Symbol"
+      >=</a
+      ><a name="3595"
+      > </a
+      ><a name="3596" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3597"
+      >
+  </a
+      ><a name="3600" href="BasicIS4.Regular.Translation.html#3524" class="Function"
+      >g&#8594;hn&#8902;</a
+      ><a name="3605"
+      > </a
+      ><a name="3606" class="Symbol"
+      >{</a
+      ><a name="3607" href="BasicIS4.Regular.Translation.html#3607" class="Bound"
+      >&#928;</a
+      ><a name="3608"
+      > </a
+      ><a name="3609" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3610"
+      > </a
+      ><a name="3611" href="BasicIS4.Regular.Translation.html#3611" class="Bound"
+      >A</a
+      ><a name="3612" class="Symbol"
+      >}</a
+      ><a name="3613"
+      > </a
+      ><a name="3614" class="Symbol"
+      >(</a
+      ><a name="3615" href="BasicIS4.Regular.Translation.html#3615" class="Bound"
+      >ts</a
+      ><a name="3617"
+      > </a
+      ><a name="3618" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3619"
+      > </a
+      ><a name="3620" href="BasicIS4.Regular.Translation.html#3620" class="Bound"
+      >t</a
+      ><a name="3621" class="Symbol"
+      >)</a
+      ><a name="3622"
+      > </a
+      ><a name="3623" class="Symbol"
+      >=</a
+      ><a name="3624"
+      > </a
+      ><a name="3625" href="BasicIS4.Regular.Translation.html#3524" class="Function"
+      >g&#8594;hn&#8902;</a
+      ><a name="3630"
+      > </a
+      ><a name="3631" href="BasicIS4.Regular.Translation.html#3615" class="Bound"
+      >ts</a
+      ><a name="3633"
+      > </a
+      ><a name="3634" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3635"
+      > </a
+      ><a name="3636" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3640"
+      > </a
+      ><a name="3641" href="BasicIS4.Regular.Translation.html#3620" class="Bound"
+      >t</a
+      ><a name="3642"
+      >
+
+</a
+      ><a name="3644" href="BasicIS4.Regular.Translation.html#3644" class="Function"
+      >g&#8594;hs</a
+      ><a name="3648"
+      > </a
+      ><a name="3649" class="Symbol"
+      >:</a
+      ><a name="3650"
+      > </a
+      ><a name="3651" class="Symbol"
+      >&#8704;</a
+      ><a name="3652"
+      > </a
+      ><a name="3653" class="Symbol"
+      >{</a
+      ><a name="3654" href="BasicIS4.Regular.Translation.html#3654" class="Bound"
+      >A</a
+      ><a name="3655"
+      > </a
+      ><a name="3656" href="BasicIS4.Regular.Translation.html#3656" class="Bound"
+      >&#915;</a
+      ><a name="3657" class="Symbol"
+      >}</a
+      ><a name="3658"
+      > </a
+      ><a name="3659" class="Symbol"
+      >&#8594;</a
+      ><a name="3660"
+      > </a
+      ><a name="3661" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >G&#10216;</a
+      ><a name="3663"
+      > </a
+      ><a name="3664" href="BasicIS4.Regular.Translation.html#3656" class="Bound"
+      >&#915;</a
+      ><a name="3665"
+      > </a
+      ><a name="3666" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3667"
+      > </a
+      ><a name="3668" href="BasicIS4.Regular.Translation.html#3654" class="Bound"
+      >A</a
+      ><a name="3669"
+      > </a
+      ><a name="3670" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="3671"
+      > </a
+      ><a name="3672" class="Symbol"
+      >&#8594;</a
+      ><a name="3673"
+      > </a
+      ><a name="3674" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >HS&#10216;</a
+      ><a name="3677"
+      > </a
+      ><a name="3678" href="BasicIS4.Regular.Translation.html#3656" class="Bound"
+      >&#915;</a
+      ><a name="3679"
+      > </a
+      ><a name="3680" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#8866;</a
+      ><a name="3681"
+      > </a
+      ><a name="3682" href="BasicIS4.Regular.Translation.html#3654" class="Bound"
+      >A</a
+      ><a name="3683"
+      > </a
+      ><a name="3684" href="BasicIS4.Regular.Hilbert.Sequential.html#941" class="Function Operator"
+      >&#10217;</a
+      ><a name="3685"
+      >
+</a
+      ><a name="3686" href="BasicIS4.Regular.Translation.html#3644" class="Function"
+      >g&#8594;hs</a
+      ><a name="3690"
+      > </a
+      ><a name="3691" class="Symbol"
+      >=</a
+      ><a name="3692"
+      > </a
+      ><a name="3693" href="BasicIS4.Regular.Translation.html#1772" class="Function"
+      >hn&#8594;hs</a
+      ><a name="3698"
+      > </a
+      ><a name="3699" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3700"
+      > </a
+      ><a name="3701" href="BasicIS4.Regular.Translation.html#3073" class="Function"
+      >g&#8594;hn</a
+      ><a name="3705"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

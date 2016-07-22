@@ -1,0 +1,1886 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIPC.Gentzen.KripkeBasicCompleteness</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1" class="Module"
+      >BasicIPC.Gentzen.KripkeBasicCompleteness</a
+      ><a name="48"
+      > </a
+      ><a name="49" class="Keyword"
+      >where</a
+      ><a name="54"
+      >
+
+</a
+      ><a name="56" class="Keyword"
+      >open</a
+      ><a name="60"
+      > </a
+      ><a name="61" class="Keyword"
+      >import</a
+      ><a name="67"
+      > </a
+      ><a name="68" href="BasicIPC.Gentzen.KripkeSoundness.html#1" class="Module"
+      >BasicIPC.Gentzen.KripkeSoundness</a
+      ><a name="100"
+      > </a
+      ><a name="101" class="Keyword"
+      >public</a
+      ><a name="107"
+      >
+
+
+</a
+      ><a name="110" class="Comment"
+      >-- The canonical model.</a
+      ><a name="133"
+      >
+
+</a
+      ><a name="135" class="Keyword"
+      >instance</a
+      ><a name="143"
+      >
+  </a
+      ><a name="146" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#146" class="Function"
+      >canon</a
+      ><a name="151"
+      > </a
+      ><a name="152" class="Symbol"
+      >:</a
+      ><a name="153"
+      > </a
+      ><a name="154" href="BasicIPC.KripkeSemantics.html#111" class="Record"
+      >Model</a
+      ><a name="159"
+      >
+  </a
+      ><a name="162" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#146" class="Function"
+      >canon</a
+      ><a name="167"
+      > </a
+      ><a name="168" class="Symbol"
+      >=</a
+      ><a name="169"
+      > </a
+      ><a name="170" class="Keyword"
+      >record</a
+      ><a name="176"
+      >
+    </a
+      ><a name="181" class="Symbol"
+      >{</a
+      ><a name="182"
+      > </a
+      ><a name="183" class="Field"
+      >World</a
+      ><a name="188"
+      >   </a
+      ><a name="191" class="Symbol"
+      >=</a
+      ><a name="192"
+      > </a
+      ><a name="193" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="195"
+      > </a
+      ><a name="196" href="BasicIPC.html#166" class="Datatype"
+      >Ty</a
+      ><a name="198"
+      >
+    </a
+      ><a name="203" class="Symbol"
+      >;</a
+      ><a name="204"
+      > </a
+      ><a name="205" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="208"
+      >     </a
+      ><a name="213" class="Symbol"
+      >=</a
+      ><a name="214"
+      > </a
+      ><a name="215" href="Common.Context.html#801" class="Datatype Operator"
+      >_&#8838;_</a
+      ><a name="218"
+      >
+    </a
+      ><a name="223" class="Symbol"
+      >;</a
+      ><a name="224"
+      > </a
+      ><a name="225" class="Field"
+      >refl&#8804;</a
+      ><a name="230"
+      >   </a
+      ><a name="233" class="Symbol"
+      >=</a
+      ><a name="234"
+      > </a
+      ><a name="235" href="Common.Context.html#943" class="Function"
+      >refl&#8838;</a
+      ><a name="240"
+      >
+    </a
+      ><a name="245" class="Symbol"
+      >;</a
+      ><a name="246"
+      > </a
+      ><a name="247" class="Field"
+      >trans&#8804;</a
+      ><a name="253"
+      >  </a
+      ><a name="255" class="Symbol"
+      >=</a
+      ><a name="256"
+      > </a
+      ><a name="257" href="Common.Context.html#1020" class="Function"
+      >trans&#8838;</a
+      ><a name="263"
+      >
+    </a
+      ><a name="268" class="Symbol"
+      >;</a
+      ><a name="269"
+      > </a
+      ><a name="270" class="Field Operator"
+      >_&#8873;&#7493;_</a
+      ><a name="274"
+      >   </a
+      ><a name="277" class="Symbol"
+      >=</a
+      ><a name="278"
+      > </a
+      ><a name="279" class="Symbol"
+      >&#955;</a
+      ><a name="280"
+      > </a
+      ><a name="281" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#281" class="Bound"
+      >&#915;</a
+      ><a name="282"
+      > </a
+      ><a name="283" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#283" class="Bound"
+      >P</a
+      ><a name="284"
+      > </a
+      ><a name="285" class="Symbol"
+      >&#8594;</a
+      ><a name="286"
+      > </a
+      ><a name="287" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#281" class="Bound"
+      >&#915;</a
+      ><a name="288"
+      > </a
+      ><a name="289" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="290"
+      > </a
+      ><a name="291" href="BasicIPC.html#183" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="292"
+      > </a
+      ><a name="293" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#283" class="Bound"
+      >P</a
+      ><a name="294"
+      >
+    </a
+      ><a name="299" class="Symbol"
+      >;</a
+      ><a name="300"
+      > </a
+      ><a name="301" class="Field"
+      >mono&#8873;&#7493;</a
+      ><a name="307"
+      > </a
+      ><a name="308" class="Symbol"
+      >=</a
+      ><a name="309"
+      > </a
+      ><a name="310" href="BasicIPC.Gentzen.html#564" class="Function"
+      >mono&#8866;</a
+      ><a name="315"
+      >
+    </a
+      ><a name="320" class="Symbol"
+      >}</a
+      ><a name="321"
+      >
+
+
+</a
+      ><a name="324" class="Comment"
+      >-- Soundness and completeness with respect to the canonical model.</a
+      ><a name="390"
+      >
+
+</a
+      ><a name="392" class="Keyword"
+      >mutual</a
+      ><a name="398"
+      >
+  </a
+      ><a name="401" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="408"
+      > </a
+      ><a name="409" class="Symbol"
+      >:</a
+      ><a name="410"
+      > </a
+      ><a name="411" class="Symbol"
+      >&#8704;</a
+      ><a name="412"
+      > </a
+      ><a name="413" class="Symbol"
+      >{</a
+      ><a name="414" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#414" class="Bound"
+      >A</a
+      ><a name="415"
+      > </a
+      ><a name="416" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#416" class="Bound"
+      >&#915;</a
+      ><a name="417" class="Symbol"
+      >}</a
+      ><a name="418"
+      > </a
+      ><a name="419" class="Symbol"
+      >&#8594;</a
+      ><a name="420"
+      > </a
+      ><a name="421" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#416" class="Bound"
+      >&#915;</a
+      ><a name="422"
+      > </a
+      ><a name="423" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="424"
+      > </a
+      ><a name="425" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#414" class="Bound"
+      >A</a
+      ><a name="426"
+      > </a
+      ><a name="427" class="Symbol"
+      >&#8594;</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#416" class="Bound"
+      >&#915;</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="BasicIPC.KripkeSemantics.html#581" class="Function Operator"
+      >&#8873;</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#414" class="Bound"
+      >A</a
+      ><a name="434"
+      >
+  </a
+      ><a name="437" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="444"
+      > </a
+      ><a name="445" class="Symbol"
+      >{</a
+      ><a name="446" href="BasicIPC.html#183" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="447"
+      > </a
+      ><a name="448" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#448" class="Bound"
+      >P</a
+      ><a name="449" class="Symbol"
+      >}</a
+      ><a name="450"
+      >   </a
+      ><a name="453" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#453" class="Bound"
+      >t</a
+      ><a name="454"
+      > </a
+      ><a name="455" class="Symbol"
+      >=</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#453" class="Bound"
+      >t</a
+      ><a name="458"
+      >
+  </a
+      ><a name="461" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="468"
+      > </a
+      ><a name="469" class="Symbol"
+      >{</a
+      ><a name="470" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#470" class="Bound"
+      >A</a
+      ><a name="471"
+      > </a
+      ><a name="472" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#474" class="Bound"
+      >B</a
+      ><a name="475" class="Symbol"
+      >}</a
+      ><a name="476"
+      > </a
+      ><a name="477" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#477" class="Bound"
+      >t</a
+      ><a name="478"
+      > </a
+      ><a name="479" class="Symbol"
+      >=</a
+      ><a name="480"
+      > </a
+      ><a name="481" class="Symbol"
+      >&#955;</a
+      ><a name="482"
+      > </a
+      ><a name="483" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#483" class="Bound"
+      >&#958;</a
+      ><a name="484"
+      > </a
+      ><a name="485" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#485" class="Bound"
+      >a</a
+      ><a name="486"
+      > </a
+      ><a name="487" class="Symbol"
+      >&#8594;</a
+      ><a name="488"
+      > </a
+      ><a name="489" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="496"
+      > </a
+      ><a name="497" class="Symbol"
+      >{</a
+      ><a name="498" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#474" class="Bound"
+      >B</a
+      ><a name="499" class="Symbol"
+      >}</a
+      ><a name="500"
+      > </a
+      ><a name="501" class="Symbol"
+      >(</a
+      ><a name="502" href="BasicIPC.Gentzen.html#247" class="InductiveConstructor"
+      >app</a
+      ><a name="505"
+      > </a
+      ><a name="506" class="Symbol"
+      >(</a
+      ><a name="507" href="BasicIPC.Gentzen.html#564" class="Function"
+      >mono&#8866;</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#483" class="Bound"
+      >&#958;</a
+      ><a name="514"
+      > </a
+      ><a name="515" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#477" class="Bound"
+      >t</a
+      ><a name="516" class="Symbol"
+      >)</a
+      ><a name="517"
+      > </a
+      ><a name="518" class="Symbol"
+      >(</a
+      ><a name="519" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="524"
+      > </a
+      ><a name="525" class="Symbol"
+      >{</a
+      ><a name="526" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#470" class="Bound"
+      >A</a
+      ><a name="527" class="Symbol"
+      >}</a
+      ><a name="528"
+      > </a
+      ><a name="529" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#485" class="Bound"
+      >a</a
+      ><a name="530" class="Symbol"
+      >))</a
+      ><a name="532"
+      >
+  </a
+      ><a name="535" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="542"
+      > </a
+      ><a name="543" class="Symbol"
+      >{</a
+      ><a name="544" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#544" class="Bound"
+      >A</a
+      ><a name="545"
+      > </a
+      ><a name="546" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="547"
+      > </a
+      ><a name="548" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#548" class="Bound"
+      >B</a
+      ><a name="549" class="Symbol"
+      >}</a
+      ><a name="550"
+      > </a
+      ><a name="551" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#551" class="Bound"
+      >t</a
+      ><a name="552"
+      > </a
+      ><a name="553" class="Symbol"
+      >=</a
+      ><a name="554"
+      > </a
+      ><a name="555" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="562"
+      > </a
+      ><a name="563" class="Symbol"
+      >{</a
+      ><a name="564" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#544" class="Bound"
+      >A</a
+      ><a name="565" class="Symbol"
+      >}</a
+      ><a name="566"
+      > </a
+      ><a name="567" class="Symbol"
+      >(</a
+      ><a name="568" href="BasicIPC.Gentzen.html#337" class="InductiveConstructor"
+      >fst</a
+      ><a name="571"
+      > </a
+      ><a name="572" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#551" class="Bound"
+      >t</a
+      ><a name="573" class="Symbol"
+      >)</a
+      ><a name="574"
+      > </a
+      ><a name="575" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="576"
+      > </a
+      ><a name="577" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="584"
+      > </a
+      ><a name="585" class="Symbol"
+      >{</a
+      ><a name="586" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#548" class="Bound"
+      >B</a
+      ><a name="587" class="Symbol"
+      >}</a
+      ><a name="588"
+      > </a
+      ><a name="589" class="Symbol"
+      >(</a
+      ><a name="590" href="BasicIPC.Gentzen.html#374" class="InductiveConstructor"
+      >snd</a
+      ><a name="593"
+      > </a
+      ><a name="594" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#551" class="Bound"
+      >t</a
+      ><a name="595" class="Symbol"
+      >)</a
+      ><a name="596"
+      >
+  </a
+      ><a name="599" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="606"
+      > </a
+      ><a name="607" class="Symbol"
+      >{</a
+      ><a name="608" href="BasicIPC.html#243" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="609" class="Symbol"
+      >}</a
+      ><a name="610"
+      >    </a
+      ><a name="614" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#614" class="Bound"
+      >t</a
+      ><a name="615"
+      > </a
+      ><a name="616" class="Symbol"
+      >=</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="619"
+      >
+
+  </a
+      ><a name="623" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="628"
+      > </a
+      ><a name="629" class="Symbol"
+      >:</a
+      ><a name="630"
+      > </a
+      ><a name="631" class="Symbol"
+      >&#8704;</a
+      ><a name="632"
+      > </a
+      ><a name="633" class="Symbol"
+      >{</a
+      ><a name="634" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#634" class="Bound"
+      >A</a
+      ><a name="635"
+      > </a
+      ><a name="636" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#636" class="Bound"
+      >&#915;</a
+      ><a name="637" class="Symbol"
+      >}</a
+      ><a name="638"
+      > </a
+      ><a name="639" class="Symbol"
+      >&#8594;</a
+      ><a name="640"
+      > </a
+      ><a name="641" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#636" class="Bound"
+      >&#915;</a
+      ><a name="642"
+      > </a
+      ><a name="643" href="BasicIPC.KripkeSemantics.html#581" class="Function Operator"
+      >&#8873;</a
+      ><a name="644"
+      > </a
+      ><a name="645" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#634" class="Bound"
+      >A</a
+      ><a name="646"
+      > </a
+      ><a name="647" class="Symbol"
+      >&#8594;</a
+      ><a name="648"
+      > </a
+      ><a name="649" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#636" class="Bound"
+      >&#915;</a
+      ><a name="650"
+      > </a
+      ><a name="651" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="652"
+      > </a
+      ><a name="653" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#634" class="Bound"
+      >A</a
+      ><a name="654"
+      >
+  </a
+      ><a name="657" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="662"
+      > </a
+      ><a name="663" class="Symbol"
+      >{</a
+      ><a name="664" href="BasicIPC.html#183" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="665"
+      > </a
+      ><a name="666" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#666" class="Bound"
+      >P</a
+      ><a name="667" class="Symbol"
+      >}</a
+      ><a name="668"
+      >   </a
+      ><a name="671" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#671" class="Bound"
+      >s</a
+      ><a name="672"
+      > </a
+      ><a name="673" class="Symbol"
+      >=</a
+      ><a name="674"
+      > </a
+      ><a name="675" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#671" class="Bound"
+      >s</a
+      ><a name="676"
+      >
+  </a
+      ><a name="679" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="684"
+      > </a
+      ><a name="685" class="Symbol"
+      >{</a
+      ><a name="686" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#686" class="Bound"
+      >A</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="689"
+      > </a
+      ><a name="690" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#690" class="Bound"
+      >B</a
+      ><a name="691" class="Symbol"
+      >}</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#693" class="Bound"
+      >s</a
+      ><a name="694"
+      > </a
+      ><a name="695" class="Symbol"
+      >=</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="BasicIPC.Gentzen.html#206" class="InductiveConstructor"
+      >lam</a
+      ><a name="700"
+      > </a
+      ><a name="701" class="Symbol"
+      >(</a
+      ><a name="702" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="707"
+      > </a
+      ><a name="708" class="Symbol"
+      >{</a
+      ><a name="709" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#690" class="Bound"
+      >B</a
+      ><a name="710" class="Symbol"
+      >}</a
+      ><a name="711"
+      > </a
+      ><a name="712" class="Symbol"
+      >(</a
+      ><a name="713" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#693" class="Bound"
+      >s</a
+      ><a name="714"
+      > </a
+      ><a name="715" href="Common.Context.html#1467" class="Function"
+      >weak&#8838;</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Symbol"
+      >(</a
+      ><a name="722" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="729"
+      > </a
+      ><a name="730" class="Symbol"
+      >{</a
+      ><a name="731" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#686" class="Bound"
+      >A</a
+      ><a name="732" class="Symbol"
+      >}</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="BasicIPC.Gentzen.html#1049" class="Function"
+      >v&#8320;</a
+      ><a name="736" class="Symbol"
+      >)))</a
+      ><a name="739"
+      >
+  </a
+      ><a name="742" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="747"
+      > </a
+      ><a name="748" class="Symbol"
+      >{</a
+      ><a name="749" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#749" class="Bound"
+      >A</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="BasicIPC.html#222" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="752"
+      > </a
+      ><a name="753" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#753" class="Bound"
+      >B</a
+      ><a name="754" class="Symbol"
+      >}</a
+      ><a name="755"
+      > </a
+      ><a name="756" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#756" class="Bound"
+      >s</a
+      ><a name="757"
+      > </a
+      ><a name="758" class="Symbol"
+      >=</a
+      ><a name="759"
+      > </a
+      ><a name="760" href="BasicIPC.Gentzen.html#292" class="InductiveConstructor"
+      >pair</a
+      ><a name="764"
+      > </a
+      ><a name="765" class="Symbol"
+      >(</a
+      ><a name="766" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="771"
+      > </a
+      ><a name="772" class="Symbol"
+      >{</a
+      ><a name="773" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#749" class="Bound"
+      >A</a
+      ><a name="774" class="Symbol"
+      >}</a
+      ><a name="775"
+      > </a
+      ><a name="776" class="Symbol"
+      >(</a
+      ><a name="777" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#756" class="Bound"
+      >s</a
+      ><a name="781" class="Symbol"
+      >))</a
+      ><a name="783"
+      > </a
+      ><a name="784" class="Symbol"
+      >(</a
+      ><a name="785" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="790"
+      > </a
+      ><a name="791" class="Symbol"
+      >{</a
+      ><a name="792" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#753" class="Bound"
+      >B</a
+      ><a name="793" class="Symbol"
+      >}</a
+      ><a name="794"
+      > </a
+      ><a name="795" class="Symbol"
+      >(</a
+      ><a name="796" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="798"
+      > </a
+      ><a name="799" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#756" class="Bound"
+      >s</a
+      ><a name="800" class="Symbol"
+      >))</a
+      ><a name="802"
+      >
+  </a
+      ><a name="805" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="810"
+      > </a
+      ><a name="811" class="Symbol"
+      >{</a
+      ><a name="812" href="BasicIPC.html#243" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="813" class="Symbol"
+      >}</a
+      ><a name="814"
+      >    </a
+      ><a name="818" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#818" class="Bound"
+      >s</a
+      ><a name="819"
+      > </a
+      ><a name="820" class="Symbol"
+      >=</a
+      ><a name="821"
+      > </a
+      ><a name="822" href="BasicIPC.Gentzen.html#411" class="InductiveConstructor"
+      >tt</a
+      ><a name="824"
+      >
+
+</a
+      ><a name="826" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#826" class="Function"
+      >reflect&#8902;</a
+      ><a name="834"
+      > </a
+      ><a name="835" class="Symbol"
+      >:</a
+      ><a name="836"
+      > </a
+      ><a name="837" class="Symbol"
+      >&#8704;</a
+      ><a name="838"
+      > </a
+      ><a name="839" class="Symbol"
+      >{</a
+      ><a name="840" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#840" class="Bound"
+      >&#928;</a
+      ><a name="841"
+      > </a
+      ><a name="842" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#842" class="Bound"
+      >&#915;</a
+      ><a name="843" class="Symbol"
+      >}</a
+      ><a name="844"
+      > </a
+      ><a name="845" class="Symbol"
+      >&#8594;</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#842" class="Bound"
+      >&#915;</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="BasicIPC.Gentzen.html#438" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="851"
+      > </a
+      ><a name="852" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#840" class="Bound"
+      >&#928;</a
+      ><a name="853"
+      > </a
+      ><a name="854" class="Symbol"
+      >&#8594;</a
+      ><a name="855"
+      > </a
+      ><a name="856" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#842" class="Bound"
+      >&#915;</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="BasicIPC.KripkeSemantics.html#736" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="860"
+      > </a
+      ><a name="861" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#840" class="Bound"
+      >&#928;</a
+      ><a name="862"
+      >
+</a
+      ><a name="863" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#826" class="Function"
+      >reflect&#8902;</a
+      ><a name="871"
+      > </a
+      ><a name="872" class="Symbol"
+      >{</a
+      ><a name="873" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="874" class="Symbol"
+      >}</a
+      ><a name="875"
+      >     </a
+      ><a name="880" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="881"
+      >        </a
+      ><a name="889" class="Symbol"
+      >=</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="892"
+      >
+</a
+      ><a name="893" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#826" class="Function"
+      >reflect&#8902;</a
+      ><a name="901"
+      > </a
+      ><a name="902" class="Symbol"
+      >{</a
+      ><a name="903" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#903" class="Bound"
+      >&#928;</a
+      ><a name="904"
+      > </a
+      ><a name="905" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="906"
+      > </a
+      ><a name="907" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#907" class="Bound"
+      >A</a
+      ><a name="908" class="Symbol"
+      >}</a
+      ><a name="909"
+      > </a
+      ><a name="910" class="Symbol"
+      >(</a
+      ><a name="911" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#911" class="Bound"
+      >ts</a
+      ><a name="913"
+      > </a
+      ><a name="914" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="915"
+      > </a
+      ><a name="916" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#916" class="Bound"
+      >t</a
+      ><a name="917" class="Symbol"
+      >)</a
+      ><a name="918"
+      > </a
+      ><a name="919" class="Symbol"
+      >=</a
+      ><a name="920"
+      > </a
+      ><a name="921" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#826" class="Function"
+      >reflect&#8902;</a
+      ><a name="929"
+      > </a
+      ><a name="930" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#911" class="Bound"
+      >ts</a
+      ><a name="932"
+      > </a
+      ><a name="933" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="934"
+      > </a
+      ><a name="935" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="942"
+      > </a
+      ><a name="943" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#916" class="Bound"
+      >t</a
+      ><a name="944"
+      >
+
+</a
+      ><a name="946" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#946" class="Function"
+      >reify&#8902;</a
+      ><a name="952"
+      > </a
+      ><a name="953" class="Symbol"
+      >:</a
+      ><a name="954"
+      > </a
+      ><a name="955" class="Symbol"
+      >&#8704;</a
+      ><a name="956"
+      > </a
+      ><a name="957" class="Symbol"
+      >{</a
+      ><a name="958" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#958" class="Bound"
+      >&#928;</a
+      ><a name="959"
+      > </a
+      ><a name="960" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#960" class="Bound"
+      >&#915;</a
+      ><a name="961" class="Symbol"
+      >}</a
+      ><a name="962"
+      > </a
+      ><a name="963" class="Symbol"
+      >&#8594;</a
+      ><a name="964"
+      > </a
+      ><a name="965" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#960" class="Bound"
+      >&#915;</a
+      ><a name="966"
+      > </a
+      ><a name="967" href="BasicIPC.KripkeSemantics.html#736" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#958" class="Bound"
+      >&#928;</a
+      ><a name="971"
+      > </a
+      ><a name="972" class="Symbol"
+      >&#8594;</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#960" class="Bound"
+      >&#915;</a
+      ><a name="975"
+      > </a
+      ><a name="976" href="BasicIPC.Gentzen.html#438" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="978"
+      > </a
+      ><a name="979" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#958" class="Bound"
+      >&#928;</a
+      ><a name="980"
+      >
+</a
+      ><a name="981" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#946" class="Function"
+      >reify&#8902;</a
+      ><a name="987"
+      > </a
+      ><a name="988" class="Symbol"
+      >{</a
+      ><a name="989" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="990" class="Symbol"
+      >}</a
+      ><a name="991"
+      >     </a
+      ><a name="996" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="997"
+      >        </a
+      ><a name="1005" class="Symbol"
+      >=</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1008"
+      >
+</a
+      ><a name="1009" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#946" class="Function"
+      >reify&#8902;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" class="Symbol"
+      >{</a
+      ><a name="1017" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1017" class="Bound"
+      >&#928;</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1021" class="Bound"
+      >A</a
+      ><a name="1022" class="Symbol"
+      >}</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" class="Symbol"
+      >(</a
+      ><a name="1025" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1025" class="Bound"
+      >ts</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1030" class="Bound"
+      >t</a
+      ><a name="1031" class="Symbol"
+      >)</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" class="Symbol"
+      >=</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#946" class="Function"
+      >reify&#8902;</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1025" class="Bound"
+      >ts</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1046"
+      > </a
+      ><a name="1047" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="1052"
+      > </a
+      ><a name="1053" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1030" class="Bound"
+      >t</a
+      ><a name="1054"
+      >
+
+
+</a
+      ><a name="1057" class="Comment"
+      >-- Additional useful properties.</a
+      ><a name="1089"
+      >
+
+</a
+      ><a name="1091" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1091" class="Function"
+      >multicut&#8873;</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" class="Symbol"
+      >:</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" class="Symbol"
+      >&#8704;</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" class="Symbol"
+      >{</a
+      ><a name="1106" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1106" class="Bound"
+      >A</a
+      ><a name="1107"
+      > </a
+      ><a name="1108" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1108" class="Bound"
+      >&#915;</a
+      ><a name="1109"
+      > </a
+      ><a name="1110" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1110" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1112" class="Symbol"
+      >}</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" class="Symbol"
+      >&#8594;</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1108" class="Bound"
+      >&#915;</a
+      ><a name="1117"
+      > </a
+      ><a name="1118" href="BasicIPC.KripkeSemantics.html#736" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1120"
+      > </a
+      ><a name="1121" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1110" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1123"
+      > </a
+      ><a name="1124" class="Symbol"
+      >&#8594;</a
+      ><a name="1125"
+      > </a
+      ><a name="1126" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1110" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1128"
+      > </a
+      ><a name="1129" href="BasicIPC.KripkeSemantics.html#581" class="Function Operator"
+      >&#8873;</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1106" class="Bound"
+      >A</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" class="Symbol"
+      >&#8594;</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1108" class="Bound"
+      >&#915;</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" href="BasicIPC.KripkeSemantics.html#581" class="Function Operator"
+      >&#8873;</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1106" class="Bound"
+      >A</a
+      ><a name="1140"
+      >
+</a
+      ><a name="1141" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1091" class="Function"
+      >multicut&#8873;</a
+      ><a name="1150"
+      > </a
+      ><a name="1151" class="Symbol"
+      >{</a
+      ><a name="1152" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1152" class="Bound"
+      >A</a
+      ><a name="1153" class="Symbol"
+      >}</a
+      ><a name="1154"
+      > </a
+      ><a name="1155" class="Symbol"
+      >{</a
+      ><a name="1156" class="Argument"
+      >&#915;&#8242;</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" class="Symbol"
+      >=</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1162" class="Symbol"
+      >}</a
+      ><a name="1163"
+      >      </a
+      ><a name="1169" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1170"
+      >        </a
+      ><a name="1178" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1178" class="Bound"
+      >u</a
+      ><a name="1179"
+      > </a
+      ><a name="1180" class="Symbol"
+      >=</a
+      ><a name="1181"
+      > </a
+      ><a name="1182" href="BasicIPC.KripkeSemantics.html#881" class="Function"
+      >mono&#8873;</a
+      ><a name="1187"
+      > </a
+      ><a name="1188" class="Symbol"
+      >{</a
+      ><a name="1189" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1152" class="Bound"
+      >A</a
+      ><a name="1190" class="Symbol"
+      >}</a
+      ><a name="1191"
+      > </a
+      ><a name="1192" href="Common.Context.html#1519" class="Function"
+      >bot&#8838;</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1178" class="Bound"
+      >u</a
+      ><a name="1198"
+      >
+</a
+      ><a name="1199" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1091" class="Function"
+      >multicut&#8873;</a
+      ><a name="1208"
+      > </a
+      ><a name="1209" class="Symbol"
+      >{</a
+      ><a name="1210" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1210" class="Bound"
+      >A</a
+      ><a name="1211" class="Symbol"
+      >}</a
+      ><a name="1212"
+      > </a
+      ><a name="1213" class="Symbol"
+      >{</a
+      ><a name="1214" class="Argument"
+      >&#915;&#8242;</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" class="Symbol"
+      >=</a
+      ><a name="1218"
+      > </a
+      ><a name="1219" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1219" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1221"
+      > </a
+      ><a name="1222" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1224" class="Bound"
+      >B</a
+      ><a name="1225" class="Symbol"
+      >}</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" class="Symbol"
+      >(</a
+      ><a name="1228" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1228" class="Bound"
+      >ts</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1233" class="Bound"
+      >t</a
+      ><a name="1234" class="Symbol"
+      >)</a
+      ><a name="1235"
+      > </a
+      ><a name="1236" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1236" class="Bound"
+      >u</a
+      ><a name="1237"
+      > </a
+      ><a name="1238" class="Symbol"
+      >=</a
+      ><a name="1239"
+      > </a
+      ><a name="1240" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="1247"
+      > </a
+      ><a name="1248" class="Symbol"
+      >{</a
+      ><a name="1249" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1210" class="Bound"
+      >A</a
+      ><a name="1250" class="Symbol"
+      >}</a
+      ><a name="1251"
+      > </a
+      ><a name="1252" class="Symbol"
+      >(</a
+      ><a name="1253" href="BasicIPC.Gentzen.html#247" class="InductiveConstructor"
+      >app</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1284" class="Function"
+      >ts&#8242;</a
+      ><a name="1260"
+      > </a
+      ><a name="1261" class="Symbol"
+      >(</a
+      ><a name="1262" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" class="Symbol"
+      >{</a
+      ><a name="1269" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1224" class="Bound"
+      >B</a
+      ><a name="1270" class="Symbol"
+      >}</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1233" class="Bound"
+      >t</a
+      ><a name="1273" class="Symbol"
+      >))</a
+      ><a name="1275"
+      >
+  </a
+      ><a name="1278" class="Keyword"
+      >where</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1284" class="Function"
+      >ts&#8242;</a
+      ><a name="1287"
+      > </a
+      ><a name="1288" class="Symbol"
+      >=</a
+      ><a name="1289"
+      > </a
+      ><a name="1290" href="BasicIPC.Gentzen.html#1354" class="Function"
+      >multicut&#8866;</a
+      ><a name="1299"
+      > </a
+      ><a name="1300" class="Symbol"
+      >(</a
+      ><a name="1301" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#946" class="Function"
+      >reify&#8902;</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1228" class="Bound"
+      >ts</a
+      ><a name="1310" class="Symbol"
+      >)</a
+      ><a name="1311"
+      > </a
+      ><a name="1312" class="Symbol"
+      >(</a
+      ><a name="1313" href="BasicIPC.Gentzen.html#206" class="InductiveConstructor"
+      >lam</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" class="Symbol"
+      >(</a
+      ><a name="1318" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="1323"
+      > </a
+      ><a name="1324" class="Symbol"
+      >{</a
+      ><a name="1325" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1210" class="Bound"
+      >A</a
+      ><a name="1326" class="Symbol"
+      >}</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1236" class="Bound"
+      >u</a
+      ><a name="1329" class="Symbol"
+      >))</a
+      ><a name="1331"
+      >
+
+</a
+      ><a name="1333" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1333" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="1339"
+      > </a
+      ><a name="1340" class="Symbol"
+      >:</a
+      ><a name="1341"
+      > </a
+      ><a name="1342" class="Symbol"
+      >&#8704;</a
+      ><a name="1343"
+      > </a
+      ><a name="1344" class="Symbol"
+      >{</a
+      ><a name="1345" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1345" class="Bound"
+      >&#915;</a
+      ><a name="1346" class="Symbol"
+      >}</a
+      ><a name="1347"
+      > </a
+      ><a name="1348" class="Symbol"
+      >&#8594;</a
+      ><a name="1349"
+      > </a
+      ><a name="1350" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1345" class="Bound"
+      >&#915;</a
+      ><a name="1351"
+      > </a
+      ><a name="1352" href="BasicIPC.KripkeSemantics.html#736" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1354"
+      > </a
+      ><a name="1355" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1345" class="Bound"
+      >&#915;</a
+      ><a name="1356"
+      >
+</a
+      ><a name="1357" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1333" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="1363"
+      > </a
+      ><a name="1364" class="Symbol"
+      >{</a
+      ><a name="1365" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1366" class="Symbol"
+      >}</a
+      ><a name="1367"
+      >     </a
+      ><a name="1372" class="Symbol"
+      >=</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1375"
+      >
+</a
+      ><a name="1376" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1333" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" class="Symbol"
+      >{</a
+      ><a name="1384" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1384" class="Bound"
+      >&#915;</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1388" class="Bound"
+      >A</a
+      ><a name="1389" class="Symbol"
+      >}</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" class="Symbol"
+      >=</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="BasicIPC.KripkeSemantics.html#1110" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="1399"
+      > </a
+      ><a name="1400" class="Symbol"
+      >{</a
+      ><a name="1401" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1384" class="Bound"
+      >&#915;</a
+      ><a name="1402" class="Symbol"
+      >}</a
+      ><a name="1403"
+      > </a
+      ><a name="1404" href="Common.Context.html#1467" class="Function"
+      >weak&#8838;</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1333" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="1416"
+      > </a
+      ><a name="1417" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1418"
+      > </a
+      ><a name="1419" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#401" class="Function"
+      >reflect</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" class="Symbol"
+      >{</a
+      ><a name="1428" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1388" class="Bound"
+      >A</a
+      ><a name="1429" class="Symbol"
+      >}</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" href="BasicIPC.Gentzen.html#1049" class="Function"
+      >v&#8320;</a
+      ><a name="1433"
+      >
+
+</a
+      ><a name="1435" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1435" class="Function"
+      >trans&#8873;&#8902;</a
+      ><a name="1442"
+      > </a
+      ><a name="1443" class="Symbol"
+      >:</a
+      ><a name="1444"
+      > </a
+      ><a name="1445" class="Symbol"
+      >&#8704;</a
+      ><a name="1446"
+      > </a
+      ><a name="1447" class="Symbol"
+      >{</a
+      ><a name="1448" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1448" class="Bound"
+      >&#928;</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1450" class="Bound"
+      >&#915;</a
+      ><a name="1451"
+      > </a
+      ><a name="1452" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1452" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1454" class="Symbol"
+      >}</a
+      ><a name="1455"
+      > </a
+      ><a name="1456" class="Symbol"
+      >&#8594;</a
+      ><a name="1457"
+      > </a
+      ><a name="1458" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1450" class="Bound"
+      >&#915;</a
+      ><a name="1459"
+      > </a
+      ><a name="1460" href="BasicIPC.KripkeSemantics.html#736" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1462"
+      > </a
+      ><a name="1463" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1452" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" class="Symbol"
+      >&#8594;</a
+      ><a name="1467"
+      > </a
+      ><a name="1468" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1452" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" href="BasicIPC.KripkeSemantics.html#736" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1448" class="Bound"
+      >&#928;</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" class="Symbol"
+      >&#8594;</a
+      ><a name="1477"
+      > </a
+      ><a name="1478" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1450" class="Bound"
+      >&#915;</a
+      ><a name="1479"
+      > </a
+      ><a name="1480" href="BasicIPC.KripkeSemantics.html#736" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1482"
+      > </a
+      ><a name="1483" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1448" class="Bound"
+      >&#928;</a
+      ><a name="1484"
+      >
+</a
+      ><a name="1485" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1435" class="Function"
+      >trans&#8873;&#8902;</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" class="Symbol"
+      >{</a
+      ><a name="1494" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1495" class="Symbol"
+      >}</a
+      ><a name="1496"
+      >     </a
+      ><a name="1501" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1501" class="Bound"
+      >ts</a
+      ><a name="1503"
+      > </a
+      ><a name="1504" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1505"
+      >        </a
+      ><a name="1513" class="Symbol"
+      >=</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1516"
+      >
+</a
+      ><a name="1517" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1435" class="Function"
+      >trans&#8873;&#8902;</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" class="Symbol"
+      >{</a
+      ><a name="1526" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1526" class="Bound"
+      >&#928;</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1529"
+      > </a
+      ><a name="1530" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1530" class="Bound"
+      >A</a
+      ><a name="1531" class="Symbol"
+      >}</a
+      ><a name="1532"
+      > </a
+      ><a name="1533" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1533" class="Bound"
+      >ts</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" class="Symbol"
+      >(</a
+      ><a name="1537" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1537" class="Bound"
+      >us</a
+      ><a name="1539"
+      > </a
+      ><a name="1540" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1542" class="Bound"
+      >u</a
+      ><a name="1543" class="Symbol"
+      >)</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" class="Symbol"
+      >=</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1435" class="Function"
+      >trans&#8873;&#8902;</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1533" class="Bound"
+      >ts</a
+      ><a name="1557"
+      > </a
+      ><a name="1558" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1537" class="Bound"
+      >us</a
+      ><a name="1560"
+      > </a
+      ><a name="1561" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1091" class="Function"
+      >multicut&#8873;</a
+      ><a name="1572"
+      > </a
+      ><a name="1573" class="Symbol"
+      >{</a
+      ><a name="1574" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1530" class="Bound"
+      >A</a
+      ><a name="1575" class="Symbol"
+      >}</a
+      ><a name="1576"
+      > </a
+      ><a name="1577" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1533" class="Bound"
+      >ts</a
+      ><a name="1579"
+      > </a
+      ><a name="1580" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1542" class="Bound"
+      >u</a
+      ><a name="1581"
+      >
+
+
+</a
+      ><a name="1584" class="Comment"
+      >-- Completeness, or quotation.</a
+      ><a name="1614"
+      >
+
+</a
+      ><a name="1616" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1616" class="Function"
+      >quot</a
+      ><a name="1620"
+      > </a
+      ><a name="1621" class="Symbol"
+      >:</a
+      ><a name="1622"
+      > </a
+      ><a name="1623" class="Symbol"
+      >&#8704;</a
+      ><a name="1624"
+      > </a
+      ><a name="1625" class="Symbol"
+      >{</a
+      ><a name="1626" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1626" class="Bound"
+      >A</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1628" class="Bound"
+      >&#915;</a
+      ><a name="1629" class="Symbol"
+      >}</a
+      ><a name="1630"
+      > </a
+      ><a name="1631" class="Symbol"
+      >&#8594;</a
+      ><a name="1632"
+      > </a
+      ><a name="1633" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1628" class="Bound"
+      >&#915;</a
+      ><a name="1634"
+      > </a
+      ><a name="1635" href="BasicIPC.KripkeSemantics.html#1291" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1626" class="Bound"
+      >A</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" class="Symbol"
+      >&#8594;</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1628" class="Bound"
+      >&#915;</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1645"
+      > </a
+      ><a name="1646" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1626" class="Bound"
+      >A</a
+      ><a name="1647"
+      >
+</a
+      ><a name="1648" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1616" class="Function"
+      >quot</a
+      ><a name="1652"
+      > </a
+      ><a name="1653" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1653" class="Bound"
+      >t</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" class="Symbol"
+      >=</a
+      ><a name="1656"
+      > </a
+      ><a name="1657" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#623" class="Function"
+      >reify</a
+      ><a name="1662"
+      > </a
+      ><a name="1663" class="Symbol"
+      >(</a
+      ><a name="1664" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1653" class="Bound"
+      >t</a
+      ><a name="1665"
+      > </a
+      ><a name="1666" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1333" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="1672" class="Symbol"
+      >)</a
+      ><a name="1673"
+      >
+
+
+</a
+      ><a name="1676" class="Comment"
+      >-- Normalisation by evaluation.</a
+      ><a name="1707"
+      >
+
+</a
+      ><a name="1709" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1709" class="Function"
+      >norm</a
+      ><a name="1713"
+      > </a
+      ><a name="1714" class="Symbol"
+      >:</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" class="Symbol"
+      >&#8704;</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" class="Symbol"
+      >{</a
+      ><a name="1719" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1719" class="Bound"
+      >A</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1721" class="Bound"
+      >&#915;</a
+      ><a name="1722" class="Symbol"
+      >}</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" class="Symbol"
+      >&#8594;</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1721" class="Bound"
+      >&#915;</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1719" class="Bound"
+      >A</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" class="Symbol"
+      >&#8594;</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1721" class="Bound"
+      >&#915;</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="BasicIPC.Gentzen.html#138" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1719" class="Bound"
+      >A</a
+      ><a name="1739"
+      >
+</a
+      ><a name="1740" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1709" class="Function"
+      >norm</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" class="Symbol"
+      >=</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" href="BasicIPC.Gentzen.KripkeBasicCompleteness.html#1616" class="Function"
+      >quot</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="BasicIPC.Gentzen.KripkeSoundness.html#160" class="Function"
+      >eval</a
+      ><a name="1758"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

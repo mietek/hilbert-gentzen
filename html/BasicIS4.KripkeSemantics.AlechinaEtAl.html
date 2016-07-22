@@ -1,0 +1,2515 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.KripkeSemantics.AlechinaEtAl</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1" class="Module"
+      >BasicIS4.KripkeSemantics.AlechinaEtAl</a
+      ><a name="45"
+      > </a
+      ><a name="46" class="Keyword"
+      >where</a
+      ><a name="51"
+      >
+
+</a
+      ><a name="53" class="Keyword"
+      >open</a
+      ><a name="57"
+      > </a
+      ><a name="58" class="Keyword"
+      >import</a
+      ><a name="64"
+      > </a
+      ><a name="65" href="BasicIS4.html#1" class="Module"
+      >BasicIS4</a
+      ><a name="73"
+      > </a
+      ><a name="74" class="Keyword"
+      >public</a
+      ><a name="80"
+      >
+
+
+</a
+      ><a name="83" class="Comment"
+      >-- Intuitionistic modal Kripke models, following Alechina, Mendler, de Paiva, and Ritter.</a
+      ><a name="172"
+      >
+
+</a
+      ><a name="174" class="Keyword"
+      >record</a
+      ><a name="180"
+      > </a
+      ><a name="181" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#181" class="Record"
+      >Model</a
+      ><a name="186"
+      > </a
+      ><a name="187" class="Symbol"
+      >:</a
+      ><a name="188"
+      > </a
+      ><a name="189" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="193"
+      > </a
+      ><a name="194" class="Keyword"
+      >where</a
+      ><a name="199"
+      >
+  </a
+      ><a name="202" class="Keyword"
+      >infix</a
+      ><a name="207"
+      > </a
+      ><a name="208" class="Number"
+      >3</a
+      ><a name="209"
+      > _&#8873;&#7493;_
+  </a
+      ><a name="217" class="Keyword"
+      >field</a
+      ><a name="222"
+      >
+    </a
+      ><a name="227" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="232"
+      > </a
+      ><a name="233" class="Symbol"
+      >:</a
+      ><a name="234"
+      > </a
+      ><a name="235" class="PrimitiveType"
+      >Set</a
+      ><a name="238"
+      >
+
+    </a
+      ><a name="244" class="Comment"
+      >-- Intuitionistic accessibility; preorder.</a
+      ><a name="286"
+      >
+    </a
+      ><a name="291" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="294"
+      >    </a
+      ><a name="298" class="Symbol"
+      >:</a
+      ><a name="299"
+      > </a
+      ><a name="300" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="305"
+      > </a
+      ><a name="306" class="Symbol"
+      >&#8594;</a
+      ><a name="307"
+      > </a
+      ><a name="308" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="313"
+      > </a
+      ><a name="314" class="Symbol"
+      >&#8594;</a
+      ><a name="315"
+      > </a
+      ><a name="316" class="PrimitiveType"
+      >Set</a
+      ><a name="319"
+      >
+    </a
+      ><a name="324" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#324" class="Field"
+      >refl&#8804;</a
+      ><a name="329"
+      >  </a
+      ><a name="331" class="Symbol"
+      >:</a
+      ><a name="332"
+      > </a
+      ><a name="333" class="Symbol"
+      >&#8704;</a
+      ><a name="334"
+      > </a
+      ><a name="335" class="Symbol"
+      >{</a
+      ><a name="336" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#336" class="Bound"
+      >w</a
+      ><a name="337" class="Symbol"
+      >}</a
+      ><a name="338"
+      > </a
+      ><a name="339" class="Symbol"
+      >&#8594;</a
+      ><a name="340"
+      > </a
+      ><a name="341" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#336" class="Bound"
+      >w</a
+      ><a name="342"
+      > </a
+      ><a name="343" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="344"
+      > </a
+      ><a name="345" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#336" class="Bound"
+      >w</a
+      ><a name="346"
+      >
+    </a
+      ><a name="351" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#351" class="Field"
+      >trans&#8804;</a
+      ><a name="357"
+      > </a
+      ><a name="358" class="Symbol"
+      >:</a
+      ><a name="359"
+      > </a
+      ><a name="360" class="Symbol"
+      >&#8704;</a
+      ><a name="361"
+      > </a
+      ><a name="362" class="Symbol"
+      >{</a
+      ><a name="363" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#363" class="Bound"
+      >w</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#365" class="Bound"
+      >w&#8242;</a
+      ><a name="367"
+      > </a
+      ><a name="368" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#368" class="Bound"
+      >w&#8243;</a
+      ><a name="370" class="Symbol"
+      >}</a
+      ><a name="371"
+      > </a
+      ><a name="372" class="Symbol"
+      >&#8594;</a
+      ><a name="373"
+      > </a
+      ><a name="374" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#363" class="Bound"
+      >w</a
+      ><a name="375"
+      > </a
+      ><a name="376" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="377"
+      > </a
+      ><a name="378" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#365" class="Bound"
+      >w&#8242;</a
+      ><a name="380"
+      > </a
+      ><a name="381" class="Symbol"
+      >&#8594;</a
+      ><a name="382"
+      > </a
+      ><a name="383" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#365" class="Bound"
+      >w&#8242;</a
+      ><a name="385"
+      > </a
+      ><a name="386" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="387"
+      > </a
+      ><a name="388" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#368" class="Bound"
+      >w&#8243;</a
+      ><a name="390"
+      > </a
+      ><a name="391" class="Symbol"
+      >&#8594;</a
+      ><a name="392"
+      > </a
+      ><a name="393" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#363" class="Bound"
+      >w</a
+      ><a name="394"
+      > </a
+      ><a name="395" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="396"
+      > </a
+      ><a name="397" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#368" class="Bound"
+      >w&#8243;</a
+      ><a name="399"
+      >
+
+    </a
+      ><a name="405" class="Comment"
+      >-- Modal accessibility; preorder.</a
+      ><a name="438"
+      >
+    </a
+      ><a name="443" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#443" class="Field Operator"
+      >_R_</a
+      ><a name="446"
+      >    </a
+      ><a name="450" class="Symbol"
+      >:</a
+      ><a name="451"
+      > </a
+      ><a name="452" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="457"
+      > </a
+      ><a name="458" class="Symbol"
+      >&#8594;</a
+      ><a name="459"
+      > </a
+      ><a name="460" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="465"
+      > </a
+      ><a name="466" class="Symbol"
+      >&#8594;</a
+      ><a name="467"
+      > </a
+      ><a name="468" class="PrimitiveType"
+      >Set</a
+      ><a name="471"
+      >
+    </a
+      ><a name="476" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#476" class="Field"
+      >reflR</a
+      ><a name="481"
+      >  </a
+      ><a name="483" class="Symbol"
+      >:</a
+      ><a name="484"
+      > </a
+      ><a name="485" class="Symbol"
+      >&#8704;</a
+      ><a name="486"
+      > </a
+      ><a name="487" class="Symbol"
+      >{</a
+      ><a name="488" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#488" class="Bound"
+      >w</a
+      ><a name="489" class="Symbol"
+      >}</a
+      ><a name="490"
+      > </a
+      ><a name="491" class="Symbol"
+      >&#8594;</a
+      ><a name="492"
+      > </a
+      ><a name="493" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#488" class="Bound"
+      >w</a
+      ><a name="494"
+      > </a
+      ><a name="495" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#443" class="Field Operator"
+      >R</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#488" class="Bound"
+      >w</a
+      ><a name="498"
+      >
+    </a
+      ><a name="503" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#503" class="Field"
+      >transR</a
+      ><a name="509"
+      > </a
+      ><a name="510" class="Symbol"
+      >:</a
+      ><a name="511"
+      > </a
+      ><a name="512" class="Symbol"
+      >&#8704;</a
+      ><a name="513"
+      > </a
+      ><a name="514" class="Symbol"
+      >{</a
+      ><a name="515" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#515" class="Bound"
+      >w</a
+      ><a name="516"
+      > </a
+      ><a name="517" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#517" class="Bound"
+      >w&#8242;</a
+      ><a name="519"
+      > </a
+      ><a name="520" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#520" class="Bound"
+      >w&#8243;</a
+      ><a name="522" class="Symbol"
+      >}</a
+      ><a name="523"
+      > </a
+      ><a name="524" class="Symbol"
+      >&#8594;</a
+      ><a name="525"
+      > </a
+      ><a name="526" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#515" class="Bound"
+      >w</a
+      ><a name="527"
+      > </a
+      ><a name="528" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#443" class="Field Operator"
+      >R</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#517" class="Bound"
+      >w&#8242;</a
+      ><a name="532"
+      > </a
+      ><a name="533" class="Symbol"
+      >&#8594;</a
+      ><a name="534"
+      > </a
+      ><a name="535" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#517" class="Bound"
+      >w&#8242;</a
+      ><a name="537"
+      > </a
+      ><a name="538" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#443" class="Field Operator"
+      >R</a
+      ><a name="539"
+      > </a
+      ><a name="540" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#520" class="Bound"
+      >w&#8243;</a
+      ><a name="542"
+      > </a
+      ><a name="543" class="Symbol"
+      >&#8594;</a
+      ><a name="544"
+      > </a
+      ><a name="545" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#515" class="Bound"
+      >w</a
+      ><a name="546"
+      > </a
+      ><a name="547" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#443" class="Field Operator"
+      >R</a
+      ><a name="548"
+      > </a
+      ><a name="549" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#520" class="Bound"
+      >w&#8243;</a
+      ><a name="551"
+      >
+
+    </a
+      ><a name="557" class="Comment"
+      >-- Forcing for atomic propositions; monotonic.</a
+      ><a name="603"
+      >
+    </a
+      ><a name="608" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#608" class="Field Operator"
+      >_&#8873;&#7493;_</a
+      ><a name="612"
+      >   </a
+      ><a name="615" class="Symbol"
+      >:</a
+      ><a name="616"
+      > </a
+      ><a name="617" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="622"
+      > </a
+      ><a name="623" class="Symbol"
+      >&#8594;</a
+      ><a name="624"
+      > </a
+      ><a name="625" href="Common.html#1004" class="Postulate"
+      >Atom</a
+      ><a name="629"
+      > </a
+      ><a name="630" class="Symbol"
+      >&#8594;</a
+      ><a name="631"
+      > </a
+      ><a name="632" class="PrimitiveType"
+      >Set</a
+      ><a name="635"
+      >
+    </a
+      ><a name="640" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#640" class="Field"
+      >mono&#8873;&#7493;</a
+      ><a name="646"
+      > </a
+      ><a name="647" class="Symbol"
+      >:</a
+      ><a name="648"
+      > </a
+      ><a name="649" class="Symbol"
+      >&#8704;</a
+      ><a name="650"
+      > </a
+      ><a name="651" class="Symbol"
+      >{</a
+      ><a name="652" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#652" class="Bound"
+      >P</a
+      ><a name="653"
+      > </a
+      ><a name="654" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#654" class="Bound"
+      >w</a
+      ><a name="655"
+      > </a
+      ><a name="656" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#656" class="Bound"
+      >w&#8242;</a
+      ><a name="658" class="Symbol"
+      >}</a
+      ><a name="659"
+      > </a
+      ><a name="660" class="Symbol"
+      >&#8594;</a
+      ><a name="661"
+      > </a
+      ><a name="662" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#654" class="Bound"
+      >w</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="665"
+      > </a
+      ><a name="666" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#656" class="Bound"
+      >w&#8242;</a
+      ><a name="668"
+      > </a
+      ><a name="669" class="Symbol"
+      >&#8594;</a
+      ><a name="670"
+      > </a
+      ><a name="671" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#654" class="Bound"
+      >w</a
+      ><a name="672"
+      > </a
+      ><a name="673" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#608" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="675"
+      > </a
+      ><a name="676" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#652" class="Bound"
+      >P</a
+      ><a name="677"
+      > </a
+      ><a name="678" class="Symbol"
+      >&#8594;</a
+      ><a name="679"
+      > </a
+      ><a name="680" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#656" class="Bound"
+      >w&#8242;</a
+      ><a name="682"
+      > </a
+      ><a name="683" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#608" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="685"
+      > </a
+      ><a name="686" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#652" class="Bound"
+      >P</a
+      ><a name="687"
+      >
+
+    </a
+      ><a name="693" class="Comment"
+      >-- NOTE: Additional frame condition.</a
+      ><a name="729"
+      >
+    </a
+      ><a name="734" class="Comment"
+      >--</a
+      ><a name="736"
+      >
+    </a
+      ><a name="741" class="Comment"
+      >--   w&#8242;  R  v&#8242;</a
+      ><a name="755"
+      >
+    </a
+      ><a name="760" class="Comment"
+      >--   &#9676;&#9548;&#9548;&#9548;&#9548;&#9548;&#9548;&#9679;</a
+      ><a name="773"
+      >
+    </a
+      ><a name="778" class="Comment"
+      >--   &#9482;      &#9474;</a
+      ><a name="791"
+      >
+    </a
+      ><a name="796" class="Comment"
+      >-- &#8804; &#9482;   &#8322;  &#9474; &#8804;</a
+      ><a name="811"
+      >
+    </a
+      ><a name="816" class="Comment"
+      >--   &#9482;      &#9474;</a
+      ><a name="829"
+      >
+    </a
+      ><a name="834" class="Comment"
+      >--   &#9679;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9679;</a
+      ><a name="847"
+      >
+    </a
+      ><a name="852" class="Comment"
+      >--   w   R  v</a
+      ><a name="865"
+      >
+    </a
+      ><a name="870" class="Comment"
+      >--</a
+      ><a name="872"
+      >
+    </a
+      ><a name="877" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#877" class="Field"
+      >cut&#8804;&#10814;R</a
+      ><a name="883"
+      > </a
+      ><a name="884" class="Symbol"
+      >:</a
+      ><a name="885"
+      > </a
+      ><a name="886" class="Symbol"
+      >&#8704;</a
+      ><a name="887"
+      > </a
+      ><a name="888" class="Symbol"
+      >{</a
+      ><a name="889" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#889" class="Bound"
+      >w</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#891" class="Bound"
+      >v</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#893" class="Bound"
+      >v&#8242;</a
+      ><a name="895" class="Symbol"
+      >}</a
+      ><a name="896"
+      > </a
+      ><a name="897" class="Symbol"
+      >&#8594;</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#891" class="Bound"
+      >v</a
+      ><a name="900"
+      > </a
+      ><a name="901" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="902"
+      > </a
+      ><a name="903" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#893" class="Bound"
+      >v&#8242;</a
+      ><a name="905"
+      > </a
+      ><a name="906" class="Symbol"
+      >&#8594;</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#889" class="Bound"
+      >w</a
+      ><a name="909"
+      > </a
+      ><a name="910" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#443" class="Field Operator"
+      >R</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#891" class="Bound"
+      >v</a
+      ><a name="913"
+      > </a
+      ><a name="914" class="Symbol"
+      >&#8594;</a
+      ><a name="915"
+      > </a
+      ><a name="916" href="Data.Product.html#823" class="Function"
+      >&#8707;</a
+      ><a name="917"
+      > </a
+      ><a name="918" class="Symbol"
+      >(&#955;</a
+      ><a name="920"
+      > </a
+      ><a name="921" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#921" class="Bound"
+      >w&#8242;</a
+      ><a name="923"
+      > </a
+      ><a name="924" class="Symbol"
+      >&#8594;</a
+      ><a name="925"
+      > </a
+      ><a name="926" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#889" class="Bound"
+      >w</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="929"
+      > </a
+      ><a name="930" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#921" class="Bound"
+      >w&#8242;</a
+      ><a name="932"
+      > </a
+      ><a name="933" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="934"
+      > </a
+      ><a name="935" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#921" class="Bound"
+      >w&#8242;</a
+      ><a name="937"
+      > </a
+      ><a name="938" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#443" class="Field Operator"
+      >R</a
+      ><a name="939"
+      > </a
+      ><a name="940" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#893" class="Bound"
+      >v&#8242;</a
+      ><a name="942" class="Symbol"
+      >)</a
+      ><a name="943"
+      >
+
+  </a
+      ><a name="947" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#947" class="Function Operator"
+      >_&#8804;&#10814;R_</a
+      ><a name="952"
+      > </a
+      ><a name="953" class="Symbol"
+      >:</a
+      ><a name="954"
+      > </a
+      ><a name="955" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="960"
+      > </a
+      ><a name="961" class="Symbol"
+      >&#8594;</a
+      ><a name="962"
+      > </a
+      ><a name="963" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="968"
+      > </a
+      ><a name="969" class="Symbol"
+      >&#8594;</a
+      ><a name="970"
+      > </a
+      ><a name="971" class="PrimitiveType"
+      >Set</a
+      ><a name="974"
+      >
+  </a
+      ><a name="977" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#947" class="Function Operator"
+      >_&#8804;&#10814;R_</a
+      ><a name="982"
+      > </a
+      ><a name="983" class="Symbol"
+      >=</a
+      ><a name="984"
+      > </a
+      ><a name="985" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="988"
+      > </a
+      ><a name="989" href="Common.html#1390" class="Function Operator"
+      >&#10814;</a
+      ><a name="990"
+      > </a
+      ><a name="991" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#443" class="Field Operator"
+      >_R_</a
+      ><a name="994"
+      >
+
+  </a
+      ><a name="998" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#998" class="Function"
+      >refl&#8804;&#10814;R</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" class="Symbol"
+      >:</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" class="Symbol"
+      >&#8704;</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" class="Symbol"
+      >{</a
+      ><a name="1011" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1011" class="Bound"
+      >w</a
+      ><a name="1012" class="Symbol"
+      >}</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" class="Symbol"
+      >&#8594;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1011" class="Bound"
+      >w</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#947" class="Function Operator"
+      >&#8804;&#10814;R</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1011" class="Bound"
+      >w</a
+      ><a name="1023"
+      >
+  </a
+      ><a name="1026" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#998" class="Function"
+      >refl&#8804;&#10814;R</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" class="Symbol"
+      >{</a
+      ><a name="1035" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1035" class="Bound"
+      >w</a
+      ><a name="1036" class="Symbol"
+      >}</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" class="Symbol"
+      >=</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1035" class="Bound"
+      >w</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" class="Symbol"
+      >(</a
+      ><a name="1045" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#324" class="Field"
+      >refl&#8804;</a
+      ><a name="1050"
+      > </a
+      ><a name="1051" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1052"
+      > </a
+      ><a name="1053" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#476" class="Field"
+      >reflR</a
+      ><a name="1058" class="Symbol"
+      >)</a
+      ><a name="1059"
+      >
+
+  </a
+      ><a name="1063" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1063" class="Function"
+      >trans&#8804;&#10814;R</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" class="Symbol"
+      >:</a
+      ><a name="1073"
+      > </a
+      ><a name="1074" class="Symbol"
+      >&#8704;</a
+      ><a name="1075"
+      > </a
+      ><a name="1076" class="Symbol"
+      >{</a
+      ><a name="1077" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1077" class="Bound"
+      >w</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1079" class="Bound"
+      >w&#8242;</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1082" class="Bound"
+      >w&#8243;</a
+      ><a name="1084" class="Symbol"
+      >}</a
+      ><a name="1085"
+      > </a
+      ><a name="1086" class="Symbol"
+      >&#8594;</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1077" class="Bound"
+      >w</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#947" class="Function Operator"
+      >&#8804;&#10814;R</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1079" class="Bound"
+      >w&#8242;</a
+      ><a name="1096"
+      > </a
+      ><a name="1097" class="Symbol"
+      >&#8594;</a
+      ><a name="1098"
+      > </a
+      ><a name="1099" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1079" class="Bound"
+      >w&#8242;</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#947" class="Function Operator"
+      >&#8804;&#10814;R</a
+      ><a name="1105"
+      > </a
+      ><a name="1106" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1082" class="Bound"
+      >w&#8243;</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" class="Symbol"
+      >&#8594;</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1077" class="Bound"
+      >w</a
+      ><a name="1112"
+      > </a
+      ><a name="1113" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#947" class="Function Operator"
+      >&#8804;&#10814;R</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1082" class="Bound"
+      >w&#8243;</a
+      ><a name="1119"
+      >
+  </a
+      ><a name="1122" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1063" class="Function"
+      >trans&#8804;&#10814;R</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" class="Symbol"
+      >(</a
+      ><a name="1132" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1132" class="Bound"
+      >a</a
+      ><a name="1133"
+      > </a
+      ><a name="1134" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1135"
+      > </a
+      ><a name="1136" class="Symbol"
+      >(</a
+      ><a name="1137" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1137" class="Bound"
+      >&#958;</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1141" class="Bound"
+      >&#950;</a
+      ><a name="1142" class="Symbol"
+      >))</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" class="Symbol"
+      >(</a
+      ><a name="1146" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1146" class="Bound"
+      >b</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" class="Symbol"
+      >(</a
+      ><a name="1151" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1151" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1156" class="Bound"
+      >&#950;&#8242;</a
+      ><a name="1158" class="Symbol"
+      >))</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" class="Symbol"
+      >=</a
+      ><a name="1162"
+      > </a
+      ><a name="1163" class="Keyword"
+      >let</a
+      ><a name="1166"
+      > </a
+      ><a name="1167" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1167" class="Bound"
+      >c</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" class="Symbol"
+      >(</a
+      ><a name="1172" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1172" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1176"
+      > </a
+      ><a name="1177" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1177" class="Bound"
+      >&#950;&#8243;</a
+      ><a name="1179" class="Symbol"
+      >)</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" class="Symbol"
+      >=</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#877" class="Field"
+      >cut&#8804;&#10814;R</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1151" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1192"
+      > </a
+      ><a name="1193" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1141" class="Bound"
+      >&#950;</a
+      ><a name="1194"
+      >
+                                           </a
+      ><a name="1238" class="Keyword"
+      >in</a
+      ><a name="1240"
+      >  </a
+      ><a name="1242" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1167" class="Bound"
+      >c</a
+      ><a name="1243"
+      > </a
+      ><a name="1244" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1245"
+      > </a
+      ><a name="1246" class="Symbol"
+      >(</a
+      ><a name="1247" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#351" class="Field"
+      >trans&#8804;</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1137" class="Bound"
+      >&#958;</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1172" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1260"
+      > </a
+      ><a name="1261" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#503" class="Field"
+      >transR</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1177" class="Bound"
+      >&#950;&#8243;</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1156" class="Bound"
+      >&#950;&#8242;</a
+      ><a name="1273" class="Symbol"
+      >)</a
+      ><a name="1274"
+      >
+
+</a
+      ><a name="1276" class="Keyword"
+      >open</a
+      ><a name="1280"
+      > </a
+      ><a name="1281" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#181" class="Module"
+      >Model</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" class="Keyword"
+      >public</a
+      ><a name="1299"
+      >
+
+
+</a
+      ><a name="1302" class="Comment"
+      >-- Forcing for propositions and contexts.</a
+      ><a name="1343"
+      >
+
+</a
+      ><a name="1345" class="Keyword"
+      >module</a
+      ><a name="1351"
+      > </a
+      ><a name="1352" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1352" class="Module"
+      >_</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" class="Symbol"
+      >{{</a
+      ><a name="1356" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1356" class="Bound"
+      >_</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" class="Symbol"
+      >:</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#181" class="Record"
+      >Model</a
+      ><a name="1365" class="Symbol"
+      >}}</a
+      ><a name="1367"
+      > </a
+      ><a name="1368" class="Keyword"
+      >where</a
+      ><a name="1373"
+      >
+  </a
+      ><a name="1376" class="Keyword"
+      >infix</a
+      ><a name="1381"
+      > </a
+      ><a name="1382" class="Number"
+      >3</a
+      ><a name="1383"
+      > _&#8873;_
+  </a
+      ><a name="1390" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >_&#8873;_</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" class="Symbol"
+      >:</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="1401"
+      > </a
+      ><a name="1402" class="Symbol"
+      >&#8594;</a
+      ><a name="1403"
+      > </a
+      ><a name="1404" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="1406"
+      > </a
+      ><a name="1407" class="Symbol"
+      >&#8594;</a
+      ><a name="1408"
+      > </a
+      ><a name="1409" class="PrimitiveType"
+      >Set</a
+      ><a name="1412"
+      >
+  </a
+      ><a name="1415" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1415" class="Bound"
+      >w</a
+      ><a name="1416"
+      > </a
+      ><a name="1417" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1418"
+      > </a
+      ><a name="1419" href="BasicIS4.html#179" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1420"
+      > </a
+      ><a name="1421" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1421" class="Bound"
+      >P</a
+      ><a name="1422"
+      >   </a
+      ><a name="1425" class="Symbol"
+      >=</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1415" class="Bound"
+      >w</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#608" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="1431"
+      > </a
+      ><a name="1432" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1421" class="Bound"
+      >P</a
+      ><a name="1433"
+      >
+  </a
+      ><a name="1436" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1436" class="Bound"
+      >w</a
+      ><a name="1437"
+      > </a
+      ><a name="1438" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1439"
+      > </a
+      ><a name="1440" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1440" class="Bound"
+      >A</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" href="BasicIS4.html#197" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1444" class="Bound"
+      >B</a
+      ><a name="1445"
+      > </a
+      ><a name="1446" class="Symbol"
+      >=</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" class="Symbol"
+      >&#8704;</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" class="Symbol"
+      >{</a
+      ><a name="1451" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1451" class="Bound"
+      >w&#8242;</a
+      ><a name="1453" class="Symbol"
+      >}</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" class="Symbol"
+      >&#8594;</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1436" class="Bound"
+      >w</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1451" class="Bound"
+      >w&#8242;</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" class="Symbol"
+      >&#8594;</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1451" class="Bound"
+      >w&#8242;</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1440" class="Bound"
+      >A</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" class="Symbol"
+      >&#8594;</a
+      ><a name="1474"
+      > </a
+      ><a name="1475" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1451" class="Bound"
+      >w&#8242;</a
+      ><a name="1477"
+      > </a
+      ><a name="1478" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1479"
+      > </a
+      ><a name="1480" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1444" class="Bound"
+      >B</a
+      ><a name="1481"
+      >
+  </a
+      ><a name="1484" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1484" class="Bound"
+      >w</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1487"
+      > </a
+      ><a name="1488" href="BasicIS4.html#218" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1490" class="Bound"
+      >A</a
+      ><a name="1491"
+      >   </a
+      ><a name="1494" class="Symbol"
+      >=</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" class="Symbol"
+      >&#8704;</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" class="Symbol"
+      >{</a
+      ><a name="1499" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1499" class="Bound"
+      >w&#8242;</a
+      ><a name="1501"
+      > </a
+      ><a name="1502" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1502" class="Bound"
+      >v&#8242;</a
+      ><a name="1504" class="Symbol"
+      >}</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" class="Symbol"
+      >&#8594;</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1484" class="Bound"
+      >w</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="1511"
+      > </a
+      ><a name="1512" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1499" class="Bound"
+      >w&#8242;</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" class="Symbol"
+      >&#8594;</a
+      ><a name="1516"
+      > </a
+      ><a name="1517" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1499" class="Bound"
+      >w&#8242;</a
+      ><a name="1519"
+      > </a
+      ><a name="1520" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#443" class="Field Operator"
+      >R</a
+      ><a name="1521"
+      > </a
+      ><a name="1522" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1502" class="Bound"
+      >v&#8242;</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" class="Symbol"
+      >&#8594;</a
+      ><a name="1526"
+      > </a
+      ><a name="1527" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1502" class="Bound"
+      >v&#8242;</a
+      ><a name="1529"
+      > </a
+      ><a name="1530" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1531"
+      > </a
+      ><a name="1532" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1490" class="Bound"
+      >A</a
+      ><a name="1533"
+      >
+  </a
+      ><a name="1536" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1536" class="Bound"
+      >w</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1539"
+      > </a
+      ><a name="1540" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1540" class="Bound"
+      >A</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" href="BasicIS4.html#234" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1543"
+      > </a
+      ><a name="1544" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1544" class="Bound"
+      >B</a
+      ><a name="1545"
+      > </a
+      ><a name="1546" class="Symbol"
+      >=</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1536" class="Bound"
+      >w</a
+      ><a name="1549"
+      > </a
+      ><a name="1550" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1540" class="Bound"
+      >A</a
+      ><a name="1553"
+      > </a
+      ><a name="1554" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1555"
+      > </a
+      ><a name="1556" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1536" class="Bound"
+      >w</a
+      ><a name="1557"
+      > </a
+      ><a name="1558" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1559"
+      > </a
+      ><a name="1560" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1544" class="Bound"
+      >B</a
+      ><a name="1561"
+      >
+  </a
+      ><a name="1564" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1564" class="Bound"
+      >w</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1567"
+      > </a
+      ><a name="1568" href="BasicIS4.html#255" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1569"
+      >    </a
+      ><a name="1573" class="Symbol"
+      >=</a
+      ><a name="1574"
+      > </a
+      ><a name="1575" href="Agda.Builtin.Unit.html#41" class="Record"
+      >Top</a
+      ><a name="1578"
+      >
+
+  </a
+      ><a name="1582" class="Keyword"
+      >infix</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" class="Number"
+      >3</a
+      ><a name="1589"
+      > _&#8873;&#8902;_
+  </a
+      ><a name="1597" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1597" class="Function Operator"
+      >_&#8873;&#8902;_</a
+      ><a name="1601"
+      > </a
+      ><a name="1602" class="Symbol"
+      >:</a
+      ><a name="1603"
+      > </a
+      ><a name="1604" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" class="Symbol"
+      >&#8594;</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" class="Symbol"
+      >&#8594;</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" class="PrimitiveType"
+      >Set</a
+      ><a name="1623"
+      >
+  </a
+      ><a name="1626" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1626" class="Bound"
+      >w</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1597" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1630"
+      > </a
+      ><a name="1631" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1632"
+      >     </a
+      ><a name="1637" class="Symbol"
+      >=</a
+      ><a name="1638"
+      > </a
+      ><a name="1639" href="Agda.Builtin.Unit.html#41" class="Record"
+      >Top</a
+      ><a name="1642"
+      >
+  </a
+      ><a name="1645" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1645" class="Bound"
+      >w</a
+      ><a name="1646"
+      > </a
+      ><a name="1647" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1597" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1649"
+      > </a
+      ><a name="1650" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1650" class="Bound"
+      >&#915;</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1653"
+      > </a
+      ><a name="1654" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1654" class="Bound"
+      >A</a
+      ><a name="1655"
+      > </a
+      ><a name="1656" class="Symbol"
+      >=</a
+      ><a name="1657"
+      > </a
+      ><a name="1658" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1645" class="Bound"
+      >w</a
+      ><a name="1659"
+      > </a
+      ><a name="1660" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1597" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1662"
+      > </a
+      ><a name="1663" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1650" class="Bound"
+      >&#915;</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1666"
+      > </a
+      ><a name="1667" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1645" class="Bound"
+      >w</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1654" class="Bound"
+      >A</a
+      ><a name="1672"
+      >
+
+
+  </a
+      ><a name="1677" class="Comment"
+      >-- Monotonicity with respect to intuitionistic accessibility.</a
+      ><a name="1738"
+      >
+
+  </a
+      ><a name="1742" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1742" class="Function"
+      >mono&#8873;</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" class="Symbol"
+      >:</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" class="Symbol"
+      >&#8704;</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" class="Symbol"
+      >{</a
+      ><a name="1753" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1753" class="Bound"
+      >A</a
+      ><a name="1754"
+      > </a
+      ><a name="1755" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1755" class="Bound"
+      >w</a
+      ><a name="1756"
+      > </a
+      ><a name="1757" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1757" class="Bound"
+      >w&#8242;</a
+      ><a name="1759" class="Symbol"
+      >}</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" class="Symbol"
+      >&#8594;</a
+      ><a name="1762"
+      > </a
+      ><a name="1763" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1755" class="Bound"
+      >w</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="1766"
+      > </a
+      ><a name="1767" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1757" class="Bound"
+      >w&#8242;</a
+      ><a name="1769"
+      > </a
+      ><a name="1770" class="Symbol"
+      >&#8594;</a
+      ><a name="1771"
+      > </a
+      ><a name="1772" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1755" class="Bound"
+      >w</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1775"
+      > </a
+      ><a name="1776" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1753" class="Bound"
+      >A</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" class="Symbol"
+      >&#8594;</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1757" class="Bound"
+      >w&#8242;</a
+      ><a name="1782"
+      > </a
+      ><a name="1783" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="1784"
+      > </a
+      ><a name="1785" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1753" class="Bound"
+      >A</a
+      ><a name="1786"
+      >
+  </a
+      ><a name="1789" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1742" class="Function"
+      >mono&#8873;</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" class="Symbol"
+      >{</a
+      ><a name="1796" href="BasicIS4.html#179" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1798" class="Bound"
+      >P</a
+      ><a name="1799" class="Symbol"
+      >}</a
+      ><a name="1800"
+      >   </a
+      ><a name="1803" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1803" class="Bound"
+      >&#958;</a
+      ><a name="1804"
+      > </a
+      ><a name="1805" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1805" class="Bound"
+      >s</a
+      ><a name="1806"
+      >       </a
+      ><a name="1813" class="Symbol"
+      >=</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#640" class="Field"
+      >mono&#8873;&#7493;</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1803" class="Bound"
+      >&#958;</a
+      ><a name="1823"
+      > </a
+      ><a name="1824" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1805" class="Bound"
+      >s</a
+      ><a name="1825"
+      >
+  </a
+      ><a name="1828" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1742" class="Function"
+      >mono&#8873;</a
+      ><a name="1833"
+      > </a
+      ><a name="1834" class="Symbol"
+      >{</a
+      ><a name="1835" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1835" class="Bound"
+      >A</a
+      ><a name="1836"
+      > </a
+      ><a name="1837" href="BasicIS4.html#197" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1838"
+      > </a
+      ><a name="1839" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1839" class="Bound"
+      >B</a
+      ><a name="1840" class="Symbol"
+      >}</a
+      ><a name="1841"
+      > </a
+      ><a name="1842" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1842" class="Bound"
+      >&#958;</a
+      ><a name="1843"
+      > </a
+      ><a name="1844" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1844" class="Bound"
+      >f</a
+      ><a name="1845"
+      >       </a
+      ><a name="1852" class="Symbol"
+      >=</a
+      ><a name="1853"
+      > </a
+      ><a name="1854" class="Symbol"
+      >&#955;</a
+      ><a name="1855"
+      > </a
+      ><a name="1856" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1856" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1858"
+      > </a
+      ><a name="1859" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1859" class="Bound"
+      >a</a
+      ><a name="1860"
+      > </a
+      ><a name="1861" class="Symbol"
+      >&#8594;</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1844" class="Bound"
+      >f</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" class="Symbol"
+      >(</a
+      ><a name="1866" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#351" class="Field"
+      >trans&#8804;</a
+      ><a name="1872"
+      > </a
+      ><a name="1873" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1842" class="Bound"
+      >&#958;</a
+      ><a name="1874"
+      > </a
+      ><a name="1875" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1856" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1877" class="Symbol"
+      >)</a
+      ><a name="1878"
+      > </a
+      ><a name="1879" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1859" class="Bound"
+      >a</a
+      ><a name="1880"
+      >
+  </a
+      ><a name="1883" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1742" class="Function"
+      >mono&#8873;</a
+      ><a name="1888"
+      > </a
+      ><a name="1889" class="Symbol"
+      >{</a
+      ><a name="1890" href="BasicIS4.html#218" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1892" class="Bound"
+      >A</a
+      ><a name="1893" class="Symbol"
+      >}</a
+      ><a name="1894"
+      >   </a
+      ><a name="1897" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1897" class="Bound"
+      >&#958;</a
+      ><a name="1898"
+      > </a
+      ><a name="1899" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1899" class="Bound"
+      >&#9633;f</a
+      ><a name="1901"
+      >      </a
+      ><a name="1907" class="Symbol"
+      >=</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" class="Symbol"
+      >&#955;</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1911" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1913"
+      > </a
+      ><a name="1914" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1914" class="Bound"
+      >&#950;</a
+      ><a name="1915"
+      > </a
+      ><a name="1916" class="Symbol"
+      >&#8594;</a
+      ><a name="1917"
+      > </a
+      ><a name="1918" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1899" class="Bound"
+      >&#9633;f</a
+      ><a name="1920"
+      > </a
+      ><a name="1921" class="Symbol"
+      >(</a
+      ><a name="1922" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#351" class="Field"
+      >trans&#8804;</a
+      ><a name="1928"
+      > </a
+      ><a name="1929" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1897" class="Bound"
+      >&#958;</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1911" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1933" class="Symbol"
+      >)</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1914" class="Bound"
+      >&#950;</a
+      ><a name="1936"
+      >
+  </a
+      ><a name="1939" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1742" class="Function"
+      >mono&#8873;</a
+      ><a name="1944"
+      > </a
+      ><a name="1945" class="Symbol"
+      >{</a
+      ><a name="1946" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1946" class="Bound"
+      >A</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" href="BasicIS4.html#234" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1949"
+      > </a
+      ><a name="1950" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1950" class="Bound"
+      >B</a
+      ><a name="1951" class="Symbol"
+      >}</a
+      ><a name="1952"
+      > </a
+      ><a name="1953" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1953" class="Bound"
+      >&#958;</a
+      ><a name="1954"
+      > </a
+      ><a name="1955" class="Symbol"
+      >(</a
+      ><a name="1956" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1956" class="Bound"
+      >a</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1960" class="Bound"
+      >b</a
+      ><a name="1961" class="Symbol"
+      >)</a
+      ><a name="1962"
+      > </a
+      ><a name="1963" class="Symbol"
+      >=</a
+      ><a name="1964"
+      > </a
+      ><a name="1965" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1742" class="Function"
+      >mono&#8873;</a
+      ><a name="1970"
+      > </a
+      ><a name="1971" class="Symbol"
+      >{</a
+      ><a name="1972" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1946" class="Bound"
+      >A</a
+      ><a name="1973" class="Symbol"
+      >}</a
+      ><a name="1974"
+      > </a
+      ><a name="1975" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1953" class="Bound"
+      >&#958;</a
+      ><a name="1976"
+      > </a
+      ><a name="1977" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1956" class="Bound"
+      >a</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1980"
+      > </a
+      ><a name="1981" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1742" class="Function"
+      >mono&#8873;</a
+      ><a name="1986"
+      > </a
+      ><a name="1987" class="Symbol"
+      >{</a
+      ><a name="1988" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1950" class="Bound"
+      >B</a
+      ><a name="1989" class="Symbol"
+      >}</a
+      ><a name="1990"
+      > </a
+      ><a name="1991" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1953" class="Bound"
+      >&#958;</a
+      ><a name="1992"
+      > </a
+      ><a name="1993" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1960" class="Bound"
+      >b</a
+      ><a name="1994"
+      >
+  </a
+      ><a name="1997" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1742" class="Function"
+      >mono&#8873;</a
+      ><a name="2002"
+      > </a
+      ><a name="2003" class="Symbol"
+      >{</a
+      ><a name="2004" href="BasicIS4.html#255" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="2005" class="Symbol"
+      >}</a
+      ><a name="2006"
+      >    </a
+      ><a name="2010" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2010" class="Bound"
+      >&#958;</a
+      ><a name="2011"
+      > </a
+      ><a name="2012" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2013"
+      >       </a
+      ><a name="2020" class="Symbol"
+      >=</a
+      ><a name="2021"
+      > </a
+      ><a name="2022" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2023"
+      >
+
+  </a
+      ><a name="2027" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2027" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2033"
+      > </a
+      ><a name="2034" class="Symbol"
+      >:</a
+      ><a name="2035"
+      > </a
+      ><a name="2036" class="Symbol"
+      >&#8704;</a
+      ><a name="2037"
+      > </a
+      ><a name="2038" class="Symbol"
+      >{</a
+      ><a name="2039" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2039" class="Bound"
+      >&#915;</a
+      ><a name="2040"
+      > </a
+      ><a name="2041" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2041" class="Bound"
+      >w</a
+      ><a name="2042"
+      > </a
+      ><a name="2043" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2043" class="Bound"
+      >w&#8242;</a
+      ><a name="2045" class="Symbol"
+      >}</a
+      ><a name="2046"
+      > </a
+      ><a name="2047" class="Symbol"
+      >&#8594;</a
+      ><a name="2048"
+      > </a
+      ><a name="2049" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2041" class="Bound"
+      >w</a
+      ><a name="2050"
+      > </a
+      ><a name="2051" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#291" class="Field Operator"
+      >&#8804;</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2043" class="Bound"
+      >w&#8242;</a
+      ><a name="2055"
+      > </a
+      ><a name="2056" class="Symbol"
+      >&#8594;</a
+      ><a name="2057"
+      > </a
+      ><a name="2058" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2041" class="Bound"
+      >w</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1597" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2062"
+      > </a
+      ><a name="2063" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2039" class="Bound"
+      >&#915;</a
+      ><a name="2064"
+      > </a
+      ><a name="2065" class="Symbol"
+      >&#8594;</a
+      ><a name="2066"
+      > </a
+      ><a name="2067" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2043" class="Bound"
+      >w&#8242;</a
+      ><a name="2069"
+      > </a
+      ><a name="2070" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1597" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2072"
+      > </a
+      ><a name="2073" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2039" class="Bound"
+      >&#915;</a
+      ><a name="2074"
+      >
+  </a
+      ><a name="2077" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2027" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2083"
+      > </a
+      ><a name="2084" class="Symbol"
+      >{</a
+      ><a name="2085" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2086" class="Symbol"
+      >}</a
+      ><a name="2087"
+      >     </a
+      ><a name="2092" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2092" class="Bound"
+      >&#958;</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2095"
+      >       </a
+      ><a name="2102" class="Symbol"
+      >=</a
+      ><a name="2103"
+      > </a
+      ><a name="2104" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2105"
+      >
+  </a
+      ><a name="2108" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2027" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2114"
+      > </a
+      ><a name="2115" class="Symbol"
+      >{</a
+      ><a name="2116" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2116" class="Bound"
+      >&#915;</a
+      ><a name="2117"
+      > </a
+      ><a name="2118" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2119"
+      > </a
+      ><a name="2120" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2120" class="Bound"
+      >A</a
+      ><a name="2121" class="Symbol"
+      >}</a
+      ><a name="2122"
+      > </a
+      ><a name="2123" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2123" class="Bound"
+      >&#958;</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" class="Symbol"
+      >(</a
+      ><a name="2126" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2126" class="Bound"
+      >&#947;</a
+      ><a name="2127"
+      > </a
+      ><a name="2128" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2129"
+      > </a
+      ><a name="2130" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2130" class="Bound"
+      >a</a
+      ><a name="2131" class="Symbol"
+      >)</a
+      ><a name="2132"
+      > </a
+      ><a name="2133" class="Symbol"
+      >=</a
+      ><a name="2134"
+      > </a
+      ><a name="2135" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2027" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2141"
+      > </a
+      ><a name="2142" class="Symbol"
+      >{</a
+      ><a name="2143" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2116" class="Bound"
+      >&#915;</a
+      ><a name="2144" class="Symbol"
+      >}</a
+      ><a name="2145"
+      > </a
+      ><a name="2146" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2123" class="Bound"
+      >&#958;</a
+      ><a name="2147"
+      > </a
+      ><a name="2148" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2126" class="Bound"
+      >&#947;</a
+      ><a name="2149"
+      > </a
+      ><a name="2150" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2151"
+      > </a
+      ><a name="2152" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1742" class="Function"
+      >mono&#8873;</a
+      ><a name="2157"
+      > </a
+      ><a name="2158" class="Symbol"
+      >{</a
+      ><a name="2159" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2120" class="Bound"
+      >A</a
+      ><a name="2160" class="Symbol"
+      >}</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2123" class="Bound"
+      >&#958;</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2130" class="Bound"
+      >a</a
+      ><a name="2165"
+      >
+
+
+</a
+      ><a name="2168" class="Comment"
+      >-- Forcing in all models.</a
+      ><a name="2193"
+      >
+
+</a
+      ><a name="2195" class="Keyword"
+      >infix</a
+      ><a name="2200"
+      > </a
+      ><a name="2201" class="Number"
+      >3</a
+      ><a name="2202"
+      > _&#7481;&#8873;_
+</a
+      ><a name="2208" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2208" class="Function Operator"
+      >_&#7481;&#8873;_</a
+      ><a name="2212"
+      > </a
+      ><a name="2213" class="Symbol"
+      >:</a
+      ><a name="2214"
+      > </a
+      ><a name="2215" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2217"
+      > </a
+      ><a name="2218" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="2220"
+      > </a
+      ><a name="2221" class="Symbol"
+      >&#8594;</a
+      ><a name="2222"
+      > </a
+      ><a name="2223" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="2225"
+      > </a
+      ><a name="2226" class="Symbol"
+      >&#8594;</a
+      ><a name="2227"
+      > </a
+      ><a name="2228" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="2232"
+      >
+</a
+      ><a name="2233" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2233" class="Bound"
+      >&#915;</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2208" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="2237"
+      > </a
+      ><a name="2238" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2238" class="Bound"
+      >A</a
+      ><a name="2239"
+      > </a
+      ><a name="2240" class="Symbol"
+      >=</a
+      ><a name="2241"
+      > </a
+      ><a name="2242" class="Symbol"
+      >&#8704;</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" class="Symbol"
+      >{{</a
+      ><a name="2246" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2246" class="Bound"
+      >_</a
+      ><a name="2247"
+      > </a
+      ><a name="2248" class="Symbol"
+      >:</a
+      ><a name="2249"
+      > </a
+      ><a name="2250" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#181" class="Record"
+      >Model</a
+      ><a name="2255" class="Symbol"
+      >}}</a
+      ><a name="2257"
+      > </a
+      ><a name="2258" class="Symbol"
+      >{</a
+      ><a name="2259" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2259" class="Bound"
+      >w</a
+      ><a name="2260"
+      > </a
+      ><a name="2261" class="Symbol"
+      >:</a
+      ><a name="2262"
+      > </a
+      ><a name="2263" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="2268" class="Symbol"
+      >}</a
+      ><a name="2269"
+      > </a
+      ><a name="2270" class="Symbol"
+      >&#8594;</a
+      ><a name="2271"
+      > </a
+      ><a name="2272" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2259" class="Bound"
+      >w</a
+      ><a name="2273"
+      > </a
+      ><a name="2274" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1597" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2276"
+      > </a
+      ><a name="2277" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2233" class="Bound"
+      >&#915;</a
+      ><a name="2278"
+      > </a
+      ><a name="2279" class="Symbol"
+      >&#8594;</a
+      ><a name="2280"
+      > </a
+      ><a name="2281" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2259" class="Bound"
+      >w</a
+      ><a name="2282"
+      > </a
+      ><a name="2283" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1390" class="Function Operator"
+      >&#8873;</a
+      ><a name="2284"
+      > </a
+      ><a name="2285" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2238" class="Bound"
+      >A</a
+      ><a name="2286"
+      >
+
+</a
+      ><a name="2288" class="Keyword"
+      >infix</a
+      ><a name="2293"
+      > </a
+      ><a name="2294" class="Number"
+      >3</a
+      ><a name="2295"
+      > _&#7481;&#8873;&#8902;_
+</a
+      ><a name="2302" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2302" class="Function Operator"
+      >_&#7481;&#8873;&#8902;_</a
+      ><a name="2307"
+      > </a
+      ><a name="2308" class="Symbol"
+      >:</a
+      ><a name="2309"
+      > </a
+      ><a name="2310" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2312"
+      > </a
+      ><a name="2313" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="2315"
+      > </a
+      ><a name="2316" class="Symbol"
+      >&#8594;</a
+      ><a name="2317"
+      > </a
+      ><a name="2318" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2320"
+      > </a
+      ><a name="2321" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="2323"
+      > </a
+      ><a name="2324" class="Symbol"
+      >&#8594;</a
+      ><a name="2325"
+      > </a
+      ><a name="2326" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="2330"
+      >
+</a
+      ><a name="2331" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2331" class="Bound"
+      >&#915;</a
+      ><a name="2332"
+      > </a
+      ><a name="2333" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2302" class="Function Operator"
+      >&#7481;&#8873;&#8902;</a
+      ><a name="2336"
+      > </a
+      ><a name="2337" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2337" class="Bound"
+      >&#928;</a
+      ><a name="2338"
+      > </a
+      ><a name="2339" class="Symbol"
+      >=</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" class="Symbol"
+      >&#8704;</a
+      ><a name="2342"
+      > </a
+      ><a name="2343" class="Symbol"
+      >{{</a
+      ><a name="2345" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2345" class="Bound"
+      >_</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" class="Symbol"
+      >:</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#181" class="Record"
+      >Model</a
+      ><a name="2354" class="Symbol"
+      >}}</a
+      ><a name="2356"
+      > </a
+      ><a name="2357" class="Symbol"
+      >{</a
+      ><a name="2358" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2358" class="Bound"
+      >w</a
+      ><a name="2359"
+      > </a
+      ><a name="2360" class="Symbol"
+      >:</a
+      ><a name="2361"
+      > </a
+      ><a name="2362" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#227" class="Field"
+      >World</a
+      ><a name="2367" class="Symbol"
+      >}</a
+      ><a name="2368"
+      > </a
+      ><a name="2369" class="Symbol"
+      >&#8594;</a
+      ><a name="2370"
+      > </a
+      ><a name="2371" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2358" class="Bound"
+      >w</a
+      ><a name="2372"
+      > </a
+      ><a name="2373" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1597" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2375"
+      > </a
+      ><a name="2376" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2331" class="Bound"
+      >&#915;</a
+      ><a name="2377"
+      > </a
+      ><a name="2378" class="Symbol"
+      >&#8594;</a
+      ><a name="2379"
+      > </a
+      ><a name="2380" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2358" class="Bound"
+      >w</a
+      ><a name="2381"
+      > </a
+      ><a name="2382" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#1597" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2384"
+      > </a
+      ><a name="2385" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2337" class="Bound"
+      >&#928;</a
+      ><a name="2386"
+      >
+
+
+</a
+      ><a name="2389" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="2420"
+      >
+
+</a
+      ><a name="2422" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2422" class="Function"
+      >lookup</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" class="Symbol"
+      >:</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" class="Symbol"
+      >&#8704;</a
+      ><a name="2432"
+      > </a
+      ><a name="2433" class="Symbol"
+      >{</a
+      ><a name="2434" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2434" class="Bound"
+      >A</a
+      ><a name="2435"
+      > </a
+      ><a name="2436" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2436" class="Bound"
+      >&#915;</a
+      ><a name="2437" class="Symbol"
+      >}</a
+      ><a name="2438"
+      > </a
+      ><a name="2439" class="Symbol"
+      >&#8594;</a
+      ><a name="2440"
+      > </a
+      ><a name="2441" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2434" class="Bound"
+      >A</a
+      ><a name="2442"
+      > </a
+      ><a name="2443" href="Common.Context.html#404" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="2444"
+      > </a
+      ><a name="2445" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2436" class="Bound"
+      >&#915;</a
+      ><a name="2446"
+      > </a
+      ><a name="2447" class="Symbol"
+      >&#8594;</a
+      ><a name="2448"
+      > </a
+      ><a name="2449" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2436" class="Bound"
+      >&#915;</a
+      ><a name="2450"
+      > </a
+      ><a name="2451" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2208" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2434" class="Bound"
+      >A</a
+      ><a name="2455"
+      >
+</a
+      ><a name="2456" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2422" class="Function"
+      >lookup</a
+      ><a name="2462"
+      > </a
+      ><a name="2463" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="2466"
+      >     </a
+      ><a name="2471" class="Symbol"
+      >(</a
+      ><a name="2472" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2472" class="Bound"
+      >&#947;</a
+      ><a name="2473"
+      > </a
+      ><a name="2474" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2475"
+      > </a
+      ><a name="2476" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2476" class="Bound"
+      >a</a
+      ><a name="2477" class="Symbol"
+      >)</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" class="Symbol"
+      >=</a
+      ><a name="2480"
+      > </a
+      ><a name="2481" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2476" class="Bound"
+      >a</a
+      ><a name="2482"
+      >
+</a
+      ><a name="2483" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2422" class="Function"
+      >lookup</a
+      ><a name="2489"
+      > </a
+      ><a name="2490" class="Symbol"
+      >(</a
+      ><a name="2491" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="2494"
+      > </a
+      ><a name="2495" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2495" class="Bound"
+      >i</a
+      ><a name="2496" class="Symbol"
+      >)</a
+      ><a name="2497"
+      > </a
+      ><a name="2498" class="Symbol"
+      >(</a
+      ><a name="2499" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2499" class="Bound"
+      >&#947;</a
+      ><a name="2500"
+      > </a
+      ><a name="2501" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2502"
+      > </a
+      ><a name="2503" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2503" class="Bound"
+      >b</a
+      ><a name="2504" class="Symbol"
+      >)</a
+      ><a name="2505"
+      > </a
+      ><a name="2506" class="Symbol"
+      >=</a
+      ><a name="2507"
+      > </a
+      ><a name="2508" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2422" class="Function"
+      >lookup</a
+      ><a name="2514"
+      > </a
+      ><a name="2515" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2495" class="Bound"
+      >i</a
+      ><a name="2516"
+      > </a
+      ><a name="2517" href="BasicIS4.KripkeSemantics.AlechinaEtAl.html#2499" class="Bound"
+      >&#947;</a
+      ><a name="2518"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

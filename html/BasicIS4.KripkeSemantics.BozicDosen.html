@@ -1,0 +1,2544 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.KripkeSemantics.BozicDosen</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.KripkeSemantics.BozicDosen.html#1" class="Module"
+      >BasicIS4.KripkeSemantics.BozicDosen</a
+      ><a name="43"
+      > </a
+      ><a name="44" class="Keyword"
+      >where</a
+      ><a name="49"
+      >
+
+</a
+      ><a name="51" class="Keyword"
+      >open</a
+      ><a name="55"
+      > </a
+      ><a name="56" class="Keyword"
+      >import</a
+      ><a name="62"
+      > </a
+      ><a name="63" href="BasicIS4.html#1" class="Module"
+      >BasicIS4</a
+      ><a name="71"
+      > </a
+      ><a name="72" class="Keyword"
+      >public</a
+      ><a name="78"
+      >
+
+
+</a
+      ><a name="81" class="Comment"
+      >-- Intuitionistic modal Kripke models, following Bo&#382;i&#263; and Do&#353;en, after Simpson.</a
+      ><a name="161"
+      >
+
+</a
+      ><a name="163" class="Keyword"
+      >record</a
+      ><a name="169"
+      > </a
+      ><a name="170" href="BasicIS4.KripkeSemantics.BozicDosen.html#170" class="Record"
+      >Model</a
+      ><a name="175"
+      > </a
+      ><a name="176" class="Symbol"
+      >:</a
+      ><a name="177"
+      > </a
+      ><a name="178" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="182"
+      > </a
+      ><a name="183" class="Keyword"
+      >where</a
+      ><a name="188"
+      >
+  </a
+      ><a name="191" class="Keyword"
+      >infix</a
+      ><a name="196"
+      > </a
+      ><a name="197" class="Number"
+      >3</a
+      ><a name="198"
+      > _&#8873;&#7493;_
+  </a
+      ><a name="206" class="Keyword"
+      >field</a
+      ><a name="211"
+      >
+    </a
+      ><a name="216" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="221"
+      > </a
+      ><a name="222" class="Symbol"
+      >:</a
+      ><a name="223"
+      > </a
+      ><a name="224" class="PrimitiveType"
+      >Set</a
+      ><a name="227"
+      >
+
+    </a
+      ><a name="233" class="Comment"
+      >-- Intuitionistic accessibility; preorder.</a
+      ><a name="275"
+      >
+    </a
+      ><a name="280" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="283"
+      >    </a
+      ><a name="287" class="Symbol"
+      >:</a
+      ><a name="288"
+      > </a
+      ><a name="289" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="294"
+      > </a
+      ><a name="295" class="Symbol"
+      >&#8594;</a
+      ><a name="296"
+      > </a
+      ><a name="297" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="302"
+      > </a
+      ><a name="303" class="Symbol"
+      >&#8594;</a
+      ><a name="304"
+      > </a
+      ><a name="305" class="PrimitiveType"
+      >Set</a
+      ><a name="308"
+      >
+    </a
+      ><a name="313" href="BasicIS4.KripkeSemantics.BozicDosen.html#313" class="Field"
+      >refl&#8804;</a
+      ><a name="318"
+      >  </a
+      ><a name="320" class="Symbol"
+      >:</a
+      ><a name="321"
+      > </a
+      ><a name="322" class="Symbol"
+      >&#8704;</a
+      ><a name="323"
+      > </a
+      ><a name="324" class="Symbol"
+      >{</a
+      ><a name="325" href="BasicIS4.KripkeSemantics.BozicDosen.html#325" class="Bound"
+      >w</a
+      ><a name="326" class="Symbol"
+      >}</a
+      ><a name="327"
+      > </a
+      ><a name="328" class="Symbol"
+      >&#8594;</a
+      ><a name="329"
+      > </a
+      ><a name="330" href="BasicIS4.KripkeSemantics.BozicDosen.html#325" class="Bound"
+      >w</a
+      ><a name="331"
+      > </a
+      ><a name="332" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="333"
+      > </a
+      ><a name="334" href="BasicIS4.KripkeSemantics.BozicDosen.html#325" class="Bound"
+      >w</a
+      ><a name="335"
+      >
+    </a
+      ><a name="340" href="BasicIS4.KripkeSemantics.BozicDosen.html#340" class="Field"
+      >trans&#8804;</a
+      ><a name="346"
+      > </a
+      ><a name="347" class="Symbol"
+      >:</a
+      ><a name="348"
+      > </a
+      ><a name="349" class="Symbol"
+      >&#8704;</a
+      ><a name="350"
+      > </a
+      ><a name="351" class="Symbol"
+      >{</a
+      ><a name="352" href="BasicIS4.KripkeSemantics.BozicDosen.html#352" class="Bound"
+      >w</a
+      ><a name="353"
+      > </a
+      ><a name="354" href="BasicIS4.KripkeSemantics.BozicDosen.html#354" class="Bound"
+      >w&#8242;</a
+      ><a name="356"
+      > </a
+      ><a name="357" href="BasicIS4.KripkeSemantics.BozicDosen.html#357" class="Bound"
+      >w&#8243;</a
+      ><a name="359" class="Symbol"
+      >}</a
+      ><a name="360"
+      > </a
+      ><a name="361" class="Symbol"
+      >&#8594;</a
+      ><a name="362"
+      > </a
+      ><a name="363" href="BasicIS4.KripkeSemantics.BozicDosen.html#352" class="Bound"
+      >w</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="366"
+      > </a
+      ><a name="367" href="BasicIS4.KripkeSemantics.BozicDosen.html#354" class="Bound"
+      >w&#8242;</a
+      ><a name="369"
+      > </a
+      ><a name="370" class="Symbol"
+      >&#8594;</a
+      ><a name="371"
+      > </a
+      ><a name="372" href="BasicIS4.KripkeSemantics.BozicDosen.html#354" class="Bound"
+      >w&#8242;</a
+      ><a name="374"
+      > </a
+      ><a name="375" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="376"
+      > </a
+      ><a name="377" href="BasicIS4.KripkeSemantics.BozicDosen.html#357" class="Bound"
+      >w&#8243;</a
+      ><a name="379"
+      > </a
+      ><a name="380" class="Symbol"
+      >&#8594;</a
+      ><a name="381"
+      > </a
+      ><a name="382" href="BasicIS4.KripkeSemantics.BozicDosen.html#352" class="Bound"
+      >w</a
+      ><a name="383"
+      > </a
+      ><a name="384" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="385"
+      > </a
+      ><a name="386" href="BasicIS4.KripkeSemantics.BozicDosen.html#357" class="Bound"
+      >w&#8243;</a
+      ><a name="388"
+      >
+
+    </a
+      ><a name="394" class="Comment"
+      >-- Modal accessibility; preorder.</a
+      ><a name="427"
+      >
+    </a
+      ><a name="432" href="BasicIS4.KripkeSemantics.BozicDosen.html#432" class="Field Operator"
+      >_R_</a
+      ><a name="435"
+      >    </a
+      ><a name="439" class="Symbol"
+      >:</a
+      ><a name="440"
+      > </a
+      ><a name="441" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="446"
+      > </a
+      ><a name="447" class="Symbol"
+      >&#8594;</a
+      ><a name="448"
+      > </a
+      ><a name="449" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="454"
+      > </a
+      ><a name="455" class="Symbol"
+      >&#8594;</a
+      ><a name="456"
+      > </a
+      ><a name="457" class="PrimitiveType"
+      >Set</a
+      ><a name="460"
+      >
+    </a
+      ><a name="465" href="BasicIS4.KripkeSemantics.BozicDosen.html#465" class="Field"
+      >reflR</a
+      ><a name="470"
+      >  </a
+      ><a name="472" class="Symbol"
+      >:</a
+      ><a name="473"
+      > </a
+      ><a name="474" class="Symbol"
+      >&#8704;</a
+      ><a name="475"
+      > </a
+      ><a name="476" class="Symbol"
+      >{</a
+      ><a name="477" href="BasicIS4.KripkeSemantics.BozicDosen.html#477" class="Bound"
+      >w</a
+      ><a name="478" class="Symbol"
+      >}</a
+      ><a name="479"
+      > </a
+      ><a name="480" class="Symbol"
+      >&#8594;</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="BasicIS4.KripkeSemantics.BozicDosen.html#477" class="Bound"
+      >w</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="BasicIS4.KripkeSemantics.BozicDosen.html#432" class="Field Operator"
+      >R</a
+      ><a name="485"
+      > </a
+      ><a name="486" href="BasicIS4.KripkeSemantics.BozicDosen.html#477" class="Bound"
+      >w</a
+      ><a name="487"
+      >
+    </a
+      ><a name="492" href="BasicIS4.KripkeSemantics.BozicDosen.html#492" class="Field"
+      >transR</a
+      ><a name="498"
+      > </a
+      ><a name="499" class="Symbol"
+      >:</a
+      ><a name="500"
+      > </a
+      ><a name="501" class="Symbol"
+      >&#8704;</a
+      ><a name="502"
+      > </a
+      ><a name="503" class="Symbol"
+      >{</a
+      ><a name="504" href="BasicIS4.KripkeSemantics.BozicDosen.html#504" class="Bound"
+      >w</a
+      ><a name="505"
+      > </a
+      ><a name="506" href="BasicIS4.KripkeSemantics.BozicDosen.html#506" class="Bound"
+      >w&#8242;</a
+      ><a name="508"
+      > </a
+      ><a name="509" href="BasicIS4.KripkeSemantics.BozicDosen.html#509" class="Bound"
+      >w&#8243;</a
+      ><a name="511" class="Symbol"
+      >}</a
+      ><a name="512"
+      > </a
+      ><a name="513" class="Symbol"
+      >&#8594;</a
+      ><a name="514"
+      > </a
+      ><a name="515" href="BasicIS4.KripkeSemantics.BozicDosen.html#504" class="Bound"
+      >w</a
+      ><a name="516"
+      > </a
+      ><a name="517" href="BasicIS4.KripkeSemantics.BozicDosen.html#432" class="Field Operator"
+      >R</a
+      ><a name="518"
+      > </a
+      ><a name="519" href="BasicIS4.KripkeSemantics.BozicDosen.html#506" class="Bound"
+      >w&#8242;</a
+      ><a name="521"
+      > </a
+      ><a name="522" class="Symbol"
+      >&#8594;</a
+      ><a name="523"
+      > </a
+      ><a name="524" href="BasicIS4.KripkeSemantics.BozicDosen.html#506" class="Bound"
+      >w&#8242;</a
+      ><a name="526"
+      > </a
+      ><a name="527" href="BasicIS4.KripkeSemantics.BozicDosen.html#432" class="Field Operator"
+      >R</a
+      ><a name="528"
+      > </a
+      ><a name="529" href="BasicIS4.KripkeSemantics.BozicDosen.html#509" class="Bound"
+      >w&#8243;</a
+      ><a name="531"
+      > </a
+      ><a name="532" class="Symbol"
+      >&#8594;</a
+      ><a name="533"
+      > </a
+      ><a name="534" href="BasicIS4.KripkeSemantics.BozicDosen.html#504" class="Bound"
+      >w</a
+      ><a name="535"
+      > </a
+      ><a name="536" href="BasicIS4.KripkeSemantics.BozicDosen.html#432" class="Field Operator"
+      >R</a
+      ><a name="537"
+      > </a
+      ><a name="538" href="BasicIS4.KripkeSemantics.BozicDosen.html#509" class="Bound"
+      >w&#8243;</a
+      ><a name="540"
+      >
+
+    </a
+      ><a name="546" class="Comment"
+      >-- Forcing for atomic propositions; monotonic.</a
+      ><a name="592"
+      >
+    </a
+      ><a name="597" href="BasicIS4.KripkeSemantics.BozicDosen.html#597" class="Field Operator"
+      >_&#8873;&#7493;_</a
+      ><a name="601"
+      >   </a
+      ><a name="604" class="Symbol"
+      >:</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="611"
+      > </a
+      ><a name="612" class="Symbol"
+      >&#8594;</a
+      ><a name="613"
+      > </a
+      ><a name="614" href="Common.html#1004" class="Postulate"
+      >Atom</a
+      ><a name="618"
+      > </a
+      ><a name="619" class="Symbol"
+      >&#8594;</a
+      ><a name="620"
+      > </a
+      ><a name="621" class="PrimitiveType"
+      >Set</a
+      ><a name="624"
+      >
+    </a
+      ><a name="629" href="BasicIS4.KripkeSemantics.BozicDosen.html#629" class="Field"
+      >mono&#8873;&#7493;</a
+      ><a name="635"
+      > </a
+      ><a name="636" class="Symbol"
+      >:</a
+      ><a name="637"
+      > </a
+      ><a name="638" class="Symbol"
+      >&#8704;</a
+      ><a name="639"
+      > </a
+      ><a name="640" class="Symbol"
+      >{</a
+      ><a name="641" href="BasicIS4.KripkeSemantics.BozicDosen.html#641" class="Bound"
+      >P</a
+      ><a name="642"
+      > </a
+      ><a name="643" href="BasicIS4.KripkeSemantics.BozicDosen.html#643" class="Bound"
+      >w</a
+      ><a name="644"
+      > </a
+      ><a name="645" href="BasicIS4.KripkeSemantics.BozicDosen.html#645" class="Bound"
+      >w&#8242;</a
+      ><a name="647" class="Symbol"
+      >}</a
+      ><a name="648"
+      > </a
+      ><a name="649" class="Symbol"
+      >&#8594;</a
+      ><a name="650"
+      > </a
+      ><a name="651" href="BasicIS4.KripkeSemantics.BozicDosen.html#643" class="Bound"
+      >w</a
+      ><a name="652"
+      > </a
+      ><a name="653" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="654"
+      > </a
+      ><a name="655" href="BasicIS4.KripkeSemantics.BozicDosen.html#645" class="Bound"
+      >w&#8242;</a
+      ><a name="657"
+      > </a
+      ><a name="658" class="Symbol"
+      >&#8594;</a
+      ><a name="659"
+      > </a
+      ><a name="660" href="BasicIS4.KripkeSemantics.BozicDosen.html#643" class="Bound"
+      >w</a
+      ><a name="661"
+      > </a
+      ><a name="662" href="BasicIS4.KripkeSemantics.BozicDosen.html#597" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="664"
+      > </a
+      ><a name="665" href="BasicIS4.KripkeSemantics.BozicDosen.html#641" class="Bound"
+      >P</a
+      ><a name="666"
+      > </a
+      ><a name="667" class="Symbol"
+      >&#8594;</a
+      ><a name="668"
+      > </a
+      ><a name="669" href="BasicIS4.KripkeSemantics.BozicDosen.html#645" class="Bound"
+      >w&#8242;</a
+      ><a name="671"
+      > </a
+      ><a name="672" href="BasicIS4.KripkeSemantics.BozicDosen.html#597" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="674"
+      > </a
+      ><a name="675" href="BasicIS4.KripkeSemantics.BozicDosen.html#641" class="Bound"
+      >P</a
+      ><a name="676"
+      >
+
+    </a
+      ><a name="682" class="Comment"
+      >-- NOTE: Additional frame condition.</a
+      ><a name="718"
+      >
+    </a
+      ><a name="723" class="Comment"
+      >--</a
+      ><a name="725"
+      >
+    </a
+      ><a name="730" class="Comment"
+      >--   w&#8242;  R  v&#8242;</a
+      ><a name="744"
+      >
+    </a
+      ><a name="749" class="Comment"
+      >--   &#9679;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9679;</a
+      ><a name="762"
+      >
+    </a
+      ><a name="767" class="Comment"
+      >--   &#9474;      &#9482;</a
+      ><a name="780"
+      >
+    </a
+      ><a name="785" class="Comment"
+      >-- &#8804; &#9474;      &#9482; &#8804;</a
+      ><a name="800"
+      >
+    </a
+      ><a name="805" class="Comment"
+      >--   &#9474;      &#9482;</a
+      ><a name="818"
+      >
+    </a
+      ><a name="823" class="Comment"
+      >--   &#9679;&#9548;&#9548;&#9548;&#9548;&#9548;&#9548;&#9676;</a
+      ><a name="836"
+      >
+    </a
+      ><a name="841" class="Comment"
+      >--   w   R  v</a
+      ><a name="854"
+      >
+    </a
+      ><a name="859" class="Comment"
+      >--</a
+      ><a name="861"
+      >
+    </a
+      ><a name="866" href="BasicIS4.KripkeSemantics.BozicDosen.html#866" class="Field"
+      >cutR&#10814;&#8804;</a
+      ><a name="872"
+      > </a
+      ><a name="873" class="Symbol"
+      >:</a
+      ><a name="874"
+      > </a
+      ><a name="875" class="Symbol"
+      >&#8704;</a
+      ><a name="876"
+      > </a
+      ><a name="877" class="Symbol"
+      >{</a
+      ><a name="878" href="BasicIS4.KripkeSemantics.BozicDosen.html#878" class="Bound"
+      >v&#8242;</a
+      ><a name="880"
+      > </a
+      ><a name="881" href="BasicIS4.KripkeSemantics.BozicDosen.html#881" class="Bound"
+      >w</a
+      ><a name="882"
+      > </a
+      ><a name="883" href="BasicIS4.KripkeSemantics.BozicDosen.html#883" class="Bound"
+      >w&#8242;</a
+      ><a name="885" class="Symbol"
+      >}</a
+      ><a name="886"
+      > </a
+      ><a name="887" class="Symbol"
+      >&#8594;</a
+      ><a name="888"
+      > </a
+      ><a name="889" href="BasicIS4.KripkeSemantics.BozicDosen.html#883" class="Bound"
+      >w&#8242;</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="BasicIS4.KripkeSemantics.BozicDosen.html#432" class="Field Operator"
+      >R</a
+      ><a name="893"
+      > </a
+      ><a name="894" href="BasicIS4.KripkeSemantics.BozicDosen.html#878" class="Bound"
+      >v&#8242;</a
+      ><a name="896"
+      > </a
+      ><a name="897" class="Symbol"
+      >&#8594;</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="BasicIS4.KripkeSemantics.BozicDosen.html#881" class="Bound"
+      >w</a
+      ><a name="900"
+      > </a
+      ><a name="901" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="902"
+      > </a
+      ><a name="903" href="BasicIS4.KripkeSemantics.BozicDosen.html#883" class="Bound"
+      >w&#8242;</a
+      ><a name="905"
+      > </a
+      ><a name="906" class="Symbol"
+      >&#8594;</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="Data.Product.html#823" class="Function"
+      >&#8707;</a
+      ><a name="909"
+      > </a
+      ><a name="910" class="Symbol"
+      >(&#955;</a
+      ><a name="912"
+      > </a
+      ><a name="913" href="BasicIS4.KripkeSemantics.BozicDosen.html#913" class="Bound"
+      >v</a
+      ><a name="914"
+      > </a
+      ><a name="915" class="Symbol"
+      >&#8594;</a
+      ><a name="916"
+      > </a
+      ><a name="917" href="BasicIS4.KripkeSemantics.BozicDosen.html#881" class="Bound"
+      >w</a
+      ><a name="918"
+      > </a
+      ><a name="919" href="BasicIS4.KripkeSemantics.BozicDosen.html#432" class="Field Operator"
+      >R</a
+      ><a name="920"
+      > </a
+      ><a name="921" href="BasicIS4.KripkeSemantics.BozicDosen.html#913" class="Bound"
+      >v</a
+      ><a name="922"
+      > </a
+      ><a name="923" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="924"
+      > </a
+      ><a name="925" href="BasicIS4.KripkeSemantics.BozicDosen.html#913" class="Bound"
+      >v</a
+      ><a name="926"
+      > </a
+      ><a name="927" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="928"
+      > </a
+      ><a name="929" href="BasicIS4.KripkeSemantics.BozicDosen.html#878" class="Bound"
+      >v&#8242;</a
+      ><a name="931" class="Symbol"
+      >)</a
+      ><a name="932"
+      >
+
+  </a
+      ><a name="936" href="BasicIS4.KripkeSemantics.BozicDosen.html#936" class="Function Operator"
+      >_R&#10814;&#8804;_</a
+      ><a name="941"
+      > </a
+      ><a name="942" class="Symbol"
+      >:</a
+      ><a name="943"
+      > </a
+      ><a name="944" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="949"
+      > </a
+      ><a name="950" class="Symbol"
+      >&#8594;</a
+      ><a name="951"
+      > </a
+      ><a name="952" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="957"
+      > </a
+      ><a name="958" class="Symbol"
+      >&#8594;</a
+      ><a name="959"
+      > </a
+      ><a name="960" class="PrimitiveType"
+      >Set</a
+      ><a name="963"
+      >
+  </a
+      ><a name="966" href="BasicIS4.KripkeSemantics.BozicDosen.html#936" class="Function Operator"
+      >_R&#10814;&#8804;_</a
+      ><a name="971"
+      > </a
+      ><a name="972" class="Symbol"
+      >=</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="BasicIS4.KripkeSemantics.BozicDosen.html#432" class="Field Operator"
+      >_R_</a
+      ><a name="977"
+      > </a
+      ><a name="978" href="Common.html#1390" class="Function Operator"
+      >&#10814;</a
+      ><a name="979"
+      > </a
+      ><a name="980" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="983"
+      >
+
+  </a
+      ><a name="987" href="BasicIS4.KripkeSemantics.BozicDosen.html#987" class="Function"
+      >reflR&#10814;&#8804;</a
+      ><a name="994"
+      > </a
+      ><a name="995" class="Symbol"
+      >:</a
+      ><a name="996"
+      > </a
+      ><a name="997" class="Symbol"
+      >&#8704;</a
+      ><a name="998"
+      > </a
+      ><a name="999" class="Symbol"
+      >{</a
+      ><a name="1000" href="BasicIS4.KripkeSemantics.BozicDosen.html#1000" class="Bound"
+      >w</a
+      ><a name="1001" class="Symbol"
+      >}</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" class="Symbol"
+      >&#8594;</a
+      ><a name="1004"
+      > </a
+      ><a name="1005" href="BasicIS4.KripkeSemantics.BozicDosen.html#1000" class="Bound"
+      >w</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" href="BasicIS4.KripkeSemantics.BozicDosen.html#936" class="Function Operator"
+      >R&#10814;&#8804;</a
+      ><a name="1010"
+      > </a
+      ><a name="1011" href="BasicIS4.KripkeSemantics.BozicDosen.html#1000" class="Bound"
+      >w</a
+      ><a name="1012"
+      >
+  </a
+      ><a name="1015" href="BasicIS4.KripkeSemantics.BozicDosen.html#987" class="Function"
+      >reflR&#10814;&#8804;</a
+      ><a name="1022"
+      > </a
+      ><a name="1023" class="Symbol"
+      >{</a
+      ><a name="1024" href="BasicIS4.KripkeSemantics.BozicDosen.html#1024" class="Bound"
+      >w</a
+      ><a name="1025" class="Symbol"
+      >}</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" class="Symbol"
+      >=</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" href="BasicIS4.KripkeSemantics.BozicDosen.html#1024" class="Bound"
+      >w</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" class="Symbol"
+      >(</a
+      ><a name="1034" href="BasicIS4.KripkeSemantics.BozicDosen.html#465" class="Field"
+      >reflR</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" href="BasicIS4.KripkeSemantics.BozicDosen.html#313" class="Field"
+      >refl&#8804;</a
+      ><a name="1047" class="Symbol"
+      >)</a
+      ><a name="1048"
+      >
+
+  </a
+      ><a name="1052" href="BasicIS4.KripkeSemantics.BozicDosen.html#1052" class="Function"
+      >transR&#10814;&#8804;</a
+      ><a name="1060"
+      > </a
+      ><a name="1061" class="Symbol"
+      >:</a
+      ><a name="1062"
+      > </a
+      ><a name="1063" class="Symbol"
+      >&#8704;</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" class="Symbol"
+      >{</a
+      ><a name="1066" href="BasicIS4.KripkeSemantics.BozicDosen.html#1066" class="Bound"
+      >w</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" href="BasicIS4.KripkeSemantics.BozicDosen.html#1068" class="Bound"
+      >w&#8242;</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" href="BasicIS4.KripkeSemantics.BozicDosen.html#1071" class="Bound"
+      >w&#8243;</a
+      ><a name="1073" class="Symbol"
+      >}</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" class="Symbol"
+      >&#8594;</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" href="BasicIS4.KripkeSemantics.BozicDosen.html#1066" class="Bound"
+      >w</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="BasicIS4.KripkeSemantics.BozicDosen.html#936" class="Function Operator"
+      >R&#10814;&#8804;</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="BasicIS4.KripkeSemantics.BozicDosen.html#1068" class="Bound"
+      >w&#8242;</a
+      ><a name="1085"
+      > </a
+      ><a name="1086" class="Symbol"
+      >&#8594;</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" href="BasicIS4.KripkeSemantics.BozicDosen.html#1068" class="Bound"
+      >w&#8242;</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="BasicIS4.KripkeSemantics.BozicDosen.html#936" class="Function Operator"
+      >R&#10814;&#8804;</a
+      ><a name="1094"
+      > </a
+      ><a name="1095" href="BasicIS4.KripkeSemantics.BozicDosen.html#1071" class="Bound"
+      >w&#8243;</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" class="Symbol"
+      >&#8594;</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="BasicIS4.KripkeSemantics.BozicDosen.html#1066" class="Bound"
+      >w</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="BasicIS4.KripkeSemantics.BozicDosen.html#936" class="Function Operator"
+      >R&#10814;&#8804;</a
+      ><a name="1105"
+      > </a
+      ><a name="1106" href="BasicIS4.KripkeSemantics.BozicDosen.html#1071" class="Bound"
+      >w&#8243;</a
+      ><a name="1108"
+      >
+  </a
+      ><a name="1111" href="BasicIS4.KripkeSemantics.BozicDosen.html#1052" class="Function"
+      >transR&#10814;&#8804;</a
+      ><a name="1119"
+      > </a
+      ><a name="1120" class="Symbol"
+      >(</a
+      ><a name="1121" href="BasicIS4.KripkeSemantics.BozicDosen.html#1121" class="Bound"
+      >a</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" class="Symbol"
+      >(</a
+      ><a name="1126" href="BasicIS4.KripkeSemantics.BozicDosen.html#1126" class="Bound"
+      >&#950;</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1129"
+      > </a
+      ><a name="1130" href="BasicIS4.KripkeSemantics.BozicDosen.html#1130" class="Bound"
+      >&#958;</a
+      ><a name="1131" class="Symbol"
+      >))</a
+      ><a name="1133"
+      > </a
+      ><a name="1134" class="Symbol"
+      >(</a
+      ><a name="1135" href="BasicIS4.KripkeSemantics.BozicDosen.html#1135" class="Bound"
+      >b</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" class="Symbol"
+      >(</a
+      ><a name="1140" href="BasicIS4.KripkeSemantics.BozicDosen.html#1140" class="Bound"
+      >&#950;&#8242;</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" href="BasicIS4.KripkeSemantics.BozicDosen.html#1145" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1147" class="Symbol"
+      >))</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" class="Symbol"
+      >=</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" class="Keyword"
+      >let</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="BasicIS4.KripkeSemantics.BozicDosen.html#1156" class="Bound"
+      >c</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1159"
+      > </a
+      ><a name="1160" class="Symbol"
+      >(</a
+      ><a name="1161" href="BasicIS4.KripkeSemantics.BozicDosen.html#1161" class="Bound"
+      >&#950;&#8243;</a
+      ><a name="1163"
+      > </a
+      ><a name="1164" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" href="BasicIS4.KripkeSemantics.BozicDosen.html#1166" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="1168" class="Symbol"
+      >)</a
+      ><a name="1169"
+      > </a
+      ><a name="1170" class="Symbol"
+      >=</a
+      ><a name="1171"
+      > </a
+      ><a name="1172" href="BasicIS4.KripkeSemantics.BozicDosen.html#866" class="Field"
+      >cutR&#10814;&#8804;</a
+      ><a name="1178"
+      > </a
+      ><a name="1179" href="BasicIS4.KripkeSemantics.BozicDosen.html#1140" class="Bound"
+      >&#950;&#8242;</a
+      ><a name="1181"
+      > </a
+      ><a name="1182" href="BasicIS4.KripkeSemantics.BozicDosen.html#1130" class="Bound"
+      >&#958;</a
+      ><a name="1183"
+      >
+                                           </a
+      ><a name="1227" class="Keyword"
+      >in</a
+      ><a name="1229"
+      >  </a
+      ><a name="1231" href="BasicIS4.KripkeSemantics.BozicDosen.html#1156" class="Bound"
+      >c</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1234"
+      > </a
+      ><a name="1235" class="Symbol"
+      >(</a
+      ><a name="1236" href="BasicIS4.KripkeSemantics.BozicDosen.html#492" class="Field"
+      >transR</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" href="BasicIS4.KripkeSemantics.BozicDosen.html#1126" class="Bound"
+      >&#950;</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" href="BasicIS4.KripkeSemantics.BozicDosen.html#1161" class="Bound"
+      >&#950;&#8243;</a
+      ><a name="1247"
+      > </a
+      ><a name="1248" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" href="BasicIS4.KripkeSemantics.BozicDosen.html#340" class="Field"
+      >trans&#8804;</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" href="BasicIS4.KripkeSemantics.BozicDosen.html#1166" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="1259"
+      > </a
+      ><a name="1260" href="BasicIS4.KripkeSemantics.BozicDosen.html#1145" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1262" class="Symbol"
+      >)</a
+      ><a name="1263"
+      >
+
+</a
+      ><a name="1265" class="Keyword"
+      >open</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" href="BasicIS4.KripkeSemantics.BozicDosen.html#170" class="Module"
+      >Model</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" class="Keyword"
+      >public</a
+      ><a name="1288"
+      >
+
+
+</a
+      ><a name="1291" class="Comment"
+      >-- Forcing for propositions and contexts.</a
+      ><a name="1332"
+      >
+
+</a
+      ><a name="1334" class="Keyword"
+      >module</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" href="BasicIS4.KripkeSemantics.BozicDosen.html#1341" class="Module"
+      >_</a
+      ><a name="1342"
+      > </a
+      ><a name="1343" class="Symbol"
+      >{{</a
+      ><a name="1345" href="BasicIS4.KripkeSemantics.BozicDosen.html#1345" class="Bound"
+      >_</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" class="Symbol"
+      >:</a
+      ><a name="1348"
+      > </a
+      ><a name="1349" href="BasicIS4.KripkeSemantics.BozicDosen.html#170" class="Record"
+      >Model</a
+      ><a name="1354" class="Symbol"
+      >}}</a
+      ><a name="1356"
+      > </a
+      ><a name="1357" class="Keyword"
+      >where</a
+      ><a name="1362"
+      >
+  </a
+      ><a name="1365" class="Keyword"
+      >infix</a
+      ><a name="1370"
+      > </a
+      ><a name="1371" class="Number"
+      >3</a
+      ><a name="1372"
+      > _&#8873;_
+  </a
+      ><a name="1379" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >_&#8873;_</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" class="Symbol"
+      >:</a
+      ><a name="1384"
+      > </a
+      ><a name="1385" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" class="Symbol"
+      >&#8594;</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" class="Symbol"
+      >&#8594;</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" class="PrimitiveType"
+      >Set</a
+      ><a name="1401"
+      >
+  </a
+      ><a name="1404" href="BasicIS4.KripkeSemantics.BozicDosen.html#1404" class="Bound"
+      >w</a
+      ><a name="1405"
+      > </a
+      ><a name="1406" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" href="BasicIS4.html#179" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" href="BasicIS4.KripkeSemantics.BozicDosen.html#1410" class="Bound"
+      >P</a
+      ><a name="1411"
+      >   </a
+      ><a name="1414" class="Symbol"
+      >=</a
+      ><a name="1415"
+      > </a
+      ><a name="1416" href="BasicIS4.KripkeSemantics.BozicDosen.html#1404" class="Bound"
+      >w</a
+      ><a name="1417"
+      > </a
+      ><a name="1418" href="BasicIS4.KripkeSemantics.BozicDosen.html#597" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="1420"
+      > </a
+      ><a name="1421" href="BasicIS4.KripkeSemantics.BozicDosen.html#1410" class="Bound"
+      >P</a
+      ><a name="1422"
+      >
+  </a
+      ><a name="1425" href="BasicIS4.KripkeSemantics.BozicDosen.html#1425" class="Bound"
+      >w</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" href="BasicIS4.KripkeSemantics.BozicDosen.html#1429" class="Bound"
+      >A</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" href="BasicIS4.html#197" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1432"
+      > </a
+      ><a name="1433" href="BasicIS4.KripkeSemantics.BozicDosen.html#1433" class="Bound"
+      >B</a
+      ><a name="1434"
+      > </a
+      ><a name="1435" class="Symbol"
+      >=</a
+      ><a name="1436"
+      > </a
+      ><a name="1437" class="Symbol"
+      >&#8704;</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" class="Symbol"
+      >{</a
+      ><a name="1440" href="BasicIS4.KripkeSemantics.BozicDosen.html#1440" class="Bound"
+      >w&#8242;</a
+      ><a name="1442" class="Symbol"
+      >}</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" class="Symbol"
+      >&#8594;</a
+      ><a name="1445"
+      > </a
+      ><a name="1446" href="BasicIS4.KripkeSemantics.BozicDosen.html#1425" class="Bound"
+      >w</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" href="BasicIS4.KripkeSemantics.BozicDosen.html#1440" class="Bound"
+      >w&#8242;</a
+      ><a name="1452"
+      > </a
+      ><a name="1453" class="Symbol"
+      >&#8594;</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" href="BasicIS4.KripkeSemantics.BozicDosen.html#1440" class="Bound"
+      >w&#8242;</a
+      ><a name="1457"
+      > </a
+      ><a name="1458" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1459"
+      > </a
+      ><a name="1460" href="BasicIS4.KripkeSemantics.BozicDosen.html#1429" class="Bound"
+      >A</a
+      ><a name="1461"
+      > </a
+      ><a name="1462" class="Symbol"
+      >&#8594;</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" href="BasicIS4.KripkeSemantics.BozicDosen.html#1440" class="Bound"
+      >w&#8242;</a
+      ><a name="1466"
+      > </a
+      ><a name="1467" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" href="BasicIS4.KripkeSemantics.BozicDosen.html#1433" class="Bound"
+      >B</a
+      ><a name="1470"
+      >
+  </a
+      ><a name="1473" href="BasicIS4.KripkeSemantics.BozicDosen.html#1473" class="Bound"
+      >w</a
+      ><a name="1474"
+      > </a
+      ><a name="1475" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" href="BasicIS4.html#218" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" href="BasicIS4.KripkeSemantics.BozicDosen.html#1479" class="Bound"
+      >A</a
+      ><a name="1480"
+      >   </a
+      ><a name="1483" class="Symbol"
+      >=</a
+      ><a name="1484"
+      > </a
+      ><a name="1485" class="Symbol"
+      >&#8704;</a
+      ><a name="1486"
+      > </a
+      ><a name="1487" class="Symbol"
+      >{</a
+      ><a name="1488" href="BasicIS4.KripkeSemantics.BozicDosen.html#1488" class="Bound"
+      >v&#8242;</a
+      ><a name="1490" class="Symbol"
+      >}</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" class="Symbol"
+      >&#8594;</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" href="BasicIS4.KripkeSemantics.BozicDosen.html#1473" class="Bound"
+      >w</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" href="BasicIS4.KripkeSemantics.BozicDosen.html#432" class="Field Operator"
+      >R</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="BasicIS4.KripkeSemantics.BozicDosen.html#1488" class="Bound"
+      >v&#8242;</a
+      ><a name="1500"
+      > </a
+      ><a name="1501" class="Symbol"
+      >&#8594;</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" href="BasicIS4.KripkeSemantics.BozicDosen.html#1488" class="Bound"
+      >v&#8242;</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" href="BasicIS4.KripkeSemantics.BozicDosen.html#1479" class="Bound"
+      >A</a
+      ><a name="1509"
+      >
+  </a
+      ><a name="1512" href="BasicIS4.KripkeSemantics.BozicDosen.html#1512" class="Bound"
+      >w</a
+      ><a name="1513"
+      > </a
+      ><a name="1514" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1515"
+      > </a
+      ><a name="1516" href="BasicIS4.KripkeSemantics.BozicDosen.html#1516" class="Bound"
+      >A</a
+      ><a name="1517"
+      > </a
+      ><a name="1518" href="BasicIS4.html#234" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1519"
+      > </a
+      ><a name="1520" href="BasicIS4.KripkeSemantics.BozicDosen.html#1520" class="Bound"
+      >B</a
+      ><a name="1521"
+      > </a
+      ><a name="1522" class="Symbol"
+      >=</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" href="BasicIS4.KripkeSemantics.BozicDosen.html#1512" class="Bound"
+      >w</a
+      ><a name="1525"
+      > </a
+      ><a name="1526" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" href="BasicIS4.KripkeSemantics.BozicDosen.html#1516" class="Bound"
+      >A</a
+      ><a name="1529"
+      > </a
+      ><a name="1530" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1531"
+      > </a
+      ><a name="1532" href="BasicIS4.KripkeSemantics.BozicDosen.html#1512" class="Bound"
+      >w</a
+      ><a name="1533"
+      > </a
+      ><a name="1534" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" href="BasicIS4.KripkeSemantics.BozicDosen.html#1520" class="Bound"
+      >B</a
+      ><a name="1537"
+      >
+  </a
+      ><a name="1540" href="BasicIS4.KripkeSemantics.BozicDosen.html#1540" class="Bound"
+      >w</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1543"
+      > </a
+      ><a name="1544" href="BasicIS4.html#255" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1545"
+      >    </a
+      ><a name="1549" class="Symbol"
+      >=</a
+      ><a name="1550"
+      > </a
+      ><a name="1551" href="Agda.Builtin.Unit.html#41" class="Record"
+      >Top</a
+      ><a name="1554"
+      >
+
+  </a
+      ><a name="1558" class="Keyword"
+      >infix</a
+      ><a name="1563"
+      > </a
+      ><a name="1564" class="Number"
+      >3</a
+      ><a name="1565"
+      > _&#8873;&#8902;_
+  </a
+      ><a name="1573" href="BasicIS4.KripkeSemantics.BozicDosen.html#1573" class="Function Operator"
+      >_&#8873;&#8902;_</a
+      ><a name="1577"
+      > </a
+      ><a name="1578" class="Symbol"
+      >:</a
+      ><a name="1579"
+      > </a
+      ><a name="1580" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="1585"
+      > </a
+      ><a name="1586" class="Symbol"
+      >&#8594;</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="1593"
+      > </a
+      ><a name="1594" class="Symbol"
+      >&#8594;</a
+      ><a name="1595"
+      > </a
+      ><a name="1596" class="PrimitiveType"
+      >Set</a
+      ><a name="1599"
+      >
+  </a
+      ><a name="1602" href="BasicIS4.KripkeSemantics.BozicDosen.html#1602" class="Bound"
+      >w</a
+      ><a name="1603"
+      > </a
+      ><a name="1604" href="BasicIS4.KripkeSemantics.BozicDosen.html#1573" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1606"
+      > </a
+      ><a name="1607" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1608"
+      >     </a
+      ><a name="1613" class="Symbol"
+      >=</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="Agda.Builtin.Unit.html#41" class="Record"
+      >Top</a
+      ><a name="1618"
+      >
+  </a
+      ><a name="1621" href="BasicIS4.KripkeSemantics.BozicDosen.html#1621" class="Bound"
+      >w</a
+      ><a name="1622"
+      > </a
+      ><a name="1623" href="BasicIS4.KripkeSemantics.BozicDosen.html#1573" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" href="BasicIS4.KripkeSemantics.BozicDosen.html#1626" class="Bound"
+      >&#915;</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" href="BasicIS4.KripkeSemantics.BozicDosen.html#1630" class="Bound"
+      >A</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" class="Symbol"
+      >=</a
+      ><a name="1633"
+      > </a
+      ><a name="1634" href="BasicIS4.KripkeSemantics.BozicDosen.html#1621" class="Bound"
+      >w</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" href="BasicIS4.KripkeSemantics.BozicDosen.html#1573" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1638"
+      > </a
+      ><a name="1639" href="BasicIS4.KripkeSemantics.BozicDosen.html#1626" class="Bound"
+      >&#915;</a
+      ><a name="1640"
+      > </a
+      ><a name="1641" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1642"
+      > </a
+      ><a name="1643" href="BasicIS4.KripkeSemantics.BozicDosen.html#1621" class="Bound"
+      >w</a
+      ><a name="1644"
+      > </a
+      ><a name="1645" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1646"
+      > </a
+      ><a name="1647" href="BasicIS4.KripkeSemantics.BozicDosen.html#1630" class="Bound"
+      >A</a
+      ><a name="1648"
+      >
+
+
+  </a
+      ><a name="1653" class="Comment"
+      >-- Monotonicity with respect to intuitionistic accessibility.</a
+      ><a name="1714"
+      >
+
+  </a
+      ><a name="1718" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" class="Symbol"
+      >:</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" class="Symbol"
+      >&#8704;</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" class="Symbol"
+      >{</a
+      ><a name="1729" href="BasicIS4.KripkeSemantics.BozicDosen.html#1729" class="Bound"
+      >A</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" href="BasicIS4.KripkeSemantics.BozicDosen.html#1731" class="Bound"
+      >w</a
+      ><a name="1732"
+      > </a
+      ><a name="1733" href="BasicIS4.KripkeSemantics.BozicDosen.html#1733" class="Bound"
+      >w&#8242;</a
+      ><a name="1735" class="Symbol"
+      >}</a
+      ><a name="1736"
+      > </a
+      ><a name="1737" class="Symbol"
+      >&#8594;</a
+      ><a name="1738"
+      > </a
+      ><a name="1739" href="BasicIS4.KripkeSemantics.BozicDosen.html#1731" class="Bound"
+      >w</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" href="BasicIS4.KripkeSemantics.BozicDosen.html#1733" class="Bound"
+      >w&#8242;</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" class="Symbol"
+      >&#8594;</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" href="BasicIS4.KripkeSemantics.BozicDosen.html#1731" class="Bound"
+      >w</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" href="BasicIS4.KripkeSemantics.BozicDosen.html#1729" class="Bound"
+      >A</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" class="Symbol"
+      >&#8594;</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" href="BasicIS4.KripkeSemantics.BozicDosen.html#1733" class="Bound"
+      >w&#8242;</a
+      ><a name="1758"
+      > </a
+      ><a name="1759" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" href="BasicIS4.KripkeSemantics.BozicDosen.html#1729" class="Bound"
+      >A</a
+      ><a name="1762"
+      >
+  </a
+      ><a name="1765" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="1770"
+      > </a
+      ><a name="1771" class="Symbol"
+      >{</a
+      ><a name="1772" href="BasicIS4.html#179" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" href="BasicIS4.KripkeSemantics.BozicDosen.html#1774" class="Bound"
+      >P</a
+      ><a name="1775" class="Symbol"
+      >}</a
+      ><a name="1776"
+      >   </a
+      ><a name="1779" href="BasicIS4.KripkeSemantics.BozicDosen.html#1779" class="Bound"
+      >&#958;</a
+      ><a name="1780"
+      > </a
+      ><a name="1781" href="BasicIS4.KripkeSemantics.BozicDosen.html#1781" class="Bound"
+      >s</a
+      ><a name="1782"
+      >       </a
+      ><a name="1789" class="Symbol"
+      >=</a
+      ><a name="1790"
+      > </a
+      ><a name="1791" href="BasicIS4.KripkeSemantics.BozicDosen.html#629" class="Field"
+      >mono&#8873;&#7493;</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="BasicIS4.KripkeSemantics.BozicDosen.html#1779" class="Bound"
+      >&#958;</a
+      ><a name="1799"
+      > </a
+      ><a name="1800" href="BasicIS4.KripkeSemantics.BozicDosen.html#1781" class="Bound"
+      >s</a
+      ><a name="1801"
+      >
+  </a
+      ><a name="1804" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="1809"
+      > </a
+      ><a name="1810" class="Symbol"
+      >{</a
+      ><a name="1811" href="BasicIS4.KripkeSemantics.BozicDosen.html#1811" class="Bound"
+      >A</a
+      ><a name="1812"
+      > </a
+      ><a name="1813" href="BasicIS4.html#197" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" href="BasicIS4.KripkeSemantics.BozicDosen.html#1815" class="Bound"
+      >B</a
+      ><a name="1816" class="Symbol"
+      >}</a
+      ><a name="1817"
+      > </a
+      ><a name="1818" href="BasicIS4.KripkeSemantics.BozicDosen.html#1818" class="Bound"
+      >&#958;</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" href="BasicIS4.KripkeSemantics.BozicDosen.html#1820" class="Bound"
+      >f</a
+      ><a name="1821"
+      >       </a
+      ><a name="1828" class="Symbol"
+      >=</a
+      ><a name="1829"
+      > </a
+      ><a name="1830" class="Symbol"
+      >&#955;</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" href="BasicIS4.KripkeSemantics.BozicDosen.html#1832" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1834"
+      > </a
+      ><a name="1835" href="BasicIS4.KripkeSemantics.BozicDosen.html#1835" class="Bound"
+      >a</a
+      ><a name="1836"
+      > </a
+      ><a name="1837" class="Symbol"
+      >&#8594;</a
+      ><a name="1838"
+      > </a
+      ><a name="1839" href="BasicIS4.KripkeSemantics.BozicDosen.html#1820" class="Bound"
+      >f</a
+      ><a name="1840"
+      > </a
+      ><a name="1841" class="Symbol"
+      >(</a
+      ><a name="1842" href="BasicIS4.KripkeSemantics.BozicDosen.html#340" class="Field"
+      >trans&#8804;</a
+      ><a name="1848"
+      > </a
+      ><a name="1849" href="BasicIS4.KripkeSemantics.BozicDosen.html#1818" class="Bound"
+      >&#958;</a
+      ><a name="1850"
+      > </a
+      ><a name="1851" href="BasicIS4.KripkeSemantics.BozicDosen.html#1832" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1853" class="Symbol"
+      >)</a
+      ><a name="1854"
+      > </a
+      ><a name="1855" href="BasicIS4.KripkeSemantics.BozicDosen.html#1835" class="Bound"
+      >a</a
+      ><a name="1856"
+      >
+  </a
+      ><a name="1859" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" class="Symbol"
+      >{</a
+      ><a name="1866" href="BasicIS4.html#218" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="1867"
+      > </a
+      ><a name="1868" href="BasicIS4.KripkeSemantics.BozicDosen.html#1868" class="Bound"
+      >A</a
+      ><a name="1869" class="Symbol"
+      >}</a
+      ><a name="1870"
+      >   </a
+      ><a name="1873" href="BasicIS4.KripkeSemantics.BozicDosen.html#1873" class="Bound"
+      >&#958;</a
+      ><a name="1874"
+      > </a
+      ><a name="1875" href="BasicIS4.KripkeSemantics.BozicDosen.html#1875" class="Bound"
+      >&#9633;f</a
+      ><a name="1877"
+      >      </a
+      ><a name="1883" class="Symbol"
+      >=</a
+      ><a name="1884"
+      > </a
+      ><a name="1885" class="Symbol"
+      >&#955;</a
+      ><a name="1886"
+      > </a
+      ><a name="1887" href="BasicIS4.KripkeSemantics.BozicDosen.html#1887" class="Bound"
+      >&#950;</a
+      ><a name="1888"
+      > </a
+      ><a name="1889" class="Symbol"
+      >&#8594;</a
+      ><a name="1890"
+      > </a
+      ><a name="1891" class="Keyword"
+      >let</a
+      ><a name="1894"
+      > </a
+      ><a name="1895" href="BasicIS4.KripkeSemantics.BozicDosen.html#1895" class="Bound"
+      >v</a
+      ><a name="1896"
+      > </a
+      ><a name="1897" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1898"
+      > </a
+      ><a name="1899" class="Symbol"
+      >(</a
+      ><a name="1900" href="BasicIS4.KripkeSemantics.BozicDosen.html#1900" class="Bound"
+      >&#950;&#8242;</a
+      ><a name="1902"
+      > </a
+      ><a name="1903" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1904"
+      > </a
+      ><a name="1905" href="BasicIS4.KripkeSemantics.BozicDosen.html#1905" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1907" class="Symbol"
+      >)</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" class="Symbol"
+      >=</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" href="BasicIS4.KripkeSemantics.BozicDosen.html#866" class="Field"
+      >cutR&#10814;&#8804;</a
+      ><a name="1917"
+      > </a
+      ><a name="1918" href="BasicIS4.KripkeSemantics.BozicDosen.html#1887" class="Bound"
+      >&#950;</a
+      ><a name="1919"
+      > </a
+      ><a name="1920" href="BasicIS4.KripkeSemantics.BozicDosen.html#1873" class="Bound"
+      >&#958;</a
+      ><a name="1921"
+      >
+                                    </a
+      ><a name="1958" class="Keyword"
+      >in</a
+      ><a name="1960"
+      >  </a
+      ><a name="1962" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" class="Symbol"
+      >{</a
+      ><a name="1969" href="BasicIS4.KripkeSemantics.BozicDosen.html#1868" class="Bound"
+      >A</a
+      ><a name="1970" class="Symbol"
+      >}</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" href="BasicIS4.KripkeSemantics.BozicDosen.html#1905" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1974"
+      > </a
+      ><a name="1975" class="Symbol"
+      >(</a
+      ><a name="1976" href="BasicIS4.KripkeSemantics.BozicDosen.html#1875" class="Bound"
+      >&#9633;f</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" href="BasicIS4.KripkeSemantics.BozicDosen.html#1900" class="Bound"
+      >&#950;&#8242;</a
+      ><a name="1981" class="Symbol"
+      >)</a
+      ><a name="1982"
+      >
+  </a
+      ><a name="1985" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="1990"
+      > </a
+      ><a name="1991" class="Symbol"
+      >{</a
+      ><a name="1992" href="BasicIS4.KripkeSemantics.BozicDosen.html#1992" class="Bound"
+      >A</a
+      ><a name="1993"
+      > </a
+      ><a name="1994" href="BasicIS4.html#234" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1995"
+      > </a
+      ><a name="1996" href="BasicIS4.KripkeSemantics.BozicDosen.html#1996" class="Bound"
+      >B</a
+      ><a name="1997" class="Symbol"
+      >}</a
+      ><a name="1998"
+      > </a
+      ><a name="1999" href="BasicIS4.KripkeSemantics.BozicDosen.html#1999" class="Bound"
+      >&#958;</a
+      ><a name="2000"
+      > </a
+      ><a name="2001" class="Symbol"
+      >(</a
+      ><a name="2002" href="BasicIS4.KripkeSemantics.BozicDosen.html#2002" class="Bound"
+      >a</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2005"
+      > </a
+      ><a name="2006" href="BasicIS4.KripkeSemantics.BozicDosen.html#2006" class="Bound"
+      >b</a
+      ><a name="2007" class="Symbol"
+      >)</a
+      ><a name="2008"
+      > </a
+      ><a name="2009" class="Symbol"
+      >=</a
+      ><a name="2010"
+      > </a
+      ><a name="2011" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="2016"
+      > </a
+      ><a name="2017" class="Symbol"
+      >{</a
+      ><a name="2018" href="BasicIS4.KripkeSemantics.BozicDosen.html#1992" class="Bound"
+      >A</a
+      ><a name="2019" class="Symbol"
+      >}</a
+      ><a name="2020"
+      > </a
+      ><a name="2021" href="BasicIS4.KripkeSemantics.BozicDosen.html#1999" class="Bound"
+      >&#958;</a
+      ><a name="2022"
+      > </a
+      ><a name="2023" href="BasicIS4.KripkeSemantics.BozicDosen.html#2002" class="Bound"
+      >a</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2026"
+      > </a
+      ><a name="2027" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="2032"
+      > </a
+      ><a name="2033" class="Symbol"
+      >{</a
+      ><a name="2034" href="BasicIS4.KripkeSemantics.BozicDosen.html#1996" class="Bound"
+      >B</a
+      ><a name="2035" class="Symbol"
+      >}</a
+      ><a name="2036"
+      > </a
+      ><a name="2037" href="BasicIS4.KripkeSemantics.BozicDosen.html#1999" class="Bound"
+      >&#958;</a
+      ><a name="2038"
+      > </a
+      ><a name="2039" href="BasicIS4.KripkeSemantics.BozicDosen.html#2006" class="Bound"
+      >b</a
+      ><a name="2040"
+      >
+  </a
+      ><a name="2043" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="2048"
+      > </a
+      ><a name="2049" class="Symbol"
+      >{</a
+      ><a name="2050" href="BasicIS4.html#255" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="2051" class="Symbol"
+      >}</a
+      ><a name="2052"
+      >    </a
+      ><a name="2056" href="BasicIS4.KripkeSemantics.BozicDosen.html#2056" class="Bound"
+      >&#958;</a
+      ><a name="2057"
+      > </a
+      ><a name="2058" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2059"
+      >       </a
+      ><a name="2066" class="Symbol"
+      >=</a
+      ><a name="2067"
+      > </a
+      ><a name="2068" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2069"
+      >
+
+  </a
+      ><a name="2073" href="BasicIS4.KripkeSemantics.BozicDosen.html#2073" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2079"
+      > </a
+      ><a name="2080" class="Symbol"
+      >:</a
+      ><a name="2081"
+      > </a
+      ><a name="2082" class="Symbol"
+      >&#8704;</a
+      ><a name="2083"
+      > </a
+      ><a name="2084" class="Symbol"
+      >{</a
+      ><a name="2085" href="BasicIS4.KripkeSemantics.BozicDosen.html#2085" class="Bound"
+      >&#915;</a
+      ><a name="2086"
+      > </a
+      ><a name="2087" href="BasicIS4.KripkeSemantics.BozicDosen.html#2087" class="Bound"
+      >w</a
+      ><a name="2088"
+      > </a
+      ><a name="2089" href="BasicIS4.KripkeSemantics.BozicDosen.html#2089" class="Bound"
+      >w&#8242;</a
+      ><a name="2091" class="Symbol"
+      >}</a
+      ><a name="2092"
+      > </a
+      ><a name="2093" class="Symbol"
+      >&#8594;</a
+      ><a name="2094"
+      > </a
+      ><a name="2095" href="BasicIS4.KripkeSemantics.BozicDosen.html#2087" class="Bound"
+      >w</a
+      ><a name="2096"
+      > </a
+      ><a name="2097" href="BasicIS4.KripkeSemantics.BozicDosen.html#280" class="Field Operator"
+      >&#8804;</a
+      ><a name="2098"
+      > </a
+      ><a name="2099" href="BasicIS4.KripkeSemantics.BozicDosen.html#2089" class="Bound"
+      >w&#8242;</a
+      ><a name="2101"
+      > </a
+      ><a name="2102" class="Symbol"
+      >&#8594;</a
+      ><a name="2103"
+      > </a
+      ><a name="2104" href="BasicIS4.KripkeSemantics.BozicDosen.html#2087" class="Bound"
+      >w</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" href="BasicIS4.KripkeSemantics.BozicDosen.html#1573" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2108"
+      > </a
+      ><a name="2109" href="BasicIS4.KripkeSemantics.BozicDosen.html#2085" class="Bound"
+      >&#915;</a
+      ><a name="2110"
+      > </a
+      ><a name="2111" class="Symbol"
+      >&#8594;</a
+      ><a name="2112"
+      > </a
+      ><a name="2113" href="BasicIS4.KripkeSemantics.BozicDosen.html#2089" class="Bound"
+      >w&#8242;</a
+      ><a name="2115"
+      > </a
+      ><a name="2116" href="BasicIS4.KripkeSemantics.BozicDosen.html#1573" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2118"
+      > </a
+      ><a name="2119" href="BasicIS4.KripkeSemantics.BozicDosen.html#2085" class="Bound"
+      >&#915;</a
+      ><a name="2120"
+      >
+  </a
+      ><a name="2123" href="BasicIS4.KripkeSemantics.BozicDosen.html#2073" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2129"
+      > </a
+      ><a name="2130" class="Symbol"
+      >{</a
+      ><a name="2131" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2132" class="Symbol"
+      >}</a
+      ><a name="2133"
+      >     </a
+      ><a name="2138" href="BasicIS4.KripkeSemantics.BozicDosen.html#2138" class="Bound"
+      >&#958;</a
+      ><a name="2139"
+      > </a
+      ><a name="2140" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2141"
+      >       </a
+      ><a name="2148" class="Symbol"
+      >=</a
+      ><a name="2149"
+      > </a
+      ><a name="2150" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2151"
+      >
+  </a
+      ><a name="2154" href="BasicIS4.KripkeSemantics.BozicDosen.html#2073" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2160"
+      > </a
+      ><a name="2161" class="Symbol"
+      >{</a
+      ><a name="2162" href="BasicIS4.KripkeSemantics.BozicDosen.html#2162" class="Bound"
+      >&#915;</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" href="BasicIS4.KripkeSemantics.BozicDosen.html#2166" class="Bound"
+      >A</a
+      ><a name="2167" class="Symbol"
+      >}</a
+      ><a name="2168"
+      > </a
+      ><a name="2169" href="BasicIS4.KripkeSemantics.BozicDosen.html#2169" class="Bound"
+      >&#958;</a
+      ><a name="2170"
+      > </a
+      ><a name="2171" class="Symbol"
+      >(</a
+      ><a name="2172" href="BasicIS4.KripkeSemantics.BozicDosen.html#2172" class="Bound"
+      >&#947;</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2175"
+      > </a
+      ><a name="2176" href="BasicIS4.KripkeSemantics.BozicDosen.html#2176" class="Bound"
+      >a</a
+      ><a name="2177" class="Symbol"
+      >)</a
+      ><a name="2178"
+      > </a
+      ><a name="2179" class="Symbol"
+      >=</a
+      ><a name="2180"
+      > </a
+      ><a name="2181" href="BasicIS4.KripkeSemantics.BozicDosen.html#2073" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2187"
+      > </a
+      ><a name="2188" class="Symbol"
+      >{</a
+      ><a name="2189" href="BasicIS4.KripkeSemantics.BozicDosen.html#2162" class="Bound"
+      >&#915;</a
+      ><a name="2190" class="Symbol"
+      >}</a
+      ><a name="2191"
+      > </a
+      ><a name="2192" href="BasicIS4.KripkeSemantics.BozicDosen.html#2169" class="Bound"
+      >&#958;</a
+      ><a name="2193"
+      > </a
+      ><a name="2194" href="BasicIS4.KripkeSemantics.BozicDosen.html#2172" class="Bound"
+      >&#947;</a
+      ><a name="2195"
+      > </a
+      ><a name="2196" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2197"
+      > </a
+      ><a name="2198" href="BasicIS4.KripkeSemantics.BozicDosen.html#1718" class="Function"
+      >mono&#8873;</a
+      ><a name="2203"
+      > </a
+      ><a name="2204" class="Symbol"
+      >{</a
+      ><a name="2205" href="BasicIS4.KripkeSemantics.BozicDosen.html#2166" class="Bound"
+      >A</a
+      ><a name="2206" class="Symbol"
+      >}</a
+      ><a name="2207"
+      > </a
+      ><a name="2208" href="BasicIS4.KripkeSemantics.BozicDosen.html#2169" class="Bound"
+      >&#958;</a
+      ><a name="2209"
+      > </a
+      ><a name="2210" href="BasicIS4.KripkeSemantics.BozicDosen.html#2176" class="Bound"
+      >a</a
+      ><a name="2211"
+      >
+
+
+</a
+      ><a name="2214" class="Comment"
+      >-- Forcing in all models.</a
+      ><a name="2239"
+      >
+
+</a
+      ><a name="2241" class="Keyword"
+      >infix</a
+      ><a name="2246"
+      > </a
+      ><a name="2247" class="Number"
+      >3</a
+      ><a name="2248"
+      > _&#7481;&#8873;_
+</a
+      ><a name="2254" href="BasicIS4.KripkeSemantics.BozicDosen.html#2254" class="Function Operator"
+      >_&#7481;&#8873;_</a
+      ><a name="2258"
+      > </a
+      ><a name="2259" class="Symbol"
+      >:</a
+      ><a name="2260"
+      > </a
+      ><a name="2261" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2263"
+      > </a
+      ><a name="2264" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="2266"
+      > </a
+      ><a name="2267" class="Symbol"
+      >&#8594;</a
+      ><a name="2268"
+      > </a
+      ><a name="2269" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="2271"
+      > </a
+      ><a name="2272" class="Symbol"
+      >&#8594;</a
+      ><a name="2273"
+      > </a
+      ><a name="2274" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="2278"
+      >
+</a
+      ><a name="2279" href="BasicIS4.KripkeSemantics.BozicDosen.html#2279" class="Bound"
+      >&#915;</a
+      ><a name="2280"
+      > </a
+      ><a name="2281" href="BasicIS4.KripkeSemantics.BozicDosen.html#2254" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="2283"
+      > </a
+      ><a name="2284" href="BasicIS4.KripkeSemantics.BozicDosen.html#2284" class="Bound"
+      >A</a
+      ><a name="2285"
+      > </a
+      ><a name="2286" class="Symbol"
+      >=</a
+      ><a name="2287"
+      > </a
+      ><a name="2288" class="Symbol"
+      >&#8704;</a
+      ><a name="2289"
+      > </a
+      ><a name="2290" class="Symbol"
+      >{{</a
+      ><a name="2292" href="BasicIS4.KripkeSemantics.BozicDosen.html#2292" class="Bound"
+      >_</a
+      ><a name="2293"
+      > </a
+      ><a name="2294" class="Symbol"
+      >:</a
+      ><a name="2295"
+      > </a
+      ><a name="2296" href="BasicIS4.KripkeSemantics.BozicDosen.html#170" class="Record"
+      >Model</a
+      ><a name="2301" class="Symbol"
+      >}}</a
+      ><a name="2303"
+      > </a
+      ><a name="2304" class="Symbol"
+      >{</a
+      ><a name="2305" href="BasicIS4.KripkeSemantics.BozicDosen.html#2305" class="Bound"
+      >w</a
+      ><a name="2306"
+      > </a
+      ><a name="2307" class="Symbol"
+      >:</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="2314" class="Symbol"
+      >}</a
+      ><a name="2315"
+      > </a
+      ><a name="2316" class="Symbol"
+      >&#8594;</a
+      ><a name="2317"
+      > </a
+      ><a name="2318" href="BasicIS4.KripkeSemantics.BozicDosen.html#2305" class="Bound"
+      >w</a
+      ><a name="2319"
+      > </a
+      ><a name="2320" href="BasicIS4.KripkeSemantics.BozicDosen.html#1573" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2322"
+      > </a
+      ><a name="2323" href="BasicIS4.KripkeSemantics.BozicDosen.html#2279" class="Bound"
+      >&#915;</a
+      ><a name="2324"
+      > </a
+      ><a name="2325" class="Symbol"
+      >&#8594;</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" href="BasicIS4.KripkeSemantics.BozicDosen.html#2305" class="Bound"
+      >w</a
+      ><a name="2328"
+      > </a
+      ><a name="2329" href="BasicIS4.KripkeSemantics.BozicDosen.html#1379" class="Function Operator"
+      >&#8873;</a
+      ><a name="2330"
+      > </a
+      ><a name="2331" href="BasicIS4.KripkeSemantics.BozicDosen.html#2284" class="Bound"
+      >A</a
+      ><a name="2332"
+      >
+
+</a
+      ><a name="2334" class="Keyword"
+      >infix</a
+      ><a name="2339"
+      > </a
+      ><a name="2340" class="Number"
+      >3</a
+      ><a name="2341"
+      > _&#7481;&#8873;&#8902;_
+</a
+      ><a name="2348" href="BasicIS4.KripkeSemantics.BozicDosen.html#2348" class="Function Operator"
+      >_&#7481;&#8873;&#8902;_</a
+      ><a name="2353"
+      > </a
+      ><a name="2354" class="Symbol"
+      >:</a
+      ><a name="2355"
+      > </a
+      ><a name="2356" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2358"
+      > </a
+      ><a name="2359" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="2361"
+      > </a
+      ><a name="2362" class="Symbol"
+      >&#8594;</a
+      ><a name="2363"
+      > </a
+      ><a name="2364" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2366"
+      > </a
+      ><a name="2367" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="2369"
+      > </a
+      ><a name="2370" class="Symbol"
+      >&#8594;</a
+      ><a name="2371"
+      > </a
+      ><a name="2372" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="2376"
+      >
+</a
+      ><a name="2377" href="BasicIS4.KripkeSemantics.BozicDosen.html#2377" class="Bound"
+      >&#915;</a
+      ><a name="2378"
+      > </a
+      ><a name="2379" href="BasicIS4.KripkeSemantics.BozicDosen.html#2348" class="Function Operator"
+      >&#7481;&#8873;&#8902;</a
+      ><a name="2382"
+      > </a
+      ><a name="2383" href="BasicIS4.KripkeSemantics.BozicDosen.html#2383" class="Bound"
+      >&#928;</a
+      ><a name="2384"
+      > </a
+      ><a name="2385" class="Symbol"
+      >=</a
+      ><a name="2386"
+      > </a
+      ><a name="2387" class="Symbol"
+      >&#8704;</a
+      ><a name="2388"
+      > </a
+      ><a name="2389" class="Symbol"
+      >{{</a
+      ><a name="2391" href="BasicIS4.KripkeSemantics.BozicDosen.html#2391" class="Bound"
+      >_</a
+      ><a name="2392"
+      > </a
+      ><a name="2393" class="Symbol"
+      >:</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" href="BasicIS4.KripkeSemantics.BozicDosen.html#170" class="Record"
+      >Model</a
+      ><a name="2400" class="Symbol"
+      >}}</a
+      ><a name="2402"
+      > </a
+      ><a name="2403" class="Symbol"
+      >{</a
+      ><a name="2404" href="BasicIS4.KripkeSemantics.BozicDosen.html#2404" class="Bound"
+      >w</a
+      ><a name="2405"
+      > </a
+      ><a name="2406" class="Symbol"
+      >:</a
+      ><a name="2407"
+      > </a
+      ><a name="2408" href="BasicIS4.KripkeSemantics.BozicDosen.html#216" class="Field"
+      >World</a
+      ><a name="2413" class="Symbol"
+      >}</a
+      ><a name="2414"
+      > </a
+      ><a name="2415" class="Symbol"
+      >&#8594;</a
+      ><a name="2416"
+      > </a
+      ><a name="2417" href="BasicIS4.KripkeSemantics.BozicDosen.html#2404" class="Bound"
+      >w</a
+      ><a name="2418"
+      > </a
+      ><a name="2419" href="BasicIS4.KripkeSemantics.BozicDosen.html#1573" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" href="BasicIS4.KripkeSemantics.BozicDosen.html#2377" class="Bound"
+      >&#915;</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" class="Symbol"
+      >&#8594;</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" href="BasicIS4.KripkeSemantics.BozicDosen.html#2404" class="Bound"
+      >w</a
+      ><a name="2427"
+      > </a
+      ><a name="2428" href="BasicIS4.KripkeSemantics.BozicDosen.html#1573" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" href="BasicIS4.KripkeSemantics.BozicDosen.html#2383" class="Bound"
+      >&#928;</a
+      ><a name="2432"
+      >
+
+
+</a
+      ><a name="2435" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="2466"
+      >
+
+</a
+      ><a name="2468" href="BasicIS4.KripkeSemantics.BozicDosen.html#2468" class="Function"
+      >lookup</a
+      ><a name="2474"
+      > </a
+      ><a name="2475" class="Symbol"
+      >:</a
+      ><a name="2476"
+      > </a
+      ><a name="2477" class="Symbol"
+      >&#8704;</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" class="Symbol"
+      >{</a
+      ><a name="2480" href="BasicIS4.KripkeSemantics.BozicDosen.html#2480" class="Bound"
+      >A</a
+      ><a name="2481"
+      > </a
+      ><a name="2482" href="BasicIS4.KripkeSemantics.BozicDosen.html#2482" class="Bound"
+      >&#915;</a
+      ><a name="2483" class="Symbol"
+      >}</a
+      ><a name="2484"
+      > </a
+      ><a name="2485" class="Symbol"
+      >&#8594;</a
+      ><a name="2486"
+      > </a
+      ><a name="2487" href="BasicIS4.KripkeSemantics.BozicDosen.html#2480" class="Bound"
+      >A</a
+      ><a name="2488"
+      > </a
+      ><a name="2489" href="Common.Context.html#404" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="2490"
+      > </a
+      ><a name="2491" href="BasicIS4.KripkeSemantics.BozicDosen.html#2482" class="Bound"
+      >&#915;</a
+      ><a name="2492"
+      > </a
+      ><a name="2493" class="Symbol"
+      >&#8594;</a
+      ><a name="2494"
+      > </a
+      ><a name="2495" href="BasicIS4.KripkeSemantics.BozicDosen.html#2482" class="Bound"
+      >&#915;</a
+      ><a name="2496"
+      > </a
+      ><a name="2497" href="BasicIS4.KripkeSemantics.BozicDosen.html#2254" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="2499"
+      > </a
+      ><a name="2500" href="BasicIS4.KripkeSemantics.BozicDosen.html#2480" class="Bound"
+      >A</a
+      ><a name="2501"
+      >
+</a
+      ><a name="2502" href="BasicIS4.KripkeSemantics.BozicDosen.html#2468" class="Function"
+      >lookup</a
+      ><a name="2508"
+      > </a
+      ><a name="2509" href="Common.Context.html#439" class="InductiveConstructor"
+      >top</a
+      ><a name="2512"
+      >     </a
+      ><a name="2517" class="Symbol"
+      >(</a
+      ><a name="2518" href="BasicIS4.KripkeSemantics.BozicDosen.html#2518" class="Bound"
+      >&#947;</a
+      ><a name="2519"
+      > </a
+      ><a name="2520" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2521"
+      > </a
+      ><a name="2522" href="BasicIS4.KripkeSemantics.BozicDosen.html#2522" class="Bound"
+      >a</a
+      ><a name="2523" class="Symbol"
+      >)</a
+      ><a name="2524"
+      > </a
+      ><a name="2525" class="Symbol"
+      >=</a
+      ><a name="2526"
+      > </a
+      ><a name="2527" href="BasicIS4.KripkeSemantics.BozicDosen.html#2522" class="Bound"
+      >a</a
+      ><a name="2528"
+      >
+</a
+      ><a name="2529" href="BasicIS4.KripkeSemantics.BozicDosen.html#2468" class="Function"
+      >lookup</a
+      ><a name="2535"
+      > </a
+      ><a name="2536" class="Symbol"
+      >(</a
+      ><a name="2537" href="Common.Context.html#467" class="InductiveConstructor"
+      >pop</a
+      ><a name="2540"
+      > </a
+      ><a name="2541" href="BasicIS4.KripkeSemantics.BozicDosen.html#2541" class="Bound"
+      >i</a
+      ><a name="2542" class="Symbol"
+      >)</a
+      ><a name="2543"
+      > </a
+      ><a name="2544" class="Symbol"
+      >(</a
+      ><a name="2545" href="BasicIS4.KripkeSemantics.BozicDosen.html#2545" class="Bound"
+      >&#947;</a
+      ><a name="2546"
+      > </a
+      ><a name="2547" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2548"
+      > </a
+      ><a name="2549" href="BasicIS4.KripkeSemantics.BozicDosen.html#2549" class="Bound"
+      >b</a
+      ><a name="2550" class="Symbol"
+      >)</a
+      ><a name="2551"
+      > </a
+      ><a name="2552" class="Symbol"
+      >=</a
+      ><a name="2553"
+      > </a
+      ><a name="2554" href="BasicIS4.KripkeSemantics.BozicDosen.html#2468" class="Function"
+      >lookup</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" href="BasicIS4.KripkeSemantics.BozicDosen.html#2541" class="Bound"
+      >i</a
+      ><a name="2562"
+      > </a
+      ><a name="2563" href="BasicIS4.KripkeSemantics.BozicDosen.html#2545" class="Bound"
+      >&#947;</a
+      ><a name="2564"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

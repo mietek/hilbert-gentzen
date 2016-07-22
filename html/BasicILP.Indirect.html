@@ -1,0 +1,599 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicILP.Indirect</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicILP.Indirect.html#1" class="Module"
+      >BasicILP.Indirect</a
+      ><a name="25"
+      > </a
+      ><a name="26" class="Keyword"
+      >where</a
+      ><a name="31"
+      >
+
+</a
+      ><a name="33" class="Keyword"
+      >open</a
+      ><a name="37"
+      > </a
+      ><a name="38" class="Keyword"
+      >import</a
+      ><a name="44"
+      > </a
+      ><a name="45" href="Common.Context.html#1" class="Module"
+      >Common.Context</a
+      ><a name="59"
+      > </a
+      ><a name="60" class="Keyword"
+      >public</a
+      ><a name="66"
+      >
+
+
+</a
+      ><a name="69" class="Comment"
+      >-- Propositions of intuitionistic logic of proofs, without &#8744;, &#8869;, or +.</a
+      ><a name="139"
+      >
+
+</a
+      ><a name="141" class="Keyword"
+      >infixl</a
+      ><a name="147"
+      > </a
+      ><a name="148" class="Number"
+      >7</a
+      ><a name="149"
+      > _&#8743;_
+</a
+      ><a name="154" class="Keyword"
+      >infixr</a
+      ><a name="160"
+      > </a
+      ><a name="161" class="Number"
+      >6</a
+      ><a name="162"
+      > _&#10626;_
+</a
+      ><a name="167" class="Keyword"
+      >infixr</a
+      ><a name="173"
+      > </a
+      ><a name="174" class="Number"
+      >5</a
+      ><a name="175"
+      > _&#9655;_
+</a
+      ><a name="180" class="Keyword"
+      >data</a
+      ><a name="184"
+      > </a
+      ><a name="185" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="187"
+      > </a
+      ><a name="188" class="Symbol"
+      >(</a
+      ><a name="189" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="190"
+      > </a
+      ><a name="191" class="Symbol"
+      >:</a
+      ><a name="192"
+      > </a
+      ><a name="193" class="PrimitiveType"
+      >Set</a
+      ><a name="196" class="Symbol"
+      >)</a
+      ><a name="197"
+      > </a
+      ><a name="198" class="Symbol"
+      >:</a
+      ><a name="199"
+      > </a
+      ><a name="200" class="PrimitiveType"
+      >Set</a
+      ><a name="203"
+      > </a
+      ><a name="204" class="Keyword"
+      >where</a
+      ><a name="209"
+      >
+  </a
+      ><a name="212" href="BasicILP.Indirect.html#212" class="InductiveConstructor Operator"
+      >&#945;_</a
+      ><a name="214"
+      >  </a
+      ><a name="216" class="Symbol"
+      >:</a
+      ><a name="217"
+      > </a
+      ><a name="218" href="Common.html#1004" class="Postulate"
+      >Atom</a
+      ><a name="222"
+      > </a
+      ><a name="223" class="Symbol"
+      >&#8594;</a
+      ><a name="224"
+      > </a
+      ><a name="225" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="227"
+      > </a
+      ><a name="228" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="229"
+      >
+  </a
+      ><a name="232" href="BasicILP.Indirect.html#232" class="InductiveConstructor Operator"
+      >_&#9655;_</a
+      ><a name="235"
+      > </a
+      ><a name="236" class="Symbol"
+      >:</a
+      ><a name="237"
+      > </a
+      ><a name="238" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="240"
+      > </a
+      ><a name="241" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="242"
+      > </a
+      ><a name="243" class="Symbol"
+      >&#8594;</a
+      ><a name="244"
+      > </a
+      ><a name="245" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="247"
+      > </a
+      ><a name="248" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="249"
+      > </a
+      ><a name="250" class="Symbol"
+      >&#8594;</a
+      ><a name="251"
+      > </a
+      ><a name="252" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="254"
+      > </a
+      ><a name="255" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="256"
+      >
+  </a
+      ><a name="259" href="BasicILP.Indirect.html#259" class="InductiveConstructor Operator"
+      >_&#10626;_</a
+      ><a name="262"
+      > </a
+      ><a name="263" class="Symbol"
+      >:</a
+      ><a name="264"
+      > </a
+      ><a name="265" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="266"
+      > </a
+      ><a name="267" class="Symbol"
+      >&#8594;</a
+      ><a name="268"
+      > </a
+      ><a name="269" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="271"
+      > </a
+      ><a name="272" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="273"
+      > </a
+      ><a name="274" class="Symbol"
+      >&#8594;</a
+      ><a name="275"
+      > </a
+      ><a name="276" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="278"
+      > </a
+      ><a name="279" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="280"
+      >
+  </a
+      ><a name="283" href="BasicILP.Indirect.html#283" class="InductiveConstructor Operator"
+      >_&#8743;_</a
+      ><a name="286"
+      > </a
+      ><a name="287" class="Symbol"
+      >:</a
+      ><a name="288"
+      > </a
+      ><a name="289" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="291"
+      > </a
+      ><a name="292" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="293"
+      > </a
+      ><a name="294" class="Symbol"
+      >&#8594;</a
+      ><a name="295"
+      > </a
+      ><a name="296" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="298"
+      > </a
+      ><a name="299" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="300"
+      > </a
+      ><a name="301" class="Symbol"
+      >&#8594;</a
+      ><a name="302"
+      > </a
+      ><a name="303" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="305"
+      > </a
+      ><a name="306" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="307"
+      >
+  </a
+      ><a name="310" href="BasicILP.Indirect.html#310" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="311"
+      >  </a
+      ><a name="313" class="Symbol"
+      >:</a
+      ><a name="314"
+      > </a
+      ><a name="315" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="317"
+      > </a
+      ><a name="318" href="BasicILP.Indirect.html#189" class="Bound"
+      >X</a
+      ><a name="319"
+      >
+
+</a
+      ><a name="321" class="Keyword"
+      >module</a
+      ><a name="327"
+      > </a
+      ><a name="328" href="BasicILP.Indirect.html#328" class="Module"
+      >_</a
+      ><a name="329"
+      > </a
+      ><a name="330" class="Symbol"
+      >{</a
+      ><a name="331" href="BasicILP.Indirect.html#331" class="Bound"
+      >X</a
+      ><a name="332"
+      > </a
+      ><a name="333" class="Symbol"
+      >:</a
+      ><a name="334"
+      > </a
+      ><a name="335" class="PrimitiveType"
+      >Set</a
+      ><a name="338" class="Symbol"
+      >}</a
+      ><a name="339"
+      > </a
+      ><a name="340" class="Keyword"
+      >where</a
+      ><a name="345"
+      >
+  </a
+      ><a name="348" class="Keyword"
+      >infix</a
+      ><a name="353"
+      > </a
+      ><a name="354" class="Number"
+      >5</a
+      ><a name="355"
+      > _&#10781;_
+  </a
+      ><a name="362" href="BasicILP.Indirect.html#362" class="Function Operator"
+      >_&#10781;_</a
+      ><a name="365"
+      > </a
+      ><a name="366" class="Symbol"
+      >:</a
+      ><a name="367"
+      > </a
+      ><a name="368" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="BasicILP.Indirect.html#331" class="Bound"
+      >X</a
+      ><a name="372"
+      > </a
+      ><a name="373" class="Symbol"
+      >&#8594;</a
+      ><a name="374"
+      > </a
+      ><a name="375" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="377"
+      > </a
+      ><a name="378" href="BasicILP.Indirect.html#331" class="Bound"
+      >X</a
+      ><a name="379"
+      > </a
+      ><a name="380" class="Symbol"
+      >&#8594;</a
+      ><a name="381"
+      > </a
+      ><a name="382" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="384"
+      > </a
+      ><a name="385" href="BasicILP.Indirect.html#331" class="Bound"
+      >X</a
+      ><a name="386"
+      >
+  </a
+      ><a name="389" href="BasicILP.Indirect.html#389" class="Bound"
+      >A</a
+      ><a name="390"
+      > </a
+      ><a name="391" href="BasicILP.Indirect.html#362" class="Function Operator"
+      >&#10781;</a
+      ><a name="392"
+      > </a
+      ><a name="393" href="BasicILP.Indirect.html#393" class="Bound"
+      >B</a
+      ><a name="394"
+      > </a
+      ><a name="395" class="Symbol"
+      >=</a
+      ><a name="396"
+      > </a
+      ><a name="397" class="Symbol"
+      >(</a
+      ><a name="398" href="BasicILP.Indirect.html#389" class="Bound"
+      >A</a
+      ><a name="399"
+      > </a
+      ><a name="400" href="BasicILP.Indirect.html#232" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="401"
+      > </a
+      ><a name="402" href="BasicILP.Indirect.html#393" class="Bound"
+      >B</a
+      ><a name="403" class="Symbol"
+      >)</a
+      ><a name="404"
+      > </a
+      ><a name="405" href="BasicILP.Indirect.html#283" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="406"
+      > </a
+      ><a name="407" class="Symbol"
+      >(</a
+      ><a name="408" href="BasicILP.Indirect.html#393" class="Bound"
+      >B</a
+      ><a name="409"
+      > </a
+      ><a name="410" href="BasicILP.Indirect.html#232" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="BasicILP.Indirect.html#389" class="Bound"
+      >A</a
+      ><a name="413" class="Symbol"
+      >)</a
+      ><a name="414"
+      >
+
+
+  </a
+      ><a name="419" class="Comment"
+      >-- Additional useful propositions.</a
+      ><a name="453"
+      >
+
+  </a
+      ><a name="457" href="BasicILP.Indirect.html#457" class="Function Operator"
+      >_&#10626;&#8902;_</a
+      ><a name="461"
+      > </a
+      ><a name="462" class="Symbol"
+      >:</a
+      ><a name="463"
+      > </a
+      ><a name="464" class="Symbol"
+      >&#8704;</a
+      ><a name="465"
+      > </a
+      ><a name="466" class="Symbol"
+      >{</a
+      ><a name="467" href="BasicILP.Indirect.html#467" class="Bound"
+      >n</a
+      ><a name="468" class="Symbol"
+      >}</a
+      ><a name="469"
+      > </a
+      ><a name="470" class="Symbol"
+      >&#8594;</a
+      ><a name="471"
+      > </a
+      ><a name="472" href="Common.Context.html#188" class="Datatype"
+      >VCx</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="BasicILP.Indirect.html#331" class="Bound"
+      >X</a
+      ><a name="477"
+      > </a
+      ><a name="478" href="BasicILP.Indirect.html#467" class="Bound"
+      >n</a
+      ><a name="479"
+      > </a
+      ><a name="480" class="Symbol"
+      >&#8594;</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="Common.Context.html#188" class="Datatype"
+      >VCx</a
+      ><a name="485"
+      > </a
+      ><a name="486" class="Symbol"
+      >(</a
+      ><a name="487" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="489"
+      > </a
+      ><a name="490" href="BasicILP.Indirect.html#331" class="Bound"
+      >X</a
+      ><a name="491" class="Symbol"
+      >)</a
+      ><a name="492"
+      > </a
+      ><a name="493" href="BasicILP.Indirect.html#467" class="Bound"
+      >n</a
+      ><a name="494"
+      > </a
+      ><a name="495" class="Symbol"
+      >&#8594;</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="499"
+      > </a
+      ><a name="500" class="Symbol"
+      >(</a
+      ><a name="501" href="BasicILP.Indirect.html#185" class="Datatype"
+      >Ty</a
+      ><a name="503"
+      > </a
+      ><a name="504" href="BasicILP.Indirect.html#331" class="Bound"
+      >X</a
+      ><a name="505" class="Symbol"
+      >)</a
+      ><a name="506"
+      >
+  </a
+      ><a name="509" href="Common.Context.html#228" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="510"
+      >        </a
+      ><a name="518" href="BasicILP.Indirect.html#457" class="Function Operator"
+      >&#10626;&#8902;</a
+      ><a name="520"
+      > </a
+      ><a name="521" href="Common.Context.html#228" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="522"
+      >       </a
+      ><a name="529" class="Symbol"
+      >=</a
+      ><a name="530"
+      > </a
+      ><a name="531" href="Common.Context.html#125" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="532"
+      >
+  </a
+      ><a name="535" class="Symbol"
+      >(</a
+      ><a name="536" href="BasicILP.Indirect.html#536" class="Bound"
+      >&#120009;&#120008;</a
+      ><a name="538"
+      > </a
+      ><a name="539" href="Common.Context.html#247" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="540"
+      > </a
+      ><a name="541" href="BasicILP.Indirect.html#541" class="Bound"
+      >&#120009;</a
+      ><a name="542" class="Symbol"
+      >)</a
+      ><a name="543"
+      > </a
+      ><a name="544" href="BasicILP.Indirect.html#457" class="Function Operator"
+      >&#10626;&#8902;</a
+      ><a name="546"
+      > </a
+      ><a name="547" class="Symbol"
+      >(</a
+      ><a name="548" href="BasicILP.Indirect.html#548" class="Bound"
+      >&#928;</a
+      ><a name="549"
+      > </a
+      ><a name="550" href="Common.Context.html#247" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="551"
+      > </a
+      ><a name="552" href="BasicILP.Indirect.html#552" class="Bound"
+      >A</a
+      ><a name="553" class="Symbol"
+      >)</a
+      ><a name="554"
+      > </a
+      ><a name="555" class="Symbol"
+      >=</a
+      ><a name="556"
+      > </a
+      ><a name="557" class="Symbol"
+      >(</a
+      ><a name="558" href="BasicILP.Indirect.html#536" class="Bound"
+      >&#120009;&#120008;</a
+      ><a name="560"
+      > </a
+      ><a name="561" href="BasicILP.Indirect.html#457" class="Function Operator"
+      >&#10626;&#8902;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicILP.Indirect.html#548" class="Bound"
+      >&#928;</a
+      ><a name="565" class="Symbol"
+      >)</a
+      ><a name="566"
+      > </a
+      ><a name="567" href="Common.Context.html#138" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="568"
+      > </a
+      ><a name="569" class="Symbol"
+      >(</a
+      ><a name="570" href="BasicILP.Indirect.html#541" class="Bound"
+      >&#120009;</a
+      ><a name="571"
+      > </a
+      ><a name="572" href="BasicILP.Indirect.html#259" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="BasicILP.Indirect.html#552" class="Bound"
+      >A</a
+      ><a name="575" class="Symbol"
+      >)</a
+      ><a name="576"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
