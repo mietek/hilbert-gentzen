@@ -1,0 +1,3605 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >Common.Predicate</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="Common.Predicate.html#1" class="Module"
+      >Common.Predicate</a
+      ><a name="24"
+      > </a
+      ><a name="25" class="Keyword"
+      >where</a
+      ><a name="30"
+      >
+
+</a
+      ><a name="32" class="Keyword"
+      >open</a
+      ><a name="36"
+      > </a
+      ><a name="37" class="Keyword"
+      >import</a
+      ><a name="43"
+      > </a
+      ><a name="44" href="Common.html#1" class="Module"
+      >Common</a
+      ><a name="50"
+      > </a
+      ><a name="51" class="Keyword"
+      >public</a
+      ><a name="57"
+      >
+
+</a
+      ><a name="59" class="Keyword"
+      >open</a
+      ><a name="63"
+      > </a
+      ><a name="64" class="Keyword"
+      >import</a
+      ><a name="70"
+      > </a
+      ><a name="71" href="Common.Context.html#1" class="Module"
+      >Common.Context</a
+      ><a name="85"
+      > </a
+      ><a name="86" class="Keyword"
+      >public</a
+      ><a name="92"
+      >
+  </a
+      ><a name="95" class="Keyword"
+      >using</a
+      ><a name="100"
+      > </a
+      ><a name="101" class="Symbol"
+      >(</a
+      ><a name="102" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="104"
+      > </a
+      ><a name="105" class="Symbol"
+      >;</a
+      ><a name="106"
+      > </a
+      ><a name="107" href="Common.Context.html#180" class="Datatype"
+      >VCx</a
+      ><a name="110"
+      > </a
+      ><a name="111" class="Symbol"
+      >;</a
+      ><a name="112"
+      > </a
+      ><a name="113" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="114"
+      > </a
+      ><a name="115" class="Symbol"
+      >;</a
+      ><a name="116"
+      > </a
+      ><a name="117" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >_,_</a
+      ><a name="120" class="Symbol"
+      >)</a
+      ><a name="121"
+      >
+
+
+</a
+      ><a name="124" class="Comment"
+      >-- Predicates.</a
+      ><a name="138"
+      >
+
+</a
+      ><a name="140" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="144"
+      > </a
+      ><a name="145" class="Symbol"
+      >:</a
+      ><a name="146"
+      > </a
+      ><a name="147" class="Symbol"
+      >&#8704;</a
+      ><a name="148"
+      > </a
+      ><a name="149" class="Symbol"
+      >{</a
+      ><a name="150" href="Common.Predicate.html#150" class="Bound"
+      >&#8467;</a
+      ><a name="151" class="Symbol"
+      >}</a
+      ><a name="152"
+      > </a
+      ><a name="153" class="Symbol"
+      >&#8594;</a
+      ><a name="154"
+      > </a
+      ><a name="155" class="PrimitiveType"
+      >Set</a
+      ><a name="158"
+      > </a
+      ><a name="159" href="Common.Predicate.html#150" class="Bound"
+      >&#8467;</a
+      ><a name="160"
+      > </a
+      ><a name="161" class="Symbol"
+      >&#8594;</a
+      ><a name="162"
+      > </a
+      ><a name="163" class="PrimitiveType"
+      >Set</a
+      ><a name="166"
+      > </a
+      ><a name="167" class="Symbol"
+      >(</a
+      ><a name="168" href="Agda.Primitive.html#596" class="Primitive"
+      >lsuc</a
+      ><a name="172"
+      > </a
+      ><a name="173" href="Common.Predicate.html#150" class="Bound"
+      >&#8467;</a
+      ><a name="174" class="Symbol"
+      >)</a
+      ><a name="175"
+      >
+</a
+      ><a name="176" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="180"
+      > </a
+      ><a name="181" class="Symbol"
+      >{</a
+      ><a name="182" href="Common.Predicate.html#182" class="Bound"
+      >&#8467;</a
+      ><a name="183" class="Symbol"
+      >}</a
+      ><a name="184"
+      > </a
+      ><a name="185" href="Common.Predicate.html#185" class="Bound"
+      >U</a
+      ><a name="186"
+      > </a
+      ><a name="187" class="Symbol"
+      >=</a
+      ><a name="188"
+      > </a
+      ><a name="189" href="Common.Predicate.html#185" class="Bound"
+      >U</a
+      ><a name="190"
+      > </a
+      ><a name="191" class="Symbol"
+      >&#8594;</a
+      ><a name="192"
+      > </a
+      ><a name="193" class="PrimitiveType"
+      >Set</a
+      ><a name="196"
+      > </a
+      ><a name="197" href="Common.Predicate.html#182" class="Bound"
+      >&#8467;</a
+      ><a name="198"
+      >
+
+
+</a
+      ><a name="201" class="Comment"
+      >-- Set membership.</a
+      ><a name="219"
+      >
+
+</a
+      ><a name="221" class="Keyword"
+      >module</a
+      ><a name="227"
+      > </a
+      ><a name="228" href="Common.Predicate.html#228" class="Module"
+      >_</a
+      ><a name="229"
+      > </a
+      ><a name="230" class="Symbol"
+      >{</a
+      ><a name="231" href="Common.Predicate.html#231" class="Bound"
+      >U</a
+      ><a name="232"
+      > </a
+      ><a name="233" class="Symbol"
+      >:</a
+      ><a name="234"
+      > </a
+      ><a name="235" class="PrimitiveType"
+      >Set</a
+      ><a name="238" class="Symbol"
+      >}</a
+      ><a name="239"
+      > </a
+      ><a name="240" class="Keyword"
+      >where</a
+      ><a name="245"
+      >
+  </a
+      ><a name="248" class="Keyword"
+      >infix</a
+      ><a name="253"
+      > </a
+      ><a name="254" class="Number"
+      >3</a
+      ><a name="255"
+      > _&#8712;&#7486;_
+  </a
+      ><a name="263" href="Common.Predicate.html#263" class="Function Operator"
+      >_&#8712;&#7486;_</a
+      ><a name="267"
+      > </a
+      ><a name="268" class="Symbol"
+      >:</a
+      ><a name="269"
+      > </a
+      ><a name="270" href="Common.Predicate.html#231" class="Bound"
+      >U</a
+      ><a name="271"
+      > </a
+      ><a name="272" class="Symbol"
+      >&#8594;</a
+      ><a name="273"
+      > </a
+      ><a name="274" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="278"
+      > </a
+      ><a name="279" href="Common.Predicate.html#231" class="Bound"
+      >U</a
+      ><a name="280"
+      > </a
+      ><a name="281" class="Symbol"
+      >&#8594;</a
+      ><a name="282"
+      > </a
+      ><a name="283" class="PrimitiveType"
+      >Set</a
+      ><a name="286"
+      >
+  </a
+      ><a name="289" href="Common.Predicate.html#289" class="Bound"
+      >A</a
+      ><a name="290"
+      > </a
+      ><a name="291" href="Common.Predicate.html#263" class="Function Operator"
+      >&#8712;&#7486;</a
+      ><a name="293"
+      > </a
+      ><a name="294" href="Common.Predicate.html#294" class="Bound"
+      >P</a
+      ><a name="295"
+      > </a
+      ><a name="296" class="Symbol"
+      >=</a
+      ><a name="297"
+      > </a
+      ><a name="298" href="Common.Predicate.html#294" class="Bound"
+      >P</a
+      ><a name="299"
+      > </a
+      ><a name="300" href="Common.Predicate.html#289" class="Bound"
+      >A</a
+      ><a name="301"
+      >
+
+  </a
+      ><a name="305" class="Keyword"
+      >infix</a
+      ><a name="310"
+      > </a
+      ><a name="311" class="Number"
+      >3</a
+      ><a name="312"
+      > _&#8713;&#7486;_
+  </a
+      ><a name="320" href="Common.Predicate.html#320" class="Function Operator"
+      >_&#8713;&#7486;_</a
+      ><a name="324"
+      > </a
+      ><a name="325" class="Symbol"
+      >:</a
+      ><a name="326"
+      > </a
+      ><a name="327" href="Common.Predicate.html#231" class="Bound"
+      >U</a
+      ><a name="328"
+      > </a
+      ><a name="329" class="Symbol"
+      >&#8594;</a
+      ><a name="330"
+      > </a
+      ><a name="331" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="335"
+      > </a
+      ><a name="336" href="Common.Predicate.html#231" class="Bound"
+      >U</a
+      ><a name="337"
+      > </a
+      ><a name="338" class="Symbol"
+      >&#8594;</a
+      ><a name="339"
+      > </a
+      ><a name="340" class="PrimitiveType"
+      >Set</a
+      ><a name="343"
+      >
+  </a
+      ><a name="346" href="Common.Predicate.html#346" class="Bound"
+      >A</a
+      ><a name="347"
+      > </a
+      ><a name="348" href="Common.Predicate.html#320" class="Function Operator"
+      >&#8713;&#7486;</a
+      ><a name="350"
+      > </a
+      ><a name="351" href="Common.Predicate.html#351" class="Bound"
+      >P</a
+      ><a name="352"
+      > </a
+      ><a name="353" class="Symbol"
+      >=</a
+      ><a name="354"
+      > </a
+      ><a name="355" href="Relation.Nullary.html#414" class="Function"
+      >Not</a
+      ><a name="358"
+      > </a
+      ><a name="359" class="Symbol"
+      >(</a
+      ><a name="360" href="Common.Predicate.html#346" class="Bound"
+      >A</a
+      ><a name="361"
+      > </a
+      ><a name="362" href="Common.Predicate.html#263" class="Function Operator"
+      >&#8712;&#7486;</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="Common.Predicate.html#351" class="Bound"
+      >P</a
+      ><a name="366" class="Symbol"
+      >)</a
+      ><a name="367"
+      >
+
+
+</a
+      ><a name="370" class="Comment"
+      >-- Empty set.</a
+      ><a name="383"
+      >
+
+</a
+      ><a name="385" class="Keyword"
+      >module</a
+      ><a name="391"
+      > </a
+      ><a name="392" href="Common.Predicate.html#392" class="Module"
+      >_</a
+      ><a name="393"
+      > </a
+      ><a name="394" class="Symbol"
+      >{</a
+      ><a name="395" href="Common.Predicate.html#395" class="Bound"
+      >U</a
+      ><a name="396"
+      > </a
+      ><a name="397" class="Symbol"
+      >:</a
+      ><a name="398"
+      > </a
+      ><a name="399" class="PrimitiveType"
+      >Set</a
+      ><a name="402" class="Symbol"
+      >}</a
+      ><a name="403"
+      > </a
+      ><a name="404" class="Keyword"
+      >where</a
+      ><a name="409"
+      >
+  </a
+      ><a name="412" href="Common.Predicate.html#412" class="Function"
+      >&#8960;&#7486;</a
+      ><a name="414"
+      > </a
+      ><a name="415" class="Symbol"
+      >:</a
+      ><a name="416"
+      > </a
+      ><a name="417" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="421"
+      > </a
+      ><a name="422" href="Common.Predicate.html#395" class="Bound"
+      >U</a
+      ><a name="423"
+      >
+  </a
+      ><a name="426" href="Common.Predicate.html#412" class="Function"
+      >&#8960;&#7486;</a
+      ><a name="428"
+      > </a
+      ><a name="429" class="Symbol"
+      >=</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="Function.html#1053" class="Function"
+      >const</a
+      ><a name="436"
+      > </a
+      ><a name="437" href="Data.Empty.html#243" class="Datatype"
+      >Bot</a
+      ><a name="440"
+      >
+
+  </a
+      ><a name="444" href="Common.Predicate.html#444" class="Function"
+      >bot&#8712;&#7486;</a
+      ><a name="449"
+      > </a
+      ><a name="450" class="Symbol"
+      >:</a
+      ><a name="451"
+      > </a
+      ><a name="452" class="Symbol"
+      >&#8704;</a
+      ><a name="453"
+      > </a
+      ><a name="454" class="Symbol"
+      >{</a
+      ><a name="455" href="Common.Predicate.html#455" class="Bound"
+      >A</a
+      ><a name="456" class="Symbol"
+      >}</a
+      ><a name="457"
+      > </a
+      ><a name="458" class="Symbol"
+      >&#8594;</a
+      ><a name="459"
+      > </a
+      ><a name="460" href="Common.Predicate.html#455" class="Bound"
+      >A</a
+      ><a name="461"
+      > </a
+      ><a name="462" href="Common.Predicate.html#320" class="Function Operator"
+      >&#8713;&#7486;</a
+      ><a name="464"
+      > </a
+      ><a name="465" href="Common.Predicate.html#412" class="Function"
+      >&#8960;&#7486;</a
+      ><a name="467"
+      >
+  </a
+      ><a name="470" href="Common.Predicate.html#444" class="Function"
+      >bot&#8712;&#7486;</a
+      ><a name="475"
+      > </a
+      ><a name="476" class="Symbol"
+      >=</a
+      ><a name="477"
+      > </a
+      ><a name="478" href="Data.Empty.html#348" class="Function"
+      >elimBot</a
+      ><a name="485"
+      >
+
+
+</a
+      ><a name="488" class="Comment"
+      >-- Universal set.</a
+      ><a name="505"
+      >
+
+</a
+      ><a name="507" class="Keyword"
+      >module</a
+      ><a name="513"
+      > </a
+      ><a name="514" href="Common.Predicate.html#514" class="Module"
+      >_</a
+      ><a name="515"
+      > </a
+      ><a name="516" class="Symbol"
+      >{</a
+      ><a name="517" href="Common.Predicate.html#517" class="Bound"
+      >U</a
+      ><a name="518"
+      > </a
+      ><a name="519" class="Symbol"
+      >:</a
+      ><a name="520"
+      > </a
+      ><a name="521" class="PrimitiveType"
+      >Set</a
+      ><a name="524" class="Symbol"
+      >}</a
+      ><a name="525"
+      > </a
+      ><a name="526" class="Keyword"
+      >where</a
+      ><a name="531"
+      >
+  </a
+      ><a name="534" href="Common.Predicate.html#534" class="Function"
+      >U&#7486;</a
+      ><a name="536"
+      > </a
+      ><a name="537" class="Symbol"
+      >:</a
+      ><a name="538"
+      > </a
+      ><a name="539" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="543"
+      > </a
+      ><a name="544" href="Common.Predicate.html#517" class="Bound"
+      >U</a
+      ><a name="545"
+      >
+  </a
+      ><a name="548" href="Common.Predicate.html#534" class="Function"
+      >U&#7486;</a
+      ><a name="550"
+      > </a
+      ><a name="551" class="Symbol"
+      >=</a
+      ><a name="552"
+      > </a
+      ><a name="553" href="Function.html#1053" class="Function"
+      >const</a
+      ><a name="558"
+      > </a
+      ><a name="559" href="Agda.Builtin.Unit.html#41" class="Record"
+      >Top</a
+      ><a name="562"
+      >
+
+  </a
+      ><a name="566" href="Common.Predicate.html#566" class="Function"
+      >top&#8712;&#7486;</a
+      ><a name="571"
+      > </a
+      ><a name="572" class="Symbol"
+      >:</a
+      ><a name="573"
+      > </a
+      ><a name="574" class="Symbol"
+      >&#8704;</a
+      ><a name="575"
+      > </a
+      ><a name="576" class="Symbol"
+      >{</a
+      ><a name="577" href="Common.Predicate.html#577" class="Bound"
+      >A</a
+      ><a name="578" class="Symbol"
+      >}</a
+      ><a name="579"
+      > </a
+      ><a name="580" class="Symbol"
+      >&#8594;</a
+      ><a name="581"
+      > </a
+      ><a name="582" href="Common.Predicate.html#577" class="Bound"
+      >A</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="Common.Predicate.html#263" class="Function Operator"
+      >&#8712;&#7486;</a
+      ><a name="586"
+      > </a
+      ><a name="587" href="Common.Predicate.html#534" class="Function"
+      >U&#7486;</a
+      ><a name="589"
+      >
+  </a
+      ><a name="592" href="Common.Predicate.html#566" class="Function"
+      >top&#8712;&#7486;</a
+      ><a name="597"
+      > </a
+      ><a name="598" class="Symbol"
+      >=</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="601"
+      >
+
+
+</a
+      ><a name="604" class="Comment"
+      >-- Set inclusion.</a
+      ><a name="621"
+      >
+
+</a
+      ><a name="623" class="Keyword"
+      >module</a
+      ><a name="629"
+      > </a
+      ><a name="630" href="Common.Predicate.html#630" class="Module"
+      >_</a
+      ><a name="631"
+      > </a
+      ><a name="632" class="Symbol"
+      >{</a
+      ><a name="633" href="Common.Predicate.html#633" class="Bound"
+      >U</a
+      ><a name="634"
+      > </a
+      ><a name="635" class="Symbol"
+      >:</a
+      ><a name="636"
+      > </a
+      ><a name="637" class="PrimitiveType"
+      >Set</a
+      ><a name="640" class="Symbol"
+      >}</a
+      ><a name="641"
+      > </a
+      ><a name="642" class="Keyword"
+      >where</a
+      ><a name="647"
+      >
+  </a
+      ><a name="650" class="Keyword"
+      >infix</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Number"
+      >3</a
+      ><a name="657"
+      > _&#8838;&#7486;_
+  </a
+      ><a name="665" href="Common.Predicate.html#665" class="Function Operator"
+      >_&#8838;&#7486;_</a
+      ><a name="669"
+      > </a
+      ><a name="670" class="Symbol"
+      >:</a
+      ><a name="671"
+      > </a
+      ><a name="672" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="676"
+      > </a
+      ><a name="677" href="Common.Predicate.html#633" class="Bound"
+      >U</a
+      ><a name="678"
+      > </a
+      ><a name="679" class="Symbol"
+      >&#8594;</a
+      ><a name="680"
+      > </a
+      ><a name="681" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="685"
+      > </a
+      ><a name="686" href="Common.Predicate.html#633" class="Bound"
+      >U</a
+      ><a name="687"
+      > </a
+      ><a name="688" class="Symbol"
+      >&#8594;</a
+      ><a name="689"
+      > </a
+      ><a name="690" class="PrimitiveType"
+      >Set</a
+      ><a name="693"
+      >
+  </a
+      ><a name="696" href="Common.Predicate.html#696" class="Bound"
+      >P</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="Common.Predicate.html#701" class="Bound"
+      >Q</a
+      ><a name="702"
+      > </a
+      ><a name="703" class="Symbol"
+      >=</a
+      ><a name="704"
+      > </a
+      ><a name="705" class="Symbol"
+      >&#8704;</a
+      ><a name="706"
+      > </a
+      ><a name="707" class="Symbol"
+      >{</a
+      ><a name="708" href="Common.Predicate.html#708" class="Bound"
+      >A</a
+      ><a name="709"
+      > </a
+      ><a name="710" class="Symbol"
+      >:</a
+      ><a name="711"
+      > </a
+      ><a name="712" href="Common.Predicate.html#633" class="Bound"
+      >U</a
+      ><a name="713" class="Symbol"
+      >}</a
+      ><a name="714"
+      > </a
+      ><a name="715" class="Symbol"
+      >&#8594;</a
+      ><a name="716"
+      > </a
+      ><a name="717" href="Common.Predicate.html#708" class="Bound"
+      >A</a
+      ><a name="718"
+      > </a
+      ><a name="719" href="Common.Predicate.html#263" class="Function Operator"
+      >&#8712;&#7486;</a
+      ><a name="721"
+      > </a
+      ><a name="722" href="Common.Predicate.html#696" class="Bound"
+      >P</a
+      ><a name="723"
+      > </a
+      ><a name="724" class="Symbol"
+      >&#8594;</a
+      ><a name="725"
+      > </a
+      ><a name="726" href="Common.Predicate.html#708" class="Bound"
+      >A</a
+      ><a name="727"
+      > </a
+      ><a name="728" href="Common.Predicate.html#263" class="Function Operator"
+      >&#8712;&#7486;</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="Common.Predicate.html#701" class="Bound"
+      >Q</a
+      ><a name="732"
+      >
+
+  </a
+      ><a name="736" class="Keyword"
+      >infix</a
+      ><a name="741"
+      > </a
+      ><a name="742" class="Number"
+      >3</a
+      ><a name="743"
+      > _&#8840;&#7486;_
+  </a
+      ><a name="751" href="Common.Predicate.html#751" class="Function Operator"
+      >_&#8840;&#7486;_</a
+      ><a name="755"
+      > </a
+      ><a name="756" class="Symbol"
+      >:</a
+      ><a name="757"
+      > </a
+      ><a name="758" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="762"
+      > </a
+      ><a name="763" href="Common.Predicate.html#633" class="Bound"
+      >U</a
+      ><a name="764"
+      > </a
+      ><a name="765" class="Symbol"
+      >&#8594;</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="Common.Predicate.html#633" class="Bound"
+      >U</a
+      ><a name="773"
+      > </a
+      ><a name="774" class="Symbol"
+      >&#8594;</a
+      ><a name="775"
+      > </a
+      ><a name="776" class="PrimitiveType"
+      >Set</a
+      ><a name="779"
+      >
+  </a
+      ><a name="782" href="Common.Predicate.html#782" class="Bound"
+      >P</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="Common.Predicate.html#751" class="Function Operator"
+      >&#8840;&#7486;</a
+      ><a name="786"
+      > </a
+      ><a name="787" href="Common.Predicate.html#787" class="Bound"
+      >Q</a
+      ><a name="788"
+      > </a
+      ><a name="789" class="Symbol"
+      >=</a
+      ><a name="790"
+      > </a
+      ><a name="791" href="Relation.Nullary.html#414" class="Function"
+      >Not</a
+      ><a name="794"
+      > </a
+      ><a name="795" class="Symbol"
+      >(</a
+      ><a name="796" href="Common.Predicate.html#782" class="Bound"
+      >P</a
+      ><a name="797"
+      > </a
+      ><a name="798" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="800"
+      > </a
+      ><a name="801" href="Common.Predicate.html#787" class="Bound"
+      >Q</a
+      ><a name="802" class="Symbol"
+      >)</a
+      ><a name="803"
+      >
+
+  </a
+      ><a name="807" href="Common.Predicate.html#807" class="Function"
+      >refl&#8838;&#7486;</a
+      ><a name="813"
+      > </a
+      ><a name="814" class="Symbol"
+      >:</a
+      ><a name="815"
+      > </a
+      ><a name="816" class="Symbol"
+      >&#8704;</a
+      ><a name="817"
+      > </a
+      ><a name="818" class="Symbol"
+      >{</a
+      ><a name="819" href="Common.Predicate.html#819" class="Bound"
+      >P</a
+      ><a name="820" class="Symbol"
+      >}</a
+      ><a name="821"
+      > </a
+      ><a name="822" class="Symbol"
+      >&#8594;</a
+      ><a name="823"
+      > </a
+      ><a name="824" href="Common.Predicate.html#819" class="Bound"
+      >P</a
+      ><a name="825"
+      > </a
+      ><a name="826" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="Common.Predicate.html#819" class="Bound"
+      >P</a
+      ><a name="830"
+      >
+  </a
+      ><a name="833" href="Common.Predicate.html#807" class="Function"
+      >refl&#8838;&#7486;</a
+      ><a name="839"
+      > </a
+      ><a name="840" class="Symbol"
+      >=</a
+      ><a name="841"
+      > </a
+      ><a name="842" href="Function.html#1012" class="Function"
+      >id</a
+      ><a name="844"
+      >
+
+  </a
+      ><a name="848" href="Common.Predicate.html#848" class="Function"
+      >trans&#8838;&#7486;</a
+      ><a name="855"
+      > </a
+      ><a name="856" class="Symbol"
+      >:</a
+      ><a name="857"
+      > </a
+      ><a name="858" class="Symbol"
+      >&#8704;</a
+      ><a name="859"
+      > </a
+      ><a name="860" class="Symbol"
+      >{</a
+      ><a name="861" href="Common.Predicate.html#861" class="Bound"
+      >P</a
+      ><a name="862"
+      > </a
+      ><a name="863" href="Common.Predicate.html#863" class="Bound"
+      >Q</a
+      ><a name="864"
+      > </a
+      ><a name="865" href="Common.Predicate.html#865" class="Bound"
+      >R</a
+      ><a name="866" class="Symbol"
+      >}</a
+      ><a name="867"
+      > </a
+      ><a name="868" class="Symbol"
+      >&#8594;</a
+      ><a name="869"
+      > </a
+      ><a name="870" href="Common.Predicate.html#861" class="Bound"
+      >P</a
+      ><a name="871"
+      > </a
+      ><a name="872" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="874"
+      > </a
+      ><a name="875" href="Common.Predicate.html#863" class="Bound"
+      >Q</a
+      ><a name="876"
+      > </a
+      ><a name="877" class="Symbol"
+      >&#8594;</a
+      ><a name="878"
+      > </a
+      ><a name="879" href="Common.Predicate.html#863" class="Bound"
+      >Q</a
+      ><a name="880"
+      > </a
+      ><a name="881" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="Common.Predicate.html#865" class="Bound"
+      >R</a
+      ><a name="885"
+      > </a
+      ><a name="886" class="Symbol"
+      >&#8594;</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="Common.Predicate.html#861" class="Bound"
+      >P</a
+      ><a name="889"
+      > </a
+      ><a name="890" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="Common.Predicate.html#865" class="Bound"
+      >R</a
+      ><a name="894"
+      >
+  </a
+      ><a name="897" href="Common.Predicate.html#848" class="Function"
+      >trans&#8838;&#7486;</a
+      ><a name="904"
+      > </a
+      ><a name="905" href="Common.Predicate.html#905" class="Bound"
+      >&#951;</a
+      ><a name="906"
+      > </a
+      ><a name="907" href="Common.Predicate.html#907" class="Bound"
+      >&#951;&#8242;</a
+      ><a name="909"
+      > </a
+      ><a name="910" class="Symbol"
+      >=</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="Common.Predicate.html#907" class="Bound"
+      >&#951;&#8242;</a
+      ><a name="914"
+      > </a
+      ><a name="915" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="916"
+      > </a
+      ><a name="917" href="Common.Predicate.html#905" class="Bound"
+      >&#951;</a
+      ><a name="918"
+      >
+
+  </a
+      ><a name="922" href="Common.Predicate.html#922" class="Function"
+      >bot&#8838;&#7486;</a
+      ><a name="927"
+      > </a
+      ><a name="928" class="Symbol"
+      >:</a
+      ><a name="929"
+      > </a
+      ><a name="930" class="Symbol"
+      >&#8704;</a
+      ><a name="931"
+      > </a
+      ><a name="932" class="Symbol"
+      >{</a
+      ><a name="933" href="Common.Predicate.html#933" class="Bound"
+      >P</a
+      ><a name="934" class="Symbol"
+      >}</a
+      ><a name="935"
+      > </a
+      ><a name="936" class="Symbol"
+      >&#8594;</a
+      ><a name="937"
+      > </a
+      ><a name="938" href="Common.Predicate.html#412" class="Function"
+      >&#8960;&#7486;</a
+      ><a name="940"
+      > </a
+      ><a name="941" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="943"
+      > </a
+      ><a name="944" href="Common.Predicate.html#933" class="Bound"
+      >P</a
+      ><a name="945"
+      >
+  </a
+      ><a name="948" href="Common.Predicate.html#922" class="Function"
+      >bot&#8838;&#7486;</a
+      ><a name="953"
+      > </a
+      ><a name="954" class="Symbol"
+      >=</a
+      ><a name="955"
+      > </a
+      ><a name="956" href="Data.Empty.html#348" class="Function"
+      >elimBot</a
+      ><a name="963"
+      >
+
+  </a
+      ><a name="967" href="Common.Predicate.html#967" class="Function"
+      >top&#8838;&#7486;</a
+      ><a name="972"
+      > </a
+      ><a name="973" class="Symbol"
+      >:</a
+      ><a name="974"
+      > </a
+      ><a name="975" class="Symbol"
+      >&#8704;</a
+      ><a name="976"
+      > </a
+      ><a name="977" class="Symbol"
+      >{</a
+      ><a name="978" href="Common.Predicate.html#978" class="Bound"
+      >P</a
+      ><a name="979" class="Symbol"
+      >}</a
+      ><a name="980"
+      > </a
+      ><a name="981" class="Symbol"
+      >&#8594;</a
+      ><a name="982"
+      > </a
+      ><a name="983" href="Common.Predicate.html#978" class="Bound"
+      >P</a
+      ><a name="984"
+      > </a
+      ><a name="985" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="987"
+      > </a
+      ><a name="988" href="Common.Predicate.html#534" class="Function"
+      >U&#7486;</a
+      ><a name="990"
+      >
+  </a
+      ><a name="993" href="Common.Predicate.html#967" class="Function"
+      >top&#8838;&#7486;</a
+      ><a name="998"
+      > </a
+      ><a name="999" class="Symbol"
+      >=</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" href="Function.html#1053" class="Function"
+      >const</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1008"
+      >
+
+
+</a
+      ><a name="1011" class="Comment"
+      >-- Set equality.</a
+      ><a name="1027"
+      >
+
+</a
+      ><a name="1029" class="Keyword"
+      >module</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" href="Common.Predicate.html#1036" class="Module"
+      >_</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" class="Symbol"
+      >{</a
+      ><a name="1039" href="Common.Predicate.html#1039" class="Bound"
+      >U</a
+      ><a name="1040"
+      > </a
+      ><a name="1041" class="Symbol"
+      >:</a
+      ><a name="1042"
+      > </a
+      ><a name="1043" class="PrimitiveType"
+      >Set</a
+      ><a name="1046" class="Symbol"
+      >}</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" class="Keyword"
+      >where</a
+      ><a name="1053"
+      >
+  </a
+      ><a name="1056" class="Keyword"
+      >infix</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" class="Number"
+      >3</a
+      ><a name="1063"
+      > _&#10967;&#7486;_
+  </a
+      ><a name="1071" href="Common.Predicate.html#1071" class="Function Operator"
+      >_&#10967;&#7486;_</a
+      ><a name="1075"
+      > </a
+      ><a name="1076" class="Symbol"
+      >:</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="Common.Predicate.html#1039" class="Bound"
+      >U</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" class="Symbol"
+      >&#8594;</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" href="Common.Predicate.html#1039" class="Bound"
+      >U</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" class="Symbol"
+      >&#8594;</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" class="PrimitiveType"
+      >Set</a
+      ><a name="1099"
+      >
+  </a
+      ><a name="1102" href="Common.Predicate.html#1102" class="Bound"
+      >P</a
+      ><a name="1103"
+      > </a
+      ><a name="1104" href="Common.Predicate.html#1071" class="Function Operator"
+      >&#10967;&#7486;</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="Common.Predicate.html#1107" class="Bound"
+      >Q</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" class="Symbol"
+      >=</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" class="Symbol"
+      >(</a
+      ><a name="1112" href="Common.Predicate.html#1102" class="Bound"
+      >P</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" href="Common.Predicate.html#1107" class="Bound"
+      >Q</a
+      ><a name="1118" class="Symbol"
+      >)</a
+      ><a name="1119"
+      > </a
+      ><a name="1120" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1121"
+      > </a
+      ><a name="1122" class="Symbol"
+      >(</a
+      ><a name="1123" href="Common.Predicate.html#1107" class="Bound"
+      >Q</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="Common.Predicate.html#1102" class="Bound"
+      >P</a
+      ><a name="1129" class="Symbol"
+      >)</a
+      ><a name="1130"
+      >
+
+  </a
+      ><a name="1134" href="Common.Predicate.html#1134" class="Function"
+      >refl&#10967;&#7486;</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" class="Symbol"
+      >:</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" class="Symbol"
+      >&#8704;</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" class="Symbol"
+      >{</a
+      ><a name="1146" href="Common.Predicate.html#1146" class="Bound"
+      >P</a
+      ><a name="1147" class="Symbol"
+      >}</a
+      ><a name="1148"
+      > </a
+      ><a name="1149" class="Symbol"
+      >&#8594;</a
+      ><a name="1150"
+      > </a
+      ><a name="1151" href="Common.Predicate.html#1146" class="Bound"
+      >P</a
+      ><a name="1152"
+      > </a
+      ><a name="1153" href="Common.Predicate.html#1071" class="Function Operator"
+      >&#10967;&#7486;</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="Common.Predicate.html#1146" class="Bound"
+      >P</a
+      ><a name="1157"
+      >
+  </a
+      ><a name="1160" href="Common.Predicate.html#1134" class="Function"
+      >refl&#10967;&#7486;</a
+      ><a name="1166"
+      > </a
+      ><a name="1167" class="Symbol"
+      >{</a
+      ><a name="1168" href="Common.Predicate.html#1168" class="Bound"
+      >P</a
+      ><a name="1169" class="Symbol"
+      >}</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" class="Symbol"
+      >=</a
+      ><a name="1172"
+      > </a
+      ><a name="1173" href="Common.Predicate.html#807" class="Function"
+      >refl&#8838;&#7486;</a
+      ><a name="1179"
+      > </a
+      ><a name="1180" class="Symbol"
+      >{</a
+      ><a name="1181" class="Argument"
+      >P</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" class="Symbol"
+      >=</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" href="Common.Predicate.html#1168" class="Bound"
+      >P</a
+      ><a name="1186" class="Symbol"
+      >}</a
+      ><a name="1187"
+      > </a
+      ><a name="1188" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" href="Common.Predicate.html#807" class="Function"
+      >refl&#8838;&#7486;</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" class="Symbol"
+      >{</a
+      ><a name="1198" class="Argument"
+      >P</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" class="Symbol"
+      >=</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" href="Common.Predicate.html#1168" class="Bound"
+      >P</a
+      ><a name="1203" class="Symbol"
+      >}</a
+      ><a name="1204"
+      >
+
+  </a
+      ><a name="1208" href="Common.Predicate.html#1208" class="Function"
+      >trans&#10967;&#7486;</a
+      ><a name="1215"
+      > </a
+      ><a name="1216" class="Symbol"
+      >:</a
+      ><a name="1217"
+      > </a
+      ><a name="1218" class="Symbol"
+      >&#8704;</a
+      ><a name="1219"
+      > </a
+      ><a name="1220" class="Symbol"
+      >{</a
+      ><a name="1221" href="Common.Predicate.html#1221" class="Bound"
+      >P</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" href="Common.Predicate.html#1223" class="Bound"
+      >Q</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" href="Common.Predicate.html#1225" class="Bound"
+      >R</a
+      ><a name="1226" class="Symbol"
+      >}</a
+      ><a name="1227"
+      > </a
+      ><a name="1228" class="Symbol"
+      >&#8594;</a
+      ><a name="1229"
+      > </a
+      ><a name="1230" href="Common.Predicate.html#1221" class="Bound"
+      >P</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" href="Common.Predicate.html#1071" class="Function Operator"
+      >&#10967;&#7486;</a
+      ><a name="1234"
+      > </a
+      ><a name="1235" href="Common.Predicate.html#1223" class="Bound"
+      >Q</a
+      ><a name="1236"
+      > </a
+      ><a name="1237" class="Symbol"
+      >&#8594;</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" href="Common.Predicate.html#1223" class="Bound"
+      >Q</a
+      ><a name="1240"
+      > </a
+      ><a name="1241" href="Common.Predicate.html#1071" class="Function Operator"
+      >&#10967;&#7486;</a
+      ><a name="1243"
+      > </a
+      ><a name="1244" href="Common.Predicate.html#1225" class="Bound"
+      >R</a
+      ><a name="1245"
+      > </a
+      ><a name="1246" class="Symbol"
+      >&#8594;</a
+      ><a name="1247"
+      > </a
+      ><a name="1248" href="Common.Predicate.html#1221" class="Bound"
+      >P</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" href="Common.Predicate.html#1071" class="Function Operator"
+      >&#10967;&#7486;</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" href="Common.Predicate.html#1225" class="Bound"
+      >R</a
+      ><a name="1254"
+      >
+  </a
+      ><a name="1257" href="Common.Predicate.html#1208" class="Function"
+      >trans&#10967;&#7486;</a
+      ><a name="1264"
+      > </a
+      ><a name="1265" class="Symbol"
+      >{</a
+      ><a name="1266" href="Common.Predicate.html#1266" class="Bound"
+      >P</a
+      ><a name="1267" class="Symbol"
+      >}</a
+      ><a name="1268"
+      > </a
+      ><a name="1269" class="Symbol"
+      >(</a
+      ><a name="1270" href="Common.Predicate.html#1270" class="Bound"
+      >&#951;</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1273"
+      > </a
+      ><a name="1274" href="Common.Predicate.html#1274" class="Bound"
+      >&#956;</a
+      ><a name="1275" class="Symbol"
+      >)</a
+      ><a name="1276"
+      > </a
+      ><a name="1277" class="Symbol"
+      >(</a
+      ><a name="1278" href="Common.Predicate.html#1278" class="Bound"
+      >&#951;&#8242;</a
+      ><a name="1280"
+      > </a
+      ><a name="1281" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1282"
+      > </a
+      ><a name="1283" href="Common.Predicate.html#1283" class="Bound"
+      >&#956;&#8242;</a
+      ><a name="1285" class="Symbol"
+      >)</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" class="Symbol"
+      >=</a
+      ><a name="1288"
+      > </a
+      ><a name="1289" href="Common.Predicate.html#848" class="Function"
+      >trans&#8838;&#7486;</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" class="Symbol"
+      >{</a
+      ><a name="1298" class="Argument"
+      >P</a
+      ><a name="1299"
+      > </a
+      ><a name="1300" class="Symbol"
+      >=</a
+      ><a name="1301"
+      > </a
+      ><a name="1302" href="Common.Predicate.html#1266" class="Bound"
+      >P</a
+      ><a name="1303" class="Symbol"
+      >}</a
+      ><a name="1304"
+      > </a
+      ><a name="1305" href="Common.Predicate.html#1270" class="Bound"
+      >&#951;</a
+      ><a name="1306"
+      > </a
+      ><a name="1307" href="Common.Predicate.html#1278" class="Bound"
+      >&#951;&#8242;</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1311"
+      > </a
+      ><a name="1312" href="Common.Predicate.html#848" class="Function"
+      >trans&#8838;&#7486;</a
+      ><a name="1319"
+      > </a
+      ><a name="1320" class="Symbol"
+      >{</a
+      ><a name="1321" class="Argument"
+      >R</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" class="Symbol"
+      >=</a
+      ><a name="1324"
+      > </a
+      ><a name="1325" href="Common.Predicate.html#1266" class="Bound"
+      >P</a
+      ><a name="1326" class="Symbol"
+      >}</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" href="Common.Predicate.html#1283" class="Bound"
+      >&#956;&#8242;</a
+      ><a name="1330"
+      > </a
+      ><a name="1331" href="Common.Predicate.html#1274" class="Bound"
+      >&#956;</a
+      ><a name="1332"
+      >
+
+  </a
+      ><a name="1336" href="Common.Predicate.html#1336" class="Function"
+      >sym&#10967;&#7486;</a
+      ><a name="1341"
+      > </a
+      ><a name="1342" class="Symbol"
+      >:</a
+      ><a name="1343"
+      > </a
+      ><a name="1344" class="Symbol"
+      >&#8704;</a
+      ><a name="1345"
+      > </a
+      ><a name="1346" class="Symbol"
+      >{</a
+      ><a name="1347" href="Common.Predicate.html#1347" class="Bound"
+      >P</a
+      ><a name="1348"
+      > </a
+      ><a name="1349" href="Common.Predicate.html#1349" class="Bound"
+      >Q</a
+      ><a name="1350" class="Symbol"
+      >}</a
+      ><a name="1351"
+      > </a
+      ><a name="1352" class="Symbol"
+      >&#8594;</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" href="Common.Predicate.html#1347" class="Bound"
+      >P</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" href="Common.Predicate.html#1071" class="Function Operator"
+      >&#10967;&#7486;</a
+      ><a name="1358"
+      > </a
+      ><a name="1359" href="Common.Predicate.html#1349" class="Bound"
+      >Q</a
+      ><a name="1360"
+      > </a
+      ><a name="1361" class="Symbol"
+      >&#8594;</a
+      ><a name="1362"
+      > </a
+      ><a name="1363" href="Common.Predicate.html#1349" class="Bound"
+      >Q</a
+      ><a name="1364"
+      > </a
+      ><a name="1365" href="Common.Predicate.html#1071" class="Function Operator"
+      >&#10967;&#7486;</a
+      ><a name="1367"
+      > </a
+      ><a name="1368" href="Common.Predicate.html#1347" class="Bound"
+      >P</a
+      ><a name="1369"
+      >
+  </a
+      ><a name="1372" href="Common.Predicate.html#1336" class="Function"
+      >sym&#10967;&#7486;</a
+      ><a name="1377"
+      > </a
+      ><a name="1378" class="Symbol"
+      >(</a
+      ><a name="1379" href="Common.Predicate.html#1379" class="Bound"
+      >&#951;</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="Common.Predicate.html#1383" class="Bound"
+      >&#956;</a
+      ><a name="1384" class="Symbol"
+      >)</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" class="Symbol"
+      >=</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" class="Symbol"
+      >(</a
+      ><a name="1389" href="Common.Predicate.html#1383" class="Bound"
+      >&#956;</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="Common.Predicate.html#1379" class="Bound"
+      >&#951;</a
+      ><a name="1394" class="Symbol"
+      >)</a
+      ><a name="1395"
+      >
+
+  </a
+      ><a name="1399" href="Common.Predicate.html#1399" class="Function"
+      >antisym&#8838;&#7486;</a
+      ><a name="1408"
+      > </a
+      ><a name="1409" class="Symbol"
+      >:</a
+      ><a name="1410"
+      > </a
+      ><a name="1411" class="Symbol"
+      >&#8704;</a
+      ><a name="1412"
+      > </a
+      ><a name="1413" class="Symbol"
+      >{</a
+      ><a name="1414" href="Common.Predicate.html#1414" class="Bound"
+      >P</a
+      ><a name="1415"
+      > </a
+      ><a name="1416" href="Common.Predicate.html#1416" class="Bound"
+      >Q</a
+      ><a name="1417" class="Symbol"
+      >}</a
+      ><a name="1418"
+      > </a
+      ><a name="1419" class="Symbol"
+      >&#8594;</a
+      ><a name="1420"
+      > </a
+      ><a name="1421" class="Symbol"
+      >((</a
+      ><a name="1423" href="Common.Predicate.html#1414" class="Bound"
+      >P</a
+      ><a name="1424"
+      > </a
+      ><a name="1425" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="1427"
+      > </a
+      ><a name="1428" href="Common.Predicate.html#1416" class="Bound"
+      >Q</a
+      ><a name="1429" class="Symbol"
+      >)</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1432"
+      > </a
+      ><a name="1433" class="Symbol"
+      >(</a
+      ><a name="1434" href="Common.Predicate.html#1416" class="Bound"
+      >Q</a
+      ><a name="1435"
+      > </a
+      ><a name="1436" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" href="Common.Predicate.html#1414" class="Bound"
+      >P</a
+      ><a name="1440" class="Symbol"
+      >))</a
+      ><a name="1442"
+      > </a
+      ><a name="1443" href="Agda.Builtin.Equality.html#55" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1444"
+      > </a
+      ><a name="1445" class="Symbol"
+      >(</a
+      ><a name="1446" href="Common.Predicate.html#1414" class="Bound"
+      >P</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" href="Common.Predicate.html#1071" class="Function Operator"
+      >&#10967;&#7486;</a
+      ><a name="1450"
+      > </a
+      ><a name="1451" href="Common.Predicate.html#1416" class="Bound"
+      >Q</a
+      ><a name="1452" class="Symbol"
+      >)</a
+      ><a name="1453"
+      >
+  </a
+      ><a name="1456" href="Common.Predicate.html#1399" class="Function"
+      >antisym&#8838;&#7486;</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" class="Symbol"
+      >=</a
+      ><a name="1467"
+      > </a
+      ><a name="1468" href="Agda.Builtin.Equality.html#112" class="InductiveConstructor"
+      >refl</a
+      ><a name="1472"
+      >
+
+
+</a
+      ><a name="1475" class="Comment"
+      >-- Predicate-based necessity.</a
+      ><a name="1504"
+      >
+
+</a
+      ><a name="1506" class="Keyword"
+      >module</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" href="Common.Predicate.html#1513" class="Module"
+      >_</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" class="Symbol"
+      >{</a
+      ><a name="1516" href="Common.Predicate.html#1516" class="Bound"
+      >U</a
+      ><a name="1517"
+      > </a
+      ><a name="1518" class="Symbol"
+      >:</a
+      ><a name="1519"
+      > </a
+      ><a name="1520" class="PrimitiveType"
+      >Set</a
+      ><a name="1523" class="Symbol"
+      >}</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" class="Keyword"
+      >where</a
+      ><a name="1530"
+      >
+  </a
+      ><a name="1533" class="Keyword"
+      >data</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" class="Symbol"
+      >(</a
+      ><a name="1543" href="Common.Predicate.html#1543" class="Bound"
+      >P</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" class="Symbol"
+      >:</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" href="Common.Predicate.html#1516" class="Bound"
+      >U</a
+      ><a name="1553" class="Symbol"
+      >)</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" class="Symbol"
+      >:</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="1561"
+      > </a
+      ><a name="1562" class="Symbol"
+      >(</a
+      ><a name="1563" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" href="Common.Predicate.html#1516" class="Bound"
+      >U</a
+      ><a name="1567" class="Symbol"
+      >)</a
+      ><a name="1568"
+      > </a
+      ><a name="1569" class="Keyword"
+      >where</a
+      ><a name="1574"
+      >
+    </a
+      ><a name="1579" href="Common.Predicate.html#1579" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1580"
+      >   </a
+      ><a name="1583" class="Symbol"
+      >:</a
+      ><a name="1584"
+      > </a
+      ><a name="1585" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1588"
+      > </a
+      ><a name="1589" href="Common.Predicate.html#1543" class="Bound"
+      >P</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1592"
+      >
+    </a
+      ><a name="1597" href="Common.Predicate.html#1597" class="InductiveConstructor Operator"
+      >_,_</a
+      ><a name="1600"
+      > </a
+      ><a name="1601" class="Symbol"
+      >:</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" class="Symbol"
+      >&#8704;</a
+      ><a name="1604"
+      > </a
+      ><a name="1605" class="Symbol"
+      >{</a
+      ><a name="1606" href="Common.Predicate.html#1606" class="Bound"
+      >A</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" href="Common.Predicate.html#1608" class="Bound"
+      >&#915;</a
+      ><a name="1609" class="Symbol"
+      >}</a
+      ><a name="1610"
+      > </a
+      ><a name="1611" class="Symbol"
+      >&#8594;</a
+      ><a name="1612"
+      > </a
+      ><a name="1613" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1616"
+      > </a
+      ><a name="1617" href="Common.Predicate.html#1543" class="Bound"
+      >P</a
+      ><a name="1618"
+      > </a
+      ><a name="1619" href="Common.Predicate.html#1608" class="Bound"
+      >&#915;</a
+      ><a name="1620"
+      > </a
+      ><a name="1621" class="Symbol"
+      >&#8594;</a
+      ><a name="1622"
+      > </a
+      ><a name="1623" href="Common.Predicate.html#1543" class="Bound"
+      >P</a
+      ><a name="1624"
+      > </a
+      ><a name="1625" href="Common.Predicate.html#1606" class="Bound"
+      >A</a
+      ><a name="1626"
+      > </a
+      ><a name="1627" class="Symbol"
+      >&#8594;</a
+      ><a name="1628"
+      > </a
+      ><a name="1629" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1632"
+      > </a
+      ><a name="1633" href="Common.Predicate.html#1543" class="Bound"
+      >P</a
+      ><a name="1634"
+      > </a
+      ><a name="1635" class="Symbol"
+      >(</a
+      ><a name="1636" href="Common.Predicate.html#1608" class="Bound"
+      >&#915;</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" href="Common.Predicate.html#1606" class="Bound"
+      >A</a
+      ><a name="1641" class="Symbol"
+      >)</a
+      ><a name="1642"
+      >
+
+  </a
+      ><a name="1646" href="Common.Predicate.html#1646" class="Function"
+      >fill</a
+      ><a name="1650"
+      > </a
+      ><a name="1651" class="Symbol"
+      >:</a
+      ><a name="1652"
+      > </a
+      ><a name="1653" class="Symbol"
+      >&#8704;</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" class="Symbol"
+      >{</a
+      ><a name="1656" href="Common.Predicate.html#1656" class="Bound"
+      >&#915;</a
+      ><a name="1657"
+      > </a
+      ><a name="1658" href="Common.Predicate.html#1658" class="Bound"
+      >P</a
+      ><a name="1659" class="Symbol"
+      >}</a
+      ><a name="1660"
+      > </a
+      ><a name="1661" class="Symbol"
+      >&#8594;</a
+      ><a name="1662"
+      > </a
+      ><a name="1663" class="Symbol"
+      >(&#8704;</a
+      ><a name="1665"
+      > </a
+      ><a name="1666" href="Common.Predicate.html#1666" class="Bound"
+      >A</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" class="Symbol"
+      >&#8594;</a
+      ><a name="1669"
+      > </a
+      ><a name="1670" href="Common.Predicate.html#1658" class="Bound"
+      >P</a
+      ><a name="1671"
+      > </a
+      ><a name="1672" href="Common.Predicate.html#1666" class="Bound"
+      >A</a
+      ><a name="1673" class="Symbol"
+      >)</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" class="Symbol"
+      >&#8594;</a
+      ><a name="1676"
+      > </a
+      ><a name="1677" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1680"
+      > </a
+      ><a name="1681" href="Common.Predicate.html#1658" class="Bound"
+      >P</a
+      ><a name="1682"
+      > </a
+      ><a name="1683" href="Common.Predicate.html#1656" class="Bound"
+      >&#915;</a
+      ><a name="1684"
+      >
+  </a
+      ><a name="1687" href="Common.Predicate.html#1646" class="Function"
+      >fill</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" class="Symbol"
+      >{</a
+      ><a name="1693" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1694" class="Symbol"
+      >}</a
+      ><a name="1695"
+      >     </a
+      ><a name="1700" href="Common.Predicate.html#1700" class="Bound"
+      >f</a
+      ><a name="1701"
+      > </a
+      ><a name="1702" class="Symbol"
+      >=</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" href="Common.Predicate.html#1579" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1705"
+      >
+  </a
+      ><a name="1708" href="Common.Predicate.html#1646" class="Function"
+      >fill</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" class="Symbol"
+      >{</a
+      ><a name="1714" href="Common.Predicate.html#1714" class="Bound"
+      >&#915;</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" href="Common.Predicate.html#1718" class="Bound"
+      >A</a
+      ><a name="1719" class="Symbol"
+      >}</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" href="Common.Predicate.html#1721" class="Bound"
+      >f</a
+      ><a name="1722"
+      > </a
+      ><a name="1723" class="Symbol"
+      >=</a
+      ><a name="1724"
+      > </a
+      ><a name="1725" href="Common.Predicate.html#1646" class="Function"
+      >fill</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="Common.Predicate.html#1721" class="Bound"
+      >f</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" href="Common.Predicate.html#1597" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="Common.Predicate.html#1721" class="Bound"
+      >f</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="Common.Predicate.html#1718" class="Bound"
+      >A</a
+      ><a name="1737"
+      >
+
+  </a
+      ><a name="1741" href="Common.Predicate.html#1741" class="Function"
+      >mapAll</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" class="Symbol"
+      >:</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" class="Symbol"
+      >&#8704;</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" class="Symbol"
+      >{</a
+      ><a name="1753" href="Common.Predicate.html#1753" class="Bound"
+      >P</a
+      ><a name="1754"
+      > </a
+      ><a name="1755" href="Common.Predicate.html#1755" class="Bound"
+      >Q</a
+      ><a name="1756" class="Symbol"
+      >}</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" class="Symbol"
+      >&#8594;</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" href="Common.Predicate.html#1753" class="Bound"
+      >P</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="Common.Predicate.html#1755" class="Bound"
+      >Q</a
+      ><a name="1766"
+      > </a
+      ><a name="1767" class="Symbol"
+      >&#8594;</a
+      ><a name="1768"
+      > </a
+      ><a name="1769" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" href="Common.Predicate.html#1753" class="Bound"
+      >P</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1781"
+      > </a
+      ><a name="1782" href="Common.Predicate.html#1755" class="Bound"
+      >Q</a
+      ><a name="1783"
+      >
+  </a
+      ><a name="1786" href="Common.Predicate.html#1741" class="Function"
+      >mapAll</a
+      ><a name="1792"
+      > </a
+      ><a name="1793" href="Common.Predicate.html#1793" class="Bound"
+      >&#951;</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" href="Common.Predicate.html#1579" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1796"
+      >       </a
+      ><a name="1803" class="Symbol"
+      >=</a
+      ><a name="1804"
+      > </a
+      ><a name="1805" href="Common.Predicate.html#1579" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1806"
+      >
+  </a
+      ><a name="1809" href="Common.Predicate.html#1741" class="Function"
+      >mapAll</a
+      ><a name="1815"
+      > </a
+      ><a name="1816" href="Common.Predicate.html#1816" class="Bound"
+      >&#951;</a
+      ><a name="1817"
+      > </a
+      ><a name="1818" class="Symbol"
+      >(</a
+      ><a name="1819" href="Common.Predicate.html#1819" class="Bound"
+      >&#947;</a
+      ><a name="1820"
+      > </a
+      ><a name="1821" href="Common.Predicate.html#1597" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" href="Common.Predicate.html#1823" class="Bound"
+      >a</a
+      ><a name="1824" class="Symbol"
+      >)</a
+      ><a name="1825"
+      > </a
+      ><a name="1826" class="Symbol"
+      >=</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" href="Common.Predicate.html#1741" class="Function"
+      >mapAll</a
+      ><a name="1834"
+      > </a
+      ><a name="1835" href="Common.Predicate.html#1816" class="Bound"
+      >&#951;</a
+      ><a name="1836"
+      > </a
+      ><a name="1837" href="Common.Predicate.html#1819" class="Bound"
+      >&#947;</a
+      ><a name="1838"
+      > </a
+      ><a name="1839" href="Common.Predicate.html#1597" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1840"
+      > </a
+      ><a name="1841" href="Common.Predicate.html#1816" class="Bound"
+      >&#951;</a
+      ><a name="1842"
+      > </a
+      ><a name="1843" href="Common.Predicate.html#1823" class="Bound"
+      >a</a
+      ><a name="1844"
+      >
+
+  </a
+      ><a name="1848" href="Common.Predicate.html#1848" class="Function"
+      >lastAll</a
+      ><a name="1855"
+      > </a
+      ><a name="1856" class="Symbol"
+      >:</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" class="Symbol"
+      >&#8704;</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" class="Symbol"
+      >{</a
+      ><a name="1861" href="Common.Predicate.html#1861" class="Bound"
+      >A</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" href="Common.Predicate.html#1863" class="Bound"
+      >&#915;</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" href="Common.Predicate.html#1865" class="Bound"
+      >P</a
+      ><a name="1866" class="Symbol"
+      >}</a
+      ><a name="1867"
+      > </a
+      ><a name="1868" class="Symbol"
+      >&#8594;</a
+      ><a name="1869"
+      > </a
+      ><a name="1870" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1873"
+      > </a
+      ><a name="1874" href="Common.Predicate.html#1865" class="Bound"
+      >P</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" class="Symbol"
+      >(</a
+      ><a name="1877" href="Common.Predicate.html#1863" class="Bound"
+      >&#915;</a
+      ><a name="1878"
+      > </a
+      ><a name="1879" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1880"
+      > </a
+      ><a name="1881" href="Common.Predicate.html#1861" class="Bound"
+      >A</a
+      ><a name="1882" class="Symbol"
+      >)</a
+      ><a name="1883"
+      > </a
+      ><a name="1884" class="Symbol"
+      >&#8594;</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" href="Common.Predicate.html#1865" class="Bound"
+      >P</a
+      ><a name="1887"
+      > </a
+      ><a name="1888" href="Common.Predicate.html#1861" class="Bound"
+      >A</a
+      ><a name="1889"
+      >
+  </a
+      ><a name="1892" href="Common.Predicate.html#1848" class="Function"
+      >lastAll</a
+      ><a name="1899"
+      > </a
+      ><a name="1900" class="Symbol"
+      >(</a
+      ><a name="1901" href="Common.Predicate.html#1901" class="Bound"
+      >&#947;</a
+      ><a name="1902"
+      > </a
+      ><a name="1903" href="Common.Predicate.html#1597" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1904"
+      > </a
+      ><a name="1905" href="Common.Predicate.html#1905" class="Bound"
+      >a</a
+      ><a name="1906" class="Symbol"
+      >)</a
+      ><a name="1907"
+      > </a
+      ><a name="1908" class="Symbol"
+      >=</a
+      ><a name="1909"
+      > </a
+      ><a name="1910" href="Common.Predicate.html#1905" class="Bound"
+      >a</a
+      ><a name="1911"
+      >
+
+  </a
+      ><a name="1915" href="Common.Predicate.html#1915" class="Function"
+      >initAll</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" class="Symbol"
+      >:</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" class="Symbol"
+      >&#8704;</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" class="Symbol"
+      >{</a
+      ><a name="1928" href="Common.Predicate.html#1928" class="Bound"
+      >A</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" href="Common.Predicate.html#1930" class="Bound"
+      >&#915;</a
+      ><a name="1931"
+      > </a
+      ><a name="1932" href="Common.Predicate.html#1932" class="Bound"
+      >P</a
+      ><a name="1933" class="Symbol"
+      >}</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" class="Symbol"
+      >&#8594;</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1940"
+      > </a
+      ><a name="1941" href="Common.Predicate.html#1932" class="Bound"
+      >P</a
+      ><a name="1942"
+      > </a
+      ><a name="1943" class="Symbol"
+      >(</a
+      ><a name="1944" href="Common.Predicate.html#1930" class="Bound"
+      >&#915;</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" href="Common.Predicate.html#1928" class="Bound"
+      >A</a
+      ><a name="1949" class="Symbol"
+      >)</a
+      ><a name="1950"
+      > </a
+      ><a name="1951" class="Symbol"
+      >&#8594;</a
+      ><a name="1952"
+      > </a
+      ><a name="1953" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="1956"
+      > </a
+      ><a name="1957" href="Common.Predicate.html#1932" class="Bound"
+      >P</a
+      ><a name="1958"
+      > </a
+      ><a name="1959" href="Common.Predicate.html#1930" class="Bound"
+      >&#915;</a
+      ><a name="1960"
+      >
+  </a
+      ><a name="1963" href="Common.Predicate.html#1915" class="Function"
+      >initAll</a
+      ><a name="1970"
+      > </a
+      ><a name="1971" class="Symbol"
+      >(</a
+      ><a name="1972" href="Common.Predicate.html#1972" class="Bound"
+      >&#947;</a
+      ><a name="1973"
+      > </a
+      ><a name="1974" href="Common.Predicate.html#1597" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1975"
+      > </a
+      ><a name="1976" href="Common.Predicate.html#1976" class="Bound"
+      >a</a
+      ><a name="1977" class="Symbol"
+      >)</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" class="Symbol"
+      >=</a
+      ><a name="1980"
+      > </a
+      ><a name="1981" href="Common.Predicate.html#1972" class="Bound"
+      >&#947;</a
+      ><a name="1982"
+      >
+
+  </a
+      ><a name="1986" href="Common.Predicate.html#1986" class="Function"
+      >all</a
+      ><a name="1989"
+      > </a
+      ><a name="1990" class="Symbol"
+      >:</a
+      ><a name="1991"
+      > </a
+      ><a name="1992" class="Symbol"
+      >&#8704;</a
+      ><a name="1993"
+      > </a
+      ><a name="1994" class="Symbol"
+      >{</a
+      ><a name="1995" href="Common.Predicate.html#1995" class="Bound"
+      >P</a
+      ><a name="1996" class="Symbol"
+      >}</a
+      ><a name="1997"
+      > </a
+      ><a name="1998" class="Symbol"
+      >&#8594;</a
+      ><a name="1999"
+      > </a
+      ><a name="2000" class="Symbol"
+      >(&#8704;</a
+      ><a name="2002"
+      > </a
+      ><a name="2003" href="Common.Predicate.html#2003" class="Bound"
+      >A</a
+      ><a name="2004"
+      > </a
+      ><a name="2005" class="Symbol"
+      >&#8594;</a
+      ><a name="2006"
+      > </a
+      ><a name="2007" href="Relation.Nullary.html#484" class="Datatype"
+      >Dec</a
+      ><a name="2010"
+      > </a
+      ><a name="2011" class="Symbol"
+      >(</a
+      ><a name="2012" href="Common.Predicate.html#1995" class="Bound"
+      >P</a
+      ><a name="2013"
+      > </a
+      ><a name="2014" href="Common.Predicate.html#2003" class="Bound"
+      >A</a
+      ><a name="2015" class="Symbol"
+      >))</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" class="Symbol"
+      >&#8594;</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" class="Symbol"
+      >(&#8704;</a
+      ><a name="2022"
+      > </a
+      ><a name="2023" href="Common.Predicate.html#2023" class="Bound"
+      >&#915;</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" class="Symbol"
+      >&#8594;</a
+      ><a name="2026"
+      > </a
+      ><a name="2027" href="Relation.Nullary.html#484" class="Datatype"
+      >Dec</a
+      ><a name="2030"
+      > </a
+      ><a name="2031" class="Symbol"
+      >(</a
+      ><a name="2032" href="Common.Predicate.html#1538" class="Datatype"
+      >All</a
+      ><a name="2035"
+      > </a
+      ><a name="2036" href="Common.Predicate.html#1995" class="Bound"
+      >P</a
+      ><a name="2037"
+      > </a
+      ><a name="2038" href="Common.Predicate.html#2023" class="Bound"
+      >&#915;</a
+      ><a name="2039" class="Symbol"
+      >))</a
+      ><a name="2041"
+      >
+  </a
+      ><a name="2044" href="Common.Predicate.html#1986" class="Function"
+      >all</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" href="Common.Predicate.html#2048" class="Bound"
+      >P?</a
+      ><a name="2050"
+      > </a
+      ><a name="2051" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2052"
+      >       </a
+      ><a name="2059" class="Symbol"
+      >=</a
+      ><a name="2060"
+      > </a
+      ><a name="2061" href="Relation.Nullary.html#520" class="InductiveConstructor"
+      >yes</a
+      ><a name="2064"
+      > </a
+      ><a name="2065" href="Common.Predicate.html#1579" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2066"
+      >
+  </a
+      ><a name="2069" href="Common.Predicate.html#1986" class="Function"
+      >all</a
+      ><a name="2072"
+      > </a
+      ><a name="2073" href="Common.Predicate.html#2073" class="Bound"
+      >P?</a
+      ><a name="2075"
+      > </a
+      ><a name="2076" class="Symbol"
+      >(</a
+      ><a name="2077" href="Common.Predicate.html#2077" class="Bound"
+      >&#915;</a
+      ><a name="2078"
+      > </a
+      ><a name="2079" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2080"
+      > </a
+      ><a name="2081" href="Common.Predicate.html#2081" class="Bound"
+      >A</a
+      ><a name="2082" class="Symbol"
+      >)</a
+      ><a name="2083"
+      > </a
+      ><a name="2084" class="Keyword"
+      >with</a
+      ><a name="2088"
+      > </a
+      ><a name="2089" href="Common.Predicate.html#2073" class="Bound"
+      >P?</a
+      ><a name="2091"
+      > </a
+      ><a name="2092" href="Common.Predicate.html#2081" class="Bound"
+      >A</a
+      ><a name="2093"
+      >
+  </a
+      ><a name="2096" class="Symbol"
+      >&#8230;</a
+      ><a name="2097"
+      >             </a
+      ><a name="2110" class="Symbol"
+      >|</a
+      ><a name="2111"
+      > </a
+      ><a name="2112" href="Relation.Nullary.html#520" class="InductiveConstructor"
+      >yes</a
+      ><a name="2115"
+      > </a
+      ><a name="2116" href="Common.Predicate.html#2116" class="Bound"
+      >a</a
+      ><a name="2117"
+      > </a
+      ><a name="2118" class="Symbol"
+      >=</a
+      ><a name="2119"
+      > </a
+      ><a name="2120" href="Relation.Nullary.Decidable.html#1801" class="Function"
+      >mapDec</a
+      ><a name="2126"
+      > </a
+      ><a name="2127" class="Symbol"
+      >(</a
+      ><a name="2128" href="Common.Predicate.html#1597" class="InductiveConstructor Operator"
+      >_,</a
+      ><a name="2130"
+      > </a
+      ><a name="2131" href="Common.Predicate.html#2116" class="Bound"
+      >a</a
+      ><a name="2132" class="Symbol"
+      >)</a
+      ><a name="2133"
+      > </a
+      ><a name="2134" href="Common.Predicate.html#1915" class="Function"
+      >initAll</a
+      ><a name="2141"
+      > </a
+      ><a name="2142" class="Symbol"
+      >(</a
+      ><a name="2143" href="Common.Predicate.html#1986" class="Function"
+      >all</a
+      ><a name="2146"
+      > </a
+      ><a name="2147" href="Common.Predicate.html#2073" class="Bound"
+      >P?</a
+      ><a name="2149"
+      > </a
+      ><a name="2150" href="Common.Predicate.html#2077" class="Bound"
+      >&#915;</a
+      ><a name="2151" class="Symbol"
+      >)</a
+      ><a name="2152"
+      >
+  </a
+      ><a name="2155" class="Symbol"
+      >&#8230;</a
+      ><a name="2156"
+      >             </a
+      ><a name="2169" class="Symbol"
+      >|</a
+      ><a name="2170"
+      > </a
+      ><a name="2171" href="Relation.Nullary.html#547" class="InductiveConstructor"
+      >no</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" href="Common.Predicate.html#2174" class="Bound"
+      >&#172;a</a
+      ><a name="2176"
+      > </a
+      ><a name="2177" class="Symbol"
+      >=</a
+      ><a name="2178"
+      > </a
+      ><a name="2179" href="Relation.Nullary.html#547" class="InductiveConstructor"
+      >no</a
+      ><a name="2181"
+      > </a
+      ><a name="2182" class="Symbol"
+      >(</a
+      ><a name="2183" href="Common.Predicate.html#2174" class="Bound"
+      >&#172;a</a
+      ><a name="2185"
+      > </a
+      ><a name="2186" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="2187"
+      > </a
+      ><a name="2188" href="Common.Predicate.html#1848" class="Function"
+      >lastAll</a
+      ><a name="2195" class="Symbol"
+      >)</a
+      ><a name="2196"
+      >
+
+
+</a
+      ><a name="2199" class="Comment"
+      >-- Predicate-based possibility.</a
+      ><a name="2230"
+      >
+
+</a
+      ><a name="2232" class="Keyword"
+      >module</a
+      ><a name="2238"
+      > </a
+      ><a name="2239" href="Common.Predicate.html#2239" class="Module"
+      >_</a
+      ><a name="2240"
+      > </a
+      ><a name="2241" class="Symbol"
+      >{</a
+      ><a name="2242" href="Common.Predicate.html#2242" class="Bound"
+      >U</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" class="Symbol"
+      >:</a
+      ><a name="2245"
+      > </a
+      ><a name="2246" class="PrimitiveType"
+      >Set</a
+      ><a name="2249" class="Symbol"
+      >}</a
+      ><a name="2250"
+      > </a
+      ><a name="2251" class="Keyword"
+      >where</a
+      ><a name="2256"
+      >
+  </a
+      ><a name="2259" class="Keyword"
+      >data</a
+      ><a name="2263"
+      > </a
+      ><a name="2264" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2267"
+      > </a
+      ><a name="2268" class="Symbol"
+      >(</a
+      ><a name="2269" href="Common.Predicate.html#2269" class="Bound"
+      >P</a
+      ><a name="2270"
+      > </a
+      ><a name="2271" class="Symbol"
+      >:</a
+      ><a name="2272"
+      > </a
+      ><a name="2273" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="2277"
+      > </a
+      ><a name="2278" href="Common.Predicate.html#2242" class="Bound"
+      >U</a
+      ><a name="2279" class="Symbol"
+      >)</a
+      ><a name="2280"
+      > </a
+      ><a name="2281" class="Symbol"
+      >:</a
+      ><a name="2282"
+      > </a
+      ><a name="2283" href="Common.Predicate.html#140" class="Function"
+      >Pred</a
+      ><a name="2287"
+      > </a
+      ><a name="2288" class="Symbol"
+      >(</a
+      ><a name="2289" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2291"
+      > </a
+      ><a name="2292" href="Common.Predicate.html#2242" class="Bound"
+      >U</a
+      ><a name="2293" class="Symbol"
+      >)</a
+      ><a name="2294"
+      > </a
+      ><a name="2295" class="Keyword"
+      >where</a
+      ><a name="2300"
+      >
+    </a
+      ><a name="2305" href="Common.Predicate.html#2305" class="InductiveConstructor"
+      >top</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" class="Symbol"
+      >:</a
+      ><a name="2310"
+      > </a
+      ><a name="2311" class="Symbol"
+      >&#8704;</a
+      ><a name="2312"
+      > </a
+      ><a name="2313" class="Symbol"
+      >{</a
+      ><a name="2314" href="Common.Predicate.html#2314" class="Bound"
+      >A</a
+      ><a name="2315"
+      > </a
+      ><a name="2316" href="Common.Predicate.html#2316" class="Bound"
+      >&#915;</a
+      ><a name="2317" class="Symbol"
+      >}</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" class="Symbol"
+      >&#8594;</a
+      ><a name="2320"
+      > </a
+      ><a name="2321" href="Common.Predicate.html#2269" class="Bound"
+      >P</a
+      ><a name="2322"
+      > </a
+      ><a name="2323" href="Common.Predicate.html#2314" class="Bound"
+      >A</a
+      ><a name="2324"
+      > </a
+      ><a name="2325" class="Symbol"
+      >&#8594;</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2330"
+      > </a
+      ><a name="2331" href="Common.Predicate.html#2269" class="Bound"
+      >P</a
+      ><a name="2332"
+      > </a
+      ><a name="2333" class="Symbol"
+      >(</a
+      ><a name="2334" href="Common.Predicate.html#2316" class="Bound"
+      >&#915;</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2337"
+      > </a
+      ><a name="2338" href="Common.Predicate.html#2314" class="Bound"
+      >A</a
+      ><a name="2339" class="Symbol"
+      >)</a
+      ><a name="2340"
+      >
+    </a
+      ><a name="2345" href="Common.Predicate.html#2345" class="InductiveConstructor"
+      >pop</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" class="Symbol"
+      >:</a
+      ><a name="2350"
+      > </a
+      ><a name="2351" class="Symbol"
+      >&#8704;</a
+      ><a name="2352"
+      > </a
+      ><a name="2353" class="Symbol"
+      >{</a
+      ><a name="2354" href="Common.Predicate.html#2354" class="Bound"
+      >A</a
+      ><a name="2355"
+      > </a
+      ><a name="2356" href="Common.Predicate.html#2356" class="Bound"
+      >&#915;</a
+      ><a name="2357" class="Symbol"
+      >}</a
+      ><a name="2358"
+      > </a
+      ><a name="2359" class="Symbol"
+      >&#8594;</a
+      ><a name="2360"
+      > </a
+      ><a name="2361" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2364"
+      > </a
+      ><a name="2365" href="Common.Predicate.html#2269" class="Bound"
+      >P</a
+      ><a name="2366"
+      > </a
+      ><a name="2367" href="Common.Predicate.html#2356" class="Bound"
+      >&#915;</a
+      ><a name="2368"
+      > </a
+      ><a name="2369" class="Symbol"
+      >&#8594;</a
+      ><a name="2370"
+      > </a
+      ><a name="2371" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2374"
+      > </a
+      ><a name="2375" href="Common.Predicate.html#2269" class="Bound"
+      >P</a
+      ><a name="2376"
+      > </a
+      ><a name="2377" class="Symbol"
+      >(</a
+      ><a name="2378" href="Common.Predicate.html#2356" class="Bound"
+      >&#915;</a
+      ><a name="2379"
+      > </a
+      ><a name="2380" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2381"
+      > </a
+      ><a name="2382" href="Common.Predicate.html#2354" class="Bound"
+      >A</a
+      ><a name="2383" class="Symbol"
+      >)</a
+      ><a name="2384"
+      >
+
+  </a
+      ><a name="2388" href="Common.Predicate.html#2388" class="Function"
+      >find</a
+      ><a name="2392"
+      > </a
+      ><a name="2393" class="Symbol"
+      >:</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" class="Symbol"
+      >&#8704;</a
+      ><a name="2396"
+      > </a
+      ><a name="2397" class="Symbol"
+      >{</a
+      ><a name="2398" href="Common.Predicate.html#2398" class="Bound"
+      >&#915;</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" href="Common.Predicate.html#2400" class="Bound"
+      >P</a
+      ><a name="2401" class="Symbol"
+      >}</a
+      ><a name="2402"
+      > </a
+      ><a name="2403" class="Symbol"
+      >&#8594;</a
+      ><a name="2404"
+      > </a
+      ><a name="2405" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2408"
+      > </a
+      ><a name="2409" href="Common.Predicate.html#2400" class="Bound"
+      >P</a
+      ><a name="2410"
+      > </a
+      ><a name="2411" href="Common.Predicate.html#2398" class="Bound"
+      >&#915;</a
+      ><a name="2412"
+      > </a
+      ><a name="2413" class="Symbol"
+      >&#8594;</a
+      ><a name="2414"
+      > </a
+      ><a name="2415" href="Data.Product.html#439" class="Record"
+      >&#931;</a
+      ><a name="2416"
+      > </a
+      ><a name="2417" href="Common.Predicate.html#2242" class="Bound"
+      >U</a
+      ><a name="2418"
+      > </a
+      ><a name="2419" class="Symbol"
+      >(&#955;</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" href="Common.Predicate.html#2422" class="Bound"
+      >A</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" class="Symbol"
+      >&#8594;</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" href="Common.Predicate.html#2400" class="Bound"
+      >P</a
+      ><a name="2427"
+      > </a
+      ><a name="2428" href="Common.Predicate.html#2422" class="Bound"
+      >A</a
+      ><a name="2429" class="Symbol"
+      >)</a
+      ><a name="2430"
+      >
+  </a
+      ><a name="2433" href="Common.Predicate.html#2388" class="Function"
+      >find</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" class="Symbol"
+      >(</a
+      ><a name="2439" href="Common.Predicate.html#2305" class="InductiveConstructor"
+      >top</a
+      ><a name="2442"
+      > </a
+      ><a name="2443" class="Symbol"
+      >{</a
+      ><a name="2444" href="Common.Predicate.html#2444" class="Bound"
+      >A</a
+      ><a name="2445" class="Symbol"
+      >}</a
+      ><a name="2446"
+      > </a
+      ><a name="2447" href="Common.Predicate.html#2447" class="Bound"
+      >a</a
+      ><a name="2448" class="Symbol"
+      >)</a
+      ><a name="2449"
+      > </a
+      ><a name="2450" class="Symbol"
+      >=</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" href="Common.Predicate.html#2444" class="Bound"
+      >A</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2455"
+      > </a
+      ><a name="2456" href="Common.Predicate.html#2447" class="Bound"
+      >a</a
+      ><a name="2457"
+      >
+  </a
+      ><a name="2460" href="Common.Predicate.html#2388" class="Function"
+      >find</a
+      ><a name="2464"
+      > </a
+      ><a name="2465" class="Symbol"
+      >(</a
+      ><a name="2466" href="Common.Predicate.html#2345" class="InductiveConstructor"
+      >pop</a
+      ><a name="2469"
+      > </a
+      ><a name="2470" href="Common.Predicate.html#2470" class="Bound"
+      >i</a
+      ><a name="2471" class="Symbol"
+      >)</a
+      ><a name="2472"
+      >     </a
+      ><a name="2477" class="Symbol"
+      >=</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" href="Common.Predicate.html#2388" class="Function"
+      >find</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" href="Common.Predicate.html#2470" class="Bound"
+      >i</a
+      ><a name="2485"
+      >
+
+  </a
+      ><a name="2489" href="Common.Predicate.html#2489" class="Function"
+      >mapAny</a
+      ><a name="2495"
+      > </a
+      ><a name="2496" class="Symbol"
+      >:</a
+      ><a name="2497"
+      > </a
+      ><a name="2498" class="Symbol"
+      >&#8704;</a
+      ><a name="2499"
+      > </a
+      ><a name="2500" class="Symbol"
+      >{</a
+      ><a name="2501" href="Common.Predicate.html#2501" class="Bound"
+      >P</a
+      ><a name="2502"
+      > </a
+      ><a name="2503" href="Common.Predicate.html#2503" class="Bound"
+      >Q</a
+      ><a name="2504" class="Symbol"
+      >}</a
+      ><a name="2505"
+      > </a
+      ><a name="2506" class="Symbol"
+      >&#8594;</a
+      ><a name="2507"
+      > </a
+      ><a name="2508" href="Common.Predicate.html#2501" class="Bound"
+      >P</a
+      ><a name="2509"
+      > </a
+      ><a name="2510" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="2512"
+      > </a
+      ><a name="2513" href="Common.Predicate.html#2503" class="Bound"
+      >Q</a
+      ><a name="2514"
+      > </a
+      ><a name="2515" class="Symbol"
+      >&#8594;</a
+      ><a name="2516"
+      > </a
+      ><a name="2517" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2520"
+      > </a
+      ><a name="2521" href="Common.Predicate.html#2501" class="Bound"
+      >P</a
+      ><a name="2522"
+      > </a
+      ><a name="2523" href="Common.Predicate.html#665" class="Function Operator"
+      >&#8838;&#7486;</a
+      ><a name="2525"
+      > </a
+      ><a name="2526" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2529"
+      > </a
+      ><a name="2530" href="Common.Predicate.html#2503" class="Bound"
+      >Q</a
+      ><a name="2531"
+      >
+  </a
+      ><a name="2534" href="Common.Predicate.html#2489" class="Function"
+      >mapAny</a
+      ><a name="2540"
+      > </a
+      ><a name="2541" href="Common.Predicate.html#2541" class="Bound"
+      >&#951;</a
+      ><a name="2542"
+      > </a
+      ><a name="2543" class="Symbol"
+      >(</a
+      ><a name="2544" href="Common.Predicate.html#2305" class="InductiveConstructor"
+      >top</a
+      ><a name="2547"
+      > </a
+      ><a name="2548" href="Common.Predicate.html#2548" class="Bound"
+      >a</a
+      ><a name="2549" class="Symbol"
+      >)</a
+      ><a name="2550"
+      > </a
+      ><a name="2551" class="Symbol"
+      >=</a
+      ><a name="2552"
+      > </a
+      ><a name="2553" href="Common.Predicate.html#2305" class="InductiveConstructor"
+      >top</a
+      ><a name="2556"
+      > </a
+      ><a name="2557" class="Symbol"
+      >(</a
+      ><a name="2558" href="Common.Predicate.html#2541" class="Bound"
+      >&#951;</a
+      ><a name="2559"
+      > </a
+      ><a name="2560" href="Common.Predicate.html#2548" class="Bound"
+      >a</a
+      ><a name="2561" class="Symbol"
+      >)</a
+      ><a name="2562"
+      >
+  </a
+      ><a name="2565" href="Common.Predicate.html#2489" class="Function"
+      >mapAny</a
+      ><a name="2571"
+      > </a
+      ><a name="2572" href="Common.Predicate.html#2572" class="Bound"
+      >&#951;</a
+      ><a name="2573"
+      > </a
+      ><a name="2574" class="Symbol"
+      >(</a
+      ><a name="2575" href="Common.Predicate.html#2345" class="InductiveConstructor"
+      >pop</a
+      ><a name="2578"
+      > </a
+      ><a name="2579" href="Common.Predicate.html#2579" class="Bound"
+      >&#947;</a
+      ><a name="2580" class="Symbol"
+      >)</a
+      ><a name="2581"
+      > </a
+      ><a name="2582" class="Symbol"
+      >=</a
+      ><a name="2583"
+      > </a
+      ><a name="2584" href="Common.Predicate.html#2345" class="InductiveConstructor"
+      >pop</a
+      ><a name="2587"
+      > </a
+      ><a name="2588" class="Symbol"
+      >(</a
+      ><a name="2589" href="Common.Predicate.html#2489" class="Function"
+      >mapAny</a
+      ><a name="2595"
+      > </a
+      ><a name="2596" href="Common.Predicate.html#2572" class="Bound"
+      >&#951;</a
+      ><a name="2597"
+      > </a
+      ><a name="2598" href="Common.Predicate.html#2579" class="Bound"
+      >&#947;</a
+      ><a name="2599" class="Symbol"
+      >)</a
+      ><a name="2600"
+      >
+
+  </a
+      ><a name="2604" href="Common.Predicate.html#2604" class="Function"
+      >initAny</a
+      ><a name="2611"
+      > </a
+      ><a name="2612" class="Symbol"
+      >:</a
+      ><a name="2613"
+      > </a
+      ><a name="2614" class="Symbol"
+      >&#8704;</a
+      ><a name="2615"
+      > </a
+      ><a name="2616" class="Symbol"
+      >{</a
+      ><a name="2617" href="Common.Predicate.html#2617" class="Bound"
+      >A</a
+      ><a name="2618"
+      > </a
+      ><a name="2619" href="Common.Predicate.html#2619" class="Bound"
+      >&#915;</a
+      ><a name="2620"
+      > </a
+      ><a name="2621" href="Common.Predicate.html#2621" class="Bound"
+      >P</a
+      ><a name="2622" class="Symbol"
+      >}</a
+      ><a name="2623"
+      > </a
+      ><a name="2624" class="Symbol"
+      >&#8594;</a
+      ><a name="2625"
+      > </a
+      ><a name="2626" href="Relation.Nullary.html#414" class="Function"
+      >Not</a
+      ><a name="2629"
+      > </a
+      ><a name="2630" class="Symbol"
+      >(</a
+      ><a name="2631" href="Common.Predicate.html#2621" class="Bound"
+      >P</a
+      ><a name="2632"
+      > </a
+      ><a name="2633" href="Common.Predicate.html#2617" class="Bound"
+      >A</a
+      ><a name="2634" class="Symbol"
+      >)</a
+      ><a name="2635"
+      > </a
+      ><a name="2636" class="Symbol"
+      >&#8594;</a
+      ><a name="2637"
+      > </a
+      ><a name="2638" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2641"
+      > </a
+      ><a name="2642" href="Common.Predicate.html#2621" class="Bound"
+      >P</a
+      ><a name="2643"
+      > </a
+      ><a name="2644" class="Symbol"
+      >(</a
+      ><a name="2645" href="Common.Predicate.html#2619" class="Bound"
+      >&#915;</a
+      ><a name="2646"
+      > </a
+      ><a name="2647" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2648"
+      > </a
+      ><a name="2649" href="Common.Predicate.html#2617" class="Bound"
+      >A</a
+      ><a name="2650" class="Symbol"
+      >)</a
+      ><a name="2651"
+      > </a
+      ><a name="2652" class="Symbol"
+      >&#8594;</a
+      ><a name="2653"
+      > </a
+      ><a name="2654" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2657"
+      > </a
+      ><a name="2658" href="Common.Predicate.html#2621" class="Bound"
+      >P</a
+      ><a name="2659"
+      > </a
+      ><a name="2660" href="Common.Predicate.html#2619" class="Bound"
+      >&#915;</a
+      ><a name="2661"
+      >
+  </a
+      ><a name="2664" href="Common.Predicate.html#2604" class="Function"
+      >initAny</a
+      ><a name="2671"
+      > </a
+      ><a name="2672" href="Common.Predicate.html#2672" class="Bound"
+      >&#172;a</a
+      ><a name="2674"
+      > </a
+      ><a name="2675" class="Symbol"
+      >(</a
+      ><a name="2676" href="Common.Predicate.html#2305" class="InductiveConstructor"
+      >top</a
+      ><a name="2679"
+      > </a
+      ><a name="2680" href="Common.Predicate.html#2680" class="Bound"
+      >a</a
+      ><a name="2681" class="Symbol"
+      >)</a
+      ><a name="2682"
+      > </a
+      ><a name="2683" class="Symbol"
+      >=</a
+      ><a name="2684"
+      > </a
+      ><a name="2685" href="Common.Predicate.html#2680" class="Bound"
+      >a</a
+      ><a name="2686"
+      > </a
+      ><a name="2687" href="Relation.Nullary.Negation.html#587" class="Function Operator"
+      >&#8623;</a
+      ><a name="2688"
+      > </a
+      ><a name="2689" href="Common.Predicate.html#2672" class="Bound"
+      >&#172;a</a
+      ><a name="2691"
+      >
+  </a
+      ><a name="2694" href="Common.Predicate.html#2604" class="Function"
+      >initAny</a
+      ><a name="2701"
+      > </a
+      ><a name="2702" href="Common.Predicate.html#2702" class="Bound"
+      >&#172;a</a
+      ><a name="2704"
+      > </a
+      ><a name="2705" class="Symbol"
+      >(</a
+      ><a name="2706" href="Common.Predicate.html#2345" class="InductiveConstructor"
+      >pop</a
+      ><a name="2709"
+      > </a
+      ><a name="2710" href="Common.Predicate.html#2710" class="Bound"
+      >&#947;</a
+      ><a name="2711" class="Symbol"
+      >)</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" class="Symbol"
+      >=</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" href="Common.Predicate.html#2710" class="Bound"
+      >&#947;</a
+      ><a name="2716"
+      >
+
+  </a
+      ><a name="2720" href="Common.Predicate.html#2720" class="Function"
+      >any</a
+      ><a name="2723"
+      > </a
+      ><a name="2724" class="Symbol"
+      >:</a
+      ><a name="2725"
+      > </a
+      ><a name="2726" class="Symbol"
+      >&#8704;</a
+      ><a name="2727"
+      > </a
+      ><a name="2728" class="Symbol"
+      >{</a
+      ><a name="2729" href="Common.Predicate.html#2729" class="Bound"
+      >P</a
+      ><a name="2730" class="Symbol"
+      >}</a
+      ><a name="2731"
+      > </a
+      ><a name="2732" class="Symbol"
+      >&#8594;</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" class="Symbol"
+      >(&#8704;</a
+      ><a name="2736"
+      > </a
+      ><a name="2737" href="Common.Predicate.html#2737" class="Bound"
+      >A</a
+      ><a name="2738"
+      > </a
+      ><a name="2739" class="Symbol"
+      >&#8594;</a
+      ><a name="2740"
+      > </a
+      ><a name="2741" href="Relation.Nullary.html#484" class="Datatype"
+      >Dec</a
+      ><a name="2744"
+      > </a
+      ><a name="2745" class="Symbol"
+      >(</a
+      ><a name="2746" href="Common.Predicate.html#2729" class="Bound"
+      >P</a
+      ><a name="2747"
+      > </a
+      ><a name="2748" href="Common.Predicate.html#2737" class="Bound"
+      >A</a
+      ><a name="2749" class="Symbol"
+      >))</a
+      ><a name="2751"
+      > </a
+      ><a name="2752" class="Symbol"
+      >&#8594;</a
+      ><a name="2753"
+      > </a
+      ><a name="2754" class="Symbol"
+      >(&#8704;</a
+      ><a name="2756"
+      > </a
+      ><a name="2757" href="Common.Predicate.html#2757" class="Bound"
+      >&#915;</a
+      ><a name="2758"
+      > </a
+      ><a name="2759" class="Symbol"
+      >&#8594;</a
+      ><a name="2760"
+      > </a
+      ><a name="2761" href="Relation.Nullary.html#484" class="Datatype"
+      >Dec</a
+      ><a name="2764"
+      > </a
+      ><a name="2765" class="Symbol"
+      >(</a
+      ><a name="2766" href="Common.Predicate.html#2264" class="Datatype"
+      >Any</a
+      ><a name="2769"
+      > </a
+      ><a name="2770" href="Common.Predicate.html#2729" class="Bound"
+      >P</a
+      ><a name="2771"
+      > </a
+      ><a name="2772" href="Common.Predicate.html#2757" class="Bound"
+      >&#915;</a
+      ><a name="2773" class="Symbol"
+      >))</a
+      ><a name="2775"
+      >
+  </a
+      ><a name="2778" href="Common.Predicate.html#2720" class="Function"
+      >any</a
+      ><a name="2781"
+      > </a
+      ><a name="2782" href="Common.Predicate.html#2782" class="Bound"
+      >P?</a
+      ><a name="2784"
+      > </a
+      ><a name="2785" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2786"
+      >       </a
+      ><a name="2793" class="Symbol"
+      >=</a
+      ><a name="2794"
+      > </a
+      ><a name="2795" href="Relation.Nullary.html#547" class="InductiveConstructor"
+      >no</a
+      ><a name="2797"
+      > </a
+      ><a name="2798" class="Symbol"
+      >&#955;</a
+      ><a name="2799"
+      > </a
+      ><a name="2800" class="Symbol"
+      >()</a
+      ><a name="2802"
+      >
+  </a
+      ><a name="2805" href="Common.Predicate.html#2720" class="Function"
+      >any</a
+      ><a name="2808"
+      > </a
+      ><a name="2809" href="Common.Predicate.html#2809" class="Bound"
+      >P?</a
+      ><a name="2811"
+      > </a
+      ><a name="2812" class="Symbol"
+      >(</a
+      ><a name="2813" href="Common.Predicate.html#2813" class="Bound"
+      >&#915;</a
+      ><a name="2814"
+      > </a
+      ><a name="2815" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2816"
+      > </a
+      ><a name="2817" href="Common.Predicate.html#2817" class="Bound"
+      >A</a
+      ><a name="2818" class="Symbol"
+      >)</a
+      ><a name="2819"
+      > </a
+      ><a name="2820" class="Keyword"
+      >with</a
+      ><a name="2824"
+      > </a
+      ><a name="2825" href="Common.Predicate.html#2809" class="Bound"
+      >P?</a
+      ><a name="2827"
+      > </a
+      ><a name="2828" href="Common.Predicate.html#2817" class="Bound"
+      >A</a
+      ><a name="2829"
+      >
+  </a
+      ><a name="2832" class="Symbol"
+      >&#8230;</a
+      ><a name="2833"
+      >             </a
+      ><a name="2846" class="Symbol"
+      >|</a
+      ><a name="2847"
+      > </a
+      ><a name="2848" href="Relation.Nullary.html#520" class="InductiveConstructor"
+      >yes</a
+      ><a name="2851"
+      > </a
+      ><a name="2852" href="Common.Predicate.html#2852" class="Bound"
+      >a</a
+      ><a name="2853"
+      > </a
+      ><a name="2854" class="Symbol"
+      >=</a
+      ><a name="2855"
+      > </a
+      ><a name="2856" href="Relation.Nullary.html#520" class="InductiveConstructor"
+      >yes</a
+      ><a name="2859"
+      > </a
+      ><a name="2860" class="Symbol"
+      >(</a
+      ><a name="2861" href="Common.Predicate.html#2305" class="InductiveConstructor"
+      >top</a
+      ><a name="2864"
+      > </a
+      ><a name="2865" href="Common.Predicate.html#2852" class="Bound"
+      >a</a
+      ><a name="2866" class="Symbol"
+      >)</a
+      ><a name="2867"
+      >
+  </a
+      ><a name="2870" class="Symbol"
+      >&#8230;</a
+      ><a name="2871"
+      >             </a
+      ><a name="2884" class="Symbol"
+      >|</a
+      ><a name="2885"
+      > </a
+      ><a name="2886" href="Relation.Nullary.html#547" class="InductiveConstructor"
+      >no</a
+      ><a name="2888"
+      > </a
+      ><a name="2889" href="Common.Predicate.html#2889" class="Bound"
+      >&#172;a</a
+      ><a name="2891"
+      > </a
+      ><a name="2892" class="Symbol"
+      >=</a
+      ><a name="2893"
+      > </a
+      ><a name="2894" href="Relation.Nullary.Decidable.html#1801" class="Function"
+      >mapDec</a
+      ><a name="2900"
+      > </a
+      ><a name="2901" href="Common.Predicate.html#2345" class="InductiveConstructor"
+      >pop</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" class="Symbol"
+      >(</a
+      ><a name="2906" href="Common.Predicate.html#2604" class="Function"
+      >initAny</a
+      ><a name="2913"
+      > </a
+      ><a name="2914" href="Common.Predicate.html#2889" class="Bound"
+      >&#172;a</a
+      ><a name="2916" class="Symbol"
+      >)</a
+      ><a name="2917"
+      > </a
+      ><a name="2918" class="Symbol"
+      >(</a
+      ><a name="2919" href="Common.Predicate.html#2720" class="Function"
+      >any</a
+      ><a name="2922"
+      > </a
+      ><a name="2923" href="Common.Predicate.html#2809" class="Bound"
+      >P?</a
+      ><a name="2925"
+      > </a
+      ><a name="2926" href="Common.Predicate.html#2813" class="Bound"
+      >&#915;</a
+      ><a name="2927" class="Symbol"
+      >)</a
+      ><a name="2928"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
