@@ -1,0 +1,2280 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >IPC.Hilbert.Nested.KripkeSoundness</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="IPC.Hilbert.Nested.KripkeSoundness.html#1" class="Module"
+      >IPC.Hilbert.Nested.KripkeSoundness</a
+      ><a name="42"
+      > </a
+      ><a name="43" class="Keyword"
+      >where</a
+      ><a name="48"
+      >
+
+</a
+      ><a name="50" class="Keyword"
+      >open</a
+      ><a name="54"
+      > </a
+      ><a name="55" class="Keyword"
+      >import</a
+      ><a name="61"
+      > </a
+      ><a name="62" href="IPC.KripkeSemantics.html#1" class="Module"
+      >IPC.KripkeSemantics</a
+      ><a name="81"
+      > </a
+      ><a name="82" class="Keyword"
+      >public</a
+      ><a name="88"
+      >
+</a
+      ><a name="89" class="Keyword"
+      >open</a
+      ><a name="93"
+      > </a
+      ><a name="94" class="Keyword"
+      >import</a
+      ><a name="100"
+      > </a
+      ><a name="101" href="IPC.Hilbert.Nested.html#1" class="Module"
+      >IPC.Hilbert.Nested</a
+      ><a name="119"
+      > </a
+      ><a name="120" class="Keyword"
+      >public</a
+      ><a name="126"
+      >
+
+
+</a
+      ><a name="129" class="Comment"
+      >-- FIXME: Add more CPS combinators.</a
+      ><a name="164"
+      >
+</a
+      ><a name="165" class="Keyword"
+      >postulate</a
+      ><a name="174"
+      >
+  </a
+      ><a name="177" href="IPC.Hilbert.Nested.KripkeSoundness.html#177" class="Postulate"
+      >oops</a
+      ><a name="181"
+      > </a
+      ><a name="182" class="Symbol"
+      >:</a
+      ><a name="183"
+      > </a
+      ><a name="184" class="Symbol"
+      >&#8704;</a
+      ><a name="185"
+      > </a
+      ><a name="186" class="Symbol"
+      >{</a
+      ><a name="187" href="IPC.Hilbert.Nested.KripkeSoundness.html#187" class="Bound"
+      >A</a
+      ><a name="188"
+      > </a
+      ><a name="189" class="Symbol"
+      >:</a
+      ><a name="190"
+      > </a
+      ><a name="191" class="PrimitiveType"
+      >Set</a
+      ><a name="194" class="Symbol"
+      >}</a
+      ><a name="195"
+      > </a
+      ><a name="196" class="Symbol"
+      >&#8594;</a
+      ><a name="197"
+      > </a
+      ><a name="198" href="IPC.Hilbert.Nested.KripkeSoundness.html#187" class="Bound"
+      >A</a
+      ><a name="199"
+      >
+
+
+</a
+      ><a name="202" class="Comment"
+      >-- Soundness, or evaluation.</a
+      ><a name="230"
+      >
+
+</a
+      ><a name="232" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="236"
+      > </a
+      ><a name="237" class="Symbol"
+      >:</a
+      ><a name="238"
+      > </a
+      ><a name="239" class="Symbol"
+      >&#8704;</a
+      ><a name="240"
+      > </a
+      ><a name="241" class="Symbol"
+      >{</a
+      ><a name="242" href="IPC.Hilbert.Nested.KripkeSoundness.html#242" class="Bound"
+      >A</a
+      ><a name="243"
+      > </a
+      ><a name="244" href="IPC.Hilbert.Nested.KripkeSoundness.html#244" class="Bound"
+      >&#915;</a
+      ><a name="245" class="Symbol"
+      >}</a
+      ><a name="246"
+      > </a
+      ><a name="247" class="Symbol"
+      >&#8594;</a
+      ><a name="248"
+      > </a
+      ><a name="249" href="IPC.Hilbert.Nested.KripkeSoundness.html#244" class="Bound"
+      >&#915;</a
+      ><a name="250"
+      > </a
+      ><a name="251" href="IPC.Hilbert.Nested.html#128" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="252"
+      > </a
+      ><a name="253" href="IPC.Hilbert.Nested.KripkeSoundness.html#242" class="Bound"
+      >A</a
+      ><a name="254"
+      > </a
+      ><a name="255" class="Symbol"
+      >&#8594;</a
+      ><a name="256"
+      > </a
+      ><a name="257" href="IPC.Hilbert.Nested.KripkeSoundness.html#244" class="Bound"
+      >&#915;</a
+      ><a name="258"
+      > </a
+      ><a name="259" href="IPC.KripkeSemantics.html#2107" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="261"
+      > </a
+      ><a name="262" href="IPC.Hilbert.Nested.KripkeSoundness.html#242" class="Bound"
+      >A</a
+      ><a name="263"
+      >
+</a
+      ><a name="264" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="268"
+      > </a
+      ><a name="269" class="Symbol"
+      >(</a
+      ><a name="270" href="IPC.Hilbert.Nested.html#163" class="InductiveConstructor"
+      >var</a
+      ><a name="273"
+      > </a
+      ><a name="274" href="IPC.Hilbert.Nested.KripkeSoundness.html#274" class="Bound"
+      >i</a
+      ><a name="275" class="Symbol"
+      >)</a
+      ><a name="276"
+      >             </a
+      ><a name="289" href="IPC.Hilbert.Nested.KripkeSoundness.html#289" class="Bound"
+      >&#947;</a
+      ><a name="290"
+      > </a
+      ><a name="291" class="Symbol"
+      >=</a
+      ><a name="292"
+      > </a
+      ><a name="293" href="IPC.KripkeSemantics.html#2321" class="Function"
+      >lookup</a
+      ><a name="299"
+      > </a
+      ><a name="300" href="IPC.Hilbert.Nested.KripkeSoundness.html#274" class="Bound"
+      >i</a
+      ><a name="301"
+      > </a
+      ><a name="302" href="IPC.Hilbert.Nested.KripkeSoundness.html#289" class="Bound"
+      >&#947;</a
+      ><a name="303"
+      >
+</a
+      ><a name="304" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="308"
+      > </a
+      ><a name="309" class="Symbol"
+      >(</a
+      ><a name="310" href="IPC.Hilbert.Nested.html#199" class="InductiveConstructor"
+      >app</a
+      ><a name="313"
+      > </a
+      ><a name="314" class="Symbol"
+      >{</a
+      ><a name="315" href="IPC.Hilbert.Nested.KripkeSoundness.html#315" class="Bound"
+      >A</a
+      ><a name="316" class="Symbol"
+      >}</a
+      ><a name="317"
+      > </a
+      ><a name="318" class="Symbol"
+      >{</a
+      ><a name="319" href="IPC.Hilbert.Nested.KripkeSoundness.html#319" class="Bound"
+      >B</a
+      ><a name="320" class="Symbol"
+      >}</a
+      ><a name="321"
+      > </a
+      ><a name="322" href="IPC.Hilbert.Nested.KripkeSoundness.html#322" class="Bound"
+      >t</a
+      ><a name="323"
+      > </a
+      ><a name="324" href="IPC.Hilbert.Nested.KripkeSoundness.html#324" class="Bound"
+      >u</a
+      ><a name="325" class="Symbol"
+      >)</a
+      ><a name="326"
+      >   </a
+      ><a name="329" href="IPC.Hilbert.Nested.KripkeSoundness.html#329" class="Bound"
+      >&#947;</a
+      ><a name="330"
+      > </a
+      ><a name="331" class="Symbol"
+      >=</a
+      ><a name="332"
+      > </a
+      ><a name="333" href="IPC.KripkeSemantics.html#1898" class="Function"
+      >bind</a
+      ><a name="337"
+      > </a
+      ><a name="338" class="Symbol"
+      >{</a
+      ><a name="339" href="IPC.Hilbert.Nested.KripkeSoundness.html#315" class="Bound"
+      >A</a
+      ><a name="340"
+      > </a
+      ><a name="341" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="342"
+      > </a
+      ><a name="343" href="IPC.Hilbert.Nested.KripkeSoundness.html#319" class="Bound"
+      >B</a
+      ><a name="344" class="Symbol"
+      >}</a
+      ><a name="345"
+      > </a
+      ><a name="346" class="Symbol"
+      >{</a
+      ><a name="347" href="IPC.Hilbert.Nested.KripkeSoundness.html#319" class="Bound"
+      >B</a
+      ><a name="348" class="Symbol"
+      >}</a
+      ><a name="349"
+      > </a
+      ><a name="350" class="Symbol"
+      >(</a
+      ><a name="351" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="355"
+      > </a
+      ><a name="356" href="IPC.Hilbert.Nested.KripkeSoundness.html#322" class="Bound"
+      >t</a
+      ><a name="357"
+      > </a
+      ><a name="358" href="IPC.Hilbert.Nested.KripkeSoundness.html#329" class="Bound"
+      >&#947;</a
+      ><a name="359" class="Symbol"
+      >)</a
+      ><a name="360"
+      >
+                               </a
+      ><a name="392" class="Symbol"
+      >(&#955;</a
+      ><a name="394"
+      > </a
+      ><a name="395" href="IPC.Hilbert.Nested.KripkeSoundness.html#395" class="Bound"
+      >&#958;</a
+      ><a name="396"
+      > </a
+      ><a name="397" href="IPC.Hilbert.Nested.KripkeSoundness.html#397" class="Bound"
+      >f</a
+      ><a name="398"
+      > </a
+      ><a name="399" class="Symbol"
+      >&#8594;</a
+      ><a name="400"
+      > </a
+      ><a name="401" href="IPC.Hilbert.Nested.KripkeSoundness.html#397" class="Bound"
+      >f</a
+      ><a name="402"
+      > </a
+      ><a name="403" href="IPC.KripkeSemantics.html#264" class="Field"
+      >refl&#8804;</a
+      ><a name="408"
+      > </a
+      ><a name="409" class="Symbol"
+      >(</a
+      ><a name="410" href="IPC.KripkeSemantics.html#1556" class="Function"
+      >mono&#8873;</a
+      ><a name="415"
+      > </a
+      ><a name="416" class="Symbol"
+      >{</a
+      ><a name="417" href="IPC.Hilbert.Nested.KripkeSoundness.html#315" class="Bound"
+      >A</a
+      ><a name="418" class="Symbol"
+      >}</a
+      ><a name="419"
+      > </a
+      ><a name="420" href="IPC.Hilbert.Nested.KripkeSoundness.html#395" class="Bound"
+      >&#958;</a
+      ><a name="421"
+      > </a
+      ><a name="422" class="Symbol"
+      >(</a
+      ><a name="423" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="427"
+      > </a
+      ><a name="428" href="IPC.Hilbert.Nested.KripkeSoundness.html#324" class="Bound"
+      >u</a
+      ><a name="429"
+      > </a
+      ><a name="430" href="IPC.Hilbert.Nested.KripkeSoundness.html#329" class="Bound"
+      >&#947;</a
+      ><a name="431" class="Symbol"
+      >)))</a
+      ><a name="434"
+      >
+</a
+      ><a name="435" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="439"
+      > </a
+      ><a name="440" class="Symbol"
+      >(</a
+      ><a name="441" href="IPC.Hilbert.Nested.html#247" class="InductiveConstructor"
+      >ci</a
+      ><a name="443"
+      > </a
+      ><a name="444" class="Symbol"
+      >{</a
+      ><a name="445" href="IPC.Hilbert.Nested.KripkeSoundness.html#445" class="Bound"
+      >A</a
+      ><a name="446" class="Symbol"
+      >})</a
+      ><a name="448"
+      >            </a
+      ><a name="460" href="IPC.Hilbert.Nested.KripkeSoundness.html#460" class="Bound"
+      >&#947;</a
+      ><a name="461"
+      > </a
+      ><a name="462" class="Symbol"
+      >=</a
+      ><a name="463"
+      > </a
+      ><a name="464" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="470"
+      > </a
+      ><a name="471" class="Symbol"
+      >{</a
+      ><a name="472" href="IPC.Hilbert.Nested.KripkeSoundness.html#445" class="Bound"
+      >A</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="IPC.Hilbert.Nested.KripkeSoundness.html#445" class="Bound"
+      >A</a
+      ><a name="477" class="Symbol"
+      >}</a
+      ><a name="478"
+      > </a
+      ><a name="479" class="Symbol"
+      >(&#955;</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="IPC.Hilbert.Nested.KripkeSoundness.html#482" class="Bound"
+      >_</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="IPC.Hilbert.Nested.KripkeSoundness.html#484" class="Bound"
+      >a</a
+      ><a name="485"
+      > </a
+      ><a name="486" class="Symbol"
+      >&#8594;</a
+      ><a name="487"
+      > </a
+      ><a name="488" href="IPC.Hilbert.Nested.KripkeSoundness.html#484" class="Bound"
+      >a</a
+      ><a name="489" class="Symbol"
+      >)</a
+      ><a name="490"
+      >
+</a
+      ><a name="491" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="495"
+      > </a
+      ><a name="496" class="Symbol"
+      >(</a
+      ><a name="497" href="IPC.Hilbert.Nested.html#279" class="InductiveConstructor"
+      >ck</a
+      ><a name="499"
+      > </a
+      ><a name="500" class="Symbol"
+      >{</a
+      ><a name="501" href="IPC.Hilbert.Nested.KripkeSoundness.html#501" class="Bound"
+      >A</a
+      ><a name="502" class="Symbol"
+      >}</a
+      ><a name="503"
+      > </a
+      ><a name="504" class="Symbol"
+      >{</a
+      ><a name="505" href="IPC.Hilbert.Nested.KripkeSoundness.html#505" class="Bound"
+      >B</a
+      ><a name="506" class="Symbol"
+      >})</a
+      ><a name="508"
+      >        </a
+      ><a name="516" href="IPC.Hilbert.Nested.KripkeSoundness.html#516" class="Bound"
+      >&#947;</a
+      ><a name="517"
+      > </a
+      ><a name="518" class="Symbol"
+      >=</a
+      ><a name="519"
+      > </a
+      ><a name="520" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="526"
+      > </a
+      ><a name="527" class="Symbol"
+      >{</a
+      ><a name="528" href="IPC.Hilbert.Nested.KripkeSoundness.html#501" class="Bound"
+      >A</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="531"
+      > </a
+      ><a name="532" href="IPC.Hilbert.Nested.KripkeSoundness.html#505" class="Bound"
+      >B</a
+      ><a name="533"
+      > </a
+      ><a name="534" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="535"
+      > </a
+      ><a name="536" href="IPC.Hilbert.Nested.KripkeSoundness.html#501" class="Bound"
+      >A</a
+      ><a name="537" class="Symbol"
+      >}</a
+      ><a name="538"
+      > </a
+      ><a name="539" class="Symbol"
+      >(&#955;</a
+      ><a name="541"
+      > </a
+      ><a name="542" href="IPC.Hilbert.Nested.KripkeSoundness.html#542" class="Bound"
+      >_</a
+      ><a name="543"
+      > </a
+      ><a name="544" href="IPC.Hilbert.Nested.KripkeSoundness.html#544" class="Bound"
+      >a</a
+      ><a name="545"
+      > </a
+      ><a name="546" class="Symbol"
+      >&#8594;</a
+      ><a name="547"
+      >
+                             </a
+      ><a name="577" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="583"
+      > </a
+      ><a name="584" class="Symbol"
+      >{</a
+      ><a name="585" href="IPC.Hilbert.Nested.KripkeSoundness.html#505" class="Bound"
+      >B</a
+      ><a name="586"
+      > </a
+      ><a name="587" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="588"
+      > </a
+      ><a name="589" href="IPC.Hilbert.Nested.KripkeSoundness.html#501" class="Bound"
+      >A</a
+      ><a name="590" class="Symbol"
+      >}</a
+      ><a name="591"
+      > </a
+      ><a name="592" class="Symbol"
+      >(&#955;</a
+      ><a name="594"
+      > </a
+      ><a name="595" href="IPC.Hilbert.Nested.KripkeSoundness.html#595" class="Bound"
+      >&#958;</a
+      ><a name="596"
+      > </a
+      ><a name="597" href="IPC.Hilbert.Nested.KripkeSoundness.html#597" class="Bound"
+      >b</a
+      ><a name="598"
+      > </a
+      ><a name="599" class="Symbol"
+      >&#8594;</a
+      ><a name="600"
+      > </a
+      ><a name="601" href="IPC.KripkeSemantics.html#1556" class="Function"
+      >mono&#8873;</a
+      ><a name="606"
+      > </a
+      ><a name="607" class="Symbol"
+      >{</a
+      ><a name="608" href="IPC.Hilbert.Nested.KripkeSoundness.html#501" class="Bound"
+      >A</a
+      ><a name="609" class="Symbol"
+      >}</a
+      ><a name="610"
+      > </a
+      ><a name="611" href="IPC.Hilbert.Nested.KripkeSoundness.html#595" class="Bound"
+      >&#958;</a
+      ><a name="612"
+      > </a
+      ><a name="613" href="IPC.Hilbert.Nested.KripkeSoundness.html#544" class="Bound"
+      >a</a
+      ><a name="614" class="Symbol"
+      >))</a
+      ><a name="616"
+      >
+</a
+      ><a name="617" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="621"
+      > </a
+      ><a name="622" class="Symbol"
+      >(</a
+      ><a name="623" href="IPC.Hilbert.Nested.html#315" class="InductiveConstructor"
+      >cs</a
+      ><a name="625"
+      > </a
+      ><a name="626" class="Symbol"
+      >{</a
+      ><a name="627" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="628" class="Symbol"
+      >}</a
+      ><a name="629"
+      > </a
+      ><a name="630" class="Symbol"
+      >{</a
+      ><a name="631" href="IPC.Hilbert.Nested.KripkeSoundness.html#631" class="Bound"
+      >B</a
+      ><a name="632" class="Symbol"
+      >}</a
+      ><a name="633"
+      > </a
+      ><a name="634" class="Symbol"
+      >{</a
+      ><a name="635" href="IPC.Hilbert.Nested.KripkeSoundness.html#635" class="Bound"
+      >C</a
+      ><a name="636" class="Symbol"
+      >})</a
+      ><a name="638"
+      >    </a
+      ><a name="642" href="IPC.Hilbert.Nested.KripkeSoundness.html#642" class="Bound"
+      >&#947;</a
+      ><a name="643"
+      > </a
+      ><a name="644" class="Symbol"
+      >=</a
+      ><a name="645"
+      > </a
+      ><a name="646" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="Symbol"
+      >{(</a
+      ><a name="655" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="656"
+      > </a
+      ><a name="657" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="658"
+      > </a
+      ><a name="659" href="IPC.Hilbert.Nested.KripkeSoundness.html#631" class="Bound"
+      >B</a
+      ><a name="660"
+      > </a
+      ><a name="661" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="662"
+      > </a
+      ><a name="663" href="IPC.Hilbert.Nested.KripkeSoundness.html#635" class="Bound"
+      >C</a
+      ><a name="664" class="Symbol"
+      >)</a
+      ><a name="665"
+      > </a
+      ><a name="666" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="667"
+      > </a
+      ><a name="668" class="Symbol"
+      >(</a
+      ><a name="669" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="670"
+      > </a
+      ><a name="671" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="672"
+      > </a
+      ><a name="673" href="IPC.Hilbert.Nested.KripkeSoundness.html#631" class="Bound"
+      >B</a
+      ><a name="674" class="Symbol"
+      >)</a
+      ><a name="675"
+      > </a
+      ><a name="676" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="677"
+      > </a
+      ><a name="678" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="679"
+      > </a
+      ><a name="680" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="681"
+      > </a
+      ><a name="682" href="IPC.Hilbert.Nested.KripkeSoundness.html#635" class="Bound"
+      >C</a
+      ><a name="683" class="Symbol"
+      >}</a
+      ><a name="684"
+      > </a
+      ><a name="685" class="Symbol"
+      >(&#955;</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="IPC.Hilbert.Nested.KripkeSoundness.html#688" class="Bound"
+      >_</a
+      ><a name="689"
+      > </a
+      ><a name="690" href="IPC.Hilbert.Nested.KripkeSoundness.html#690" class="Bound"
+      >f</a
+      ><a name="691"
+      > </a
+      ><a name="692" class="Symbol"
+      >&#8594;</a
+      ><a name="693"
+      >
+                             </a
+      ><a name="723" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="729"
+      > </a
+      ><a name="730" class="Symbol"
+      >{(</a
+      ><a name="732" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="IPC.Hilbert.Nested.KripkeSoundness.html#631" class="Bound"
+      >B</a
+      ><a name="737" class="Symbol"
+      >)</a
+      ><a name="738"
+      > </a
+      ><a name="739" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="742"
+      > </a
+      ><a name="743" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="744"
+      > </a
+      ><a name="745" href="IPC.Hilbert.Nested.KripkeSoundness.html#635" class="Bound"
+      >C</a
+      ><a name="746" class="Symbol"
+      >}</a
+      ><a name="747"
+      > </a
+      ><a name="748" class="Symbol"
+      >(&#955;</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="IPC.Hilbert.Nested.KripkeSoundness.html#751" class="Bound"
+      >&#958;</a
+      ><a name="752"
+      > </a
+      ><a name="753" href="IPC.Hilbert.Nested.KripkeSoundness.html#753" class="Bound"
+      >g</a
+      ><a name="754"
+      > </a
+      ><a name="755" class="Symbol"
+      >&#8594;</a
+      ><a name="756"
+      >
+                             </a
+      ><a name="786" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="792"
+      > </a
+      ><a name="793" class="Symbol"
+      >{</a
+      ><a name="794" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="795"
+      > </a
+      ><a name="796" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="797"
+      > </a
+      ><a name="798" href="IPC.Hilbert.Nested.KripkeSoundness.html#635" class="Bound"
+      >C</a
+      ><a name="799" class="Symbol"
+      >}</a
+      ><a name="800"
+      > </a
+      ><a name="801" class="Symbol"
+      >(&#955;</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="IPC.Hilbert.Nested.KripkeSoundness.html#804" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="806"
+      > </a
+      ><a name="807" href="IPC.Hilbert.Nested.KripkeSoundness.html#807" class="Bound"
+      >t</a
+      ><a name="808"
+      > </a
+      ><a name="809" class="Symbol"
+      >&#8594;</a
+      ><a name="810"
+      >
+                             </a
+      ><a name="840" class="Keyword"
+      >let</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="IPC.Hilbert.Nested.KripkeSoundness.html#844" class="Bound"
+      >f&#8242;</a
+      ><a name="846"
+      > </a
+      ><a name="847" class="Symbol"
+      >=</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="IPC.KripkeSemantics.html#1556" class="Function"
+      >mono&#8873;</a
+      ><a name="854"
+      > </a
+      ><a name="855" class="Symbol"
+      >{</a
+      ><a name="856" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="859"
+      > </a
+      ><a name="860" href="IPC.Hilbert.Nested.KripkeSoundness.html#631" class="Bound"
+      >B</a
+      ><a name="861"
+      > </a
+      ><a name="862" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="863"
+      > </a
+      ><a name="864" href="IPC.Hilbert.Nested.KripkeSoundness.html#635" class="Bound"
+      >C</a
+      ><a name="865" class="Symbol"
+      >}</a
+      ><a name="866"
+      > </a
+      ><a name="867" class="Symbol"
+      >(</a
+      ><a name="868" href="IPC.KripkeSemantics.html#291" class="Field"
+      >trans&#8804;</a
+      ><a name="874"
+      > </a
+      ><a name="875" href="IPC.Hilbert.Nested.KripkeSoundness.html#751" class="Bound"
+      >&#958;</a
+      ><a name="876"
+      > </a
+      ><a name="877" href="IPC.Hilbert.Nested.KripkeSoundness.html#804" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="879" class="Symbol"
+      >)</a
+      ><a name="880"
+      > </a
+      ><a name="881" href="IPC.Hilbert.Nested.KripkeSoundness.html#690" class="Bound"
+      >f</a
+      ><a name="882"
+      >
+                                 </a
+      ><a name="916" href="IPC.Hilbert.Nested.KripkeSoundness.html#916" class="Bound"
+      >g&#8242;</a
+      ><a name="918"
+      > </a
+      ><a name="919" class="Symbol"
+      >=</a
+      ><a name="920"
+      > </a
+      ><a name="921" href="IPC.KripkeSemantics.html#1556" class="Function"
+      >mono&#8873;</a
+      ><a name="926"
+      > </a
+      ><a name="927" class="Symbol"
+      >{</a
+      ><a name="928" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="929"
+      > </a
+      ><a name="930" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="931"
+      > </a
+      ><a name="932" href="IPC.Hilbert.Nested.KripkeSoundness.html#631" class="Bound"
+      >B</a
+      ><a name="933" class="Symbol"
+      >}</a
+      ><a name="934"
+      > </a
+      ><a name="935" href="IPC.Hilbert.Nested.KripkeSoundness.html#804" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="937"
+      > </a
+      ><a name="938" href="IPC.Hilbert.Nested.KripkeSoundness.html#753" class="Bound"
+      >g</a
+      ><a name="939"
+      >
+                             </a
+      ><a name="969" class="Keyword"
+      >in</a
+      ><a name="971"
+      >  </a
+      ><a name="973" href="IPC.KripkeSemantics.html#1898" class="Function"
+      >bind</a
+      ><a name="977"
+      > </a
+      ><a name="978" class="Symbol"
+      >{</a
+      ><a name="979" href="IPC.Hilbert.Nested.KripkeSoundness.html#627" class="Bound"
+      >A</a
+      ><a name="980" class="Symbol"
+      >}</a
+      ><a name="981"
+      > </a
+      ><a name="982" class="Symbol"
+      >{</a
+      ><a name="983" href="IPC.Hilbert.Nested.KripkeSoundness.html#635" class="Bound"
+      >C</a
+      ><a name="984" class="Symbol"
+      >}</a
+      ><a name="985"
+      > </a
+      ><a name="986" href="IPC.Hilbert.Nested.KripkeSoundness.html#807" class="Bound"
+      >t</a
+      ><a name="987"
+      > </a
+      ><a name="988" class="Symbol"
+      >(&#955;</a
+      ><a name="990"
+      > </a
+      ><a name="991" href="IPC.Hilbert.Nested.KripkeSoundness.html#991" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="993"
+      > </a
+      ><a name="994" href="IPC.Hilbert.Nested.KripkeSoundness.html#994" class="Bound"
+      >a</a
+      ><a name="995"
+      > </a
+      ><a name="996" class="Symbol"
+      >&#8594;</a
+      ><a name="997"
+      >
+                                 </a
+      ><a name="1031" href="IPC.Hilbert.Nested.KripkeSoundness.html#177" class="Postulate"
+      >oops</a
+      ><a name="1035" class="Symbol"
+      >))))</a
+      ><a name="1039"
+      >
+</a
+      ><a name="1040" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" class="Symbol"
+      >(</a
+      ><a name="1046" href="IPC.Hilbert.Nested.html#371" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" class="Symbol"
+      >{</a
+      ><a name="1053" href="IPC.Hilbert.Nested.KripkeSoundness.html#1053" class="Bound"
+      >A</a
+      ><a name="1054" class="Symbol"
+      >}</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" class="Symbol"
+      >{</a
+      ><a name="1057" href="IPC.Hilbert.Nested.KripkeSoundness.html#1057" class="Bound"
+      >B</a
+      ><a name="1058" class="Symbol"
+      >})</a
+      ><a name="1060"
+      >     </a
+      ><a name="1065" href="IPC.Hilbert.Nested.KripkeSoundness.html#1065" class="Bound"
+      >&#947;</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" class="Symbol"
+      >=</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1075"
+      > </a
+      ><a name="1076" class="Symbol"
+      >{</a
+      ><a name="1077" href="IPC.Hilbert.Nested.KripkeSoundness.html#1053" class="Bound"
+      >A</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="IPC.Hilbert.Nested.KripkeSoundness.html#1057" class="Bound"
+      >B</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="IPC.Hilbert.Nested.KripkeSoundness.html#1053" class="Bound"
+      >A</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" href="IPC.html#214" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" href="IPC.Hilbert.Nested.KripkeSoundness.html#1057" class="Bound"
+      >B</a
+      ><a name="1090" class="Symbol"
+      >}</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" class="Symbol"
+      >(&#955;</a
+      ><a name="1094"
+      > </a
+      ><a name="1095" href="IPC.Hilbert.Nested.KripkeSoundness.html#1095" class="Bound"
+      >_</a
+      ><a name="1096"
+      > </a
+      ><a name="1097" href="IPC.Hilbert.Nested.KripkeSoundness.html#1097" class="Bound"
+      >a</a
+      ><a name="1098"
+      > </a
+      ><a name="1099" class="Symbol"
+      >&#8594;</a
+      ><a name="1100"
+      >
+                             </a
+      ><a name="1130" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" class="Symbol"
+      >{</a
+      ><a name="1138" href="IPC.Hilbert.Nested.KripkeSoundness.html#1057" class="Bound"
+      >B</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1141"
+      > </a
+      ><a name="1142" href="IPC.Hilbert.Nested.KripkeSoundness.html#1053" class="Bound"
+      >A</a
+      ><a name="1143"
+      > </a
+      ><a name="1144" href="IPC.html#214" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" href="IPC.Hilbert.Nested.KripkeSoundness.html#1057" class="Bound"
+      >B</a
+      ><a name="1147" class="Symbol"
+      >}</a
+      ><a name="1148"
+      > </a
+      ><a name="1149" class="Symbol"
+      >(&#955;</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" href="IPC.Hilbert.Nested.KripkeSoundness.html#1152" class="Bound"
+      >&#958;</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="IPC.Hilbert.Nested.KripkeSoundness.html#1154" class="Bound"
+      >b</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" class="Symbol"
+      >&#8594;</a
+      ><a name="1157"
+      >
+                             </a
+      ><a name="1187" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1193"
+      > </a
+      ><a name="1194" class="Symbol"
+      >{</a
+      ><a name="1195" href="IPC.Hilbert.Nested.KripkeSoundness.html#1053" class="Bound"
+      >A</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" href="IPC.html#214" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" href="IPC.Hilbert.Nested.KripkeSoundness.html#1057" class="Bound"
+      >B</a
+      ><a name="1200" class="Symbol"
+      >}</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" class="Symbol"
+      >(</a
+      ><a name="1203" href="IPC.KripkeSemantics.html#1556" class="Function"
+      >mono&#8873;</a
+      ><a name="1208"
+      > </a
+      ><a name="1209" class="Symbol"
+      >{</a
+      ><a name="1210" href="IPC.Hilbert.Nested.KripkeSoundness.html#1053" class="Bound"
+      >A</a
+      ><a name="1211" class="Symbol"
+      >}</a
+      ><a name="1212"
+      > </a
+      ><a name="1213" href="IPC.Hilbert.Nested.KripkeSoundness.html#1152" class="Bound"
+      >&#958;</a
+      ><a name="1214"
+      > </a
+      ><a name="1215" href="IPC.Hilbert.Nested.KripkeSoundness.html#1097" class="Bound"
+      >a</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1218"
+      > </a
+      ><a name="1219" href="IPC.Hilbert.Nested.KripkeSoundness.html#1154" class="Bound"
+      >b</a
+      ><a name="1220" class="Symbol"
+      >)))</a
+      ><a name="1223"
+      >
+</a
+      ><a name="1224" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" class="Symbol"
+      >(</a
+      ><a name="1230" href="IPC.Hilbert.Nested.html#411" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1234"
+      > </a
+      ><a name="1235" class="Symbol"
+      >{</a
+      ><a name="1236" href="IPC.Hilbert.Nested.KripkeSoundness.html#1236" class="Bound"
+      >A</a
+      ><a name="1237" class="Symbol"
+      >}</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" class="Symbol"
+      >{</a
+      ><a name="1240" href="IPC.Hilbert.Nested.KripkeSoundness.html#1240" class="Bound"
+      >B</a
+      ><a name="1241" class="Symbol"
+      >})</a
+      ><a name="1243"
+      >      </a
+      ><a name="1249" href="IPC.Hilbert.Nested.KripkeSoundness.html#1249" class="Bound"
+      >&#947;</a
+      ><a name="1250"
+      > </a
+      ><a name="1251" class="Symbol"
+      >=</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1259"
+      > </a
+      ><a name="1260" class="Symbol"
+      >{</a
+      ><a name="1261" href="IPC.Hilbert.Nested.KripkeSoundness.html#1236" class="Bound"
+      >A</a
+      ><a name="1262"
+      > </a
+      ><a name="1263" href="IPC.html#214" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1264"
+      > </a
+      ><a name="1265" href="IPC.Hilbert.Nested.KripkeSoundness.html#1240" class="Bound"
+      >B</a
+      ><a name="1266"
+      > </a
+      ><a name="1267" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1268"
+      > </a
+      ><a name="1269" href="IPC.Hilbert.Nested.KripkeSoundness.html#1236" class="Bound"
+      >A</a
+      ><a name="1270" class="Symbol"
+      >}</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" class="Symbol"
+      >(&#955;</a
+      ><a name="1274"
+      > </a
+      ><a name="1275" href="IPC.Hilbert.Nested.KripkeSoundness.html#1275" class="Bound"
+      >_</a
+      ><a name="1276"
+      > </a
+      ><a name="1277" href="IPC.Hilbert.Nested.KripkeSoundness.html#1277" class="Bound"
+      >t</a
+      ><a name="1278"
+      > </a
+      ><a name="1279" class="Symbol"
+      >&#8594;</a
+      ><a name="1280"
+      >
+                             </a
+      ><a name="1310" href="IPC.KripkeSemantics.html#1898" class="Function"
+      >bind</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" class="Symbol"
+      >{</a
+      ><a name="1316" href="IPC.Hilbert.Nested.KripkeSoundness.html#1236" class="Bound"
+      >A</a
+      ><a name="1317"
+      > </a
+      ><a name="1318" href="IPC.html#214" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1319"
+      > </a
+      ><a name="1320" href="IPC.Hilbert.Nested.KripkeSoundness.html#1240" class="Bound"
+      >B</a
+      ><a name="1321" class="Symbol"
+      >}</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" class="Symbol"
+      >{</a
+      ><a name="1324" href="IPC.Hilbert.Nested.KripkeSoundness.html#1236" class="Bound"
+      >A</a
+      ><a name="1325" class="Symbol"
+      >}</a
+      ><a name="1326"
+      > </a
+      ><a name="1327" href="IPC.Hilbert.Nested.KripkeSoundness.html#1277" class="Bound"
+      >t</a
+      ><a name="1328"
+      > </a
+      ><a name="1329" class="Symbol"
+      >(&#955;</a
+      ><a name="1331"
+      > </a
+      ><a name="1332" href="IPC.Hilbert.Nested.KripkeSoundness.html#1332" class="Bound"
+      >_</a
+      ><a name="1333"
+      > </a
+      ><a name="1334" href="IPC.Hilbert.Nested.KripkeSoundness.html#1334" class="Bound"
+      >s</a
+      ><a name="1335"
+      > </a
+      ><a name="1336" class="Symbol"
+      >&#8594;</a
+      ><a name="1337"
+      > </a
+      ><a name="1338" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" href="IPC.Hilbert.Nested.KripkeSoundness.html#1334" class="Bound"
+      >s</a
+      ><a name="1342" class="Symbol"
+      >))</a
+      ><a name="1344"
+      >
+</a
+      ><a name="1345" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="1349"
+      > </a
+      ><a name="1350" class="Symbol"
+      >(</a
+      ><a name="1351" href="IPC.Hilbert.Nested.html#447" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" class="Symbol"
+      >{</a
+      ><a name="1357" href="IPC.Hilbert.Nested.KripkeSoundness.html#1357" class="Bound"
+      >A</a
+      ><a name="1358" class="Symbol"
+      >}</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" class="Symbol"
+      >{</a
+      ><a name="1361" href="IPC.Hilbert.Nested.KripkeSoundness.html#1361" class="Bound"
+      >B</a
+      ><a name="1362" class="Symbol"
+      >})</a
+      ><a name="1364"
+      >      </a
+      ><a name="1370" href="IPC.Hilbert.Nested.KripkeSoundness.html#1370" class="Bound"
+      >&#947;</a
+      ><a name="1371"
+      > </a
+      ><a name="1372" class="Symbol"
+      >=</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" class="Symbol"
+      >{</a
+      ><a name="1382" href="IPC.Hilbert.Nested.KripkeSoundness.html#1357" class="Bound"
+      >A</a
+      ><a name="1383"
+      > </a
+      ><a name="1384" href="IPC.html#214" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" href="IPC.Hilbert.Nested.KripkeSoundness.html#1361" class="Bound"
+      >B</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1389"
+      > </a
+      ><a name="1390" href="IPC.Hilbert.Nested.KripkeSoundness.html#1361" class="Bound"
+      >B</a
+      ><a name="1391" class="Symbol"
+      >}</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" class="Symbol"
+      >(&#955;</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" href="IPC.Hilbert.Nested.KripkeSoundness.html#1396" class="Bound"
+      >_</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" href="IPC.Hilbert.Nested.KripkeSoundness.html#1398" class="Bound"
+      >t</a
+      ><a name="1399"
+      > </a
+      ><a name="1400" class="Symbol"
+      >&#8594;</a
+      ><a name="1401"
+      >
+                             </a
+      ><a name="1431" href="IPC.KripkeSemantics.html#1898" class="Function"
+      >bind</a
+      ><a name="1435"
+      > </a
+      ><a name="1436" class="Symbol"
+      >{</a
+      ><a name="1437" href="IPC.Hilbert.Nested.KripkeSoundness.html#1357" class="Bound"
+      >A</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" href="IPC.html#214" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1440"
+      > </a
+      ><a name="1441" href="IPC.Hilbert.Nested.KripkeSoundness.html#1361" class="Bound"
+      >B</a
+      ><a name="1442" class="Symbol"
+      >}</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" class="Symbol"
+      >{</a
+      ><a name="1445" href="IPC.Hilbert.Nested.KripkeSoundness.html#1361" class="Bound"
+      >B</a
+      ><a name="1446" class="Symbol"
+      >}</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" href="IPC.Hilbert.Nested.KripkeSoundness.html#1398" class="Bound"
+      >t</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" class="Symbol"
+      >(&#955;</a
+      ><a name="1452"
+      > </a
+      ><a name="1453" href="IPC.Hilbert.Nested.KripkeSoundness.html#1453" class="Bound"
+      >_</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" href="IPC.Hilbert.Nested.KripkeSoundness.html#1455" class="Bound"
+      >s</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" class="Symbol"
+      >&#8594;</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="1461"
+      > </a
+      ><a name="1462" href="IPC.Hilbert.Nested.KripkeSoundness.html#1455" class="Bound"
+      >s</a
+      ><a name="1463" class="Symbol"
+      >))</a
+      ><a name="1465"
+      >
+</a
+      ><a name="1466" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" href="IPC.Hilbert.Nested.html#483" class="InductiveConstructor"
+      >tt</a
+      ><a name="1473"
+      >                  </a
+      ><a name="1491" href="IPC.Hilbert.Nested.KripkeSoundness.html#1491" class="Bound"
+      >&#947;</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" class="Symbol"
+      >=</a
+      ><a name="1494"
+      > </a
+      ><a name="1495" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1501"
+      > </a
+      ><a name="1502" class="Symbol"
+      >{</a
+      ><a name="1503" href="IPC.html#235" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1504" class="Symbol"
+      >}</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1507"
+      >
+</a
+      ><a name="1508" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" class="Symbol"
+      >(</a
+      ><a name="1514" href="IPC.Hilbert.Nested.html#499" class="InductiveConstructor"
+      >cboom</a
+      ><a name="1519"
+      > </a
+      ><a name="1520" class="Symbol"
+      >{</a
+      ><a name="1521" href="IPC.Hilbert.Nested.KripkeSoundness.html#1521" class="Bound"
+      >C</a
+      ><a name="1522" class="Symbol"
+      >})</a
+      ><a name="1524"
+      >         </a
+      ><a name="1533" href="IPC.Hilbert.Nested.KripkeSoundness.html#1533" class="Bound"
+      >&#947;</a
+      ><a name="1534"
+      > </a
+      ><a name="1535" class="Symbol"
+      >=</a
+      ><a name="1536"
+      > </a
+      ><a name="1537" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1543"
+      > </a
+      ><a name="1544" class="Symbol"
+      >{</a
+      ><a name="1545" href="IPC.html#245" class="InductiveConstructor"
+      >&#8869;</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1548"
+      > </a
+      ><a name="1549" href="IPC.Hilbert.Nested.KripkeSoundness.html#1521" class="Bound"
+      >C</a
+      ><a name="1550" class="Symbol"
+      >}</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" class="Symbol"
+      >(&#955;</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="IPC.Hilbert.Nested.KripkeSoundness.html#1555" class="Bound"
+      >_</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" href="IPC.Hilbert.Nested.KripkeSoundness.html#1557" class="Bound"
+      >t</a
+      ><a name="1558"
+      > </a
+      ><a name="1559" class="Symbol"
+      >&#8594;</a
+      ><a name="1560"
+      >
+                             </a
+      ><a name="1590" href="IPC.KripkeSemantics.html#1898" class="Function"
+      >bind</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" class="Symbol"
+      >{</a
+      ><a name="1596" href="IPC.html#245" class="InductiveConstructor"
+      >&#8869;</a
+      ><a name="1597" class="Symbol"
+      >}</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" class="Symbol"
+      >{</a
+      ><a name="1600" href="IPC.Hilbert.Nested.KripkeSoundness.html#1521" class="Bound"
+      >C</a
+      ><a name="1601" class="Symbol"
+      >}</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" href="IPC.Hilbert.Nested.KripkeSoundness.html#1557" class="Bound"
+      >t</a
+      ><a name="1604"
+      > </a
+      ><a name="1605" class="Symbol"
+      >(&#955;</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" href="IPC.Hilbert.Nested.KripkeSoundness.html#1608" class="Bound"
+      >&#958;</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" href="IPC.Hilbert.Nested.KripkeSoundness.html#1610" class="Bound"
+      >s</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" class="Symbol"
+      >&#8594;</a
+      ><a name="1613"
+      > </a
+      ><a name="1614" href="Data.Empty.html#348" class="Function"
+      >elimBot</a
+      ><a name="1621"
+      > </a
+      ><a name="1622" href="IPC.Hilbert.Nested.KripkeSoundness.html#1610" class="Bound"
+      >s</a
+      ><a name="1623" class="Symbol"
+      >))</a
+      ><a name="1625"
+      >
+</a
+      ><a name="1626" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="1630"
+      > </a
+      ><a name="1631" class="Symbol"
+      >(</a
+      ><a name="1632" href="IPC.Hilbert.Nested.html#531" class="InductiveConstructor"
+      >cinl</a
+      ><a name="1636"
+      > </a
+      ><a name="1637" class="Symbol"
+      >{</a
+      ><a name="1638" href="IPC.Hilbert.Nested.KripkeSoundness.html#1638" class="Bound"
+      >A</a
+      ><a name="1639" class="Symbol"
+      >}</a
+      ><a name="1640"
+      > </a
+      ><a name="1641" class="Symbol"
+      >{</a
+      ><a name="1642" href="IPC.Hilbert.Nested.KripkeSoundness.html#1642" class="Bound"
+      >B</a
+      ><a name="1643" class="Symbol"
+      >})</a
+      ><a name="1645"
+      >      </a
+      ><a name="1651" href="IPC.Hilbert.Nested.KripkeSoundness.html#1651" class="Bound"
+      >&#947;</a
+      ><a name="1652"
+      > </a
+      ><a name="1653" class="Symbol"
+      >=</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" class="Symbol"
+      >{</a
+      ><a name="1663" href="IPC.Hilbert.Nested.KripkeSoundness.html#1638" class="Bound"
+      >A</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1666"
+      > </a
+      ><a name="1667" href="IPC.Hilbert.Nested.KripkeSoundness.html#1638" class="Bound"
+      >A</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="IPC.Hilbert.Nested.KripkeSoundness.html#1642" class="Bound"
+      >B</a
+      ><a name="1672" class="Symbol"
+      >}</a
+      ><a name="1673"
+      > </a
+      ><a name="1674" class="Symbol"
+      >(&#955;</a
+      ><a name="1676"
+      > </a
+      ><a name="1677" href="IPC.Hilbert.Nested.KripkeSoundness.html#1677" class="Bound"
+      >_</a
+      ><a name="1678"
+      > </a
+      ><a name="1679" href="IPC.Hilbert.Nested.KripkeSoundness.html#1679" class="Bound"
+      >a</a
+      ><a name="1680"
+      > </a
+      ><a name="1681" class="Symbol"
+      >&#8594;</a
+      ><a name="1682"
+      >
+                             </a
+      ><a name="1712" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" class="Symbol"
+      >{</a
+      ><a name="1720" href="IPC.Hilbert.Nested.KripkeSoundness.html#1638" class="Bound"
+      >A</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" href="IPC.Hilbert.Nested.KripkeSoundness.html#1642" class="Bound"
+      >B</a
+      ><a name="1725" class="Symbol"
+      >}</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" class="Symbol"
+      >(</a
+      ><a name="1728" href="Data.Sum.html#489" class="InductiveConstructor"
+      >&#953;&#8321;</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" href="IPC.Hilbert.Nested.KripkeSoundness.html#1679" class="Bound"
+      >a</a
+      ><a name="1732" class="Symbol"
+      >))</a
+      ><a name="1734"
+      >
+</a
+      ><a name="1735" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" class="Symbol"
+      >(</a
+      ><a name="1741" href="IPC.Hilbert.Nested.html#567" class="InductiveConstructor"
+      >cinr</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" class="Symbol"
+      >{</a
+      ><a name="1747" href="IPC.Hilbert.Nested.KripkeSoundness.html#1747" class="Bound"
+      >A</a
+      ><a name="1748" class="Symbol"
+      >}</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" class="Symbol"
+      >{</a
+      ><a name="1751" href="IPC.Hilbert.Nested.KripkeSoundness.html#1751" class="Bound"
+      >B</a
+      ><a name="1752" class="Symbol"
+      >})</a
+      ><a name="1754"
+      >      </a
+      ><a name="1760" href="IPC.Hilbert.Nested.KripkeSoundness.html#1760" class="Bound"
+      >&#947;</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" class="Symbol"
+      >=</a
+      ><a name="1763"
+      > </a
+      ><a name="1764" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1770"
+      > </a
+      ><a name="1771" class="Symbol"
+      >{</a
+      ><a name="1772" href="IPC.Hilbert.Nested.KripkeSoundness.html#1751" class="Bound"
+      >B</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1775"
+      > </a
+      ><a name="1776" href="IPC.Hilbert.Nested.KripkeSoundness.html#1747" class="Bound"
+      >A</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" href="IPC.Hilbert.Nested.KripkeSoundness.html#1751" class="Bound"
+      >B</a
+      ><a name="1781" class="Symbol"
+      >}</a
+      ><a name="1782"
+      > </a
+      ><a name="1783" class="Symbol"
+      >(&#955;</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" href="IPC.Hilbert.Nested.KripkeSoundness.html#1786" class="Bound"
+      >_</a
+      ><a name="1787"
+      > </a
+      ><a name="1788" href="IPC.Hilbert.Nested.KripkeSoundness.html#1788" class="Bound"
+      >b</a
+      ><a name="1789"
+      > </a
+      ><a name="1790" class="Symbol"
+      >&#8594;</a
+      ><a name="1791"
+      >
+                             </a
+      ><a name="1821" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" class="Symbol"
+      >{</a
+      ><a name="1829" href="IPC.Hilbert.Nested.KripkeSoundness.html#1747" class="Bound"
+      >A</a
+      ><a name="1830"
+      > </a
+      ><a name="1831" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="1832"
+      > </a
+      ><a name="1833" href="IPC.Hilbert.Nested.KripkeSoundness.html#1751" class="Bound"
+      >B</a
+      ><a name="1834" class="Symbol"
+      >}</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" class="Symbol"
+      >(</a
+      ><a name="1837" href="Data.Sum.html#514" class="InductiveConstructor"
+      >&#953;&#8322;</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="IPC.Hilbert.Nested.KripkeSoundness.html#1788" class="Bound"
+      >b</a
+      ><a name="1841" class="Symbol"
+      >))</a
+      ><a name="1843"
+      >
+</a
+      ><a name="1844" href="IPC.Hilbert.Nested.KripkeSoundness.html#232" class="Function"
+      >eval</a
+      ><a name="1848"
+      > </a
+      ><a name="1849" class="Symbol"
+      >(</a
+      ><a name="1850" href="IPC.Hilbert.Nested.html#603" class="InductiveConstructor"
+      >ccase</a
+      ><a name="1855"
+      > </a
+      ><a name="1856" class="Symbol"
+      >{</a
+      ><a name="1857" href="IPC.Hilbert.Nested.KripkeSoundness.html#1857" class="Bound"
+      >A</a
+      ><a name="1858" class="Symbol"
+      >}</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" class="Symbol"
+      >{</a
+      ><a name="1861" href="IPC.Hilbert.Nested.KripkeSoundness.html#1861" class="Bound"
+      >B</a
+      ><a name="1862" class="Symbol"
+      >}</a
+      ><a name="1863"
+      > </a
+      ><a name="1864" class="Symbol"
+      >{</a
+      ><a name="1865" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="1866" class="Symbol"
+      >})</a
+      ><a name="1868"
+      > </a
+      ><a name="1869" href="IPC.Hilbert.Nested.KripkeSoundness.html#1869" class="Bound"
+      >&#947;</a
+      ><a name="1870"
+      > </a
+      ><a name="1871" class="Symbol"
+      >=</a
+      ><a name="1872"
+      > </a
+      ><a name="1873" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" class="Symbol"
+      >{</a
+      ><a name="1881" href="IPC.Hilbert.Nested.KripkeSoundness.html#1857" class="Bound"
+      >A</a
+      ><a name="1882"
+      > </a
+      ><a name="1883" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="1884"
+      > </a
+      ><a name="1885" href="IPC.Hilbert.Nested.KripkeSoundness.html#1861" class="Bound"
+      >B</a
+      ><a name="1886"
+      > </a
+      ><a name="1887" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1888"
+      > </a
+      ><a name="1889" class="Symbol"
+      >(</a
+      ><a name="1890" href="IPC.Hilbert.Nested.KripkeSoundness.html#1857" class="Bound"
+      >A</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="1895" class="Symbol"
+      >)</a
+      ><a name="1896"
+      > </a
+      ><a name="1897" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1898"
+      > </a
+      ><a name="1899" class="Symbol"
+      >(</a
+      ><a name="1900" href="IPC.Hilbert.Nested.KripkeSoundness.html#1861" class="Bound"
+      >B</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1903"
+      > </a
+      ><a name="1904" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="1905" class="Symbol"
+      >)</a
+      ><a name="1906"
+      > </a
+      ><a name="1907" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="1910" class="Symbol"
+      >}</a
+      ><a name="1911"
+      > </a
+      ><a name="1912" class="Symbol"
+      >(&#955;</a
+      ><a name="1914"
+      > </a
+      ><a name="1915" href="IPC.Hilbert.Nested.KripkeSoundness.html#1915" class="Bound"
+      >_</a
+      ><a name="1916"
+      > </a
+      ><a name="1917" href="IPC.Hilbert.Nested.KripkeSoundness.html#1917" class="Bound"
+      >t</a
+      ><a name="1918"
+      > </a
+      ><a name="1919" class="Symbol"
+      >&#8594;</a
+      ><a name="1920"
+      >
+                             </a
+      ><a name="1950" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="1956"
+      > </a
+      ><a name="1957" class="Symbol"
+      >{(</a
+      ><a name="1959" href="IPC.Hilbert.Nested.KripkeSoundness.html#1857" class="Bound"
+      >A</a
+      ><a name="1960"
+      > </a
+      ><a name="1961" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1962"
+      > </a
+      ><a name="1963" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="1964" class="Symbol"
+      >)</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" class="Symbol"
+      >(</a
+      ><a name="1969" href="IPC.Hilbert.Nested.KripkeSoundness.html#1861" class="Bound"
+      >B</a
+      ><a name="1970"
+      > </a
+      ><a name="1971" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1972"
+      > </a
+      ><a name="1973" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="1974" class="Symbol"
+      >)</a
+      ><a name="1975"
+      > </a
+      ><a name="1976" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="1977"
+      > </a
+      ><a name="1978" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="1979" class="Symbol"
+      >}</a
+      ><a name="1980"
+      > </a
+      ><a name="1981" class="Symbol"
+      >(&#955;</a
+      ><a name="1983"
+      > </a
+      ><a name="1984" href="IPC.Hilbert.Nested.KripkeSoundness.html#1984" class="Bound"
+      >&#958;</a
+      ><a name="1985"
+      > </a
+      ><a name="1986" href="IPC.Hilbert.Nested.KripkeSoundness.html#1986" class="Bound"
+      >u</a
+      ><a name="1987"
+      > </a
+      ><a name="1988" class="Symbol"
+      >&#8594;</a
+      ><a name="1989"
+      >
+                             </a
+      ><a name="2019" href="IPC.KripkeSemantics.html#1813" class="Function"
+      >return</a
+      ><a name="2025"
+      > </a
+      ><a name="2026" class="Symbol"
+      >{(</a
+      ><a name="2028" href="IPC.Hilbert.Nested.KripkeSoundness.html#1861" class="Bound"
+      >B</a
+      ><a name="2029"
+      > </a
+      ><a name="2030" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="2031"
+      > </a
+      ><a name="2032" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="2033" class="Symbol"
+      >)</a
+      ><a name="2034"
+      > </a
+      ><a name="2035" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="2036"
+      > </a
+      ><a name="2037" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="2038" class="Symbol"
+      >}</a
+      ><a name="2039"
+      > </a
+      ><a name="2040" class="Symbol"
+      >(&#955;</a
+      ><a name="2042"
+      > </a
+      ><a name="2043" href="IPC.Hilbert.Nested.KripkeSoundness.html#2043" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2045"
+      > </a
+      ><a name="2046" href="IPC.Hilbert.Nested.KripkeSoundness.html#2046" class="Bound"
+      >v</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" class="Symbol"
+      >&#8594;</a
+      ><a name="2049"
+      >
+                             </a
+      ><a name="2079" class="Keyword"
+      >let</a
+      ><a name="2082"
+      > </a
+      ><a name="2083" href="IPC.Hilbert.Nested.KripkeSoundness.html#2083" class="Bound"
+      >t&#8242;</a
+      ><a name="2085"
+      > </a
+      ><a name="2086" class="Symbol"
+      >=</a
+      ><a name="2087"
+      > </a
+      ><a name="2088" href="IPC.KripkeSemantics.html#1556" class="Function"
+      >mono&#8873;</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" class="Symbol"
+      >{</a
+      ><a name="2095" href="IPC.Hilbert.Nested.KripkeSoundness.html#1857" class="Bound"
+      >A</a
+      ><a name="2096"
+      > </a
+      ><a name="2097" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="2098"
+      > </a
+      ><a name="2099" href="IPC.Hilbert.Nested.KripkeSoundness.html#1861" class="Bound"
+      >B</a
+      ><a name="2100" class="Symbol"
+      >}</a
+      ><a name="2101"
+      > </a
+      ><a name="2102" class="Symbol"
+      >(</a
+      ><a name="2103" href="IPC.KripkeSemantics.html#291" class="Field"
+      >trans&#8804;</a
+      ><a name="2109"
+      > </a
+      ><a name="2110" href="IPC.Hilbert.Nested.KripkeSoundness.html#1984" class="Bound"
+      >&#958;</a
+      ><a name="2111"
+      > </a
+      ><a name="2112" href="IPC.Hilbert.Nested.KripkeSoundness.html#2043" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2114" class="Symbol"
+      >)</a
+      ><a name="2115"
+      > </a
+      ><a name="2116" href="IPC.Hilbert.Nested.KripkeSoundness.html#1917" class="Bound"
+      >t</a
+      ><a name="2117"
+      >
+                                 </a
+      ><a name="2151" href="IPC.Hilbert.Nested.KripkeSoundness.html#2151" class="Bound"
+      >u&#8242;</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" class="Symbol"
+      >=</a
+      ><a name="2155"
+      > </a
+      ><a name="2156" href="IPC.KripkeSemantics.html#1556" class="Function"
+      >mono&#8873;</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" class="Symbol"
+      >{</a
+      ><a name="2163" href="IPC.Hilbert.Nested.KripkeSoundness.html#1857" class="Bound"
+      >A</a
+      ><a name="2164"
+      > </a
+      ><a name="2165" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="2166"
+      > </a
+      ><a name="2167" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="2168" class="Symbol"
+      >}</a
+      ><a name="2169"
+      > </a
+      ><a name="2170" href="IPC.Hilbert.Nested.KripkeSoundness.html#2043" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2172"
+      > </a
+      ><a name="2173" href="IPC.Hilbert.Nested.KripkeSoundness.html#1986" class="Bound"
+      >u</a
+      ><a name="2174"
+      >
+                             </a
+      ><a name="2204" class="Keyword"
+      >in</a
+      ><a name="2206"
+      >  </a
+      ><a name="2208" href="IPC.KripkeSemantics.html#1898" class="Function"
+      >bind</a
+      ><a name="2212"
+      > </a
+      ><a name="2213" class="Symbol"
+      >{</a
+      ><a name="2214" href="IPC.Hilbert.Nested.KripkeSoundness.html#1857" class="Bound"
+      >A</a
+      ><a name="2215"
+      > </a
+      ><a name="2216" href="IPC.html#255" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="2217"
+      > </a
+      ><a name="2218" href="IPC.Hilbert.Nested.KripkeSoundness.html#1861" class="Bound"
+      >B</a
+      ><a name="2219" class="Symbol"
+      >}</a
+      ><a name="2220"
+      > </a
+      ><a name="2221" class="Symbol"
+      >{</a
+      ><a name="2222" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="2223" class="Symbol"
+      >}</a
+      ><a name="2224"
+      > </a
+      ><a name="2225" href="IPC.Hilbert.Nested.KripkeSoundness.html#2083" class="Bound"
+      >t&#8242;</a
+      ><a name="2227"
+      > </a
+      ><a name="2228" class="Symbol"
+      >(&#955;</a
+      ><a name="2230"
+      > </a
+      ><a name="2231" href="IPC.Hilbert.Nested.KripkeSoundness.html#2231" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="2233"
+      > </a
+      ><a name="2234" href="IPC.Hilbert.Nested.KripkeSoundness.html#2234" class="Bound"
+      >s</a
+      ><a name="2235"
+      > </a
+      ><a name="2236" class="Symbol"
+      >&#8594;</a
+      ><a name="2237"
+      >
+                                 </a
+      ><a name="2271" class="Keyword"
+      >let</a
+      ><a name="2274"
+      > </a
+      ><a name="2275" href="IPC.Hilbert.Nested.KripkeSoundness.html#2275" class="Bound"
+      >u&#8243;</a
+      ><a name="2277"
+      > </a
+      ><a name="2278" class="Symbol"
+      >=</a
+      ><a name="2279"
+      > </a
+      ><a name="2280" href="IPC.KripkeSemantics.html#1556" class="Function"
+      >mono&#8873;</a
+      ><a name="2285"
+      > </a
+      ><a name="2286" class="Symbol"
+      >{</a
+      ><a name="2287" href="IPC.Hilbert.Nested.KripkeSoundness.html#1857" class="Bound"
+      >A</a
+      ><a name="2288"
+      > </a
+      ><a name="2289" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="2290"
+      > </a
+      ><a name="2291" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="2292" class="Symbol"
+      >}</a
+      ><a name="2293"
+      > </a
+      ><a name="2294" href="IPC.Hilbert.Nested.KripkeSoundness.html#2231" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="2296"
+      > </a
+      ><a name="2297" href="IPC.Hilbert.Nested.KripkeSoundness.html#2151" class="Bound"
+      >u&#8242;</a
+      ><a name="2299"
+      >
+                                     </a
+      ><a name="2337" href="IPC.Hilbert.Nested.KripkeSoundness.html#2337" class="Bound"
+      >v&#8243;</a
+      ><a name="2339"
+      > </a
+      ><a name="2340" class="Symbol"
+      >=</a
+      ><a name="2341"
+      > </a
+      ><a name="2342" href="IPC.KripkeSemantics.html#1556" class="Function"
+      >mono&#8873;</a
+      ><a name="2347"
+      > </a
+      ><a name="2348" class="Symbol"
+      >{</a
+      ><a name="2349" href="IPC.Hilbert.Nested.KripkeSoundness.html#1861" class="Bound"
+      >B</a
+      ><a name="2350"
+      > </a
+      ><a name="2351" href="IPC.html#193" class="InductiveConstructor Operator"
+      >&#9655;</a
+      ><a name="2352"
+      > </a
+      ><a name="2353" href="IPC.Hilbert.Nested.KripkeSoundness.html#1865" class="Bound"
+      >C</a
+      ><a name="2354" class="Symbol"
+      >}</a
+      ><a name="2355"
+      > </a
+      ><a name="2356" href="IPC.Hilbert.Nested.KripkeSoundness.html#2231" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="2358"
+      > </a
+      ><a name="2359" href="IPC.Hilbert.Nested.KripkeSoundness.html#2046" class="Bound"
+      >v</a
+      ><a name="2360"
+      >
+                                 </a
+      ><a name="2394" class="Keyword"
+      >in</a
+      ><a name="2396"
+      > </a
+      ><a name="2397" href="Common.html#1192" class="Function"
+      >&#954;</a
+      ><a name="2398"
+      > </a
+      ><a name="2399" href="IPC.Hilbert.Nested.KripkeSoundness.html#2234" class="Bound"
+      >s</a
+      ><a name="2400"
+      > </a
+      ><a name="2401" class="Symbol"
+      >(&#955;</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="IPC.Hilbert.Nested.KripkeSoundness.html#2404" class="Bound"
+      >a</a
+      ><a name="2405"
+      > </a
+      ><a name="2406" class="Symbol"
+      >&#8594;</a
+      ><a name="2407"
+      > </a
+      ><a name="2408" href="IPC.Hilbert.Nested.KripkeSoundness.html#177" class="Postulate"
+      >oops</a
+      ><a name="2412" class="Symbol"
+      >)</a
+      ><a name="2413"
+      >
+                                        </a
+      ><a name="2454" class="Symbol"
+      >(&#955;</a
+      ><a name="2456"
+      > </a
+      ><a name="2457" href="IPC.Hilbert.Nested.KripkeSoundness.html#2457" class="Bound"
+      >b</a
+      ><a name="2458"
+      > </a
+      ><a name="2459" class="Symbol"
+      >&#8594;</a
+      ><a name="2460"
+      > </a
+      ><a name="2461" href="IPC.Hilbert.Nested.KripkeSoundness.html#177" class="Postulate"
+      >oops</a
+      ><a name="2465" class="Symbol"
+      >)))))</a
+      ><a name="2470"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
