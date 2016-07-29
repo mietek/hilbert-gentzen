@@ -1,0 +1,879 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1" class="Module"
+      >BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox</a
+      ><a name="55"
+      > </a
+      ><a name="56" class="Keyword"
+      >where</a
+      ><a name="61"
+      >
+
+</a
+      ><a name="63" class="Keyword"
+      >open</a
+      ><a name="67"
+      > </a
+      ><a name="68" class="Keyword"
+      >import</a
+      ><a name="74"
+      > </a
+      ><a name="75" href="BasicIS4.TarskiSemantics.html#1" class="Module"
+      >BasicIS4.TarskiSemantics</a
+      ><a name="99"
+      > </a
+      ><a name="100" class="Keyword"
+      >public</a
+      ><a name="106"
+      >
+</a
+      ><a name="107" class="Keyword"
+      >open</a
+      ><a name="111"
+      > </a
+      ><a name="112" class="Keyword"
+      >import</a
+      ><a name="118"
+      > </a
+      ><a name="119" href="BasicIS4.Regular.Gentzen.html#1" class="Module"
+      >BasicIS4.Regular.Gentzen</a
+      ><a name="143"
+      > </a
+      ><a name="144" class="Keyword"
+      >public</a
+      ><a name="150"
+      >
+
+
+</a
+      ><a name="153" class="Comment"
+      >-- Truth for propositions and contexts, inspired by Gabbay and Nanevski.</a
+      ><a name="225"
+      >
+
+</a
+      ><a name="227" class="Keyword"
+      >record</a
+      ><a name="233"
+      > </a
+      ><a name="234" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#234" class="Record"
+      >Box</a
+      ><a name="237"
+      > </a
+      ><a name="238" class="Symbol"
+      >(</a
+      ><a name="239" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#239" class="Bound"
+      >A</a
+      ><a name="240"
+      > </a
+      ><a name="241" class="Symbol"
+      >:</a
+      ><a name="242"
+      > </a
+      ><a name="243" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="245" class="Symbol"
+      >)</a
+      ><a name="246"
+      > </a
+      ><a name="247" class="Symbol"
+      >:</a
+      ><a name="248"
+      > </a
+      ><a name="249" class="PrimitiveType"
+      >Set</a
+      ><a name="252"
+      > </a
+      ><a name="253" class="Keyword"
+      >where</a
+      ><a name="258"
+      >
+  </a
+      ><a name="261" class="Keyword"
+      >constructor</a
+      ><a name="272"
+      > </a
+      ><a name="273" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#273" class="InductiveConstructor Operator"
+      >[_]</a
+      ><a name="276"
+      >
+  </a
+      ><a name="279" class="Keyword"
+      >field</a
+      ><a name="284"
+      >
+    </a
+      ><a name="289" class="Comment"
+      >-- FIXME: Should we not have &#8960; &#8866; &#9633; A here?</a
+      ><a name="331"
+      >
+    </a
+      ><a name="336" class="Symbol"
+      >{</a
+      ><a name="337" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#337" class="Field"
+      >&#916;</a
+      ><a name="338" class="Symbol"
+      >}</a
+      ><a name="339"
+      > </a
+      ><a name="340" class="Symbol"
+      >:</a
+      ><a name="341"
+      > </a
+      ><a name="342" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="344"
+      > </a
+      ><a name="345" href="BasicIS4.html#162" class="Datatype"
+      >Ty</a
+      ><a name="347"
+      >
+    </a
+      ><a name="352" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#352" class="Field"
+      >t</a
+      ><a name="353"
+      >   </a
+      ><a name="356" class="Symbol"
+      >:</a
+      ><a name="357"
+      > </a
+      ><a name="358" href="BasicIS4.html#2342" class="Function Operator"
+      >&#9633;&#8902;</a
+      ><a name="360"
+      > </a
+      ><a name="361" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#337" class="Field"
+      >&#916;</a
+      ><a name="362"
+      > </a
+      ><a name="363" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="BasicIS4.html#218" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="366"
+      > </a
+      ><a name="367" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#239" class="Bound"
+      >A</a
+      ><a name="368"
+      >
+
+</a
+      ><a name="370" class="Keyword"
+      >open</a
+      ><a name="374"
+      > </a
+      ><a name="375" href="BasicIS4.TarskiSemantics.html#319" class="Module"
+      >ForcingWithBox</a
+      ><a name="389"
+      > </a
+      ><a name="390" class="Symbol"
+      >(</a
+      ><a name="391" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#234" class="Record"
+      >Box</a
+      ><a name="394" class="Symbol"
+      >)</a
+      ><a name="395"
+      > </a
+      ><a name="396" class="Keyword"
+      >public</a
+      ><a name="402"
+      >
+
+
+</a
+      ><a name="405" class="Comment"
+      >-- Soundness, or evaluation.</a
+      ><a name="433"
+      >
+
+</a
+      ><a name="435" class="Keyword"
+      >mutual</a
+      ><a name="441"
+      >
+  </a
+      ><a name="444" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="448"
+      > </a
+      ><a name="449" class="Symbol"
+      >:</a
+      ><a name="450"
+      > </a
+      ><a name="451" class="Symbol"
+      >&#8704;</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Symbol"
+      >{</a
+      ><a name="454" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#454" class="Bound"
+      >A</a
+      ><a name="455"
+      > </a
+      ><a name="456" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#456" class="Bound"
+      >&#915;</a
+      ><a name="457" class="Symbol"
+      >}</a
+      ><a name="458"
+      > </a
+      ><a name="459" class="Symbol"
+      >&#8594;</a
+      ><a name="460"
+      > </a
+      ><a name="461" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#456" class="Bound"
+      >&#915;</a
+      ><a name="462"
+      > </a
+      ><a name="463" href="BasicIS4.Regular.Gentzen.html#189" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="464"
+      > </a
+      ><a name="465" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#454" class="Bound"
+      >A</a
+      ><a name="466"
+      > </a
+      ><a name="467" class="Symbol"
+      >&#8594;</a
+      ><a name="468"
+      > </a
+      ><a name="469" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#456" class="Bound"
+      >&#915;</a
+      ><a name="470"
+      > </a
+      ><a name="471" href="BasicIS4.TarskiSemantics.html#661" class="Function Operator"
+      >&#7481;&#8872;</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#454" class="Bound"
+      >A</a
+      ><a name="475"
+      >
+  </a
+      ><a name="478" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="482"
+      > </a
+      ><a name="483" class="Symbol"
+      >(</a
+      ><a name="484" href="BasicIS4.Regular.Gentzen.html#226" class="InductiveConstructor"
+      >var</a
+      ><a name="487"
+      > </a
+      ><a name="488" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#488" class="Bound"
+      >i</a
+      ><a name="489" class="Symbol"
+      >)</a
+      ><a name="490"
+      >         </a
+      ><a name="499" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#499" class="Bound"
+      >&#947;</a
+      ><a name="500"
+      > </a
+      ><a name="501" class="Symbol"
+      >=</a
+      ><a name="502"
+      > </a
+      ><a name="503" href="BasicIS4.TarskiSemantics.html#961" class="Function"
+      >lookup</a
+      ><a name="509"
+      > </a
+      ><a name="510" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#488" class="Bound"
+      >i</a
+      ><a name="511"
+      > </a
+      ><a name="512" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#499" class="Bound"
+      >&#947;</a
+      ><a name="513"
+      >
+  </a
+      ><a name="516" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="520"
+      > </a
+      ><a name="521" class="Symbol"
+      >(</a
+      ><a name="522" href="BasicIS4.Regular.Gentzen.html#265" class="InductiveConstructor"
+      >lam</a
+      ><a name="525"
+      > </a
+      ><a name="526" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#526" class="Bound"
+      >t</a
+      ><a name="527" class="Symbol"
+      >)</a
+      ><a name="528"
+      >         </a
+      ><a name="537" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#537" class="Bound"
+      >&#947;</a
+      ><a name="538"
+      > </a
+      ><a name="539" class="Symbol"
+      >=</a
+      ><a name="540"
+      > </a
+      ><a name="541" class="Symbol"
+      >&#955;</a
+      ><a name="542"
+      > </a
+      ><a name="543" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#543" class="Bound"
+      >a</a
+      ><a name="544"
+      > </a
+      ><a name="545" class="Symbol"
+      >&#8594;</a
+      ><a name="546"
+      > </a
+      ><a name="547" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="551"
+      > </a
+      ><a name="552" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#526" class="Bound"
+      >t</a
+      ><a name="553"
+      > </a
+      ><a name="554" class="Symbol"
+      >(</a
+      ><a name="555" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#537" class="Bound"
+      >&#947;</a
+      ><a name="556"
+      > </a
+      ><a name="557" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="558"
+      > </a
+      ><a name="559" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#543" class="Bound"
+      >a</a
+      ><a name="560" class="Symbol"
+      >)</a
+      ><a name="561"
+      >
+  </a
+      ><a name="564" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="568"
+      > </a
+      ><a name="569" class="Symbol"
+      >(</a
+      ><a name="570" href="BasicIS4.Regular.Gentzen.html#312" class="InductiveConstructor"
+      >app</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#574" class="Bound"
+      >t</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#576" class="Bound"
+      >u</a
+      ><a name="577" class="Symbol"
+      >)</a
+      ><a name="578"
+      >       </a
+      ><a name="585" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#585" class="Bound"
+      >&#947;</a
+      ><a name="586"
+      > </a
+      ><a name="587" class="Symbol"
+      >=</a
+      ><a name="588"
+      > </a
+      ><a name="589" class="Symbol"
+      >(</a
+      ><a name="590" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="594"
+      > </a
+      ><a name="595" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#574" class="Bound"
+      >t</a
+      ><a name="596"
+      > </a
+      ><a name="597" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#585" class="Bound"
+      >&#947;</a
+      ><a name="598" class="Symbol"
+      >)</a
+      ><a name="599"
+      > </a
+      ><a name="600" class="Symbol"
+      >(</a
+      ><a name="601" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#576" class="Bound"
+      >u</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#585" class="Bound"
+      >&#947;</a
+      ><a name="609" class="Symbol"
+      >)</a
+      ><a name="610"
+      >
+  </a
+      ><a name="613" class="Comment"
+      >-- FIXME: Should evaluation happen here, and not in down?</a
+      ><a name="670"
+      >
+  </a
+      ><a name="673" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="677"
+      > </a
+      ><a name="678" class="Symbol"
+      >(</a
+      ><a name="679" href="BasicIS4.Regular.Gentzen.html#363" class="InductiveConstructor"
+      >multibox</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#688" class="Bound"
+      >ts</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#691" class="Bound"
+      >u</a
+      ><a name="692" class="Symbol"
+      >)</a
+      ><a name="693"
+      > </a
+      ><a name="694" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#694" class="Bound"
+      >&#947;</a
+      ><a name="695"
+      > </a
+      ><a name="696" class="Symbol"
+      >=</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#273" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="699"
+      > </a
+      ><a name="700" href="BasicIS4.Regular.Gentzen.html#4077" class="Function"
+      >lift</a
+      ><a name="704"
+      > </a
+      ><a name="705" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#691" class="Bound"
+      >u</a
+      ><a name="706"
+      > </a
+      ><a name="707" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#273" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="708"
+      > </a
+      ><a name="709" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="710"
+      > </a
+      ><a name="711" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="715"
+      > </a
+      ><a name="716" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#691" class="Bound"
+      >u</a
+      ><a name="717"
+      > </a
+      ><a name="718" class="Symbol"
+      >(</a
+      ><a name="719" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#933" class="Function"
+      >eval&#8902;</a
+      ><a name="724"
+      > </a
+      ><a name="725" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#688" class="Bound"
+      >ts</a
+      ><a name="727"
+      > </a
+      ><a name="728" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#694" class="Bound"
+      >&#947;</a
+      ><a name="729" class="Symbol"
+      >)</a
+      ><a name="730"
+      >
+  </a
+      ><a name="733" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="737"
+      > </a
+      ><a name="738" class="Symbol"
+      >(</a
+      ><a name="739" href="BasicIS4.Regular.Gentzen.html#419" class="InductiveConstructor"
+      >down</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#744" class="Bound"
+      >t</a
+      ><a name="745" class="Symbol"
+      >)</a
+      ><a name="746"
+      >        </a
+      ><a name="754" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#754" class="Bound"
+      >&#947;</a
+      ><a name="755"
+      > </a
+      ><a name="756" class="Symbol"
+      >=</a
+      ><a name="757"
+      > </a
+      ><a name="758" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="760"
+      > </a
+      ><a name="761" class="Symbol"
+      >(</a
+      ><a name="762" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#744" class="Bound"
+      >t</a
+      ><a name="768"
+      > </a
+      ><a name="769" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#754" class="Bound"
+      >&#947;</a
+      ><a name="770" class="Symbol"
+      >)</a
+      ><a name="771"
+      >
+  </a
+      ><a name="774" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="778"
+      > </a
+      ><a name="779" class="Symbol"
+      >(</a
+      ><a name="780" href="BasicIS4.Regular.Gentzen.html#460" class="InductiveConstructor"
+      >pair</a
+      ><a name="784"
+      > </a
+      ><a name="785" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#785" class="Bound"
+      >t</a
+      ><a name="786"
+      > </a
+      ><a name="787" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#787" class="Bound"
+      >u</a
+      ><a name="788" class="Symbol"
+      >)</a
+      ><a name="789"
+      >      </a
+      ><a name="795" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#795" class="Bound"
+      >&#947;</a
+      ><a name="796"
+      > </a
+      ><a name="797" class="Symbol"
+      >=</a
+      ><a name="798"
+      > </a
+      ><a name="799" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#785" class="Bound"
+      >t</a
+      ><a name="805"
+      > </a
+      ><a name="806" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#795" class="Bound"
+      >&#947;</a
+      ><a name="807"
+      > </a
+      ><a name="808" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="809"
+      > </a
+      ><a name="810" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="814"
+      > </a
+      ><a name="815" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#787" class="Bound"
+      >u</a
+      ><a name="816"
+      > </a
+      ><a name="817" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#795" class="Bound"
+      >&#947;</a
+      ><a name="818"
+      >
+  </a
+      ><a name="821" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="825"
+      > </a
+      ><a name="826" class="Symbol"
+      >(</a
+      ><a name="827" href="BasicIS4.Regular.Gentzen.html#511" class="InductiveConstructor"
+      >fst</a
+      ><a name="830"
+      > </a
+      ><a name="831" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#831" class="Bound"
+      >t</a
+      ><a name="832" class="Symbol"
+      >)</a
+      ><a name="833"
+      >         </a
+      ><a name="842" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#842" class="Bound"
+      >&#947;</a
+      ><a name="843"
+      > </a
+      ><a name="844" class="Symbol"
+      >=</a
+      ><a name="845"
+      > </a
+      ><a name="846" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="848"
+      > </a
+      ><a name="849" class="Symbol"
+      >(</a
+      ><a name="850" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="854"
+      > </a
+      ><a name="855" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#831" class="Bound"
+      >t</a
+      ><a name="856"
+      > </a
+      ><a name="857" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#842" class="Bound"
+      >&#947;</a
+      ><a name="858" class="Symbol"
+      >)</a
+      ><a name="859"
+      >
+  </a
+      ><a name="862" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="866"
+      > </a
+      ><a name="867" class="Symbol"
+      >(</a
+      ><a name="868" href="BasicIS4.Regular.Gentzen.html#554" class="InductiveConstructor"
+      >snd</a
+      ><a name="871"
+      > </a
+      ><a name="872" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#872" class="Bound"
+      >t</a
+      ><a name="873" class="Symbol"
+      >)</a
+      ><a name="874"
+      >         </a
+      ><a name="883" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#883" class="Bound"
+      >&#947;</a
+      ><a name="884"
+      > </a
+      ><a name="885" class="Symbol"
+      >=</a
+      ><a name="886"
+      > </a
+      ><a name="887" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="889"
+      > </a
+      ><a name="890" class="Symbol"
+      >(</a
+      ><a name="891" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="895"
+      > </a
+      ><a name="896" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#872" class="Bound"
+      >t</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#883" class="Bound"
+      >&#947;</a
+      ><a name="899" class="Symbol"
+      >)</a
+      ><a name="900"
+      >
+  </a
+      ><a name="903" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="BasicIS4.Regular.Gentzen.html#597" class="InductiveConstructor"
+      >tt</a
+      ><a name="910"
+      >              </a
+      ><a name="924" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#924" class="Bound"
+      >&#947;</a
+      ><a name="925"
+      > </a
+      ><a name="926" class="Symbol"
+      >=</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="929"
+      >
+
+  </a
+      ><a name="933" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#933" class="Function"
+      >eval&#8902;</a
+      ><a name="938"
+      > </a
+      ><a name="939" class="Symbol"
+      >:</a
+      ><a name="940"
+      > </a
+      ><a name="941" class="Symbol"
+      >&#8704;</a
+      ><a name="942"
+      > </a
+      ><a name="943" class="Symbol"
+      >{</a
+      ><a name="944" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#944" class="Bound"
+      >&#916;</a
+      ><a name="945"
+      > </a
+      ><a name="946" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#946" class="Bound"
+      >&#915;</a
+      ><a name="947" class="Symbol"
+      >}</a
+      ><a name="948"
+      > </a
+      ><a name="949" class="Symbol"
+      >&#8594;</a
+      ><a name="950"
+      > </a
+      ><a name="951" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#946" class="Bound"
+      >&#915;</a
+      ><a name="952"
+      > </a
+      ><a name="953" href="BasicIS4.Regular.Gentzen.html#632" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="955"
+      > </a
+      ><a name="956" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#944" class="Bound"
+      >&#916;</a
+      ><a name="957"
+      > </a
+      ><a name="958" class="Symbol"
+      >&#8594;</a
+      ><a name="959"
+      > </a
+      ><a name="960" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#946" class="Bound"
+      >&#915;</a
+      ><a name="961"
+      > </a
+      ><a name="962" href="BasicIS4.TarskiSemantics.html#745" class="Function Operator"
+      >&#7481;&#8872;&#8902;</a
+      ><a name="965"
+      > </a
+      ><a name="966" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#944" class="Bound"
+      >&#916;</a
+      ><a name="967"
+      >
+  </a
+      ><a name="970" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#933" class="Function"
+      >eval&#8902;</a
+      ><a name="975"
+      > </a
+      ><a name="976" class="Symbol"
+      >{</a
+      ><a name="977" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="978" class="Symbol"
+      >}</a
+      ><a name="979"
+      >     </a
+      ><a name="984" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="985"
+      >        </a
+      ><a name="993" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#993" class="Bound"
+      >&#947;</a
+      ><a name="994"
+      > </a
+      ><a name="995" class="Symbol"
+      >=</a
+      ><a name="996"
+      > </a
+      ><a name="997" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="998"
+      >
+  </a
+      ><a name="1001" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#933" class="Function"
+      >eval&#8902;</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" class="Symbol"
+      >{</a
+      ><a name="1008" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1008" class="Bound"
+      >&#916;</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1012" class="Bound"
+      >A</a
+      ><a name="1013" class="Symbol"
+      >}</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" class="Symbol"
+      >(</a
+      ><a name="1016" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1016" class="Bound"
+      >ts</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1021" class="Bound"
+      >t</a
+      ><a name="1022" class="Symbol"
+      >)</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1024" class="Bound"
+      >&#947;</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" class="Symbol"
+      >=</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#933" class="Function"
+      >eval&#8902;</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1016" class="Bound"
+      >ts</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1024" class="Bound"
+      >&#947;</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1040"
+      > </a
+      ><a name="1041" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#444" class="Function"
+      >eval</a
+      ><a name="1045"
+      > </a
+      ><a name="1046" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1021" class="Bound"
+      >t</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" href="BasicIS4.Regular.Gentzen.TarskiSoundnessWithBox.html#1024" class="Bound"
+      >&#947;</a
+      ><a name="1049"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
