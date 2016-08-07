@@ -1,0 +1,449 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Hilbert.Tree.TarskiBasicCompleteness</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#1" class="Module"
+      >BasicIS4.Hilbert.Tree.TarskiBasicCompleteness</a
+      ><a name="53"
+      > </a
+      ><a name="54" class="Keyword"
+      >where</a
+      ><a name="59"
+      >
+
+</a
+      ><a name="61" class="Keyword"
+      >open</a
+      ><a name="65"
+      > </a
+      ><a name="66" class="Keyword"
+      >import</a
+      ><a name="72"
+      > </a
+      ><a name="73" href="BasicIS4.Hilbert.Tree.TarskiSoundness.html#1" class="Module"
+      >BasicIS4.Hilbert.Tree.TarskiSoundness</a
+      ><a name="110"
+      > </a
+      ><a name="111" class="Keyword"
+      >public</a
+      ><a name="117"
+      >
+
+
+
+
+</a
+      ><a name="122" class="Comment"
+      >-- Using truth with a syntactic component, inspired by Coquand and Dybjer.</a
+      ><a name="196"
+      >
+
+</a
+      ><a name="198" class="Keyword"
+      >module</a
+      ><a name="204"
+      > </a
+      ><a name="205" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#205" class="Module"
+      >CoquandDybjerBasicCompleteness</a
+      ><a name="235"
+      > </a
+      ><a name="236" class="Keyword"
+      >where</a
+      ><a name="241"
+      >
+  </a
+      ><a name="244" class="Keyword"
+      >open</a
+      ><a name="248"
+      > </a
+      ><a name="249" href="BasicIS4.Hilbert.Tree.TarskiSoundness.html#1697" class="Module"
+      >CoquandDybjerSoundness</a
+      ><a name="271"
+      >
+
+
+  </a
+      ><a name="276" class="Comment"
+      >-- The canonical model.</a
+      ><a name="299"
+      >
+
+  </a
+      ><a name="303" class="Keyword"
+      >instance</a
+      ><a name="311"
+      >
+    </a
+      ><a name="316" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#316" class="Function"
+      >canon</a
+      ><a name="321"
+      > </a
+      ><a name="322" class="Symbol"
+      >:</a
+      ><a name="323"
+      > </a
+      ><a name="324" href="BasicIS4.TarskiSemantics.html#96" class="Record"
+      >Model</a
+      ><a name="329"
+      >
+    </a
+      ><a name="334" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#316" class="Function"
+      >canon</a
+      ><a name="339"
+      > </a
+      ><a name="340" class="Symbol"
+      >=</a
+      ><a name="341"
+      > </a
+      ><a name="342" class="Keyword"
+      >record</a
+      ><a name="348"
+      >
+      </a
+      ><a name="355" class="Symbol"
+      >{</a
+      ><a name="356"
+      > </a
+      ><a name="357" class="Field Operator"
+      >&#8872;&#7493;_</a
+      ><a name="360"
+      > </a
+      ><a name="361" class="Symbol"
+      >=</a
+      ><a name="362"
+      > </a
+      ><a name="363" class="Symbol"
+      >&#955;</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#365" class="Bound"
+      >P</a
+      ><a name="366"
+      > </a
+      ><a name="367" class="Symbol"
+      >&#8594;</a
+      ><a name="368"
+      > </a
+      ><a name="369" href="BasicIS4.Hilbert.Tree.html#139" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="BasicIS4.html#191" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="372"
+      > </a
+      ><a name="373" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#365" class="Bound"
+      >P</a
+      ><a name="374"
+      >
+      </a
+      ><a name="381" class="Symbol"
+      >}</a
+      ><a name="382"
+      >
+
+
+  </a
+      ><a name="387" class="Comment"
+      >-- Completeness with respect to all models, or quotation.</a
+      ><a name="444"
+      >
+
+  </a
+      ><a name="448" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#448" class="Function"
+      >quot</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Symbol"
+      >:</a
+      ><a name="454"
+      > </a
+      ><a name="455" class="Symbol"
+      >&#8704;</a
+      ><a name="456"
+      > </a
+      ><a name="457" class="Symbol"
+      >{</a
+      ><a name="458" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#458" class="Bound"
+      >A</a
+      ><a name="459" class="Symbol"
+      >}</a
+      ><a name="460"
+      > </a
+      ><a name="461" class="Symbol"
+      >&#8594;</a
+      ><a name="462"
+      > </a
+      ><a name="463" href="BasicIS4.TarskiSemantics.html#3010" class="Function Operator"
+      >&#7481;&#8872;</a
+      ><a name="465"
+      > </a
+      ><a name="466" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#458" class="Bound"
+      >A</a
+      ><a name="467"
+      > </a
+      ><a name="468" class="Symbol"
+      >&#8594;</a
+      ><a name="469"
+      > </a
+      ><a name="470" href="BasicIS4.Hilbert.Tree.html#139" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="471"
+      > </a
+      ><a name="472" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#458" class="Bound"
+      >A</a
+      ><a name="473"
+      >
+  </a
+      ><a name="476" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#448" class="Function"
+      >quot</a
+      ><a name="480"
+      > </a
+      ><a name="481" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#481" class="Bound"
+      >t</a
+      ><a name="482"
+      > </a
+      ><a name="483" class="Symbol"
+      >=</a
+      ><a name="484"
+      > </a
+      ><a name="485" href="BasicIS4.Hilbert.Tree.TarskiSoundness.html#1827" class="Function"
+      >reify</a
+      ><a name="490"
+      > </a
+      ><a name="491" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#481" class="Bound"
+      >t</a
+      ><a name="492"
+      >
+
+
+  </a
+      ><a name="497" class="Comment"
+      >-- Normalisation by evaluation.</a
+      ><a name="528"
+      >
+
+  </a
+      ><a name="532" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#532" class="Function"
+      >norm</a
+      ><a name="536"
+      > </a
+      ><a name="537" class="Symbol"
+      >:</a
+      ><a name="538"
+      > </a
+      ><a name="539" class="Symbol"
+      >&#8704;</a
+      ><a name="540"
+      > </a
+      ><a name="541" class="Symbol"
+      >{</a
+      ><a name="542" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#542" class="Bound"
+      >A</a
+      ><a name="543" class="Symbol"
+      >}</a
+      ><a name="544"
+      > </a
+      ><a name="545" class="Symbol"
+      >&#8594;</a
+      ><a name="546"
+      > </a
+      ><a name="547" href="BasicIS4.Hilbert.Tree.html#139" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="548"
+      > </a
+      ><a name="549" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#542" class="Bound"
+      >A</a
+      ><a name="550"
+      > </a
+      ><a name="551" class="Symbol"
+      >&#8594;</a
+      ><a name="552"
+      > </a
+      ><a name="553" href="BasicIS4.Hilbert.Tree.html#139" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="554"
+      > </a
+      ><a name="555" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#542" class="Bound"
+      >A</a
+      ><a name="556"
+      >
+  </a
+      ><a name="559" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#532" class="Function"
+      >norm</a
+      ><a name="563"
+      > </a
+      ><a name="564" class="Symbol"
+      >=</a
+      ><a name="565"
+      > </a
+      ><a name="566" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#448" class="Function"
+      >quot</a
+      ><a name="570"
+      > </a
+      ><a name="571" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="572"
+      > </a
+      ><a name="573" href="BasicIS4.Hilbert.Tree.TarskiSoundness.html#2105" class="Function"
+      >eval</a
+      ><a name="577"
+      >
+
+
+  </a
+      ><a name="582" class="Comment"
+      >-- Correctness of normalisation with respect to conversion.</a
+      ><a name="641"
+      >
+
+  </a
+      ><a name="645" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#645" class="Function"
+      >check&#8242;</a
+      ><a name="651"
+      > </a
+      ><a name="652" class="Symbol"
+      >:</a
+      ><a name="653"
+      > </a
+      ><a name="654" class="Symbol"
+      >&#8704;</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Symbol"
+      >{{</a
+      ><a name="658" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#658" class="Bound"
+      >_</a
+      ><a name="659"
+      > </a
+      ><a name="660" class="Symbol"
+      >:</a
+      ><a name="661"
+      > </a
+      ><a name="662" href="BasicIS4.TarskiSemantics.html#96" class="Record"
+      >Model</a
+      ><a name="667" class="Symbol"
+      >}}</a
+      ><a name="669"
+      > </a
+      ><a name="670" class="Symbol"
+      >{</a
+      ><a name="671" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#671" class="Bound"
+      >A</a
+      ><a name="672" class="Symbol"
+      >}</a
+      ><a name="673"
+      > </a
+      ><a name="674" class="Symbol"
+      >{</a
+      ><a name="675" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#675" class="Bound"
+      >t</a
+      ><a name="676"
+      > </a
+      ><a name="677" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#677" class="Bound"
+      >t&#8242;</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >:</a
+      ><a name="681"
+      > </a
+      ><a name="682" href="BasicIS4.Hilbert.Tree.html#139" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#671" class="Bound"
+      >A</a
+      ><a name="685" class="Symbol"
+      >}</a
+      ><a name="686"
+      > </a
+      ><a name="687" class="Symbol"
+      >&#8594;</a
+      ><a name="688"
+      > </a
+      ><a name="689" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#675" class="Bound"
+      >t</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="BasicIS4.Hilbert.Tree.html#2611" class="Datatype Operator"
+      >&#8658;</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#677" class="Bound"
+      >t&#8242;</a
+      ><a name="695"
+      > </a
+      ><a name="696" class="Symbol"
+      >&#8594;</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#532" class="Function"
+      >norm</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#675" class="Bound"
+      >t</a
+      ><a name="704"
+      > </a
+      ><a name="705" href="Agda.Builtin.Equality.html#55" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="706"
+      > </a
+      ><a name="707" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#532" class="Function"
+      >norm</a
+      ><a name="711"
+      > </a
+      ><a name="712" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#677" class="Bound"
+      >t&#8242;</a
+      ><a name="714"
+      >
+  </a
+      ><a name="717" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#645" class="Function"
+      >check&#8242;</a
+      ><a name="723"
+      > </a
+      ><a name="724" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#724" class="Bound"
+      >p</a
+      ><a name="725"
+      > </a
+      ><a name="726" class="Symbol"
+      >=</a
+      ><a name="727"
+      > </a
+      ><a name="728" href="Relation.Binary.PropositionalEquality.html#1036" class="Function"
+      >cong</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="BasicIS4.Hilbert.Tree.TarskiSoundness.html#1827" class="Function"
+      >reify</a
+      ><a name="738"
+      > </a
+      ><a name="739" class="Symbol"
+      >(</a
+      ><a name="740" href="BasicIS4.Hilbert.Tree.TarskiSoundness.html#2939" class="Function"
+      >check</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="BasicIS4.Hilbert.Tree.TarskiBasicCompleteness.html#724" class="Bound"
+      >p</a
+      ><a name="747" class="Symbol"
+      >)</a
+      ><a name="748"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

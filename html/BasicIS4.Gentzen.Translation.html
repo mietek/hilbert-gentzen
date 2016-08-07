@@ -1,0 +1,1165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Gentzen.Translation</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.Gentzen.Translation.html#1" class="Module"
+      >BasicIS4.Gentzen.Translation</a
+      ><a name="36"
+      > </a
+      ><a name="37" class="Keyword"
+      >where</a
+      ><a name="42"
+      >
+
+</a
+      ><a name="44" class="Keyword"
+      >open</a
+      ><a name="48"
+      > </a
+      ><a name="49" class="Keyword"
+      >import</a
+      ><a name="55"
+      > </a
+      ><a name="56" href="BasicIS4.Translation.html#1" class="Module"
+      >BasicIS4.Translation</a
+      ><a name="76"
+      > </a
+      ><a name="77" class="Keyword"
+      >public</a
+      ><a name="83"
+      >
+
+</a
+      ><a name="85" class="Keyword"
+      >import</a
+      ><a name="91"
+      > </a
+      ><a name="92" href="BasicIS4.Gentzen.TreeWithContext.html#1" class="Module"
+      >BasicIS4.Gentzen.TreeWithContext</a
+      ><a name="124"
+      > </a
+      ><a name="125" class="Symbol"
+      >as</a
+      ><a name="127"
+      > </a
+      ><a name="128" class="Module"
+      >GTC</a
+      ><a name="131"
+      >
+</a
+      ><a name="132" class="Keyword"
+      >import</a
+      ><a name="138"
+      > </a
+      ><a name="139" href="BasicIS4.Gentzen.TreeWithContextPair.html#1" class="Module"
+      >BasicIS4.Gentzen.TreeWithContextPair</a
+      ><a name="175"
+      > </a
+      ><a name="176" class="Symbol"
+      >as</a
+      ><a name="178"
+      > </a
+      ><a name="179" class="Module"
+      >GTCP</a
+      ><a name="183"
+      >
+
+</a
+      ><a name="185" class="Keyword"
+      >open</a
+      ><a name="189"
+      > </a
+      ><a name="190" href="BasicIS4.Gentzen.TreeWithContext.html#1" class="Module"
+      >GTC</a
+      ><a name="193"
+      > </a
+      ><a name="194" class="Keyword"
+      >using</a
+      ><a name="199"
+      > </a
+      ><a name="200" class="Symbol"
+      >()</a
+      ><a name="202"
+      > </a
+      ><a name="203" class="Keyword"
+      >renaming</a
+      ><a name="211"
+      > </a
+      ><a name="212" class="Symbol"
+      >(</a
+      ><a name="213" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >_&#8866;_</a
+      ><a name="216"
+      > </a
+      ><a name="217" class="Symbol"
+      >to</a
+      ><a name="219"
+      > </a
+      ><a name="220" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >GTC&#10216;_&#8866;_&#10217;</a
+      ><a name="228"
+      > </a
+      ><a name="229" class="Symbol"
+      >;</a
+      ><a name="230"
+      > </a
+      ><a name="231" href="BasicIS4.Gentzen.TreeWithContext.html#640" class="Function Operator"
+      >_&#8866;&#8902;_</a
+      ><a name="235"
+      > </a
+      ><a name="236" class="Symbol"
+      >to</a
+      ><a name="238"
+      > </a
+      ><a name="239" href="BasicIS4.Gentzen.TreeWithContext.html#640" class="Function Operator"
+      >GTC&#10216;_&#8866;&#8902;_&#10217;</a
+      ><a name="248" class="Symbol"
+      >)</a
+      ><a name="249"
+      > </a
+      ><a name="250" class="Keyword"
+      >public</a
+      ><a name="256"
+      >
+</a
+      ><a name="257" class="Keyword"
+      >open</a
+      ><a name="261"
+      > </a
+      ><a name="262" href="BasicIS4.Gentzen.TreeWithContextPair.html#1" class="Module"
+      >GTCP</a
+      ><a name="266"
+      > </a
+      ><a name="267" class="Keyword"
+      >using</a
+      ><a name="272"
+      > </a
+      ><a name="273" class="Symbol"
+      >()</a
+      ><a name="275"
+      > </a
+      ><a name="276" class="Keyword"
+      >renaming</a
+      ><a name="284"
+      > </a
+      ><a name="285" class="Symbol"
+      >(</a
+      ><a name="286" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >_&#8271;_&#8866;_</a
+      ><a name="291"
+      > </a
+      ><a name="292" class="Symbol"
+      >to</a
+      ><a name="294"
+      > </a
+      ><a name="295" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >GTCP&#10216;_&#8271;_&#8866;_&#10217;</a
+      ><a name="306"
+      > </a
+      ><a name="307" class="Symbol"
+      >;</a
+      ><a name="308"
+      > </a
+      ><a name="309" href="BasicIS4.Gentzen.TreeWithContextPair.html#740" class="Function Operator"
+      >_&#8271;_&#8866;&#8902;_</a
+      ><a name="315"
+      > </a
+      ><a name="316" class="Symbol"
+      >to</a
+      ><a name="318"
+      > </a
+      ><a name="319" href="BasicIS4.Gentzen.TreeWithContextPair.html#740" class="Function Operator"
+      >GTCP&#10216;_&#8271;_&#8866;&#8902;_&#10217;</a
+      ><a name="331" class="Symbol"
+      >)</a
+      ><a name="332"
+      > </a
+      ><a name="333" class="Keyword"
+      >public</a
+      ><a name="339"
+      >
+
+
+</a
+      ><a name="342" class="Comment"
+      >-- Translation between tree-shaped variants, with context and with context pair.</a
+      ><a name="422"
+      >
+
+</a
+      ><a name="424" class="Keyword"
+      >mutual</a
+      ><a name="430"
+      >
+  </a
+      ><a name="433" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="443"
+      > </a
+      ><a name="444" class="Symbol"
+      >:</a
+      ><a name="445"
+      > </a
+      ><a name="446" class="Symbol"
+      >&#8704;</a
+      ><a name="447"
+      > </a
+      ><a name="448" class="Symbol"
+      >{</a
+      ><a name="449" href="BasicIS4.Gentzen.Translation.html#449" class="Bound"
+      >A</a
+      ><a name="450"
+      > </a
+      ><a name="451" href="BasicIS4.Gentzen.Translation.html#451" class="Bound"
+      >&#915;</a
+      ><a name="452" class="Symbol"
+      >}</a
+      ><a name="453"
+      > </a
+      ><a name="454" class="Symbol"
+      >&#8594;</a
+      ><a name="455"
+      > </a
+      ><a name="456" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >GTC&#10216;</a
+      ><a name="460"
+      > </a
+      ><a name="461" href="BasicIS4.Gentzen.Translation.html#451" class="Bound"
+      >&#915;</a
+      ><a name="462"
+      > </a
+      ><a name="463" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="464"
+      > </a
+      ><a name="465" href="BasicIS4.Gentzen.Translation.html#449" class="Bound"
+      >A</a
+      ><a name="466"
+      > </a
+      ><a name="467" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="468"
+      > </a
+      ><a name="469" class="Symbol"
+      >&#8594;</a
+      ><a name="470"
+      > </a
+      ><a name="471" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >GTCP&#10216;</a
+      ><a name="476"
+      > </a
+      ><a name="477" href="BasicIS4.Gentzen.Translation.html#451" class="Bound"
+      >&#915;</a
+      ><a name="478"
+      > </a
+      ><a name="479" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="480"
+      > </a
+      ><a name="481" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="482"
+      > </a
+      ><a name="483" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="484"
+      > </a
+      ><a name="485" href="BasicIS4.Gentzen.Translation.html#449" class="Bound"
+      >A</a
+      ><a name="486"
+      > </a
+      ><a name="487" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="488"
+      >
+  </a
+      ><a name="491" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="501"
+      > </a
+      ><a name="502" class="Symbol"
+      >(</a
+      ><a name="503" href="BasicIS4.Gentzen.TreeWithContext.html#234" class="InductiveConstructor"
+      >GTC.var</a
+      ><a name="510"
+      > </a
+      ><a name="511" href="BasicIS4.Gentzen.Translation.html#511" class="Bound"
+      >i</a
+      ><a name="512" class="Symbol"
+      >)</a
+      ><a name="513"
+      >         </a
+      ><a name="522" class="Symbol"
+      >=</a
+      ><a name="523"
+      > </a
+      ><a name="524" href="BasicIS4.Gentzen.TreeWithContextPair.html#268" class="InductiveConstructor"
+      >GTCP.var</a
+      ><a name="532"
+      > </a
+      ><a name="533" href="BasicIS4.Gentzen.Translation.html#511" class="Bound"
+      >i</a
+      ><a name="534"
+      >
+  </a
+      ><a name="537" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="547"
+      > </a
+      ><a name="548" class="Symbol"
+      >(</a
+      ><a name="549" href="BasicIS4.Gentzen.TreeWithContext.html#273" class="InductiveConstructor"
+      >GTC.lam</a
+      ><a name="556"
+      > </a
+      ><a name="557" href="BasicIS4.Gentzen.Translation.html#557" class="Bound"
+      >t</a
+      ><a name="558" class="Symbol"
+      >)</a
+      ><a name="559"
+      >         </a
+      ><a name="568" class="Symbol"
+      >=</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="BasicIS4.Gentzen.TreeWithContextPair.html#306" class="InductiveConstructor"
+      >GTCP.lam</a
+      ><a name="578"
+      > </a
+      ><a name="579" class="Symbol"
+      >(</a
+      ><a name="580" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="590"
+      > </a
+      ><a name="591" href="BasicIS4.Gentzen.Translation.html#557" class="Bound"
+      >t</a
+      ><a name="592" class="Symbol"
+      >)</a
+      ><a name="593"
+      >
+  </a
+      ><a name="596" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="606"
+      > </a
+      ><a name="607" class="Symbol"
+      >(</a
+      ><a name="608" href="BasicIS4.Gentzen.TreeWithContext.html#320" class="InductiveConstructor"
+      >GTC.app</a
+      ><a name="615"
+      > </a
+      ><a name="616" href="BasicIS4.Gentzen.Translation.html#616" class="Bound"
+      >t</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="BasicIS4.Gentzen.Translation.html#618" class="Bound"
+      >u</a
+      ><a name="619" class="Symbol"
+      >)</a
+      ><a name="620"
+      >       </a
+      ><a name="627" class="Symbol"
+      >=</a
+      ><a name="628"
+      > </a
+      ><a name="629" href="BasicIS4.Gentzen.TreeWithContextPair.html#356" class="InductiveConstructor"
+      >GTCP.app</a
+      ><a name="637"
+      > </a
+      ><a name="638" class="Symbol"
+      >(</a
+      ><a name="639" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="649"
+      > </a
+      ><a name="650" href="BasicIS4.Gentzen.Translation.html#616" class="Bound"
+      >t</a
+      ><a name="651" class="Symbol"
+      >)</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="Symbol"
+      >(</a
+      ><a name="654" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="664"
+      > </a
+      ><a name="665" href="BasicIS4.Gentzen.Translation.html#618" class="Bound"
+      >u</a
+      ><a name="666" class="Symbol"
+      >)</a
+      ><a name="667"
+      >
+  </a
+      ><a name="670" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="680"
+      > </a
+      ><a name="681" class="Symbol"
+      >(</a
+      ><a name="682" href="BasicIS4.Gentzen.TreeWithContext.html#371" class="InductiveConstructor"
+      >GTC.multibox</a
+      ><a name="694"
+      > </a
+      ><a name="695" href="BasicIS4.Gentzen.Translation.html#695" class="Bound"
+      >ts</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="BasicIS4.Gentzen.Translation.html#698" class="Bound"
+      >u</a
+      ><a name="699" class="Symbol"
+      >)</a
+      ><a name="700"
+      > </a
+      ><a name="701" class="Symbol"
+      >=</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="BasicIS4.Gentzen.TreeWithContextPair.html#8999" class="Function"
+      >GTCP.multibox</a
+      ><a name="716"
+      > </a
+      ><a name="717" class="Symbol"
+      >(</a
+      ><a name="718" href="BasicIS4.Gentzen.Translation.html#1048" class="Function"
+      >gtc&#8594;mgtcp&#8320;&#8902;</a
+      ><a name="729"
+      > </a
+      ><a name="730" href="BasicIS4.Gentzen.Translation.html#695" class="Bound"
+      >ts</a
+      ><a name="732" class="Symbol"
+      >)</a
+      ><a name="733"
+      > </a
+      ><a name="734" class="Symbol"
+      >(</a
+      ><a name="735" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="BasicIS4.Gentzen.Translation.html#698" class="Bound"
+      >u</a
+      ><a name="747" class="Symbol"
+      >)</a
+      ><a name="748"
+      >
+  </a
+      ><a name="751" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="761"
+      > </a
+      ><a name="762" class="Symbol"
+      >(</a
+      ><a name="763" href="BasicIS4.Gentzen.TreeWithContext.html#427" class="InductiveConstructor"
+      >GTC.down</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="BasicIS4.Gentzen.Translation.html#772" class="Bound"
+      >t</a
+      ><a name="773" class="Symbol"
+      >)</a
+      ><a name="774"
+      >        </a
+      ><a name="782" class="Symbol"
+      >=</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="BasicIS4.Gentzen.TreeWithContextPair.html#7509" class="Function"
+      >GTCP.down</a
+      ><a name="793"
+      > </a
+      ><a name="794" class="Symbol"
+      >(</a
+      ><a name="795" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="805"
+      > </a
+      ><a name="806" href="BasicIS4.Gentzen.Translation.html#772" class="Bound"
+      >t</a
+      ><a name="807" class="Symbol"
+      >)</a
+      ><a name="808"
+      >
+  </a
+      ><a name="811" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="821"
+      > </a
+      ><a name="822" class="Symbol"
+      >(</a
+      ><a name="823" href="BasicIS4.Gentzen.TreeWithContext.html#468" class="InductiveConstructor"
+      >GTC.pair</a
+      ><a name="831"
+      > </a
+      ><a name="832" href="BasicIS4.Gentzen.Translation.html#832" class="Bound"
+      >t</a
+      ><a name="833"
+      > </a
+      ><a name="834" href="BasicIS4.Gentzen.Translation.html#834" class="Bound"
+      >u</a
+      ><a name="835" class="Symbol"
+      >)</a
+      ><a name="836"
+      >      </a
+      ><a name="842" class="Symbol"
+      >=</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="BasicIS4.Gentzen.TreeWithContextPair.html#556" class="InductiveConstructor"
+      >GTCP.pair</a
+      ><a name="853"
+      > </a
+      ><a name="854" class="Symbol"
+      >(</a
+      ><a name="855" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="865"
+      > </a
+      ><a name="866" href="BasicIS4.Gentzen.Translation.html#832" class="Bound"
+      >t</a
+      ><a name="867" class="Symbol"
+      >)</a
+      ><a name="868"
+      > </a
+      ><a name="869" class="Symbol"
+      >(</a
+      ><a name="870" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="880"
+      > </a
+      ><a name="881" href="BasicIS4.Gentzen.Translation.html#834" class="Bound"
+      >u</a
+      ><a name="882" class="Symbol"
+      >)</a
+      ><a name="883"
+      >
+  </a
+      ><a name="886" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="896"
+      > </a
+      ><a name="897" class="Symbol"
+      >(</a
+      ><a name="898" href="BasicIS4.Gentzen.TreeWithContext.html#519" class="InductiveConstructor"
+      >GTC.fst</a
+      ><a name="905"
+      > </a
+      ><a name="906" href="BasicIS4.Gentzen.Translation.html#906" class="Bound"
+      >t</a
+      ><a name="907" class="Symbol"
+      >)</a
+      ><a name="908"
+      >         </a
+      ><a name="917" class="Symbol"
+      >=</a
+      ><a name="918"
+      > </a
+      ><a name="919" href="BasicIS4.Gentzen.TreeWithContextPair.html#614" class="InductiveConstructor"
+      >GTCP.fst</a
+      ><a name="927"
+      > </a
+      ><a name="928" class="Symbol"
+      >(</a
+      ><a name="929" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="939"
+      > </a
+      ><a name="940" href="BasicIS4.Gentzen.Translation.html#906" class="Bound"
+      >t</a
+      ><a name="941" class="Symbol"
+      >)</a
+      ><a name="942"
+      >
+  </a
+      ><a name="945" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="955"
+      > </a
+      ><a name="956" class="Symbol"
+      >(</a
+      ><a name="957" href="BasicIS4.Gentzen.TreeWithContext.html#562" class="InductiveConstructor"
+      >GTC.snd</a
+      ><a name="964"
+      > </a
+      ><a name="965" href="BasicIS4.Gentzen.Translation.html#965" class="Bound"
+      >t</a
+      ><a name="966" class="Symbol"
+      >)</a
+      ><a name="967"
+      >         </a
+      ><a name="976" class="Symbol"
+      >=</a
+      ><a name="977"
+      > </a
+      ><a name="978" href="BasicIS4.Gentzen.TreeWithContextPair.html#660" class="InductiveConstructor"
+      >GTCP.snd</a
+      ><a name="986"
+      > </a
+      ><a name="987" class="Symbol"
+      >(</a
+      ><a name="988" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="998"
+      > </a
+      ><a name="999" href="BasicIS4.Gentzen.Translation.html#965" class="Bound"
+      >t</a
+      ><a name="1000" class="Symbol"
+      >)</a
+      ><a name="1001"
+      >
+  </a
+      ><a name="1004" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" href="BasicIS4.Gentzen.TreeWithContext.html#605" class="InductiveConstructor"
+      >GTC.tt</a
+      ><a name="1021"
+      >              </a
+      ><a name="1035" class="Symbol"
+      >=</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" href="BasicIS4.Gentzen.TreeWithContextPair.html#706" class="InductiveConstructor"
+      >GTCP.tt</a
+      ><a name="1044"
+      >
+
+  </a
+      ><a name="1048" href="BasicIS4.Gentzen.Translation.html#1048" class="Function"
+      >gtc&#8594;mgtcp&#8320;&#8902;</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" class="Symbol"
+      >:</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" class="Symbol"
+      >&#8704;</a
+      ><a name="1063"
+      > </a
+      ><a name="1064" class="Symbol"
+      >{</a
+      ><a name="1065" href="BasicIS4.Gentzen.Translation.html#1065" class="Bound"
+      >&#928;</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" href="BasicIS4.Gentzen.Translation.html#1067" class="Bound"
+      >&#915;</a
+      ><a name="1068" class="Symbol"
+      >}</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" class="Symbol"
+      >&#8594;</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" href="BasicIS4.Gentzen.TreeWithContext.html#640" class="Function Operator"
+      >GTC&#10216;</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" href="BasicIS4.Gentzen.Translation.html#1067" class="Bound"
+      >&#915;</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="BasicIS4.Gentzen.TreeWithContext.html#640" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" href="BasicIS4.Gentzen.Translation.html#1065" class="Bound"
+      >&#928;</a
+      ><a name="1083"
+      > </a
+      ><a name="1084" href="BasicIS4.Gentzen.TreeWithContext.html#640" class="Function Operator"
+      >&#10217;</a
+      ><a name="1085"
+      > </a
+      ><a name="1086" class="Symbol"
+      >&#8594;</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" href="BasicIS4.Gentzen.TreeWithContextPair.html#740" class="Function Operator"
+      >GTCP&#10216;</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="BasicIS4.Gentzen.Translation.html#1067" class="Bound"
+      >&#915;</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="BasicIS4.Gentzen.TreeWithContextPair.html#740" class="Function Operator"
+      >&#8271;</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="BasicIS4.Gentzen.TreeWithContextPair.html#740" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="BasicIS4.Gentzen.Translation.html#1065" class="Bound"
+      >&#928;</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="BasicIS4.Gentzen.TreeWithContextPair.html#740" class="Function Operator"
+      >&#10217;</a
+      ><a name="1106"
+      >
+  </a
+      ><a name="1109" href="BasicIS4.Gentzen.Translation.html#1048" class="Function"
+      >gtc&#8594;mgtcp&#8320;&#8902;</a
+      ><a name="1120"
+      > </a
+      ><a name="1121" class="Symbol"
+      >{</a
+      ><a name="1122" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1123" class="Symbol"
+      >}</a
+      ><a name="1124"
+      >     </a
+      ><a name="1129" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1130"
+      >        </a
+      ><a name="1138" class="Symbol"
+      >=</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1141"
+      >
+  </a
+      ><a name="1144" href="BasicIS4.Gentzen.Translation.html#1048" class="Function"
+      >gtc&#8594;mgtcp&#8320;&#8902;</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" class="Symbol"
+      >{</a
+      ><a name="1157" href="BasicIS4.Gentzen.Translation.html#1157" class="Bound"
+      >&#928;</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="BasicIS4.Gentzen.Translation.html#1161" class="Bound"
+      >A</a
+      ><a name="1162" class="Symbol"
+      >}</a
+      ><a name="1163"
+      > </a
+      ><a name="1164" class="Symbol"
+      >(</a
+      ><a name="1165" href="BasicIS4.Gentzen.Translation.html#1165" class="Bound"
+      >ts</a
+      ><a name="1167"
+      > </a
+      ><a name="1168" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1169"
+      > </a
+      ><a name="1170" href="BasicIS4.Gentzen.Translation.html#1170" class="Bound"
+      >t</a
+      ><a name="1171" class="Symbol"
+      >)</a
+      ><a name="1172"
+      > </a
+      ><a name="1173" class="Symbol"
+      >=</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" href="BasicIS4.Gentzen.Translation.html#1048" class="Function"
+      >gtc&#8594;mgtcp&#8320;&#8902;</a
+      ><a name="1186"
+      > </a
+      ><a name="1187" href="BasicIS4.Gentzen.Translation.html#1165" class="Bound"
+      >ts</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1191"
+      > </a
+      ><a name="1192" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" href="BasicIS4.Gentzen.Translation.html#1170" class="Bound"
+      >t</a
+      ><a name="1204"
+      >
+
+</a
+      ><a name="1206" href="BasicIS4.Gentzen.Translation.html#1206" class="Function"
+      >gtc&#8594;gtcp</a
+      ><a name="1214"
+      > </a
+      ><a name="1215" class="Symbol"
+      >:</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" class="Symbol"
+      >&#8704;</a
+      ><a name="1218"
+      > </a
+      ><a name="1219" class="Symbol"
+      >{</a
+      ><a name="1220" href="BasicIS4.Gentzen.Translation.html#1220" class="Bound"
+      >A</a
+      ><a name="1221"
+      > </a
+      ><a name="1222" href="BasicIS4.Gentzen.Translation.html#1222" class="Bound"
+      >&#915;</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" href="BasicIS4.Gentzen.Translation.html#1224" class="Bound"
+      >&#916;</a
+      ><a name="1225" class="Symbol"
+      >}</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" class="Symbol"
+      >&#8594;</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >GTC&#10216;</a
+      ><a name="1233"
+      > </a
+      ><a name="1234" href="BasicIS4.Gentzen.Translation.html#1222" class="Bound"
+      >&#915;</a
+      ><a name="1235"
+      > </a
+      ><a name="1236" href="Common.Context.html#3194" class="Function Operator"
+      >&#10746;</a
+      ><a name="1237"
+      > </a
+      ><a name="1238" class="Symbol"
+      >(</a
+      ><a name="1239" href="BasicIS4.html#2370" class="Function Operator"
+      >&#9633;&#8902;</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" href="BasicIS4.Gentzen.Translation.html#1224" class="Bound"
+      >&#916;</a
+      ><a name="1243" class="Symbol"
+      >)</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1246"
+      > </a
+      ><a name="1247" href="BasicIS4.Gentzen.Translation.html#1220" class="Bound"
+      >A</a
+      ><a name="1248"
+      > </a
+      ><a name="1249" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1250"
+      > </a
+      ><a name="1251" class="Symbol"
+      >&#8594;</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >GTCP&#10216;</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="BasicIS4.Gentzen.Translation.html#1222" class="Bound"
+      >&#915;</a
+      ><a name="1260"
+      > </a
+      ><a name="1261" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1262"
+      > </a
+      ><a name="1263" href="BasicIS4.Gentzen.Translation.html#1224" class="Bound"
+      >&#916;</a
+      ><a name="1264"
+      > </a
+      ><a name="1265" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1266"
+      > </a
+      ><a name="1267" href="BasicIS4.Gentzen.Translation.html#1220" class="Bound"
+      >A</a
+      ><a name="1268"
+      > </a
+      ><a name="1269" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1270"
+      >
+</a
+      ><a name="1271" href="BasicIS4.Gentzen.Translation.html#1206" class="Function"
+      >gtc&#8594;gtcp</a
+      ><a name="1279"
+      > </a
+      ><a name="1280" class="Symbol"
+      >=</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" href="BasicIS4.Gentzen.TreeWithContextPair.html#4355" class="Function"
+      >GTCP.split</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" href="BasicIS4.Gentzen.Translation.html#433" class="Function"
+      >gtc&#8594;mgtcp&#8320;</a
+      ><a name="1305"
+      >
+
+</a
+      ><a name="1307" class="Comment"
+      >-- NOTE: Direct translation fails the termination check.</a
+      ><a name="1363"
+      >
+</a
+      ><a name="1364" href="BasicIS4.Gentzen.Translation.html#1364" class="Function"
+      >mgtcp&#8320;&#8594;gtc</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" class="Symbol"
+      >:</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" class="Symbol"
+      >&#8704;</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" class="Symbol"
+      >{</a
+      ><a name="1380" href="BasicIS4.Gentzen.Translation.html#1380" class="Bound"
+      >A</a
+      ><a name="1381"
+      > </a
+      ><a name="1382" href="BasicIS4.Gentzen.Translation.html#1382" class="Bound"
+      >&#915;</a
+      ><a name="1383" class="Symbol"
+      >}</a
+      ><a name="1384"
+      > </a
+      ><a name="1385" class="Symbol"
+      >&#8594;</a
+      ><a name="1386"
+      > </a
+      ><a name="1387" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >GTCP&#10216;</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="BasicIS4.Gentzen.Translation.html#1382" class="Bound"
+      >&#915;</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1398"
+      > </a
+      ><a name="1399" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1400"
+      > </a
+      ><a name="1401" href="BasicIS4.Gentzen.Translation.html#1380" class="Bound"
+      >A</a
+      ><a name="1402"
+      > </a
+      ><a name="1403" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1404"
+      > </a
+      ><a name="1405" class="Symbol"
+      >&#8594;</a
+      ><a name="1406"
+      > </a
+      ><a name="1407" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >GTC&#10216;</a
+      ><a name="1411"
+      > </a
+      ><a name="1412" href="BasicIS4.Gentzen.Translation.html#1382" class="Bound"
+      >&#915;</a
+      ><a name="1413"
+      > </a
+      ><a name="1414" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1415"
+      > </a
+      ><a name="1416" href="BasicIS4.Gentzen.Translation.html#1380" class="Bound"
+      >A</a
+      ><a name="1417"
+      > </a
+      ><a name="1418" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1419"
+      >
+</a
+      ><a name="1420" href="BasicIS4.Gentzen.Translation.html#1364" class="Function"
+      >mgtcp&#8320;&#8594;gtc</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" class="Symbol"
+      >=</a
+      ><a name="1432"
+      > </a
+      ><a name="1433" href="BasicIS4.Translation.html#945" class="Function"
+      >tc&#8594;gtc</a
+      ><a name="1439"
+      > </a
+      ><a name="1440" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" href="BasicIS4.Translation.html#4636" class="Function"
+      >mgtcp&#8320;&#8594;tc</a
+      ><a name="1451"
+      >
+
+</a
+      ><a name="1453" href="BasicIS4.Gentzen.Translation.html#1453" class="Function"
+      >gtcp&#8594;gtc</a
+      ><a name="1461"
+      > </a
+      ><a name="1462" class="Symbol"
+      >:</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" class="Symbol"
+      >&#8704;</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" class="Symbol"
+      >{</a
+      ><a name="1467" href="BasicIS4.Gentzen.Translation.html#1467" class="Bound"
+      >A</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" href="BasicIS4.Gentzen.Translation.html#1469" class="Bound"
+      >&#915;</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" href="BasicIS4.Gentzen.Translation.html#1471" class="Bound"
+      >&#916;</a
+      ><a name="1472" class="Symbol"
+      >}</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" class="Symbol"
+      >&#8594;</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >GTCP&#10216;</a
+      ><a name="1481"
+      > </a
+      ><a name="1482" href="BasicIS4.Gentzen.Translation.html#1469" class="Bound"
+      >&#915;</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" href="BasicIS4.Gentzen.Translation.html#1471" class="Bound"
+      >&#916;</a
+      ><a name="1487"
+      > </a
+      ><a name="1488" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="BasicIS4.Gentzen.Translation.html#1467" class="Bound"
+      >A</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="BasicIS4.Gentzen.TreeWithContextPair.html#229" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" class="Symbol"
+      >&#8594;</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >GTC&#10216;</a
+      ><a name="1500"
+      > </a
+      ><a name="1501" href="BasicIS4.Gentzen.Translation.html#1469" class="Bound"
+      >&#915;</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" href="Common.Context.html#3194" class="Function Operator"
+      >&#10746;</a
+      ><a name="1504"
+      > </a
+      ><a name="1505" class="Symbol"
+      >(</a
+      ><a name="1506" href="BasicIS4.html#2370" class="Function Operator"
+      >&#9633;&#8902;</a
+      ><a name="1508"
+      > </a
+      ><a name="1509" href="BasicIS4.Gentzen.Translation.html#1471" class="Bound"
+      >&#916;</a
+      ><a name="1510" class="Symbol"
+      >)</a
+      ><a name="1511"
+      > </a
+      ><a name="1512" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1513"
+      > </a
+      ><a name="1514" href="BasicIS4.Gentzen.Translation.html#1467" class="Bound"
+      >A</a
+      ><a name="1515"
+      > </a
+      ><a name="1516" href="BasicIS4.Gentzen.TreeWithContext.html#197" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1517"
+      >
+</a
+      ><a name="1518" href="BasicIS4.Gentzen.Translation.html#1453" class="Function"
+      >gtcp&#8594;gtc</a
+      ><a name="1526"
+      > </a
+      ><a name="1527" class="Symbol"
+      >=</a
+      ><a name="1528"
+      > </a
+      ><a name="1529" href="BasicIS4.Gentzen.Translation.html#1364" class="Function"
+      >mgtcp&#8320;&#8594;gtc</a
+      ><a name="1539"
+      > </a
+      ><a name="1540" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" href="BasicIS4.Gentzen.TreeWithContextPair.html#4188" class="Function"
+      >GTCP.merge</a
+      ><a name="1552"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
