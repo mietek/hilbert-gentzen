@@ -1,0 +1,5699 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIPC.Hilbert.Translation</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIPC.Hilbert.Translation.html#1" class="Module"
+      >BasicIPC.Hilbert.Translation</a
+      ><a name="36"
+      > </a
+      ><a name="37" class="Keyword"
+      >where</a
+      ><a name="42"
+      >
+
+</a
+      ><a name="44" class="Keyword"
+      >open</a
+      ><a name="48"
+      > </a
+      ><a name="49" class="Keyword"
+      >import</a
+      ><a name="55"
+      > </a
+      ><a name="56" href="BasicIPC.html#1" class="Module"
+      >BasicIPC</a
+      ><a name="64"
+      > </a
+      ><a name="65" class="Keyword"
+      >public</a
+      ><a name="71"
+      >
+
+</a
+      ><a name="73" class="Keyword"
+      >import</a
+      ><a name="79"
+      > </a
+      ><a name="80" href="BasicIPC.Hilbert.List.html#1" class="Module"
+      >BasicIPC.Hilbert.List</a
+      ><a name="101"
+      > </a
+      ><a name="102" class="Symbol"
+      >as</a
+      ><a name="104"
+      > </a
+      ><a name="105" class="Module"
+      >L</a
+      ><a name="106"
+      >
+</a
+      ><a name="107" class="Keyword"
+      >import</a
+      ><a name="113"
+      > </a
+      ><a name="114" href="BasicIPC.Hilbert.Tree.html#1" class="Module"
+      >BasicIPC.Hilbert.Tree</a
+      ><a name="135"
+      > </a
+      ><a name="136" class="Symbol"
+      >as</a
+      ><a name="138"
+      > </a
+      ><a name="139" class="Module"
+      >T</a
+      ><a name="140"
+      >
+</a
+      ><a name="141" class="Keyword"
+      >import</a
+      ><a name="147"
+      > </a
+      ><a name="148" href="BasicIPC.Hilbert.ListWithContext.html#1" class="Module"
+      >BasicIPC.Hilbert.ListWithContext</a
+      ><a name="180"
+      > </a
+      ><a name="181" class="Symbol"
+      >as</a
+      ><a name="183"
+      > </a
+      ><a name="184" class="Module"
+      >LC</a
+      ><a name="186"
+      >
+</a
+      ><a name="187" class="Keyword"
+      >import</a
+      ><a name="193"
+      > </a
+      ><a name="194" href="BasicIPC.Hilbert.TreeWithContext.html#1" class="Module"
+      >BasicIPC.Hilbert.TreeWithContext</a
+      ><a name="226"
+      > </a
+      ><a name="227" class="Symbol"
+      >as</a
+      ><a name="229"
+      > </a
+      ><a name="230" class="Module"
+      >TC</a
+      ><a name="232"
+      >
+
+</a
+      ><a name="234" class="Keyword"
+      >open</a
+      ><a name="238"
+      > </a
+      ><a name="239" href="BasicIPC.Hilbert.ListWithContext.html#1" class="Module"
+      >LC</a
+      ><a name="241"
+      > </a
+      ><a name="242" class="Keyword"
+      >using</a
+      ><a name="247"
+      > </a
+      ><a name="248" class="Symbol"
+      >()</a
+      ><a name="250"
+      > </a
+      ><a name="251" class="Keyword"
+      >renaming</a
+      ><a name="259"
+      > </a
+      ><a name="260" class="Symbol"
+      >(</a
+      ><a name="261" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >_&#8866;&#215;_</a
+      ><a name="265"
+      > </a
+      ><a name="266" class="Symbol"
+      >to</a
+      ><a name="268"
+      > </a
+      ><a name="269" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >LC&#10216;_&#8866;&#215;_&#10217;</a
+      ><a name="277"
+      > </a
+      ><a name="278" class="Symbol"
+      >;</a
+      ><a name="279"
+      > </a
+      ><a name="280" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >_&#8866;_</a
+      ><a name="283"
+      > </a
+      ><a name="284" class="Symbol"
+      >to</a
+      ><a name="286"
+      > </a
+      ><a name="287" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;_&#8866;_&#10217;</a
+      ><a name="294" class="Symbol"
+      >)</a
+      ><a name="295"
+      > </a
+      ><a name="296" class="Keyword"
+      >public</a
+      ><a name="302"
+      >
+</a
+      ><a name="303" class="Keyword"
+      >open</a
+      ><a name="307"
+      > </a
+      ><a name="308" href="BasicIPC.Hilbert.TreeWithContext.html#1" class="Module"
+      >TC</a
+      ><a name="310"
+      > </a
+      ><a name="311" class="Keyword"
+      >using</a
+      ><a name="316"
+      > </a
+      ><a name="317" class="Symbol"
+      >()</a
+      ><a name="319"
+      > </a
+      ><a name="320" class="Keyword"
+      >renaming</a
+      ><a name="328"
+      > </a
+      ><a name="329" class="Symbol"
+      >(</a
+      ><a name="330" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >_&#8866;_</a
+      ><a name="333"
+      > </a
+      ><a name="334" class="Symbol"
+      >to</a
+      ><a name="336"
+      > </a
+      ><a name="337" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;_&#8866;_&#10217;</a
+      ><a name="344" class="Symbol"
+      >)</a
+      ><a name="345"
+      > </a
+      ><a name="346" class="Keyword"
+      >public</a
+      ><a name="352"
+      >
+
+
+</a
+      ><a name="355" class="Comment"
+      >-- Translation from list-shaped to tree-shaped variant.</a
+      ><a name="410"
+      >
+
+</a
+      ><a name="412" href="BasicIPC.Hilbert.Translation.html#412" class="Function"
+      >l&#8594;t</a
+      ><a name="415"
+      > </a
+      ><a name="416" class="Symbol"
+      >:</a
+      ><a name="417"
+      > </a
+      ><a name="418" class="Symbol"
+      >&#8704;</a
+      ><a name="419"
+      > </a
+      ><a name="420" class="Symbol"
+      >{</a
+      ><a name="421" href="BasicIPC.Hilbert.Translation.html#421" class="Bound"
+      >A</a
+      ><a name="422" class="Symbol"
+      >}</a
+      ><a name="423"
+      > </a
+      ><a name="424" class="Symbol"
+      >&#8594;</a
+      ><a name="425"
+      > </a
+      ><a name="426" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="429"
+      > </a
+      ><a name="430" href="BasicIPC.Hilbert.Translation.html#421" class="Bound"
+      >A</a
+      ><a name="431"
+      > </a
+      ><a name="432" class="Symbol"
+      >&#8594;</a
+      ><a name="433"
+      > </a
+      ><a name="434" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="437"
+      > </a
+      ><a name="438" href="BasicIPC.Hilbert.Translation.html#421" class="Bound"
+      >A</a
+      ><a name="439"
+      >
+</a
+      ><a name="440" href="BasicIPC.Hilbert.Translation.html#412" class="Function"
+      >l&#8594;t</a
+      ><a name="443"
+      > </a
+      ><a name="444" class="Symbol"
+      >(</a
+      ><a name="445" href="BasicIPC.Hilbert.Translation.html#445" class="Bound"
+      >&#928;</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="448"
+      > </a
+      ><a name="449" href="BasicIPC.Hilbert.Translation.html#449" class="Bound"
+      >ts</a
+      ><a name="451" class="Symbol"
+      >)</a
+      ><a name="452"
+      > </a
+      ><a name="453" class="Symbol"
+      >=</a
+      ><a name="454"
+      > </a
+      ><a name="455" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="459"
+      > </a
+      ><a name="460" href="BasicIPC.Hilbert.Translation.html#449" class="Bound"
+      >ts</a
+      ><a name="462"
+      > </a
+      ><a name="463" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="466"
+      >
+  </a
+      ><a name="469" class="Keyword"
+      >where</a
+      ><a name="474"
+      >
+    </a
+      ><a name="479" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="483"
+      > </a
+      ><a name="484" class="Symbol"
+      >:</a
+      ><a name="485"
+      > </a
+      ><a name="486" class="Symbol"
+      >&#8704;</a
+      ><a name="487"
+      > </a
+      ><a name="488" class="Symbol"
+      >{</a
+      ><a name="489" href="BasicIPC.Hilbert.Translation.html#489" class="Bound"
+      >A</a
+      ><a name="490"
+      > </a
+      ><a name="491" href="BasicIPC.Hilbert.Translation.html#491" class="Bound"
+      >&#928;</a
+      ><a name="492" class="Symbol"
+      >}</a
+      ><a name="493"
+      > </a
+      ><a name="494" class="Symbol"
+      >&#8594;</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="BasicIPC.Hilbert.List.html#140" class="Datatype Operator"
+      >L.&#8866;&#215;</a
+      ><a name="500"
+      > </a
+      ><a name="501" href="BasicIPC.Hilbert.Translation.html#491" class="Bound"
+      >&#928;</a
+      ><a name="502"
+      > </a
+      ><a name="503" class="Symbol"
+      >&#8594;</a
+      ><a name="504"
+      > </a
+      ><a name="505" href="BasicIPC.Hilbert.Translation.html#489" class="Bound"
+      >A</a
+      ><a name="506"
+      > </a
+      ><a name="507" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="508"
+      > </a
+      ><a name="509" href="BasicIPC.Hilbert.Translation.html#491" class="Bound"
+      >&#928;</a
+      ><a name="510"
+      > </a
+      ><a name="511" class="Symbol"
+      >&#8594;</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="516"
+      > </a
+      ><a name="517" href="BasicIPC.Hilbert.Translation.html#489" class="Bound"
+      >A</a
+      ><a name="518"
+      >
+    </a
+      ><a name="523" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="527"
+      > </a
+      ><a name="528" class="Symbol"
+      >(</a
+      ><a name="529" href="BasicIPC.Hilbert.List.html#181" class="InductiveConstructor"
+      >L.mp</a
+      ><a name="533"
+      > </a
+      ><a name="534" href="BasicIPC.Hilbert.Translation.html#534" class="Bound"
+      >i</a
+      ><a name="535"
+      > </a
+      ><a name="536" href="BasicIPC.Hilbert.Translation.html#536" class="Bound"
+      >j</a
+      ><a name="537"
+      > </a
+      ><a name="538" href="BasicIPC.Hilbert.Translation.html#538" class="Bound"
+      >ts</a
+      ><a name="540" class="Symbol"
+      >)</a
+      ><a name="541"
+      > </a
+      ><a name="542" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="545"
+      >     </a
+      ><a name="550" class="Symbol"
+      >=</a
+      ><a name="551"
+      > </a
+      ><a name="552" href="BasicIPC.Hilbert.Tree.html#161" class="InductiveConstructor"
+      >T.app</a
+      ><a name="557"
+      > </a
+      ><a name="558" class="Symbol"
+      >(</a
+      ><a name="559" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicIPC.Hilbert.Translation.html#538" class="Bound"
+      >ts</a
+      ><a name="566"
+      > </a
+      ><a name="567" href="BasicIPC.Hilbert.Translation.html#534" class="Bound"
+      >i</a
+      ><a name="568" class="Symbol"
+      >)</a
+      ><a name="569"
+      > </a
+      ><a name="570" class="Symbol"
+      >(</a
+      ><a name="571" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="BasicIPC.Hilbert.Translation.html#538" class="Bound"
+      >ts</a
+      ><a name="578"
+      > </a
+      ><a name="579" href="BasicIPC.Hilbert.Translation.html#536" class="Bound"
+      >j</a
+      ><a name="580" class="Symbol"
+      >)</a
+      ><a name="581"
+      >
+    </a
+      ><a name="586" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="590"
+      > </a
+      ><a name="591" class="Symbol"
+      >(</a
+      ><a name="592" href="BasicIPC.Hilbert.List.html#241" class="InductiveConstructor"
+      >L.ci</a
+      ><a name="596"
+      > </a
+      ><a name="597" href="BasicIPC.Hilbert.Translation.html#597" class="Bound"
+      >ts</a
+      ><a name="599" class="Symbol"
+      >)</a
+      ><a name="600"
+      >     </a
+      ><a name="605" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="608"
+      >     </a
+      ><a name="613" class="Symbol"
+      >=</a
+      ><a name="614"
+      > </a
+      ><a name="615" href="BasicIPC.Hilbert.Tree.html#203" class="InductiveConstructor"
+      >T.ci</a
+      ><a name="619"
+      >
+    </a
+      ><a name="624" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="628"
+      > </a
+      ><a name="629" class="Symbol"
+      >(</a
+      ><a name="630" href="BasicIPC.Hilbert.List.html#285" class="InductiveConstructor"
+      >L.ck</a
+      ><a name="634"
+      > </a
+      ><a name="635" href="BasicIPC.Hilbert.Translation.html#635" class="Bound"
+      >ts</a
+      ><a name="637" class="Symbol"
+      >)</a
+      ><a name="638"
+      >     </a
+      ><a name="643" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="646"
+      >     </a
+      ><a name="651" class="Symbol"
+      >=</a
+      ><a name="652"
+      > </a
+      ><a name="653" href="BasicIPC.Hilbert.Tree.html#233" class="InductiveConstructor"
+      >T.ck</a
+      ><a name="657"
+      >
+    </a
+      ><a name="662" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="666"
+      > </a
+      ><a name="667" class="Symbol"
+      >(</a
+      ><a name="668" href="BasicIPC.Hilbert.List.html#333" class="InductiveConstructor"
+      >L.cs</a
+      ><a name="672"
+      > </a
+      ><a name="673" href="BasicIPC.Hilbert.Translation.html#673" class="Bound"
+      >ts</a
+      ><a name="675" class="Symbol"
+      >)</a
+      ><a name="676"
+      >     </a
+      ><a name="681" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="684"
+      >     </a
+      ><a name="689" class="Symbol"
+      >=</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="BasicIPC.Hilbert.Tree.html#267" class="InductiveConstructor"
+      >T.cs</a
+      ><a name="695"
+      >
+    </a
+      ><a name="700" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="704"
+      > </a
+      ><a name="705" class="Symbol"
+      >(</a
+      ><a name="706" href="BasicIPC.Hilbert.List.html#401" class="InductiveConstructor"
+      >L.cpair</a
+      ><a name="713"
+      > </a
+      ><a name="714" href="BasicIPC.Hilbert.Translation.html#714" class="Bound"
+      >ts</a
+      ><a name="716" class="Symbol"
+      >)</a
+      ><a name="717"
+      >  </a
+      ><a name="719" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="722"
+      >     </a
+      ><a name="727" class="Symbol"
+      >=</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="BasicIPC.Hilbert.Tree.html#321" class="InductiveConstructor"
+      >T.cpair</a
+      ><a name="736"
+      >
+    </a
+      ><a name="741" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="745"
+      > </a
+      ><a name="746" class="Symbol"
+      >(</a
+      ><a name="747" href="BasicIPC.Hilbert.List.html#453" class="InductiveConstructor"
+      >L.cfst</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="BasicIPC.Hilbert.Translation.html#754" class="Bound"
+      >ts</a
+      ><a name="756" class="Symbol"
+      >)</a
+      ><a name="757"
+      >   </a
+      ><a name="760" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="763"
+      >     </a
+      ><a name="768" class="Symbol"
+      >=</a
+      ><a name="769"
+      > </a
+      ><a name="770" href="BasicIPC.Hilbert.Tree.html#359" class="InductiveConstructor"
+      >T.cfst</a
+      ><a name="776"
+      >
+    </a
+      ><a name="781" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="785"
+      > </a
+      ><a name="786" class="Symbol"
+      >(</a
+      ><a name="787" href="BasicIPC.Hilbert.List.html#501" class="InductiveConstructor"
+      >L.csnd</a
+      ><a name="793"
+      > </a
+      ><a name="794" href="BasicIPC.Hilbert.Translation.html#794" class="Bound"
+      >ts</a
+      ><a name="796" class="Symbol"
+      >)</a
+      ><a name="797"
+      >   </a
+      ><a name="800" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="803"
+      >     </a
+      ><a name="808" class="Symbol"
+      >=</a
+      ><a name="809"
+      > </a
+      ><a name="810" href="BasicIPC.Hilbert.Tree.html#393" class="InductiveConstructor"
+      >T.csnd</a
+      ><a name="816"
+      >
+    </a
+      ><a name="821" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="825"
+      > </a
+      ><a name="826" class="Symbol"
+      >(</a
+      ><a name="827" href="BasicIPC.Hilbert.List.html#549" class="InductiveConstructor"
+      >L.tt</a
+      ><a name="831"
+      > </a
+      ><a name="832" href="BasicIPC.Hilbert.Translation.html#832" class="Bound"
+      >ts</a
+      ><a name="834" class="Symbol"
+      >)</a
+      ><a name="835"
+      >     </a
+      ><a name="840" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="843"
+      >     </a
+      ><a name="848" class="Symbol"
+      >=</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="BasicIPC.Hilbert.Tree.html#427" class="InductiveConstructor"
+      >T.tt</a
+      ><a name="854"
+      >
+    </a
+      ><a name="859" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="863"
+      > </a
+      ><a name="864" class="Symbol"
+      >(</a
+      ><a name="865" href="BasicIPC.Hilbert.List.html#181" class="InductiveConstructor"
+      >L.mp</a
+      ><a name="869"
+      > </a
+      ><a name="870" href="BasicIPC.Hilbert.Translation.html#870" class="Bound"
+      >i</a
+      ><a name="871"
+      > </a
+      ><a name="872" href="BasicIPC.Hilbert.Translation.html#872" class="Bound"
+      >j</a
+      ><a name="873"
+      > </a
+      ><a name="874" href="BasicIPC.Hilbert.Translation.html#874" class="Bound"
+      >ts</a
+      ><a name="876" class="Symbol"
+      >)</a
+      ><a name="877"
+      > </a
+      ><a name="878" class="Symbol"
+      >(</a
+      ><a name="879" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="882"
+      > </a
+      ><a name="883" href="BasicIPC.Hilbert.Translation.html#883" class="Bound"
+      >k</a
+      ><a name="884" class="Symbol"
+      >)</a
+      ><a name="885"
+      > </a
+      ><a name="886" class="Symbol"
+      >=</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="BasicIPC.Hilbert.Translation.html#874" class="Bound"
+      >ts</a
+      ><a name="895"
+      > </a
+      ><a name="896" href="BasicIPC.Hilbert.Translation.html#883" class="Bound"
+      >k</a
+      ><a name="897"
+      >
+    </a
+      ><a name="902" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="906"
+      > </a
+      ><a name="907" class="Symbol"
+      >(</a
+      ><a name="908" href="BasicIPC.Hilbert.List.html#241" class="InductiveConstructor"
+      >L.ci</a
+      ><a name="912"
+      > </a
+      ><a name="913" href="BasicIPC.Hilbert.Translation.html#913" class="Bound"
+      >ts</a
+      ><a name="915" class="Symbol"
+      >)</a
+      ><a name="916"
+      >     </a
+      ><a name="921" class="Symbol"
+      >(</a
+      ><a name="922" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="925"
+      > </a
+      ><a name="926" href="BasicIPC.Hilbert.Translation.html#926" class="Bound"
+      >k</a
+      ><a name="927" class="Symbol"
+      >)</a
+      ><a name="928"
+      > </a
+      ><a name="929" class="Symbol"
+      >=</a
+      ><a name="930"
+      > </a
+      ><a name="931" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="935"
+      > </a
+      ><a name="936" href="BasicIPC.Hilbert.Translation.html#913" class="Bound"
+      >ts</a
+      ><a name="938"
+      > </a
+      ><a name="939" href="BasicIPC.Hilbert.Translation.html#926" class="Bound"
+      >k</a
+      ><a name="940"
+      >
+    </a
+      ><a name="945" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="949"
+      > </a
+      ><a name="950" class="Symbol"
+      >(</a
+      ><a name="951" href="BasicIPC.Hilbert.List.html#285" class="InductiveConstructor"
+      >L.ck</a
+      ><a name="955"
+      > </a
+      ><a name="956" href="BasicIPC.Hilbert.Translation.html#956" class="Bound"
+      >ts</a
+      ><a name="958" class="Symbol"
+      >)</a
+      ><a name="959"
+      >     </a
+      ><a name="964" class="Symbol"
+      >(</a
+      ><a name="965" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="968"
+      > </a
+      ><a name="969" href="BasicIPC.Hilbert.Translation.html#969" class="Bound"
+      >k</a
+      ><a name="970" class="Symbol"
+      >)</a
+      ><a name="971"
+      > </a
+      ><a name="972" class="Symbol"
+      >=</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="978"
+      > </a
+      ><a name="979" href="BasicIPC.Hilbert.Translation.html#956" class="Bound"
+      >ts</a
+      ><a name="981"
+      > </a
+      ><a name="982" href="BasicIPC.Hilbert.Translation.html#969" class="Bound"
+      >k</a
+      ><a name="983"
+      >
+    </a
+      ><a name="988" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="992"
+      > </a
+      ><a name="993" class="Symbol"
+      >(</a
+      ><a name="994" href="BasicIPC.Hilbert.List.html#333" class="InductiveConstructor"
+      >L.cs</a
+      ><a name="998"
+      > </a
+      ><a name="999" href="BasicIPC.Hilbert.Translation.html#999" class="Bound"
+      >ts</a
+      ><a name="1001" class="Symbol"
+      >)</a
+      ><a name="1002"
+      >     </a
+      ><a name="1007" class="Symbol"
+      >(</a
+      ><a name="1008" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="BasicIPC.Hilbert.Translation.html#1012" class="Bound"
+      >k</a
+      ><a name="1013" class="Symbol"
+      >)</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" class="Symbol"
+      >=</a
+      ><a name="1016"
+      > </a
+      ><a name="1017" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="BasicIPC.Hilbert.Translation.html#999" class="Bound"
+      >ts</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" href="BasicIPC.Hilbert.Translation.html#1012" class="Bound"
+      >k</a
+      ><a name="1026"
+      >
+    </a
+      ><a name="1031" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" class="Symbol"
+      >(</a
+      ><a name="1037" href="BasicIPC.Hilbert.List.html#401" class="InductiveConstructor"
+      >L.cpair</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" href="BasicIPC.Hilbert.Translation.html#1045" class="Bound"
+      >ts</a
+      ><a name="1047" class="Symbol"
+      >)</a
+      ><a name="1048"
+      >  </a
+      ><a name="1050" class="Symbol"
+      >(</a
+      ><a name="1051" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="1054"
+      > </a
+      ><a name="1055" href="BasicIPC.Hilbert.Translation.html#1055" class="Bound"
+      >k</a
+      ><a name="1056" class="Symbol"
+      >)</a
+      ><a name="1057"
+      > </a
+      ><a name="1058" class="Symbol"
+      >=</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" href="BasicIPC.Hilbert.Translation.html#1045" class="Bound"
+      >ts</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" href="BasicIPC.Hilbert.Translation.html#1055" class="Bound"
+      >k</a
+      ><a name="1069"
+      >
+    </a
+      ><a name="1074" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" class="Symbol"
+      >(</a
+      ><a name="1080" href="BasicIPC.Hilbert.List.html#453" class="InductiveConstructor"
+      >L.cfst</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" href="BasicIPC.Hilbert.Translation.html#1087" class="Bound"
+      >ts</a
+      ><a name="1089" class="Symbol"
+      >)</a
+      ><a name="1090"
+      >   </a
+      ><a name="1093" class="Symbol"
+      >(</a
+      ><a name="1094" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="BasicIPC.Hilbert.Translation.html#1098" class="Bound"
+      >k</a
+      ><a name="1099" class="Symbol"
+      >)</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" class="Symbol"
+      >=</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="1107"
+      > </a
+      ><a name="1108" href="BasicIPC.Hilbert.Translation.html#1087" class="Bound"
+      >ts</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="BasicIPC.Hilbert.Translation.html#1098" class="Bound"
+      >k</a
+      ><a name="1112"
+      >
+    </a
+      ><a name="1117" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="1121"
+      > </a
+      ><a name="1122" class="Symbol"
+      >(</a
+      ><a name="1123" href="BasicIPC.Hilbert.List.html#501" class="InductiveConstructor"
+      >L.csnd</a
+      ><a name="1129"
+      > </a
+      ><a name="1130" href="BasicIPC.Hilbert.Translation.html#1130" class="Bound"
+      >ts</a
+      ><a name="1132" class="Symbol"
+      >)</a
+      ><a name="1133"
+      >   </a
+      ><a name="1136" class="Symbol"
+      >(</a
+      ><a name="1137" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" href="BasicIPC.Hilbert.Translation.html#1141" class="Bound"
+      >k</a
+      ><a name="1142" class="Symbol"
+      >)</a
+      ><a name="1143"
+      > </a
+      ><a name="1144" class="Symbol"
+      >=</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="1150"
+      > </a
+      ><a name="1151" href="BasicIPC.Hilbert.Translation.html#1130" class="Bound"
+      >ts</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="BasicIPC.Hilbert.Translation.html#1141" class="Bound"
+      >k</a
+      ><a name="1155"
+      >
+    </a
+      ><a name="1160" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="1164"
+      > </a
+      ><a name="1165" class="Symbol"
+      >(</a
+      ><a name="1166" href="BasicIPC.Hilbert.List.html#549" class="InductiveConstructor"
+      >L.tt</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" href="BasicIPC.Hilbert.Translation.html#1171" class="Bound"
+      >ts</a
+      ><a name="1173" class="Symbol"
+      >)</a
+      ><a name="1174"
+      >     </a
+      ><a name="1179" class="Symbol"
+      >(</a
+      ><a name="1180" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="1183"
+      > </a
+      ><a name="1184" href="BasicIPC.Hilbert.Translation.html#1184" class="Bound"
+      >k</a
+      ><a name="1185" class="Symbol"
+      >)</a
+      ><a name="1186"
+      > </a
+      ><a name="1187" class="Symbol"
+      >=</a
+      ><a name="1188"
+      > </a
+      ><a name="1189" href="BasicIPC.Hilbert.Translation.html#479" class="Function"
+      >l&#215;&#8594;t</a
+      ><a name="1193"
+      > </a
+      ><a name="1194" href="BasicIPC.Hilbert.Translation.html#1171" class="Bound"
+      >ts</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" href="BasicIPC.Hilbert.Translation.html#1184" class="Bound"
+      >k</a
+      ><a name="1198"
+      >
+
+
+</a
+      ><a name="1201" class="Comment"
+      >-- Translation from tree-shaped to list-shaped variant.</a
+      ><a name="1256"
+      >
+
+</a
+      ><a name="1258" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1261"
+      > </a
+      ><a name="1262" class="Symbol"
+      >:</a
+      ><a name="1263"
+      > </a
+      ><a name="1264" class="Symbol"
+      >&#8704;</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" class="Symbol"
+      >{</a
+      ><a name="1267" href="BasicIPC.Hilbert.Translation.html#1267" class="Bound"
+      >A</a
+      ><a name="1268" class="Symbol"
+      >}</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" class="Symbol"
+      >&#8594;</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" href="BasicIPC.Hilbert.Translation.html#1267" class="Bound"
+      >A</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" class="Symbol"
+      >&#8594;</a
+      ><a name="1279"
+      > </a
+      ><a name="1280" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="BasicIPC.Hilbert.Translation.html#1267" class="Bound"
+      >A</a
+      ><a name="1285"
+      >
+</a
+      ><a name="1286" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1289"
+      > </a
+      ><a name="1290" class="Symbol"
+      >(</a
+      ><a name="1291" href="BasicIPC.Hilbert.Tree.html#161" class="InductiveConstructor"
+      >T.app</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" href="BasicIPC.Hilbert.Translation.html#1297" class="Bound"
+      >t</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" href="BasicIPC.Hilbert.Translation.html#1299" class="Bound"
+      >u</a
+      ><a name="1300" class="Symbol"
+      >)</a
+      ><a name="1301"
+      > </a
+      ><a name="1302" class="Symbol"
+      >=</a
+      ><a name="1303"
+      > </a
+      ><a name="1304" href="BasicIPC.Hilbert.List.html#1052" class="Function"
+      >L.app</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" class="Symbol"
+      >(</a
+      ><a name="1311" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" href="BasicIPC.Hilbert.Translation.html#1297" class="Bound"
+      >t</a
+      ><a name="1316" class="Symbol"
+      >)</a
+      ><a name="1317"
+      > </a
+      ><a name="1318" class="Symbol"
+      >(</a
+      ><a name="1319" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="BasicIPC.Hilbert.Translation.html#1299" class="Bound"
+      >u</a
+      ><a name="1324" class="Symbol"
+      >)</a
+      ><a name="1325"
+      >
+</a
+      ><a name="1326" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1329"
+      > </a
+      ><a name="1330" href="BasicIPC.Hilbert.Tree.html#203" class="InductiveConstructor"
+      >T.ci</a
+      ><a name="1334"
+      >        </a
+      ><a name="1342" class="Symbol"
+      >=</a
+      ><a name="1343"
+      > </a
+      ><a name="1344" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1345"
+      > </a
+      ><a name="1346" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1347"
+      > </a
+      ><a name="1348" href="BasicIPC.Hilbert.List.html#241" class="InductiveConstructor"
+      >L.ci</a
+      ><a name="1352"
+      > </a
+      ><a name="1353" href="BasicIPC.Hilbert.List.html#166" class="InductiveConstructor"
+      >L.nil</a
+      ><a name="1358"
+      >
+</a
+      ><a name="1359" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1362"
+      > </a
+      ><a name="1363" href="BasicIPC.Hilbert.Tree.html#233" class="InductiveConstructor"
+      >T.ck</a
+      ><a name="1367"
+      >        </a
+      ><a name="1375" class="Symbol"
+      >=</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" href="BasicIPC.Hilbert.List.html#285" class="InductiveConstructor"
+      >L.ck</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" href="BasicIPC.Hilbert.List.html#166" class="InductiveConstructor"
+      >L.nil</a
+      ><a name="1391"
+      >
+</a
+      ><a name="1392" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" href="BasicIPC.Hilbert.Tree.html#267" class="InductiveConstructor"
+      >T.cs</a
+      ><a name="1400"
+      >        </a
+      ><a name="1408" class="Symbol"
+      >=</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1411"
+      > </a
+      ><a name="1412" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1413"
+      > </a
+      ><a name="1414" href="BasicIPC.Hilbert.List.html#333" class="InductiveConstructor"
+      >L.cs</a
+      ><a name="1418"
+      > </a
+      ><a name="1419" href="BasicIPC.Hilbert.List.html#166" class="InductiveConstructor"
+      >L.nil</a
+      ><a name="1424"
+      >
+</a
+      ><a name="1425" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" href="BasicIPC.Hilbert.Tree.html#321" class="InductiveConstructor"
+      >T.cpair</a
+      ><a name="1436"
+      >     </a
+      ><a name="1441" class="Symbol"
+      >=</a
+      ><a name="1442"
+      > </a
+      ><a name="1443" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1444"
+      > </a
+      ><a name="1445" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1446"
+      > </a
+      ><a name="1447" href="BasicIPC.Hilbert.List.html#401" class="InductiveConstructor"
+      >L.cpair</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" href="BasicIPC.Hilbert.List.html#166" class="InductiveConstructor"
+      >L.nil</a
+      ><a name="1460"
+      >
+</a
+      ><a name="1461" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1464"
+      > </a
+      ><a name="1465" href="BasicIPC.Hilbert.Tree.html#359" class="InductiveConstructor"
+      >T.cfst</a
+      ><a name="1471"
+      >      </a
+      ><a name="1477" class="Symbol"
+      >=</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1480"
+      > </a
+      ><a name="1481" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1482"
+      > </a
+      ><a name="1483" href="BasicIPC.Hilbert.List.html#453" class="InductiveConstructor"
+      >L.cfst</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="BasicIPC.Hilbert.List.html#166" class="InductiveConstructor"
+      >L.nil</a
+      ><a name="1495"
+      >
+</a
+      ><a name="1496" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1499"
+      > </a
+      ><a name="1500" href="BasicIPC.Hilbert.Tree.html#393" class="InductiveConstructor"
+      >T.csnd</a
+      ><a name="1506"
+      >      </a
+      ><a name="1512" class="Symbol"
+      >=</a
+      ><a name="1513"
+      > </a
+      ><a name="1514" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1515"
+      > </a
+      ><a name="1516" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1517"
+      > </a
+      ><a name="1518" href="BasicIPC.Hilbert.List.html#501" class="InductiveConstructor"
+      >L.csnd</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" href="BasicIPC.Hilbert.List.html#166" class="InductiveConstructor"
+      >L.nil</a
+      ><a name="1530"
+      >
+</a
+      ><a name="1531" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="1534"
+      > </a
+      ><a name="1535" href="BasicIPC.Hilbert.Tree.html#427" class="InductiveConstructor"
+      >T.tt</a
+      ><a name="1539"
+      >        </a
+      ><a name="1547" class="Symbol"
+      >=</a
+      ><a name="1548"
+      > </a
+      ><a name="1549" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1550"
+      > </a
+      ><a name="1551" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1552"
+      > </a
+      ><a name="1553" href="BasicIPC.Hilbert.List.html#549" class="InductiveConstructor"
+      >L.tt</a
+      ><a name="1557"
+      > </a
+      ><a name="1558" href="BasicIPC.Hilbert.List.html#166" class="InductiveConstructor"
+      >L.nil</a
+      ><a name="1563"
+      >
+
+
+</a
+      ><a name="1566" class="Comment"
+      >-- Translation from list-shaped to tree-shaped variant, with context.</a
+      ><a name="1635"
+      >
+
+</a
+      ><a name="1637" href="BasicIPC.Hilbert.Translation.html#1637" class="Function"
+      >lc&#8594;tc</a
+      ><a name="1642"
+      > </a
+      ><a name="1643" class="Symbol"
+      >:</a
+      ><a name="1644"
+      > </a
+      ><a name="1645" class="Symbol"
+      >&#8704;</a
+      ><a name="1646"
+      > </a
+      ><a name="1647" class="Symbol"
+      >{</a
+      ><a name="1648" href="BasicIPC.Hilbert.Translation.html#1648" class="Bound"
+      >A</a
+      ><a name="1649"
+      > </a
+      ><a name="1650" href="BasicIPC.Hilbert.Translation.html#1650" class="Bound"
+      >&#915;</a
+      ><a name="1651" class="Symbol"
+      >}</a
+      ><a name="1652"
+      > </a
+      ><a name="1653" class="Symbol"
+      >&#8594;</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="1658"
+      > </a
+      ><a name="1659" href="BasicIPC.Hilbert.Translation.html#1650" class="Bound"
+      >&#915;</a
+      ><a name="1660"
+      > </a
+      ><a name="1661" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="1662"
+      > </a
+      ><a name="1663" href="BasicIPC.Hilbert.Translation.html#1648" class="Bound"
+      >A</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="1666"
+      > </a
+      ><a name="1667" class="Symbol"
+      >&#8594;</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="BasicIPC.Hilbert.Translation.html#1650" class="Bound"
+      >&#915;</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1676"
+      > </a
+      ><a name="1677" href="BasicIPC.Hilbert.Translation.html#1648" class="Bound"
+      >A</a
+      ><a name="1678"
+      > </a
+      ><a name="1679" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1680"
+      >
+</a
+      ><a name="1681" href="BasicIPC.Hilbert.Translation.html#1637" class="Function"
+      >lc&#8594;tc</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" class="Symbol"
+      >(</a
+      ><a name="1688" href="BasicIPC.Hilbert.Translation.html#1688" class="Bound"
+      >&#928;</a
+      ><a name="1689"
+      > </a
+      ><a name="1690" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" href="BasicIPC.Hilbert.Translation.html#1692" class="Bound"
+      >ts</a
+      ><a name="1694" class="Symbol"
+      >)</a
+      ><a name="1695"
+      > </a
+      ><a name="1696" class="Symbol"
+      >=</a
+      ><a name="1697"
+      > </a
+      ><a name="1698" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" href="BasicIPC.Hilbert.Translation.html#1692" class="Bound"
+      >ts</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="1710"
+      >
+  </a
+      ><a name="1713" class="Keyword"
+      >where</a
+      ><a name="1718"
+      >
+    </a
+      ><a name="1723" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="1728"
+      > </a
+      ><a name="1729" class="Symbol"
+      >:</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" class="Symbol"
+      >&#8704;</a
+      ><a name="1732"
+      > </a
+      ><a name="1733" class="Symbol"
+      >{</a
+      ><a name="1734" href="BasicIPC.Hilbert.Translation.html#1734" class="Bound"
+      >A</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="BasicIPC.Hilbert.Translation.html#1736" class="Bound"
+      >&#915;</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" href="BasicIPC.Hilbert.Translation.html#1738" class="Bound"
+      >&#928;</a
+      ><a name="1739" class="Symbol"
+      >}</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" class="Symbol"
+      >&#8594;</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >LC&#10216;</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" href="BasicIPC.Hilbert.Translation.html#1736" class="Bound"
+      >&#915;</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" href="BasicIPC.Hilbert.Translation.html#1738" class="Bound"
+      >&#928;</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" class="Symbol"
+      >&#8594;</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="BasicIPC.Hilbert.Translation.html#1734" class="Bound"
+      >A</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" href="BasicIPC.Hilbert.Translation.html#1738" class="Bound"
+      >&#928;</a
+      ><a name="1763"
+      > </a
+      ><a name="1764" class="Symbol"
+      >&#8594;</a
+      ><a name="1765"
+      > </a
+      ><a name="1766" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="1769"
+      > </a
+      ><a name="1770" href="BasicIPC.Hilbert.Translation.html#1736" class="Bound"
+      >&#915;</a
+      ><a name="1771"
+      > </a
+      ><a name="1772" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" href="BasicIPC.Hilbert.Translation.html#1734" class="Bound"
+      >A</a
+      ><a name="1775"
+      > </a
+      ><a name="1776" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="1777"
+      >
+    </a
+      ><a name="1782" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="1787"
+      > </a
+      ><a name="1788" class="Symbol"
+      >(</a
+      ><a name="1789" href="BasicIPC.Hilbert.ListWithContext.html#222" class="InductiveConstructor"
+      >LC.var</a
+      ><a name="1795"
+      > </a
+      ><a name="1796" href="BasicIPC.Hilbert.Translation.html#1796" class="Bound"
+      >i</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" href="BasicIPC.Hilbert.Translation.html#1798" class="Bound"
+      >ts</a
+      ><a name="1800" class="Symbol"
+      >)</a
+      ><a name="1801"
+      >  </a
+      ><a name="1803" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="1806"
+      >     </a
+      ><a name="1811" class="Symbol"
+      >=</a
+      ><a name="1812"
+      > </a
+      ><a name="1813" href="BasicIPC.Hilbert.TreeWithContext.html#200" class="InductiveConstructor"
+      >TC.var</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" href="BasicIPC.Hilbert.Translation.html#1796" class="Bound"
+      >i</a
+      ><a name="1821"
+      >
+    </a
+      ><a name="1826" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" class="Symbol"
+      >(</a
+      ><a name="1833" href="BasicIPC.Hilbert.ListWithContext.html#274" class="InductiveConstructor"
+      >LC.mp</a
+      ><a name="1838"
+      > </a
+      ><a name="1839" href="BasicIPC.Hilbert.Translation.html#1839" class="Bound"
+      >i</a
+      ><a name="1840"
+      > </a
+      ><a name="1841" href="BasicIPC.Hilbert.Translation.html#1841" class="Bound"
+      >j</a
+      ><a name="1842"
+      > </a
+      ><a name="1843" href="BasicIPC.Hilbert.Translation.html#1843" class="Bound"
+      >ts</a
+      ><a name="1845" class="Symbol"
+      >)</a
+      ><a name="1846"
+      > </a
+      ><a name="1847" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="1850"
+      >     </a
+      ><a name="1855" class="Symbol"
+      >=</a
+      ><a name="1856"
+      > </a
+      ><a name="1857" href="BasicIPC.Hilbert.TreeWithContext.html#236" class="InductiveConstructor"
+      >TC.app</a
+      ><a name="1863"
+      > </a
+      ><a name="1864" class="Symbol"
+      >(</a
+      ><a name="1865" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="1870"
+      > </a
+      ><a name="1871" href="BasicIPC.Hilbert.Translation.html#1843" class="Bound"
+      >ts</a
+      ><a name="1873"
+      > </a
+      ><a name="1874" href="BasicIPC.Hilbert.Translation.html#1839" class="Bound"
+      >i</a
+      ><a name="1875" class="Symbol"
+      >)</a
+      ><a name="1876"
+      > </a
+      ><a name="1877" class="Symbol"
+      >(</a
+      ><a name="1878" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="1883"
+      > </a
+      ><a name="1884" href="BasicIPC.Hilbert.Translation.html#1843" class="Bound"
+      >ts</a
+      ><a name="1886"
+      > </a
+      ><a name="1887" href="BasicIPC.Hilbert.Translation.html#1841" class="Bound"
+      >j</a
+      ><a name="1888" class="Symbol"
+      >)</a
+      ><a name="1889"
+      >
+    </a
+      ><a name="1894" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="1899"
+      > </a
+      ><a name="1900" class="Symbol"
+      >(</a
+      ><a name="1901" href="BasicIPC.Hilbert.ListWithContext.html#338" class="InductiveConstructor"
+      >LC.ci</a
+      ><a name="1906"
+      > </a
+      ><a name="1907" href="BasicIPC.Hilbert.Translation.html#1907" class="Bound"
+      >ts</a
+      ><a name="1909" class="Symbol"
+      >)</a
+      ><a name="1910"
+      >     </a
+      ><a name="1915" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="1918"
+      >     </a
+      ><a name="1923" class="Symbol"
+      >=</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" href="BasicIPC.Hilbert.TreeWithContext.html#284" class="InductiveConstructor"
+      >TC.ci</a
+      ><a name="1930"
+      >
+    </a
+      ><a name="1935" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="1940"
+      > </a
+      ><a name="1941" class="Symbol"
+      >(</a
+      ><a name="1942" href="BasicIPC.Hilbert.ListWithContext.html#386" class="InductiveConstructor"
+      >LC.ck</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" href="BasicIPC.Hilbert.Translation.html#1948" class="Bound"
+      >ts</a
+      ><a name="1950" class="Symbol"
+      >)</a
+      ><a name="1951"
+      >     </a
+      ><a name="1956" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="1959"
+      >     </a
+      ><a name="1964" class="Symbol"
+      >=</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="BasicIPC.Hilbert.TreeWithContext.html#316" class="InductiveConstructor"
+      >TC.ck</a
+      ><a name="1971"
+      >
+    </a
+      ><a name="1976" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="1981"
+      > </a
+      ><a name="1982" class="Symbol"
+      >(</a
+      ><a name="1983" href="BasicIPC.Hilbert.ListWithContext.html#438" class="InductiveConstructor"
+      >LC.cs</a
+      ><a name="1988"
+      > </a
+      ><a name="1989" href="BasicIPC.Hilbert.Translation.html#1989" class="Bound"
+      >ts</a
+      ><a name="1991" class="Symbol"
+      >)</a
+      ><a name="1992"
+      >     </a
+      ><a name="1997" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="2000"
+      >     </a
+      ><a name="2005" class="Symbol"
+      >=</a
+      ><a name="2006"
+      > </a
+      ><a name="2007" href="BasicIPC.Hilbert.TreeWithContext.html#352" class="InductiveConstructor"
+      >TC.cs</a
+      ><a name="2012"
+      >
+    </a
+      ><a name="2017" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2022"
+      > </a
+      ><a name="2023" class="Symbol"
+      >(</a
+      ><a name="2024" href="BasicIPC.Hilbert.ListWithContext.html#510" class="InductiveConstructor"
+      >LC.cpair</a
+      ><a name="2032"
+      > </a
+      ><a name="2033" href="BasicIPC.Hilbert.Translation.html#2033" class="Bound"
+      >ts</a
+      ><a name="2035" class="Symbol"
+      >)</a
+      ><a name="2036"
+      >  </a
+      ><a name="2038" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="2041"
+      >     </a
+      ><a name="2046" class="Symbol"
+      >=</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" href="BasicIPC.Hilbert.TreeWithContext.html#408" class="InductiveConstructor"
+      >TC.cpair</a
+      ><a name="2056"
+      >
+    </a
+      ><a name="2061" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2066"
+      > </a
+      ><a name="2067" class="Symbol"
+      >(</a
+      ><a name="2068" href="BasicIPC.Hilbert.ListWithContext.html#566" class="InductiveConstructor"
+      >LC.cfst</a
+      ><a name="2075"
+      > </a
+      ><a name="2076" href="BasicIPC.Hilbert.Translation.html#2076" class="Bound"
+      >ts</a
+      ><a name="2078" class="Symbol"
+      >)</a
+      ><a name="2079"
+      >   </a
+      ><a name="2082" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="2085"
+      >     </a
+      ><a name="2090" class="Symbol"
+      >=</a
+      ><a name="2091"
+      > </a
+      ><a name="2092" href="BasicIPC.Hilbert.TreeWithContext.html#448" class="InductiveConstructor"
+      >TC.cfst</a
+      ><a name="2099"
+      >
+    </a
+      ><a name="2104" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2109"
+      > </a
+      ><a name="2110" class="Symbol"
+      >(</a
+      ><a name="2111" href="BasicIPC.Hilbert.ListWithContext.html#618" class="InductiveConstructor"
+      >LC.csnd</a
+      ><a name="2118"
+      > </a
+      ><a name="2119" href="BasicIPC.Hilbert.Translation.html#2119" class="Bound"
+      >ts</a
+      ><a name="2121" class="Symbol"
+      >)</a
+      ><a name="2122"
+      >   </a
+      ><a name="2125" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="2128"
+      >     </a
+      ><a name="2133" class="Symbol"
+      >=</a
+      ><a name="2134"
+      > </a
+      ><a name="2135" href="BasicIPC.Hilbert.TreeWithContext.html#484" class="InductiveConstructor"
+      >TC.csnd</a
+      ><a name="2142"
+      >
+    </a
+      ><a name="2147" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2152"
+      > </a
+      ><a name="2153" class="Symbol"
+      >(</a
+      ><a name="2154" href="BasicIPC.Hilbert.ListWithContext.html#670" class="InductiveConstructor"
+      >LC.tt</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" href="BasicIPC.Hilbert.Translation.html#2160" class="Bound"
+      >ts</a
+      ><a name="2162" class="Symbol"
+      >)</a
+      ><a name="2163"
+      >     </a
+      ><a name="2168" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="2171"
+      >     </a
+      ><a name="2176" class="Symbol"
+      >=</a
+      ><a name="2177"
+      > </a
+      ><a name="2178" href="BasicIPC.Hilbert.TreeWithContext.html#520" class="InductiveConstructor"
+      >TC.tt</a
+      ><a name="2183"
+      >
+    </a
+      ><a name="2188" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2193"
+      > </a
+      ><a name="2194" class="Symbol"
+      >(</a
+      ><a name="2195" href="BasicIPC.Hilbert.ListWithContext.html#222" class="InductiveConstructor"
+      >LC.var</a
+      ><a name="2201"
+      > </a
+      ><a name="2202" href="BasicIPC.Hilbert.Translation.html#2202" class="Bound"
+      >i</a
+      ><a name="2203"
+      > </a
+      ><a name="2204" href="BasicIPC.Hilbert.Translation.html#2204" class="Bound"
+      >ts</a
+      ><a name="2206" class="Symbol"
+      >)</a
+      ><a name="2207"
+      >  </a
+      ><a name="2209" class="Symbol"
+      >(</a
+      ><a name="2210" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="2213"
+      > </a
+      ><a name="2214" href="BasicIPC.Hilbert.Translation.html#2214" class="Bound"
+      >k</a
+      ><a name="2215" class="Symbol"
+      >)</a
+      ><a name="2216"
+      > </a
+      ><a name="2217" class="Symbol"
+      >=</a
+      ><a name="2218"
+      > </a
+      ><a name="2219" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2224"
+      > </a
+      ><a name="2225" href="BasicIPC.Hilbert.Translation.html#2204" class="Bound"
+      >ts</a
+      ><a name="2227"
+      > </a
+      ><a name="2228" href="BasicIPC.Hilbert.Translation.html#2214" class="Bound"
+      >k</a
+      ><a name="2229"
+      >
+    </a
+      ><a name="2234" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2239"
+      > </a
+      ><a name="2240" class="Symbol"
+      >(</a
+      ><a name="2241" href="BasicIPC.Hilbert.ListWithContext.html#274" class="InductiveConstructor"
+      >LC.mp</a
+      ><a name="2246"
+      > </a
+      ><a name="2247" href="BasicIPC.Hilbert.Translation.html#2247" class="Bound"
+      >i</a
+      ><a name="2248"
+      > </a
+      ><a name="2249" href="BasicIPC.Hilbert.Translation.html#2249" class="Bound"
+      >j</a
+      ><a name="2250"
+      > </a
+      ><a name="2251" href="BasicIPC.Hilbert.Translation.html#2251" class="Bound"
+      >ts</a
+      ><a name="2253" class="Symbol"
+      >)</a
+      ><a name="2254"
+      > </a
+      ><a name="2255" class="Symbol"
+      >(</a
+      ><a name="2256" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="2259"
+      > </a
+      ><a name="2260" href="BasicIPC.Hilbert.Translation.html#2260" class="Bound"
+      >k</a
+      ><a name="2261" class="Symbol"
+      >)</a
+      ><a name="2262"
+      > </a
+      ><a name="2263" class="Symbol"
+      >=</a
+      ><a name="2264"
+      > </a
+      ><a name="2265" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2270"
+      > </a
+      ><a name="2271" href="BasicIPC.Hilbert.Translation.html#2251" class="Bound"
+      >ts</a
+      ><a name="2273"
+      > </a
+      ><a name="2274" href="BasicIPC.Hilbert.Translation.html#2260" class="Bound"
+      >k</a
+      ><a name="2275"
+      >
+    </a
+      ><a name="2280" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2285"
+      > </a
+      ><a name="2286" class="Symbol"
+      >(</a
+      ><a name="2287" href="BasicIPC.Hilbert.ListWithContext.html#338" class="InductiveConstructor"
+      >LC.ci</a
+      ><a name="2292"
+      > </a
+      ><a name="2293" href="BasicIPC.Hilbert.Translation.html#2293" class="Bound"
+      >ts</a
+      ><a name="2295" class="Symbol"
+      >)</a
+      ><a name="2296"
+      >     </a
+      ><a name="2301" class="Symbol"
+      >(</a
+      ><a name="2302" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="2305"
+      > </a
+      ><a name="2306" href="BasicIPC.Hilbert.Translation.html#2306" class="Bound"
+      >k</a
+      ><a name="2307" class="Symbol"
+      >)</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" class="Symbol"
+      >=</a
+      ><a name="2310"
+      > </a
+      ><a name="2311" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2316"
+      > </a
+      ><a name="2317" href="BasicIPC.Hilbert.Translation.html#2293" class="Bound"
+      >ts</a
+      ><a name="2319"
+      > </a
+      ><a name="2320" href="BasicIPC.Hilbert.Translation.html#2306" class="Bound"
+      >k</a
+      ><a name="2321"
+      >
+    </a
+      ><a name="2326" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2331"
+      > </a
+      ><a name="2332" class="Symbol"
+      >(</a
+      ><a name="2333" href="BasicIPC.Hilbert.ListWithContext.html#386" class="InductiveConstructor"
+      >LC.ck</a
+      ><a name="2338"
+      > </a
+      ><a name="2339" href="BasicIPC.Hilbert.Translation.html#2339" class="Bound"
+      >ts</a
+      ><a name="2341" class="Symbol"
+      >)</a
+      ><a name="2342"
+      >     </a
+      ><a name="2347" class="Symbol"
+      >(</a
+      ><a name="2348" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="2351"
+      > </a
+      ><a name="2352" href="BasicIPC.Hilbert.Translation.html#2352" class="Bound"
+      >k</a
+      ><a name="2353" class="Symbol"
+      >)</a
+      ><a name="2354"
+      > </a
+      ><a name="2355" class="Symbol"
+      >=</a
+      ><a name="2356"
+      > </a
+      ><a name="2357" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2362"
+      > </a
+      ><a name="2363" href="BasicIPC.Hilbert.Translation.html#2339" class="Bound"
+      >ts</a
+      ><a name="2365"
+      > </a
+      ><a name="2366" href="BasicIPC.Hilbert.Translation.html#2352" class="Bound"
+      >k</a
+      ><a name="2367"
+      >
+    </a
+      ><a name="2372" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2377"
+      > </a
+      ><a name="2378" class="Symbol"
+      >(</a
+      ><a name="2379" href="BasicIPC.Hilbert.ListWithContext.html#438" class="InductiveConstructor"
+      >LC.cs</a
+      ><a name="2384"
+      > </a
+      ><a name="2385" href="BasicIPC.Hilbert.Translation.html#2385" class="Bound"
+      >ts</a
+      ><a name="2387" class="Symbol"
+      >)</a
+      ><a name="2388"
+      >     </a
+      ><a name="2393" class="Symbol"
+      >(</a
+      ><a name="2394" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="2397"
+      > </a
+      ><a name="2398" href="BasicIPC.Hilbert.Translation.html#2398" class="Bound"
+      >k</a
+      ><a name="2399" class="Symbol"
+      >)</a
+      ><a name="2400"
+      > </a
+      ><a name="2401" class="Symbol"
+      >=</a
+      ><a name="2402"
+      > </a
+      ><a name="2403" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2408"
+      > </a
+      ><a name="2409" href="BasicIPC.Hilbert.Translation.html#2385" class="Bound"
+      >ts</a
+      ><a name="2411"
+      > </a
+      ><a name="2412" href="BasicIPC.Hilbert.Translation.html#2398" class="Bound"
+      >k</a
+      ><a name="2413"
+      >
+    </a
+      ><a name="2418" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" class="Symbol"
+      >(</a
+      ><a name="2425" href="BasicIPC.Hilbert.ListWithContext.html#510" class="InductiveConstructor"
+      >LC.cpair</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" href="BasicIPC.Hilbert.Translation.html#2434" class="Bound"
+      >ts</a
+      ><a name="2436" class="Symbol"
+      >)</a
+      ><a name="2437"
+      >  </a
+      ><a name="2439" class="Symbol"
+      >(</a
+      ><a name="2440" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="2443"
+      > </a
+      ><a name="2444" href="BasicIPC.Hilbert.Translation.html#2444" class="Bound"
+      >k</a
+      ><a name="2445" class="Symbol"
+      >)</a
+      ><a name="2446"
+      > </a
+      ><a name="2447" class="Symbol"
+      >=</a
+      ><a name="2448"
+      > </a
+      ><a name="2449" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2454"
+      > </a
+      ><a name="2455" href="BasicIPC.Hilbert.Translation.html#2434" class="Bound"
+      >ts</a
+      ><a name="2457"
+      > </a
+      ><a name="2458" href="BasicIPC.Hilbert.Translation.html#2444" class="Bound"
+      >k</a
+      ><a name="2459"
+      >
+    </a
+      ><a name="2464" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2469"
+      > </a
+      ><a name="2470" class="Symbol"
+      >(</a
+      ><a name="2471" href="BasicIPC.Hilbert.ListWithContext.html#566" class="InductiveConstructor"
+      >LC.cfst</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" href="BasicIPC.Hilbert.Translation.html#2479" class="Bound"
+      >ts</a
+      ><a name="2481" class="Symbol"
+      >)</a
+      ><a name="2482"
+      >   </a
+      ><a name="2485" class="Symbol"
+      >(</a
+      ><a name="2486" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="2489"
+      > </a
+      ><a name="2490" href="BasicIPC.Hilbert.Translation.html#2490" class="Bound"
+      >k</a
+      ><a name="2491" class="Symbol"
+      >)</a
+      ><a name="2492"
+      > </a
+      ><a name="2493" class="Symbol"
+      >=</a
+      ><a name="2494"
+      > </a
+      ><a name="2495" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2500"
+      > </a
+      ><a name="2501" href="BasicIPC.Hilbert.Translation.html#2479" class="Bound"
+      >ts</a
+      ><a name="2503"
+      > </a
+      ><a name="2504" href="BasicIPC.Hilbert.Translation.html#2490" class="Bound"
+      >k</a
+      ><a name="2505"
+      >
+    </a
+      ><a name="2510" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2515"
+      > </a
+      ><a name="2516" class="Symbol"
+      >(</a
+      ><a name="2517" href="BasicIPC.Hilbert.ListWithContext.html#618" class="InductiveConstructor"
+      >LC.csnd</a
+      ><a name="2524"
+      > </a
+      ><a name="2525" href="BasicIPC.Hilbert.Translation.html#2525" class="Bound"
+      >ts</a
+      ><a name="2527" class="Symbol"
+      >)</a
+      ><a name="2528"
+      >   </a
+      ><a name="2531" class="Symbol"
+      >(</a
+      ><a name="2532" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="2535"
+      > </a
+      ><a name="2536" href="BasicIPC.Hilbert.Translation.html#2536" class="Bound"
+      >k</a
+      ><a name="2537" class="Symbol"
+      >)</a
+      ><a name="2538"
+      > </a
+      ><a name="2539" class="Symbol"
+      >=</a
+      ><a name="2540"
+      > </a
+      ><a name="2541" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2546"
+      > </a
+      ><a name="2547" href="BasicIPC.Hilbert.Translation.html#2525" class="Bound"
+      >ts</a
+      ><a name="2549"
+      > </a
+      ><a name="2550" href="BasicIPC.Hilbert.Translation.html#2536" class="Bound"
+      >k</a
+      ><a name="2551"
+      >
+    </a
+      ><a name="2556" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2561"
+      > </a
+      ><a name="2562" class="Symbol"
+      >(</a
+      ><a name="2563" href="BasicIPC.Hilbert.ListWithContext.html#670" class="InductiveConstructor"
+      >LC.tt</a
+      ><a name="2568"
+      > </a
+      ><a name="2569" href="BasicIPC.Hilbert.Translation.html#2569" class="Bound"
+      >ts</a
+      ><a name="2571" class="Symbol"
+      >)</a
+      ><a name="2572"
+      >     </a
+      ><a name="2577" class="Symbol"
+      >(</a
+      ><a name="2578" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="2581"
+      > </a
+      ><a name="2582" href="BasicIPC.Hilbert.Translation.html#2582" class="Bound"
+      >k</a
+      ><a name="2583" class="Symbol"
+      >)</a
+      ><a name="2584"
+      > </a
+      ><a name="2585" class="Symbol"
+      >=</a
+      ><a name="2586"
+      > </a
+      ><a name="2587" href="BasicIPC.Hilbert.Translation.html#1723" class="Function"
+      >lc&#215;&#8594;t</a
+      ><a name="2592"
+      > </a
+      ><a name="2593" href="BasicIPC.Hilbert.Translation.html#2569" class="Bound"
+      >ts</a
+      ><a name="2595"
+      > </a
+      ><a name="2596" href="BasicIPC.Hilbert.Translation.html#2582" class="Bound"
+      >k</a
+      ><a name="2597"
+      >
+
+
+</a
+      ><a name="2600" class="Comment"
+      >-- Translation from tree-shaped to list-shaped variant, with context.</a
+      ><a name="2669"
+      >
+
+</a
+      ><a name="2671" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" class="Symbol"
+      >:</a
+      ><a name="2678"
+      > </a
+      ><a name="2679" class="Symbol"
+      >&#8704;</a
+      ><a name="2680"
+      > </a
+      ><a name="2681" class="Symbol"
+      >{</a
+      ><a name="2682" href="BasicIPC.Hilbert.Translation.html#2682" class="Bound"
+      >A</a
+      ><a name="2683"
+      > </a
+      ><a name="2684" href="BasicIPC.Hilbert.Translation.html#2684" class="Bound"
+      >&#915;</a
+      ><a name="2685" class="Symbol"
+      >}</a
+      ><a name="2686"
+      > </a
+      ><a name="2687" class="Symbol"
+      >&#8594;</a
+      ><a name="2688"
+      > </a
+      ><a name="2689" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="2692"
+      > </a
+      ><a name="2693" href="BasicIPC.Hilbert.Translation.html#2684" class="Bound"
+      >&#915;</a
+      ><a name="2694"
+      > </a
+      ><a name="2695" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2696"
+      > </a
+      ><a name="2697" href="BasicIPC.Hilbert.Translation.html#2682" class="Bound"
+      >A</a
+      ><a name="2698"
+      > </a
+      ><a name="2699" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="2700"
+      > </a
+      ><a name="2701" class="Symbol"
+      >&#8594;</a
+      ><a name="2702"
+      > </a
+      ><a name="2703" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="2706"
+      > </a
+      ><a name="2707" href="BasicIPC.Hilbert.Translation.html#2684" class="Bound"
+      >&#915;</a
+      ><a name="2708"
+      > </a
+      ><a name="2709" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="2710"
+      > </a
+      ><a name="2711" href="BasicIPC.Hilbert.Translation.html#2682" class="Bound"
+      >A</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="2714"
+      >
+</a
+      ><a name="2715" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2720"
+      > </a
+      ><a name="2721" class="Symbol"
+      >(</a
+      ><a name="2722" href="BasicIPC.Hilbert.TreeWithContext.html#200" class="InductiveConstructor"
+      >TC.var</a
+      ><a name="2728"
+      > </a
+      ><a name="2729" href="BasicIPC.Hilbert.Translation.html#2729" class="Bound"
+      >i</a
+      ><a name="2730" class="Symbol"
+      >)</a
+      ><a name="2731"
+      >   </a
+      ><a name="2734" class="Symbol"
+      >=</a
+      ><a name="2735"
+      > </a
+      ><a name="2736" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2737"
+      > </a
+      ><a name="2738" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2739"
+      > </a
+      ><a name="2740" href="BasicIPC.Hilbert.ListWithContext.html#222" class="InductiveConstructor"
+      >LC.var</a
+      ><a name="2746"
+      > </a
+      ><a name="2747" href="BasicIPC.Hilbert.Translation.html#2729" class="Bound"
+      >i</a
+      ><a name="2748"
+      > </a
+      ><a name="2749" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="2755"
+      >
+</a
+      ><a name="2756" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2761"
+      > </a
+      ><a name="2762" class="Symbol"
+      >(</a
+      ><a name="2763" href="BasicIPC.Hilbert.TreeWithContext.html#236" class="InductiveConstructor"
+      >TC.app</a
+      ><a name="2769"
+      > </a
+      ><a name="2770" href="BasicIPC.Hilbert.Translation.html#2770" class="Bound"
+      >t</a
+      ><a name="2771"
+      > </a
+      ><a name="2772" href="BasicIPC.Hilbert.Translation.html#2772" class="Bound"
+      >u</a
+      ><a name="2773" class="Symbol"
+      >)</a
+      ><a name="2774"
+      > </a
+      ><a name="2775" class="Symbol"
+      >=</a
+      ><a name="2776"
+      > </a
+      ><a name="2777" href="BasicIPC.Hilbert.ListWithContext.html#1826" class="Function"
+      >LC.app</a
+      ><a name="2783"
+      > </a
+      ><a name="2784" class="Symbol"
+      >(</a
+      ><a name="2785" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2790"
+      > </a
+      ><a name="2791" href="BasicIPC.Hilbert.Translation.html#2770" class="Bound"
+      >t</a
+      ><a name="2792" class="Symbol"
+      >)</a
+      ><a name="2793"
+      > </a
+      ><a name="2794" class="Symbol"
+      >(</a
+      ><a name="2795" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2800"
+      > </a
+      ><a name="2801" href="BasicIPC.Hilbert.Translation.html#2772" class="Bound"
+      >u</a
+      ><a name="2802" class="Symbol"
+      >)</a
+      ><a name="2803"
+      >
+</a
+      ><a name="2804" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2809"
+      > </a
+      ><a name="2810" href="BasicIPC.Hilbert.TreeWithContext.html#284" class="InductiveConstructor"
+      >TC.ci</a
+      ><a name="2815"
+      >        </a
+      ><a name="2823" class="Symbol"
+      >=</a
+      ><a name="2824"
+      > </a
+      ><a name="2825" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2826"
+      > </a
+      ><a name="2827" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2828"
+      > </a
+      ><a name="2829" href="BasicIPC.Hilbert.ListWithContext.html#338" class="InductiveConstructor"
+      >LC.ci</a
+      ><a name="2834"
+      > </a
+      ><a name="2835" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="2841"
+      >
+</a
+      ><a name="2842" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2847"
+      > </a
+      ><a name="2848" href="BasicIPC.Hilbert.TreeWithContext.html#316" class="InductiveConstructor"
+      >TC.ck</a
+      ><a name="2853"
+      >        </a
+      ><a name="2861" class="Symbol"
+      >=</a
+      ><a name="2862"
+      > </a
+      ><a name="2863" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2864"
+      > </a
+      ><a name="2865" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2866"
+      > </a
+      ><a name="2867" href="BasicIPC.Hilbert.ListWithContext.html#386" class="InductiveConstructor"
+      >LC.ck</a
+      ><a name="2872"
+      > </a
+      ><a name="2873" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="2879"
+      >
+</a
+      ><a name="2880" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2885"
+      > </a
+      ><a name="2886" href="BasicIPC.Hilbert.TreeWithContext.html#352" class="InductiveConstructor"
+      >TC.cs</a
+      ><a name="2891"
+      >        </a
+      ><a name="2899" class="Symbol"
+      >=</a
+      ><a name="2900"
+      > </a
+      ><a name="2901" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2902"
+      > </a
+      ><a name="2903" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" href="BasicIPC.Hilbert.ListWithContext.html#438" class="InductiveConstructor"
+      >LC.cs</a
+      ><a name="2910"
+      > </a
+      ><a name="2911" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="2917"
+      >
+</a
+      ><a name="2918" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2923"
+      > </a
+      ><a name="2924" href="BasicIPC.Hilbert.TreeWithContext.html#408" class="InductiveConstructor"
+      >TC.cpair</a
+      ><a name="2932"
+      >     </a
+      ><a name="2937" class="Symbol"
+      >=</a
+      ><a name="2938"
+      > </a
+      ><a name="2939" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2940"
+      > </a
+      ><a name="2941" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2942"
+      > </a
+      ><a name="2943" href="BasicIPC.Hilbert.ListWithContext.html#510" class="InductiveConstructor"
+      >LC.cpair</a
+      ><a name="2951"
+      > </a
+      ><a name="2952" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="2958"
+      >
+</a
+      ><a name="2959" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="2964"
+      > </a
+      ><a name="2965" href="BasicIPC.Hilbert.TreeWithContext.html#448" class="InductiveConstructor"
+      >TC.cfst</a
+      ><a name="2972"
+      >      </a
+      ><a name="2978" class="Symbol"
+      >=</a
+      ><a name="2979"
+      > </a
+      ><a name="2980" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2981"
+      > </a
+      ><a name="2982" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2983"
+      > </a
+      ><a name="2984" href="BasicIPC.Hilbert.ListWithContext.html#566" class="InductiveConstructor"
+      >LC.cfst</a
+      ><a name="2991"
+      > </a
+      ><a name="2992" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="2998"
+      >
+</a
+      ><a name="2999" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" href="BasicIPC.Hilbert.TreeWithContext.html#484" class="InductiveConstructor"
+      >TC.csnd</a
+      ><a name="3012"
+      >      </a
+      ><a name="3018" class="Symbol"
+      >=</a
+      ><a name="3019"
+      > </a
+      ><a name="3020" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="3021"
+      > </a
+      ><a name="3022" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3023"
+      > </a
+      ><a name="3024" href="BasicIPC.Hilbert.ListWithContext.html#618" class="InductiveConstructor"
+      >LC.csnd</a
+      ><a name="3031"
+      > </a
+      ><a name="3032" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="3038"
+      >
+</a
+      ><a name="3039" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="3044"
+      > </a
+      ><a name="3045" href="BasicIPC.Hilbert.TreeWithContext.html#520" class="InductiveConstructor"
+      >TC.tt</a
+      ><a name="3050"
+      >        </a
+      ><a name="3058" class="Symbol"
+      >=</a
+      ><a name="3059"
+      > </a
+      ><a name="3060" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="3061"
+      > </a
+      ><a name="3062" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3063"
+      > </a
+      ><a name="3064" href="BasicIPC.Hilbert.ListWithContext.html#670" class="InductiveConstructor"
+      >LC.tt</a
+      ><a name="3069"
+      > </a
+      ><a name="3070" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="3076"
+      >
+
+
+</a
+      ><a name="3079" class="Comment"
+      >-- Deduction and detachment theorem for list-shaped variant, with context.</a
+      ><a name="3153"
+      >
+
+</a
+      ><a name="3155" href="BasicIPC.Hilbert.Translation.html#3155" class="Function"
+      >lc-lam</a
+      ><a name="3161"
+      > </a
+      ><a name="3162" class="Symbol"
+      >:</a
+      ><a name="3163"
+      > </a
+      ><a name="3164" class="Symbol"
+      >&#8704;</a
+      ><a name="3165"
+      > </a
+      ><a name="3166" class="Symbol"
+      >{</a
+      ><a name="3167" href="BasicIPC.Hilbert.Translation.html#3167" class="Bound"
+      >A</a
+      ><a name="3168"
+      > </a
+      ><a name="3169" href="BasicIPC.Hilbert.Translation.html#3169" class="Bound"
+      >B</a
+      ><a name="3170"
+      > </a
+      ><a name="3171" href="BasicIPC.Hilbert.Translation.html#3171" class="Bound"
+      >&#915;</a
+      ><a name="3172" class="Symbol"
+      >}</a
+      ><a name="3173"
+      > </a
+      ><a name="3174" class="Symbol"
+      >&#8594;</a
+      ><a name="3175"
+      > </a
+      ><a name="3176" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="3179"
+      > </a
+      ><a name="3180" href="BasicIPC.Hilbert.Translation.html#3171" class="Bound"
+      >&#915;</a
+      ><a name="3181"
+      > </a
+      ><a name="3182" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3183"
+      > </a
+      ><a name="3184" href="BasicIPC.Hilbert.Translation.html#3167" class="Bound"
+      >A</a
+      ><a name="3185"
+      > </a
+      ><a name="3186" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="3187"
+      > </a
+      ><a name="3188" href="BasicIPC.Hilbert.Translation.html#3169" class="Bound"
+      >B</a
+      ><a name="3189"
+      > </a
+      ><a name="3190" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="3191"
+      > </a
+      ><a name="3192" class="Symbol"
+      >&#8594;</a
+      ><a name="3193"
+      > </a
+      ><a name="3194" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="3197"
+      > </a
+      ><a name="3198" href="BasicIPC.Hilbert.Translation.html#3171" class="Bound"
+      >&#915;</a
+      ><a name="3199"
+      > </a
+      ><a name="3200" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="3201"
+      > </a
+      ><a name="3202" href="BasicIPC.Hilbert.Translation.html#3167" class="Bound"
+      >A</a
+      ><a name="3203"
+      > </a
+      ><a name="3204" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3205"
+      > </a
+      ><a name="3206" href="BasicIPC.Hilbert.Translation.html#3169" class="Bound"
+      >B</a
+      ><a name="3207"
+      > </a
+      ><a name="3208" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="3209"
+      >
+</a
+      ><a name="3210" href="BasicIPC.Hilbert.Translation.html#3155" class="Function"
+      >lc-lam</a
+      ><a name="3216"
+      > </a
+      ><a name="3217" class="Symbol"
+      >=</a
+      ><a name="3218"
+      > </a
+      ><a name="3219" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="3224"
+      > </a
+      ><a name="3225" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3226"
+      > </a
+      ><a name="3227" href="BasicIPC.Hilbert.TreeWithContext.html#1293" class="Function"
+      >TC.lam</a
+      ><a name="3233"
+      > </a
+      ><a name="3234" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3235"
+      > </a
+      ><a name="3236" href="BasicIPC.Hilbert.Translation.html#1637" class="Function"
+      >lc&#8594;tc</a
+      ><a name="3241"
+      >
+
+</a
+      ><a name="3243" href="BasicIPC.Hilbert.Translation.html#3243" class="Function"
+      >lc-lam&#8902;&#8320;</a
+      ><a name="3251"
+      > </a
+      ><a name="3252" class="Symbol"
+      >:</a
+      ><a name="3253"
+      > </a
+      ><a name="3254" class="Symbol"
+      >&#8704;</a
+      ><a name="3255"
+      > </a
+      ><a name="3256" class="Symbol"
+      >{</a
+      ><a name="3257" href="BasicIPC.Hilbert.Translation.html#3257" class="Bound"
+      >A</a
+      ><a name="3258"
+      > </a
+      ><a name="3259" href="BasicIPC.Hilbert.Translation.html#3259" class="Bound"
+      >&#915;</a
+      ><a name="3260" class="Symbol"
+      >}</a
+      ><a name="3261"
+      > </a
+      ><a name="3262" class="Symbol"
+      >&#8594;</a
+      ><a name="3263"
+      > </a
+      ><a name="3264" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="3267"
+      > </a
+      ><a name="3268" href="BasicIPC.Hilbert.Translation.html#3259" class="Bound"
+      >&#915;</a
+      ><a name="3269"
+      > </a
+      ><a name="3270" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="3271"
+      > </a
+      ><a name="3272" href="BasicIPC.Hilbert.Translation.html#3257" class="Bound"
+      >A</a
+      ><a name="3273"
+      > </a
+      ><a name="3274" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="3275"
+      > </a
+      ><a name="3276" class="Symbol"
+      >&#8594;</a
+      ><a name="3277"
+      > </a
+      ><a name="3278" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="3281"
+      > </a
+      ><a name="3282" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="3283"
+      > </a
+      ><a name="3284" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="3285"
+      > </a
+      ><a name="3286" href="BasicIPC.Hilbert.Translation.html#3259" class="Bound"
+      >&#915;</a
+      ><a name="3287"
+      > </a
+      ><a name="3288" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="3291"
+      > </a
+      ><a name="3292" href="BasicIPC.Hilbert.Translation.html#3257" class="Bound"
+      >A</a
+      ><a name="3293"
+      > </a
+      ><a name="3294" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="3295"
+      >
+</a
+      ><a name="3296" href="BasicIPC.Hilbert.Translation.html#3243" class="Function"
+      >lc-lam&#8902;&#8320;</a
+      ><a name="3304"
+      > </a
+      ><a name="3305" class="Symbol"
+      >=</a
+      ><a name="3306"
+      > </a
+      ><a name="3307" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="3312"
+      > </a
+      ><a name="3313" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3314"
+      > </a
+      ><a name="3315" href="BasicIPC.Hilbert.TreeWithContext.html#1750" class="Function"
+      >TC.lam&#8902;&#8320;</a
+      ><a name="3323"
+      > </a
+      ><a name="3324" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3325"
+      > </a
+      ><a name="3326" href="BasicIPC.Hilbert.Translation.html#1637" class="Function"
+      >lc&#8594;tc</a
+      ><a name="3331"
+      >
+
+</a
+      ><a name="3333" href="BasicIPC.Hilbert.Translation.html#3333" class="Function"
+      >lc-det</a
+      ><a name="3339"
+      > </a
+      ><a name="3340" class="Symbol"
+      >:</a
+      ><a name="3341"
+      > </a
+      ><a name="3342" class="Symbol"
+      >&#8704;</a
+      ><a name="3343"
+      > </a
+      ><a name="3344" class="Symbol"
+      >{</a
+      ><a name="3345" href="BasicIPC.Hilbert.Translation.html#3345" class="Bound"
+      >A</a
+      ><a name="3346"
+      > </a
+      ><a name="3347" href="BasicIPC.Hilbert.Translation.html#3347" class="Bound"
+      >B</a
+      ><a name="3348"
+      > </a
+      ><a name="3349" href="BasicIPC.Hilbert.Translation.html#3349" class="Bound"
+      >&#915;</a
+      ><a name="3350" class="Symbol"
+      >}</a
+      ><a name="3351"
+      > </a
+      ><a name="3352" class="Symbol"
+      >&#8594;</a
+      ><a name="3353"
+      > </a
+      ><a name="3354" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="3357"
+      > </a
+      ><a name="3358" href="BasicIPC.Hilbert.Translation.html#3349" class="Bound"
+      >&#915;</a
+      ><a name="3359"
+      > </a
+      ><a name="3360" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="3361"
+      > </a
+      ><a name="3362" href="BasicIPC.Hilbert.Translation.html#3345" class="Bound"
+      >A</a
+      ><a name="3363"
+      > </a
+      ><a name="3364" href="BasicIPC.html#201" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3365"
+      > </a
+      ><a name="3366" href="BasicIPC.Hilbert.Translation.html#3347" class="Bound"
+      >B</a
+      ><a name="3367"
+      > </a
+      ><a name="3368" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="3369"
+      > </a
+      ><a name="3370" class="Symbol"
+      >&#8594;</a
+      ><a name="3371"
+      > </a
+      ><a name="3372" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="3375"
+      > </a
+      ><a name="3376" href="BasicIPC.Hilbert.Translation.html#3349" class="Bound"
+      >&#915;</a
+      ><a name="3377"
+      > </a
+      ><a name="3378" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3379"
+      > </a
+      ><a name="3380" href="BasicIPC.Hilbert.Translation.html#3345" class="Bound"
+      >A</a
+      ><a name="3381"
+      > </a
+      ><a name="3382" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="3383"
+      > </a
+      ><a name="3384" href="BasicIPC.Hilbert.Translation.html#3347" class="Bound"
+      >B</a
+      ><a name="3385"
+      > </a
+      ><a name="3386" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="3387"
+      >
+</a
+      ><a name="3388" href="BasicIPC.Hilbert.Translation.html#3333" class="Function"
+      >lc-det</a
+      ><a name="3394"
+      > </a
+      ><a name="3395" class="Symbol"
+      >=</a
+      ><a name="3396"
+      > </a
+      ><a name="3397" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="3402"
+      > </a
+      ><a name="3403" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3404"
+      > </a
+      ><a name="3405" href="BasicIPC.Hilbert.TreeWithContext.html#1861" class="Function"
+      >TC.det</a
+      ><a name="3411"
+      > </a
+      ><a name="3412" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3413"
+      > </a
+      ><a name="3414" href="BasicIPC.Hilbert.Translation.html#1637" class="Function"
+      >lc&#8594;tc</a
+      ><a name="3419"
+      >
+
+</a
+      ><a name="3421" href="BasicIPC.Hilbert.Translation.html#3421" class="Function"
+      >lc-det&#8902;&#8320;</a
+      ><a name="3429"
+      > </a
+      ><a name="3430" class="Symbol"
+      >:</a
+      ><a name="3431"
+      > </a
+      ><a name="3432" class="Symbol"
+      >&#8704;</a
+      ><a name="3433"
+      > </a
+      ><a name="3434" class="Symbol"
+      >{</a
+      ><a name="3435" href="BasicIPC.Hilbert.Translation.html#3435" class="Bound"
+      >A</a
+      ><a name="3436"
+      > </a
+      ><a name="3437" href="BasicIPC.Hilbert.Translation.html#3437" class="Bound"
+      >&#915;</a
+      ><a name="3438" class="Symbol"
+      >}</a
+      ><a name="3439"
+      > </a
+      ><a name="3440" class="Symbol"
+      >&#8594;</a
+      ><a name="3441"
+      > </a
+      ><a name="3442" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="3445"
+      > </a
+      ><a name="3446" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="3447"
+      > </a
+      ><a name="3448" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="3449"
+      > </a
+      ><a name="3450" href="BasicIPC.Hilbert.Translation.html#3437" class="Bound"
+      >&#915;</a
+      ><a name="3451"
+      > </a
+      ><a name="3452" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="3455"
+      > </a
+      ><a name="3456" href="BasicIPC.Hilbert.Translation.html#3435" class="Bound"
+      >A</a
+      ><a name="3457"
+      > </a
+      ><a name="3458" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="3459"
+      > </a
+      ><a name="3460" class="Symbol"
+      >&#8594;</a
+      ><a name="3461"
+      > </a
+      ><a name="3462" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="3465"
+      > </a
+      ><a name="3466" href="BasicIPC.Hilbert.Translation.html#3437" class="Bound"
+      >&#915;</a
+      ><a name="3467"
+      > </a
+      ><a name="3468" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="3469"
+      > </a
+      ><a name="3470" href="BasicIPC.Hilbert.Translation.html#3435" class="Bound"
+      >A</a
+      ><a name="3471"
+      > </a
+      ><a name="3472" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="3473"
+      >
+</a
+      ><a name="3474" href="BasicIPC.Hilbert.Translation.html#3421" class="Function"
+      >lc-det&#8902;&#8320;</a
+      ><a name="3482"
+      > </a
+      ><a name="3483" class="Symbol"
+      >=</a
+      ><a name="3484"
+      > </a
+      ><a name="3485" href="BasicIPC.Hilbert.Translation.html#2671" class="Function"
+      >tc&#8594;lc</a
+      ><a name="3490"
+      > </a
+      ><a name="3491" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3492"
+      > </a
+      ><a name="3493" href="BasicIPC.Hilbert.TreeWithContext.html#2025" class="Function"
+      >TC.det&#8902;&#8320;</a
+      ><a name="3501"
+      > </a
+      ><a name="3502" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3503"
+      > </a
+      ><a name="3504" href="BasicIPC.Hilbert.Translation.html#1637" class="Function"
+      >lc&#8594;tc</a
+      ><a name="3509"
+      >
+
+
+</a
+      ><a name="3512" class="Comment"
+      >-- Translation between list-shaped variants, with and without context.</a
+      ><a name="3582"
+      >
+
+</a
+      ><a name="3584" href="BasicIPC.Hilbert.Translation.html#3584" class="Function"
+      >l&#8594;lc&#8320;</a
+      ><a name="3589"
+      > </a
+      ><a name="3590" class="Symbol"
+      >:</a
+      ><a name="3591"
+      > </a
+      ><a name="3592" class="Symbol"
+      >&#8704;</a
+      ><a name="3593"
+      > </a
+      ><a name="3594" class="Symbol"
+      >{</a
+      ><a name="3595" href="BasicIPC.Hilbert.Translation.html#3595" class="Bound"
+      >A</a
+      ><a name="3596" class="Symbol"
+      >}</a
+      ><a name="3597"
+      > </a
+      ><a name="3598" class="Symbol"
+      >&#8594;</a
+      ><a name="3599"
+      > </a
+      ><a name="3600" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="3603"
+      > </a
+      ><a name="3604" href="BasicIPC.Hilbert.Translation.html#3595" class="Bound"
+      >A</a
+      ><a name="3605"
+      > </a
+      ><a name="3606" class="Symbol"
+      >&#8594;</a
+      ><a name="3607"
+      > </a
+      ><a name="3608" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="3611"
+      > </a
+      ><a name="3612" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="3613"
+      > </a
+      ><a name="3614" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="3615"
+      > </a
+      ><a name="3616" href="BasicIPC.Hilbert.Translation.html#3595" class="Bound"
+      >A</a
+      ><a name="3617"
+      > </a
+      ><a name="3618" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="3619"
+      >
+</a
+      ><a name="3620" href="BasicIPC.Hilbert.Translation.html#3584" class="Function"
+      >l&#8594;lc&#8320;</a
+      ><a name="3625"
+      > </a
+      ><a name="3626" class="Symbol"
+      >(</a
+      ><a name="3627" href="BasicIPC.Hilbert.Translation.html#3627" class="Bound"
+      >&#928;</a
+      ><a name="3628"
+      > </a
+      ><a name="3629" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3630"
+      > </a
+      ><a name="3631" href="BasicIPC.Hilbert.Translation.html#3631" class="Bound"
+      >ts</a
+      ><a name="3633" class="Symbol"
+      >)</a
+      ><a name="3634"
+      > </a
+      ><a name="3635" class="Symbol"
+      >=</a
+      ><a name="3636"
+      > </a
+      ><a name="3637" class="Symbol"
+      >(</a
+      ><a name="3638" href="BasicIPC.Hilbert.Translation.html#3627" class="Bound"
+      >&#928;</a
+      ><a name="3639"
+      > </a
+      ><a name="3640" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3641"
+      > </a
+      ><a name="3642" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3649"
+      > </a
+      ><a name="3650" href="BasicIPC.Hilbert.Translation.html#3631" class="Bound"
+      >ts</a
+      ><a name="3652" class="Symbol"
+      >)</a
+      ><a name="3653"
+      >
+  </a
+      ><a name="3656" class="Keyword"
+      >where</a
+      ><a name="3661"
+      >
+    </a
+      ><a name="3666" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3673"
+      > </a
+      ><a name="3674" class="Symbol"
+      >:</a
+      ><a name="3675"
+      > </a
+      ><a name="3676" class="Symbol"
+      >&#8704;</a
+      ><a name="3677"
+      > </a
+      ><a name="3678" class="Symbol"
+      >{</a
+      ><a name="3679" href="BasicIPC.Hilbert.Translation.html#3679" class="Bound"
+      >&#928;</a
+      ><a name="3680" class="Symbol"
+      >}</a
+      ><a name="3681"
+      > </a
+      ><a name="3682" class="Symbol"
+      >&#8594;</a
+      ><a name="3683"
+      > </a
+      ><a name="3684" href="BasicIPC.Hilbert.List.html#140" class="Datatype Operator"
+      >L.&#8866;&#215;</a
+      ><a name="3688"
+      > </a
+      ><a name="3689" href="BasicIPC.Hilbert.Translation.html#3679" class="Bound"
+      >&#928;</a
+      ><a name="3690"
+      > </a
+      ><a name="3691" class="Symbol"
+      >&#8594;</a
+      ><a name="3692"
+      > </a
+      ><a name="3693" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >LC&#10216;</a
+      ><a name="3696"
+      > </a
+      ><a name="3697" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="3698"
+      > </a
+      ><a name="3699" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="3701"
+      > </a
+      ><a name="3702" href="BasicIPC.Hilbert.Translation.html#3679" class="Bound"
+      >&#928;</a
+      ><a name="3703"
+      > </a
+      ><a name="3704" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="3705"
+      >
+    </a
+      ><a name="3710" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3717"
+      > </a
+      ><a name="3718" href="BasicIPC.Hilbert.List.html#166" class="InductiveConstructor"
+      >L.nil</a
+      ><a name="3723"
+      >         </a
+      ><a name="3732" class="Symbol"
+      >=</a
+      ><a name="3733"
+      > </a
+      ><a name="3734" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="3740"
+      >
+    </a
+      ><a name="3745" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3752"
+      > </a
+      ><a name="3753" class="Symbol"
+      >(</a
+      ><a name="3754" href="BasicIPC.Hilbert.List.html#181" class="InductiveConstructor"
+      >L.mp</a
+      ><a name="3758"
+      > </a
+      ><a name="3759" href="BasicIPC.Hilbert.Translation.html#3759" class="Bound"
+      >i</a
+      ><a name="3760"
+      > </a
+      ><a name="3761" href="BasicIPC.Hilbert.Translation.html#3761" class="Bound"
+      >j</a
+      ><a name="3762"
+      > </a
+      ><a name="3763" href="BasicIPC.Hilbert.Translation.html#3763" class="Bound"
+      >ts</a
+      ><a name="3765" class="Symbol"
+      >)</a
+      ><a name="3766"
+      > </a
+      ><a name="3767" class="Symbol"
+      >=</a
+      ><a name="3768"
+      > </a
+      ><a name="3769" href="BasicIPC.Hilbert.ListWithContext.html#274" class="InductiveConstructor"
+      >LC.mp</a
+      ><a name="3774"
+      > </a
+      ><a name="3775" href="BasicIPC.Hilbert.Translation.html#3759" class="Bound"
+      >i</a
+      ><a name="3776"
+      > </a
+      ><a name="3777" href="BasicIPC.Hilbert.Translation.html#3761" class="Bound"
+      >j</a
+      ><a name="3778"
+      > </a
+      ><a name="3779" class="Symbol"
+      >(</a
+      ><a name="3780" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3787"
+      > </a
+      ><a name="3788" href="BasicIPC.Hilbert.Translation.html#3763" class="Bound"
+      >ts</a
+      ><a name="3790" class="Symbol"
+      >)</a
+      ><a name="3791"
+      >
+    </a
+      ><a name="3796" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3803"
+      > </a
+      ><a name="3804" class="Symbol"
+      >(</a
+      ><a name="3805" href="BasicIPC.Hilbert.List.html#241" class="InductiveConstructor"
+      >L.ci</a
+      ><a name="3809"
+      > </a
+      ><a name="3810" href="BasicIPC.Hilbert.Translation.html#3810" class="Bound"
+      >ts</a
+      ><a name="3812" class="Symbol"
+      >)</a
+      ><a name="3813"
+      >     </a
+      ><a name="3818" class="Symbol"
+      >=</a
+      ><a name="3819"
+      > </a
+      ><a name="3820" href="BasicIPC.Hilbert.ListWithContext.html#338" class="InductiveConstructor"
+      >LC.ci</a
+      ><a name="3825"
+      > </a
+      ><a name="3826" class="Symbol"
+      >(</a
+      ><a name="3827" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3834"
+      > </a
+      ><a name="3835" href="BasicIPC.Hilbert.Translation.html#3810" class="Bound"
+      >ts</a
+      ><a name="3837" class="Symbol"
+      >)</a
+      ><a name="3838"
+      >
+    </a
+      ><a name="3843" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3850"
+      > </a
+      ><a name="3851" class="Symbol"
+      >(</a
+      ><a name="3852" href="BasicIPC.Hilbert.List.html#285" class="InductiveConstructor"
+      >L.ck</a
+      ><a name="3856"
+      > </a
+      ><a name="3857" href="BasicIPC.Hilbert.Translation.html#3857" class="Bound"
+      >ts</a
+      ><a name="3859" class="Symbol"
+      >)</a
+      ><a name="3860"
+      >     </a
+      ><a name="3865" class="Symbol"
+      >=</a
+      ><a name="3866"
+      > </a
+      ><a name="3867" href="BasicIPC.Hilbert.ListWithContext.html#386" class="InductiveConstructor"
+      >LC.ck</a
+      ><a name="3872"
+      > </a
+      ><a name="3873" class="Symbol"
+      >(</a
+      ><a name="3874" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3881"
+      > </a
+      ><a name="3882" href="BasicIPC.Hilbert.Translation.html#3857" class="Bound"
+      >ts</a
+      ><a name="3884" class="Symbol"
+      >)</a
+      ><a name="3885"
+      >
+    </a
+      ><a name="3890" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3897"
+      > </a
+      ><a name="3898" class="Symbol"
+      >(</a
+      ><a name="3899" href="BasicIPC.Hilbert.List.html#333" class="InductiveConstructor"
+      >L.cs</a
+      ><a name="3903"
+      > </a
+      ><a name="3904" href="BasicIPC.Hilbert.Translation.html#3904" class="Bound"
+      >ts&#8321;</a
+      ><a name="3907" class="Symbol"
+      >)</a
+      ><a name="3908"
+      >    </a
+      ><a name="3912" class="Symbol"
+      >=</a
+      ><a name="3913"
+      > </a
+      ><a name="3914" href="BasicIPC.Hilbert.ListWithContext.html#438" class="InductiveConstructor"
+      >LC.cs</a
+      ><a name="3919"
+      > </a
+      ><a name="3920" class="Symbol"
+      >(</a
+      ><a name="3921" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3928"
+      > </a
+      ><a name="3929" href="BasicIPC.Hilbert.Translation.html#3904" class="Bound"
+      >ts&#8321;</a
+      ><a name="3932" class="Symbol"
+      >)</a
+      ><a name="3933"
+      >
+    </a
+      ><a name="3938" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3945"
+      > </a
+      ><a name="3946" class="Symbol"
+      >(</a
+      ><a name="3947" href="BasicIPC.Hilbert.List.html#401" class="InductiveConstructor"
+      >L.cpair</a
+      ><a name="3954"
+      > </a
+      ><a name="3955" href="BasicIPC.Hilbert.Translation.html#3955" class="Bound"
+      >ts</a
+      ><a name="3957" class="Symbol"
+      >)</a
+      ><a name="3958"
+      >  </a
+      ><a name="3960" class="Symbol"
+      >=</a
+      ><a name="3961"
+      > </a
+      ><a name="3962" href="BasicIPC.Hilbert.ListWithContext.html#510" class="InductiveConstructor"
+      >LC.cpair</a
+      ><a name="3970"
+      > </a
+      ><a name="3971" class="Symbol"
+      >(</a
+      ><a name="3972" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3979"
+      > </a
+      ><a name="3980" href="BasicIPC.Hilbert.Translation.html#3955" class="Bound"
+      >ts</a
+      ><a name="3982" class="Symbol"
+      >)</a
+      ><a name="3983"
+      >
+    </a
+      ><a name="3988" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="3995"
+      > </a
+      ><a name="3996" class="Symbol"
+      >(</a
+      ><a name="3997" href="BasicIPC.Hilbert.List.html#453" class="InductiveConstructor"
+      >L.cfst</a
+      ><a name="4003"
+      > </a
+      ><a name="4004" href="BasicIPC.Hilbert.Translation.html#4004" class="Bound"
+      >ts</a
+      ><a name="4006" class="Symbol"
+      >)</a
+      ><a name="4007"
+      >   </a
+      ><a name="4010" class="Symbol"
+      >=</a
+      ><a name="4011"
+      > </a
+      ><a name="4012" href="BasicIPC.Hilbert.ListWithContext.html#566" class="InductiveConstructor"
+      >LC.cfst</a
+      ><a name="4019"
+      > </a
+      ><a name="4020" class="Symbol"
+      >(</a
+      ><a name="4021" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="4028"
+      > </a
+      ><a name="4029" href="BasicIPC.Hilbert.Translation.html#4004" class="Bound"
+      >ts</a
+      ><a name="4031" class="Symbol"
+      >)</a
+      ><a name="4032"
+      >
+    </a
+      ><a name="4037" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="4044"
+      > </a
+      ><a name="4045" class="Symbol"
+      >(</a
+      ><a name="4046" href="BasicIPC.Hilbert.List.html#501" class="InductiveConstructor"
+      >L.csnd</a
+      ><a name="4052"
+      > </a
+      ><a name="4053" href="BasicIPC.Hilbert.Translation.html#4053" class="Bound"
+      >ts</a
+      ><a name="4055" class="Symbol"
+      >)</a
+      ><a name="4056"
+      >   </a
+      ><a name="4059" class="Symbol"
+      >=</a
+      ><a name="4060"
+      > </a
+      ><a name="4061" href="BasicIPC.Hilbert.ListWithContext.html#618" class="InductiveConstructor"
+      >LC.csnd</a
+      ><a name="4068"
+      > </a
+      ><a name="4069" class="Symbol"
+      >(</a
+      ><a name="4070" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="4077"
+      > </a
+      ><a name="4078" href="BasicIPC.Hilbert.Translation.html#4053" class="Bound"
+      >ts</a
+      ><a name="4080" class="Symbol"
+      >)</a
+      ><a name="4081"
+      >
+    </a
+      ><a name="4086" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="4093"
+      > </a
+      ><a name="4094" class="Symbol"
+      >(</a
+      ><a name="4095" href="BasicIPC.Hilbert.List.html#549" class="InductiveConstructor"
+      >L.tt</a
+      ><a name="4099"
+      > </a
+      ><a name="4100" href="BasicIPC.Hilbert.Translation.html#4100" class="Bound"
+      >ts</a
+      ><a name="4102" class="Symbol"
+      >)</a
+      ><a name="4103"
+      >     </a
+      ><a name="4108" class="Symbol"
+      >=</a
+      ><a name="4109"
+      > </a
+      ><a name="4110" href="BasicIPC.Hilbert.ListWithContext.html#670" class="InductiveConstructor"
+      >LC.tt</a
+      ><a name="4115"
+      > </a
+      ><a name="4116" class="Symbol"
+      >(</a
+      ><a name="4117" href="BasicIPC.Hilbert.Translation.html#3666" class="Function"
+      >l&#215;&#8594;lc&#8320;&#215;</a
+      ><a name="4124"
+      > </a
+      ><a name="4125" href="BasicIPC.Hilbert.Translation.html#4100" class="Bound"
+      >ts</a
+      ><a name="4127" class="Symbol"
+      >)</a
+      ><a name="4128"
+      >
+
+</a
+      ><a name="4130" href="BasicIPC.Hilbert.Translation.html#4130" class="Function"
+      >l&#8594;lc</a
+      ><a name="4134"
+      > </a
+      ><a name="4135" class="Symbol"
+      >:</a
+      ><a name="4136"
+      > </a
+      ><a name="4137" class="Symbol"
+      >&#8704;</a
+      ><a name="4138"
+      > </a
+      ><a name="4139" class="Symbol"
+      >{</a
+      ><a name="4140" href="BasicIPC.Hilbert.Translation.html#4140" class="Bound"
+      >A</a
+      ><a name="4141"
+      > </a
+      ><a name="4142" href="BasicIPC.Hilbert.Translation.html#4142" class="Bound"
+      >&#915;</a
+      ><a name="4143" class="Symbol"
+      >}</a
+      ><a name="4144"
+      > </a
+      ><a name="4145" class="Symbol"
+      >&#8594;</a
+      ><a name="4146"
+      > </a
+      ><a name="4147" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="4150"
+      > </a
+      ><a name="4151" href="BasicIPC.Hilbert.Translation.html#4142" class="Bound"
+      >&#915;</a
+      ><a name="4152"
+      > </a
+      ><a name="4153" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="4156"
+      > </a
+      ><a name="4157" href="BasicIPC.Hilbert.Translation.html#4140" class="Bound"
+      >A</a
+      ><a name="4158"
+      > </a
+      ><a name="4159" class="Symbol"
+      >&#8594;</a
+      ><a name="4160"
+      > </a
+      ><a name="4161" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="4164"
+      > </a
+      ><a name="4165" href="BasicIPC.Hilbert.Translation.html#4142" class="Bound"
+      >&#915;</a
+      ><a name="4166"
+      > </a
+      ><a name="4167" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="4168"
+      > </a
+      ><a name="4169" href="BasicIPC.Hilbert.Translation.html#4140" class="Bound"
+      >A</a
+      ><a name="4170"
+      > </a
+      ><a name="4171" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="4172"
+      >
+</a
+      ><a name="4173" href="BasicIPC.Hilbert.Translation.html#4130" class="Function"
+      >l&#8594;lc</a
+      ><a name="4177"
+      > </a
+      ><a name="4178" href="BasicIPC.Hilbert.Translation.html#4178" class="Bound"
+      >t</a
+      ><a name="4179"
+      > </a
+      ><a name="4180" class="Symbol"
+      >=</a
+      ><a name="4181"
+      > </a
+      ><a name="4182" href="BasicIPC.Hilbert.Translation.html#3421" class="Function"
+      >lc-det&#8902;&#8320;</a
+      ><a name="4190"
+      > </a
+      ><a name="4191" class="Symbol"
+      >(</a
+      ><a name="4192" href="BasicIPC.Hilbert.Translation.html#3584" class="Function"
+      >l&#8594;lc&#8320;</a
+      ><a name="4197"
+      > </a
+      ><a name="4198" href="BasicIPC.Hilbert.Translation.html#4178" class="Bound"
+      >t</a
+      ><a name="4199" class="Symbol"
+      >)</a
+      ><a name="4200"
+      >
+
+</a
+      ><a name="4202" href="BasicIPC.Hilbert.Translation.html#4202" class="Function"
+      >lc&#8320;&#8594;l</a
+      ><a name="4207"
+      > </a
+      ><a name="4208" class="Symbol"
+      >:</a
+      ><a name="4209"
+      > </a
+      ><a name="4210" class="Symbol"
+      >&#8704;</a
+      ><a name="4211"
+      > </a
+      ><a name="4212" class="Symbol"
+      >{</a
+      ><a name="4213" href="BasicIPC.Hilbert.Translation.html#4213" class="Bound"
+      >A</a
+      ><a name="4214" class="Symbol"
+      >}</a
+      ><a name="4215"
+      > </a
+      ><a name="4216" class="Symbol"
+      >&#8594;</a
+      ><a name="4217"
+      > </a
+      ><a name="4218" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="4221"
+      > </a
+      ><a name="4222" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="4223"
+      > </a
+      ><a name="4224" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="4225"
+      > </a
+      ><a name="4226" href="BasicIPC.Hilbert.Translation.html#4213" class="Bound"
+      >A</a
+      ><a name="4227"
+      > </a
+      ><a name="4228" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="4229"
+      > </a
+      ><a name="4230" class="Symbol"
+      >&#8594;</a
+      ><a name="4231"
+      > </a
+      ><a name="4232" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="4235"
+      > </a
+      ><a name="4236" href="BasicIPC.Hilbert.Translation.html#4213" class="Bound"
+      >A</a
+      ><a name="4237"
+      >
+</a
+      ><a name="4238" href="BasicIPC.Hilbert.Translation.html#4202" class="Function"
+      >lc&#8320;&#8594;l</a
+      ><a name="4243"
+      > </a
+      ><a name="4244" class="Symbol"
+      >(</a
+      ><a name="4245" href="BasicIPC.Hilbert.Translation.html#4245" class="Bound"
+      >&#928;</a
+      ><a name="4246"
+      > </a
+      ><a name="4247" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="4248"
+      > </a
+      ><a name="4249" href="BasicIPC.Hilbert.Translation.html#4249" class="Bound"
+      >ts</a
+      ><a name="4251" class="Symbol"
+      >)</a
+      ><a name="4252"
+      > </a
+      ><a name="4253" class="Symbol"
+      >=</a
+      ><a name="4254"
+      > </a
+      ><a name="4255" class="Symbol"
+      >(</a
+      ><a name="4256" href="BasicIPC.Hilbert.Translation.html#4245" class="Bound"
+      >&#928;</a
+      ><a name="4257"
+      > </a
+      ><a name="4258" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="4259"
+      > </a
+      ><a name="4260" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4268"
+      > </a
+      ><a name="4269" href="BasicIPC.Hilbert.Translation.html#4249" class="Bound"
+      >ts</a
+      ><a name="4271" class="Symbol"
+      >)</a
+      ><a name="4272"
+      >
+  </a
+      ><a name="4275" class="Keyword"
+      >where</a
+      ><a name="4280"
+      >
+    </a
+      ><a name="4285" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4293"
+      > </a
+      ><a name="4294" class="Symbol"
+      >:</a
+      ><a name="4295"
+      > </a
+      ><a name="4296" class="Symbol"
+      >&#8704;</a
+      ><a name="4297"
+      > </a
+      ><a name="4298" class="Symbol"
+      >{</a
+      ><a name="4299" href="BasicIPC.Hilbert.Translation.html#4299" class="Bound"
+      >&#928;</a
+      ><a name="4300" class="Symbol"
+      >}</a
+      ><a name="4301"
+      > </a
+      ><a name="4302" class="Symbol"
+      >&#8594;</a
+      ><a name="4303"
+      > </a
+      ><a name="4304" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >LC&#10216;</a
+      ><a name="4307"
+      > </a
+      ><a name="4308" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="4309"
+      > </a
+      ><a name="4310" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="4312"
+      > </a
+      ><a name="4313" href="BasicIPC.Hilbert.Translation.html#4299" class="Bound"
+      >&#928;</a
+      ><a name="4314"
+      > </a
+      ><a name="4315" href="BasicIPC.Hilbert.ListWithContext.html#166" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="4316"
+      > </a
+      ><a name="4317" class="Symbol"
+      >&#8594;</a
+      ><a name="4318"
+      > </a
+      ><a name="4319" href="BasicIPC.Hilbert.List.html#140" class="Datatype Operator"
+      >L.&#8866;&#215;</a
+      ><a name="4323"
+      > </a
+      ><a name="4324" href="BasicIPC.Hilbert.Translation.html#4299" class="Bound"
+      >&#928;</a
+      ><a name="4325"
+      >
+    </a
+      ><a name="4330" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4338"
+      > </a
+      ><a name="4339" href="BasicIPC.Hilbert.ListWithContext.html#205" class="InductiveConstructor"
+      >LC.nil</a
+      ><a name="4345"
+      >         </a
+      ><a name="4354" class="Symbol"
+      >=</a
+      ><a name="4355"
+      > </a
+      ><a name="4356" href="BasicIPC.Hilbert.List.html#166" class="InductiveConstructor"
+      >L.nil</a
+      ><a name="4361"
+      >
+    </a
+      ><a name="4366" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4374"
+      > </a
+      ><a name="4375" class="Symbol"
+      >(</a
+      ><a name="4376" href="BasicIPC.Hilbert.ListWithContext.html#222" class="InductiveConstructor"
+      >LC.var</a
+      ><a name="4382"
+      > </a
+      ><a name="4383" class="Symbol"
+      >()</a
+      ><a name="4385"
+      > </a
+      ><a name="4386" href="BasicIPC.Hilbert.Translation.html#4386" class="Bound"
+      >ts</a
+      ><a name="4388" class="Symbol"
+      >)</a
+      ><a name="4389"
+      >
+    </a
+      ><a name="4394" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4402"
+      > </a
+      ><a name="4403" class="Symbol"
+      >(</a
+      ><a name="4404" href="BasicIPC.Hilbert.ListWithContext.html#274" class="InductiveConstructor"
+      >LC.mp</a
+      ><a name="4409"
+      > </a
+      ><a name="4410" href="BasicIPC.Hilbert.Translation.html#4410" class="Bound"
+      >i</a
+      ><a name="4411"
+      > </a
+      ><a name="4412" href="BasicIPC.Hilbert.Translation.html#4412" class="Bound"
+      >j</a
+      ><a name="4413"
+      > </a
+      ><a name="4414" href="BasicIPC.Hilbert.Translation.html#4414" class="Bound"
+      >ts</a
+      ><a name="4416" class="Symbol"
+      >)</a
+      ><a name="4417"
+      > </a
+      ><a name="4418" class="Symbol"
+      >=</a
+      ><a name="4419"
+      > </a
+      ><a name="4420" href="BasicIPC.Hilbert.List.html#181" class="InductiveConstructor"
+      >L.mp</a
+      ><a name="4424"
+      > </a
+      ><a name="4425" href="BasicIPC.Hilbert.Translation.html#4410" class="Bound"
+      >i</a
+      ><a name="4426"
+      > </a
+      ><a name="4427" href="BasicIPC.Hilbert.Translation.html#4412" class="Bound"
+      >j</a
+      ><a name="4428"
+      > </a
+      ><a name="4429" class="Symbol"
+      >(</a
+      ><a name="4430" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4438"
+      > </a
+      ><a name="4439" href="BasicIPC.Hilbert.Translation.html#4414" class="Bound"
+      >ts</a
+      ><a name="4441" class="Symbol"
+      >)</a
+      ><a name="4442"
+      >
+    </a
+      ><a name="4447" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4455"
+      > </a
+      ><a name="4456" class="Symbol"
+      >(</a
+      ><a name="4457" href="BasicIPC.Hilbert.ListWithContext.html#338" class="InductiveConstructor"
+      >LC.ci</a
+      ><a name="4462"
+      > </a
+      ><a name="4463" href="BasicIPC.Hilbert.Translation.html#4463" class="Bound"
+      >ts</a
+      ><a name="4465" class="Symbol"
+      >)</a
+      ><a name="4466"
+      >     </a
+      ><a name="4471" class="Symbol"
+      >=</a
+      ><a name="4472"
+      > </a
+      ><a name="4473" href="BasicIPC.Hilbert.List.html#241" class="InductiveConstructor"
+      >L.ci</a
+      ><a name="4477"
+      > </a
+      ><a name="4478" class="Symbol"
+      >(</a
+      ><a name="4479" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4487"
+      > </a
+      ><a name="4488" href="BasicIPC.Hilbert.Translation.html#4463" class="Bound"
+      >ts</a
+      ><a name="4490" class="Symbol"
+      >)</a
+      ><a name="4491"
+      >
+    </a
+      ><a name="4496" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4504"
+      > </a
+      ><a name="4505" class="Symbol"
+      >(</a
+      ><a name="4506" href="BasicIPC.Hilbert.ListWithContext.html#386" class="InductiveConstructor"
+      >LC.ck</a
+      ><a name="4511"
+      > </a
+      ><a name="4512" href="BasicIPC.Hilbert.Translation.html#4512" class="Bound"
+      >ts</a
+      ><a name="4514" class="Symbol"
+      >)</a
+      ><a name="4515"
+      >     </a
+      ><a name="4520" class="Symbol"
+      >=</a
+      ><a name="4521"
+      > </a
+      ><a name="4522" href="BasicIPC.Hilbert.List.html#285" class="InductiveConstructor"
+      >L.ck</a
+      ><a name="4526"
+      > </a
+      ><a name="4527" class="Symbol"
+      >(</a
+      ><a name="4528" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4536"
+      > </a
+      ><a name="4537" href="BasicIPC.Hilbert.Translation.html#4512" class="Bound"
+      >ts</a
+      ><a name="4539" class="Symbol"
+      >)</a
+      ><a name="4540"
+      >
+    </a
+      ><a name="4545" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4553"
+      > </a
+      ><a name="4554" class="Symbol"
+      >(</a
+      ><a name="4555" href="BasicIPC.Hilbert.ListWithContext.html#438" class="InductiveConstructor"
+      >LC.cs</a
+      ><a name="4560"
+      > </a
+      ><a name="4561" href="BasicIPC.Hilbert.Translation.html#4561" class="Bound"
+      >ts</a
+      ><a name="4563" class="Symbol"
+      >)</a
+      ><a name="4564"
+      >     </a
+      ><a name="4569" class="Symbol"
+      >=</a
+      ><a name="4570"
+      > </a
+      ><a name="4571" href="BasicIPC.Hilbert.List.html#333" class="InductiveConstructor"
+      >L.cs</a
+      ><a name="4575"
+      > </a
+      ><a name="4576" class="Symbol"
+      >(</a
+      ><a name="4577" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4585"
+      > </a
+      ><a name="4586" href="BasicIPC.Hilbert.Translation.html#4561" class="Bound"
+      >ts</a
+      ><a name="4588" class="Symbol"
+      >)</a
+      ><a name="4589"
+      >
+    </a
+      ><a name="4594" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4602"
+      > </a
+      ><a name="4603" class="Symbol"
+      >(</a
+      ><a name="4604" href="BasicIPC.Hilbert.ListWithContext.html#510" class="InductiveConstructor"
+      >LC.cpair</a
+      ><a name="4612"
+      > </a
+      ><a name="4613" href="BasicIPC.Hilbert.Translation.html#4613" class="Bound"
+      >ts</a
+      ><a name="4615" class="Symbol"
+      >)</a
+      ><a name="4616"
+      >  </a
+      ><a name="4618" class="Symbol"
+      >=</a
+      ><a name="4619"
+      > </a
+      ><a name="4620" href="BasicIPC.Hilbert.List.html#401" class="InductiveConstructor"
+      >L.cpair</a
+      ><a name="4627"
+      > </a
+      ><a name="4628" class="Symbol"
+      >(</a
+      ><a name="4629" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4637"
+      > </a
+      ><a name="4638" href="BasicIPC.Hilbert.Translation.html#4613" class="Bound"
+      >ts</a
+      ><a name="4640" class="Symbol"
+      >)</a
+      ><a name="4641"
+      >
+    </a
+      ><a name="4646" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4654"
+      > </a
+      ><a name="4655" class="Symbol"
+      >(</a
+      ><a name="4656" href="BasicIPC.Hilbert.ListWithContext.html#566" class="InductiveConstructor"
+      >LC.cfst</a
+      ><a name="4663"
+      > </a
+      ><a name="4664" href="BasicIPC.Hilbert.Translation.html#4664" class="Bound"
+      >ts</a
+      ><a name="4666" class="Symbol"
+      >)</a
+      ><a name="4667"
+      >   </a
+      ><a name="4670" class="Symbol"
+      >=</a
+      ><a name="4671"
+      > </a
+      ><a name="4672" href="BasicIPC.Hilbert.List.html#453" class="InductiveConstructor"
+      >L.cfst</a
+      ><a name="4678"
+      > </a
+      ><a name="4679" class="Symbol"
+      >(</a
+      ><a name="4680" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4688"
+      > </a
+      ><a name="4689" href="BasicIPC.Hilbert.Translation.html#4664" class="Bound"
+      >ts</a
+      ><a name="4691" class="Symbol"
+      >)</a
+      ><a name="4692"
+      >
+    </a
+      ><a name="4697" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4705"
+      > </a
+      ><a name="4706" class="Symbol"
+      >(</a
+      ><a name="4707" href="BasicIPC.Hilbert.ListWithContext.html#618" class="InductiveConstructor"
+      >LC.csnd</a
+      ><a name="4714"
+      > </a
+      ><a name="4715" href="BasicIPC.Hilbert.Translation.html#4715" class="Bound"
+      >ts</a
+      ><a name="4717" class="Symbol"
+      >)</a
+      ><a name="4718"
+      >   </a
+      ><a name="4721" class="Symbol"
+      >=</a
+      ><a name="4722"
+      > </a
+      ><a name="4723" href="BasicIPC.Hilbert.List.html#501" class="InductiveConstructor"
+      >L.csnd</a
+      ><a name="4729"
+      > </a
+      ><a name="4730" class="Symbol"
+      >(</a
+      ><a name="4731" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4739"
+      > </a
+      ><a name="4740" href="BasicIPC.Hilbert.Translation.html#4715" class="Bound"
+      >ts</a
+      ><a name="4742" class="Symbol"
+      >)</a
+      ><a name="4743"
+      >
+    </a
+      ><a name="4748" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4756"
+      > </a
+      ><a name="4757" class="Symbol"
+      >(</a
+      ><a name="4758" href="BasicIPC.Hilbert.ListWithContext.html#670" class="InductiveConstructor"
+      >LC.tt</a
+      ><a name="4763"
+      > </a
+      ><a name="4764" href="BasicIPC.Hilbert.Translation.html#4764" class="Bound"
+      >ts</a
+      ><a name="4766" class="Symbol"
+      >)</a
+      ><a name="4767"
+      >     </a
+      ><a name="4772" class="Symbol"
+      >=</a
+      ><a name="4773"
+      > </a
+      ><a name="4774" href="BasicIPC.Hilbert.List.html#549" class="InductiveConstructor"
+      >L.tt</a
+      ><a name="4778"
+      > </a
+      ><a name="4779" class="Symbol"
+      >(</a
+      ><a name="4780" href="BasicIPC.Hilbert.Translation.html#4285" class="Function"
+      >lc&#8320;&#215;&#8594;lc&#215;</a
+      ><a name="4788"
+      > </a
+      ><a name="4789" href="BasicIPC.Hilbert.Translation.html#4764" class="Bound"
+      >ts</a
+      ><a name="4791" class="Symbol"
+      >)</a
+      ><a name="4792"
+      >
+
+</a
+      ><a name="4794" href="BasicIPC.Hilbert.Translation.html#4794" class="Function"
+      >lc&#8594;l</a
+      ><a name="4798"
+      > </a
+      ><a name="4799" class="Symbol"
+      >:</a
+      ><a name="4800"
+      > </a
+      ><a name="4801" class="Symbol"
+      >&#8704;</a
+      ><a name="4802"
+      > </a
+      ><a name="4803" class="Symbol"
+      >{</a
+      ><a name="4804" href="BasicIPC.Hilbert.Translation.html#4804" class="Bound"
+      >A</a
+      ><a name="4805"
+      > </a
+      ><a name="4806" href="BasicIPC.Hilbert.Translation.html#4806" class="Bound"
+      >&#915;</a
+      ><a name="4807" class="Symbol"
+      >}</a
+      ><a name="4808"
+      > </a
+      ><a name="4809" class="Symbol"
+      >&#8594;</a
+      ><a name="4810"
+      > </a
+      ><a name="4811" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="4814"
+      > </a
+      ><a name="4815" href="BasicIPC.Hilbert.Translation.html#4806" class="Bound"
+      >&#915;</a
+      ><a name="4816"
+      > </a
+      ><a name="4817" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="4818"
+      > </a
+      ><a name="4819" href="BasicIPC.Hilbert.Translation.html#4804" class="Bound"
+      >A</a
+      ><a name="4820"
+      > </a
+      ><a name="4821" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="4822"
+      > </a
+      ><a name="4823" class="Symbol"
+      >&#8594;</a
+      ><a name="4824"
+      > </a
+      ><a name="4825" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="4828"
+      > </a
+      ><a name="4829" href="BasicIPC.Hilbert.Translation.html#4806" class="Bound"
+      >&#915;</a
+      ><a name="4830"
+      > </a
+      ><a name="4831" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="4834"
+      > </a
+      ><a name="4835" href="BasicIPC.Hilbert.Translation.html#4804" class="Bound"
+      >A</a
+      ><a name="4836"
+      >
+</a
+      ><a name="4837" href="BasicIPC.Hilbert.Translation.html#4794" class="Function"
+      >lc&#8594;l</a
+      ><a name="4841"
+      > </a
+      ><a name="4842" href="BasicIPC.Hilbert.Translation.html#4842" class="Bound"
+      >t</a
+      ><a name="4843"
+      > </a
+      ><a name="4844" class="Symbol"
+      >=</a
+      ><a name="4845"
+      > </a
+      ><a name="4846" href="BasicIPC.Hilbert.Translation.html#4202" class="Function"
+      >lc&#8320;&#8594;l</a
+      ><a name="4851"
+      > </a
+      ><a name="4852" class="Symbol"
+      >(</a
+      ><a name="4853" href="BasicIPC.Hilbert.Translation.html#3243" class="Function"
+      >lc-lam&#8902;&#8320;</a
+      ><a name="4861"
+      > </a
+      ><a name="4862" href="BasicIPC.Hilbert.Translation.html#4842" class="Bound"
+      >t</a
+      ><a name="4863" class="Symbol"
+      >)</a
+      ><a name="4864"
+      >
+
+
+</a
+      ><a name="4867" class="Comment"
+      >-- Translation between tree-shaped variants, with and without context.</a
+      ><a name="4937"
+      >
+
+</a
+      ><a name="4939" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="4944"
+      > </a
+      ><a name="4945" class="Symbol"
+      >:</a
+      ><a name="4946"
+      > </a
+      ><a name="4947" class="Symbol"
+      >&#8704;</a
+      ><a name="4948"
+      > </a
+      ><a name="4949" class="Symbol"
+      >{</a
+      ><a name="4950" href="BasicIPC.Hilbert.Translation.html#4950" class="Bound"
+      >A</a
+      ><a name="4951" class="Symbol"
+      >}</a
+      ><a name="4952"
+      > </a
+      ><a name="4953" class="Symbol"
+      >&#8594;</a
+      ><a name="4954"
+      > </a
+      ><a name="4955" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="4958"
+      > </a
+      ><a name="4959" href="BasicIPC.Hilbert.Translation.html#4950" class="Bound"
+      >A</a
+      ><a name="4960"
+      > </a
+      ><a name="4961" class="Symbol"
+      >&#8594;</a
+      ><a name="4962"
+      > </a
+      ><a name="4963" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="4966"
+      > </a
+      ><a name="4967" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="4968"
+      > </a
+      ><a name="4969" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4970"
+      > </a
+      ><a name="4971" href="BasicIPC.Hilbert.Translation.html#4950" class="Bound"
+      >A</a
+      ><a name="4972"
+      > </a
+      ><a name="4973" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="4974"
+      >
+</a
+      ><a name="4975" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="4980"
+      > </a
+      ><a name="4981" class="Symbol"
+      >(</a
+      ><a name="4982" href="BasicIPC.Hilbert.Tree.html#161" class="InductiveConstructor"
+      >T.app</a
+      ><a name="4987"
+      > </a
+      ><a name="4988" href="BasicIPC.Hilbert.Translation.html#4988" class="Bound"
+      >t</a
+      ><a name="4989"
+      > </a
+      ><a name="4990" href="BasicIPC.Hilbert.Translation.html#4990" class="Bound"
+      >u</a
+      ><a name="4991" class="Symbol"
+      >)</a
+      ><a name="4992"
+      > </a
+      ><a name="4993" class="Symbol"
+      >=</a
+      ><a name="4994"
+      > </a
+      ><a name="4995" href="BasicIPC.Hilbert.TreeWithContext.html#236" class="InductiveConstructor"
+      >TC.app</a
+      ><a name="5001"
+      > </a
+      ><a name="5002" class="Symbol"
+      >(</a
+      ><a name="5003" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5008"
+      > </a
+      ><a name="5009" href="BasicIPC.Hilbert.Translation.html#4988" class="Bound"
+      >t</a
+      ><a name="5010" class="Symbol"
+      >)</a
+      ><a name="5011"
+      > </a
+      ><a name="5012" class="Symbol"
+      >(</a
+      ><a name="5013" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5018"
+      > </a
+      ><a name="5019" href="BasicIPC.Hilbert.Translation.html#4990" class="Bound"
+      >u</a
+      ><a name="5020" class="Symbol"
+      >)</a
+      ><a name="5021"
+      >
+</a
+      ><a name="5022" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5027"
+      > </a
+      ><a name="5028" href="BasicIPC.Hilbert.Tree.html#203" class="InductiveConstructor"
+      >T.ci</a
+      ><a name="5032"
+      >        </a
+      ><a name="5040" class="Symbol"
+      >=</a
+      ><a name="5041"
+      > </a
+      ><a name="5042" href="BasicIPC.Hilbert.TreeWithContext.html#284" class="InductiveConstructor"
+      >TC.ci</a
+      ><a name="5047"
+      >
+</a
+      ><a name="5048" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5053"
+      > </a
+      ><a name="5054" href="BasicIPC.Hilbert.Tree.html#233" class="InductiveConstructor"
+      >T.ck</a
+      ><a name="5058"
+      >        </a
+      ><a name="5066" class="Symbol"
+      >=</a
+      ><a name="5067"
+      > </a
+      ><a name="5068" href="BasicIPC.Hilbert.TreeWithContext.html#316" class="InductiveConstructor"
+      >TC.ck</a
+      ><a name="5073"
+      >
+</a
+      ><a name="5074" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5079"
+      > </a
+      ><a name="5080" href="BasicIPC.Hilbert.Tree.html#267" class="InductiveConstructor"
+      >T.cs</a
+      ><a name="5084"
+      >        </a
+      ><a name="5092" class="Symbol"
+      >=</a
+      ><a name="5093"
+      > </a
+      ><a name="5094" href="BasicIPC.Hilbert.TreeWithContext.html#352" class="InductiveConstructor"
+      >TC.cs</a
+      ><a name="5099"
+      >
+</a
+      ><a name="5100" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5105"
+      > </a
+      ><a name="5106" href="BasicIPC.Hilbert.Tree.html#321" class="InductiveConstructor"
+      >T.cpair</a
+      ><a name="5113"
+      >     </a
+      ><a name="5118" class="Symbol"
+      >=</a
+      ><a name="5119"
+      > </a
+      ><a name="5120" href="BasicIPC.Hilbert.TreeWithContext.html#408" class="InductiveConstructor"
+      >TC.cpair</a
+      ><a name="5128"
+      >
+</a
+      ><a name="5129" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5134"
+      > </a
+      ><a name="5135" href="BasicIPC.Hilbert.Tree.html#359" class="InductiveConstructor"
+      >T.cfst</a
+      ><a name="5141"
+      >      </a
+      ><a name="5147" class="Symbol"
+      >=</a
+      ><a name="5148"
+      > </a
+      ><a name="5149" href="BasicIPC.Hilbert.TreeWithContext.html#448" class="InductiveConstructor"
+      >TC.cfst</a
+      ><a name="5156"
+      >
+</a
+      ><a name="5157" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5162"
+      > </a
+      ><a name="5163" href="BasicIPC.Hilbert.Tree.html#393" class="InductiveConstructor"
+      >T.csnd</a
+      ><a name="5169"
+      >      </a
+      ><a name="5175" class="Symbol"
+      >=</a
+      ><a name="5176"
+      > </a
+      ><a name="5177" href="BasicIPC.Hilbert.TreeWithContext.html#484" class="InductiveConstructor"
+      >TC.csnd</a
+      ><a name="5184"
+      >
+</a
+      ><a name="5185" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5190"
+      > </a
+      ><a name="5191" href="BasicIPC.Hilbert.Tree.html#427" class="InductiveConstructor"
+      >T.tt</a
+      ><a name="5195"
+      >        </a
+      ><a name="5203" class="Symbol"
+      >=</a
+      ><a name="5204"
+      > </a
+      ><a name="5205" href="BasicIPC.Hilbert.TreeWithContext.html#520" class="InductiveConstructor"
+      >TC.tt</a
+      ><a name="5210"
+      >
+
+</a
+      ><a name="5212" href="BasicIPC.Hilbert.Translation.html#5212" class="Function"
+      >t&#8594;tc</a
+      ><a name="5216"
+      > </a
+      ><a name="5217" class="Symbol"
+      >:</a
+      ><a name="5218"
+      > </a
+      ><a name="5219" class="Symbol"
+      >&#8704;</a
+      ><a name="5220"
+      > </a
+      ><a name="5221" class="Symbol"
+      >{</a
+      ><a name="5222" href="BasicIPC.Hilbert.Translation.html#5222" class="Bound"
+      >A</a
+      ><a name="5223"
+      > </a
+      ><a name="5224" href="BasicIPC.Hilbert.Translation.html#5224" class="Bound"
+      >&#915;</a
+      ><a name="5225" class="Symbol"
+      >}</a
+      ><a name="5226"
+      > </a
+      ><a name="5227" class="Symbol"
+      >&#8594;</a
+      ><a name="5228"
+      > </a
+      ><a name="5229" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="5232"
+      > </a
+      ><a name="5233" href="BasicIPC.Hilbert.Translation.html#5224" class="Bound"
+      >&#915;</a
+      ><a name="5234"
+      > </a
+      ><a name="5235" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="5238"
+      > </a
+      ><a name="5239" href="BasicIPC.Hilbert.Translation.html#5222" class="Bound"
+      >A</a
+      ><a name="5240"
+      > </a
+      ><a name="5241" class="Symbol"
+      >&#8594;</a
+      ><a name="5242"
+      > </a
+      ><a name="5243" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="5246"
+      > </a
+      ><a name="5247" href="BasicIPC.Hilbert.Translation.html#5224" class="Bound"
+      >&#915;</a
+      ><a name="5248"
+      > </a
+      ><a name="5249" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5250"
+      > </a
+      ><a name="5251" href="BasicIPC.Hilbert.Translation.html#5222" class="Bound"
+      >A</a
+      ><a name="5252"
+      > </a
+      ><a name="5253" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="5254"
+      >
+</a
+      ><a name="5255" href="BasicIPC.Hilbert.Translation.html#5212" class="Function"
+      >t&#8594;tc</a
+      ><a name="5259"
+      > </a
+      ><a name="5260" href="BasicIPC.Hilbert.Translation.html#5260" class="Bound"
+      >t</a
+      ><a name="5261"
+      > </a
+      ><a name="5262" class="Symbol"
+      >=</a
+      ><a name="5263"
+      > </a
+      ><a name="5264" href="BasicIPC.Hilbert.TreeWithContext.html#2025" class="Function"
+      >TC.det&#8902;&#8320;</a
+      ><a name="5272"
+      > </a
+      ><a name="5273" class="Symbol"
+      >(</a
+      ><a name="5274" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5279"
+      > </a
+      ><a name="5280" href="BasicIPC.Hilbert.Translation.html#5260" class="Bound"
+      >t</a
+      ><a name="5281" class="Symbol"
+      >)</a
+      ><a name="5282"
+      >
+
+</a
+      ><a name="5284" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5289"
+      > </a
+      ><a name="5290" class="Symbol"
+      >:</a
+      ><a name="5291"
+      > </a
+      ><a name="5292" class="Symbol"
+      >&#8704;</a
+      ><a name="5293"
+      > </a
+      ><a name="5294" class="Symbol"
+      >{</a
+      ><a name="5295" href="BasicIPC.Hilbert.Translation.html#5295" class="Bound"
+      >A</a
+      ><a name="5296" class="Symbol"
+      >}</a
+      ><a name="5297"
+      > </a
+      ><a name="5298" class="Symbol"
+      >&#8594;</a
+      ><a name="5299"
+      > </a
+      ><a name="5300" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="5303"
+      > </a
+      ><a name="5304" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="5305"
+      > </a
+      ><a name="5306" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5307"
+      > </a
+      ><a name="5308" href="BasicIPC.Hilbert.Translation.html#5295" class="Bound"
+      >A</a
+      ><a name="5309"
+      > </a
+      ><a name="5310" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="5311"
+      > </a
+      ><a name="5312" class="Symbol"
+      >&#8594;</a
+      ><a name="5313"
+      > </a
+      ><a name="5314" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="5317"
+      > </a
+      ><a name="5318" href="BasicIPC.Hilbert.Translation.html#5295" class="Bound"
+      >A</a
+      ><a name="5319"
+      >
+</a
+      ><a name="5320" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5325"
+      > </a
+      ><a name="5326" class="Symbol"
+      >(</a
+      ><a name="5327" href="BasicIPC.Hilbert.TreeWithContext.html#200" class="InductiveConstructor"
+      >TC.var</a
+      ><a name="5333"
+      > </a
+      ><a name="5334" class="Symbol"
+      >())</a
+      ><a name="5337"
+      >
+</a
+      ><a name="5338" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5343"
+      > </a
+      ><a name="5344" class="Symbol"
+      >(</a
+      ><a name="5345" href="BasicIPC.Hilbert.TreeWithContext.html#236" class="InductiveConstructor"
+      >TC.app</a
+      ><a name="5351"
+      > </a
+      ><a name="5352" href="BasicIPC.Hilbert.Translation.html#5352" class="Bound"
+      >t</a
+      ><a name="5353"
+      > </a
+      ><a name="5354" href="BasicIPC.Hilbert.Translation.html#5354" class="Bound"
+      >u</a
+      ><a name="5355" class="Symbol"
+      >)</a
+      ><a name="5356"
+      > </a
+      ><a name="5357" class="Symbol"
+      >=</a
+      ><a name="5358"
+      > </a
+      ><a name="5359" href="BasicIPC.Hilbert.Tree.html#161" class="InductiveConstructor"
+      >T.app</a
+      ><a name="5364"
+      > </a
+      ><a name="5365" class="Symbol"
+      >(</a
+      ><a name="5366" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5371"
+      > </a
+      ><a name="5372" href="BasicIPC.Hilbert.Translation.html#5352" class="Bound"
+      >t</a
+      ><a name="5373" class="Symbol"
+      >)</a
+      ><a name="5374"
+      > </a
+      ><a name="5375" class="Symbol"
+      >(</a
+      ><a name="5376" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5381"
+      > </a
+      ><a name="5382" href="BasicIPC.Hilbert.Translation.html#5354" class="Bound"
+      >u</a
+      ><a name="5383" class="Symbol"
+      >)</a
+      ><a name="5384"
+      >
+</a
+      ><a name="5385" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5390"
+      > </a
+      ><a name="5391" href="BasicIPC.Hilbert.TreeWithContext.html#284" class="InductiveConstructor"
+      >TC.ci</a
+      ><a name="5396"
+      >        </a
+      ><a name="5404" class="Symbol"
+      >=</a
+      ><a name="5405"
+      > </a
+      ><a name="5406" href="BasicIPC.Hilbert.Tree.html#203" class="InductiveConstructor"
+      >T.ci</a
+      ><a name="5410"
+      >
+</a
+      ><a name="5411" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5416"
+      > </a
+      ><a name="5417" href="BasicIPC.Hilbert.TreeWithContext.html#316" class="InductiveConstructor"
+      >TC.ck</a
+      ><a name="5422"
+      >        </a
+      ><a name="5430" class="Symbol"
+      >=</a
+      ><a name="5431"
+      > </a
+      ><a name="5432" href="BasicIPC.Hilbert.Tree.html#233" class="InductiveConstructor"
+      >T.ck</a
+      ><a name="5436"
+      >
+</a
+      ><a name="5437" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5442"
+      > </a
+      ><a name="5443" href="BasicIPC.Hilbert.TreeWithContext.html#352" class="InductiveConstructor"
+      >TC.cs</a
+      ><a name="5448"
+      >        </a
+      ><a name="5456" class="Symbol"
+      >=</a
+      ><a name="5457"
+      > </a
+      ><a name="5458" href="BasicIPC.Hilbert.Tree.html#267" class="InductiveConstructor"
+      >T.cs</a
+      ><a name="5462"
+      >
+</a
+      ><a name="5463" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5468"
+      > </a
+      ><a name="5469" href="BasicIPC.Hilbert.TreeWithContext.html#408" class="InductiveConstructor"
+      >TC.cpair</a
+      ><a name="5477"
+      >     </a
+      ><a name="5482" class="Symbol"
+      >=</a
+      ><a name="5483"
+      > </a
+      ><a name="5484" href="BasicIPC.Hilbert.Tree.html#321" class="InductiveConstructor"
+      >T.cpair</a
+      ><a name="5491"
+      >
+</a
+      ><a name="5492" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5497"
+      > </a
+      ><a name="5498" href="BasicIPC.Hilbert.TreeWithContext.html#448" class="InductiveConstructor"
+      >TC.cfst</a
+      ><a name="5505"
+      >      </a
+      ><a name="5511" class="Symbol"
+      >=</a
+      ><a name="5512"
+      > </a
+      ><a name="5513" href="BasicIPC.Hilbert.Tree.html#359" class="InductiveConstructor"
+      >T.cfst</a
+      ><a name="5519"
+      >
+</a
+      ><a name="5520" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5525"
+      > </a
+      ><a name="5526" href="BasicIPC.Hilbert.TreeWithContext.html#484" class="InductiveConstructor"
+      >TC.csnd</a
+      ><a name="5533"
+      >      </a
+      ><a name="5539" class="Symbol"
+      >=</a
+      ><a name="5540"
+      > </a
+      ><a name="5541" href="BasicIPC.Hilbert.Tree.html#393" class="InductiveConstructor"
+      >T.csnd</a
+      ><a name="5547"
+      >
+</a
+      ><a name="5548" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5553"
+      > </a
+      ><a name="5554" href="BasicIPC.Hilbert.TreeWithContext.html#520" class="InductiveConstructor"
+      >TC.tt</a
+      ><a name="5559"
+      >        </a
+      ><a name="5567" class="Symbol"
+      >=</a
+      ><a name="5568"
+      > </a
+      ><a name="5569" href="BasicIPC.Hilbert.Tree.html#427" class="InductiveConstructor"
+      >T.tt</a
+      ><a name="5573"
+      >
+
+</a
+      ><a name="5575" href="BasicIPC.Hilbert.Translation.html#5575" class="Function"
+      >tc&#8594;t</a
+      ><a name="5579"
+      > </a
+      ><a name="5580" class="Symbol"
+      >:</a
+      ><a name="5581"
+      > </a
+      ><a name="5582" class="Symbol"
+      >&#8704;</a
+      ><a name="5583"
+      > </a
+      ><a name="5584" class="Symbol"
+      >{</a
+      ><a name="5585" href="BasicIPC.Hilbert.Translation.html#5585" class="Bound"
+      >A</a
+      ><a name="5586"
+      > </a
+      ><a name="5587" href="BasicIPC.Hilbert.Translation.html#5587" class="Bound"
+      >&#915;</a
+      ><a name="5588" class="Symbol"
+      >}</a
+      ><a name="5589"
+      > </a
+      ><a name="5590" class="Symbol"
+      >&#8594;</a
+      ><a name="5591"
+      > </a
+      ><a name="5592" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="5595"
+      > </a
+      ><a name="5596" href="BasicIPC.Hilbert.Translation.html#5587" class="Bound"
+      >&#915;</a
+      ><a name="5597"
+      > </a
+      ><a name="5598" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5599"
+      > </a
+      ><a name="5600" href="BasicIPC.Hilbert.Translation.html#5585" class="Bound"
+      >A</a
+      ><a name="5601"
+      > </a
+      ><a name="5602" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="5603"
+      > </a
+      ><a name="5604" class="Symbol"
+      >&#8594;</a
+      ><a name="5605"
+      > </a
+      ><a name="5606" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="5609"
+      > </a
+      ><a name="5610" href="BasicIPC.Hilbert.Translation.html#5587" class="Bound"
+      >&#915;</a
+      ><a name="5611"
+      > </a
+      ><a name="5612" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="5615"
+      > </a
+      ><a name="5616" href="BasicIPC.Hilbert.Translation.html#5585" class="Bound"
+      >A</a
+      ><a name="5617"
+      >
+</a
+      ><a name="5618" href="BasicIPC.Hilbert.Translation.html#5575" class="Function"
+      >tc&#8594;t</a
+      ><a name="5622"
+      > </a
+      ><a name="5623" href="BasicIPC.Hilbert.Translation.html#5623" class="Bound"
+      >t</a
+      ><a name="5624"
+      > </a
+      ><a name="5625" class="Symbol"
+      >=</a
+      ><a name="5626"
+      > </a
+      ><a name="5627" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5632"
+      > </a
+      ><a name="5633" class="Symbol"
+      >(</a
+      ><a name="5634" href="BasicIPC.Hilbert.TreeWithContext.html#1750" class="Function"
+      >TC.lam&#8902;&#8320;</a
+      ><a name="5642"
+      > </a
+      ><a name="5643" href="BasicIPC.Hilbert.Translation.html#5623" class="Bound"
+      >t</a
+      ><a name="5644" class="Symbol"
+      >)</a
+      ><a name="5645"
+      >
+
+
+</a
+      ><a name="5648" class="Comment"
+      >-- Additional useful translations.</a
+      ><a name="5682"
+      >
+
+</a
+      ><a name="5684" href="BasicIPC.Hilbert.Translation.html#5684" class="Function"
+      >tc&#8320;&#8594;l</a
+      ><a name="5689"
+      > </a
+      ><a name="5690" class="Symbol"
+      >:</a
+      ><a name="5691"
+      > </a
+      ><a name="5692" class="Symbol"
+      >&#8704;</a
+      ><a name="5693"
+      > </a
+      ><a name="5694" class="Symbol"
+      >{</a
+      ><a name="5695" href="BasicIPC.Hilbert.Translation.html#5695" class="Bound"
+      >A</a
+      ><a name="5696" class="Symbol"
+      >}</a
+      ><a name="5697"
+      > </a
+      ><a name="5698" class="Symbol"
+      >&#8594;</a
+      ><a name="5699"
+      > </a
+      ><a name="5700" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="5703"
+      > </a
+      ><a name="5704" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="5705"
+      > </a
+      ><a name="5706" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5707"
+      > </a
+      ><a name="5708" href="BasicIPC.Hilbert.Translation.html#5695" class="Bound"
+      >A</a
+      ><a name="5709"
+      > </a
+      ><a name="5710" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="5711"
+      > </a
+      ><a name="5712" class="Symbol"
+      >&#8594;</a
+      ><a name="5713"
+      > </a
+      ><a name="5714" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="5717"
+      > </a
+      ><a name="5718" href="BasicIPC.Hilbert.Translation.html#5695" class="Bound"
+      >A</a
+      ><a name="5719"
+      >
+</a
+      ><a name="5720" href="BasicIPC.Hilbert.Translation.html#5684" class="Function"
+      >tc&#8320;&#8594;l</a
+      ><a name="5725"
+      > </a
+      ><a name="5726" class="Symbol"
+      >=</a
+      ><a name="5727"
+      > </a
+      ><a name="5728" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="5731"
+      > </a
+      ><a name="5732" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="5733"
+      > </a
+      ><a name="5734" href="BasicIPC.Hilbert.Translation.html#5284" class="Function"
+      >tc&#8320;&#8594;t</a
+      ><a name="5739"
+      >
+
+</a
+      ><a name="5741" href="BasicIPC.Hilbert.Translation.html#5741" class="Function"
+      >tc&#8594;l</a
+      ><a name="5745"
+      > </a
+      ><a name="5746" class="Symbol"
+      >:</a
+      ><a name="5747"
+      > </a
+      ><a name="5748" class="Symbol"
+      >&#8704;</a
+      ><a name="5749"
+      > </a
+      ><a name="5750" class="Symbol"
+      >{</a
+      ><a name="5751" href="BasicIPC.Hilbert.Translation.html#5751" class="Bound"
+      >A</a
+      ><a name="5752"
+      > </a
+      ><a name="5753" href="BasicIPC.Hilbert.Translation.html#5753" class="Bound"
+      >&#915;</a
+      ><a name="5754" class="Symbol"
+      >}</a
+      ><a name="5755"
+      > </a
+      ><a name="5756" class="Symbol"
+      >&#8594;</a
+      ><a name="5757"
+      > </a
+      ><a name="5758" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="5761"
+      > </a
+      ><a name="5762" href="BasicIPC.Hilbert.Translation.html#5753" class="Bound"
+      >&#915;</a
+      ><a name="5763"
+      > </a
+      ><a name="5764" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5765"
+      > </a
+      ><a name="5766" href="BasicIPC.Hilbert.Translation.html#5751" class="Bound"
+      >A</a
+      ><a name="5767"
+      > </a
+      ><a name="5768" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="5769"
+      > </a
+      ><a name="5770" class="Symbol"
+      >&#8594;</a
+      ><a name="5771"
+      > </a
+      ><a name="5772" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="5775"
+      > </a
+      ><a name="5776" href="BasicIPC.Hilbert.Translation.html#5753" class="Bound"
+      >&#915;</a
+      ><a name="5777"
+      > </a
+      ><a name="5778" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="5781"
+      > </a
+      ><a name="5782" href="BasicIPC.Hilbert.Translation.html#5751" class="Bound"
+      >A</a
+      ><a name="5783"
+      >
+</a
+      ><a name="5784" href="BasicIPC.Hilbert.Translation.html#5741" class="Function"
+      >tc&#8594;l</a
+      ><a name="5788"
+      > </a
+      ><a name="5789" class="Symbol"
+      >=</a
+      ><a name="5790"
+      > </a
+      ><a name="5791" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="5794"
+      > </a
+      ><a name="5795" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="5796"
+      > </a
+      ><a name="5797" href="BasicIPC.Hilbert.Translation.html#5575" class="Function"
+      >tc&#8594;t</a
+      ><a name="5801"
+      >
+
+</a
+      ><a name="5803" href="BasicIPC.Hilbert.Translation.html#5803" class="Function"
+      >lc&#8320;&#8594;t</a
+      ><a name="5808"
+      > </a
+      ><a name="5809" class="Symbol"
+      >:</a
+      ><a name="5810"
+      > </a
+      ><a name="5811" class="Symbol"
+      >&#8704;</a
+      ><a name="5812"
+      > </a
+      ><a name="5813" class="Symbol"
+      >{</a
+      ><a name="5814" href="BasicIPC.Hilbert.Translation.html#5814" class="Bound"
+      >A</a
+      ><a name="5815" class="Symbol"
+      >}</a
+      ><a name="5816"
+      > </a
+      ><a name="5817" class="Symbol"
+      >&#8594;</a
+      ><a name="5818"
+      > </a
+      ><a name="5819" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="5822"
+      > </a
+      ><a name="5823" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="5824"
+      > </a
+      ><a name="5825" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="5826"
+      > </a
+      ><a name="5827" href="BasicIPC.Hilbert.Translation.html#5814" class="Bound"
+      >A</a
+      ><a name="5828"
+      > </a
+      ><a name="5829" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="5830"
+      > </a
+      ><a name="5831" class="Symbol"
+      >&#8594;</a
+      ><a name="5832"
+      > </a
+      ><a name="5833" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="5836"
+      > </a
+      ><a name="5837" href="BasicIPC.Hilbert.Translation.html#5814" class="Bound"
+      >A</a
+      ><a name="5838"
+      >
+</a
+      ><a name="5839" href="BasicIPC.Hilbert.Translation.html#5803" class="Function"
+      >lc&#8320;&#8594;t</a
+      ><a name="5844"
+      > </a
+      ><a name="5845" class="Symbol"
+      >=</a
+      ><a name="5846"
+      > </a
+      ><a name="5847" href="BasicIPC.Hilbert.Translation.html#412" class="Function"
+      >l&#8594;t</a
+      ><a name="5850"
+      > </a
+      ><a name="5851" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="5852"
+      > </a
+      ><a name="5853" href="BasicIPC.Hilbert.Translation.html#4202" class="Function"
+      >lc&#8320;&#8594;l</a
+      ><a name="5858"
+      >
+
+</a
+      ><a name="5860" href="BasicIPC.Hilbert.Translation.html#5860" class="Function"
+      >lc&#8594;t</a
+      ><a name="5864"
+      > </a
+      ><a name="5865" class="Symbol"
+      >:</a
+      ><a name="5866"
+      > </a
+      ><a name="5867" class="Symbol"
+      >&#8704;</a
+      ><a name="5868"
+      > </a
+      ><a name="5869" class="Symbol"
+      >{</a
+      ><a name="5870" href="BasicIPC.Hilbert.Translation.html#5870" class="Bound"
+      >A</a
+      ><a name="5871"
+      > </a
+      ><a name="5872" href="BasicIPC.Hilbert.Translation.html#5872" class="Bound"
+      >&#915;</a
+      ><a name="5873" class="Symbol"
+      >}</a
+      ><a name="5874"
+      > </a
+      ><a name="5875" class="Symbol"
+      >&#8594;</a
+      ><a name="5876"
+      > </a
+      ><a name="5877" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="5880"
+      > </a
+      ><a name="5881" href="BasicIPC.Hilbert.Translation.html#5872" class="Bound"
+      >&#915;</a
+      ><a name="5882"
+      > </a
+      ><a name="5883" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="5884"
+      > </a
+      ><a name="5885" href="BasicIPC.Hilbert.Translation.html#5870" class="Bound"
+      >A</a
+      ><a name="5886"
+      > </a
+      ><a name="5887" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="5888"
+      > </a
+      ><a name="5889" class="Symbol"
+      >&#8594;</a
+      ><a name="5890"
+      > </a
+      ><a name="5891" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="5894"
+      > </a
+      ><a name="5895" href="BasicIPC.Hilbert.Translation.html#5872" class="Bound"
+      >&#915;</a
+      ><a name="5896"
+      > </a
+      ><a name="5897" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="5900"
+      > </a
+      ><a name="5901" href="BasicIPC.Hilbert.Translation.html#5870" class="Bound"
+      >A</a
+      ><a name="5902"
+      >
+</a
+      ><a name="5903" href="BasicIPC.Hilbert.Translation.html#5860" class="Function"
+      >lc&#8594;t</a
+      ><a name="5907"
+      > </a
+      ><a name="5908" class="Symbol"
+      >=</a
+      ><a name="5909"
+      > </a
+      ><a name="5910" href="BasicIPC.Hilbert.Translation.html#412" class="Function"
+      >l&#8594;t</a
+      ><a name="5913"
+      > </a
+      ><a name="5914" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="5915"
+      > </a
+      ><a name="5916" href="BasicIPC.Hilbert.Translation.html#4794" class="Function"
+      >lc&#8594;l</a
+      ><a name="5920"
+      >
+
+</a
+      ><a name="5922" href="BasicIPC.Hilbert.Translation.html#5922" class="Function"
+      >l&#8594;tc&#8320;</a
+      ><a name="5927"
+      > </a
+      ><a name="5928" class="Symbol"
+      >:</a
+      ><a name="5929"
+      > </a
+      ><a name="5930" class="Symbol"
+      >&#8704;</a
+      ><a name="5931"
+      > </a
+      ><a name="5932" class="Symbol"
+      >{</a
+      ><a name="5933" href="BasicIPC.Hilbert.Translation.html#5933" class="Bound"
+      >A</a
+      ><a name="5934" class="Symbol"
+      >}</a
+      ><a name="5935"
+      > </a
+      ><a name="5936" class="Symbol"
+      >&#8594;</a
+      ><a name="5937"
+      > </a
+      ><a name="5938" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="5941"
+      > </a
+      ><a name="5942" href="BasicIPC.Hilbert.Translation.html#5933" class="Bound"
+      >A</a
+      ><a name="5943"
+      > </a
+      ><a name="5944" class="Symbol"
+      >&#8594;</a
+      ><a name="5945"
+      > </a
+      ><a name="5946" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="5949"
+      > </a
+      ><a name="5950" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="5951"
+      > </a
+      ><a name="5952" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5953"
+      > </a
+      ><a name="5954" href="BasicIPC.Hilbert.Translation.html#5933" class="Bound"
+      >A</a
+      ><a name="5955"
+      > </a
+      ><a name="5956" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="5957"
+      >
+</a
+      ><a name="5958" href="BasicIPC.Hilbert.Translation.html#5922" class="Function"
+      >l&#8594;tc&#8320;</a
+      ><a name="5963"
+      > </a
+      ><a name="5964" class="Symbol"
+      >=</a
+      ><a name="5965"
+      > </a
+      ><a name="5966" href="BasicIPC.Hilbert.Translation.html#4939" class="Function"
+      >t&#8594;tc&#8320;</a
+      ><a name="5971"
+      > </a
+      ><a name="5972" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="5973"
+      > </a
+      ><a name="5974" href="BasicIPC.Hilbert.Translation.html#412" class="Function"
+      >l&#8594;t</a
+      ><a name="5977"
+      >
+
+</a
+      ><a name="5979" href="BasicIPC.Hilbert.Translation.html#5979" class="Function"
+      >l&#8594;tc</a
+      ><a name="5983"
+      > </a
+      ><a name="5984" class="Symbol"
+      >:</a
+      ><a name="5985"
+      > </a
+      ><a name="5986" class="Symbol"
+      >&#8704;</a
+      ><a name="5987"
+      > </a
+      ><a name="5988" class="Symbol"
+      >{</a
+      ><a name="5989" href="BasicIPC.Hilbert.Translation.html#5989" class="Bound"
+      >A</a
+      ><a name="5990"
+      > </a
+      ><a name="5991" href="BasicIPC.Hilbert.Translation.html#5991" class="Bound"
+      >&#915;</a
+      ><a name="5992" class="Symbol"
+      >}</a
+      ><a name="5993"
+      > </a
+      ><a name="5994" class="Symbol"
+      >&#8594;</a
+      ><a name="5995"
+      > </a
+      ><a name="5996" href="BasicIPC.Hilbert.List.html#599" class="Function Operator"
+      >L.&#8866;</a
+      ><a name="5999"
+      > </a
+      ><a name="6000" href="BasicIPC.Hilbert.Translation.html#5991" class="Bound"
+      >&#915;</a
+      ><a name="6001"
+      > </a
+      ><a name="6002" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="6005"
+      > </a
+      ><a name="6006" href="BasicIPC.Hilbert.Translation.html#5989" class="Bound"
+      >A</a
+      ><a name="6007"
+      > </a
+      ><a name="6008" class="Symbol"
+      >&#8594;</a
+      ><a name="6009"
+      > </a
+      ><a name="6010" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >TC&#10216;</a
+      ><a name="6013"
+      > </a
+      ><a name="6014" href="BasicIPC.Hilbert.Translation.html#5991" class="Bound"
+      >&#915;</a
+      ><a name="6015"
+      > </a
+      ><a name="6016" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="6017"
+      > </a
+      ><a name="6018" href="BasicIPC.Hilbert.Translation.html#5989" class="Bound"
+      >A</a
+      ><a name="6019"
+      > </a
+      ><a name="6020" href="BasicIPC.Hilbert.TreeWithContext.html#165" class="Datatype Operator"
+      >&#10217;</a
+      ><a name="6021"
+      >
+</a
+      ><a name="6022" href="BasicIPC.Hilbert.Translation.html#5979" class="Function"
+      >l&#8594;tc</a
+      ><a name="6026"
+      > </a
+      ><a name="6027" class="Symbol"
+      >=</a
+      ><a name="6028"
+      > </a
+      ><a name="6029" href="BasicIPC.Hilbert.Translation.html#5212" class="Function"
+      >t&#8594;tc</a
+      ><a name="6033"
+      > </a
+      ><a name="6034" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="6035"
+      > </a
+      ><a name="6036" href="BasicIPC.Hilbert.Translation.html#412" class="Function"
+      >l&#8594;t</a
+      ><a name="6039"
+      >
+
+</a
+      ><a name="6041" href="BasicIPC.Hilbert.Translation.html#6041" class="Function"
+      >t&#8594;lc&#8320;</a
+      ><a name="6046"
+      > </a
+      ><a name="6047" class="Symbol"
+      >:</a
+      ><a name="6048"
+      > </a
+      ><a name="6049" class="Symbol"
+      >&#8704;</a
+      ><a name="6050"
+      > </a
+      ><a name="6051" class="Symbol"
+      >{</a
+      ><a name="6052" href="BasicIPC.Hilbert.Translation.html#6052" class="Bound"
+      >A</a
+      ><a name="6053" class="Symbol"
+      >}</a
+      ><a name="6054"
+      > </a
+      ><a name="6055" class="Symbol"
+      >&#8594;</a
+      ><a name="6056"
+      > </a
+      ><a name="6057" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="6060"
+      > </a
+      ><a name="6061" href="BasicIPC.Hilbert.Translation.html#6052" class="Bound"
+      >A</a
+      ><a name="6062"
+      > </a
+      ><a name="6063" class="Symbol"
+      >&#8594;</a
+      ><a name="6064"
+      > </a
+      ><a name="6065" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="6068"
+      > </a
+      ><a name="6069" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="6070"
+      > </a
+      ><a name="6071" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="6072"
+      > </a
+      ><a name="6073" href="BasicIPC.Hilbert.Translation.html#6052" class="Bound"
+      >A</a
+      ><a name="6074"
+      > </a
+      ><a name="6075" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="6076"
+      >
+</a
+      ><a name="6077" href="BasicIPC.Hilbert.Translation.html#6041" class="Function"
+      >t&#8594;lc&#8320;</a
+      ><a name="6082"
+      > </a
+      ><a name="6083" class="Symbol"
+      >=</a
+      ><a name="6084"
+      > </a
+      ><a name="6085" href="BasicIPC.Hilbert.Translation.html#3584" class="Function"
+      >l&#8594;lc&#8320;</a
+      ><a name="6090"
+      > </a
+      ><a name="6091" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="6092"
+      > </a
+      ><a name="6093" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="6096"
+      >
+
+</a
+      ><a name="6098" href="BasicIPC.Hilbert.Translation.html#6098" class="Function"
+      >t&#8594;lc</a
+      ><a name="6102"
+      > </a
+      ><a name="6103" class="Symbol"
+      >:</a
+      ><a name="6104"
+      > </a
+      ><a name="6105" class="Symbol"
+      >&#8704;</a
+      ><a name="6106"
+      > </a
+      ><a name="6107" class="Symbol"
+      >{</a
+      ><a name="6108" href="BasicIPC.Hilbert.Translation.html#6108" class="Bound"
+      >A</a
+      ><a name="6109"
+      > </a
+      ><a name="6110" href="BasicIPC.Hilbert.Translation.html#6110" class="Bound"
+      >&#915;</a
+      ><a name="6111" class="Symbol"
+      >}</a
+      ><a name="6112"
+      > </a
+      ><a name="6113" class="Symbol"
+      >&#8594;</a
+      ><a name="6114"
+      > </a
+      ><a name="6115" href="BasicIPC.Hilbert.Tree.html#139" class="Datatype Operator"
+      >T.&#8866;</a
+      ><a name="6118"
+      > </a
+      ><a name="6119" href="BasicIPC.Hilbert.Translation.html#6110" class="Bound"
+      >&#915;</a
+      ><a name="6120"
+      > </a
+      ><a name="6121" href="BasicIPC.html#1818" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="6124"
+      > </a
+      ><a name="6125" href="BasicIPC.Hilbert.Translation.html#6108" class="Bound"
+      >A</a
+      ><a name="6126"
+      > </a
+      ><a name="6127" class="Symbol"
+      >&#8594;</a
+      ><a name="6128"
+      > </a
+      ><a name="6129" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >LC&#10216;</a
+      ><a name="6132"
+      > </a
+      ><a name="6133" href="BasicIPC.Hilbert.Translation.html#6110" class="Bound"
+      >&#915;</a
+      ><a name="6134"
+      > </a
+      ><a name="6135" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#8866;</a
+      ><a name="6136"
+      > </a
+      ><a name="6137" href="BasicIPC.Hilbert.Translation.html#6108" class="Bound"
+      >A</a
+      ><a name="6138"
+      > </a
+      ><a name="6139" href="BasicIPC.Hilbert.ListWithContext.html#725" class="Function Operator"
+      >&#10217;</a
+      ><a name="6140"
+      >
+</a
+      ><a name="6141" href="BasicIPC.Hilbert.Translation.html#6098" class="Function"
+      >t&#8594;lc</a
+      ><a name="6145"
+      > </a
+      ><a name="6146" class="Symbol"
+      >=</a
+      ><a name="6147"
+      > </a
+      ><a name="6148" href="BasicIPC.Hilbert.Translation.html#4130" class="Function"
+      >l&#8594;lc</a
+      ><a name="6152"
+      > </a
+      ><a name="6153" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="6154"
+      > </a
+      ><a name="6155" href="BasicIPC.Hilbert.Translation.html#1258" class="Function"
+      >t&#8594;l</a
+      ><a name="6158"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
