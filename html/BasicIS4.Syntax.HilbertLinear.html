@@ -1,0 +1,3376 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Syntax.HilbertLinear</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Linear Hilbert-style axiomatic formalisation of syntax.</a
+      ><a name="59"
+      >
+
+</a
+      ><a name="61" class="Keyword"
+      >module</a
+      ><a name="67"
+      > </a
+      ><a name="68" href="BasicIS4.Syntax.HilbertLinear.html#1" class="Module"
+      >BasicIS4.Syntax.HilbertLinear</a
+      ><a name="97"
+      > </a
+      ><a name="98" class="Keyword"
+      >where</a
+      ><a name="103"
+      >
+
+</a
+      ><a name="105" class="Keyword"
+      >open</a
+      ><a name="109"
+      > </a
+      ><a name="110" class="Keyword"
+      >import</a
+      ><a name="116"
+      > </a
+      ><a name="117" href="BasicIS4.Syntax.Common.html#1" class="Module"
+      >BasicIS4.Syntax.Common</a
+      ><a name="139"
+      > </a
+      ><a name="140" class="Keyword"
+      >public</a
+      ><a name="146"
+      >
+
+
+</a
+      ><a name="149" class="Comment"
+      >-- Derivations.</a
+      ><a name="164"
+      >
+
+</a
+      ><a name="166" class="Keyword"
+      >infix</a
+      ><a name="171"
+      > </a
+      ><a name="172" class="Number"
+      >3</a
+      ><a name="173"
+      > _&#8866;&#215;_
+</a
+      ><a name="179" class="Keyword"
+      >data</a
+      ><a name="183"
+      > </a
+      ><a name="184" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >_&#8866;&#215;_</a
+      ><a name="188"
+      > </a
+      ><a name="189" class="Symbol"
+      >(</a
+      ><a name="190" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="191"
+      > </a
+      ><a name="192" class="Symbol"
+      >:</a
+      ><a name="193"
+      > </a
+      ><a name="194" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="196"
+      > </a
+      ><a name="197" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="199" class="Symbol"
+      >)</a
+      ><a name="200"
+      > </a
+      ><a name="201" class="Symbol"
+      >:</a
+      ><a name="202"
+      > </a
+      ><a name="203" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="205"
+      > </a
+      ><a name="206" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="208"
+      > </a
+      ><a name="209" class="Symbol"
+      >&#8594;</a
+      ><a name="210"
+      > </a
+      ><a name="211" class="PrimitiveType"
+      >Set</a
+      ><a name="214"
+      > </a
+      ><a name="215" class="Keyword"
+      >where</a
+      ><a name="220"
+      >
+  </a
+      ><a name="223" href="BasicIS4.Syntax.HilbertLinear.html#223" class="InductiveConstructor"
+      >nil</a
+      ><a name="226"
+      >   </a
+      ><a name="229" class="Symbol"
+      >:</a
+      ><a name="230"
+      > </a
+      ><a name="231" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="232"
+      > </a
+      ><a name="233" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="235"
+      > </a
+      ><a name="236" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="237"
+      >
+  </a
+      ><a name="240" href="BasicIS4.Syntax.HilbertLinear.html#240" class="InductiveConstructor"
+      >var</a
+      ><a name="243"
+      >   </a
+      ><a name="246" class="Symbol"
+      >:</a
+      ><a name="247"
+      > </a
+      ><a name="248" class="Symbol"
+      >&#8704;</a
+      ><a name="249"
+      > </a
+      ><a name="250" class="Symbol"
+      >{</a
+      ><a name="251" href="BasicIS4.Syntax.HilbertLinear.html#251" class="Bound"
+      >&#928;</a
+      ><a name="252"
+      > </a
+      ><a name="253" href="BasicIS4.Syntax.HilbertLinear.html#253" class="Bound"
+      >A</a
+      ><a name="254" class="Symbol"
+      >}</a
+      ><a name="255"
+      >     </a
+      ><a name="260" class="Symbol"
+      >&#8594;</a
+      ><a name="261"
+      > </a
+      ><a name="262" href="BasicIS4.Syntax.HilbertLinear.html#253" class="Bound"
+      >A</a
+      ><a name="263"
+      > </a
+      ><a name="264" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="265"
+      > </a
+      ><a name="266" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="267"
+      > </a
+      ><a name="268" class="Symbol"
+      >&#8594;</a
+      ><a name="269"
+      > </a
+      ><a name="270" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="271"
+      > </a
+      ><a name="272" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="274"
+      > </a
+      ><a name="275" href="BasicIS4.Syntax.HilbertLinear.html#251" class="Bound"
+      >&#928;</a
+      ><a name="276"
+      > </a
+      ><a name="277" class="Symbol"
+      >&#8594;</a
+      ><a name="278"
+      > </a
+      ><a name="279" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="280"
+      > </a
+      ><a name="281" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="283"
+      > </a
+      ><a name="284" href="BasicIS4.Syntax.HilbertLinear.html#251" class="Bound"
+      >&#928;</a
+      ><a name="285"
+      > </a
+      ><a name="286" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="287"
+      > </a
+      ><a name="288" href="BasicIS4.Syntax.HilbertLinear.html#253" class="Bound"
+      >A</a
+      ><a name="289"
+      >
+  </a
+      ><a name="292" href="BasicIS4.Syntax.HilbertLinear.html#292" class="InductiveConstructor"
+      >mp</a
+      ><a name="294"
+      >    </a
+      ><a name="298" class="Symbol"
+      >:</a
+      ><a name="299"
+      > </a
+      ><a name="300" class="Symbol"
+      >&#8704;</a
+      ><a name="301"
+      > </a
+      ><a name="302" class="Symbol"
+      >{</a
+      ><a name="303" href="BasicIS4.Syntax.HilbertLinear.html#303" class="Bound"
+      >&#928;</a
+      ><a name="304"
+      > </a
+      ><a name="305" href="BasicIS4.Syntax.HilbertLinear.html#305" class="Bound"
+      >A</a
+      ><a name="306"
+      > </a
+      ><a name="307" href="BasicIS4.Syntax.HilbertLinear.html#307" class="Bound"
+      >B</a
+      ><a name="308" class="Symbol"
+      >}</a
+      ><a name="309"
+      >   </a
+      ><a name="312" class="Symbol"
+      >&#8594;</a
+      ><a name="313"
+      > </a
+      ><a name="314" href="BasicIS4.Syntax.HilbertLinear.html#305" class="Bound"
+      >A</a
+      ><a name="315"
+      > </a
+      ><a name="316" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="317"
+      > </a
+      ><a name="318" href="BasicIS4.Syntax.HilbertLinear.html#307" class="Bound"
+      >B</a
+      ><a name="319"
+      > </a
+      ><a name="320" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="321"
+      > </a
+      ><a name="322" href="BasicIS4.Syntax.HilbertLinear.html#303" class="Bound"
+      >&#928;</a
+      ><a name="323"
+      > </a
+      ><a name="324" class="Symbol"
+      >&#8594;</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="BasicIS4.Syntax.HilbertLinear.html#305" class="Bound"
+      >A</a
+      ><a name="327"
+      > </a
+      ><a name="328" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="329"
+      > </a
+      ><a name="330" href="BasicIS4.Syntax.HilbertLinear.html#303" class="Bound"
+      >&#928;</a
+      ><a name="331"
+      > </a
+      ><a name="332" class="Symbol"
+      >&#8594;</a
+      ><a name="333"
+      > </a
+      ><a name="334" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="335"
+      > </a
+      ><a name="336" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="338"
+      > </a
+      ><a name="339" href="BasicIS4.Syntax.HilbertLinear.html#303" class="Bound"
+      >&#928;</a
+      ><a name="340"
+      > </a
+      ><a name="341" class="Symbol"
+      >&#8594;</a
+      ><a name="342"
+      > </a
+      ><a name="343" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="344"
+      > </a
+      ><a name="345" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="347"
+      > </a
+      ><a name="348" href="BasicIS4.Syntax.HilbertLinear.html#303" class="Bound"
+      >&#928;</a
+      ><a name="349"
+      > </a
+      ><a name="350" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="351"
+      > </a
+      ><a name="352" href="BasicIS4.Syntax.HilbertLinear.html#307" class="Bound"
+      >B</a
+      ><a name="353"
+      >
+  </a
+      ><a name="356" href="BasicIS4.Syntax.HilbertLinear.html#356" class="InductiveConstructor"
+      >ci</a
+      ><a name="358"
+      >    </a
+      ><a name="362" class="Symbol"
+      >:</a
+      ><a name="363"
+      > </a
+      ><a name="364" class="Symbol"
+      >&#8704;</a
+      ><a name="365"
+      > </a
+      ><a name="366" class="Symbol"
+      >{</a
+      ><a name="367" href="BasicIS4.Syntax.HilbertLinear.html#367" class="Bound"
+      >&#928;</a
+      ><a name="368"
+      > </a
+      ><a name="369" href="BasicIS4.Syntax.HilbertLinear.html#369" class="Bound"
+      >A</a
+      ><a name="370" class="Symbol"
+      >}</a
+      ><a name="371"
+      >     </a
+      ><a name="376" class="Symbol"
+      >&#8594;</a
+      ><a name="377"
+      > </a
+      ><a name="378" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="379"
+      > </a
+      ><a name="380" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="382"
+      > </a
+      ><a name="383" href="BasicIS4.Syntax.HilbertLinear.html#367" class="Bound"
+      >&#928;</a
+      ><a name="384"
+      > </a
+      ><a name="385" class="Symbol"
+      >&#8594;</a
+      ><a name="386"
+      > </a
+      ><a name="387" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="388"
+      > </a
+      ><a name="389" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="391"
+      > </a
+      ><a name="392" href="BasicIS4.Syntax.HilbertLinear.html#367" class="Bound"
+      >&#928;</a
+      ><a name="393"
+      > </a
+      ><a name="394" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="395"
+      > </a
+      ><a name="396" href="BasicIS4.Syntax.HilbertLinear.html#369" class="Bound"
+      >A</a
+      ><a name="397"
+      > </a
+      ><a name="398" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="399"
+      > </a
+      ><a name="400" href="BasicIS4.Syntax.HilbertLinear.html#369" class="Bound"
+      >A</a
+      ><a name="401"
+      >
+  </a
+      ><a name="404" href="BasicIS4.Syntax.HilbertLinear.html#404" class="InductiveConstructor"
+      >ck</a
+      ><a name="406"
+      >    </a
+      ><a name="410" class="Symbol"
+      >:</a
+      ><a name="411"
+      > </a
+      ><a name="412" class="Symbol"
+      >&#8704;</a
+      ><a name="413"
+      > </a
+      ><a name="414" class="Symbol"
+      >{</a
+      ><a name="415" href="BasicIS4.Syntax.HilbertLinear.html#415" class="Bound"
+      >&#928;</a
+      ><a name="416"
+      > </a
+      ><a name="417" href="BasicIS4.Syntax.HilbertLinear.html#417" class="Bound"
+      >A</a
+      ><a name="418"
+      > </a
+      ><a name="419" href="BasicIS4.Syntax.HilbertLinear.html#419" class="Bound"
+      >B</a
+      ><a name="420" class="Symbol"
+      >}</a
+      ><a name="421"
+      >   </a
+      ><a name="424" class="Symbol"
+      >&#8594;</a
+      ><a name="425"
+      > </a
+      ><a name="426" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="427"
+      > </a
+      ><a name="428" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="BasicIS4.Syntax.HilbertLinear.html#415" class="Bound"
+      >&#928;</a
+      ><a name="432"
+      > </a
+      ><a name="433" class="Symbol"
+      >&#8594;</a
+      ><a name="434"
+      > </a
+      ><a name="435" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="436"
+      > </a
+      ><a name="437" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="439"
+      > </a
+      ><a name="440" href="BasicIS4.Syntax.HilbertLinear.html#415" class="Bound"
+      >&#928;</a
+      ><a name="441"
+      > </a
+      ><a name="442" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="443"
+      > </a
+      ><a name="444" href="BasicIS4.Syntax.HilbertLinear.html#417" class="Bound"
+      >A</a
+      ><a name="445"
+      > </a
+      ><a name="446" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="447"
+      > </a
+      ><a name="448" href="BasicIS4.Syntax.HilbertLinear.html#419" class="Bound"
+      >B</a
+      ><a name="449"
+      > </a
+      ><a name="450" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="451"
+      > </a
+      ><a name="452" href="BasicIS4.Syntax.HilbertLinear.html#417" class="Bound"
+      >A</a
+      ><a name="453"
+      >
+  </a
+      ><a name="456" href="BasicIS4.Syntax.HilbertLinear.html#456" class="InductiveConstructor"
+      >cs</a
+      ><a name="458"
+      >    </a
+      ><a name="462" class="Symbol"
+      >:</a
+      ><a name="463"
+      > </a
+      ><a name="464" class="Symbol"
+      >&#8704;</a
+      ><a name="465"
+      > </a
+      ><a name="466" class="Symbol"
+      >{</a
+      ><a name="467" href="BasicIS4.Syntax.HilbertLinear.html#467" class="Bound"
+      >&#928;</a
+      ><a name="468"
+      > </a
+      ><a name="469" href="BasicIS4.Syntax.HilbertLinear.html#469" class="Bound"
+      >A</a
+      ><a name="470"
+      > </a
+      ><a name="471" href="BasicIS4.Syntax.HilbertLinear.html#471" class="Bound"
+      >B</a
+      ><a name="472"
+      > </a
+      ><a name="473" href="BasicIS4.Syntax.HilbertLinear.html#473" class="Bound"
+      >C</a
+      ><a name="474" class="Symbol"
+      >}</a
+      ><a name="475"
+      > </a
+      ><a name="476" class="Symbol"
+      >&#8594;</a
+      ><a name="477"
+      > </a
+      ><a name="478" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="479"
+      > </a
+      ><a name="480" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="482"
+      > </a
+      ><a name="483" href="BasicIS4.Syntax.HilbertLinear.html#467" class="Bound"
+      >&#928;</a
+      ><a name="484"
+      > </a
+      ><a name="485" class="Symbol"
+      >&#8594;</a
+      ><a name="486"
+      > </a
+      ><a name="487" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="488"
+      > </a
+      ><a name="489" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="491"
+      > </a
+      ><a name="492" href="BasicIS4.Syntax.HilbertLinear.html#467" class="Bound"
+      >&#928;</a
+      ><a name="493"
+      > </a
+      ><a name="494" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="495"
+      > </a
+      ><a name="496" class="Symbol"
+      >(</a
+      ><a name="497" href="BasicIS4.Syntax.HilbertLinear.html#469" class="Bound"
+      >A</a
+      ><a name="498"
+      > </a
+      ><a name="499" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="500"
+      > </a
+      ><a name="501" href="BasicIS4.Syntax.HilbertLinear.html#471" class="Bound"
+      >B</a
+      ><a name="502"
+      > </a
+      ><a name="503" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="504"
+      > </a
+      ><a name="505" href="BasicIS4.Syntax.HilbertLinear.html#473" class="Bound"
+      >C</a
+      ><a name="506" class="Symbol"
+      >)</a
+      ><a name="507"
+      > </a
+      ><a name="508" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="509"
+      > </a
+      ><a name="510" class="Symbol"
+      >(</a
+      ><a name="511" href="BasicIS4.Syntax.HilbertLinear.html#469" class="Bound"
+      >A</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="514"
+      > </a
+      ><a name="515" href="BasicIS4.Syntax.HilbertLinear.html#471" class="Bound"
+      >B</a
+      ><a name="516" class="Symbol"
+      >)</a
+      ><a name="517"
+      > </a
+      ><a name="518" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="519"
+      > </a
+      ><a name="520" href="BasicIS4.Syntax.HilbertLinear.html#469" class="Bound"
+      >A</a
+      ><a name="521"
+      > </a
+      ><a name="522" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="523"
+      > </a
+      ><a name="524" href="BasicIS4.Syntax.HilbertLinear.html#473" class="Bound"
+      >C</a
+      ><a name="525"
+      >
+  </a
+      ><a name="528" href="BasicIS4.Syntax.HilbertLinear.html#528" class="InductiveConstructor"
+      >nec</a
+      ><a name="531"
+      >   </a
+      ><a name="534" class="Symbol"
+      >:</a
+      ><a name="535"
+      > </a
+      ><a name="536" class="Symbol"
+      >&#8704;</a
+      ><a name="537"
+      > </a
+      ><a name="538" class="Symbol"
+      >{</a
+      ><a name="539" href="BasicIS4.Syntax.HilbertLinear.html#539" class="Bound"
+      >&#928;</a
+      ><a name="540"
+      > </a
+      ><a name="541" href="BasicIS4.Syntax.HilbertLinear.html#541" class="Bound"
+      >&#926;</a
+      ><a name="542"
+      > </a
+      ><a name="543" href="BasicIS4.Syntax.HilbertLinear.html#543" class="Bound"
+      >A</a
+      ><a name="544" class="Symbol"
+      >}</a
+      ><a name="545"
+      >   </a
+      ><a name="548" class="Symbol"
+      >&#8594;</a
+      ><a name="549"
+      > </a
+      ><a name="550" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="551"
+      > </a
+      ><a name="552" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="554"
+      > </a
+      ><a name="555" href="BasicIS4.Syntax.HilbertLinear.html#541" class="Bound"
+      >&#926;</a
+      ><a name="556"
+      > </a
+      ><a name="557" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="558"
+      > </a
+      ><a name="559" href="BasicIS4.Syntax.HilbertLinear.html#543" class="Bound"
+      >A</a
+      ><a name="560"
+      > </a
+      ><a name="561" class="Symbol"
+      >&#8594;</a
+      ><a name="562"
+      > </a
+      ><a name="563" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="564"
+      > </a
+      ><a name="565" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="BasicIS4.Syntax.HilbertLinear.html#539" class="Bound"
+      >&#928;</a
+      ><a name="569"
+      > </a
+      ><a name="570" class="Symbol"
+      >&#8594;</a
+      ><a name="571"
+      > </a
+      ><a name="572" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="576"
+      > </a
+      ><a name="577" href="BasicIS4.Syntax.HilbertLinear.html#539" class="Bound"
+      >&#928;</a
+      ><a name="578"
+      > </a
+      ><a name="579" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="580"
+      > </a
+      ><a name="581" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="582"
+      > </a
+      ><a name="583" href="BasicIS4.Syntax.HilbertLinear.html#543" class="Bound"
+      >A</a
+      ><a name="584"
+      >
+  </a
+      ><a name="587" href="BasicIS4.Syntax.HilbertLinear.html#587" class="InductiveConstructor"
+      >cdist</a
+      ><a name="592"
+      > </a
+      ><a name="593" class="Symbol"
+      >:</a
+      ><a name="594"
+      > </a
+      ><a name="595" class="Symbol"
+      >&#8704;</a
+      ><a name="596"
+      > </a
+      ><a name="597" class="Symbol"
+      >{</a
+      ><a name="598" href="BasicIS4.Syntax.HilbertLinear.html#598" class="Bound"
+      >&#928;</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="BasicIS4.Syntax.HilbertLinear.html#600" class="Bound"
+      >A</a
+      ><a name="601"
+      > </a
+      ><a name="602" href="BasicIS4.Syntax.HilbertLinear.html#602" class="Bound"
+      >B</a
+      ><a name="603" class="Symbol"
+      >}</a
+      ><a name="604"
+      >   </a
+      ><a name="607" class="Symbol"
+      >&#8594;</a
+      ><a name="608"
+      > </a
+      ><a name="609" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="610"
+      > </a
+      ><a name="611" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="613"
+      > </a
+      ><a name="614" href="BasicIS4.Syntax.HilbertLinear.html#598" class="Bound"
+      >&#928;</a
+      ><a name="615"
+      > </a
+      ><a name="616" class="Symbol"
+      >&#8594;</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="619"
+      > </a
+      ><a name="620" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="622"
+      > </a
+      ><a name="623" href="BasicIS4.Syntax.HilbertLinear.html#598" class="Bound"
+      >&#928;</a
+      ><a name="624"
+      > </a
+      ><a name="625" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="626"
+      > </a
+      ><a name="627" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="628"
+      > </a
+      ><a name="629" class="Symbol"
+      >(</a
+      ><a name="630" href="BasicIS4.Syntax.HilbertLinear.html#600" class="Bound"
+      >A</a
+      ><a name="631"
+      > </a
+      ><a name="632" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="633"
+      > </a
+      ><a name="634" href="BasicIS4.Syntax.HilbertLinear.html#602" class="Bound"
+      >B</a
+      ><a name="635" class="Symbol"
+      >)</a
+      ><a name="636"
+      > </a
+      ><a name="637" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="638"
+      > </a
+      ><a name="639" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="640"
+      > </a
+      ><a name="641" href="BasicIS4.Syntax.HilbertLinear.html#600" class="Bound"
+      >A</a
+      ><a name="642"
+      > </a
+      ><a name="643" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="644"
+      > </a
+      ><a name="645" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="646"
+      > </a
+      ><a name="647" href="BasicIS4.Syntax.HilbertLinear.html#602" class="Bound"
+      >B</a
+      ><a name="648"
+      >
+  </a
+      ><a name="651" href="BasicIS4.Syntax.HilbertLinear.html#651" class="InductiveConstructor"
+      >cup</a
+      ><a name="654"
+      >   </a
+      ><a name="657" class="Symbol"
+      >:</a
+      ><a name="658"
+      > </a
+      ><a name="659" class="Symbol"
+      >&#8704;</a
+      ><a name="660"
+      > </a
+      ><a name="661" class="Symbol"
+      >{</a
+      ><a name="662" href="BasicIS4.Syntax.HilbertLinear.html#662" class="Bound"
+      >&#928;</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="BasicIS4.Syntax.HilbertLinear.html#664" class="Bound"
+      >A</a
+      ><a name="665" class="Symbol"
+      >}</a
+      ><a name="666"
+      >     </a
+      ><a name="671" class="Symbol"
+      >&#8594;</a
+      ><a name="672"
+      > </a
+      ><a name="673" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="674"
+      > </a
+      ><a name="675" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="677"
+      > </a
+      ><a name="678" href="BasicIS4.Syntax.HilbertLinear.html#662" class="Bound"
+      >&#928;</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >&#8594;</a
+      ><a name="681"
+      > </a
+      ><a name="682" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="686"
+      > </a
+      ><a name="687" href="BasicIS4.Syntax.HilbertLinear.html#662" class="Bound"
+      >&#928;</a
+      ><a name="688"
+      > </a
+      ><a name="689" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="BasicIS4.Syntax.HilbertLinear.html#664" class="Bound"
+      >A</a
+      ><a name="694"
+      > </a
+      ><a name="695" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="698"
+      > </a
+      ><a name="699" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="BasicIS4.Syntax.HilbertLinear.html#664" class="Bound"
+      >A</a
+      ><a name="702"
+      >
+  </a
+      ><a name="705" href="BasicIS4.Syntax.HilbertLinear.html#705" class="InductiveConstructor"
+      >cdown</a
+      ><a name="710"
+      > </a
+      ><a name="711" class="Symbol"
+      >:</a
+      ><a name="712"
+      > </a
+      ><a name="713" class="Symbol"
+      >&#8704;</a
+      ><a name="714"
+      > </a
+      ><a name="715" class="Symbol"
+      >{</a
+      ><a name="716" href="BasicIS4.Syntax.HilbertLinear.html#716" class="Bound"
+      >&#928;</a
+      ><a name="717"
+      > </a
+      ><a name="718" href="BasicIS4.Syntax.HilbertLinear.html#718" class="Bound"
+      >A</a
+      ><a name="719" class="Symbol"
+      >}</a
+      ><a name="720"
+      >     </a
+      ><a name="725" class="Symbol"
+      >&#8594;</a
+      ><a name="726"
+      > </a
+      ><a name="727" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="731"
+      > </a
+      ><a name="732" href="BasicIS4.Syntax.HilbertLinear.html#716" class="Bound"
+      >&#928;</a
+      ><a name="733"
+      > </a
+      ><a name="734" class="Symbol"
+      >&#8594;</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="BasicIS4.Syntax.HilbertLinear.html#716" class="Bound"
+      >&#928;</a
+      ><a name="742"
+      > </a
+      ><a name="743" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="744"
+      > </a
+      ><a name="745" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="746"
+      > </a
+      ><a name="747" href="BasicIS4.Syntax.HilbertLinear.html#718" class="Bound"
+      >A</a
+      ><a name="748"
+      > </a
+      ><a name="749" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="BasicIS4.Syntax.HilbertLinear.html#718" class="Bound"
+      >A</a
+      ><a name="752"
+      >
+  </a
+      ><a name="755" href="BasicIS4.Syntax.HilbertLinear.html#755" class="InductiveConstructor"
+      >cpair</a
+      ><a name="760"
+      > </a
+      ><a name="761" class="Symbol"
+      >:</a
+      ><a name="762"
+      > </a
+      ><a name="763" class="Symbol"
+      >&#8704;</a
+      ><a name="764"
+      > </a
+      ><a name="765" class="Symbol"
+      >{</a
+      ><a name="766" href="BasicIS4.Syntax.HilbertLinear.html#766" class="Bound"
+      >&#928;</a
+      ><a name="767"
+      > </a
+      ><a name="768" href="BasicIS4.Syntax.HilbertLinear.html#768" class="Bound"
+      >A</a
+      ><a name="769"
+      > </a
+      ><a name="770" href="BasicIS4.Syntax.HilbertLinear.html#770" class="Bound"
+      >B</a
+      ><a name="771" class="Symbol"
+      >}</a
+      ><a name="772"
+      >   </a
+      ><a name="775" class="Symbol"
+      >&#8594;</a
+      ><a name="776"
+      > </a
+      ><a name="777" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="778"
+      > </a
+      ><a name="779" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="BasicIS4.Syntax.HilbertLinear.html#766" class="Bound"
+      >&#928;</a
+      ><a name="783"
+      > </a
+      ><a name="784" class="Symbol"
+      >&#8594;</a
+      ><a name="785"
+      > </a
+      ><a name="786" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="787"
+      > </a
+      ><a name="788" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="790"
+      > </a
+      ><a name="791" href="BasicIS4.Syntax.HilbertLinear.html#766" class="Bound"
+      >&#928;</a
+      ><a name="792"
+      > </a
+      ><a name="793" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="794"
+      > </a
+      ><a name="795" href="BasicIS4.Syntax.HilbertLinear.html#768" class="Bound"
+      >A</a
+      ><a name="796"
+      > </a
+      ><a name="797" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="798"
+      > </a
+      ><a name="799" href="BasicIS4.Syntax.HilbertLinear.html#770" class="Bound"
+      >B</a
+      ><a name="800"
+      > </a
+      ><a name="801" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="802"
+      > </a
+      ><a name="803" href="BasicIS4.Syntax.HilbertLinear.html#768" class="Bound"
+      >A</a
+      ><a name="804"
+      > </a
+      ><a name="805" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="806"
+      > </a
+      ><a name="807" href="BasicIS4.Syntax.HilbertLinear.html#770" class="Bound"
+      >B</a
+      ><a name="808"
+      >
+  </a
+      ><a name="811" href="BasicIS4.Syntax.HilbertLinear.html#811" class="InductiveConstructor"
+      >cfst</a
+      ><a name="815"
+      >  </a
+      ><a name="817" class="Symbol"
+      >:</a
+      ><a name="818"
+      > </a
+      ><a name="819" class="Symbol"
+      >&#8704;</a
+      ><a name="820"
+      > </a
+      ><a name="821" class="Symbol"
+      >{</a
+      ><a name="822" href="BasicIS4.Syntax.HilbertLinear.html#822" class="Bound"
+      >&#928;</a
+      ><a name="823"
+      > </a
+      ><a name="824" href="BasicIS4.Syntax.HilbertLinear.html#824" class="Bound"
+      >A</a
+      ><a name="825"
+      > </a
+      ><a name="826" href="BasicIS4.Syntax.HilbertLinear.html#826" class="Bound"
+      >B</a
+      ><a name="827" class="Symbol"
+      >}</a
+      ><a name="828"
+      >   </a
+      ><a name="831" class="Symbol"
+      >&#8594;</a
+      ><a name="832"
+      > </a
+      ><a name="833" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="834"
+      > </a
+      ><a name="835" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="837"
+      > </a
+      ><a name="838" href="BasicIS4.Syntax.HilbertLinear.html#822" class="Bound"
+      >&#928;</a
+      ><a name="839"
+      > </a
+      ><a name="840" class="Symbol"
+      >&#8594;</a
+      ><a name="841"
+      > </a
+      ><a name="842" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="BasicIS4.Syntax.HilbertLinear.html#822" class="Bound"
+      >&#928;</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="850"
+      > </a
+      ><a name="851" href="BasicIS4.Syntax.HilbertLinear.html#824" class="Bound"
+      >A</a
+      ><a name="852"
+      > </a
+      ><a name="853" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="854"
+      > </a
+      ><a name="855" href="BasicIS4.Syntax.HilbertLinear.html#826" class="Bound"
+      >B</a
+      ><a name="856"
+      > </a
+      ><a name="857" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="858"
+      > </a
+      ><a name="859" href="BasicIS4.Syntax.HilbertLinear.html#824" class="Bound"
+      >A</a
+      ><a name="860"
+      >
+  </a
+      ><a name="863" href="BasicIS4.Syntax.HilbertLinear.html#863" class="InductiveConstructor"
+      >csnd</a
+      ><a name="867"
+      >  </a
+      ><a name="869" class="Symbol"
+      >:</a
+      ><a name="870"
+      > </a
+      ><a name="871" class="Symbol"
+      >&#8704;</a
+      ><a name="872"
+      > </a
+      ><a name="873" class="Symbol"
+      >{</a
+      ><a name="874" href="BasicIS4.Syntax.HilbertLinear.html#874" class="Bound"
+      >&#928;</a
+      ><a name="875"
+      > </a
+      ><a name="876" href="BasicIS4.Syntax.HilbertLinear.html#876" class="Bound"
+      >A</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="BasicIS4.Syntax.HilbertLinear.html#878" class="Bound"
+      >B</a
+      ><a name="879" class="Symbol"
+      >}</a
+      ><a name="880"
+      >   </a
+      ><a name="883" class="Symbol"
+      >&#8594;</a
+      ><a name="884"
+      > </a
+      ><a name="885" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="886"
+      > </a
+      ><a name="887" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="889"
+      > </a
+      ><a name="890" href="BasicIS4.Syntax.HilbertLinear.html#874" class="Bound"
+      >&#928;</a
+      ><a name="891"
+      > </a
+      ><a name="892" class="Symbol"
+      >&#8594;</a
+      ><a name="893"
+      > </a
+      ><a name="894" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="895"
+      > </a
+      ><a name="896" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="BasicIS4.Syntax.HilbertLinear.html#874" class="Bound"
+      >&#928;</a
+      ><a name="900"
+      > </a
+      ><a name="901" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="902"
+      > </a
+      ><a name="903" href="BasicIS4.Syntax.HilbertLinear.html#876" class="Bound"
+      >A</a
+      ><a name="904"
+      > </a
+      ><a name="905" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="906"
+      > </a
+      ><a name="907" href="BasicIS4.Syntax.HilbertLinear.html#878" class="Bound"
+      >B</a
+      ><a name="908"
+      > </a
+      ><a name="909" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="910"
+      > </a
+      ><a name="911" href="BasicIS4.Syntax.HilbertLinear.html#878" class="Bound"
+      >B</a
+      ><a name="912"
+      >
+  </a
+      ><a name="915" href="BasicIS4.Syntax.HilbertLinear.html#915" class="InductiveConstructor"
+      >tt</a
+      ><a name="917"
+      >    </a
+      ><a name="921" class="Symbol"
+      >:</a
+      ><a name="922"
+      > </a
+      ><a name="923" class="Symbol"
+      >&#8704;</a
+      ><a name="924"
+      > </a
+      ><a name="925" class="Symbol"
+      >{</a
+      ><a name="926" href="BasicIS4.Syntax.HilbertLinear.html#926" class="Bound"
+      >&#928;</a
+      ><a name="927" class="Symbol"
+      >}</a
+      ><a name="928"
+      >       </a
+      ><a name="935" class="Symbol"
+      >&#8594;</a
+      ><a name="936"
+      > </a
+      ><a name="937" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="938"
+      > </a
+      ><a name="939" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="941"
+      > </a
+      ><a name="942" href="BasicIS4.Syntax.HilbertLinear.html#926" class="Bound"
+      >&#928;</a
+      ><a name="943"
+      > </a
+      ><a name="944" class="Symbol"
+      >&#8594;</a
+      ><a name="945"
+      > </a
+      ><a name="946" href="BasicIS4.Syntax.HilbertLinear.html#190" class="Bound"
+      >&#915;</a
+      ><a name="947"
+      > </a
+      ><a name="948" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="950"
+      > </a
+      ><a name="951" href="BasicIS4.Syntax.HilbertLinear.html#926" class="Bound"
+      >&#928;</a
+      ><a name="952"
+      > </a
+      ><a name="953" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="954"
+      > </a
+      ><a name="955" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="956"
+      >
+
+</a
+      ><a name="958" class="Keyword"
+      >infix</a
+      ><a name="963"
+      > </a
+      ><a name="964" class="Number"
+      >3</a
+      ><a name="965"
+      > _&#8866;_
+</a
+      ><a name="970" href="BasicIS4.Syntax.HilbertLinear.html#970" class="Function Operator"
+      >_&#8866;_</a
+      ><a name="973"
+      > </a
+      ><a name="974" class="Symbol"
+      >:</a
+      ><a name="975"
+      > </a
+      ><a name="976" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="978"
+      > </a
+      ><a name="979" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="981"
+      > </a
+      ><a name="982" class="Symbol"
+      >&#8594;</a
+      ><a name="983"
+      > </a
+      ><a name="984" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="986"
+      > </a
+      ><a name="987" class="Symbol"
+      >&#8594;</a
+      ><a name="988"
+      > </a
+      ><a name="989" class="PrimitiveType"
+      >Set</a
+      ><a name="992"
+      >
+</a
+      ><a name="993" href="BasicIS4.Syntax.HilbertLinear.html#993" class="Bound"
+      >&#915;</a
+      ><a name="994"
+      > </a
+      ><a name="995" href="BasicIS4.Syntax.HilbertLinear.html#970" class="Function Operator"
+      >&#8866;</a
+      ><a name="996"
+      > </a
+      ><a name="997" href="BasicIS4.Syntax.HilbertLinear.html#997" class="Bound"
+      >A</a
+      ><a name="998"
+      > </a
+      ><a name="999" class="Symbol"
+      >=</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" href="Data.Product.html#823" class="Function"
+      >&#8707;</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" class="Symbol"
+      >(&#955;</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="BasicIS4.Syntax.HilbertLinear.html#1006" class="Bound"
+      >&#928;</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" class="Symbol"
+      >&#8594;</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="BasicIS4.Syntax.HilbertLinear.html#993" class="Bound"
+      >&#915;</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" href="BasicIS4.Syntax.HilbertLinear.html#1006" class="Bound"
+      >&#928;</a
+      ><a name="1016"
+      > </a
+      ><a name="1017" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" href="BasicIS4.Syntax.HilbertLinear.html#997" class="Bound"
+      >A</a
+      ><a name="1020" class="Symbol"
+      >)</a
+      ><a name="1021"
+      >
+
+
+</a
+      ><a name="1024" class="Comment"
+      >-- Monotonicity with respect to context inclusion.</a
+      ><a name="1074"
+      >
+
+</a
+      ><a name="1076" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" class="Symbol"
+      >:</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" class="Symbol"
+      >&#8704;</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" class="Symbol"
+      >{</a
+      ><a name="1088" href="BasicIS4.Syntax.HilbertLinear.html#1088" class="Bound"
+      >&#928;</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="BasicIS4.Syntax.HilbertLinear.html#1090" class="Bound"
+      >&#915;</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" href="BasicIS4.Syntax.HilbertLinear.html#1092" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1094" class="Symbol"
+      >}</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" class="Symbol"
+      >&#8594;</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="BasicIS4.Syntax.HilbertLinear.html#1090" class="Bound"
+      >&#915;</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="BasicIS4.Syntax.HilbertLinear.html#1092" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" class="Symbol"
+      >&#8594;</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="BasicIS4.Syntax.HilbertLinear.html#1090" class="Bound"
+      >&#915;</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1111"
+      > </a
+      ><a name="1112" href="BasicIS4.Syntax.HilbertLinear.html#1088" class="Bound"
+      >&#928;</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" class="Symbol"
+      >&#8594;</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" href="BasicIS4.Syntax.HilbertLinear.html#1092" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1121"
+      > </a
+      ><a name="1122" href="BasicIS4.Syntax.HilbertLinear.html#1088" class="Bound"
+      >&#928;</a
+      ><a name="1123"
+      >
+</a
+      ><a name="1124" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" href="BasicIS4.Syntax.HilbertLinear.html#1131" class="Bound"
+      >&#951;</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" href="BasicIS4.Syntax.HilbertLinear.html#223" class="InductiveConstructor"
+      >nil</a
+      ><a name="1136"
+      >         </a
+      ><a name="1145" class="Symbol"
+      >=</a
+      ><a name="1146"
+      > </a
+      ><a name="1147" href="BasicIS4.Syntax.HilbertLinear.html#223" class="InductiveConstructor"
+      >nil</a
+      ><a name="1150"
+      >
+</a
+      ><a name="1151" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="BasicIS4.Syntax.HilbertLinear.html#1158" class="Bound"
+      >&#951;</a
+      ><a name="1159"
+      > </a
+      ><a name="1160" class="Symbol"
+      >(</a
+      ><a name="1161" href="BasicIS4.Syntax.HilbertLinear.html#240" class="InductiveConstructor"
+      >var</a
+      ><a name="1164"
+      > </a
+      ><a name="1165" href="BasicIS4.Syntax.HilbertLinear.html#1165" class="Bound"
+      >i</a
+      ><a name="1166"
+      > </a
+      ><a name="1167" href="BasicIS4.Syntax.HilbertLinear.html#1167" class="Bound"
+      >ts</a
+      ><a name="1169" class="Symbol"
+      >)</a
+      ><a name="1170"
+      >  </a
+      ><a name="1172" class="Symbol"
+      >=</a
+      ><a name="1173"
+      > </a
+      ><a name="1174" href="BasicIS4.Syntax.HilbertLinear.html#240" class="InductiveConstructor"
+      >var</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" class="Symbol"
+      >(</a
+      ><a name="1179" href="Common.Context.html#2392" class="Function"
+      >mono&#8712;</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" href="BasicIS4.Syntax.HilbertLinear.html#1158" class="Bound"
+      >&#951;</a
+      ><a name="1186"
+      > </a
+      ><a name="1187" href="BasicIS4.Syntax.HilbertLinear.html#1165" class="Bound"
+      >i</a
+      ><a name="1188" class="Symbol"
+      >)</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" class="Symbol"
+      >(</a
+      ><a name="1191" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" href="BasicIS4.Syntax.HilbertLinear.html#1158" class="Bound"
+      >&#951;</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" href="BasicIS4.Syntax.HilbertLinear.html#1167" class="Bound"
+      >ts</a
+      ><a name="1202" class="Symbol"
+      >)</a
+      ><a name="1203"
+      >
+</a
+      ><a name="1204" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1210"
+      > </a
+      ><a name="1211" href="BasicIS4.Syntax.HilbertLinear.html#1211" class="Bound"
+      >&#951;</a
+      ><a name="1212"
+      > </a
+      ><a name="1213" class="Symbol"
+      >(</a
+      ><a name="1214" href="BasicIS4.Syntax.HilbertLinear.html#292" class="InductiveConstructor"
+      >mp</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" href="BasicIS4.Syntax.HilbertLinear.html#1217" class="Bound"
+      >i</a
+      ><a name="1218"
+      > </a
+      ><a name="1219" href="BasicIS4.Syntax.HilbertLinear.html#1219" class="Bound"
+      >j</a
+      ><a name="1220"
+      > </a
+      ><a name="1221" href="BasicIS4.Syntax.HilbertLinear.html#1221" class="Bound"
+      >ts</a
+      ><a name="1223" class="Symbol"
+      >)</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" class="Symbol"
+      >=</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" href="BasicIS4.Syntax.HilbertLinear.html#292" class="InductiveConstructor"
+      >mp</a
+      ><a name="1229"
+      > </a
+      ><a name="1230" href="BasicIS4.Syntax.HilbertLinear.html#1217" class="Bound"
+      >i</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" href="BasicIS4.Syntax.HilbertLinear.html#1219" class="Bound"
+      >j</a
+      ><a name="1233"
+      > </a
+      ><a name="1234" class="Symbol"
+      >(</a
+      ><a name="1235" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" href="BasicIS4.Syntax.HilbertLinear.html#1211" class="Bound"
+      >&#951;</a
+      ><a name="1243"
+      > </a
+      ><a name="1244" href="BasicIS4.Syntax.HilbertLinear.html#1221" class="Bound"
+      >ts</a
+      ><a name="1246" class="Symbol"
+      >)</a
+      ><a name="1247"
+      >
+</a
+      ><a name="1248" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1254"
+      > </a
+      ><a name="1255" href="BasicIS4.Syntax.HilbertLinear.html#1255" class="Bound"
+      >&#951;</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" class="Symbol"
+      >(</a
+      ><a name="1258" href="BasicIS4.Syntax.HilbertLinear.html#356" class="InductiveConstructor"
+      >ci</a
+      ><a name="1260"
+      > </a
+      ><a name="1261" href="BasicIS4.Syntax.HilbertLinear.html#1261" class="Bound"
+      >ts</a
+      ><a name="1263" class="Symbol"
+      >)</a
+      ><a name="1264"
+      >     </a
+      ><a name="1269" class="Symbol"
+      >=</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" href="BasicIS4.Syntax.HilbertLinear.html#356" class="InductiveConstructor"
+      >ci</a
+      ><a name="1273"
+      > </a
+      ><a name="1274" class="Symbol"
+      >(</a
+      ><a name="1275" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" href="BasicIS4.Syntax.HilbertLinear.html#1255" class="Bound"
+      >&#951;</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="BasicIS4.Syntax.HilbertLinear.html#1261" class="Bound"
+      >ts</a
+      ><a name="1286" class="Symbol"
+      >)</a
+      ><a name="1287"
+      >
+</a
+      ><a name="1288" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" href="BasicIS4.Syntax.HilbertLinear.html#1295" class="Bound"
+      >&#951;</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" class="Symbol"
+      >(</a
+      ><a name="1298" href="BasicIS4.Syntax.HilbertLinear.html#404" class="InductiveConstructor"
+      >ck</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="BasicIS4.Syntax.HilbertLinear.html#1301" class="Bound"
+      >ts</a
+      ><a name="1303" class="Symbol"
+      >)</a
+      ><a name="1304"
+      >     </a
+      ><a name="1309" class="Symbol"
+      >=</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" href="BasicIS4.Syntax.HilbertLinear.html#404" class="InductiveConstructor"
+      >ck</a
+      ><a name="1313"
+      > </a
+      ><a name="1314" class="Symbol"
+      >(</a
+      ><a name="1315" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1321"
+      > </a
+      ><a name="1322" href="BasicIS4.Syntax.HilbertLinear.html#1295" class="Bound"
+      >&#951;</a
+      ><a name="1323"
+      > </a
+      ><a name="1324" href="BasicIS4.Syntax.HilbertLinear.html#1301" class="Bound"
+      >ts</a
+      ><a name="1326" class="Symbol"
+      >)</a
+      ><a name="1327"
+      >
+</a
+      ><a name="1328" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" href="BasicIS4.Syntax.HilbertLinear.html#1335" class="Bound"
+      >&#951;</a
+      ><a name="1336"
+      > </a
+      ><a name="1337" class="Symbol"
+      >(</a
+      ><a name="1338" href="BasicIS4.Syntax.HilbertLinear.html#456" class="InductiveConstructor"
+      >cs</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" href="BasicIS4.Syntax.HilbertLinear.html#1341" class="Bound"
+      >ts</a
+      ><a name="1343" class="Symbol"
+      >)</a
+      ><a name="1344"
+      >     </a
+      ><a name="1349" class="Symbol"
+      >=</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" href="BasicIS4.Syntax.HilbertLinear.html#456" class="InductiveConstructor"
+      >cs</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" class="Symbol"
+      >(</a
+      ><a name="1355" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" href="BasicIS4.Syntax.HilbertLinear.html#1335" class="Bound"
+      >&#951;</a
+      ><a name="1363"
+      > </a
+      ><a name="1364" href="BasicIS4.Syntax.HilbertLinear.html#1341" class="Bound"
+      >ts</a
+      ><a name="1366" class="Symbol"
+      >)</a
+      ><a name="1367"
+      >
+</a
+      ><a name="1368" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" href="BasicIS4.Syntax.HilbertLinear.html#1375" class="Bound"
+      >&#951;</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" class="Symbol"
+      >(</a
+      ><a name="1378" href="BasicIS4.Syntax.HilbertLinear.html#528" class="InductiveConstructor"
+      >nec</a
+      ><a name="1381"
+      > </a
+      ><a name="1382" href="BasicIS4.Syntax.HilbertLinear.html#1382" class="Bound"
+      >ss</a
+      ><a name="1384"
+      > </a
+      ><a name="1385" href="BasicIS4.Syntax.HilbertLinear.html#1385" class="Bound"
+      >ts</a
+      ><a name="1387" class="Symbol"
+      >)</a
+      ><a name="1388"
+      > </a
+      ><a name="1389" class="Symbol"
+      >=</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" href="BasicIS4.Syntax.HilbertLinear.html#528" class="InductiveConstructor"
+      >nec</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" href="BasicIS4.Syntax.HilbertLinear.html#1382" class="Bound"
+      >ss</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" class="Symbol"
+      >(</a
+      ><a name="1399" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1405"
+      > </a
+      ><a name="1406" href="BasicIS4.Syntax.HilbertLinear.html#1375" class="Bound"
+      >&#951;</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" href="BasicIS4.Syntax.HilbertLinear.html#1385" class="Bound"
+      >ts</a
+      ><a name="1410" class="Symbol"
+      >)</a
+      ><a name="1411"
+      >
+</a
+      ><a name="1412" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1418"
+      > </a
+      ><a name="1419" href="BasicIS4.Syntax.HilbertLinear.html#1419" class="Bound"
+      >&#951;</a
+      ><a name="1420"
+      > </a
+      ><a name="1421" class="Symbol"
+      >(</a
+      ><a name="1422" href="BasicIS4.Syntax.HilbertLinear.html#587" class="InductiveConstructor"
+      >cdist</a
+      ><a name="1427"
+      > </a
+      ><a name="1428" href="BasicIS4.Syntax.HilbertLinear.html#1428" class="Bound"
+      >ts</a
+      ><a name="1430" class="Symbol"
+      >)</a
+      ><a name="1431"
+      >  </a
+      ><a name="1433" class="Symbol"
+      >=</a
+      ><a name="1434"
+      > </a
+      ><a name="1435" href="BasicIS4.Syntax.HilbertLinear.html#587" class="InductiveConstructor"
+      >cdist</a
+      ><a name="1440"
+      > </a
+      ><a name="1441" class="Symbol"
+      >(</a
+      ><a name="1442" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1448"
+      > </a
+      ><a name="1449" href="BasicIS4.Syntax.HilbertLinear.html#1419" class="Bound"
+      >&#951;</a
+      ><a name="1450"
+      > </a
+      ><a name="1451" href="BasicIS4.Syntax.HilbertLinear.html#1428" class="Bound"
+      >ts</a
+      ><a name="1453" class="Symbol"
+      >)</a
+      ><a name="1454"
+      >
+</a
+      ><a name="1455" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1461"
+      > </a
+      ><a name="1462" href="BasicIS4.Syntax.HilbertLinear.html#1462" class="Bound"
+      >&#951;</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" class="Symbol"
+      >(</a
+      ><a name="1465" href="BasicIS4.Syntax.HilbertLinear.html#651" class="InductiveConstructor"
+      >cup</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" href="BasicIS4.Syntax.HilbertLinear.html#1469" class="Bound"
+      >ts</a
+      ><a name="1471" class="Symbol"
+      >)</a
+      ><a name="1472"
+      >    </a
+      ><a name="1476" class="Symbol"
+      >=</a
+      ><a name="1477"
+      > </a
+      ><a name="1478" href="BasicIS4.Syntax.HilbertLinear.html#651" class="InductiveConstructor"
+      >cup</a
+      ><a name="1481"
+      > </a
+      ><a name="1482" class="Symbol"
+      >(</a
+      ><a name="1483" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="BasicIS4.Syntax.HilbertLinear.html#1462" class="Bound"
+      >&#951;</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="BasicIS4.Syntax.HilbertLinear.html#1469" class="Bound"
+      >ts</a
+      ><a name="1494" class="Symbol"
+      >)</a
+      ><a name="1495"
+      >
+</a
+      ><a name="1496" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" href="BasicIS4.Syntax.HilbertLinear.html#1503" class="Bound"
+      >&#951;</a
+      ><a name="1504"
+      > </a
+      ><a name="1505" class="Symbol"
+      >(</a
+      ><a name="1506" href="BasicIS4.Syntax.HilbertLinear.html#705" class="InductiveConstructor"
+      >cdown</a
+      ><a name="1511"
+      > </a
+      ><a name="1512" href="BasicIS4.Syntax.HilbertLinear.html#1512" class="Bound"
+      >ts</a
+      ><a name="1514" class="Symbol"
+      >)</a
+      ><a name="1515"
+      >  </a
+      ><a name="1517" class="Symbol"
+      >=</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" href="BasicIS4.Syntax.HilbertLinear.html#705" class="InductiveConstructor"
+      >cdown</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" class="Symbol"
+      >(</a
+      ><a name="1526" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1532"
+      > </a
+      ><a name="1533" href="BasicIS4.Syntax.HilbertLinear.html#1503" class="Bound"
+      >&#951;</a
+      ><a name="1534"
+      > </a
+      ><a name="1535" href="BasicIS4.Syntax.HilbertLinear.html#1512" class="Bound"
+      >ts</a
+      ><a name="1537" class="Symbol"
+      >)</a
+      ><a name="1538"
+      >
+</a
+      ><a name="1539" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1545"
+      > </a
+      ><a name="1546" href="BasicIS4.Syntax.HilbertLinear.html#1546" class="Bound"
+      >&#951;</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" class="Symbol"
+      >(</a
+      ><a name="1549" href="BasicIS4.Syntax.HilbertLinear.html#755" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="BasicIS4.Syntax.HilbertLinear.html#1555" class="Bound"
+      >ts</a
+      ><a name="1557" class="Symbol"
+      >)</a
+      ><a name="1558"
+      >  </a
+      ><a name="1560" class="Symbol"
+      >=</a
+      ><a name="1561"
+      > </a
+      ><a name="1562" href="BasicIS4.Syntax.HilbertLinear.html#755" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1567"
+      > </a
+      ><a name="1568" class="Symbol"
+      >(</a
+      ><a name="1569" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1575"
+      > </a
+      ><a name="1576" href="BasicIS4.Syntax.HilbertLinear.html#1546" class="Bound"
+      >&#951;</a
+      ><a name="1577"
+      > </a
+      ><a name="1578" href="BasicIS4.Syntax.HilbertLinear.html#1555" class="Bound"
+      >ts</a
+      ><a name="1580" class="Symbol"
+      >)</a
+      ><a name="1581"
+      >
+</a
+      ><a name="1582" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1588"
+      > </a
+      ><a name="1589" href="BasicIS4.Syntax.HilbertLinear.html#1589" class="Bound"
+      >&#951;</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" class="Symbol"
+      >(</a
+      ><a name="1592" href="BasicIS4.Syntax.HilbertLinear.html#811" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1596"
+      > </a
+      ><a name="1597" href="BasicIS4.Syntax.HilbertLinear.html#1597" class="Bound"
+      >ts</a
+      ><a name="1599" class="Symbol"
+      >)</a
+      ><a name="1600"
+      >   </a
+      ><a name="1603" class="Symbol"
+      >=</a
+      ><a name="1604"
+      > </a
+      ><a name="1605" href="BasicIS4.Syntax.HilbertLinear.html#811" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" class="Symbol"
+      >(</a
+      ><a name="1611" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" href="BasicIS4.Syntax.HilbertLinear.html#1589" class="Bound"
+      >&#951;</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" href="BasicIS4.Syntax.HilbertLinear.html#1597" class="Bound"
+      >ts</a
+      ><a name="1622" class="Symbol"
+      >)</a
+      ><a name="1623"
+      >
+</a
+      ><a name="1624" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1630"
+      > </a
+      ><a name="1631" href="BasicIS4.Syntax.HilbertLinear.html#1631" class="Bound"
+      >&#951;</a
+      ><a name="1632"
+      > </a
+      ><a name="1633" class="Symbol"
+      >(</a
+      ><a name="1634" href="BasicIS4.Syntax.HilbertLinear.html#863" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1638"
+      > </a
+      ><a name="1639" href="BasicIS4.Syntax.HilbertLinear.html#1639" class="Bound"
+      >ts</a
+      ><a name="1641" class="Symbol"
+      >)</a
+      ><a name="1642"
+      >   </a
+      ><a name="1645" class="Symbol"
+      >=</a
+      ><a name="1646"
+      > </a
+      ><a name="1647" href="BasicIS4.Syntax.HilbertLinear.html#863" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" class="Symbol"
+      >(</a
+      ><a name="1653" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1659"
+      > </a
+      ><a name="1660" href="BasicIS4.Syntax.HilbertLinear.html#1631" class="Bound"
+      >&#951;</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" href="BasicIS4.Syntax.HilbertLinear.html#1639" class="Bound"
+      >ts</a
+      ><a name="1664" class="Symbol"
+      >)</a
+      ><a name="1665"
+      >
+</a
+      ><a name="1666" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="BasicIS4.Syntax.HilbertLinear.html#1673" class="Bound"
+      >&#951;</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" class="Symbol"
+      >(</a
+      ><a name="1676" href="BasicIS4.Syntax.HilbertLinear.html#915" class="InductiveConstructor"
+      >tt</a
+      ><a name="1678"
+      > </a
+      ><a name="1679" href="BasicIS4.Syntax.HilbertLinear.html#1679" class="Bound"
+      >ts</a
+      ><a name="1681" class="Symbol"
+      >)</a
+      ><a name="1682"
+      >     </a
+      ><a name="1687" class="Symbol"
+      >=</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" href="BasicIS4.Syntax.HilbertLinear.html#915" class="InductiveConstructor"
+      >tt</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" class="Symbol"
+      >(</a
+      ><a name="1693" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1699"
+      > </a
+      ><a name="1700" href="BasicIS4.Syntax.HilbertLinear.html#1673" class="Bound"
+      >&#951;</a
+      ><a name="1701"
+      > </a
+      ><a name="1702" href="BasicIS4.Syntax.HilbertLinear.html#1679" class="Bound"
+      >ts</a
+      ><a name="1704" class="Symbol"
+      >)</a
+      ><a name="1705"
+      >
+
+</a
+      ><a name="1707" href="BasicIS4.Syntax.HilbertLinear.html#1707" class="Function"
+      >mono&#8866;</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" class="Symbol"
+      >:</a
+      ><a name="1714"
+      > </a
+      ><a name="1715" class="Symbol"
+      >&#8704;</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" class="Symbol"
+      >{</a
+      ><a name="1718" href="BasicIS4.Syntax.HilbertLinear.html#1718" class="Bound"
+      >A</a
+      ><a name="1719"
+      > </a
+      ><a name="1720" href="BasicIS4.Syntax.HilbertLinear.html#1720" class="Bound"
+      >&#915;</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" href="BasicIS4.Syntax.HilbertLinear.html#1722" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1724" class="Symbol"
+      >}</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" class="Symbol"
+      >&#8594;</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" href="BasicIS4.Syntax.HilbertLinear.html#1720" class="Bound"
+      >&#915;</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" href="BasicIS4.Syntax.HilbertLinear.html#1722" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1734"
+      > </a
+      ><a name="1735" class="Symbol"
+      >&#8594;</a
+      ><a name="1736"
+      > </a
+      ><a name="1737" href="BasicIS4.Syntax.HilbertLinear.html#1720" class="Bound"
+      >&#915;</a
+      ><a name="1738"
+      > </a
+      ><a name="1739" href="BasicIS4.Syntax.HilbertLinear.html#970" class="Function Operator"
+      >&#8866;</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" href="BasicIS4.Syntax.HilbertLinear.html#1718" class="Bound"
+      >A</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" class="Symbol"
+      >&#8594;</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" href="BasicIS4.Syntax.HilbertLinear.html#1722" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" href="BasicIS4.Syntax.HilbertLinear.html#970" class="Function Operator"
+      >&#8866;</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" href="BasicIS4.Syntax.HilbertLinear.html#1718" class="Bound"
+      >A</a
+      ><a name="1751"
+      >
+</a
+      ><a name="1752" href="BasicIS4.Syntax.HilbertLinear.html#1707" class="Function"
+      >mono&#8866;</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="BasicIS4.Syntax.HilbertLinear.html#1758" class="Bound"
+      >&#951;</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" class="Symbol"
+      >(</a
+      ><a name="1761" href="BasicIS4.Syntax.HilbertLinear.html#1761" class="Bound"
+      >&#928;</a
+      ><a name="1762"
+      > </a
+      ><a name="1763" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="BasicIS4.Syntax.HilbertLinear.html#1765" class="Bound"
+      >ts</a
+      ><a name="1767" class="Symbol"
+      >)</a
+      ><a name="1768"
+      > </a
+      ><a name="1769" class="Symbol"
+      >=</a
+      ><a name="1770"
+      > </a
+      ><a name="1771" href="BasicIS4.Syntax.HilbertLinear.html#1761" class="Bound"
+      >&#928;</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="BasicIS4.Syntax.HilbertLinear.html#1076" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1781"
+      > </a
+      ><a name="1782" href="BasicIS4.Syntax.HilbertLinear.html#1758" class="Bound"
+      >&#951;</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" href="BasicIS4.Syntax.HilbertLinear.html#1765" class="Bound"
+      >ts</a
+      ><a name="1786"
+      >
+
+
+</a
+      ><a name="1789" class="Comment"
+      >-- Derivation concatenation.</a
+      ><a name="1817"
+      >
+
+</a
+      ><a name="1819" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >_&#10747;_</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" class="Symbol"
+      >:</a
+      ><a name="1824"
+      > </a
+      ><a name="1825" class="Symbol"
+      >&#8704;</a
+      ><a name="1826"
+      > </a
+      ><a name="1827" class="Symbol"
+      >{</a
+      ><a name="1828" href="BasicIS4.Syntax.HilbertLinear.html#1828" class="Bound"
+      >&#915;</a
+      ><a name="1829"
+      > </a
+      ><a name="1830" href="BasicIS4.Syntax.HilbertLinear.html#1830" class="Bound"
+      >&#928;</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" href="BasicIS4.Syntax.HilbertLinear.html#1832" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="1834" class="Symbol"
+      >}</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" class="Symbol"
+      >&#8594;</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" href="BasicIS4.Syntax.HilbertLinear.html#1828" class="Bound"
+      >&#915;</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1842"
+      > </a
+      ><a name="1843" href="BasicIS4.Syntax.HilbertLinear.html#1830" class="Bound"
+      >&#928;</a
+      ><a name="1844"
+      > </a
+      ><a name="1845" class="Symbol"
+      >&#8594;</a
+      ><a name="1846"
+      > </a
+      ><a name="1847" href="BasicIS4.Syntax.HilbertLinear.html#1828" class="Bound"
+      >&#915;</a
+      ><a name="1848"
+      > </a
+      ><a name="1849" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1851"
+      > </a
+      ><a name="1852" href="BasicIS4.Syntax.HilbertLinear.html#1832" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="1854"
+      > </a
+      ><a name="1855" class="Symbol"
+      >&#8594;</a
+      ><a name="1856"
+      > </a
+      ><a name="1857" href="BasicIS4.Syntax.HilbertLinear.html#1828" class="Bound"
+      >&#915;</a
+      ><a name="1858"
+      > </a
+      ><a name="1859" href="BasicIS4.Syntax.HilbertLinear.html#184" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="BasicIS4.Syntax.HilbertLinear.html#1830" class="Bound"
+      >&#928;</a
+      ><a name="1863"
+      > </a
+      ><a name="1864" href="Common.Context.html#3194" class="Function Operator"
+      >&#10746;</a
+      ><a name="1865"
+      > </a
+      ><a name="1866" href="BasicIS4.Syntax.HilbertLinear.html#1832" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="1868"
+      >
+</a
+      ><a name="1869" href="BasicIS4.Syntax.HilbertLinear.html#1869" class="Bound"
+      >us</a
+      ><a name="1871"
+      > </a
+      ><a name="1872" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="1873"
+      > </a
+      ><a name="1874" href="BasicIS4.Syntax.HilbertLinear.html#223" class="InductiveConstructor"
+      >nil</a
+      ><a name="1877"
+      >       </a
+      ><a name="1884" class="Symbol"
+      >=</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" href="BasicIS4.Syntax.HilbertLinear.html#1869" class="Bound"
+      >us</a
+      ><a name="1888"
+      >
+</a
+      ><a name="1889" href="BasicIS4.Syntax.HilbertLinear.html#1889" class="Bound"
+      >us</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" href="BasicIS4.Syntax.HilbertLinear.html#240" class="InductiveConstructor"
+      >var</a
+      ><a name="1897"
+      > </a
+      ><a name="1898" href="BasicIS4.Syntax.HilbertLinear.html#1898" class="Bound"
+      >i</a
+      ><a name="1899"
+      > </a
+      ><a name="1900" href="BasicIS4.Syntax.HilbertLinear.html#1900" class="Bound"
+      >ts</a
+      ><a name="1902"
+      >  </a
+      ><a name="1904" class="Symbol"
+      >=</a
+      ><a name="1905"
+      > </a
+      ><a name="1906" href="BasicIS4.Syntax.HilbertLinear.html#240" class="InductiveConstructor"
+      >var</a
+      ><a name="1909"
+      > </a
+      ><a name="1910" href="BasicIS4.Syntax.HilbertLinear.html#1898" class="Bound"
+      >i</a
+      ><a name="1911"
+      > </a
+      ><a name="1912" class="Symbol"
+      >(</a
+      ><a name="1913" href="BasicIS4.Syntax.HilbertLinear.html#1889" class="Bound"
+      >us</a
+      ><a name="1915"
+      > </a
+      ><a name="1916" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="1917"
+      > </a
+      ><a name="1918" href="BasicIS4.Syntax.HilbertLinear.html#1900" class="Bound"
+      >ts</a
+      ><a name="1920" class="Symbol"
+      >)</a
+      ><a name="1921"
+      >
+</a
+      ><a name="1922" href="BasicIS4.Syntax.HilbertLinear.html#1922" class="Bound"
+      >us</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" href="BasicIS4.Syntax.HilbertLinear.html#292" class="InductiveConstructor"
+      >mp</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" href="BasicIS4.Syntax.HilbertLinear.html#1930" class="Bound"
+      >i</a
+      ><a name="1931"
+      > </a
+      ><a name="1932" href="BasicIS4.Syntax.HilbertLinear.html#1932" class="Bound"
+      >j</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="BasicIS4.Syntax.HilbertLinear.html#1934" class="Bound"
+      >ts</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" class="Symbol"
+      >=</a
+      ><a name="1938"
+      > </a
+      ><a name="1939" href="BasicIS4.Syntax.HilbertLinear.html#292" class="InductiveConstructor"
+      >mp</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" class="Symbol"
+      >(</a
+      ><a name="1943" href="Common.Context.html#2392" class="Function"
+      >mono&#8712;</a
+      ><a name="1948"
+      > </a
+      ><a name="1949" href="Common.Context.html#3501" class="Function"
+      >weak&#8838;&#10746;&#7523;</a
+      ><a name="1956"
+      > </a
+      ><a name="1957" href="BasicIS4.Syntax.HilbertLinear.html#1930" class="Bound"
+      >i</a
+      ><a name="1958" class="Symbol"
+      >)</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" class="Symbol"
+      >(</a
+      ><a name="1961" href="Common.Context.html#2392" class="Function"
+      >mono&#8712;</a
+      ><a name="1966"
+      > </a
+      ><a name="1967" href="Common.Context.html#3501" class="Function"
+      >weak&#8838;&#10746;&#7523;</a
+      ><a name="1974"
+      > </a
+      ><a name="1975" href="BasicIS4.Syntax.HilbertLinear.html#1932" class="Bound"
+      >j</a
+      ><a name="1976" class="Symbol"
+      >)</a
+      ><a name="1977"
+      > </a
+      ><a name="1978" class="Symbol"
+      >(</a
+      ><a name="1979" href="BasicIS4.Syntax.HilbertLinear.html#1922" class="Bound"
+      >us</a
+      ><a name="1981"
+      > </a
+      ><a name="1982" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="1983"
+      > </a
+      ><a name="1984" href="BasicIS4.Syntax.HilbertLinear.html#1934" class="Bound"
+      >ts</a
+      ><a name="1986" class="Symbol"
+      >)</a
+      ><a name="1987"
+      >
+</a
+      ><a name="1988" href="BasicIS4.Syntax.HilbertLinear.html#1988" class="Bound"
+      >us</a
+      ><a name="1990"
+      > </a
+      ><a name="1991" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="1992"
+      > </a
+      ><a name="1993" href="BasicIS4.Syntax.HilbertLinear.html#356" class="InductiveConstructor"
+      >ci</a
+      ><a name="1995"
+      > </a
+      ><a name="1996" href="BasicIS4.Syntax.HilbertLinear.html#1996" class="Bound"
+      >ts</a
+      ><a name="1998"
+      >     </a
+      ><a name="2003" class="Symbol"
+      >=</a
+      ><a name="2004"
+      > </a
+      ><a name="2005" href="BasicIS4.Syntax.HilbertLinear.html#356" class="InductiveConstructor"
+      >ci</a
+      ><a name="2007"
+      > </a
+      ><a name="2008" class="Symbol"
+      >(</a
+      ><a name="2009" href="BasicIS4.Syntax.HilbertLinear.html#1988" class="Bound"
+      >us</a
+      ><a name="2011"
+      > </a
+      ><a name="2012" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2013"
+      > </a
+      ><a name="2014" href="BasicIS4.Syntax.HilbertLinear.html#1996" class="Bound"
+      >ts</a
+      ><a name="2016" class="Symbol"
+      >)</a
+      ><a name="2017"
+      >
+</a
+      ><a name="2018" href="BasicIS4.Syntax.HilbertLinear.html#2018" class="Bound"
+      >us</a
+      ><a name="2020"
+      > </a
+      ><a name="2021" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2022"
+      > </a
+      ><a name="2023" href="BasicIS4.Syntax.HilbertLinear.html#404" class="InductiveConstructor"
+      >ck</a
+      ><a name="2025"
+      > </a
+      ><a name="2026" href="BasicIS4.Syntax.HilbertLinear.html#2026" class="Bound"
+      >ts</a
+      ><a name="2028"
+      >     </a
+      ><a name="2033" class="Symbol"
+      >=</a
+      ><a name="2034"
+      > </a
+      ><a name="2035" href="BasicIS4.Syntax.HilbertLinear.html#404" class="InductiveConstructor"
+      >ck</a
+      ><a name="2037"
+      > </a
+      ><a name="2038" class="Symbol"
+      >(</a
+      ><a name="2039" href="BasicIS4.Syntax.HilbertLinear.html#2018" class="Bound"
+      >us</a
+      ><a name="2041"
+      > </a
+      ><a name="2042" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" href="BasicIS4.Syntax.HilbertLinear.html#2026" class="Bound"
+      >ts</a
+      ><a name="2046" class="Symbol"
+      >)</a
+      ><a name="2047"
+      >
+</a
+      ><a name="2048" href="BasicIS4.Syntax.HilbertLinear.html#2048" class="Bound"
+      >us</a
+      ><a name="2050"
+      > </a
+      ><a name="2051" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" href="BasicIS4.Syntax.HilbertLinear.html#456" class="InductiveConstructor"
+      >cs</a
+      ><a name="2055"
+      > </a
+      ><a name="2056" href="BasicIS4.Syntax.HilbertLinear.html#2056" class="Bound"
+      >ts</a
+      ><a name="2058"
+      >     </a
+      ><a name="2063" class="Symbol"
+      >=</a
+      ><a name="2064"
+      > </a
+      ><a name="2065" href="BasicIS4.Syntax.HilbertLinear.html#456" class="InductiveConstructor"
+      >cs</a
+      ><a name="2067"
+      > </a
+      ><a name="2068" class="Symbol"
+      >(</a
+      ><a name="2069" href="BasicIS4.Syntax.HilbertLinear.html#2048" class="Bound"
+      >us</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2073"
+      > </a
+      ><a name="2074" href="BasicIS4.Syntax.HilbertLinear.html#2056" class="Bound"
+      >ts</a
+      ><a name="2076" class="Symbol"
+      >)</a
+      ><a name="2077"
+      >
+</a
+      ><a name="2078" href="BasicIS4.Syntax.HilbertLinear.html#2078" class="Bound"
+      >us</a
+      ><a name="2080"
+      > </a
+      ><a name="2081" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2082"
+      > </a
+      ><a name="2083" href="BasicIS4.Syntax.HilbertLinear.html#528" class="InductiveConstructor"
+      >nec</a
+      ><a name="2086"
+      > </a
+      ><a name="2087" href="BasicIS4.Syntax.HilbertLinear.html#2087" class="Bound"
+      >ss</a
+      ><a name="2089"
+      > </a
+      ><a name="2090" href="BasicIS4.Syntax.HilbertLinear.html#2090" class="Bound"
+      >ts</a
+      ><a name="2092"
+      > </a
+      ><a name="2093" class="Symbol"
+      >=</a
+      ><a name="2094"
+      > </a
+      ><a name="2095" href="BasicIS4.Syntax.HilbertLinear.html#528" class="InductiveConstructor"
+      >nec</a
+      ><a name="2098"
+      > </a
+      ><a name="2099" href="BasicIS4.Syntax.HilbertLinear.html#2087" class="Bound"
+      >ss</a
+      ><a name="2101"
+      > </a
+      ><a name="2102" class="Symbol"
+      >(</a
+      ><a name="2103" href="BasicIS4.Syntax.HilbertLinear.html#2078" class="Bound"
+      >us</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" href="BasicIS4.Syntax.HilbertLinear.html#2090" class="Bound"
+      >ts</a
+      ><a name="2110" class="Symbol"
+      >)</a
+      ><a name="2111"
+      >
+</a
+      ><a name="2112" href="BasicIS4.Syntax.HilbertLinear.html#2112" class="Bound"
+      >us</a
+      ><a name="2114"
+      > </a
+      ><a name="2115" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2116"
+      > </a
+      ><a name="2117" href="BasicIS4.Syntax.HilbertLinear.html#587" class="InductiveConstructor"
+      >cdist</a
+      ><a name="2122"
+      > </a
+      ><a name="2123" href="BasicIS4.Syntax.HilbertLinear.html#2123" class="Bound"
+      >ts</a
+      ><a name="2125"
+      >  </a
+      ><a name="2127" class="Symbol"
+      >=</a
+      ><a name="2128"
+      > </a
+      ><a name="2129" href="BasicIS4.Syntax.HilbertLinear.html#587" class="InductiveConstructor"
+      >cdist</a
+      ><a name="2134"
+      > </a
+      ><a name="2135" class="Symbol"
+      >(</a
+      ><a name="2136" href="BasicIS4.Syntax.HilbertLinear.html#2112" class="Bound"
+      >us</a
+      ><a name="2138"
+      > </a
+      ><a name="2139" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2140"
+      > </a
+      ><a name="2141" href="BasicIS4.Syntax.HilbertLinear.html#2123" class="Bound"
+      >ts</a
+      ><a name="2143" class="Symbol"
+      >)</a
+      ><a name="2144"
+      >
+</a
+      ><a name="2145" href="BasicIS4.Syntax.HilbertLinear.html#2145" class="Bound"
+      >us</a
+      ><a name="2147"
+      > </a
+      ><a name="2148" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2149"
+      > </a
+      ><a name="2150" href="BasicIS4.Syntax.HilbertLinear.html#651" class="InductiveConstructor"
+      >cup</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" href="BasicIS4.Syntax.HilbertLinear.html#2154" class="Bound"
+      >ts</a
+      ><a name="2156"
+      >    </a
+      ><a name="2160" class="Symbol"
+      >=</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" href="BasicIS4.Syntax.HilbertLinear.html#651" class="InductiveConstructor"
+      >cup</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" class="Symbol"
+      >(</a
+      ><a name="2167" href="BasicIS4.Syntax.HilbertLinear.html#2145" class="Bound"
+      >us</a
+      ><a name="2169"
+      > </a
+      ><a name="2170" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2171"
+      > </a
+      ><a name="2172" href="BasicIS4.Syntax.HilbertLinear.html#2154" class="Bound"
+      >ts</a
+      ><a name="2174" class="Symbol"
+      >)</a
+      ><a name="2175"
+      >
+</a
+      ><a name="2176" href="BasicIS4.Syntax.HilbertLinear.html#2176" class="Bound"
+      >us</a
+      ><a name="2178"
+      > </a
+      ><a name="2179" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2180"
+      > </a
+      ><a name="2181" href="BasicIS4.Syntax.HilbertLinear.html#705" class="InductiveConstructor"
+      >cdown</a
+      ><a name="2186"
+      > </a
+      ><a name="2187" href="BasicIS4.Syntax.HilbertLinear.html#2187" class="Bound"
+      >ts</a
+      ><a name="2189"
+      >  </a
+      ><a name="2191" class="Symbol"
+      >=</a
+      ><a name="2192"
+      > </a
+      ><a name="2193" href="BasicIS4.Syntax.HilbertLinear.html#705" class="InductiveConstructor"
+      >cdown</a
+      ><a name="2198"
+      > </a
+      ><a name="2199" class="Symbol"
+      >(</a
+      ><a name="2200" href="BasicIS4.Syntax.HilbertLinear.html#2176" class="Bound"
+      >us</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2204"
+      > </a
+      ><a name="2205" href="BasicIS4.Syntax.HilbertLinear.html#2187" class="Bound"
+      >ts</a
+      ><a name="2207" class="Symbol"
+      >)</a
+      ><a name="2208"
+      >
+</a
+      ><a name="2209" href="BasicIS4.Syntax.HilbertLinear.html#2209" class="Bound"
+      >us</a
+      ><a name="2211"
+      > </a
+      ><a name="2212" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2213"
+      > </a
+      ><a name="2214" href="BasicIS4.Syntax.HilbertLinear.html#755" class="InductiveConstructor"
+      >cpair</a
+      ><a name="2219"
+      > </a
+      ><a name="2220" href="BasicIS4.Syntax.HilbertLinear.html#2220" class="Bound"
+      >ts</a
+      ><a name="2222"
+      >  </a
+      ><a name="2224" class="Symbol"
+      >=</a
+      ><a name="2225"
+      > </a
+      ><a name="2226" href="BasicIS4.Syntax.HilbertLinear.html#755" class="InductiveConstructor"
+      >cpair</a
+      ><a name="2231"
+      > </a
+      ><a name="2232" class="Symbol"
+      >(</a
+      ><a name="2233" href="BasicIS4.Syntax.HilbertLinear.html#2209" class="Bound"
+      >us</a
+      ><a name="2235"
+      > </a
+      ><a name="2236" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2237"
+      > </a
+      ><a name="2238" href="BasicIS4.Syntax.HilbertLinear.html#2220" class="Bound"
+      >ts</a
+      ><a name="2240" class="Symbol"
+      >)</a
+      ><a name="2241"
+      >
+</a
+      ><a name="2242" href="BasicIS4.Syntax.HilbertLinear.html#2242" class="Bound"
+      >us</a
+      ><a name="2244"
+      > </a
+      ><a name="2245" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2246"
+      > </a
+      ><a name="2247" href="BasicIS4.Syntax.HilbertLinear.html#811" class="InductiveConstructor"
+      >cfst</a
+      ><a name="2251"
+      > </a
+      ><a name="2252" href="BasicIS4.Syntax.HilbertLinear.html#2252" class="Bound"
+      >ts</a
+      ><a name="2254"
+      >   </a
+      ><a name="2257" class="Symbol"
+      >=</a
+      ><a name="2258"
+      > </a
+      ><a name="2259" href="BasicIS4.Syntax.HilbertLinear.html#811" class="InductiveConstructor"
+      >cfst</a
+      ><a name="2263"
+      > </a
+      ><a name="2264" class="Symbol"
+      >(</a
+      ><a name="2265" href="BasicIS4.Syntax.HilbertLinear.html#2242" class="Bound"
+      >us</a
+      ><a name="2267"
+      > </a
+      ><a name="2268" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2269"
+      > </a
+      ><a name="2270" href="BasicIS4.Syntax.HilbertLinear.html#2252" class="Bound"
+      >ts</a
+      ><a name="2272" class="Symbol"
+      >)</a
+      ><a name="2273"
+      >
+</a
+      ><a name="2274" href="BasicIS4.Syntax.HilbertLinear.html#2274" class="Bound"
+      >us</a
+      ><a name="2276"
+      > </a
+      ><a name="2277" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2278"
+      > </a
+      ><a name="2279" href="BasicIS4.Syntax.HilbertLinear.html#863" class="InductiveConstructor"
+      >csnd</a
+      ><a name="2283"
+      > </a
+      ><a name="2284" href="BasicIS4.Syntax.HilbertLinear.html#2284" class="Bound"
+      >ts</a
+      ><a name="2286"
+      >   </a
+      ><a name="2289" class="Symbol"
+      >=</a
+      ><a name="2290"
+      > </a
+      ><a name="2291" href="BasicIS4.Syntax.HilbertLinear.html#863" class="InductiveConstructor"
+      >csnd</a
+      ><a name="2295"
+      > </a
+      ><a name="2296" class="Symbol"
+      >(</a
+      ><a name="2297" href="BasicIS4.Syntax.HilbertLinear.html#2274" class="Bound"
+      >us</a
+      ><a name="2299"
+      > </a
+      ><a name="2300" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2301"
+      > </a
+      ><a name="2302" href="BasicIS4.Syntax.HilbertLinear.html#2284" class="Bound"
+      >ts</a
+      ><a name="2304" class="Symbol"
+      >)</a
+      ><a name="2305"
+      >
+</a
+      ><a name="2306" href="BasicIS4.Syntax.HilbertLinear.html#2306" class="Bound"
+      >us</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2310"
+      > </a
+      ><a name="2311" href="BasicIS4.Syntax.HilbertLinear.html#915" class="InductiveConstructor"
+      >tt</a
+      ><a name="2313"
+      > </a
+      ><a name="2314" href="BasicIS4.Syntax.HilbertLinear.html#2314" class="Bound"
+      >ts</a
+      ><a name="2316"
+      >     </a
+      ><a name="2321" class="Symbol"
+      >=</a
+      ><a name="2322"
+      > </a
+      ><a name="2323" href="BasicIS4.Syntax.HilbertLinear.html#915" class="InductiveConstructor"
+      >tt</a
+      ><a name="2325"
+      > </a
+      ><a name="2326" class="Symbol"
+      >(</a
+      ><a name="2327" href="BasicIS4.Syntax.HilbertLinear.html#2306" class="Bound"
+      >us</a
+      ><a name="2329"
+      > </a
+      ><a name="2330" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2331"
+      > </a
+      ><a name="2332" href="BasicIS4.Syntax.HilbertLinear.html#2314" class="Bound"
+      >ts</a
+      ><a name="2334" class="Symbol"
+      >)</a
+      ><a name="2335"
+      >
+
+
+</a
+      ><a name="2338" class="Comment"
+      >-- Modus ponens and necessitation in expanded form.</a
+      ><a name="2389"
+      >
+
+</a
+      ><a name="2391" href="BasicIS4.Syntax.HilbertLinear.html#2391" class="Function"
+      >app</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" class="Symbol"
+      >:</a
+      ><a name="2396"
+      > </a
+      ><a name="2397" class="Symbol"
+      >&#8704;</a
+      ><a name="2398"
+      > </a
+      ><a name="2399" class="Symbol"
+      >{</a
+      ><a name="2400" href="BasicIS4.Syntax.HilbertLinear.html#2400" class="Bound"
+      >A</a
+      ><a name="2401"
+      > </a
+      ><a name="2402" href="BasicIS4.Syntax.HilbertLinear.html#2402" class="Bound"
+      >B</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="BasicIS4.Syntax.HilbertLinear.html#2404" class="Bound"
+      >&#915;</a
+      ><a name="2405" class="Symbol"
+      >}</a
+      ><a name="2406"
+      > </a
+      ><a name="2407" class="Symbol"
+      >&#8594;</a
+      ><a name="2408"
+      > </a
+      ><a name="2409" href="BasicIS4.Syntax.HilbertLinear.html#2404" class="Bound"
+      >&#915;</a
+      ><a name="2410"
+      > </a
+      ><a name="2411" href="BasicIS4.Syntax.HilbertLinear.html#970" class="Function Operator"
+      >&#8866;</a
+      ><a name="2412"
+      > </a
+      ><a name="2413" href="BasicIS4.Syntax.HilbertLinear.html#2400" class="Bound"
+      >A</a
+      ><a name="2414"
+      > </a
+      ><a name="2415" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2416"
+      > </a
+      ><a name="2417" href="BasicIS4.Syntax.HilbertLinear.html#2402" class="Bound"
+      >B</a
+      ><a name="2418"
+      > </a
+      ><a name="2419" class="Symbol"
+      >&#8594;</a
+      ><a name="2420"
+      > </a
+      ><a name="2421" href="BasicIS4.Syntax.HilbertLinear.html#2404" class="Bound"
+      >&#915;</a
+      ><a name="2422"
+      > </a
+      ><a name="2423" href="BasicIS4.Syntax.HilbertLinear.html#970" class="Function Operator"
+      >&#8866;</a
+      ><a name="2424"
+      > </a
+      ><a name="2425" href="BasicIS4.Syntax.HilbertLinear.html#2400" class="Bound"
+      >A</a
+      ><a name="2426"
+      > </a
+      ><a name="2427" class="Symbol"
+      >&#8594;</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" href="BasicIS4.Syntax.HilbertLinear.html#2404" class="Bound"
+      >&#915;</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" href="BasicIS4.Syntax.HilbertLinear.html#970" class="Function Operator"
+      >&#8866;</a
+      ><a name="2432"
+      > </a
+      ><a name="2433" href="BasicIS4.Syntax.HilbertLinear.html#2402" class="Bound"
+      >B</a
+      ><a name="2434"
+      >
+</a
+      ><a name="2435" href="BasicIS4.Syntax.HilbertLinear.html#2391" class="Function"
+      >app</a
+      ><a name="2438"
+      > </a
+      ><a name="2439" class="Symbol"
+      >{</a
+      ><a name="2440" href="BasicIS4.Syntax.HilbertLinear.html#2440" class="Bound"
+      >A</a
+      ><a name="2441" class="Symbol"
+      >}</a
+      ><a name="2442"
+      > </a
+      ><a name="2443" class="Symbol"
+      >{</a
+      ><a name="2444" href="BasicIS4.Syntax.HilbertLinear.html#2444" class="Bound"
+      >B</a
+      ><a name="2445" class="Symbol"
+      >}</a
+      ><a name="2446"
+      > </a
+      ><a name="2447" class="Symbol"
+      >(</a
+      ><a name="2448" href="BasicIS4.Syntax.HilbertLinear.html#2448" class="Bound"
+      >&#928;</a
+      ><a name="2449"
+      > </a
+      ><a name="2450" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" href="BasicIS4.Syntax.HilbertLinear.html#2452" class="Bound"
+      >ts</a
+      ><a name="2454" class="Symbol"
+      >)</a
+      ><a name="2455"
+      > </a
+      ><a name="2456" class="Symbol"
+      >(</a
+      ><a name="2457" href="BasicIS4.Syntax.HilbertLinear.html#2457" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="2459"
+      > </a
+      ><a name="2460" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2461"
+      > </a
+      ><a name="2462" href="BasicIS4.Syntax.HilbertLinear.html#2462" class="Bound"
+      >us</a
+      ><a name="2464" class="Symbol"
+      >)</a
+      ><a name="2465"
+      > </a
+      ><a name="2466" class="Symbol"
+      >=</a
+      ><a name="2467"
+      > </a
+      ><a name="2468" href="BasicIS4.Syntax.HilbertLinear.html#2484" class="Function"
+      >&#928;&#8243;</a
+      ><a name="2470"
+      > </a
+      ><a name="2471" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2472"
+      > </a
+      ><a name="2473" href="BasicIS4.Syntax.HilbertLinear.html#2520" class="Function"
+      >vs</a
+      ><a name="2475"
+      >
+  </a
+      ><a name="2478" class="Keyword"
+      >where</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" href="BasicIS4.Syntax.HilbertLinear.html#2484" class="Function"
+      >&#928;&#8243;</a
+      ><a name="2486"
+      > </a
+      ><a name="2487" class="Symbol"
+      >=</a
+      ><a name="2488"
+      > </a
+      ><a name="2489" class="Symbol"
+      >(</a
+      ><a name="2490" href="BasicIS4.Syntax.HilbertLinear.html#2457" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="2492"
+      > </a
+      ><a name="2493" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2494"
+      > </a
+      ><a name="2495" href="BasicIS4.Syntax.HilbertLinear.html#2440" class="Bound"
+      >A</a
+      ><a name="2496" class="Symbol"
+      >)</a
+      ><a name="2497"
+      > </a
+      ><a name="2498" href="Common.Context.html#3194" class="Function Operator"
+      >&#10746;</a
+      ><a name="2499"
+      > </a
+      ><a name="2500" class="Symbol"
+      >(</a
+      ><a name="2501" href="BasicIS4.Syntax.HilbertLinear.html#2448" class="Bound"
+      >&#928;</a
+      ><a name="2502"
+      > </a
+      ><a name="2503" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2504"
+      > </a
+      ><a name="2505" href="BasicIS4.Syntax.HilbertLinear.html#2440" class="Bound"
+      >A</a
+      ><a name="2506"
+      > </a
+      ><a name="2507" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2508"
+      > </a
+      ><a name="2509" href="BasicIS4.Syntax.HilbertLinear.html#2444" class="Bound"
+      >B</a
+      ><a name="2510" class="Symbol"
+      >)</a
+      ><a name="2511"
+      >
+        </a
+      ><a name="2520" href="BasicIS4.Syntax.HilbertLinear.html#2520" class="Function"
+      >vs</a
+      ><a name="2522"
+      > </a
+      ><a name="2523" class="Symbol"
+      >=</a
+      ><a name="2524"
+      > </a
+      ><a name="2525" href="BasicIS4.Syntax.HilbertLinear.html#292" class="InductiveConstructor"
+      >mp</a
+      ><a name="2527"
+      > </a
+      ><a name="2528" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="2531"
+      > </a
+      ><a name="2532" class="Symbol"
+      >(</a
+      ><a name="2533" href="Common.Context.html#2392" class="Function"
+      >mono&#8712;</a
+      ><a name="2538"
+      > </a
+      ><a name="2539" class="Symbol"
+      >(</a
+      ><a name="2540" href="Common.Context.html#3400" class="Function"
+      >weak&#8838;&#10746;&#8343;</a
+      ><a name="2547"
+      > </a
+      ><a name="2548" class="Symbol"
+      >(</a
+      ><a name="2549" href="BasicIS4.Syntax.HilbertLinear.html#2448" class="Bound"
+      >&#928;</a
+      ><a name="2550"
+      > </a
+      ><a name="2551" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2552"
+      > </a
+      ><a name="2553" href="BasicIS4.Syntax.HilbertLinear.html#2440" class="Bound"
+      >A</a
+      ><a name="2554"
+      > </a
+      ><a name="2555" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2556"
+      > </a
+      ><a name="2557" href="BasicIS4.Syntax.HilbertLinear.html#2444" class="Bound"
+      >B</a
+      ><a name="2558" class="Symbol"
+      >))</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="2564" class="Symbol"
+      >)</a
+      ><a name="2565"
+      > </a
+      ><a name="2566" class="Symbol"
+      >(</a
+      ><a name="2567" href="BasicIS4.Syntax.HilbertLinear.html#2462" class="Bound"
+      >us</a
+      ><a name="2569"
+      > </a
+      ><a name="2570" href="BasicIS4.Syntax.HilbertLinear.html#1819" class="Function Operator"
+      >&#10747;</a
+      ><a name="2571"
+      > </a
+      ><a name="2572" href="BasicIS4.Syntax.HilbertLinear.html#2452" class="Bound"
+      >ts</a
+      ><a name="2574" class="Symbol"
+      >)</a
+      ><a name="2575"
+      >
+
+</a
+      ><a name="2577" href="BasicIS4.Syntax.HilbertLinear.html#2577" class="Function"
+      >box</a
+      ><a name="2580"
+      > </a
+      ><a name="2581" class="Symbol"
+      >:</a
+      ><a name="2582"
+      > </a
+      ><a name="2583" class="Symbol"
+      >&#8704;</a
+      ><a name="2584"
+      > </a
+      ><a name="2585" class="Symbol"
+      >{</a
+      ><a name="2586" href="BasicIS4.Syntax.HilbertLinear.html#2586" class="Bound"
+      >A</a
+      ><a name="2587"
+      > </a
+      ><a name="2588" href="BasicIS4.Syntax.HilbertLinear.html#2588" class="Bound"
+      >&#915;</a
+      ><a name="2589" class="Symbol"
+      >}</a
+      ><a name="2590"
+      > </a
+      ><a name="2591" class="Symbol"
+      >&#8594;</a
+      ><a name="2592"
+      > </a
+      ><a name="2593" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2594"
+      > </a
+      ><a name="2595" href="BasicIS4.Syntax.HilbertLinear.html#970" class="Function Operator"
+      >&#8866;</a
+      ><a name="2596"
+      > </a
+      ><a name="2597" href="BasicIS4.Syntax.HilbertLinear.html#2586" class="Bound"
+      >A</a
+      ><a name="2598"
+      > </a
+      ><a name="2599" class="Symbol"
+      >&#8594;</a
+      ><a name="2600"
+      > </a
+      ><a name="2601" href="BasicIS4.Syntax.HilbertLinear.html#2588" class="Bound"
+      >&#915;</a
+      ><a name="2602"
+      > </a
+      ><a name="2603" href="BasicIS4.Syntax.HilbertLinear.html#970" class="Function Operator"
+      >&#8866;</a
+      ><a name="2604"
+      > </a
+      ><a name="2605" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2606"
+      > </a
+      ><a name="2607" href="BasicIS4.Syntax.HilbertLinear.html#2586" class="Bound"
+      >A</a
+      ><a name="2608"
+      >
+</a
+      ><a name="2609" href="BasicIS4.Syntax.HilbertLinear.html#2577" class="Function"
+      >box</a
+      ><a name="2612"
+      > </a
+      ><a name="2613" class="Symbol"
+      >(</a
+      ><a name="2614" href="BasicIS4.Syntax.HilbertLinear.html#2614" class="Bound"
+      >&#928;</a
+      ><a name="2615"
+      > </a
+      ><a name="2616" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2617"
+      > </a
+      ><a name="2618" href="BasicIS4.Syntax.HilbertLinear.html#2618" class="Bound"
+      >ts</a
+      ><a name="2620" class="Symbol"
+      >)</a
+      ><a name="2621"
+      > </a
+      ><a name="2622" class="Symbol"
+      >=</a
+      ><a name="2623"
+      > </a
+      ><a name="2624" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2625"
+      > </a
+      ><a name="2626" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2627"
+      > </a
+      ><a name="2628" href="BasicIS4.Syntax.HilbertLinear.html#528" class="InductiveConstructor"
+      >nec</a
+      ><a name="2631"
+      > </a
+      ><a name="2632" href="BasicIS4.Syntax.HilbertLinear.html#2618" class="Bound"
+      >ts</a
+      ><a name="2634"
+      > </a
+      ><a name="2635" href="BasicIS4.Syntax.HilbertLinear.html#223" class="InductiveConstructor"
+      >nil</a
+      ><a name="2638"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
