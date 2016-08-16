@@ -1,0 +1,2946 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Semantics.KripkeEwald</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Kripke-style possible worlds semantics, after Ewald, Servi, and Plotkin-Stirling.</a
+      ><a name="85"
+      >
+
+</a
+      ><a name="87" class="Keyword"
+      >module</a
+      ><a name="93"
+      > </a
+      ><a name="94" href="BasicIS4.Semantics.KripkeEwald.html#1" class="Module"
+      >BasicIS4.Semantics.KripkeEwald</a
+      ><a name="124"
+      > </a
+      ><a name="125" class="Keyword"
+      >where</a
+      ><a name="130"
+      >
+
+</a
+      ><a name="132" class="Keyword"
+      >open</a
+      ><a name="136"
+      > </a
+      ><a name="137" class="Keyword"
+      >import</a
+      ><a name="143"
+      > </a
+      ><a name="144" href="BasicIS4.Syntax.Common.html#1" class="Module"
+      >BasicIS4.Syntax.Common</a
+      ><a name="166"
+      > </a
+      ><a name="167" class="Keyword"
+      >public</a
+      ><a name="173"
+      >
+
+
+</a
+      ><a name="176" class="Comment"
+      >-- Intuitionistic modal Kripke models, with Ewald frame conditions.</a
+      ><a name="243"
+      >
+
+</a
+      ><a name="245" class="Keyword"
+      >record</a
+      ><a name="251"
+      > </a
+      ><a name="252" href="BasicIS4.Semantics.KripkeEwald.html#252" class="Record"
+      >Model</a
+      ><a name="257"
+      > </a
+      ><a name="258" class="Symbol"
+      >:</a
+      ><a name="259"
+      > </a
+      ><a name="260" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="264"
+      > </a
+      ><a name="265" class="Keyword"
+      >where</a
+      ><a name="270"
+      >
+  </a
+      ><a name="273" class="Keyword"
+      >infix</a
+      ><a name="278"
+      > </a
+      ><a name="279" class="Number"
+      >3</a
+      ><a name="280"
+      > _&#8873;&#7493;_
+  </a
+      ><a name="288" class="Keyword"
+      >field</a
+      ><a name="293"
+      >
+    </a
+      ><a name="298" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="303"
+      > </a
+      ><a name="304" class="Symbol"
+      >:</a
+      ><a name="305"
+      > </a
+      ><a name="306" class="PrimitiveType"
+      >Set</a
+      ><a name="309"
+      >
+
+    </a
+      ><a name="315" class="Comment"
+      >-- Intuitionistic accessibility; preorder.</a
+      ><a name="357"
+      >
+    </a
+      ><a name="362" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="365"
+      >    </a
+      ><a name="369" class="Symbol"
+      >:</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="376"
+      > </a
+      ><a name="377" class="Symbol"
+      >&#8594;</a
+      ><a name="378"
+      > </a
+      ><a name="379" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="384"
+      > </a
+      ><a name="385" class="Symbol"
+      >&#8594;</a
+      ><a name="386"
+      > </a
+      ><a name="387" class="PrimitiveType"
+      >Set</a
+      ><a name="390"
+      >
+    </a
+      ><a name="395" href="BasicIS4.Semantics.KripkeEwald.html#395" class="Field"
+      >refl&#8804;</a
+      ><a name="400"
+      >  </a
+      ><a name="402" class="Symbol"
+      >:</a
+      ><a name="403"
+      > </a
+      ><a name="404" class="Symbol"
+      >&#8704;</a
+      ><a name="405"
+      > </a
+      ><a name="406" class="Symbol"
+      >{</a
+      ><a name="407" href="BasicIS4.Semantics.KripkeEwald.html#407" class="Bound"
+      >w</a
+      ><a name="408" class="Symbol"
+      >}</a
+      ><a name="409"
+      > </a
+      ><a name="410" class="Symbol"
+      >&#8594;</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="BasicIS4.Semantics.KripkeEwald.html#407" class="Bound"
+      >w</a
+      ><a name="413"
+      > </a
+      ><a name="414" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="415"
+      > </a
+      ><a name="416" href="BasicIS4.Semantics.KripkeEwald.html#407" class="Bound"
+      >w</a
+      ><a name="417"
+      >
+    </a
+      ><a name="422" href="BasicIS4.Semantics.KripkeEwald.html#422" class="Field"
+      >trans&#8804;</a
+      ><a name="428"
+      > </a
+      ><a name="429" class="Symbol"
+      >:</a
+      ><a name="430"
+      > </a
+      ><a name="431" class="Symbol"
+      >&#8704;</a
+      ><a name="432"
+      > </a
+      ><a name="433" class="Symbol"
+      >{</a
+      ><a name="434" href="BasicIS4.Semantics.KripkeEwald.html#434" class="Bound"
+      >w</a
+      ><a name="435"
+      > </a
+      ><a name="436" href="BasicIS4.Semantics.KripkeEwald.html#436" class="Bound"
+      >w&#8242;</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="BasicIS4.Semantics.KripkeEwald.html#439" class="Bound"
+      >w&#8243;</a
+      ><a name="441" class="Symbol"
+      >}</a
+      ><a name="442"
+      > </a
+      ><a name="443" class="Symbol"
+      >&#8594;</a
+      ><a name="444"
+      > </a
+      ><a name="445" href="BasicIS4.Semantics.KripkeEwald.html#434" class="Bound"
+      >w</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="448"
+      > </a
+      ><a name="449" href="BasicIS4.Semantics.KripkeEwald.html#436" class="Bound"
+      >w&#8242;</a
+      ><a name="451"
+      > </a
+      ><a name="452" class="Symbol"
+      >&#8594;</a
+      ><a name="453"
+      > </a
+      ><a name="454" href="BasicIS4.Semantics.KripkeEwald.html#436" class="Bound"
+      >w&#8242;</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="BasicIS4.Semantics.KripkeEwald.html#439" class="Bound"
+      >w&#8243;</a
+      ><a name="461"
+      > </a
+      ><a name="462" class="Symbol"
+      >&#8594;</a
+      ><a name="463"
+      > </a
+      ><a name="464" href="BasicIS4.Semantics.KripkeEwald.html#434" class="Bound"
+      >w</a
+      ><a name="465"
+      > </a
+      ><a name="466" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="467"
+      > </a
+      ><a name="468" href="BasicIS4.Semantics.KripkeEwald.html#439" class="Bound"
+      >w&#8243;</a
+      ><a name="470"
+      >
+
+    </a
+      ><a name="476" class="Comment"
+      >-- Modal accessibility; preorder.</a
+      ><a name="509"
+      >
+    </a
+      ><a name="514" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >_R_</a
+      ><a name="517"
+      >    </a
+      ><a name="521" class="Symbol"
+      >:</a
+      ><a name="522"
+      > </a
+      ><a name="523" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="528"
+      > </a
+      ><a name="529" class="Symbol"
+      >&#8594;</a
+      ><a name="530"
+      > </a
+      ><a name="531" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="536"
+      > </a
+      ><a name="537" class="Symbol"
+      >&#8594;</a
+      ><a name="538"
+      > </a
+      ><a name="539" class="PrimitiveType"
+      >Set</a
+      ><a name="542"
+      >
+    </a
+      ><a name="547" href="BasicIS4.Semantics.KripkeEwald.html#547" class="Field"
+      >reflR</a
+      ><a name="552"
+      >  </a
+      ><a name="554" class="Symbol"
+      >:</a
+      ><a name="555"
+      > </a
+      ><a name="556" class="Symbol"
+      >&#8704;</a
+      ><a name="557"
+      > </a
+      ><a name="558" class="Symbol"
+      >{</a
+      ><a name="559" href="BasicIS4.Semantics.KripkeEwald.html#559" class="Bound"
+      >w</a
+      ><a name="560" class="Symbol"
+      >}</a
+      ><a name="561"
+      > </a
+      ><a name="562" class="Symbol"
+      >&#8594;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicIS4.Semantics.KripkeEwald.html#559" class="Bound"
+      >w</a
+      ><a name="565"
+      > </a
+      ><a name="566" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >R</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="BasicIS4.Semantics.KripkeEwald.html#559" class="Bound"
+      >w</a
+      ><a name="569"
+      >
+    </a
+      ><a name="574" href="BasicIS4.Semantics.KripkeEwald.html#574" class="Field"
+      >transR</a
+      ><a name="580"
+      > </a
+      ><a name="581" class="Symbol"
+      >:</a
+      ><a name="582"
+      > </a
+      ><a name="583" class="Symbol"
+      >&#8704;</a
+      ><a name="584"
+      > </a
+      ><a name="585" class="Symbol"
+      >{</a
+      ><a name="586" href="BasicIS4.Semantics.KripkeEwald.html#586" class="Bound"
+      >w</a
+      ><a name="587"
+      > </a
+      ><a name="588" href="BasicIS4.Semantics.KripkeEwald.html#588" class="Bound"
+      >w&#8242;</a
+      ><a name="590"
+      > </a
+      ><a name="591" href="BasicIS4.Semantics.KripkeEwald.html#591" class="Bound"
+      >w&#8243;</a
+      ><a name="593" class="Symbol"
+      >}</a
+      ><a name="594"
+      > </a
+      ><a name="595" class="Symbol"
+      >&#8594;</a
+      ><a name="596"
+      > </a
+      ><a name="597" href="BasicIS4.Semantics.KripkeEwald.html#586" class="Bound"
+      >w</a
+      ><a name="598"
+      > </a
+      ><a name="599" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >R</a
+      ><a name="600"
+      > </a
+      ><a name="601" href="BasicIS4.Semantics.KripkeEwald.html#588" class="Bound"
+      >w&#8242;</a
+      ><a name="603"
+      > </a
+      ><a name="604" class="Symbol"
+      >&#8594;</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="BasicIS4.Semantics.KripkeEwald.html#588" class="Bound"
+      >w&#8242;</a
+      ><a name="608"
+      > </a
+      ><a name="609" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >R</a
+      ><a name="610"
+      > </a
+      ><a name="611" href="BasicIS4.Semantics.KripkeEwald.html#591" class="Bound"
+      >w&#8243;</a
+      ><a name="613"
+      > </a
+      ><a name="614" class="Symbol"
+      >&#8594;</a
+      ><a name="615"
+      > </a
+      ><a name="616" href="BasicIS4.Semantics.KripkeEwald.html#586" class="Bound"
+      >w</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >R</a
+      ><a name="619"
+      > </a
+      ><a name="620" href="BasicIS4.Semantics.KripkeEwald.html#591" class="Bound"
+      >w&#8243;</a
+      ><a name="622"
+      >
+
+    </a
+      ><a name="628" class="Comment"
+      >-- Forcing for atomic propositions; monotonic.</a
+      ><a name="674"
+      >
+    </a
+      ><a name="679" href="BasicIS4.Semantics.KripkeEwald.html#679" class="Field Operator"
+      >_&#8873;&#7493;_</a
+      ><a name="683"
+      >   </a
+      ><a name="686" class="Symbol"
+      >:</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="693"
+      > </a
+      ><a name="694" class="Symbol"
+      >&#8594;</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="Common.html#1171" class="Function"
+      >Atom</a
+      ><a name="700"
+      > </a
+      ><a name="701" class="Symbol"
+      >&#8594;</a
+      ><a name="702"
+      > </a
+      ><a name="703" class="PrimitiveType"
+      >Set</a
+      ><a name="706"
+      >
+    </a
+      ><a name="711" href="BasicIS4.Semantics.KripkeEwald.html#711" class="Field"
+      >mono&#8873;&#7493;</a
+      ><a name="717"
+      > </a
+      ><a name="718" class="Symbol"
+      >:</a
+      ><a name="719"
+      > </a
+      ><a name="720" class="Symbol"
+      >&#8704;</a
+      ><a name="721"
+      > </a
+      ><a name="722" class="Symbol"
+      >{</a
+      ><a name="723" href="BasicIS4.Semantics.KripkeEwald.html#723" class="Bound"
+      >P</a
+      ><a name="724"
+      > </a
+      ><a name="725" href="BasicIS4.Semantics.KripkeEwald.html#725" class="Bound"
+      >w</a
+      ><a name="726"
+      > </a
+      ><a name="727" href="BasicIS4.Semantics.KripkeEwald.html#727" class="Bound"
+      >w&#8242;</a
+      ><a name="729" class="Symbol"
+      >}</a
+      ><a name="730"
+      > </a
+      ><a name="731" class="Symbol"
+      >&#8594;</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="BasicIS4.Semantics.KripkeEwald.html#725" class="Bound"
+      >w</a
+      ><a name="734"
+      > </a
+      ><a name="735" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="736"
+      > </a
+      ><a name="737" href="BasicIS4.Semantics.KripkeEwald.html#727" class="Bound"
+      >w&#8242;</a
+      ><a name="739"
+      > </a
+      ><a name="740" class="Symbol"
+      >&#8594;</a
+      ><a name="741"
+      > </a
+      ><a name="742" href="BasicIS4.Semantics.KripkeEwald.html#725" class="Bound"
+      >w</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="BasicIS4.Semantics.KripkeEwald.html#679" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="746"
+      > </a
+      ><a name="747" href="BasicIS4.Semantics.KripkeEwald.html#723" class="Bound"
+      >P</a
+      ><a name="748"
+      > </a
+      ><a name="749" class="Symbol"
+      >&#8594;</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="BasicIS4.Semantics.KripkeEwald.html#727" class="Bound"
+      >w&#8242;</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="BasicIS4.Semantics.KripkeEwald.html#679" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="BasicIS4.Semantics.KripkeEwald.html#723" class="Bound"
+      >P</a
+      ><a name="758"
+      >
+
+
+    </a
+      ><a name="765" class="Comment"
+      >-- Infimum-to-supremum condition.</a
+      ><a name="798"
+      >
+    </a
+      ><a name="803" class="Comment"
+      >--</a
+      ><a name="805"
+      >
+    </a
+      ><a name="810" class="Comment"
+      >--   w&#8242;          &#8594;   w&#8242;      v&#8242;</a
+      ><a name="841"
+      >
+    </a
+      ><a name="846" class="Comment"
+      >--   &#9679;           &#8594;   &#9679;&#9472;&#9472;&#9472;R&#9472;&#9472;&#9472;&#9676;</a
+      ><a name="876"
+      >
+    </a
+      ><a name="881" class="Comment"
+      >--   &#9474;           &#8594;           &#9474;</a
+      ><a name="911"
+      >
+    </a
+      ><a name="916" class="Comment"
+      >--   &#8804;  &#958;,&#950;      &#8594;           &#8804;</a
+      ><a name="946"
+      >
+    </a
+      ><a name="951" class="Comment"
+      >--   &#9474;           &#8594;           &#9474;</a
+      ><a name="981"
+      >
+    </a
+      ><a name="986" class="Comment"
+      >--   &#9676;&#9472;&#9472;&#9472;R&#9472;&#9472;&#9472;&#9679;   &#8594;           &#9679;</a
+      ><a name="1016"
+      >
+    </a
+      ><a name="1021" class="Comment"
+      >--   w       v   &#8594;           v</a
+      ><a name="1051"
+      >
+
+    </a
+      ><a name="1057" href="BasicIS4.Semantics.KripkeEwald.html#1057" class="Field"
+      >&#8804;&#8851;R&#8594;&#8804;&#8852;R</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" class="Symbol"
+      >:</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" class="Symbol"
+      >&#8704;</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" class="Symbol"
+      >{</a
+      ><a name="1070" href="BasicIS4.Semantics.KripkeEwald.html#1070" class="Bound"
+      >v</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" href="BasicIS4.Semantics.KripkeEwald.html#1072" class="Bound"
+      >w&#8242;</a
+      ><a name="1074" class="Symbol"
+      >}</a
+      ><a name="1075"
+      > </a
+      ><a name="1076" class="Symbol"
+      >&#8594;</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" class="Symbol"
+      >(</a
+      ><a name="1079" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="Common.html#1949" class="Function Operator"
+      >&#8851;</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >_R_</a
+      ><a name="1088" class="Symbol"
+      >)</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="BasicIS4.Semantics.KripkeEwald.html#1072" class="Bound"
+      >w&#8242;</a
+      ><a name="1092"
+      > </a
+      ><a name="1093" href="BasicIS4.Semantics.KripkeEwald.html#1070" class="Bound"
+      >v</a
+      ><a name="1094"
+      > </a
+      ><a name="1095" class="Symbol"
+      >&#8594;</a
+      ><a name="1096"
+      > </a
+      ><a name="1097" class="Symbol"
+      >(</a
+      ><a name="1098" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="Common.html#1846" class="Function Operator"
+      >&#8852;</a
+      ><a name="1103"
+      > </a
+      ><a name="1104" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >_R_</a
+      ><a name="1107" class="Symbol"
+      >)</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" href="BasicIS4.Semantics.KripkeEwald.html#1070" class="Bound"
+      >v</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="BasicIS4.Semantics.KripkeEwald.html#1072" class="Bound"
+      >w&#8242;</a
+      ><a name="1113"
+      >
+
+
+    </a
+      ><a name="1120" class="Comment"
+      >-- Minor brilliance condition.</a
+      ><a name="1150"
+      >
+    </a
+      ><a name="1155" class="Comment"
+      >--</a
+      ><a name="1157"
+      >
+    </a
+      ><a name="1162" class="Comment"
+      >--           v&#8242;  &#8594;   w&#8242;      v&#8242;</a
+      ><a name="1193"
+      >
+    </a
+      ><a name="1198" class="Comment"
+      >--           &#9679;   &#8594;   &#9676;&#9472;&#9472;&#9472;R&#9472;&#9472;&#9472;&#9679;</a
+      ><a name="1228"
+      >
+    </a
+      ><a name="1233" class="Comment"
+      >--           &#9474;   &#8594;   &#9474;</a
+      ><a name="1255"
+      >
+    </a
+      ><a name="1260" class="Comment"
+      >--      &#950;,&#958;  &#8804;   &#8594;   &#8804;</a
+      ><a name="1282"
+      >
+    </a
+      ><a name="1287" class="Comment"
+      >--           &#9474;   &#8594;   &#9474;</a
+      ><a name="1309"
+      >
+    </a
+      ><a name="1314" class="Comment"
+      >--   &#9679;&#9472;&#9472;&#9472;R&#9472;&#9472;&#9472;&#9676;   &#8594;   &#9679;</a
+      ><a name="1336"
+      >
+    </a
+      ><a name="1341" class="Comment"
+      >--   w       v   &#8594;   w</a
+      ><a name="1363"
+      >
+    </a
+      ><a name="1368" class="Comment"
+      >--</a
+      ><a name="1370"
+      >
+    </a
+      ><a name="1375" class="Comment"
+      >--           v&#8242;      w&#8243;  &#8594;   v&#8243;              w&#8243;</a
+      ><a name="1422"
+      >
+    </a
+      ><a name="1427" class="Comment"
+      >--           &#9676;&#9472;&#9472;&#9472;R&#9472;&#9472;&#9472;&#9679;   &#8594;   &#9676;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;R&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9472;&#9679;</a
+      ><a name="1473"
+      >
+    </a
+      ><a name="1478" class="Comment"
+      >--           &#9474;           &#8594;   &#9474;</a
+      ><a name="1508"
+      >
+    </a
+      ><a name="1513" class="Comment"
+      >--           &#8804;  &#958;&#8242;,&#950;&#8242;    &#8594;   &#9474;</a
+      ><a name="1543"
+      >
+    </a
+      ><a name="1548" class="Comment"
+      >--   v       &#9474;           &#8594;   &#9474;</a
+      ><a name="1578"
+      >
+    </a
+      ><a name="1583" class="Comment"
+      >--   &#9676;&#9472;&#9472;&#9472;R&#9472;&#9472;&#9472;&#9679;           &#8594;   &#8804;</a
+      ><a name="1613"
+      >
+    </a
+      ><a name="1618" class="Comment"
+      >--   &#9474;       w&#8242;          &#8594;   &#9474;</a
+      ><a name="1648"
+      >
+    </a
+      ><a name="1653" class="Comment"
+      >--   &#8804;  &#958;,&#950;              &#8594;   &#9474;</a
+      ><a name="1683"
+      >
+    </a
+      ><a name="1688" class="Comment"
+      >--   &#9474;                   &#8594;   &#9474;</a
+      ><a name="1718"
+      >
+    </a
+      ><a name="1723" class="Comment"
+      >--   &#9679;                   &#8594;   &#9679;</a
+      ><a name="1753"
+      >
+    </a
+      ><a name="1758" class="Comment"
+      >--   w                   &#8594;   w</a
+      ><a name="1788"
+      >
+
+    </a
+      ><a name="1794" href="BasicIS4.Semantics.KripkeEwald.html#1794" class="Field"
+      >R&#10814;&#8804;&#8594;&#8804;&#10814;R</a
+      ><a name="1801"
+      > </a
+      ><a name="1802" class="Symbol"
+      >:</a
+      ><a name="1803"
+      > </a
+      ><a name="1804" class="Symbol"
+      >&#8704;</a
+      ><a name="1805"
+      > </a
+      ><a name="1806" class="Symbol"
+      >{</a
+      ><a name="1807" href="BasicIS4.Semantics.KripkeEwald.html#1807" class="Bound"
+      >w</a
+      ><a name="1808"
+      > </a
+      ><a name="1809" href="BasicIS4.Semantics.KripkeEwald.html#1809" class="Bound"
+      >v&#8242;</a
+      ><a name="1811" class="Symbol"
+      >}</a
+      ><a name="1812"
+      > </a
+      ><a name="1813" class="Symbol"
+      >&#8594;</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" class="Symbol"
+      >(</a
+      ><a name="1816" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >_R_</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" href="Common.html#1743" class="Function Operator"
+      >&#10814;</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="1825" class="Symbol"
+      >)</a
+      ><a name="1826"
+      > </a
+      ><a name="1827" href="BasicIS4.Semantics.KripkeEwald.html#1807" class="Bound"
+      >w</a
+      ><a name="1828"
+      > </a
+      ><a name="1829" href="BasicIS4.Semantics.KripkeEwald.html#1809" class="Bound"
+      >v&#8242;</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" class="Symbol"
+      >&#8594;</a
+      ><a name="1833"
+      > </a
+      ><a name="1834" class="Symbol"
+      >(</a
+      ><a name="1835" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="1838"
+      > </a
+      ><a name="1839" href="Common.html#1743" class="Function Operator"
+      >&#10814;</a
+      ><a name="1840"
+      > </a
+      ><a name="1841" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >_R_</a
+      ><a name="1844" class="Symbol"
+      >)</a
+      ><a name="1845"
+      > </a
+      ><a name="1846" href="BasicIS4.Semantics.KripkeEwald.html#1807" class="Bound"
+      >w</a
+      ><a name="1847"
+      > </a
+      ><a name="1848" href="BasicIS4.Semantics.KripkeEwald.html#1809" class="Bound"
+      >v&#8242;</a
+      ><a name="1850"
+      >
+
+  </a
+      ><a name="1854" href="BasicIS4.Semantics.KripkeEwald.html#1854" class="Function Operator"
+      >_&#8804;&#10814;R_</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" class="Symbol"
+      >:</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="1867"
+      > </a
+      ><a name="1868" class="Symbol"
+      >&#8594;</a
+      ><a name="1869"
+      > </a
+      ><a name="1870" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" class="Symbol"
+      >&#8594;</a
+      ><a name="1877"
+      > </a
+      ><a name="1878" class="PrimitiveType"
+      >Set</a
+      ><a name="1881"
+      >
+  </a
+      ><a name="1884" href="BasicIS4.Semantics.KripkeEwald.html#1854" class="Function Operator"
+      >_&#8804;&#10814;R_</a
+      ><a name="1889"
+      > </a
+      ><a name="1890" class="Symbol"
+      >=</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" href="Common.html#1743" class="Function Operator"
+      >&#10814;</a
+      ><a name="1897"
+      > </a
+      ><a name="1898" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >_R_</a
+      ><a name="1901"
+      >
+
+  </a
+      ><a name="1905" href="BasicIS4.Semantics.KripkeEwald.html#1905" class="Function"
+      >refl&#8804;&#10814;R</a
+      ><a name="1912"
+      > </a
+      ><a name="1913" class="Symbol"
+      >:</a
+      ><a name="1914"
+      > </a
+      ><a name="1915" class="Symbol"
+      >&#8704;</a
+      ><a name="1916"
+      > </a
+      ><a name="1917" class="Symbol"
+      >{</a
+      ><a name="1918" href="BasicIS4.Semantics.KripkeEwald.html#1918" class="Bound"
+      >w</a
+      ><a name="1919" class="Symbol"
+      >}</a
+      ><a name="1920"
+      > </a
+      ><a name="1921" class="Symbol"
+      >&#8594;</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" href="BasicIS4.Semantics.KripkeEwald.html#1918" class="Bound"
+      >w</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" href="BasicIS4.Semantics.KripkeEwald.html#1854" class="Function Operator"
+      >&#8804;&#10814;R</a
+      ><a name="1928"
+      > </a
+      ><a name="1929" href="BasicIS4.Semantics.KripkeEwald.html#1918" class="Bound"
+      >w</a
+      ><a name="1930"
+      >
+  </a
+      ><a name="1933" href="BasicIS4.Semantics.KripkeEwald.html#1905" class="Function"
+      >refl&#8804;&#10814;R</a
+      ><a name="1940"
+      > </a
+      ><a name="1941" class="Symbol"
+      >{</a
+      ><a name="1942" href="BasicIS4.Semantics.KripkeEwald.html#1942" class="Bound"
+      >w</a
+      ><a name="1943" class="Symbol"
+      >}</a
+      ><a name="1944"
+      > </a
+      ><a name="1945" class="Symbol"
+      >=</a
+      ><a name="1946"
+      > </a
+      ><a name="1947" href="BasicIS4.Semantics.KripkeEwald.html#1942" class="Bound"
+      >w</a
+      ><a name="1948"
+      > </a
+      ><a name="1949" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1950"
+      > </a
+      ><a name="1951" class="Symbol"
+      >(</a
+      ><a name="1952" href="BasicIS4.Semantics.KripkeEwald.html#395" class="Field"
+      >refl&#8804;</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" href="BasicIS4.Semantics.KripkeEwald.html#547" class="Field"
+      >reflR</a
+      ><a name="1965" class="Symbol"
+      >)</a
+      ><a name="1966"
+      >
+
+  </a
+      ><a name="1970" href="BasicIS4.Semantics.KripkeEwald.html#1970" class="Function"
+      >trans&#8804;&#10814;R</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" class="Symbol"
+      >:</a
+      ><a name="1980"
+      > </a
+      ><a name="1981" class="Symbol"
+      >&#8704;</a
+      ><a name="1982"
+      > </a
+      ><a name="1983" class="Symbol"
+      >{</a
+      ><a name="1984" href="BasicIS4.Semantics.KripkeEwald.html#1984" class="Bound"
+      >w&#8242;</a
+      ><a name="1986"
+      > </a
+      ><a name="1987" href="BasicIS4.Semantics.KripkeEwald.html#1987" class="Bound"
+      >w</a
+      ><a name="1988"
+      > </a
+      ><a name="1989" href="BasicIS4.Semantics.KripkeEwald.html#1989" class="Bound"
+      >w&#8243;</a
+      ><a name="1991" class="Symbol"
+      >}</a
+      ><a name="1992"
+      > </a
+      ><a name="1993" class="Symbol"
+      >&#8594;</a
+      ><a name="1994"
+      > </a
+      ><a name="1995" href="BasicIS4.Semantics.KripkeEwald.html#1987" class="Bound"
+      >w</a
+      ><a name="1996"
+      > </a
+      ><a name="1997" href="BasicIS4.Semantics.KripkeEwald.html#1854" class="Function Operator"
+      >&#8804;&#10814;R</a
+      ><a name="2000"
+      > </a
+      ><a name="2001" href="BasicIS4.Semantics.KripkeEwald.html#1984" class="Bound"
+      >w&#8242;</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" class="Symbol"
+      >&#8594;</a
+      ><a name="2005"
+      > </a
+      ><a name="2006" href="BasicIS4.Semantics.KripkeEwald.html#1984" class="Bound"
+      >w&#8242;</a
+      ><a name="2008"
+      > </a
+      ><a name="2009" href="BasicIS4.Semantics.KripkeEwald.html#1854" class="Function Operator"
+      >&#8804;&#10814;R</a
+      ><a name="2012"
+      > </a
+      ><a name="2013" href="BasicIS4.Semantics.KripkeEwald.html#1989" class="Bound"
+      >w&#8243;</a
+      ><a name="2015"
+      > </a
+      ><a name="2016" class="Symbol"
+      >&#8594;</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" href="BasicIS4.Semantics.KripkeEwald.html#1987" class="Bound"
+      >w</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" href="BasicIS4.Semantics.KripkeEwald.html#1854" class="Function Operator"
+      >&#8804;&#10814;R</a
+      ><a name="2023"
+      > </a
+      ><a name="2024" href="BasicIS4.Semantics.KripkeEwald.html#1989" class="Bound"
+      >w&#8243;</a
+      ><a name="2026"
+      >
+  </a
+      ><a name="2029" href="BasicIS4.Semantics.KripkeEwald.html#1970" class="Function"
+      >trans&#8804;&#10814;R</a
+      ><a name="2037"
+      > </a
+      ><a name="2038" class="Symbol"
+      >{</a
+      ><a name="2039" href="BasicIS4.Semantics.KripkeEwald.html#2039" class="Bound"
+      >w&#8242;</a
+      ><a name="2041" class="Symbol"
+      >}</a
+      ><a name="2042"
+      > </a
+      ><a name="2043" class="Symbol"
+      >(</a
+      ><a name="2044" href="BasicIS4.Semantics.KripkeEwald.html#2044" class="Bound"
+      >v</a
+      ><a name="2045"
+      > </a
+      ><a name="2046" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" class="Symbol"
+      >(</a
+      ><a name="2049" href="BasicIS4.Semantics.KripkeEwald.html#2049" class="Bound"
+      >&#958;</a
+      ><a name="2050"
+      > </a
+      ><a name="2051" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" href="BasicIS4.Semantics.KripkeEwald.html#2053" class="Bound"
+      >&#950;</a
+      ><a name="2054" class="Symbol"
+      >))</a
+      ><a name="2056"
+      > </a
+      ><a name="2057" class="Symbol"
+      >(</a
+      ><a name="2058" href="BasicIS4.Semantics.KripkeEwald.html#2058" class="Bound"
+      >v&#8242;</a
+      ><a name="2060"
+      > </a
+      ><a name="2061" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2062"
+      > </a
+      ><a name="2063" class="Symbol"
+      >(</a
+      ><a name="2064" href="BasicIS4.Semantics.KripkeEwald.html#2064" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2066"
+      > </a
+      ><a name="2067" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2068"
+      > </a
+      ><a name="2069" href="BasicIS4.Semantics.KripkeEwald.html#2069" class="Bound"
+      >&#950;&#8242;</a
+      ><a name="2071" class="Symbol"
+      >))</a
+      ><a name="2073"
+      > </a
+      ><a name="2074" class="Symbol"
+      >=</a
+      ><a name="2075"
+      >
+    </a
+      ><a name="2080" class="Keyword"
+      >let</a
+      ><a name="2083"
+      > </a
+      ><a name="2084" href="BasicIS4.Semantics.KripkeEwald.html#2084" class="Bound"
+      >v&#8243;</a
+      ><a name="2086"
+      > </a
+      ><a name="2087" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2088"
+      > </a
+      ><a name="2089" class="Symbol"
+      >(</a
+      ><a name="2090" href="BasicIS4.Semantics.KripkeEwald.html#2090" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="2092"
+      > </a
+      ><a name="2093" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2094"
+      > </a
+      ><a name="2095" href="BasicIS4.Semantics.KripkeEwald.html#2095" class="Bound"
+      >&#950;&#8243;</a
+      ><a name="2097" class="Symbol"
+      >)</a
+      ><a name="2098"
+      > </a
+      ><a name="2099" class="Symbol"
+      >=</a
+      ><a name="2100"
+      > </a
+      ><a name="2101" href="BasicIS4.Semantics.KripkeEwald.html#1794" class="Field"
+      >R&#10814;&#8804;&#8594;&#8804;&#10814;R</a
+      ><a name="2108"
+      > </a
+      ><a name="2109" class="Symbol"
+      >(</a
+      ><a name="2110" href="BasicIS4.Semantics.KripkeEwald.html#2039" class="Bound"
+      >w&#8242;</a
+      ><a name="2112"
+      > </a
+      ><a name="2113" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2114"
+      > </a
+      ><a name="2115" class="Symbol"
+      >(</a
+      ><a name="2116" href="BasicIS4.Semantics.KripkeEwald.html#2053" class="Bound"
+      >&#950;</a
+      ><a name="2117"
+      > </a
+      ><a name="2118" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2119"
+      > </a
+      ><a name="2120" href="BasicIS4.Semantics.KripkeEwald.html#2064" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2122" class="Symbol"
+      >))</a
+      ><a name="2124"
+      >
+    </a
+      ><a name="2129" class="Keyword"
+      >in</a
+      ><a name="2131"
+      >  </a
+      ><a name="2133" href="BasicIS4.Semantics.KripkeEwald.html#2084" class="Bound"
+      >v&#8243;</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2137"
+      > </a
+      ><a name="2138" class="Symbol"
+      >(</a
+      ><a name="2139" href="BasicIS4.Semantics.KripkeEwald.html#422" class="Field"
+      >trans&#8804;</a
+      ><a name="2145"
+      > </a
+      ><a name="2146" href="BasicIS4.Semantics.KripkeEwald.html#2049" class="Bound"
+      >&#958;</a
+      ><a name="2147"
+      > </a
+      ><a name="2148" href="BasicIS4.Semantics.KripkeEwald.html#2090" class="Bound"
+      >&#958;&#8243;</a
+      ><a name="2150"
+      > </a
+      ><a name="2151" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2152"
+      > </a
+      ><a name="2153" href="BasicIS4.Semantics.KripkeEwald.html#574" class="Field"
+      >transR</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" href="BasicIS4.Semantics.KripkeEwald.html#2095" class="Bound"
+      >&#950;&#8243;</a
+      ><a name="2162"
+      > </a
+      ><a name="2163" href="BasicIS4.Semantics.KripkeEwald.html#2069" class="Bound"
+      >&#950;&#8242;</a
+      ><a name="2165" class="Symbol"
+      >)</a
+      ><a name="2166"
+      >
+
+</a
+      ><a name="2168" class="Keyword"
+      >open</a
+      ><a name="2172"
+      > </a
+      ><a name="2173" href="BasicIS4.Semantics.KripkeEwald.html#252" class="Module"
+      >Model</a
+      ><a name="2178"
+      > </a
+      ><a name="2179" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="2184"
+      > </a
+      ><a name="2185" class="Keyword"
+      >public</a
+      ><a name="2191"
+      >
+
+
+</a
+      ><a name="2194" class="Keyword"
+      >module</a
+      ><a name="2200"
+      > </a
+      ><a name="2201" href="BasicIS4.Semantics.KripkeEwald.html#2201" class="Module"
+      >_</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" class="Symbol"
+      >{{</a
+      ><a name="2205" href="BasicIS4.Semantics.KripkeEwald.html#2205" class="Bound"
+      >_</a
+      ><a name="2206"
+      > </a
+      ><a name="2207" class="Symbol"
+      >:</a
+      ><a name="2208"
+      > </a
+      ><a name="2209" href="BasicIS4.Semantics.KripkeEwald.html#252" class="Record"
+      >Model</a
+      ><a name="2214" class="Symbol"
+      >}}</a
+      ><a name="2216"
+      > </a
+      ><a name="2217" class="Keyword"
+      >where</a
+      ><a name="2222"
+      >
+  </a
+      ><a name="2225" class="Keyword"
+      >infix</a
+      ><a name="2230"
+      > </a
+      ><a name="2231" class="Number"
+      >3</a
+      ><a name="2232"
+      > _&#8873;_
+  </a
+      ><a name="2239" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >_&#8873;_</a
+      ><a name="2242"
+      > </a
+      ><a name="2243" class="Symbol"
+      >:</a
+      ><a name="2244"
+      > </a
+      ><a name="2245" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="2250"
+      > </a
+      ><a name="2251" class="Symbol"
+      >&#8594;</a
+      ><a name="2252"
+      > </a
+      ><a name="2253" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2255"
+      > </a
+      ><a name="2256" class="Symbol"
+      >&#8594;</a
+      ><a name="2257"
+      > </a
+      ><a name="2258" class="PrimitiveType"
+      >Set</a
+      ><a name="2261"
+      >
+  </a
+      ><a name="2264" href="BasicIS4.Semantics.KripkeEwald.html#2264" class="Bound"
+      >w</a
+      ><a name="2265"
+      > </a
+      ><a name="2266" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2267"
+      > </a
+      ><a name="2268" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="2269"
+      > </a
+      ><a name="2270" href="BasicIS4.Semantics.KripkeEwald.html#2270" class="Bound"
+      >P</a
+      ><a name="2271"
+      >   </a
+      ><a name="2274" class="Symbol"
+      >=</a
+      ><a name="2275"
+      > </a
+      ><a name="2276" href="BasicIS4.Semantics.KripkeEwald.html#2264" class="Bound"
+      >w</a
+      ><a name="2277"
+      > </a
+      ><a name="2278" href="BasicIS4.Semantics.KripkeEwald.html#679" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="2280"
+      > </a
+      ><a name="2281" href="BasicIS4.Semantics.KripkeEwald.html#2270" class="Bound"
+      >P</a
+      ><a name="2282"
+      >
+  </a
+      ><a name="2285" href="BasicIS4.Semantics.KripkeEwald.html#2285" class="Bound"
+      >w</a
+      ><a name="2286"
+      > </a
+      ><a name="2287" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2288"
+      > </a
+      ><a name="2289" href="BasicIS4.Semantics.KripkeEwald.html#2289" class="Bound"
+      >A</a
+      ><a name="2290"
+      > </a
+      ><a name="2291" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2292"
+      > </a
+      ><a name="2293" href="BasicIS4.Semantics.KripkeEwald.html#2293" class="Bound"
+      >B</a
+      ><a name="2294"
+      > </a
+      ><a name="2295" class="Symbol"
+      >=</a
+      ><a name="2296"
+      > </a
+      ><a name="2297" class="Symbol"
+      >&#8704;</a
+      ><a name="2298"
+      > </a
+      ><a name="2299" class="Symbol"
+      >{</a
+      ><a name="2300" href="BasicIS4.Semantics.KripkeEwald.html#2300" class="Bound"
+      >w&#8242;</a
+      ><a name="2302" class="Symbol"
+      >}</a
+      ><a name="2303"
+      > </a
+      ><a name="2304" class="Symbol"
+      >&#8594;</a
+      ><a name="2305"
+      > </a
+      ><a name="2306" href="BasicIS4.Semantics.KripkeEwald.html#2285" class="Bound"
+      >w</a
+      ><a name="2307"
+      > </a
+      ><a name="2308" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="2309"
+      > </a
+      ><a name="2310" href="BasicIS4.Semantics.KripkeEwald.html#2300" class="Bound"
+      >w&#8242;</a
+      ><a name="2312"
+      > </a
+      ><a name="2313" class="Symbol"
+      >&#8594;</a
+      ><a name="2314"
+      > </a
+      ><a name="2315" href="BasicIS4.Semantics.KripkeEwald.html#2300" class="Bound"
+      >w&#8242;</a
+      ><a name="2317"
+      > </a
+      ><a name="2318" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2319"
+      > </a
+      ><a name="2320" href="BasicIS4.Semantics.KripkeEwald.html#2289" class="Bound"
+      >A</a
+      ><a name="2321"
+      > </a
+      ><a name="2322" class="Symbol"
+      >&#8594;</a
+      ><a name="2323"
+      > </a
+      ><a name="2324" href="BasicIS4.Semantics.KripkeEwald.html#2300" class="Bound"
+      >w&#8242;</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2328"
+      > </a
+      ><a name="2329" href="BasicIS4.Semantics.KripkeEwald.html#2293" class="Bound"
+      >B</a
+      ><a name="2330"
+      >
+  </a
+      ><a name="2333" class="Comment"
+      >-- NOTE: Both intuitionistic and modal accessibility here.</a
+      ><a name="2391"
+      >
+  </a
+      ><a name="2394" href="BasicIS4.Semantics.KripkeEwald.html#2394" class="Bound"
+      >w</a
+      ><a name="2395"
+      > </a
+      ><a name="2396" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2397"
+      > </a
+      ><a name="2398" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" href="BasicIS4.Semantics.KripkeEwald.html#2400" class="Bound"
+      >A</a
+      ><a name="2401"
+      >   </a
+      ><a name="2404" class="Symbol"
+      >=</a
+      ><a name="2405"
+      > </a
+      ><a name="2406" class="Symbol"
+      >&#8704;</a
+      ><a name="2407"
+      > </a
+      ><a name="2408" class="Symbol"
+      >{</a
+      ><a name="2409" href="BasicIS4.Semantics.KripkeEwald.html#2409" class="Bound"
+      >w&#8242;</a
+      ><a name="2411" class="Symbol"
+      >}</a
+      ><a name="2412"
+      > </a
+      ><a name="2413" class="Symbol"
+      >&#8594;</a
+      ><a name="2414"
+      > </a
+      ><a name="2415" href="BasicIS4.Semantics.KripkeEwald.html#2394" class="Bound"
+      >w</a
+      ><a name="2416"
+      > </a
+      ><a name="2417" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="2418"
+      > </a
+      ><a name="2419" href="BasicIS4.Semantics.KripkeEwald.html#2409" class="Bound"
+      >w&#8242;</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" class="Symbol"
+      >&#8594;</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" class="Symbol"
+      >&#8704;</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" class="Symbol"
+      >{</a
+      ><a name="2427" href="BasicIS4.Semantics.KripkeEwald.html#2427" class="Bound"
+      >v&#8242;</a
+      ><a name="2429" class="Symbol"
+      >}</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" class="Symbol"
+      >&#8594;</a
+      ><a name="2432"
+      > </a
+      ><a name="2433" href="BasicIS4.Semantics.KripkeEwald.html#2409" class="Bound"
+      >w&#8242;</a
+      ><a name="2435"
+      > </a
+      ><a name="2436" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >R</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" href="BasicIS4.Semantics.KripkeEwald.html#2427" class="Bound"
+      >v&#8242;</a
+      ><a name="2440"
+      > </a
+      ><a name="2441" class="Symbol"
+      >&#8594;</a
+      ><a name="2442"
+      > </a
+      ><a name="2443" href="BasicIS4.Semantics.KripkeEwald.html#2427" class="Bound"
+      >v&#8242;</a
+      ><a name="2445"
+      > </a
+      ><a name="2446" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2447"
+      > </a
+      ><a name="2448" href="BasicIS4.Semantics.KripkeEwald.html#2400" class="Bound"
+      >A</a
+      ><a name="2449"
+      >
+  </a
+      ><a name="2452" href="BasicIS4.Semantics.KripkeEwald.html#2452" class="Bound"
+      >w</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2455"
+      > </a
+      ><a name="2456" href="BasicIS4.Semantics.KripkeEwald.html#2456" class="Bound"
+      >A</a
+      ><a name="2457"
+      > </a
+      ><a name="2458" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2459"
+      > </a
+      ><a name="2460" href="BasicIS4.Semantics.KripkeEwald.html#2460" class="Bound"
+      >B</a
+      ><a name="2461"
+      > </a
+      ><a name="2462" class="Symbol"
+      >=</a
+      ><a name="2463"
+      > </a
+      ><a name="2464" href="BasicIS4.Semantics.KripkeEwald.html#2452" class="Bound"
+      >w</a
+      ><a name="2465"
+      > </a
+      ><a name="2466" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2467"
+      > </a
+      ><a name="2468" href="BasicIS4.Semantics.KripkeEwald.html#2456" class="Bound"
+      >A</a
+      ><a name="2469"
+      > </a
+      ><a name="2470" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="2471"
+      > </a
+      ><a name="2472" href="BasicIS4.Semantics.KripkeEwald.html#2452" class="Bound"
+      >w</a
+      ><a name="2473"
+      > </a
+      ><a name="2474" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2475"
+      > </a
+      ><a name="2476" href="BasicIS4.Semantics.KripkeEwald.html#2460" class="Bound"
+      >B</a
+      ><a name="2477"
+      >
+  </a
+      ><a name="2480" href="BasicIS4.Semantics.KripkeEwald.html#2480" class="Bound"
+      >w</a
+      ><a name="2481"
+      > </a
+      ><a name="2482" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="2485"
+      >    </a
+      ><a name="2489" class="Symbol"
+      >=</a
+      ><a name="2490"
+      > </a
+      ><a name="2491" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="2492"
+      >
+
+  </a
+      ><a name="2496" class="Keyword"
+      >infix</a
+      ><a name="2501"
+      > </a
+      ><a name="2502" class="Number"
+      >3</a
+      ><a name="2503"
+      > _&#8873;&#8902;_
+  </a
+      ><a name="2511" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >_&#8873;&#8902;_</a
+      ><a name="2515"
+      > </a
+      ><a name="2516" class="Symbol"
+      >:</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="2523"
+      > </a
+      ><a name="2524" class="Symbol"
+      >&#8594;</a
+      ><a name="2525"
+      > </a
+      ><a name="2526" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2528"
+      > </a
+      ><a name="2529" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2531"
+      > </a
+      ><a name="2532" class="Symbol"
+      >&#8594;</a
+      ><a name="2533"
+      > </a
+      ><a name="2534" class="PrimitiveType"
+      >Set</a
+      ><a name="2537"
+      >
+  </a
+      ><a name="2540" href="BasicIS4.Semantics.KripkeEwald.html#2540" class="Bound"
+      >w</a
+      ><a name="2541"
+      > </a
+      ><a name="2542" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2544"
+      > </a
+      ><a name="2545" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2546"
+      >     </a
+      ><a name="2551" class="Symbol"
+      >=</a
+      ><a name="2552"
+      > </a
+      ><a name="2553" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="2554"
+      >
+  </a
+      ><a name="2557" href="BasicIS4.Semantics.KripkeEwald.html#2557" class="Bound"
+      >w</a
+      ><a name="2558"
+      > </a
+      ><a name="2559" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2561"
+      > </a
+      ><a name="2562" href="BasicIS4.Semantics.KripkeEwald.html#2562" class="Bound"
+      >&#915;</a
+      ><a name="2563"
+      > </a
+      ><a name="2564" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2565"
+      > </a
+      ><a name="2566" href="BasicIS4.Semantics.KripkeEwald.html#2566" class="Bound"
+      >A</a
+      ><a name="2567"
+      > </a
+      ><a name="2568" class="Symbol"
+      >=</a
+      ><a name="2569"
+      > </a
+      ><a name="2570" href="BasicIS4.Semantics.KripkeEwald.html#2557" class="Bound"
+      >w</a
+      ><a name="2571"
+      > </a
+      ><a name="2572" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2574"
+      > </a
+      ><a name="2575" href="BasicIS4.Semantics.KripkeEwald.html#2562" class="Bound"
+      >&#915;</a
+      ><a name="2576"
+      > </a
+      ><a name="2577" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="2578"
+      > </a
+      ><a name="2579" href="BasicIS4.Semantics.KripkeEwald.html#2557" class="Bound"
+      >w</a
+      ><a name="2580"
+      > </a
+      ><a name="2581" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2582"
+      > </a
+      ><a name="2583" href="BasicIS4.Semantics.KripkeEwald.html#2566" class="Bound"
+      >A</a
+      ><a name="2584"
+      >
+
+
+  </a
+      ><a name="2589" class="Comment"
+      >-- Monotonicity with respect to intuitionistic accessibility.</a
+      ><a name="2650"
+      >
+
+  </a
+      ><a name="2654" href="BasicIS4.Semantics.KripkeEwald.html#2654" class="Function"
+      >mono&#8873;</a
+      ><a name="2659"
+      > </a
+      ><a name="2660" class="Symbol"
+      >:</a
+      ><a name="2661"
+      > </a
+      ><a name="2662" class="Symbol"
+      >&#8704;</a
+      ><a name="2663"
+      > </a
+      ><a name="2664" class="Symbol"
+      >{</a
+      ><a name="2665" href="BasicIS4.Semantics.KripkeEwald.html#2665" class="Bound"
+      >A</a
+      ><a name="2666"
+      > </a
+      ><a name="2667" href="BasicIS4.Semantics.KripkeEwald.html#2667" class="Bound"
+      >w</a
+      ><a name="2668"
+      > </a
+      ><a name="2669" href="BasicIS4.Semantics.KripkeEwald.html#2669" class="Bound"
+      >w&#8242;</a
+      ><a name="2671" class="Symbol"
+      >}</a
+      ><a name="2672"
+      > </a
+      ><a name="2673" class="Symbol"
+      >&#8594;</a
+      ><a name="2674"
+      > </a
+      ><a name="2675" href="BasicIS4.Semantics.KripkeEwald.html#2667" class="Bound"
+      >w</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="2678"
+      > </a
+      ><a name="2679" href="BasicIS4.Semantics.KripkeEwald.html#2669" class="Bound"
+      >w&#8242;</a
+      ><a name="2681"
+      > </a
+      ><a name="2682" class="Symbol"
+      >&#8594;</a
+      ><a name="2683"
+      > </a
+      ><a name="2684" href="BasicIS4.Semantics.KripkeEwald.html#2667" class="Bound"
+      >w</a
+      ><a name="2685"
+      > </a
+      ><a name="2686" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2687"
+      > </a
+      ><a name="2688" href="BasicIS4.Semantics.KripkeEwald.html#2665" class="Bound"
+      >A</a
+      ><a name="2689"
+      > </a
+      ><a name="2690" class="Symbol"
+      >&#8594;</a
+      ><a name="2691"
+      > </a
+      ><a name="2692" href="BasicIS4.Semantics.KripkeEwald.html#2669" class="Bound"
+      >w&#8242;</a
+      ><a name="2694"
+      > </a
+      ><a name="2695" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="2696"
+      > </a
+      ><a name="2697" href="BasicIS4.Semantics.KripkeEwald.html#2665" class="Bound"
+      >A</a
+      ><a name="2698"
+      >
+  </a
+      ><a name="2701" href="BasicIS4.Semantics.KripkeEwald.html#2654" class="Function"
+      >mono&#8873;</a
+      ><a name="2706"
+      > </a
+      ><a name="2707" class="Symbol"
+      >{</a
+      ><a name="2708" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="2709"
+      > </a
+      ><a name="2710" href="BasicIS4.Semantics.KripkeEwald.html#2710" class="Bound"
+      >P</a
+      ><a name="2711" class="Symbol"
+      >}</a
+      ><a name="2712"
+      >   </a
+      ><a name="2715" href="BasicIS4.Semantics.KripkeEwald.html#2715" class="Bound"
+      >&#958;</a
+      ><a name="2716"
+      > </a
+      ><a name="2717" href="BasicIS4.Semantics.KripkeEwald.html#2717" class="Bound"
+      >s</a
+      ><a name="2718"
+      >       </a
+      ><a name="2725" class="Symbol"
+      >=</a
+      ><a name="2726"
+      > </a
+      ><a name="2727" href="BasicIS4.Semantics.KripkeEwald.html#711" class="Field"
+      >mono&#8873;&#7493;</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" href="BasicIS4.Semantics.KripkeEwald.html#2715" class="Bound"
+      >&#958;</a
+      ><a name="2735"
+      > </a
+      ><a name="2736" href="BasicIS4.Semantics.KripkeEwald.html#2717" class="Bound"
+      >s</a
+      ><a name="2737"
+      >
+  </a
+      ><a name="2740" href="BasicIS4.Semantics.KripkeEwald.html#2654" class="Function"
+      >mono&#8873;</a
+      ><a name="2745"
+      > </a
+      ><a name="2746" class="Symbol"
+      >{</a
+      ><a name="2747" href="BasicIS4.Semantics.KripkeEwald.html#2747" class="Bound"
+      >A</a
+      ><a name="2748"
+      > </a
+      ><a name="2749" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2750"
+      > </a
+      ><a name="2751" href="BasicIS4.Semantics.KripkeEwald.html#2751" class="Bound"
+      >B</a
+      ><a name="2752" class="Symbol"
+      >}</a
+      ><a name="2753"
+      > </a
+      ><a name="2754" href="BasicIS4.Semantics.KripkeEwald.html#2754" class="Bound"
+      >&#958;</a
+      ><a name="2755"
+      > </a
+      ><a name="2756" href="BasicIS4.Semantics.KripkeEwald.html#2756" class="Bound"
+      >f</a
+      ><a name="2757"
+      >       </a
+      ><a name="2764" class="Symbol"
+      >=</a
+      ><a name="2765"
+      > </a
+      ><a name="2766" class="Symbol"
+      >&#955;</a
+      ><a name="2767"
+      > </a
+      ><a name="2768" href="BasicIS4.Semantics.KripkeEwald.html#2768" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2770"
+      > </a
+      ><a name="2771" href="BasicIS4.Semantics.KripkeEwald.html#2771" class="Bound"
+      >a</a
+      ><a name="2772"
+      > </a
+      ><a name="2773" class="Symbol"
+      >&#8594;</a
+      ><a name="2774"
+      > </a
+      ><a name="2775" href="BasicIS4.Semantics.KripkeEwald.html#2756" class="Bound"
+      >f</a
+      ><a name="2776"
+      > </a
+      ><a name="2777" class="Symbol"
+      >(</a
+      ><a name="2778" href="BasicIS4.Semantics.KripkeEwald.html#422" class="Field"
+      >trans&#8804;</a
+      ><a name="2784"
+      > </a
+      ><a name="2785" href="BasicIS4.Semantics.KripkeEwald.html#2754" class="Bound"
+      >&#958;</a
+      ><a name="2786"
+      > </a
+      ><a name="2787" href="BasicIS4.Semantics.KripkeEwald.html#2768" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2789" class="Symbol"
+      >)</a
+      ><a name="2790"
+      > </a
+      ><a name="2791" href="BasicIS4.Semantics.KripkeEwald.html#2771" class="Bound"
+      >a</a
+      ><a name="2792"
+      >
+  </a
+      ><a name="2795" href="BasicIS4.Semantics.KripkeEwald.html#2654" class="Function"
+      >mono&#8873;</a
+      ><a name="2800"
+      > </a
+      ><a name="2801" class="Symbol"
+      >{</a
+      ><a name="2802" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2803"
+      > </a
+      ><a name="2804" href="BasicIS4.Semantics.KripkeEwald.html#2804" class="Bound"
+      >A</a
+      ><a name="2805" class="Symbol"
+      >}</a
+      ><a name="2806"
+      >   </a
+      ><a name="2809" href="BasicIS4.Semantics.KripkeEwald.html#2809" class="Bound"
+      >&#958;</a
+      ><a name="2810"
+      > </a
+      ><a name="2811" href="BasicIS4.Semantics.KripkeEwald.html#2811" class="Bound"
+      >&#9633;f</a
+      ><a name="2813"
+      >      </a
+      ><a name="2819" class="Symbol"
+      >=</a
+      ><a name="2820"
+      > </a
+      ><a name="2821" class="Symbol"
+      >&#955;</a
+      ><a name="2822"
+      > </a
+      ><a name="2823" href="BasicIS4.Semantics.KripkeEwald.html#2823" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2825"
+      > </a
+      ><a name="2826" href="BasicIS4.Semantics.KripkeEwald.html#2826" class="Bound"
+      >&#950;</a
+      ><a name="2827"
+      > </a
+      ><a name="2828" class="Symbol"
+      >&#8594;</a
+      ><a name="2829"
+      > </a
+      ><a name="2830" href="BasicIS4.Semantics.KripkeEwald.html#2811" class="Bound"
+      >&#9633;f</a
+      ><a name="2832"
+      > </a
+      ><a name="2833" class="Symbol"
+      >(</a
+      ><a name="2834" href="BasicIS4.Semantics.KripkeEwald.html#422" class="Field"
+      >trans&#8804;</a
+      ><a name="2840"
+      > </a
+      ><a name="2841" href="BasicIS4.Semantics.KripkeEwald.html#2809" class="Bound"
+      >&#958;</a
+      ><a name="2842"
+      > </a
+      ><a name="2843" href="BasicIS4.Semantics.KripkeEwald.html#2823" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2845" class="Symbol"
+      >)</a
+      ><a name="2846"
+      > </a
+      ><a name="2847" href="BasicIS4.Semantics.KripkeEwald.html#2826" class="Bound"
+      >&#950;</a
+      ><a name="2848"
+      >
+  </a
+      ><a name="2851" href="BasicIS4.Semantics.KripkeEwald.html#2654" class="Function"
+      >mono&#8873;</a
+      ><a name="2856"
+      > </a
+      ><a name="2857" class="Symbol"
+      >{</a
+      ><a name="2858" href="BasicIS4.Semantics.KripkeEwald.html#2858" class="Bound"
+      >A</a
+      ><a name="2859"
+      > </a
+      ><a name="2860" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2861"
+      > </a
+      ><a name="2862" href="BasicIS4.Semantics.KripkeEwald.html#2862" class="Bound"
+      >B</a
+      ><a name="2863" class="Symbol"
+      >}</a
+      ><a name="2864"
+      > </a
+      ><a name="2865" href="BasicIS4.Semantics.KripkeEwald.html#2865" class="Bound"
+      >&#958;</a
+      ><a name="2866"
+      > </a
+      ><a name="2867" class="Symbol"
+      >(</a
+      ><a name="2868" href="BasicIS4.Semantics.KripkeEwald.html#2868" class="Bound"
+      >a</a
+      ><a name="2869"
+      > </a
+      ><a name="2870" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2871"
+      > </a
+      ><a name="2872" href="BasicIS4.Semantics.KripkeEwald.html#2872" class="Bound"
+      >b</a
+      ><a name="2873" class="Symbol"
+      >)</a
+      ><a name="2874"
+      > </a
+      ><a name="2875" class="Symbol"
+      >=</a
+      ><a name="2876"
+      > </a
+      ><a name="2877" href="BasicIS4.Semantics.KripkeEwald.html#2654" class="Function"
+      >mono&#8873;</a
+      ><a name="2882"
+      > </a
+      ><a name="2883" class="Symbol"
+      >{</a
+      ><a name="2884" href="BasicIS4.Semantics.KripkeEwald.html#2858" class="Bound"
+      >A</a
+      ><a name="2885" class="Symbol"
+      >}</a
+      ><a name="2886"
+      > </a
+      ><a name="2887" href="BasicIS4.Semantics.KripkeEwald.html#2865" class="Bound"
+      >&#958;</a
+      ><a name="2888"
+      > </a
+      ><a name="2889" href="BasicIS4.Semantics.KripkeEwald.html#2868" class="Bound"
+      >a</a
+      ><a name="2890"
+      > </a
+      ><a name="2891" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2892"
+      > </a
+      ><a name="2893" href="BasicIS4.Semantics.KripkeEwald.html#2654" class="Function"
+      >mono&#8873;</a
+      ><a name="2898"
+      > </a
+      ><a name="2899" class="Symbol"
+      >{</a
+      ><a name="2900" href="BasicIS4.Semantics.KripkeEwald.html#2862" class="Bound"
+      >B</a
+      ><a name="2901" class="Symbol"
+      >}</a
+      ><a name="2902"
+      > </a
+      ><a name="2903" href="BasicIS4.Semantics.KripkeEwald.html#2865" class="Bound"
+      >&#958;</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" href="BasicIS4.Semantics.KripkeEwald.html#2872" class="Bound"
+      >b</a
+      ><a name="2906"
+      >
+  </a
+      ><a name="2909" href="BasicIS4.Semantics.KripkeEwald.html#2654" class="Function"
+      >mono&#8873;</a
+      ><a name="2914"
+      > </a
+      ><a name="2915" class="Symbol"
+      >{</a
+      ><a name="2916" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="2917" class="Symbol"
+      >}</a
+      ><a name="2918"
+      >    </a
+      ><a name="2922" href="BasicIS4.Semantics.KripkeEwald.html#2922" class="Bound"
+      >&#958;</a
+      ><a name="2923"
+      > </a
+      ><a name="2924" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2925"
+      >       </a
+      ><a name="2932" class="Symbol"
+      >=</a
+      ><a name="2933"
+      > </a
+      ><a name="2934" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2935"
+      >
+
+  </a
+      ><a name="2939" href="BasicIS4.Semantics.KripkeEwald.html#2939" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2945"
+      > </a
+      ><a name="2946" class="Symbol"
+      >:</a
+      ><a name="2947"
+      > </a
+      ><a name="2948" class="Symbol"
+      >&#8704;</a
+      ><a name="2949"
+      > </a
+      ><a name="2950" class="Symbol"
+      >{</a
+      ><a name="2951" href="BasicIS4.Semantics.KripkeEwald.html#2951" class="Bound"
+      >&#915;</a
+      ><a name="2952"
+      > </a
+      ><a name="2953" href="BasicIS4.Semantics.KripkeEwald.html#2953" class="Bound"
+      >w</a
+      ><a name="2954"
+      > </a
+      ><a name="2955" href="BasicIS4.Semantics.KripkeEwald.html#2955" class="Bound"
+      >w&#8242;</a
+      ><a name="2957" class="Symbol"
+      >}</a
+      ><a name="2958"
+      > </a
+      ><a name="2959" class="Symbol"
+      >&#8594;</a
+      ><a name="2960"
+      > </a
+      ><a name="2961" href="BasicIS4.Semantics.KripkeEwald.html#2953" class="Bound"
+      >w</a
+      ><a name="2962"
+      > </a
+      ><a name="2963" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="2964"
+      > </a
+      ><a name="2965" href="BasicIS4.Semantics.KripkeEwald.html#2955" class="Bound"
+      >w&#8242;</a
+      ><a name="2967"
+      > </a
+      ><a name="2968" class="Symbol"
+      >&#8594;</a
+      ><a name="2969"
+      > </a
+      ><a name="2970" href="BasicIS4.Semantics.KripkeEwald.html#2953" class="Bound"
+      >w</a
+      ><a name="2971"
+      > </a
+      ><a name="2972" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2974"
+      > </a
+      ><a name="2975" href="BasicIS4.Semantics.KripkeEwald.html#2951" class="Bound"
+      >&#915;</a
+      ><a name="2976"
+      > </a
+      ><a name="2977" class="Symbol"
+      >&#8594;</a
+      ><a name="2978"
+      > </a
+      ><a name="2979" href="BasicIS4.Semantics.KripkeEwald.html#2955" class="Bound"
+      >w&#8242;</a
+      ><a name="2981"
+      > </a
+      ><a name="2982" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2984"
+      > </a
+      ><a name="2985" href="BasicIS4.Semantics.KripkeEwald.html#2951" class="Bound"
+      >&#915;</a
+      ><a name="2986"
+      >
+  </a
+      ><a name="2989" href="BasicIS4.Semantics.KripkeEwald.html#2939" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="2995"
+      > </a
+      ><a name="2996" class="Symbol"
+      >{</a
+      ><a name="2997" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2998" class="Symbol"
+      >}</a
+      ><a name="2999"
+      >     </a
+      ><a name="3004" href="BasicIS4.Semantics.KripkeEwald.html#3004" class="Bound"
+      >&#958;</a
+      ><a name="3005"
+      > </a
+      ><a name="3006" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3007"
+      >       </a
+      ><a name="3014" class="Symbol"
+      >=</a
+      ><a name="3015"
+      > </a
+      ><a name="3016" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3017"
+      >
+  </a
+      ><a name="3020" href="BasicIS4.Semantics.KripkeEwald.html#2939" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="3026"
+      > </a
+      ><a name="3027" class="Symbol"
+      >{</a
+      ><a name="3028" href="BasicIS4.Semantics.KripkeEwald.html#3028" class="Bound"
+      >&#915;</a
+      ><a name="3029"
+      > </a
+      ><a name="3030" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3031"
+      > </a
+      ><a name="3032" href="BasicIS4.Semantics.KripkeEwald.html#3032" class="Bound"
+      >A</a
+      ><a name="3033" class="Symbol"
+      >}</a
+      ><a name="3034"
+      > </a
+      ><a name="3035" href="BasicIS4.Semantics.KripkeEwald.html#3035" class="Bound"
+      >&#958;</a
+      ><a name="3036"
+      > </a
+      ><a name="3037" class="Symbol"
+      >(</a
+      ><a name="3038" href="BasicIS4.Semantics.KripkeEwald.html#3038" class="Bound"
+      >&#947;</a
+      ><a name="3039"
+      > </a
+      ><a name="3040" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3041"
+      > </a
+      ><a name="3042" href="BasicIS4.Semantics.KripkeEwald.html#3042" class="Bound"
+      >a</a
+      ><a name="3043" class="Symbol"
+      >)</a
+      ><a name="3044"
+      > </a
+      ><a name="3045" class="Symbol"
+      >=</a
+      ><a name="3046"
+      > </a
+      ><a name="3047" href="BasicIS4.Semantics.KripkeEwald.html#2939" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="3053"
+      > </a
+      ><a name="3054" class="Symbol"
+      >{</a
+      ><a name="3055" href="BasicIS4.Semantics.KripkeEwald.html#3028" class="Bound"
+      >&#915;</a
+      ><a name="3056" class="Symbol"
+      >}</a
+      ><a name="3057"
+      > </a
+      ><a name="3058" href="BasicIS4.Semantics.KripkeEwald.html#3035" class="Bound"
+      >&#958;</a
+      ><a name="3059"
+      > </a
+      ><a name="3060" href="BasicIS4.Semantics.KripkeEwald.html#3038" class="Bound"
+      >&#947;</a
+      ><a name="3061"
+      > </a
+      ><a name="3062" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3063"
+      > </a
+      ><a name="3064" href="BasicIS4.Semantics.KripkeEwald.html#2654" class="Function"
+      >mono&#8873;</a
+      ><a name="3069"
+      > </a
+      ><a name="3070" class="Symbol"
+      >{</a
+      ><a name="3071" href="BasicIS4.Semantics.KripkeEwald.html#3032" class="Bound"
+      >A</a
+      ><a name="3072" class="Symbol"
+      >}</a
+      ><a name="3073"
+      > </a
+      ><a name="3074" href="BasicIS4.Semantics.KripkeEwald.html#3035" class="Bound"
+      >&#958;</a
+      ><a name="3075"
+      > </a
+      ><a name="3076" href="BasicIS4.Semantics.KripkeEwald.html#3042" class="Bound"
+      >a</a
+      ><a name="3077"
+      >
+
+
+</a
+      ><a name="3080" class="Comment"
+      >-- Forcing in all models.</a
+      ><a name="3105"
+      >
+
+</a
+      ><a name="3107" class="Keyword"
+      >infix</a
+      ><a name="3112"
+      > </a
+      ><a name="3113" class="Number"
+      >3</a
+      ><a name="3114"
+      > _&#7481;&#8873;_
+</a
+      ><a name="3120" href="BasicIS4.Semantics.KripkeEwald.html#3120" class="Function Operator"
+      >_&#7481;&#8873;_</a
+      ><a name="3124"
+      > </a
+      ><a name="3125" class="Symbol"
+      >:</a
+      ><a name="3126"
+      > </a
+      ><a name="3127" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3129"
+      > </a
+      ><a name="3130" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3132"
+      > </a
+      ><a name="3133" class="Symbol"
+      >&#8594;</a
+      ><a name="3134"
+      > </a
+      ><a name="3135" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3137"
+      > </a
+      ><a name="3138" class="Symbol"
+      >&#8594;</a
+      ><a name="3139"
+      > </a
+      ><a name="3140" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="3144"
+      >
+</a
+      ><a name="3145" href="BasicIS4.Semantics.KripkeEwald.html#3145" class="Bound"
+      >&#915;</a
+      ><a name="3146"
+      > </a
+      ><a name="3147" href="BasicIS4.Semantics.KripkeEwald.html#3120" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="3149"
+      > </a
+      ><a name="3150" href="BasicIS4.Semantics.KripkeEwald.html#3150" class="Bound"
+      >A</a
+      ><a name="3151"
+      > </a
+      ><a name="3152" class="Symbol"
+      >=</a
+      ><a name="3153"
+      > </a
+      ><a name="3154" class="Symbol"
+      >&#8704;</a
+      ><a name="3155"
+      > </a
+      ><a name="3156" class="Symbol"
+      >{{</a
+      ><a name="3158" href="BasicIS4.Semantics.KripkeEwald.html#3158" class="Bound"
+      >_</a
+      ><a name="3159"
+      > </a
+      ><a name="3160" class="Symbol"
+      >:</a
+      ><a name="3161"
+      > </a
+      ><a name="3162" href="BasicIS4.Semantics.KripkeEwald.html#252" class="Record"
+      >Model</a
+      ><a name="3167" class="Symbol"
+      >}}</a
+      ><a name="3169"
+      > </a
+      ><a name="3170" class="Symbol"
+      >{</a
+      ><a name="3171" href="BasicIS4.Semantics.KripkeEwald.html#3171" class="Bound"
+      >w</a
+      ><a name="3172"
+      > </a
+      ><a name="3173" class="Symbol"
+      >:</a
+      ><a name="3174"
+      > </a
+      ><a name="3175" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="3180" class="Symbol"
+      >}</a
+      ><a name="3181"
+      > </a
+      ><a name="3182" class="Symbol"
+      >&#8594;</a
+      ><a name="3183"
+      > </a
+      ><a name="3184" href="BasicIS4.Semantics.KripkeEwald.html#3171" class="Bound"
+      >w</a
+      ><a name="3185"
+      > </a
+      ><a name="3186" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3188"
+      > </a
+      ><a name="3189" href="BasicIS4.Semantics.KripkeEwald.html#3145" class="Bound"
+      >&#915;</a
+      ><a name="3190"
+      > </a
+      ><a name="3191" class="Symbol"
+      >&#8594;</a
+      ><a name="3192"
+      > </a
+      ><a name="3193" href="BasicIS4.Semantics.KripkeEwald.html#3171" class="Bound"
+      >w</a
+      ><a name="3194"
+      > </a
+      ><a name="3195" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="3196"
+      > </a
+      ><a name="3197" href="BasicIS4.Semantics.KripkeEwald.html#3150" class="Bound"
+      >A</a
+      ><a name="3198"
+      >
+
+</a
+      ><a name="3200" class="Keyword"
+      >infix</a
+      ><a name="3205"
+      > </a
+      ><a name="3206" class="Number"
+      >3</a
+      ><a name="3207"
+      > _&#7481;&#8873;&#8902;_
+</a
+      ><a name="3214" href="BasicIS4.Semantics.KripkeEwald.html#3214" class="Function Operator"
+      >_&#7481;&#8873;&#8902;_</a
+      ><a name="3219"
+      > </a
+      ><a name="3220" class="Symbol"
+      >:</a
+      ><a name="3221"
+      > </a
+      ><a name="3222" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3224"
+      > </a
+      ><a name="3225" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3227"
+      > </a
+      ><a name="3228" class="Symbol"
+      >&#8594;</a
+      ><a name="3229"
+      > </a
+      ><a name="3230" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3232"
+      > </a
+      ><a name="3233" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3235"
+      > </a
+      ><a name="3236" class="Symbol"
+      >&#8594;</a
+      ><a name="3237"
+      > </a
+      ><a name="3238" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="3242"
+      >
+</a
+      ><a name="3243" href="BasicIS4.Semantics.KripkeEwald.html#3243" class="Bound"
+      >&#915;</a
+      ><a name="3244"
+      > </a
+      ><a name="3245" href="BasicIS4.Semantics.KripkeEwald.html#3214" class="Function Operator"
+      >&#7481;&#8873;&#8902;</a
+      ><a name="3248"
+      > </a
+      ><a name="3249" href="BasicIS4.Semantics.KripkeEwald.html#3249" class="Bound"
+      >&#928;</a
+      ><a name="3250"
+      > </a
+      ><a name="3251" class="Symbol"
+      >=</a
+      ><a name="3252"
+      > </a
+      ><a name="3253" class="Symbol"
+      >&#8704;</a
+      ><a name="3254"
+      > </a
+      ><a name="3255" class="Symbol"
+      >{{</a
+      ><a name="3257" href="BasicIS4.Semantics.KripkeEwald.html#3257" class="Bound"
+      >_</a
+      ><a name="3258"
+      > </a
+      ><a name="3259" class="Symbol"
+      >:</a
+      ><a name="3260"
+      > </a
+      ><a name="3261" href="BasicIS4.Semantics.KripkeEwald.html#252" class="Record"
+      >Model</a
+      ><a name="3266" class="Symbol"
+      >}}</a
+      ><a name="3268"
+      > </a
+      ><a name="3269" class="Symbol"
+      >{</a
+      ><a name="3270" href="BasicIS4.Semantics.KripkeEwald.html#3270" class="Bound"
+      >w</a
+      ><a name="3271"
+      > </a
+      ><a name="3272" class="Symbol"
+      >:</a
+      ><a name="3273"
+      > </a
+      ><a name="3274" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="3279" class="Symbol"
+      >}</a
+      ><a name="3280"
+      > </a
+      ><a name="3281" class="Symbol"
+      >&#8594;</a
+      ><a name="3282"
+      > </a
+      ><a name="3283" href="BasicIS4.Semantics.KripkeEwald.html#3270" class="Bound"
+      >w</a
+      ><a name="3284"
+      > </a
+      ><a name="3285" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3287"
+      > </a
+      ><a name="3288" href="BasicIS4.Semantics.KripkeEwald.html#3243" class="Bound"
+      >&#915;</a
+      ><a name="3289"
+      > </a
+      ><a name="3290" class="Symbol"
+      >&#8594;</a
+      ><a name="3291"
+      > </a
+      ><a name="3292" href="BasicIS4.Semantics.KripkeEwald.html#3270" class="Bound"
+      >w</a
+      ><a name="3293"
+      > </a
+      ><a name="3294" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3296"
+      > </a
+      ><a name="3297" href="BasicIS4.Semantics.KripkeEwald.html#3249" class="Bound"
+      >&#928;</a
+      ><a name="3298"
+      >
+
+</a
+      ><a name="3300" class="Keyword"
+      >infix</a
+      ><a name="3305"
+      > </a
+      ><a name="3306" class="Number"
+      >3</a
+      ><a name="3307"
+      > _&#8271;_&#7481;&#8873;_
+</a
+      ><a name="3315" href="BasicIS4.Semantics.KripkeEwald.html#3315" class="Function Operator"
+      >_&#8271;_&#7481;&#8873;_</a
+      ><a name="3321"
+      > </a
+      ><a name="3322" class="Symbol"
+      >:</a
+      ><a name="3323"
+      > </a
+      ><a name="3324" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3326"
+      > </a
+      ><a name="3327" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3329"
+      > </a
+      ><a name="3330" class="Symbol"
+      >&#8594;</a
+      ><a name="3331"
+      > </a
+      ><a name="3332" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3334"
+      > </a
+      ><a name="3335" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3337"
+      > </a
+      ><a name="3338" class="Symbol"
+      >&#8594;</a
+      ><a name="3339"
+      > </a
+      ><a name="3340" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3342"
+      > </a
+      ><a name="3343" class="Symbol"
+      >&#8594;</a
+      ><a name="3344"
+      > </a
+      ><a name="3345" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="3349"
+      >
+</a
+      ><a name="3350" href="BasicIS4.Semantics.KripkeEwald.html#3350" class="Bound"
+      >&#915;</a
+      ><a name="3351"
+      > </a
+      ><a name="3352" href="BasicIS4.Semantics.KripkeEwald.html#3315" class="Function Operator"
+      >&#8271;</a
+      ><a name="3353"
+      > </a
+      ><a name="3354" href="BasicIS4.Semantics.KripkeEwald.html#3354" class="Bound"
+      >&#916;</a
+      ><a name="3355"
+      > </a
+      ><a name="3356" href="BasicIS4.Semantics.KripkeEwald.html#3315" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="3358"
+      > </a
+      ><a name="3359" href="BasicIS4.Semantics.KripkeEwald.html#3359" class="Bound"
+      >A</a
+      ><a name="3360"
+      > </a
+      ><a name="3361" class="Symbol"
+      >=</a
+      ><a name="3362"
+      > </a
+      ><a name="3363" class="Symbol"
+      >&#8704;</a
+      ><a name="3364"
+      > </a
+      ><a name="3365" class="Symbol"
+      >{{</a
+      ><a name="3367" href="BasicIS4.Semantics.KripkeEwald.html#3367" class="Bound"
+      >_</a
+      ><a name="3368"
+      > </a
+      ><a name="3369" class="Symbol"
+      >:</a
+      ><a name="3370"
+      > </a
+      ><a name="3371" href="BasicIS4.Semantics.KripkeEwald.html#252" class="Record"
+      >Model</a
+      ><a name="3376" class="Symbol"
+      >}}</a
+      ><a name="3378"
+      > </a
+      ><a name="3379" class="Symbol"
+      >{</a
+      ><a name="3380" href="BasicIS4.Semantics.KripkeEwald.html#3380" class="Bound"
+      >w</a
+      ><a name="3381"
+      > </a
+      ><a name="3382" class="Symbol"
+      >:</a
+      ><a name="3383"
+      > </a
+      ><a name="3384" href="BasicIS4.Semantics.KripkeEwald.html#298" class="Field"
+      >World</a
+      ><a name="3389" class="Symbol"
+      >}</a
+      ><a name="3390"
+      >
+              </a
+      ><a name="3405" class="Symbol"
+      >&#8594;</a
+      ><a name="3406"
+      > </a
+      ><a name="3407" href="BasicIS4.Semantics.KripkeEwald.html#3380" class="Bound"
+      >w</a
+      ><a name="3408"
+      > </a
+      ><a name="3409" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3411"
+      > </a
+      ><a name="3412" href="BasicIS4.Semantics.KripkeEwald.html#3350" class="Bound"
+      >&#915;</a
+      ><a name="3413"
+      > </a
+      ><a name="3414" class="Symbol"
+      >&#8594;</a
+      ><a name="3415"
+      > </a
+      ><a name="3416" class="Symbol"
+      >(&#8704;</a
+      ><a name="3418"
+      > </a
+      ><a name="3419" class="Symbol"
+      >{</a
+      ><a name="3420" href="BasicIS4.Semantics.KripkeEwald.html#3420" class="Bound"
+      >w&#8242;</a
+      ><a name="3422" class="Symbol"
+      >}</a
+      ><a name="3423"
+      > </a
+      ><a name="3424" class="Symbol"
+      >&#8594;</a
+      ><a name="3425"
+      > </a
+      ><a name="3426" href="BasicIS4.Semantics.KripkeEwald.html#3380" class="Bound"
+      >w</a
+      ><a name="3427"
+      > </a
+      ><a name="3428" href="BasicIS4.Semantics.KripkeEwald.html#362" class="Field Operator"
+      >&#8804;</a
+      ><a name="3429"
+      > </a
+      ><a name="3430" href="BasicIS4.Semantics.KripkeEwald.html#3420" class="Bound"
+      >w&#8242;</a
+      ><a name="3432"
+      > </a
+      ><a name="3433" class="Symbol"
+      >&#8594;</a
+      ><a name="3434"
+      > </a
+      ><a name="3435" class="Symbol"
+      >&#8704;</a
+      ><a name="3436"
+      > </a
+      ><a name="3437" class="Symbol"
+      >{</a
+      ><a name="3438" href="BasicIS4.Semantics.KripkeEwald.html#3438" class="Bound"
+      >v&#8242;</a
+      ><a name="3440" class="Symbol"
+      >}</a
+      ><a name="3441"
+      > </a
+      ><a name="3442" class="Symbol"
+      >&#8594;</a
+      ><a name="3443"
+      > </a
+      ><a name="3444" href="BasicIS4.Semantics.KripkeEwald.html#3420" class="Bound"
+      >w&#8242;</a
+      ><a name="3446"
+      > </a
+      ><a name="3447" href="BasicIS4.Semantics.KripkeEwald.html#514" class="Field Operator"
+      >R</a
+      ><a name="3448"
+      > </a
+      ><a name="3449" href="BasicIS4.Semantics.KripkeEwald.html#3438" class="Bound"
+      >v&#8242;</a
+      ><a name="3451"
+      > </a
+      ><a name="3452" class="Symbol"
+      >&#8594;</a
+      ><a name="3453"
+      > </a
+      ><a name="3454" href="BasicIS4.Semantics.KripkeEwald.html#3438" class="Bound"
+      >v&#8242;</a
+      ><a name="3456"
+      > </a
+      ><a name="3457" href="BasicIS4.Semantics.KripkeEwald.html#2511" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3459"
+      > </a
+      ><a name="3460" href="BasicIS4.Semantics.KripkeEwald.html#3354" class="Bound"
+      >&#916;</a
+      ><a name="3461" class="Symbol"
+      >)</a
+      ><a name="3462"
+      > </a
+      ><a name="3463" class="Symbol"
+      >&#8594;</a
+      ><a name="3464"
+      > </a
+      ><a name="3465" href="BasicIS4.Semantics.KripkeEwald.html#3380" class="Bound"
+      >w</a
+      ><a name="3466"
+      > </a
+      ><a name="3467" href="BasicIS4.Semantics.KripkeEwald.html#2239" class="Function Operator"
+      >&#8873;</a
+      ><a name="3468"
+      > </a
+      ><a name="3469" href="BasicIS4.Semantics.KripkeEwald.html#3359" class="Bound"
+      >A</a
+      ><a name="3470"
+      >
+
+
+</a
+      ><a name="3473" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="3504"
+      >
+
+</a
+      ><a name="3506" href="BasicIS4.Semantics.KripkeEwald.html#3506" class="Function"
+      >lookup</a
+      ><a name="3512"
+      > </a
+      ><a name="3513" class="Symbol"
+      >:</a
+      ><a name="3514"
+      > </a
+      ><a name="3515" class="Symbol"
+      >&#8704;</a
+      ><a name="3516"
+      > </a
+      ><a name="3517" class="Symbol"
+      >{</a
+      ><a name="3518" href="BasicIS4.Semantics.KripkeEwald.html#3518" class="Bound"
+      >A</a
+      ><a name="3519"
+      > </a
+      ><a name="3520" href="BasicIS4.Semantics.KripkeEwald.html#3520" class="Bound"
+      >&#915;</a
+      ><a name="3521" class="Symbol"
+      >}</a
+      ><a name="3522"
+      > </a
+      ><a name="3523" class="Symbol"
+      >&#8594;</a
+      ><a name="3524"
+      > </a
+      ><a name="3525" href="BasicIS4.Semantics.KripkeEwald.html#3518" class="Bound"
+      >A</a
+      ><a name="3526"
+      > </a
+      ><a name="3527" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="3528"
+      > </a
+      ><a name="3529" href="BasicIS4.Semantics.KripkeEwald.html#3520" class="Bound"
+      >&#915;</a
+      ><a name="3530"
+      > </a
+      ><a name="3531" class="Symbol"
+      >&#8594;</a
+      ><a name="3532"
+      > </a
+      ><a name="3533" href="BasicIS4.Semantics.KripkeEwald.html#3520" class="Bound"
+      >&#915;</a
+      ><a name="3534"
+      > </a
+      ><a name="3535" href="BasicIS4.Semantics.KripkeEwald.html#3120" class="Function Operator"
+      >&#7481;&#8873;</a
+      ><a name="3537"
+      > </a
+      ><a name="3538" href="BasicIS4.Semantics.KripkeEwald.html#3518" class="Bound"
+      >A</a
+      ><a name="3539"
+      >
+</a
+      ><a name="3540" href="BasicIS4.Semantics.KripkeEwald.html#3506" class="Function"
+      >lookup</a
+      ><a name="3546"
+      > </a
+      ><a name="3547" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="3550"
+      >     </a
+      ><a name="3555" class="Symbol"
+      >(</a
+      ><a name="3556" href="BasicIS4.Semantics.KripkeEwald.html#3556" class="Bound"
+      >&#947;</a
+      ><a name="3557"
+      > </a
+      ><a name="3558" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3559"
+      > </a
+      ><a name="3560" href="BasicIS4.Semantics.KripkeEwald.html#3560" class="Bound"
+      >a</a
+      ><a name="3561" class="Symbol"
+      >)</a
+      ><a name="3562"
+      > </a
+      ><a name="3563" class="Symbol"
+      >=</a
+      ><a name="3564"
+      > </a
+      ><a name="3565" href="BasicIS4.Semantics.KripkeEwald.html#3560" class="Bound"
+      >a</a
+      ><a name="3566"
+      >
+</a
+      ><a name="3567" href="BasicIS4.Semantics.KripkeEwald.html#3506" class="Function"
+      >lookup</a
+      ><a name="3573"
+      > </a
+      ><a name="3574" class="Symbol"
+      >(</a
+      ><a name="3575" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="3578"
+      > </a
+      ><a name="3579" href="BasicIS4.Semantics.KripkeEwald.html#3579" class="Bound"
+      >i</a
+      ><a name="3580" class="Symbol"
+      >)</a
+      ><a name="3581"
+      > </a
+      ><a name="3582" class="Symbol"
+      >(</a
+      ><a name="3583" href="BasicIS4.Semantics.KripkeEwald.html#3583" class="Bound"
+      >&#947;</a
+      ><a name="3584"
+      > </a
+      ><a name="3585" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3586"
+      > </a
+      ><a name="3587" href="BasicIS4.Semantics.KripkeEwald.html#3587" class="Bound"
+      >a</a
+      ><a name="3588" class="Symbol"
+      >)</a
+      ><a name="3589"
+      > </a
+      ><a name="3590" class="Symbol"
+      >=</a
+      ><a name="3591"
+      > </a
+      ><a name="3592" href="BasicIS4.Semantics.KripkeEwald.html#3506" class="Function"
+      >lookup</a
+      ><a name="3598"
+      > </a
+      ><a name="3599" href="BasicIS4.Semantics.KripkeEwald.html#3579" class="Bound"
+      >i</a
+      ><a name="3600"
+      > </a
+      ><a name="3601" href="BasicIS4.Semantics.KripkeEwald.html#3583" class="Bound"
+      >&#947;</a
+      ><a name="3602"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

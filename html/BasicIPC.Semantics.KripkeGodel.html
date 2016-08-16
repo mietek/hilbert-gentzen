@@ -1,0 +1,4800 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIPC.Semantics.KripkeGodel</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Kripke-style possible worlds semantics, based on the G&#246;del translation.</a
+      ><a name="75"
+      >
+
+</a
+      ><a name="77" class="Keyword"
+      >module</a
+      ><a name="83"
+      > </a
+      ><a name="84" href="BasicIPC.Semantics.KripkeGodel.html#1" class="Module"
+      >BasicIPC.Semantics.KripkeGodel</a
+      ><a name="114"
+      > </a
+      ><a name="115" class="Keyword"
+      >where</a
+      ><a name="120"
+      >
+
+</a
+      ><a name="122" class="Keyword"
+      >open</a
+      ><a name="126"
+      > </a
+      ><a name="127" class="Keyword"
+      >import</a
+      ><a name="133"
+      > </a
+      ><a name="134" href="BasicIPC.Syntax.Common.html#1" class="Module"
+      >BasicIPC.Syntax.Common</a
+      ><a name="156"
+      > </a
+      ><a name="157" class="Keyword"
+      >public</a
+      ><a name="163"
+      >
+
+
+</a
+      ><a name="166" class="Comment"
+      >-- Kripke-G&#246;del models.</a
+      ><a name="189"
+      >
+
+</a
+      ><a name="191" class="Keyword"
+      >record</a
+      ><a name="197"
+      > </a
+      ><a name="198" href="BasicIPC.Semantics.KripkeGodel.html#198" class="Record"
+      >Model</a
+      ><a name="203"
+      > </a
+      ><a name="204" class="Symbol"
+      >:</a
+      ><a name="205"
+      > </a
+      ><a name="206" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="210"
+      > </a
+      ><a name="211" class="Keyword"
+      >where</a
+      ><a name="216"
+      >
+  </a
+      ><a name="219" class="Keyword"
+      >infix</a
+      ><a name="224"
+      > </a
+      ><a name="225" class="Number"
+      >3</a
+      ><a name="226"
+      > _&#8873;&#7493;_
+  </a
+      ><a name="234" class="Keyword"
+      >field</a
+      ><a name="239"
+      >
+    </a
+      ><a name="244" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="249"
+      > </a
+      ><a name="250" class="Symbol"
+      >:</a
+      ><a name="251"
+      > </a
+      ><a name="252" class="PrimitiveType"
+      >Set</a
+      ><a name="255"
+      >
+
+    </a
+      ><a name="261" class="Comment"
+      >-- Intuitionistic accessibility; preorder.</a
+      ><a name="303"
+      >
+    </a
+      ><a name="308" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >_&#8804;_</a
+      ><a name="311"
+      >    </a
+      ><a name="315" class="Symbol"
+      >:</a
+      ><a name="316"
+      > </a
+      ><a name="317" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="322"
+      > </a
+      ><a name="323" class="Symbol"
+      >&#8594;</a
+      ><a name="324"
+      > </a
+      ><a name="325" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="330"
+      > </a
+      ><a name="331" class="Symbol"
+      >&#8594;</a
+      ><a name="332"
+      > </a
+      ><a name="333" class="PrimitiveType"
+      >Set</a
+      ><a name="336"
+      >
+    </a
+      ><a name="341" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="346"
+      >  </a
+      ><a name="348" class="Symbol"
+      >:</a
+      ><a name="349"
+      > </a
+      ><a name="350" class="Symbol"
+      >&#8704;</a
+      ><a name="351"
+      > </a
+      ><a name="352" class="Symbol"
+      >{</a
+      ><a name="353" href="BasicIPC.Semantics.KripkeGodel.html#353" class="Bound"
+      >w</a
+      ><a name="354" class="Symbol"
+      >}</a
+      ><a name="355"
+      > </a
+      ><a name="356" class="Symbol"
+      >&#8594;</a
+      ><a name="357"
+      > </a
+      ><a name="358" href="BasicIPC.Semantics.KripkeGodel.html#353" class="Bound"
+      >w</a
+      ><a name="359"
+      > </a
+      ><a name="360" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="361"
+      > </a
+      ><a name="362" href="BasicIPC.Semantics.KripkeGodel.html#353" class="Bound"
+      >w</a
+      ><a name="363"
+      >
+    </a
+      ><a name="368" href="BasicIPC.Semantics.KripkeGodel.html#368" class="Field"
+      >trans&#8804;</a
+      ><a name="374"
+      > </a
+      ><a name="375" class="Symbol"
+      >:</a
+      ><a name="376"
+      > </a
+      ><a name="377" class="Symbol"
+      >&#8704;</a
+      ><a name="378"
+      > </a
+      ><a name="379" class="Symbol"
+      >{</a
+      ><a name="380" href="BasicIPC.Semantics.KripkeGodel.html#380" class="Bound"
+      >w</a
+      ><a name="381"
+      > </a
+      ><a name="382" href="BasicIPC.Semantics.KripkeGodel.html#382" class="Bound"
+      >w&#8242;</a
+      ><a name="384"
+      > </a
+      ><a name="385" href="BasicIPC.Semantics.KripkeGodel.html#385" class="Bound"
+      >w&#8243;</a
+      ><a name="387" class="Symbol"
+      >}</a
+      ><a name="388"
+      > </a
+      ><a name="389" class="Symbol"
+      >&#8594;</a
+      ><a name="390"
+      > </a
+      ><a name="391" href="BasicIPC.Semantics.KripkeGodel.html#380" class="Bound"
+      >w</a
+      ><a name="392"
+      > </a
+      ><a name="393" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="394"
+      > </a
+      ><a name="395" href="BasicIPC.Semantics.KripkeGodel.html#382" class="Bound"
+      >w&#8242;</a
+      ><a name="397"
+      > </a
+      ><a name="398" class="Symbol"
+      >&#8594;</a
+      ><a name="399"
+      > </a
+      ><a name="400" href="BasicIPC.Semantics.KripkeGodel.html#382" class="Bound"
+      >w&#8242;</a
+      ><a name="402"
+      > </a
+      ><a name="403" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="404"
+      > </a
+      ><a name="405" href="BasicIPC.Semantics.KripkeGodel.html#385" class="Bound"
+      >w&#8243;</a
+      ><a name="407"
+      > </a
+      ><a name="408" class="Symbol"
+      >&#8594;</a
+      ><a name="409"
+      > </a
+      ><a name="410" href="BasicIPC.Semantics.KripkeGodel.html#380" class="Bound"
+      >w</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="413"
+      > </a
+      ><a name="414" href="BasicIPC.Semantics.KripkeGodel.html#385" class="Bound"
+      >w&#8243;</a
+      ><a name="416"
+      >
+
+    </a
+      ><a name="422" class="Comment"
+      >-- Forcing for atomic propositions.</a
+      ><a name="457"
+      >
+    </a
+      ><a name="462" href="BasicIPC.Semantics.KripkeGodel.html#462" class="Field Operator"
+      >_&#8873;&#7493;_</a
+      ><a name="466"
+      > </a
+      ><a name="467" class="Symbol"
+      >:</a
+      ><a name="468"
+      > </a
+      ><a name="469" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="474"
+      > </a
+      ><a name="475" class="Symbol"
+      >&#8594;</a
+      ><a name="476"
+      > </a
+      ><a name="477" href="Common.html#1171" class="Function"
+      >Atom</a
+      ><a name="481"
+      > </a
+      ><a name="482" class="Symbol"
+      >&#8594;</a
+      ><a name="483"
+      > </a
+      ><a name="484" class="PrimitiveType"
+      >Set</a
+      ><a name="487"
+      >
+
+</a
+      ><a name="489" class="Keyword"
+      >open</a
+      ><a name="493"
+      > </a
+      ><a name="494" href="BasicIPC.Semantics.KripkeGodel.html#198" class="Module"
+      >Model</a
+      ><a name="499"
+      > </a
+      ><a name="500" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="505"
+      > </a
+      ><a name="506" class="Keyword"
+      >public</a
+      ><a name="512"
+      >
+
+
+</a
+      ><a name="515" class="Comment"
+      >-- Forcing in a particular world of a particular model.</a
+      ><a name="570"
+      >
+
+</a
+      ><a name="572" class="Keyword"
+      >module</a
+      ><a name="578"
+      > </a
+      ><a name="579" href="BasicIPC.Semantics.KripkeGodel.html#579" class="Module"
+      >_</a
+      ><a name="580"
+      > </a
+      ><a name="581" class="Symbol"
+      >{{</a
+      ><a name="583" href="BasicIPC.Semantics.KripkeGodel.html#583" class="Bound"
+      >_</a
+      ><a name="584"
+      > </a
+      ><a name="585" class="Symbol"
+      >:</a
+      ><a name="586"
+      > </a
+      ><a name="587" href="BasicIPC.Semantics.KripkeGodel.html#198" class="Record"
+      >Model</a
+      ><a name="592" class="Symbol"
+      >}}</a
+      ><a name="594"
+      > </a
+      ><a name="595" class="Keyword"
+      >where</a
+      ><a name="600"
+      >
+  </a
+      ><a name="603" class="Keyword"
+      >infix</a
+      ><a name="608"
+      > </a
+      ><a name="609" class="Number"
+      >3</a
+      ><a name="610"
+      > _&#8873;_
+  </a
+      ><a name="617" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >_&#8873;_</a
+      ><a name="620"
+      > </a
+      ><a name="621" class="Symbol"
+      >:</a
+      ><a name="622"
+      > </a
+      ><a name="623" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="628"
+      > </a
+      ><a name="629" class="Symbol"
+      >&#8594;</a
+      ><a name="630"
+      > </a
+      ><a name="631" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="633"
+      > </a
+      ><a name="634" class="Symbol"
+      >&#8594;</a
+      ><a name="635"
+      > </a
+      ><a name="636" class="PrimitiveType"
+      >Set</a
+      ><a name="639"
+      >
+  </a
+      ><a name="642" href="BasicIPC.Semantics.KripkeGodel.html#642" class="Bound"
+      >w</a
+      ><a name="643"
+      > </a
+      ><a name="644" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="645"
+      > </a
+      ><a name="646" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="647"
+      > </a
+      ><a name="648" href="BasicIPC.Semantics.KripkeGodel.html#648" class="Bound"
+      >P</a
+      ><a name="649"
+      >   </a
+      ><a name="652" class="Symbol"
+      >=</a
+      ><a name="653"
+      > </a
+      ><a name="654" class="Symbol"
+      >&#8704;</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Symbol"
+      >{</a
+      ><a name="657" href="BasicIPC.Semantics.KripkeGodel.html#657" class="Bound"
+      >w&#8242;</a
+      ><a name="659" class="Symbol"
+      >}</a
+      ><a name="660"
+      > </a
+      ><a name="661" class="Symbol"
+      >&#8594;</a
+      ><a name="662"
+      > </a
+      ><a name="663" href="BasicIPC.Semantics.KripkeGodel.html#642" class="Bound"
+      >w</a
+      ><a name="664"
+      > </a
+      ><a name="665" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="666"
+      > </a
+      ><a name="667" href="BasicIPC.Semantics.KripkeGodel.html#657" class="Bound"
+      >w&#8242;</a
+      ><a name="669"
+      > </a
+      ><a name="670" class="Symbol"
+      >&#8594;</a
+      ><a name="671"
+      > </a
+      ><a name="672" href="BasicIPC.Semantics.KripkeGodel.html#657" class="Bound"
+      >w&#8242;</a
+      ><a name="674"
+      > </a
+      ><a name="675" href="BasicIPC.Semantics.KripkeGodel.html#462" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="677"
+      > </a
+      ><a name="678" href="BasicIPC.Semantics.KripkeGodel.html#648" class="Bound"
+      >P</a
+      ><a name="679"
+      >
+  </a
+      ><a name="682" href="BasicIPC.Semantics.KripkeGodel.html#682" class="Bound"
+      >w</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="685"
+      > </a
+      ><a name="686" href="BasicIPC.Semantics.KripkeGodel.html#686" class="Bound"
+      >A</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="689"
+      > </a
+      ><a name="690" href="BasicIPC.Semantics.KripkeGodel.html#690" class="Bound"
+      >B</a
+      ><a name="691"
+      > </a
+      ><a name="692" class="Symbol"
+      >=</a
+      ><a name="693"
+      > </a
+      ><a name="694" class="Symbol"
+      >&#8704;</a
+      ><a name="695"
+      > </a
+      ><a name="696" class="Symbol"
+      >{</a
+      ><a name="697" href="BasicIPC.Semantics.KripkeGodel.html#697" class="Bound"
+      >w&#8242;</a
+      ><a name="699" class="Symbol"
+      >}</a
+      ><a name="700"
+      > </a
+      ><a name="701" class="Symbol"
+      >&#8594;</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="BasicIPC.Semantics.KripkeGodel.html#682" class="Bound"
+      >w</a
+      ><a name="704"
+      > </a
+      ><a name="705" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="706"
+      > </a
+      ><a name="707" href="BasicIPC.Semantics.KripkeGodel.html#697" class="Bound"
+      >w&#8242;</a
+      ><a name="709"
+      > </a
+      ><a name="710" class="Symbol"
+      >&#8594;</a
+      ><a name="711"
+      > </a
+      ><a name="712" href="BasicIPC.Semantics.KripkeGodel.html#697" class="Bound"
+      >w&#8242;</a
+      ><a name="714"
+      > </a
+      ><a name="715" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="716"
+      > </a
+      ><a name="717" href="BasicIPC.Semantics.KripkeGodel.html#686" class="Bound"
+      >A</a
+      ><a name="718"
+      > </a
+      ><a name="719" class="Symbol"
+      >&#8594;</a
+      ><a name="720"
+      > </a
+      ><a name="721" href="BasicIPC.Semantics.KripkeGodel.html#697" class="Bound"
+      >w&#8242;</a
+      ><a name="723"
+      > </a
+      ><a name="724" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="725"
+      > </a
+      ><a name="726" href="BasicIPC.Semantics.KripkeGodel.html#690" class="Bound"
+      >B</a
+      ><a name="727"
+      >
+  </a
+      ><a name="730" href="BasicIPC.Semantics.KripkeGodel.html#730" class="Bound"
+      >w</a
+      ><a name="731"
+      > </a
+      ><a name="732" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="BasicIPC.Semantics.KripkeGodel.html#734" class="Bound"
+      >A</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="BasicIPC.Semantics.KripkeGodel.html#738" class="Bound"
+      >B</a
+      ><a name="739"
+      > </a
+      ><a name="740" class="Symbol"
+      >=</a
+      ><a name="741"
+      > </a
+      ><a name="742" class="Symbol"
+      >&#8704;</a
+      ><a name="743"
+      > </a
+      ><a name="744" class="Symbol"
+      >{</a
+      ><a name="745" href="BasicIPC.Semantics.KripkeGodel.html#745" class="Bound"
+      >w&#8242;</a
+      ><a name="747" class="Symbol"
+      >}</a
+      ><a name="748"
+      > </a
+      ><a name="749" class="Symbol"
+      >&#8594;</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="BasicIPC.Semantics.KripkeGodel.html#730" class="Bound"
+      >w</a
+      ><a name="752"
+      > </a
+      ><a name="753" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="754"
+      > </a
+      ><a name="755" href="BasicIPC.Semantics.KripkeGodel.html#745" class="Bound"
+      >w&#8242;</a
+      ><a name="757"
+      > </a
+      ><a name="758" class="Symbol"
+      >&#8594;</a
+      ><a name="759"
+      > </a
+      ><a name="760" href="BasicIPC.Semantics.KripkeGodel.html#745" class="Bound"
+      >w&#8242;</a
+      ><a name="762"
+      > </a
+      ><a name="763" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="764"
+      > </a
+      ><a name="765" href="BasicIPC.Semantics.KripkeGodel.html#734" class="Bound"
+      >A</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="768"
+      > </a
+      ><a name="769" href="BasicIPC.Semantics.KripkeGodel.html#745" class="Bound"
+      >w&#8242;</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="773"
+      > </a
+      ><a name="774" href="BasicIPC.Semantics.KripkeGodel.html#738" class="Bound"
+      >B</a
+      ><a name="775"
+      >
+  </a
+      ><a name="778" href="BasicIPC.Semantics.KripkeGodel.html#778" class="Bound"
+      >w</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="BasicIPC.Syntax.Common.html#229" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="783"
+      >    </a
+      ><a name="787" class="Symbol"
+      >=</a
+      ><a name="788"
+      > </a
+      ><a name="789" class="Symbol"
+      >&#8704;</a
+      ><a name="790"
+      > </a
+      ><a name="791" class="Symbol"
+      >{</a
+      ><a name="792" href="BasicIPC.Semantics.KripkeGodel.html#792" class="Bound"
+      >w&#8242;</a
+      ><a name="794" class="Symbol"
+      >}</a
+      ><a name="795"
+      > </a
+      ><a name="796" class="Symbol"
+      >&#8594;</a
+      ><a name="797"
+      > </a
+      ><a name="798" href="BasicIPC.Semantics.KripkeGodel.html#778" class="Bound"
+      >w</a
+      ><a name="799"
+      > </a
+      ><a name="800" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="801"
+      > </a
+      ><a name="802" href="BasicIPC.Semantics.KripkeGodel.html#792" class="Bound"
+      >w&#8242;</a
+      ><a name="804"
+      > </a
+      ><a name="805" class="Symbol"
+      >&#8594;</a
+      ><a name="806"
+      > </a
+      ><a name="807" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="808"
+      >
+
+  </a
+      ><a name="812" class="Keyword"
+      >infix</a
+      ><a name="817"
+      > </a
+      ><a name="818" class="Number"
+      >3</a
+      ><a name="819"
+      > _&#8873;&#8902;_
+  </a
+      ><a name="827" href="BasicIPC.Semantics.KripkeGodel.html#827" class="Function Operator"
+      >_&#8873;&#8902;_</a
+      ><a name="831"
+      > </a
+      ><a name="832" class="Symbol"
+      >:</a
+      ><a name="833"
+      > </a
+      ><a name="834" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="839"
+      > </a
+      ><a name="840" class="Symbol"
+      >&#8594;</a
+      ><a name="841"
+      > </a
+      ><a name="842" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="844"
+      > </a
+      ><a name="845" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="847"
+      > </a
+      ><a name="848" class="Symbol"
+      >&#8594;</a
+      ><a name="849"
+      > </a
+      ><a name="850" class="PrimitiveType"
+      >Set</a
+      ><a name="853"
+      >
+  </a
+      ><a name="856" href="BasicIPC.Semantics.KripkeGodel.html#856" class="Bound"
+      >w</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="BasicIPC.Semantics.KripkeGodel.html#827" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="860"
+      > </a
+      ><a name="861" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="862"
+      >     </a
+      ><a name="867" class="Symbol"
+      >=</a
+      ><a name="868"
+      > </a
+      ><a name="869" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="870"
+      >
+  </a
+      ><a name="873" href="BasicIPC.Semantics.KripkeGodel.html#873" class="Bound"
+      >w</a
+      ><a name="874"
+      > </a
+      ><a name="875" href="BasicIPC.Semantics.KripkeGodel.html#827" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="BasicIPC.Semantics.KripkeGodel.html#878" class="Bound"
+      >&#915;</a
+      ><a name="879"
+      > </a
+      ><a name="880" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="881"
+      > </a
+      ><a name="882" href="BasicIPC.Semantics.KripkeGodel.html#882" class="Bound"
+      >A</a
+      ><a name="883"
+      > </a
+      ><a name="884" class="Symbol"
+      >=</a
+      ><a name="885"
+      > </a
+      ><a name="886" href="BasicIPC.Semantics.KripkeGodel.html#873" class="Bound"
+      >w</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="BasicIPC.Semantics.KripkeGodel.html#827" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="BasicIPC.Semantics.KripkeGodel.html#878" class="Bound"
+      >&#915;</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="894"
+      > </a
+      ><a name="895" href="BasicIPC.Semantics.KripkeGodel.html#873" class="Bound"
+      >w</a
+      ><a name="896"
+      > </a
+      ><a name="897" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="BasicIPC.Semantics.KripkeGodel.html#882" class="Bound"
+      >A</a
+      ><a name="900"
+      >
+
+
+</a
+      ><a name="903" class="Comment"
+      >-- Monotonicity with respect to intuitionistic accessibility.</a
+      ><a name="964"
+      >
+
+</a
+      ><a name="966" class="Keyword"
+      >module</a
+      ><a name="972"
+      > </a
+      ><a name="973" href="BasicIPC.Semantics.KripkeGodel.html#973" class="Module"
+      >_</a
+      ><a name="974"
+      > </a
+      ><a name="975" class="Symbol"
+      >{{</a
+      ><a name="977" href="BasicIPC.Semantics.KripkeGodel.html#977" class="Bound"
+      >_</a
+      ><a name="978"
+      > </a
+      ><a name="979" class="Symbol"
+      >:</a
+      ><a name="980"
+      > </a
+      ><a name="981" href="BasicIPC.Semantics.KripkeGodel.html#198" class="Record"
+      >Model</a
+      ><a name="986" class="Symbol"
+      >}}</a
+      ><a name="988"
+      > </a
+      ><a name="989" class="Keyword"
+      >where</a
+      ><a name="994"
+      >
+  </a
+      ><a name="997" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" class="Symbol"
+      >:</a
+      ><a name="1004"
+      > </a
+      ><a name="1005" class="Symbol"
+      >&#8704;</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" class="Symbol"
+      >{</a
+      ><a name="1008" href="BasicIPC.Semantics.KripkeGodel.html#1008" class="Bound"
+      >A</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="BasicIPC.Semantics.KripkeGodel.html#1010" class="Bound"
+      >w</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="BasicIPC.Semantics.KripkeGodel.html#1012" class="Bound"
+      >w&#8242;</a
+      ><a name="1014" class="Symbol"
+      >}</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" class="Symbol"
+      >&#8594;</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" href="BasicIPC.Semantics.KripkeGodel.html#1010" class="Bound"
+      >w</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="BasicIPC.Semantics.KripkeGodel.html#1012" class="Bound"
+      >w&#8242;</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" class="Symbol"
+      >&#8594;</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" href="BasicIPC.Semantics.KripkeGodel.html#1010" class="Bound"
+      >w</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="BasicIPC.Semantics.KripkeGodel.html#1008" class="Bound"
+      >A</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" class="Symbol"
+      >&#8594;</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" href="BasicIPC.Semantics.KripkeGodel.html#1012" class="Bound"
+      >w&#8242;</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" href="BasicIPC.Semantics.KripkeGodel.html#1008" class="Bound"
+      >A</a
+      ><a name="1041"
+      >
+  </a
+      ><a name="1044" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="1049"
+      > </a
+      ><a name="1050" class="Symbol"
+      >{</a
+      ><a name="1051" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1052"
+      > </a
+      ><a name="1053" href="BasicIPC.Semantics.KripkeGodel.html#1053" class="Bound"
+      >P</a
+      ><a name="1054" class="Symbol"
+      >}</a
+      ><a name="1055"
+      >   </a
+      ><a name="1058" href="BasicIPC.Semantics.KripkeGodel.html#1058" class="Bound"
+      >&#958;</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" href="BasicIPC.Semantics.KripkeGodel.html#1060" class="Bound"
+      >s</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" class="Symbol"
+      >=</a
+      ><a name="1063"
+      > </a
+      ><a name="1064" class="Symbol"
+      >&#955;</a
+      ><a name="1065"
+      > </a
+      ><a name="1066" href="BasicIPC.Semantics.KripkeGodel.html#1066" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" class="Symbol"
+      >&#8594;</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" href="BasicIPC.Semantics.KripkeGodel.html#1060" class="Bound"
+      >s</a
+      ><a name="1072"
+      > </a
+      ><a name="1073" class="Symbol"
+      >(</a
+      ><a name="1074" href="BasicIPC.Semantics.KripkeGodel.html#368" class="Field"
+      >trans&#8804;</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="BasicIPC.Semantics.KripkeGodel.html#1058" class="Bound"
+      >&#958;</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="BasicIPC.Semantics.KripkeGodel.html#1066" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1085" class="Symbol"
+      >)</a
+      ><a name="1086"
+      >
+  </a
+      ><a name="1089" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="1094"
+      > </a
+      ><a name="1095" class="Symbol"
+      >{</a
+      ><a name="1096" href="BasicIPC.Semantics.KripkeGodel.html#1096" class="Bound"
+      >A</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="BasicIPC.Semantics.KripkeGodel.html#1100" class="Bound"
+      >B</a
+      ><a name="1101" class="Symbol"
+      >}</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="BasicIPC.Semantics.KripkeGodel.html#1103" class="Bound"
+      >&#958;</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="BasicIPC.Semantics.KripkeGodel.html#1105" class="Bound"
+      >s</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" class="Symbol"
+      >=</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" class="Symbol"
+      >&#955;</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="BasicIPC.Semantics.KripkeGodel.html#1111" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" class="Symbol"
+      >&#8594;</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" href="BasicIPC.Semantics.KripkeGodel.html#1105" class="Bound"
+      >s</a
+      ><a name="1117"
+      > </a
+      ><a name="1118" class="Symbol"
+      >(</a
+      ><a name="1119" href="BasicIPC.Semantics.KripkeGodel.html#368" class="Field"
+      >trans&#8804;</a
+      ><a name="1125"
+      > </a
+      ><a name="1126" href="BasicIPC.Semantics.KripkeGodel.html#1103" class="Bound"
+      >&#958;</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="BasicIPC.Semantics.KripkeGodel.html#1111" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1130" class="Symbol"
+      >)</a
+      ><a name="1131"
+      >
+  </a
+      ><a name="1134" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" class="Symbol"
+      >{</a
+      ><a name="1141" href="BasicIPC.Semantics.KripkeGodel.html#1141" class="Bound"
+      >A</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" href="BasicIPC.Semantics.KripkeGodel.html#1145" class="Bound"
+      >B</a
+      ><a name="1146" class="Symbol"
+      >}</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" href="BasicIPC.Semantics.KripkeGodel.html#1148" class="Bound"
+      >&#958;</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" href="BasicIPC.Semantics.KripkeGodel.html#1150" class="Bound"
+      >s</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" class="Symbol"
+      >=</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" class="Symbol"
+      >&#955;</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="BasicIPC.Semantics.KripkeGodel.html#1156" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" class="Symbol"
+      >&#8594;</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="BasicIPC.Semantics.KripkeGodel.html#1150" class="Bound"
+      >s</a
+      ><a name="1162"
+      > </a
+      ><a name="1163" class="Symbol"
+      >(</a
+      ><a name="1164" href="BasicIPC.Semantics.KripkeGodel.html#368" class="Field"
+      >trans&#8804;</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" href="BasicIPC.Semantics.KripkeGodel.html#1148" class="Bound"
+      >&#958;</a
+      ><a name="1172"
+      > </a
+      ><a name="1173" href="BasicIPC.Semantics.KripkeGodel.html#1156" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1175" class="Symbol"
+      >)</a
+      ><a name="1176"
+      >
+  </a
+      ><a name="1179" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" class="Symbol"
+      >{</a
+      ><a name="1186" href="BasicIPC.Syntax.Common.html#229" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1187" class="Symbol"
+      >}</a
+      ><a name="1188"
+      >    </a
+      ><a name="1192" href="BasicIPC.Semantics.KripkeGodel.html#1192" class="Bound"
+      >&#958;</a
+      ><a name="1193"
+      > </a
+      ><a name="1194" href="BasicIPC.Semantics.KripkeGodel.html#1194" class="Bound"
+      >s</a
+      ><a name="1195"
+      > </a
+      ><a name="1196" class="Symbol"
+      >=</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" class="Symbol"
+      >&#955;</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" href="BasicIPC.Semantics.KripkeGodel.html#1200" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" class="Symbol"
+      >&#8594;</a
+      ><a name="1204"
+      > </a
+      ><a name="1205" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1206"
+      >
+
+  </a
+      ><a name="1210" href="BasicIPC.Semantics.KripkeGodel.html#1210" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" class="Symbol"
+      >:</a
+      ><a name="1218"
+      > </a
+      ><a name="1219" class="Symbol"
+      >&#8704;</a
+      ><a name="1220"
+      > </a
+      ><a name="1221" class="Symbol"
+      >{</a
+      ><a name="1222" href="BasicIPC.Semantics.KripkeGodel.html#1222" class="Bound"
+      >&#915;</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" href="BasicIPC.Semantics.KripkeGodel.html#1224" class="Bound"
+      >w</a
+      ><a name="1225"
+      > </a
+      ><a name="1226" href="BasicIPC.Semantics.KripkeGodel.html#1226" class="Bound"
+      >w&#8242;</a
+      ><a name="1228" class="Symbol"
+      >}</a
+      ><a name="1229"
+      > </a
+      ><a name="1230" class="Symbol"
+      >&#8594;</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" href="BasicIPC.Semantics.KripkeGodel.html#1224" class="Bound"
+      >w</a
+      ><a name="1233"
+      > </a
+      ><a name="1234" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="1235"
+      > </a
+      ><a name="1236" href="BasicIPC.Semantics.KripkeGodel.html#1226" class="Bound"
+      >w&#8242;</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" class="Symbol"
+      >&#8594;</a
+      ><a name="1240"
+      > </a
+      ><a name="1241" href="BasicIPC.Semantics.KripkeGodel.html#1224" class="Bound"
+      >w</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" href="BasicIPC.Semantics.KripkeGodel.html#827" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1245"
+      > </a
+      ><a name="1246" href="BasicIPC.Semantics.KripkeGodel.html#1222" class="Bound"
+      >&#915;</a
+      ><a name="1247"
+      > </a
+      ><a name="1248" class="Symbol"
+      >&#8594;</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" href="BasicIPC.Semantics.KripkeGodel.html#1226" class="Bound"
+      >w&#8242;</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" href="BasicIPC.Semantics.KripkeGodel.html#827" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" href="BasicIPC.Semantics.KripkeGodel.html#1222" class="Bound"
+      >&#915;</a
+      ><a name="1257"
+      >
+  </a
+      ><a name="1260" href="BasicIPC.Semantics.KripkeGodel.html#1210" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="1266"
+      > </a
+      ><a name="1267" class="Symbol"
+      >{</a
+      ><a name="1268" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1269" class="Symbol"
+      >}</a
+      ><a name="1270"
+      >     </a
+      ><a name="1275" href="BasicIPC.Semantics.KripkeGodel.html#1275" class="Bound"
+      >&#958;</a
+      ><a name="1276"
+      > </a
+      ><a name="1277" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1278"
+      >       </a
+      ><a name="1285" class="Symbol"
+      >=</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1288"
+      >
+  </a
+      ><a name="1291" href="BasicIPC.Semantics.KripkeGodel.html#1210" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="1297"
+      > </a
+      ><a name="1298" class="Symbol"
+      >{</a
+      ><a name="1299" href="BasicIPC.Semantics.KripkeGodel.html#1299" class="Bound"
+      >&#915;</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1302"
+      > </a
+      ><a name="1303" href="BasicIPC.Semantics.KripkeGodel.html#1303" class="Bound"
+      >A</a
+      ><a name="1304" class="Symbol"
+      >}</a
+      ><a name="1305"
+      > </a
+      ><a name="1306" href="BasicIPC.Semantics.KripkeGodel.html#1306" class="Bound"
+      >&#958;</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" class="Symbol"
+      >(</a
+      ><a name="1309" href="BasicIPC.Semantics.KripkeGodel.html#1309" class="Bound"
+      >&#947;</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="BasicIPC.Semantics.KripkeGodel.html#1313" class="Bound"
+      >a</a
+      ><a name="1314" class="Symbol"
+      >)</a
+      ><a name="1315"
+      > </a
+      ><a name="1316" class="Symbol"
+      >=</a
+      ><a name="1317"
+      > </a
+      ><a name="1318" href="BasicIPC.Semantics.KripkeGodel.html#1210" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="1324"
+      > </a
+      ><a name="1325" class="Symbol"
+      >{</a
+      ><a name="1326" href="BasicIPC.Semantics.KripkeGodel.html#1299" class="Bound"
+      >&#915;</a
+      ><a name="1327" class="Symbol"
+      >}</a
+      ><a name="1328"
+      > </a
+      ><a name="1329" href="BasicIPC.Semantics.KripkeGodel.html#1306" class="Bound"
+      >&#958;</a
+      ><a name="1330"
+      > </a
+      ><a name="1331" href="BasicIPC.Semantics.KripkeGodel.html#1309" class="Bound"
+      >&#947;</a
+      ><a name="1332"
+      > </a
+      ><a name="1333" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" class="Symbol"
+      >{</a
+      ><a name="1342" href="BasicIPC.Semantics.KripkeGodel.html#1303" class="Bound"
+      >A</a
+      ><a name="1343" class="Symbol"
+      >}</a
+      ><a name="1344"
+      > </a
+      ><a name="1345" href="BasicIPC.Semantics.KripkeGodel.html#1306" class="Bound"
+      >&#958;</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" href="BasicIPC.Semantics.KripkeGodel.html#1313" class="Bound"
+      >a</a
+      ><a name="1348"
+      >
+
+
+</a
+      ><a name="1351" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="1382"
+      >
+
+</a
+      ><a name="1384" class="Keyword"
+      >module</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" href="BasicIPC.Semantics.KripkeGodel.html#1391" class="Module"
+      >_</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" class="Symbol"
+      >{{</a
+      ><a name="1395" href="BasicIPC.Semantics.KripkeGodel.html#1395" class="Bound"
+      >_</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" class="Symbol"
+      >:</a
+      ><a name="1398"
+      > </a
+      ><a name="1399" href="BasicIPC.Semantics.KripkeGodel.html#198" class="Record"
+      >Model</a
+      ><a name="1404" class="Symbol"
+      >}}</a
+      ><a name="1406"
+      > </a
+      ><a name="1407" class="Keyword"
+      >where</a
+      ><a name="1412"
+      >
+
+  </a
+      ><a name="1416" href="BasicIPC.Semantics.KripkeGodel.html#1416" class="Function Operator"
+      >_&#10218;$&#10219;_</a
+      ><a name="1421"
+      > </a
+      ><a name="1422" class="Symbol"
+      >:</a
+      ><a name="1423"
+      > </a
+      ><a name="1424" class="Symbol"
+      >&#8704;</a
+      ><a name="1425"
+      > </a
+      ><a name="1426" class="Symbol"
+      >{</a
+      ><a name="1427" href="BasicIPC.Semantics.KripkeGodel.html#1427" class="Bound"
+      >A</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" href="BasicIPC.Semantics.KripkeGodel.html#1429" class="Bound"
+      >B</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" href="BasicIPC.Semantics.KripkeGodel.html#1431" class="Bound"
+      >w</a
+      ><a name="1432" class="Symbol"
+      >}</a
+      ><a name="1433"
+      > </a
+      ><a name="1434" class="Symbol"
+      >&#8594;</a
+      ><a name="1435"
+      > </a
+      ><a name="1436" href="BasicIPC.Semantics.KripkeGodel.html#1431" class="Bound"
+      >w</a
+      ><a name="1437"
+      > </a
+      ><a name="1438" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1439"
+      > </a
+      ><a name="1440" href="BasicIPC.Semantics.KripkeGodel.html#1427" class="Bound"
+      >A</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" href="BasicIPC.Semantics.KripkeGodel.html#1429" class="Bound"
+      >B</a
+      ><a name="1445"
+      > </a
+      ><a name="1446" class="Symbol"
+      >&#8594;</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" href="BasicIPC.Semantics.KripkeGodel.html#1431" class="Bound"
+      >w</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1451"
+      > </a
+      ><a name="1452" href="BasicIPC.Semantics.KripkeGodel.html#1427" class="Bound"
+      >A</a
+      ><a name="1453"
+      > </a
+      ><a name="1454" class="Symbol"
+      >&#8594;</a
+      ><a name="1455"
+      > </a
+      ><a name="1456" href="BasicIPC.Semantics.KripkeGodel.html#1431" class="Bound"
+      >w</a
+      ><a name="1457"
+      > </a
+      ><a name="1458" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1459"
+      > </a
+      ><a name="1460" href="BasicIPC.Semantics.KripkeGodel.html#1429" class="Bound"
+      >B</a
+      ><a name="1461"
+      >
+  </a
+      ><a name="1464" href="BasicIPC.Semantics.KripkeGodel.html#1464" class="Bound"
+      >f</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" href="BasicIPC.Semantics.KripkeGodel.html#1416" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="1469"
+      > </a
+      ><a name="1470" href="BasicIPC.Semantics.KripkeGodel.html#1470" class="Bound"
+      >a</a
+      ><a name="1471"
+      > </a
+      ><a name="1472" class="Symbol"
+      >=</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="BasicIPC.Semantics.KripkeGodel.html#1464" class="Bound"
+      >f</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="1481"
+      > </a
+      ><a name="1482" href="BasicIPC.Semantics.KripkeGodel.html#1470" class="Bound"
+      >a</a
+      ><a name="1483"
+      >
+
+  </a
+      ><a name="1487" href="BasicIPC.Semantics.KripkeGodel.html#1487" class="Function"
+      >&#10218;const&#10219;</a
+      ><a name="1494"
+      > </a
+      ><a name="1495" class="Symbol"
+      >:</a
+      ><a name="1496"
+      > </a
+      ><a name="1497" class="Symbol"
+      >&#8704;</a
+      ><a name="1498"
+      > </a
+      ><a name="1499" class="Symbol"
+      >{</a
+      ><a name="1500" href="BasicIPC.Semantics.KripkeGodel.html#1500" class="Bound"
+      >A</a
+      ><a name="1501"
+      > </a
+      ><a name="1502" href="BasicIPC.Semantics.KripkeGodel.html#1502" class="Bound"
+      >B</a
+      ><a name="1503"
+      > </a
+      ><a name="1504" href="BasicIPC.Semantics.KripkeGodel.html#1504" class="Bound"
+      >w</a
+      ><a name="1505" class="Symbol"
+      >}</a
+      ><a name="1506"
+      > </a
+      ><a name="1507" class="Symbol"
+      >&#8594;</a
+      ><a name="1508"
+      > </a
+      ><a name="1509" href="BasicIPC.Semantics.KripkeGodel.html#1504" class="Bound"
+      >w</a
+      ><a name="1510"
+      > </a
+      ><a name="1511" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" href="BasicIPC.Semantics.KripkeGodel.html#1500" class="Bound"
+      >A</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" class="Symbol"
+      >&#8594;</a
+      ><a name="1516"
+      > </a
+      ><a name="1517" href="BasicIPC.Semantics.KripkeGodel.html#1504" class="Bound"
+      >w</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1520"
+      > </a
+      ><a name="1521" href="BasicIPC.Semantics.KripkeGodel.html#1502" class="Bound"
+      >B</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" href="BasicIPC.Semantics.KripkeGodel.html#1500" class="Bound"
+      >A</a
+      ><a name="1526"
+      >
+  </a
+      ><a name="1529" href="BasicIPC.Semantics.KripkeGodel.html#1487" class="Function"
+      >&#10218;const&#10219;</a
+      ><a name="1536"
+      > </a
+      ><a name="1537" class="Symbol"
+      >{</a
+      ><a name="1538" href="BasicIPC.Semantics.KripkeGodel.html#1538" class="Bound"
+      >A</a
+      ><a name="1539" class="Symbol"
+      >}</a
+      ><a name="1540"
+      > </a
+      ><a name="1541" href="BasicIPC.Semantics.KripkeGodel.html#1541" class="Bound"
+      >a</a
+      ><a name="1542"
+      > </a
+      ><a name="1543" href="BasicIPC.Semantics.KripkeGodel.html#1543" class="Bound"
+      >&#958;</a
+      ><a name="1544"
+      > </a
+      ><a name="1545" class="Symbol"
+      >=</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" href="Function.html#1053" class="Function"
+      >const</a
+      ><a name="1552"
+      > </a
+      ><a name="1553" class="Symbol"
+      >(</a
+      ><a name="1554" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="1559"
+      > </a
+      ><a name="1560" class="Symbol"
+      >{</a
+      ><a name="1561" href="BasicIPC.Semantics.KripkeGodel.html#1538" class="Bound"
+      >A</a
+      ><a name="1562" class="Symbol"
+      >}</a
+      ><a name="1563"
+      > </a
+      ><a name="1564" href="BasicIPC.Semantics.KripkeGodel.html#1543" class="Bound"
+      >&#958;</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" href="BasicIPC.Semantics.KripkeGodel.html#1541" class="Bound"
+      >a</a
+      ><a name="1567" class="Symbol"
+      >)</a
+      ><a name="1568"
+      >
+
+  </a
+      ><a name="1572" href="BasicIPC.Semantics.KripkeGodel.html#1572" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="1576"
+      > </a
+      ><a name="1577" class="Symbol"
+      >:</a
+      ><a name="1578"
+      > </a
+      ><a name="1579" class="Symbol"
+      >&#8704;</a
+      ><a name="1580"
+      > </a
+      ><a name="1581" class="Symbol"
+      >{</a
+      ><a name="1582" href="BasicIPC.Semantics.KripkeGodel.html#1582" class="Bound"
+      >A</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" href="BasicIPC.Semantics.KripkeGodel.html#1584" class="Bound"
+      >B</a
+      ><a name="1585"
+      > </a
+      ><a name="1586" href="BasicIPC.Semantics.KripkeGodel.html#1586" class="Bound"
+      >C</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" href="BasicIPC.Semantics.KripkeGodel.html#1588" class="Bound"
+      >w</a
+      ><a name="1589" class="Symbol"
+      >}</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" class="Symbol"
+      >&#8594;</a
+      ><a name="1592"
+      > </a
+      ><a name="1593" href="BasicIPC.Semantics.KripkeGodel.html#1588" class="Bound"
+      >w</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1596"
+      > </a
+      ><a name="1597" href="BasicIPC.Semantics.KripkeGodel.html#1582" class="Bound"
+      >A</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1600"
+      > </a
+      ><a name="1601" href="BasicIPC.Semantics.KripkeGodel.html#1584" class="Bound"
+      >B</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1604"
+      > </a
+      ><a name="1605" href="BasicIPC.Semantics.KripkeGodel.html#1586" class="Bound"
+      >C</a
+      ><a name="1606"
+      >
+         </a
+      ><a name="1616" class="Symbol"
+      >&#8594;</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" class="Symbol"
+      >&#8704;</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" class="Symbol"
+      >{</a
+      ><a name="1621" href="BasicIPC.Semantics.KripkeGodel.html#1621" class="Bound"
+      >w&#8242;</a
+      ><a name="1623" class="Symbol"
+      >}</a
+      ><a name="1624"
+      > </a
+      ><a name="1625" class="Symbol"
+      >&#8594;</a
+      ><a name="1626"
+      > </a
+      ><a name="1627" href="BasicIPC.Semantics.KripkeGodel.html#1588" class="Bound"
+      >w</a
+      ><a name="1628"
+      > </a
+      ><a name="1629" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="1630"
+      > </a
+      ><a name="1631" href="BasicIPC.Semantics.KripkeGodel.html#1621" class="Bound"
+      >w&#8242;</a
+      ><a name="1633"
+      > </a
+      ><a name="1634" class="Symbol"
+      >&#8594;</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" href="BasicIPC.Semantics.KripkeGodel.html#1621" class="Bound"
+      >w&#8242;</a
+      ><a name="1638"
+      > </a
+      ><a name="1639" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1640"
+      > </a
+      ><a name="1641" href="BasicIPC.Semantics.KripkeGodel.html#1582" class="Bound"
+      >A</a
+      ><a name="1642"
+      > </a
+      ><a name="1643" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1644"
+      > </a
+      ><a name="1645" href="BasicIPC.Semantics.KripkeGodel.html#1584" class="Bound"
+      >B</a
+      ><a name="1646"
+      >
+         </a
+      ><a name="1656" class="Symbol"
+      >&#8594;</a
+      ><a name="1657"
+      > </a
+      ><a name="1658" class="Symbol"
+      >&#8704;</a
+      ><a name="1659"
+      > </a
+      ><a name="1660" class="Symbol"
+      >{</a
+      ><a name="1661" href="BasicIPC.Semantics.KripkeGodel.html#1661" class="Bound"
+      >w&#8243;</a
+      ><a name="1663" class="Symbol"
+      >}</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" class="Symbol"
+      >&#8594;</a
+      ><a name="1666"
+      > </a
+      ><a name="1667" href="BasicIPC.Semantics.KripkeGodel.html#1621" class="Bound"
+      >w&#8242;</a
+      ><a name="1669"
+      > </a
+      ><a name="1670" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="1671"
+      > </a
+      ><a name="1672" href="BasicIPC.Semantics.KripkeGodel.html#1661" class="Bound"
+      >w&#8243;</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" class="Symbol"
+      >&#8594;</a
+      ><a name="1676"
+      > </a
+      ><a name="1677" href="BasicIPC.Semantics.KripkeGodel.html#1661" class="Bound"
+      >w&#8243;</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1681"
+      > </a
+      ><a name="1682" href="BasicIPC.Semantics.KripkeGodel.html#1582" class="Bound"
+      >A</a
+      ><a name="1683"
+      >
+         </a
+      ><a name="1693" class="Symbol"
+      >&#8594;</a
+      ><a name="1694"
+      > </a
+      ><a name="1695" href="BasicIPC.Semantics.KripkeGodel.html#1661" class="Bound"
+      >w&#8243;</a
+      ><a name="1697"
+      > </a
+      ><a name="1698" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1699"
+      > </a
+      ><a name="1700" href="BasicIPC.Semantics.KripkeGodel.html#1586" class="Bound"
+      >C</a
+      ><a name="1701"
+      >
+  </a
+      ><a name="1704" href="BasicIPC.Semantics.KripkeGodel.html#1572" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="1708"
+      > </a
+      ><a name="1709" class="Symbol"
+      >{</a
+      ><a name="1710" href="BasicIPC.Semantics.KripkeGodel.html#1710" class="Bound"
+      >A</a
+      ><a name="1711" class="Symbol"
+      >}</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" class="Symbol"
+      >{</a
+      ><a name="1714" href="BasicIPC.Semantics.KripkeGodel.html#1714" class="Bound"
+      >B</a
+      ><a name="1715" class="Symbol"
+      >}</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" class="Symbol"
+      >{</a
+      ><a name="1718" href="BasicIPC.Semantics.KripkeGodel.html#1718" class="Bound"
+      >C</a
+      ><a name="1719" class="Symbol"
+      >}</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" href="BasicIPC.Semantics.KripkeGodel.html#1721" class="Bound"
+      >f</a
+      ><a name="1722"
+      > </a
+      ><a name="1723" href="BasicIPC.Semantics.KripkeGodel.html#1723" class="Bound"
+      >&#958;</a
+      ><a name="1724"
+      > </a
+      ><a name="1725" href="BasicIPC.Semantics.KripkeGodel.html#1725" class="Bound"
+      >g</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" href="BasicIPC.Semantics.KripkeGodel.html#1727" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="BasicIPC.Semantics.KripkeGodel.html#1730" class="Bound"
+      >a</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" class="Symbol"
+      >=</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" class="Keyword"
+      >let</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" href="BasicIPC.Semantics.KripkeGodel.html#1738" class="Bound"
+      >f&#8242;</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" class="Symbol"
+      >=</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" class="Symbol"
+      >{</a
+      ><a name="1750" href="BasicIPC.Semantics.KripkeGodel.html#1710" class="Bound"
+      >A</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="BasicIPC.Semantics.KripkeGodel.html#1714" class="Bound"
+      >B</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="BasicIPC.Semantics.KripkeGodel.html#1718" class="Bound"
+      >C</a
+      ><a name="1759" class="Symbol"
+      >}</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" class="Symbol"
+      >(</a
+      ><a name="1762" href="BasicIPC.Semantics.KripkeGodel.html#368" class="Field"
+      >trans&#8804;</a
+      ><a name="1768"
+      > </a
+      ><a name="1769" href="BasicIPC.Semantics.KripkeGodel.html#1723" class="Bound"
+      >&#958;</a
+      ><a name="1770"
+      > </a
+      ><a name="1771" href="BasicIPC.Semantics.KripkeGodel.html#1727" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1773" class="Symbol"
+      >)</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="BasicIPC.Semantics.KripkeGodel.html#1721" class="Bound"
+      >f</a
+      ><a name="1776"
+      >
+                                    </a
+      ><a name="1813" href="BasicIPC.Semantics.KripkeGodel.html#1813" class="Bound"
+      >g&#8242;</a
+      ><a name="1815"
+      > </a
+      ><a name="1816" class="Symbol"
+      >=</a
+      ><a name="1817"
+      > </a
+      ><a name="1818" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="1823"
+      > </a
+      ><a name="1824" class="Symbol"
+      >{</a
+      ><a name="1825" href="BasicIPC.Semantics.KripkeGodel.html#1710" class="Bound"
+      >A</a
+      ><a name="1826"
+      > </a
+      ><a name="1827" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1828"
+      > </a
+      ><a name="1829" href="BasicIPC.Semantics.KripkeGodel.html#1714" class="Bound"
+      >B</a
+      ><a name="1830" class="Symbol"
+      >}</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" href="BasicIPC.Semantics.KripkeGodel.html#1727" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="1834"
+      > </a
+      ><a name="1835" href="BasicIPC.Semantics.KripkeGodel.html#1725" class="Bound"
+      >g</a
+      ><a name="1836"
+      >
+                                </a
+      ><a name="1869" class="Keyword"
+      >in</a
+      ><a name="1871"
+      >  </a
+      ><a name="1873" class="Symbol"
+      >(</a
+      ><a name="1874" href="BasicIPC.Semantics.KripkeGodel.html#1738" class="Bound"
+      >f&#8242;</a
+      ><a name="1876"
+      > </a
+      ><a name="1877" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="1882"
+      > </a
+      ><a name="1883" href="BasicIPC.Semantics.KripkeGodel.html#1730" class="Bound"
+      >a</a
+      ><a name="1884" class="Symbol"
+      >)</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" class="Symbol"
+      >(</a
+      ><a name="1893" href="BasicIPC.Semantics.KripkeGodel.html#1813" class="Bound"
+      >g&#8242;</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" href="BasicIPC.Semantics.KripkeGodel.html#1730" class="Bound"
+      >a</a
+      ><a name="1903" class="Symbol"
+      >)</a
+      ><a name="1904"
+      >
+
+  </a
+      ><a name="1908" href="BasicIPC.Semantics.KripkeGodel.html#1908" class="Function"
+      >&#10218;ap&#10219;&#8242;</a
+      ><a name="1913"
+      > </a
+      ><a name="1914" class="Symbol"
+      >:</a
+      ><a name="1915"
+      > </a
+      ><a name="1916" class="Symbol"
+      >&#8704;</a
+      ><a name="1917"
+      > </a
+      ><a name="1918" class="Symbol"
+      >{</a
+      ><a name="1919" href="BasicIPC.Semantics.KripkeGodel.html#1919" class="Bound"
+      >A</a
+      ><a name="1920"
+      > </a
+      ><a name="1921" href="BasicIPC.Semantics.KripkeGodel.html#1921" class="Bound"
+      >B</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" href="BasicIPC.Semantics.KripkeGodel.html#1923" class="Bound"
+      >C</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" href="BasicIPC.Semantics.KripkeGodel.html#1925" class="Bound"
+      >w</a
+      ><a name="1926" class="Symbol"
+      >}</a
+      ><a name="1927"
+      > </a
+      ><a name="1928" class="Symbol"
+      >&#8594;</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" href="BasicIPC.Semantics.KripkeGodel.html#1925" class="Bound"
+      >w</a
+      ><a name="1931"
+      > </a
+      ><a name="1932" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="BasicIPC.Semantics.KripkeGodel.html#1919" class="Bound"
+      >A</a
+      ><a name="1935"
+      > </a
+      ><a name="1936" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1937"
+      > </a
+      ><a name="1938" href="BasicIPC.Semantics.KripkeGodel.html#1921" class="Bound"
+      >B</a
+      ><a name="1939"
+      > </a
+      ><a name="1940" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" href="BasicIPC.Semantics.KripkeGodel.html#1923" class="Bound"
+      >C</a
+      ><a name="1943"
+      > </a
+      ><a name="1944" class="Symbol"
+      >&#8594;</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" href="BasicIPC.Semantics.KripkeGodel.html#1925" class="Bound"
+      >w</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1949"
+      > </a
+      ><a name="1950" href="BasicIPC.Semantics.KripkeGodel.html#1919" class="Bound"
+      >A</a
+      ><a name="1951"
+      > </a
+      ><a name="1952" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1953"
+      > </a
+      ><a name="1954" href="BasicIPC.Semantics.KripkeGodel.html#1921" class="Bound"
+      >B</a
+      ><a name="1955"
+      > </a
+      ><a name="1956" class="Symbol"
+      >&#8594;</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" href="BasicIPC.Semantics.KripkeGodel.html#1925" class="Bound"
+      >w</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1961"
+      > </a
+      ><a name="1962" href="BasicIPC.Semantics.KripkeGodel.html#1919" class="Bound"
+      >A</a
+      ><a name="1963"
+      > </a
+      ><a name="1964" class="Symbol"
+      >&#8594;</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="BasicIPC.Semantics.KripkeGodel.html#1925" class="Bound"
+      >w</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="1969"
+      > </a
+      ><a name="1970" href="BasicIPC.Semantics.KripkeGodel.html#1923" class="Bound"
+      >C</a
+      ><a name="1971"
+      >
+  </a
+      ><a name="1974" href="BasicIPC.Semantics.KripkeGodel.html#1908" class="Function"
+      >&#10218;ap&#10219;&#8242;</a
+      ><a name="1979"
+      > </a
+      ><a name="1980" class="Symbol"
+      >{</a
+      ><a name="1981" href="BasicIPC.Semantics.KripkeGodel.html#1981" class="Bound"
+      >A</a
+      ><a name="1982" class="Symbol"
+      >}</a
+      ><a name="1983"
+      > </a
+      ><a name="1984" class="Symbol"
+      >{</a
+      ><a name="1985" href="BasicIPC.Semantics.KripkeGodel.html#1985" class="Bound"
+      >B</a
+      ><a name="1986" class="Symbol"
+      >}</a
+      ><a name="1987"
+      > </a
+      ><a name="1988" class="Symbol"
+      >{</a
+      ><a name="1989" href="BasicIPC.Semantics.KripkeGodel.html#1989" class="Bound"
+      >C</a
+      ><a name="1990" class="Symbol"
+      >}</a
+      ><a name="1991"
+      > </a
+      ><a name="1992" href="BasicIPC.Semantics.KripkeGodel.html#1992" class="Bound"
+      >f</a
+      ><a name="1993"
+      > </a
+      ><a name="1994" href="BasicIPC.Semantics.KripkeGodel.html#1994" class="Bound"
+      >g</a
+      ><a name="1995"
+      > </a
+      ><a name="1996" href="BasicIPC.Semantics.KripkeGodel.html#1996" class="Bound"
+      >a</a
+      ><a name="1997"
+      > </a
+      ><a name="1998" class="Symbol"
+      >=</a
+      ><a name="1999"
+      > </a
+      ><a name="2000" href="BasicIPC.Semantics.KripkeGodel.html#1572" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="2004"
+      > </a
+      ><a name="2005" class="Symbol"
+      >{</a
+      ><a name="2006" href="BasicIPC.Semantics.KripkeGodel.html#1981" class="Bound"
+      >A</a
+      ><a name="2007" class="Symbol"
+      >}</a
+      ><a name="2008"
+      > </a
+      ><a name="2009" class="Symbol"
+      >{</a
+      ><a name="2010" href="BasicIPC.Semantics.KripkeGodel.html#1985" class="Bound"
+      >B</a
+      ><a name="2011" class="Symbol"
+      >}</a
+      ><a name="2012"
+      > </a
+      ><a name="2013" class="Symbol"
+      >{</a
+      ><a name="2014" href="BasicIPC.Semantics.KripkeGodel.html#1989" class="Bound"
+      >C</a
+      ><a name="2015" class="Symbol"
+      >}</a
+      ><a name="2016"
+      > </a
+      ><a name="2017" href="BasicIPC.Semantics.KripkeGodel.html#1992" class="Bound"
+      >f</a
+      ><a name="2018"
+      > </a
+      ><a name="2019" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" href="BasicIPC.Semantics.KripkeGodel.html#1994" class="Bound"
+      >g</a
+      ><a name="2026"
+      > </a
+      ><a name="2027" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="2032"
+      > </a
+      ><a name="2033" href="BasicIPC.Semantics.KripkeGodel.html#1996" class="Bound"
+      >a</a
+      ><a name="2034"
+      >
+
+  </a
+      ><a name="2038" href="BasicIPC.Semantics.KripkeGodel.html#2038" class="Function Operator"
+      >_&#10218;,&#10219;_</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" class="Symbol"
+      >:</a
+      ><a name="2045"
+      > </a
+      ><a name="2046" class="Symbol"
+      >&#8704;</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" class="Symbol"
+      >{</a
+      ><a name="2049" href="BasicIPC.Semantics.KripkeGodel.html#2049" class="Bound"
+      >A</a
+      ><a name="2050"
+      > </a
+      ><a name="2051" href="BasicIPC.Semantics.KripkeGodel.html#2051" class="Bound"
+      >B</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" href="BasicIPC.Semantics.KripkeGodel.html#2053" class="Bound"
+      >w</a
+      ><a name="2054" class="Symbol"
+      >}</a
+      ><a name="2055"
+      > </a
+      ><a name="2056" class="Symbol"
+      >&#8594;</a
+      ><a name="2057"
+      > </a
+      ><a name="2058" href="BasicIPC.Semantics.KripkeGodel.html#2053" class="Bound"
+      >w</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2061"
+      > </a
+      ><a name="2062" href="BasicIPC.Semantics.KripkeGodel.html#2049" class="Bound"
+      >A</a
+      ><a name="2063"
+      >
+          </a
+      ><a name="2074" class="Symbol"
+      >&#8594;</a
+      ><a name="2075"
+      > </a
+      ><a name="2076" class="Symbol"
+      >&#8704;</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" class="Symbol"
+      >{</a
+      ><a name="2079" href="BasicIPC.Semantics.KripkeGodel.html#2079" class="Bound"
+      >w&#8242;</a
+      ><a name="2081" class="Symbol"
+      >}</a
+      ><a name="2082"
+      > </a
+      ><a name="2083" class="Symbol"
+      >&#8594;</a
+      ><a name="2084"
+      > </a
+      ><a name="2085" href="BasicIPC.Semantics.KripkeGodel.html#2053" class="Bound"
+      >w</a
+      ><a name="2086"
+      > </a
+      ><a name="2087" href="BasicIPC.Semantics.KripkeGodel.html#308" class="Field Operator"
+      >&#8804;</a
+      ><a name="2088"
+      > </a
+      ><a name="2089" href="BasicIPC.Semantics.KripkeGodel.html#2079" class="Bound"
+      >w&#8242;</a
+      ><a name="2091"
+      > </a
+      ><a name="2092" class="Symbol"
+      >&#8594;</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" href="BasicIPC.Semantics.KripkeGodel.html#2079" class="Bound"
+      >w&#8242;</a
+      ><a name="2096"
+      > </a
+      ><a name="2097" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2098"
+      > </a
+      ><a name="2099" href="BasicIPC.Semantics.KripkeGodel.html#2051" class="Bound"
+      >B</a
+      ><a name="2100"
+      >
+          </a
+      ><a name="2111" class="Symbol"
+      >&#8594;</a
+      ><a name="2112"
+      > </a
+      ><a name="2113" href="BasicIPC.Semantics.KripkeGodel.html#2079" class="Bound"
+      >w&#8242;</a
+      ><a name="2115"
+      > </a
+      ><a name="2116" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2117"
+      > </a
+      ><a name="2118" href="BasicIPC.Semantics.KripkeGodel.html#2049" class="Bound"
+      >A</a
+      ><a name="2119"
+      > </a
+      ><a name="2120" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2121"
+      > </a
+      ><a name="2122" href="BasicIPC.Semantics.KripkeGodel.html#2051" class="Bound"
+      >B</a
+      ><a name="2123"
+      >
+  </a
+      ><a name="2126" href="BasicIPC.Semantics.KripkeGodel.html#2038" class="Function Operator"
+      >_&#10218;,&#10219;_</a
+      ><a name="2131"
+      > </a
+      ><a name="2132" class="Symbol"
+      >{</a
+      ><a name="2133" href="BasicIPC.Semantics.KripkeGodel.html#2133" class="Bound"
+      >A</a
+      ><a name="2134" class="Symbol"
+      >}</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" class="Symbol"
+      >{</a
+      ><a name="2137" href="BasicIPC.Semantics.KripkeGodel.html#2137" class="Bound"
+      >B</a
+      ><a name="2138" class="Symbol"
+      >}</a
+      ><a name="2139"
+      > </a
+      ><a name="2140" href="BasicIPC.Semantics.KripkeGodel.html#2140" class="Bound"
+      >a</a
+      ><a name="2141"
+      > </a
+      ><a name="2142" href="BasicIPC.Semantics.KripkeGodel.html#2142" class="Bound"
+      >&#958;</a
+      ><a name="2143"
+      > </a
+      ><a name="2144" href="BasicIPC.Semantics.KripkeGodel.html#2144" class="Bound"
+      >b</a
+      ><a name="2145"
+      > </a
+      ><a name="2146" href="BasicIPC.Semantics.KripkeGodel.html#2146" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2148"
+      > </a
+      ><a name="2149" class="Symbol"
+      >=</a
+      ><a name="2150"
+      > </a
+      ><a name="2151" class="Keyword"
+      >let</a
+      ><a name="2154"
+      > </a
+      ><a name="2155" href="BasicIPC.Semantics.KripkeGodel.html#2155" class="Bound"
+      >a&#8242;</a
+      ><a name="2157"
+      > </a
+      ><a name="2158" class="Symbol"
+      >=</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" class="Symbol"
+      >{</a
+      ><a name="2167" href="BasicIPC.Semantics.KripkeGodel.html#2133" class="Bound"
+      >A</a
+      ><a name="2168" class="Symbol"
+      >}</a
+      ><a name="2169"
+      > </a
+      ><a name="2170" class="Symbol"
+      >(</a
+      ><a name="2171" href="BasicIPC.Semantics.KripkeGodel.html#368" class="Field"
+      >trans&#8804;</a
+      ><a name="2177"
+      > </a
+      ><a name="2178" href="BasicIPC.Semantics.KripkeGodel.html#2142" class="Bound"
+      >&#958;</a
+      ><a name="2179"
+      > </a
+      ><a name="2180" href="BasicIPC.Semantics.KripkeGodel.html#2146" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2182" class="Symbol"
+      >)</a
+      ><a name="2183"
+      > </a
+      ><a name="2184" href="BasicIPC.Semantics.KripkeGodel.html#2140" class="Bound"
+      >a</a
+      ><a name="2185"
+      >
+                               </a
+      ><a name="2217" href="BasicIPC.Semantics.KripkeGodel.html#2217" class="Bound"
+      >b&#8242;</a
+      ><a name="2219"
+      > </a
+      ><a name="2220" class="Symbol"
+      >=</a
+      ><a name="2221"
+      > </a
+      ><a name="2222" href="BasicIPC.Semantics.KripkeGodel.html#997" class="Function"
+      >mono&#8873;</a
+      ><a name="2227"
+      > </a
+      ><a name="2228" class="Symbol"
+      >{</a
+      ><a name="2229" href="BasicIPC.Semantics.KripkeGodel.html#2137" class="Bound"
+      >B</a
+      ><a name="2230" class="Symbol"
+      >}</a
+      ><a name="2231"
+      > </a
+      ><a name="2232" href="BasicIPC.Semantics.KripkeGodel.html#2146" class="Bound"
+      >&#958;&#8242;</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" href="BasicIPC.Semantics.KripkeGodel.html#2144" class="Bound"
+      >b</a
+      ><a name="2236"
+      >
+                           </a
+      ><a name="2264" class="Keyword"
+      >in</a
+      ><a name="2266"
+      >  </a
+      ><a name="2268" href="BasicIPC.Semantics.KripkeGodel.html#2155" class="Bound"
+      >a&#8242;</a
+      ><a name="2270"
+      > </a
+      ><a name="2271" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2272"
+      > </a
+      ><a name="2273" href="BasicIPC.Semantics.KripkeGodel.html#2217" class="Bound"
+      >b&#8242;</a
+      ><a name="2275"
+      >
+
+  </a
+      ><a name="2279" href="BasicIPC.Semantics.KripkeGodel.html#2279" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="2285"
+      > </a
+      ><a name="2286" class="Symbol"
+      >:</a
+      ><a name="2287"
+      > </a
+      ><a name="2288" class="Symbol"
+      >&#8704;</a
+      ><a name="2289"
+      > </a
+      ><a name="2290" class="Symbol"
+      >{</a
+      ><a name="2291" href="BasicIPC.Semantics.KripkeGodel.html#2291" class="Bound"
+      >A</a
+      ><a name="2292"
+      > </a
+      ><a name="2293" href="BasicIPC.Semantics.KripkeGodel.html#2293" class="Bound"
+      >B</a
+      ><a name="2294"
+      > </a
+      ><a name="2295" href="BasicIPC.Semantics.KripkeGodel.html#2295" class="Bound"
+      >w</a
+      ><a name="2296" class="Symbol"
+      >}</a
+      ><a name="2297"
+      > </a
+      ><a name="2298" class="Symbol"
+      >&#8594;</a
+      ><a name="2299"
+      > </a
+      ><a name="2300" href="BasicIPC.Semantics.KripkeGodel.html#2295" class="Bound"
+      >w</a
+      ><a name="2301"
+      > </a
+      ><a name="2302" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2303"
+      > </a
+      ><a name="2304" href="BasicIPC.Semantics.KripkeGodel.html#2291" class="Bound"
+      >A</a
+      ><a name="2305"
+      > </a
+      ><a name="2306" class="Symbol"
+      >&#8594;</a
+      ><a name="2307"
+      > </a
+      ><a name="2308" href="BasicIPC.Semantics.KripkeGodel.html#2295" class="Bound"
+      >w</a
+      ><a name="2309"
+      > </a
+      ><a name="2310" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2311"
+      > </a
+      ><a name="2312" href="BasicIPC.Semantics.KripkeGodel.html#2293" class="Bound"
+      >B</a
+      ><a name="2313"
+      > </a
+      ><a name="2314" class="Symbol"
+      >&#8594;</a
+      ><a name="2315"
+      > </a
+      ><a name="2316" href="BasicIPC.Semantics.KripkeGodel.html#2295" class="Bound"
+      >w</a
+      ><a name="2317"
+      > </a
+      ><a name="2318" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2319"
+      > </a
+      ><a name="2320" href="BasicIPC.Semantics.KripkeGodel.html#2291" class="Bound"
+      >A</a
+      ><a name="2321"
+      > </a
+      ><a name="2322" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2323"
+      > </a
+      ><a name="2324" href="BasicIPC.Semantics.KripkeGodel.html#2293" class="Bound"
+      >B</a
+      ><a name="2325"
+      >
+  </a
+      ><a name="2328" href="BasicIPC.Semantics.KripkeGodel.html#2279" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="2334"
+      > </a
+      ><a name="2335" class="Symbol"
+      >{</a
+      ><a name="2336" href="BasicIPC.Semantics.KripkeGodel.html#2336" class="Bound"
+      >A</a
+      ><a name="2337" class="Symbol"
+      >}</a
+      ><a name="2338"
+      > </a
+      ><a name="2339" class="Symbol"
+      >{</a
+      ><a name="2340" href="BasicIPC.Semantics.KripkeGodel.html#2340" class="Bound"
+      >B</a
+      ><a name="2341" class="Symbol"
+      >}</a
+      ><a name="2342"
+      > </a
+      ><a name="2343" href="BasicIPC.Semantics.KripkeGodel.html#2343" class="Bound"
+      >a</a
+      ><a name="2344"
+      > </a
+      ><a name="2345" href="BasicIPC.Semantics.KripkeGodel.html#2345" class="Bound"
+      >b</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" class="Symbol"
+      >=</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" href="BasicIPC.Semantics.KripkeGodel.html#2038" class="Function Operator"
+      >_&#10218;,&#10219;_</a
+      ><a name="2354"
+      > </a
+      ><a name="2355" class="Symbol"
+      >{</a
+      ><a name="2356" href="BasicIPC.Semantics.KripkeGodel.html#2336" class="Bound"
+      >A</a
+      ><a name="2357" class="Symbol"
+      >}</a
+      ><a name="2358"
+      > </a
+      ><a name="2359" class="Symbol"
+      >{</a
+      ><a name="2360" href="BasicIPC.Semantics.KripkeGodel.html#2340" class="Bound"
+      >B</a
+      ><a name="2361" class="Symbol"
+      >}</a
+      ><a name="2362"
+      > </a
+      ><a name="2363" href="BasicIPC.Semantics.KripkeGodel.html#2343" class="Bound"
+      >a</a
+      ><a name="2364"
+      > </a
+      ><a name="2365" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="2370"
+      > </a
+      ><a name="2371" href="BasicIPC.Semantics.KripkeGodel.html#2345" class="Bound"
+      >b</a
+      ><a name="2372"
+      >
+
+  </a
+      ><a name="2376" href="BasicIPC.Semantics.KripkeGodel.html#2376" class="Function"
+      >&#10218;&#960;&#8321;&#10219;</a
+      ><a name="2380"
+      > </a
+      ><a name="2381" class="Symbol"
+      >:</a
+      ><a name="2382"
+      > </a
+      ><a name="2383" class="Symbol"
+      >&#8704;</a
+      ><a name="2384"
+      > </a
+      ><a name="2385" class="Symbol"
+      >{</a
+      ><a name="2386" href="BasicIPC.Semantics.KripkeGodel.html#2386" class="Bound"
+      >A</a
+      ><a name="2387"
+      > </a
+      ><a name="2388" href="BasicIPC.Semantics.KripkeGodel.html#2388" class="Bound"
+      >B</a
+      ><a name="2389"
+      > </a
+      ><a name="2390" href="BasicIPC.Semantics.KripkeGodel.html#2390" class="Bound"
+      >w</a
+      ><a name="2391" class="Symbol"
+      >}</a
+      ><a name="2392"
+      > </a
+      ><a name="2393" class="Symbol"
+      >&#8594;</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" href="BasicIPC.Semantics.KripkeGodel.html#2390" class="Bound"
+      >w</a
+      ><a name="2396"
+      > </a
+      ><a name="2397" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2398"
+      > </a
+      ><a name="2399" href="BasicIPC.Semantics.KripkeGodel.html#2386" class="Bound"
+      >A</a
+      ><a name="2400"
+      > </a
+      ><a name="2401" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2402"
+      > </a
+      ><a name="2403" href="BasicIPC.Semantics.KripkeGodel.html#2388" class="Bound"
+      >B</a
+      ><a name="2404"
+      > </a
+      ><a name="2405" class="Symbol"
+      >&#8594;</a
+      ><a name="2406"
+      > </a
+      ><a name="2407" href="BasicIPC.Semantics.KripkeGodel.html#2390" class="Bound"
+      >w</a
+      ><a name="2408"
+      > </a
+      ><a name="2409" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2410"
+      > </a
+      ><a name="2411" href="BasicIPC.Semantics.KripkeGodel.html#2386" class="Bound"
+      >A</a
+      ><a name="2412"
+      >
+  </a
+      ><a name="2415" href="BasicIPC.Semantics.KripkeGodel.html#2376" class="Function"
+      >&#10218;&#960;&#8321;&#10219;</a
+      ><a name="2419"
+      > </a
+      ><a name="2420" href="BasicIPC.Semantics.KripkeGodel.html#2420" class="Bound"
+      >s</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" class="Symbol"
+      >=</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="2426"
+      > </a
+      ><a name="2427" class="Symbol"
+      >(</a
+      ><a name="2428" href="BasicIPC.Semantics.KripkeGodel.html#2420" class="Bound"
+      >s</a
+      ><a name="2429"
+      > </a
+      ><a name="2430" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="2435" class="Symbol"
+      >)</a
+      ><a name="2436"
+      >
+
+  </a
+      ><a name="2440" href="BasicIPC.Semantics.KripkeGodel.html#2440" class="Function"
+      >&#10218;&#960;&#8322;&#10219;</a
+      ><a name="2444"
+      > </a
+      ><a name="2445" class="Symbol"
+      >:</a
+      ><a name="2446"
+      > </a
+      ><a name="2447" class="Symbol"
+      >&#8704;</a
+      ><a name="2448"
+      > </a
+      ><a name="2449" class="Symbol"
+      >{</a
+      ><a name="2450" href="BasicIPC.Semantics.KripkeGodel.html#2450" class="Bound"
+      >A</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" href="BasicIPC.Semantics.KripkeGodel.html#2452" class="Bound"
+      >B</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" href="BasicIPC.Semantics.KripkeGodel.html#2454" class="Bound"
+      >w</a
+      ><a name="2455" class="Symbol"
+      >}</a
+      ><a name="2456"
+      > </a
+      ><a name="2457" class="Symbol"
+      >&#8594;</a
+      ><a name="2458"
+      > </a
+      ><a name="2459" href="BasicIPC.Semantics.KripkeGodel.html#2454" class="Bound"
+      >w</a
+      ><a name="2460"
+      > </a
+      ><a name="2461" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2462"
+      > </a
+      ><a name="2463" href="BasicIPC.Semantics.KripkeGodel.html#2450" class="Bound"
+      >A</a
+      ><a name="2464"
+      > </a
+      ><a name="2465" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2466"
+      > </a
+      ><a name="2467" href="BasicIPC.Semantics.KripkeGodel.html#2452" class="Bound"
+      >B</a
+      ><a name="2468"
+      > </a
+      ><a name="2469" class="Symbol"
+      >&#8594;</a
+      ><a name="2470"
+      > </a
+      ><a name="2471" href="BasicIPC.Semantics.KripkeGodel.html#2454" class="Bound"
+      >w</a
+      ><a name="2472"
+      > </a
+      ><a name="2473" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2474"
+      > </a
+      ><a name="2475" href="BasicIPC.Semantics.KripkeGodel.html#2452" class="Bound"
+      >B</a
+      ><a name="2476"
+      >
+  </a
+      ><a name="2479" href="BasicIPC.Semantics.KripkeGodel.html#2440" class="Function"
+      >&#10218;&#960;&#8322;&#10219;</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" href="BasicIPC.Semantics.KripkeGodel.html#2484" class="Bound"
+      >s</a
+      ><a name="2485"
+      > </a
+      ><a name="2486" class="Symbol"
+      >=</a
+      ><a name="2487"
+      > </a
+      ><a name="2488" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="2490"
+      > </a
+      ><a name="2491" class="Symbol"
+      >(</a
+      ><a name="2492" href="BasicIPC.Semantics.KripkeGodel.html#2484" class="Bound"
+      >s</a
+      ><a name="2493"
+      > </a
+      ><a name="2494" href="BasicIPC.Semantics.KripkeGodel.html#341" class="Field"
+      >refl&#8804;</a
+      ><a name="2499" class="Symbol"
+      >)</a
+      ><a name="2500"
+      >
+
+
+</a
+      ><a name="2503" class="Comment"
+      >-- Forcing in a particular world of a particular model, for open syntax.</a
+      ><a name="2575"
+      >
+
+</a
+      ><a name="2577" class="Keyword"
+      >module</a
+      ><a name="2583"
+      > </a
+      ><a name="2584" href="BasicIPC.Semantics.KripkeGodel.html#2584" class="Module"
+      >_</a
+      ><a name="2585"
+      > </a
+      ><a name="2586" class="Symbol"
+      >{{</a
+      ><a name="2588" href="BasicIPC.Semantics.KripkeGodel.html#2588" class="Bound"
+      >_</a
+      ><a name="2589"
+      > </a
+      ><a name="2590" class="Symbol"
+      >:</a
+      ><a name="2591"
+      > </a
+      ><a name="2592" href="BasicIPC.Semantics.KripkeGodel.html#198" class="Record"
+      >Model</a
+      ><a name="2597" class="Symbol"
+      >}}</a
+      ><a name="2599"
+      > </a
+      ><a name="2600" class="Keyword"
+      >where</a
+      ><a name="2605"
+      >
+  </a
+      ><a name="2608" class="Keyword"
+      >infix</a
+      ><a name="2613"
+      > </a
+      ><a name="2614" class="Number"
+      >3</a
+      ><a name="2615"
+      > _&#8873;_&#8658;_
+  </a
+      ><a name="2624" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >_&#8873;_&#8658;_</a
+      ><a name="2629"
+      > </a
+      ><a name="2630" class="Symbol"
+      >:</a
+      ><a name="2631"
+      > </a
+      ><a name="2632" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="2637"
+      > </a
+      ><a name="2638" class="Symbol"
+      >&#8594;</a
+      ><a name="2639"
+      > </a
+      ><a name="2640" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2642"
+      > </a
+      ><a name="2643" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="2645"
+      > </a
+      ><a name="2646" class="Symbol"
+      >&#8594;</a
+      ><a name="2647"
+      > </a
+      ><a name="2648" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="2650"
+      > </a
+      ><a name="2651" class="Symbol"
+      >&#8594;</a
+      ><a name="2652"
+      > </a
+      ><a name="2653" class="PrimitiveType"
+      >Set</a
+      ><a name="2656"
+      >
+  </a
+      ><a name="2659" href="BasicIPC.Semantics.KripkeGodel.html#2659" class="Bound"
+      >w</a
+      ><a name="2660"
+      > </a
+      ><a name="2661" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="2662"
+      > </a
+      ><a name="2663" href="BasicIPC.Semantics.KripkeGodel.html#2663" class="Bound"
+      >&#915;</a
+      ><a name="2664"
+      > </a
+      ><a name="2665" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="2666"
+      > </a
+      ><a name="2667" href="BasicIPC.Semantics.KripkeGodel.html#2667" class="Bound"
+      >A</a
+      ><a name="2668"
+      > </a
+      ><a name="2669" class="Symbol"
+      >=</a
+      ><a name="2670"
+      > </a
+      ><a name="2671" href="BasicIPC.Semantics.KripkeGodel.html#2659" class="Bound"
+      >w</a
+      ><a name="2672"
+      > </a
+      ><a name="2673" href="BasicIPC.Semantics.KripkeGodel.html#827" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2675"
+      > </a
+      ><a name="2676" href="BasicIPC.Semantics.KripkeGodel.html#2663" class="Bound"
+      >&#915;</a
+      ><a name="2677"
+      > </a
+      ><a name="2678" class="Symbol"
+      >&#8594;</a
+      ><a name="2679"
+      > </a
+      ><a name="2680" href="BasicIPC.Semantics.KripkeGodel.html#2659" class="Bound"
+      >w</a
+      ><a name="2681"
+      > </a
+      ><a name="2682" href="BasicIPC.Semantics.KripkeGodel.html#617" class="Function Operator"
+      >&#8873;</a
+      ><a name="2683"
+      > </a
+      ><a name="2684" href="BasicIPC.Semantics.KripkeGodel.html#2667" class="Bound"
+      >A</a
+      ><a name="2685"
+      >
+
+  </a
+      ><a name="2689" class="Keyword"
+      >infix</a
+      ><a name="2694"
+      > </a
+      ><a name="2695" class="Number"
+      >3</a
+      ><a name="2696"
+      > _&#8873;_&#8658;&#8902;_
+  </a
+      ><a name="2706" href="BasicIPC.Semantics.KripkeGodel.html#2706" class="Function Operator"
+      >_&#8873;_&#8658;&#8902;_</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" class="Symbol"
+      >:</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="2720"
+      > </a
+      ><a name="2721" class="Symbol"
+      >&#8594;</a
+      ><a name="2722"
+      > </a
+      ><a name="2723" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2725"
+      > </a
+      ><a name="2726" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="2728"
+      > </a
+      ><a name="2729" class="Symbol"
+      >&#8594;</a
+      ><a name="2730"
+      > </a
+      ><a name="2731" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="2736"
+      > </a
+      ><a name="2737" class="Symbol"
+      >&#8594;</a
+      ><a name="2738"
+      > </a
+      ><a name="2739" class="PrimitiveType"
+      >Set</a
+      ><a name="2742"
+      >
+  </a
+      ><a name="2745" href="BasicIPC.Semantics.KripkeGodel.html#2745" class="Bound"
+      >w</a
+      ><a name="2746"
+      > </a
+      ><a name="2747" href="BasicIPC.Semantics.KripkeGodel.html#2706" class="Function Operator"
+      >&#8873;</a
+      ><a name="2748"
+      > </a
+      ><a name="2749" href="BasicIPC.Semantics.KripkeGodel.html#2749" class="Bound"
+      >&#915;</a
+      ><a name="2750"
+      > </a
+      ><a name="2751" href="BasicIPC.Semantics.KripkeGodel.html#2706" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="2753"
+      > </a
+      ><a name="2754" href="BasicIPC.Semantics.KripkeGodel.html#2754" class="Bound"
+      >&#928;</a
+      ><a name="2755"
+      > </a
+      ><a name="2756" class="Symbol"
+      >=</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="BasicIPC.Semantics.KripkeGodel.html#2745" class="Bound"
+      >w</a
+      ><a name="2759"
+      > </a
+      ><a name="2760" href="BasicIPC.Semantics.KripkeGodel.html#827" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2762"
+      > </a
+      ><a name="2763" href="BasicIPC.Semantics.KripkeGodel.html#2749" class="Bound"
+      >&#915;</a
+      ><a name="2764"
+      > </a
+      ><a name="2765" class="Symbol"
+      >&#8594;</a
+      ><a name="2766"
+      > </a
+      ><a name="2767" href="BasicIPC.Semantics.KripkeGodel.html#2745" class="Bound"
+      >w</a
+      ><a name="2768"
+      > </a
+      ><a name="2769" href="BasicIPC.Semantics.KripkeGodel.html#827" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2771"
+      > </a
+      ><a name="2772" href="BasicIPC.Semantics.KripkeGodel.html#2754" class="Bound"
+      >&#928;</a
+      ><a name="2773"
+      >
+
+
+</a
+      ><a name="2776" class="Comment"
+      >-- Forcing in all worlds of all models, for open syntax.</a
+      ><a name="2832"
+      >
+
+</a
+      ><a name="2834" class="Keyword"
+      >infix</a
+      ><a name="2839"
+      > </a
+      ><a name="2840" class="Number"
+      >3</a
+      ><a name="2841"
+      > &#8704;&#7481;&#695;&#8873;_&#8658;_
+</a
+      ><a name="2850" href="BasicIPC.Semantics.KripkeGodel.html#2850" class="Function Operator"
+      >&#8704;&#7481;&#695;&#8873;_&#8658;_</a
+      ><a name="2857"
+      > </a
+      ><a name="2858" class="Symbol"
+      >:</a
+      ><a name="2859"
+      > </a
+      ><a name="2860" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2862"
+      > </a
+      ><a name="2863" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="2865"
+      > </a
+      ><a name="2866" class="Symbol"
+      >&#8594;</a
+      ><a name="2867"
+      > </a
+      ><a name="2868" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="2870"
+      > </a
+      ><a name="2871" class="Symbol"
+      >&#8594;</a
+      ><a name="2872"
+      > </a
+      ><a name="2873" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="2877"
+      >
+</a
+      ><a name="2878" href="BasicIPC.Semantics.KripkeGodel.html#2850" class="Function Operator"
+      >&#8704;&#7481;&#695;&#8873;</a
+      ><a name="2882"
+      > </a
+      ><a name="2883" href="BasicIPC.Semantics.KripkeGodel.html#2883" class="Bound"
+      >&#915;</a
+      ><a name="2884"
+      > </a
+      ><a name="2885" href="BasicIPC.Semantics.KripkeGodel.html#2850" class="Function Operator"
+      >&#8658;</a
+      ><a name="2886"
+      > </a
+      ><a name="2887" href="BasicIPC.Semantics.KripkeGodel.html#2887" class="Bound"
+      >A</a
+      ><a name="2888"
+      > </a
+      ><a name="2889" class="Symbol"
+      >=</a
+      ><a name="2890"
+      > </a
+      ><a name="2891" class="Symbol"
+      >&#8704;</a
+      ><a name="2892"
+      > </a
+      ><a name="2893" class="Symbol"
+      >{{</a
+      ><a name="2895" href="BasicIPC.Semantics.KripkeGodel.html#2895" class="Bound"
+      >_</a
+      ><a name="2896"
+      > </a
+      ><a name="2897" class="Symbol"
+      >:</a
+      ><a name="2898"
+      > </a
+      ><a name="2899" href="BasicIPC.Semantics.KripkeGodel.html#198" class="Record"
+      >Model</a
+      ><a name="2904" class="Symbol"
+      >}}</a
+      ><a name="2906"
+      > </a
+      ><a name="2907" class="Symbol"
+      >{</a
+      ><a name="2908" href="BasicIPC.Semantics.KripkeGodel.html#2908" class="Bound"
+      >w</a
+      ><a name="2909"
+      > </a
+      ><a name="2910" class="Symbol"
+      >:</a
+      ><a name="2911"
+      > </a
+      ><a name="2912" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="2917" class="Symbol"
+      >}</a
+      ><a name="2918"
+      > </a
+      ><a name="2919" class="Symbol"
+      >&#8594;</a
+      ><a name="2920"
+      > </a
+      ><a name="2921" href="BasicIPC.Semantics.KripkeGodel.html#2908" class="Bound"
+      >w</a
+      ><a name="2922"
+      > </a
+      ><a name="2923" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="2924"
+      > </a
+      ><a name="2925" href="BasicIPC.Semantics.KripkeGodel.html#2883" class="Bound"
+      >&#915;</a
+      ><a name="2926"
+      > </a
+      ><a name="2927" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="2928"
+      > </a
+      ><a name="2929" href="BasicIPC.Semantics.KripkeGodel.html#2887" class="Bound"
+      >A</a
+      ><a name="2930"
+      >
+
+</a
+      ><a name="2932" class="Keyword"
+      >infix</a
+      ><a name="2937"
+      > </a
+      ><a name="2938" class="Number"
+      >3</a
+      ><a name="2939"
+      > &#8704;&#7481;&#695;&#8873;_&#8658;&#8902;_
+</a
+      ><a name="2949" href="BasicIPC.Semantics.KripkeGodel.html#2949" class="Function Operator"
+      >&#8704;&#7481;&#695;&#8873;_&#8658;&#8902;_</a
+      ><a name="2957"
+      > </a
+      ><a name="2958" class="Symbol"
+      >:</a
+      ><a name="2959"
+      > </a
+      ><a name="2960" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2962"
+      > </a
+      ><a name="2963" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="2965"
+      > </a
+      ><a name="2966" class="Symbol"
+      >&#8594;</a
+      ><a name="2967"
+      > </a
+      ><a name="2968" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2970"
+      > </a
+      ><a name="2971" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="2973"
+      > </a
+      ><a name="2974" class="Symbol"
+      >&#8594;</a
+      ><a name="2975"
+      > </a
+      ><a name="2976" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="2980"
+      >
+</a
+      ><a name="2981" href="BasicIPC.Semantics.KripkeGodel.html#2949" class="Function Operator"
+      >&#8704;&#7481;&#695;&#8873;</a
+      ><a name="2985"
+      > </a
+      ><a name="2986" href="BasicIPC.Semantics.KripkeGodel.html#2986" class="Bound"
+      >&#915;</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" href="BasicIPC.Semantics.KripkeGodel.html#2949" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="2990"
+      > </a
+      ><a name="2991" href="BasicIPC.Semantics.KripkeGodel.html#2991" class="Bound"
+      >&#928;</a
+      ><a name="2992"
+      > </a
+      ><a name="2993" class="Symbol"
+      >=</a
+      ><a name="2994"
+      > </a
+      ><a name="2995" class="Symbol"
+      >&#8704;</a
+      ><a name="2996"
+      > </a
+      ><a name="2997" class="Symbol"
+      >{{</a
+      ><a name="2999" href="BasicIPC.Semantics.KripkeGodel.html#2999" class="Bound"
+      >_</a
+      ><a name="3000"
+      > </a
+      ><a name="3001" class="Symbol"
+      >:</a
+      ><a name="3002"
+      > </a
+      ><a name="3003" href="BasicIPC.Semantics.KripkeGodel.html#198" class="Record"
+      >Model</a
+      ><a name="3008" class="Symbol"
+      >}}</a
+      ><a name="3010"
+      > </a
+      ><a name="3011" class="Symbol"
+      >{</a
+      ><a name="3012" href="BasicIPC.Semantics.KripkeGodel.html#3012" class="Bound"
+      >w</a
+      ><a name="3013"
+      > </a
+      ><a name="3014" class="Symbol"
+      >:</a
+      ><a name="3015"
+      > </a
+      ><a name="3016" href="BasicIPC.Semantics.KripkeGodel.html#244" class="Field"
+      >World</a
+      ><a name="3021" class="Symbol"
+      >}</a
+      ><a name="3022"
+      > </a
+      ><a name="3023" class="Symbol"
+      >&#8594;</a
+      ><a name="3024"
+      > </a
+      ><a name="3025" href="BasicIPC.Semantics.KripkeGodel.html#3012" class="Bound"
+      >w</a
+      ><a name="3026"
+      > </a
+      ><a name="3027" href="BasicIPC.Semantics.KripkeGodel.html#2706" class="Function Operator"
+      >&#8873;</a
+      ><a name="3028"
+      > </a
+      ><a name="3029" href="BasicIPC.Semantics.KripkeGodel.html#2986" class="Bound"
+      >&#915;</a
+      ><a name="3030"
+      > </a
+      ><a name="3031" href="BasicIPC.Semantics.KripkeGodel.html#2706" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="3033"
+      > </a
+      ><a name="3034" href="BasicIPC.Semantics.KripkeGodel.html#2991" class="Bound"
+      >&#928;</a
+      ><a name="3035"
+      >
+
+
+</a
+      ><a name="3038" class="Comment"
+      >-- Additional useful equipment, for open syntax.</a
+      ><a name="3086"
+      >
+
+</a
+      ><a name="3088" class="Keyword"
+      >module</a
+      ><a name="3094"
+      > </a
+      ><a name="3095" href="BasicIPC.Semantics.KripkeGodel.html#3095" class="Module"
+      >_</a
+      ><a name="3096"
+      > </a
+      ><a name="3097" class="Symbol"
+      >{{</a
+      ><a name="3099" href="BasicIPC.Semantics.KripkeGodel.html#3099" class="Bound"
+      >_</a
+      ><a name="3100"
+      > </a
+      ><a name="3101" class="Symbol"
+      >:</a
+      ><a name="3102"
+      > </a
+      ><a name="3103" href="BasicIPC.Semantics.KripkeGodel.html#198" class="Record"
+      >Model</a
+      ><a name="3108" class="Symbol"
+      >}}</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" class="Keyword"
+      >where</a
+      ><a name="3116"
+      >
+  </a
+      ><a name="3119" href="BasicIPC.Semantics.KripkeGodel.html#3119" class="Function"
+      >lookup</a
+      ><a name="3125"
+      > </a
+      ><a name="3126" class="Symbol"
+      >:</a
+      ><a name="3127"
+      > </a
+      ><a name="3128" class="Symbol"
+      >&#8704;</a
+      ><a name="3129"
+      > </a
+      ><a name="3130" class="Symbol"
+      >{</a
+      ><a name="3131" href="BasicIPC.Semantics.KripkeGodel.html#3131" class="Bound"
+      >A</a
+      ><a name="3132"
+      > </a
+      ><a name="3133" href="BasicIPC.Semantics.KripkeGodel.html#3133" class="Bound"
+      >&#915;</a
+      ><a name="3134"
+      > </a
+      ><a name="3135" href="BasicIPC.Semantics.KripkeGodel.html#3135" class="Bound"
+      >w</a
+      ><a name="3136" class="Symbol"
+      >}</a
+      ><a name="3137"
+      > </a
+      ><a name="3138" class="Symbol"
+      >&#8594;</a
+      ><a name="3139"
+      > </a
+      ><a name="3140" href="BasicIPC.Semantics.KripkeGodel.html#3131" class="Bound"
+      >A</a
+      ><a name="3141"
+      > </a
+      ><a name="3142" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="3143"
+      > </a
+      ><a name="3144" href="BasicIPC.Semantics.KripkeGodel.html#3133" class="Bound"
+      >&#915;</a
+      ><a name="3145"
+      > </a
+      ><a name="3146" class="Symbol"
+      >&#8594;</a
+      ><a name="3147"
+      > </a
+      ><a name="3148" href="BasicIPC.Semantics.KripkeGodel.html#3135" class="Bound"
+      >w</a
+      ><a name="3149"
+      > </a
+      ><a name="3150" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3151"
+      > </a
+      ><a name="3152" href="BasicIPC.Semantics.KripkeGodel.html#3133" class="Bound"
+      >&#915;</a
+      ><a name="3153"
+      > </a
+      ><a name="3154" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3155"
+      > </a
+      ><a name="3156" href="BasicIPC.Semantics.KripkeGodel.html#3131" class="Bound"
+      >A</a
+      ><a name="3157"
+      >
+  </a
+      ><a name="3160" href="BasicIPC.Semantics.KripkeGodel.html#3119" class="Function"
+      >lookup</a
+      ><a name="3166"
+      > </a
+      ><a name="3167" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="3170"
+      >     </a
+      ><a name="3175" class="Symbol"
+      >(</a
+      ><a name="3176" href="BasicIPC.Semantics.KripkeGodel.html#3176" class="Bound"
+      >&#947;</a
+      ><a name="3177"
+      > </a
+      ><a name="3178" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3179"
+      > </a
+      ><a name="3180" href="BasicIPC.Semantics.KripkeGodel.html#3180" class="Bound"
+      >a</a
+      ><a name="3181" class="Symbol"
+      >)</a
+      ><a name="3182"
+      > </a
+      ><a name="3183" class="Symbol"
+      >=</a
+      ><a name="3184"
+      > </a
+      ><a name="3185" href="BasicIPC.Semantics.KripkeGodel.html#3180" class="Bound"
+      >a</a
+      ><a name="3186"
+      >
+  </a
+      ><a name="3189" href="BasicIPC.Semantics.KripkeGodel.html#3119" class="Function"
+      >lookup</a
+      ><a name="3195"
+      > </a
+      ><a name="3196" class="Symbol"
+      >(</a
+      ><a name="3197" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="3200"
+      > </a
+      ><a name="3201" href="BasicIPC.Semantics.KripkeGodel.html#3201" class="Bound"
+      >i</a
+      ><a name="3202" class="Symbol"
+      >)</a
+      ><a name="3203"
+      > </a
+      ><a name="3204" class="Symbol"
+      >(</a
+      ><a name="3205" href="BasicIPC.Semantics.KripkeGodel.html#3205" class="Bound"
+      >&#947;</a
+      ><a name="3206"
+      > </a
+      ><a name="3207" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3208"
+      > </a
+      ><a name="3209" href="BasicIPC.Semantics.KripkeGodel.html#3209" class="Bound"
+      >b</a
+      ><a name="3210" class="Symbol"
+      >)</a
+      ><a name="3211"
+      > </a
+      ><a name="3212" class="Symbol"
+      >=</a
+      ><a name="3213"
+      > </a
+      ><a name="3214" href="BasicIPC.Semantics.KripkeGodel.html#3119" class="Function"
+      >lookup</a
+      ><a name="3220"
+      > </a
+      ><a name="3221" href="BasicIPC.Semantics.KripkeGodel.html#3201" class="Bound"
+      >i</a
+      ><a name="3222"
+      > </a
+      ><a name="3223" href="BasicIPC.Semantics.KripkeGodel.html#3205" class="Bound"
+      >&#947;</a
+      ><a name="3224"
+      >
+
+  </a
+      ><a name="3228" href="BasicIPC.Semantics.KripkeGodel.html#3228" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="3231"
+      > </a
+      ><a name="3232" class="Symbol"
+      >:</a
+      ><a name="3233"
+      > </a
+      ><a name="3234" class="Symbol"
+      >&#8704;</a
+      ><a name="3235"
+      > </a
+      ><a name="3236" class="Symbol"
+      >{</a
+      ><a name="3237" href="BasicIPC.Semantics.KripkeGodel.html#3237" class="Bound"
+      >A</a
+      ><a name="3238"
+      > </a
+      ><a name="3239" href="BasicIPC.Semantics.KripkeGodel.html#3239" class="Bound"
+      >B</a
+      ><a name="3240"
+      > </a
+      ><a name="3241" href="BasicIPC.Semantics.KripkeGodel.html#3241" class="Bound"
+      >&#915;</a
+      ><a name="3242"
+      > </a
+      ><a name="3243" href="BasicIPC.Semantics.KripkeGodel.html#3243" class="Bound"
+      >w</a
+      ><a name="3244" class="Symbol"
+      >}</a
+      ><a name="3245"
+      > </a
+      ><a name="3246" class="Symbol"
+      >&#8594;</a
+      ><a name="3247"
+      > </a
+      ><a name="3248" class="Symbol"
+      >(&#8704;</a
+      ><a name="3250"
+      > </a
+      ><a name="3251" class="Symbol"
+      >{</a
+      ><a name="3252" href="BasicIPC.Semantics.KripkeGodel.html#3252" class="Bound"
+      >w&#8242;</a
+      ><a name="3254" class="Symbol"
+      >}</a
+      ><a name="3255"
+      > </a
+      ><a name="3256" class="Symbol"
+      >&#8594;</a
+      ><a name="3257"
+      > </a
+      ><a name="3258" href="BasicIPC.Semantics.KripkeGodel.html#3252" class="Bound"
+      >w&#8242;</a
+      ><a name="3260"
+      > </a
+      ><a name="3261" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3262"
+      > </a
+      ><a name="3263" href="BasicIPC.Semantics.KripkeGodel.html#3241" class="Bound"
+      >&#915;</a
+      ><a name="3264"
+      > </a
+      ><a name="3265" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3266"
+      > </a
+      ><a name="3267" href="BasicIPC.Semantics.KripkeGodel.html#3237" class="Bound"
+      >A</a
+      ><a name="3268"
+      > </a
+      ><a name="3269" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3270"
+      > </a
+      ><a name="3271" href="BasicIPC.Semantics.KripkeGodel.html#3239" class="Bound"
+      >B</a
+      ><a name="3272" class="Symbol"
+      >)</a
+      ><a name="3273"
+      > </a
+      ><a name="3274" class="Symbol"
+      >&#8594;</a
+      ><a name="3275"
+      > </a
+      ><a name="3276" href="BasicIPC.Semantics.KripkeGodel.html#3243" class="Bound"
+      >w</a
+      ><a name="3277"
+      > </a
+      ><a name="3278" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3279"
+      > </a
+      ><a name="3280" href="BasicIPC.Semantics.KripkeGodel.html#3241" class="Bound"
+      >&#915;</a
+      ><a name="3281"
+      > </a
+      ><a name="3282" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3283"
+      > </a
+      ><a name="3284" href="BasicIPC.Semantics.KripkeGodel.html#3237" class="Bound"
+      >A</a
+      ><a name="3285"
+      > </a
+      ><a name="3286" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3287"
+      > </a
+      ><a name="3288" href="BasicIPC.Semantics.KripkeGodel.html#3239" class="Bound"
+      >B</a
+      ><a name="3289"
+      >
+  </a
+      ><a name="3292" href="BasicIPC.Semantics.KripkeGodel.html#3228" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="3295"
+      > </a
+      ><a name="3296" href="BasicIPC.Semantics.KripkeGodel.html#3296" class="Bound"
+      >f</a
+      ><a name="3297"
+      > </a
+      ><a name="3298" href="BasicIPC.Semantics.KripkeGodel.html#3298" class="Bound"
+      >&#947;</a
+      ><a name="3299"
+      > </a
+      ><a name="3300" class="Symbol"
+      >=</a
+      ><a name="3301"
+      > </a
+      ><a name="3302" class="Symbol"
+      >&#955;</a
+      ><a name="3303"
+      > </a
+      ><a name="3304" href="BasicIPC.Semantics.KripkeGodel.html#3304" class="Bound"
+      >&#958;</a
+      ><a name="3305"
+      > </a
+      ><a name="3306" href="BasicIPC.Semantics.KripkeGodel.html#3306" class="Bound"
+      >a</a
+      ><a name="3307"
+      > </a
+      ><a name="3308" class="Symbol"
+      >&#8594;</a
+      ><a name="3309"
+      > </a
+      ><a name="3310" href="BasicIPC.Semantics.KripkeGodel.html#3296" class="Bound"
+      >f</a
+      ><a name="3311"
+      > </a
+      ><a name="3312" class="Symbol"
+      >(</a
+      ><a name="3313" href="BasicIPC.Semantics.KripkeGodel.html#1210" class="Function"
+      >mono&#8873;&#8902;</a
+      ><a name="3319"
+      > </a
+      ><a name="3320" href="BasicIPC.Semantics.KripkeGodel.html#3304" class="Bound"
+      >&#958;</a
+      ><a name="3321"
+      > </a
+      ><a name="3322" href="BasicIPC.Semantics.KripkeGodel.html#3298" class="Bound"
+      >&#947;</a
+      ><a name="3323"
+      > </a
+      ><a name="3324" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3325"
+      > </a
+      ><a name="3326" href="BasicIPC.Semantics.KripkeGodel.html#3306" class="Bound"
+      >a</a
+      ><a name="3327" class="Symbol"
+      >)</a
+      ><a name="3328"
+      >
+
+  </a
+      ><a name="3332" href="BasicIPC.Semantics.KripkeGodel.html#3332" class="Function Operator"
+      >_&#10214;$&#10215;_</a
+      ><a name="3337"
+      > </a
+      ><a name="3338" class="Symbol"
+      >:</a
+      ><a name="3339"
+      > </a
+      ><a name="3340" class="Symbol"
+      >&#8704;</a
+      ><a name="3341"
+      > </a
+      ><a name="3342" class="Symbol"
+      >{</a
+      ><a name="3343" href="BasicIPC.Semantics.KripkeGodel.html#3343" class="Bound"
+      >A</a
+      ><a name="3344"
+      > </a
+      ><a name="3345" href="BasicIPC.Semantics.KripkeGodel.html#3345" class="Bound"
+      >B</a
+      ><a name="3346"
+      > </a
+      ><a name="3347" href="BasicIPC.Semantics.KripkeGodel.html#3347" class="Bound"
+      >&#915;</a
+      ><a name="3348"
+      > </a
+      ><a name="3349" href="BasicIPC.Semantics.KripkeGodel.html#3349" class="Bound"
+      >w</a
+      ><a name="3350" class="Symbol"
+      >}</a
+      ><a name="3351"
+      > </a
+      ><a name="3352" class="Symbol"
+      >&#8594;</a
+      ><a name="3353"
+      > </a
+      ><a name="3354" href="BasicIPC.Semantics.KripkeGodel.html#3349" class="Bound"
+      >w</a
+      ><a name="3355"
+      > </a
+      ><a name="3356" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3357"
+      > </a
+      ><a name="3358" href="BasicIPC.Semantics.KripkeGodel.html#3347" class="Bound"
+      >&#915;</a
+      ><a name="3359"
+      > </a
+      ><a name="3360" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3361"
+      > </a
+      ><a name="3362" href="BasicIPC.Semantics.KripkeGodel.html#3343" class="Bound"
+      >A</a
+      ><a name="3363"
+      > </a
+      ><a name="3364" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3365"
+      > </a
+      ><a name="3366" href="BasicIPC.Semantics.KripkeGodel.html#3345" class="Bound"
+      >B</a
+      ><a name="3367"
+      > </a
+      ><a name="3368" class="Symbol"
+      >&#8594;</a
+      ><a name="3369"
+      > </a
+      ><a name="3370" href="BasicIPC.Semantics.KripkeGodel.html#3349" class="Bound"
+      >w</a
+      ><a name="3371"
+      > </a
+      ><a name="3372" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3373"
+      > </a
+      ><a name="3374" href="BasicIPC.Semantics.KripkeGodel.html#3347" class="Bound"
+      >&#915;</a
+      ><a name="3375"
+      > </a
+      ><a name="3376" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3377"
+      > </a
+      ><a name="3378" href="BasicIPC.Semantics.KripkeGodel.html#3343" class="Bound"
+      >A</a
+      ><a name="3379"
+      > </a
+      ><a name="3380" class="Symbol"
+      >&#8594;</a
+      ><a name="3381"
+      > </a
+      ><a name="3382" href="BasicIPC.Semantics.KripkeGodel.html#3349" class="Bound"
+      >w</a
+      ><a name="3383"
+      > </a
+      ><a name="3384" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3385"
+      > </a
+      ><a name="3386" href="BasicIPC.Semantics.KripkeGodel.html#3347" class="Bound"
+      >&#915;</a
+      ><a name="3387"
+      > </a
+      ><a name="3388" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3389"
+      > </a
+      ><a name="3390" href="BasicIPC.Semantics.KripkeGodel.html#3345" class="Bound"
+      >B</a
+      ><a name="3391"
+      >
+  </a
+      ><a name="3394" href="BasicIPC.Semantics.KripkeGodel.html#3332" class="Function Operator"
+      >_&#10214;$&#10215;_</a
+      ><a name="3399"
+      > </a
+      ><a name="3400" class="Symbol"
+      >{</a
+      ><a name="3401" href="BasicIPC.Semantics.KripkeGodel.html#3401" class="Bound"
+      >A</a
+      ><a name="3402" class="Symbol"
+      >}</a
+      ><a name="3403"
+      > </a
+      ><a name="3404" class="Symbol"
+      >{</a
+      ><a name="3405" href="BasicIPC.Semantics.KripkeGodel.html#3405" class="Bound"
+      >B</a
+      ><a name="3406" class="Symbol"
+      >}</a
+      ><a name="3407"
+      > </a
+      ><a name="3408" href="BasicIPC.Semantics.KripkeGodel.html#3408" class="Bound"
+      >f</a
+      ><a name="3409"
+      > </a
+      ><a name="3410" href="BasicIPC.Semantics.KripkeGodel.html#3410" class="Bound"
+      >g</a
+      ><a name="3411"
+      > </a
+      ><a name="3412" href="BasicIPC.Semantics.KripkeGodel.html#3412" class="Bound"
+      >&#947;</a
+      ><a name="3413"
+      > </a
+      ><a name="3414" class="Symbol"
+      >=</a
+      ><a name="3415"
+      > </a
+      ><a name="3416" href="BasicIPC.Semantics.KripkeGodel.html#1416" class="Function Operator"
+      >_&#10218;$&#10219;_</a
+      ><a name="3421"
+      > </a
+      ><a name="3422" class="Symbol"
+      >{</a
+      ><a name="3423" href="BasicIPC.Semantics.KripkeGodel.html#3401" class="Bound"
+      >A</a
+      ><a name="3424" class="Symbol"
+      >}</a
+      ><a name="3425"
+      > </a
+      ><a name="3426" class="Symbol"
+      >{</a
+      ><a name="3427" href="BasicIPC.Semantics.KripkeGodel.html#3405" class="Bound"
+      >B</a
+      ><a name="3428" class="Symbol"
+      >}</a
+      ><a name="3429"
+      > </a
+      ><a name="3430" class="Symbol"
+      >(</a
+      ><a name="3431" href="BasicIPC.Semantics.KripkeGodel.html#3408" class="Bound"
+      >f</a
+      ><a name="3432"
+      > </a
+      ><a name="3433" href="BasicIPC.Semantics.KripkeGodel.html#3412" class="Bound"
+      >&#947;</a
+      ><a name="3434" class="Symbol"
+      >)</a
+      ><a name="3435"
+      > </a
+      ><a name="3436" class="Symbol"
+      >(</a
+      ><a name="3437" href="BasicIPC.Semantics.KripkeGodel.html#3410" class="Bound"
+      >g</a
+      ><a name="3438"
+      > </a
+      ><a name="3439" href="BasicIPC.Semantics.KripkeGodel.html#3412" class="Bound"
+      >&#947;</a
+      ><a name="3440" class="Symbol"
+      >)</a
+      ><a name="3441"
+      >
+
+  </a
+      ><a name="3445" href="BasicIPC.Semantics.KripkeGodel.html#3445" class="Function"
+      >&#10214;const&#10215;</a
+      ><a name="3452"
+      > </a
+      ><a name="3453" class="Symbol"
+      >:</a
+      ><a name="3454"
+      > </a
+      ><a name="3455" class="Symbol"
+      >&#8704;</a
+      ><a name="3456"
+      > </a
+      ><a name="3457" class="Symbol"
+      >{</a
+      ><a name="3458" href="BasicIPC.Semantics.KripkeGodel.html#3458" class="Bound"
+      >A</a
+      ><a name="3459"
+      > </a
+      ><a name="3460" href="BasicIPC.Semantics.KripkeGodel.html#3460" class="Bound"
+      >B</a
+      ><a name="3461"
+      > </a
+      ><a name="3462" href="BasicIPC.Semantics.KripkeGodel.html#3462" class="Bound"
+      >&#915;</a
+      ><a name="3463"
+      > </a
+      ><a name="3464" href="BasicIPC.Semantics.KripkeGodel.html#3464" class="Bound"
+      >w</a
+      ><a name="3465" class="Symbol"
+      >}</a
+      ><a name="3466"
+      > </a
+      ><a name="3467" class="Symbol"
+      >&#8594;</a
+      ><a name="3468"
+      > </a
+      ><a name="3469" href="BasicIPC.Semantics.KripkeGodel.html#3464" class="Bound"
+      >w</a
+      ><a name="3470"
+      > </a
+      ><a name="3471" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3472"
+      > </a
+      ><a name="3473" href="BasicIPC.Semantics.KripkeGodel.html#3462" class="Bound"
+      >&#915;</a
+      ><a name="3474"
+      > </a
+      ><a name="3475" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3476"
+      > </a
+      ><a name="3477" href="BasicIPC.Semantics.KripkeGodel.html#3458" class="Bound"
+      >A</a
+      ><a name="3478"
+      > </a
+      ><a name="3479" class="Symbol"
+      >&#8594;</a
+      ><a name="3480"
+      > </a
+      ><a name="3481" href="BasicIPC.Semantics.KripkeGodel.html#3464" class="Bound"
+      >w</a
+      ><a name="3482"
+      > </a
+      ><a name="3483" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3484"
+      > </a
+      ><a name="3485" href="BasicIPC.Semantics.KripkeGodel.html#3462" class="Bound"
+      >&#915;</a
+      ><a name="3486"
+      > </a
+      ><a name="3487" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3488"
+      > </a
+      ><a name="3489" href="BasicIPC.Semantics.KripkeGodel.html#3460" class="Bound"
+      >B</a
+      ><a name="3490"
+      > </a
+      ><a name="3491" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3492"
+      > </a
+      ><a name="3493" href="BasicIPC.Semantics.KripkeGodel.html#3458" class="Bound"
+      >A</a
+      ><a name="3494"
+      >
+  </a
+      ><a name="3497" href="BasicIPC.Semantics.KripkeGodel.html#3445" class="Function"
+      >&#10214;const&#10215;</a
+      ><a name="3504"
+      > </a
+      ><a name="3505" class="Symbol"
+      >{</a
+      ><a name="3506" href="BasicIPC.Semantics.KripkeGodel.html#3506" class="Bound"
+      >A</a
+      ><a name="3507" class="Symbol"
+      >}</a
+      ><a name="3508"
+      > </a
+      ><a name="3509" class="Symbol"
+      >{</a
+      ><a name="3510" href="BasicIPC.Semantics.KripkeGodel.html#3510" class="Bound"
+      >B</a
+      ><a name="3511" class="Symbol"
+      >}</a
+      ><a name="3512"
+      > </a
+      ><a name="3513" href="BasicIPC.Semantics.KripkeGodel.html#3513" class="Bound"
+      >a</a
+      ><a name="3514"
+      > </a
+      ><a name="3515" href="BasicIPC.Semantics.KripkeGodel.html#3515" class="Bound"
+      >&#947;</a
+      ><a name="3516"
+      > </a
+      ><a name="3517" class="Symbol"
+      >=</a
+      ><a name="3518"
+      > </a
+      ><a name="3519" href="BasicIPC.Semantics.KripkeGodel.html#1487" class="Function"
+      >&#10218;const&#10219;</a
+      ><a name="3526"
+      > </a
+      ><a name="3527" class="Symbol"
+      >{</a
+      ><a name="3528" href="BasicIPC.Semantics.KripkeGodel.html#3506" class="Bound"
+      >A</a
+      ><a name="3529" class="Symbol"
+      >}</a
+      ><a name="3530"
+      > </a
+      ><a name="3531" class="Symbol"
+      >{</a
+      ><a name="3532" href="BasicIPC.Semantics.KripkeGodel.html#3510" class="Bound"
+      >B</a
+      ><a name="3533" class="Symbol"
+      >}</a
+      ><a name="3534"
+      > </a
+      ><a name="3535" class="Symbol"
+      >(</a
+      ><a name="3536" href="BasicIPC.Semantics.KripkeGodel.html#3513" class="Bound"
+      >a</a
+      ><a name="3537"
+      > </a
+      ><a name="3538" href="BasicIPC.Semantics.KripkeGodel.html#3515" class="Bound"
+      >&#947;</a
+      ><a name="3539" class="Symbol"
+      >)</a
+      ><a name="3540"
+      >
+
+  </a
+      ><a name="3544" href="BasicIPC.Semantics.KripkeGodel.html#3544" class="Function"
+      >&#10214;ap&#10215;</a
+      ><a name="3548"
+      > </a
+      ><a name="3549" class="Symbol"
+      >:</a
+      ><a name="3550"
+      > </a
+      ><a name="3551" class="Symbol"
+      >&#8704;</a
+      ><a name="3552"
+      > </a
+      ><a name="3553" class="Symbol"
+      >{</a
+      ><a name="3554" href="BasicIPC.Semantics.KripkeGodel.html#3554" class="Bound"
+      >A</a
+      ><a name="3555"
+      > </a
+      ><a name="3556" href="BasicIPC.Semantics.KripkeGodel.html#3556" class="Bound"
+      >B</a
+      ><a name="3557"
+      > </a
+      ><a name="3558" href="BasicIPC.Semantics.KripkeGodel.html#3558" class="Bound"
+      >C</a
+      ><a name="3559"
+      > </a
+      ><a name="3560" href="BasicIPC.Semantics.KripkeGodel.html#3560" class="Bound"
+      >&#915;</a
+      ><a name="3561"
+      > </a
+      ><a name="3562" href="BasicIPC.Semantics.KripkeGodel.html#3562" class="Bound"
+      >w</a
+      ><a name="3563" class="Symbol"
+      >}</a
+      ><a name="3564"
+      > </a
+      ><a name="3565" class="Symbol"
+      >&#8594;</a
+      ><a name="3566"
+      > </a
+      ><a name="3567" href="BasicIPC.Semantics.KripkeGodel.html#3562" class="Bound"
+      >w</a
+      ><a name="3568"
+      > </a
+      ><a name="3569" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3570"
+      > </a
+      ><a name="3571" href="BasicIPC.Semantics.KripkeGodel.html#3560" class="Bound"
+      >&#915;</a
+      ><a name="3572"
+      > </a
+      ><a name="3573" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3574"
+      > </a
+      ><a name="3575" href="BasicIPC.Semantics.KripkeGodel.html#3554" class="Bound"
+      >A</a
+      ><a name="3576"
+      > </a
+      ><a name="3577" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3578"
+      > </a
+      ><a name="3579" href="BasicIPC.Semantics.KripkeGodel.html#3556" class="Bound"
+      >B</a
+      ><a name="3580"
+      > </a
+      ><a name="3581" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3582"
+      > </a
+      ><a name="3583" href="BasicIPC.Semantics.KripkeGodel.html#3558" class="Bound"
+      >C</a
+      ><a name="3584"
+      > </a
+      ><a name="3585" class="Symbol"
+      >&#8594;</a
+      ><a name="3586"
+      > </a
+      ><a name="3587" href="BasicIPC.Semantics.KripkeGodel.html#3562" class="Bound"
+      >w</a
+      ><a name="3588"
+      > </a
+      ><a name="3589" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3590"
+      > </a
+      ><a name="3591" href="BasicIPC.Semantics.KripkeGodel.html#3560" class="Bound"
+      >&#915;</a
+      ><a name="3592"
+      > </a
+      ><a name="3593" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3594"
+      > </a
+      ><a name="3595" href="BasicIPC.Semantics.KripkeGodel.html#3554" class="Bound"
+      >A</a
+      ><a name="3596"
+      > </a
+      ><a name="3597" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3598"
+      > </a
+      ><a name="3599" href="BasicIPC.Semantics.KripkeGodel.html#3556" class="Bound"
+      >B</a
+      ><a name="3600"
+      > </a
+      ><a name="3601" class="Symbol"
+      >&#8594;</a
+      ><a name="3602"
+      > </a
+      ><a name="3603" href="BasicIPC.Semantics.KripkeGodel.html#3562" class="Bound"
+      >w</a
+      ><a name="3604"
+      > </a
+      ><a name="3605" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3606"
+      > </a
+      ><a name="3607" href="BasicIPC.Semantics.KripkeGodel.html#3560" class="Bound"
+      >&#915;</a
+      ><a name="3608"
+      > </a
+      ><a name="3609" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3610"
+      > </a
+      ><a name="3611" href="BasicIPC.Semantics.KripkeGodel.html#3554" class="Bound"
+      >A</a
+      ><a name="3612"
+      > </a
+      ><a name="3613" class="Symbol"
+      >&#8594;</a
+      ><a name="3614"
+      > </a
+      ><a name="3615" href="BasicIPC.Semantics.KripkeGodel.html#3562" class="Bound"
+      >w</a
+      ><a name="3616"
+      > </a
+      ><a name="3617" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3618"
+      > </a
+      ><a name="3619" href="BasicIPC.Semantics.KripkeGodel.html#3560" class="Bound"
+      >&#915;</a
+      ><a name="3620"
+      > </a
+      ><a name="3621" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3622"
+      > </a
+      ><a name="3623" href="BasicIPC.Semantics.KripkeGodel.html#3558" class="Bound"
+      >C</a
+      ><a name="3624"
+      >
+  </a
+      ><a name="3627" href="BasicIPC.Semantics.KripkeGodel.html#3544" class="Function"
+      >&#10214;ap&#10215;</a
+      ><a name="3631"
+      > </a
+      ><a name="3632" class="Symbol"
+      >{</a
+      ><a name="3633" href="BasicIPC.Semantics.KripkeGodel.html#3633" class="Bound"
+      >A</a
+      ><a name="3634" class="Symbol"
+      >}</a
+      ><a name="3635"
+      > </a
+      ><a name="3636" class="Symbol"
+      >{</a
+      ><a name="3637" href="BasicIPC.Semantics.KripkeGodel.html#3637" class="Bound"
+      >B</a
+      ><a name="3638" class="Symbol"
+      >}</a
+      ><a name="3639"
+      > </a
+      ><a name="3640" class="Symbol"
+      >{</a
+      ><a name="3641" href="BasicIPC.Semantics.KripkeGodel.html#3641" class="Bound"
+      >C</a
+      ><a name="3642" class="Symbol"
+      >}</a
+      ><a name="3643"
+      > </a
+      ><a name="3644" href="BasicIPC.Semantics.KripkeGodel.html#3644" class="Bound"
+      >f</a
+      ><a name="3645"
+      > </a
+      ><a name="3646" href="BasicIPC.Semantics.KripkeGodel.html#3646" class="Bound"
+      >g</a
+      ><a name="3647"
+      > </a
+      ><a name="3648" href="BasicIPC.Semantics.KripkeGodel.html#3648" class="Bound"
+      >a</a
+      ><a name="3649"
+      > </a
+      ><a name="3650" href="BasicIPC.Semantics.KripkeGodel.html#3650" class="Bound"
+      >&#947;</a
+      ><a name="3651"
+      > </a
+      ><a name="3652" class="Symbol"
+      >=</a
+      ><a name="3653"
+      > </a
+      ><a name="3654" href="BasicIPC.Semantics.KripkeGodel.html#1908" class="Function"
+      >&#10218;ap&#10219;&#8242;</a
+      ><a name="3659"
+      > </a
+      ><a name="3660" class="Symbol"
+      >{</a
+      ><a name="3661" href="BasicIPC.Semantics.KripkeGodel.html#3633" class="Bound"
+      >A</a
+      ><a name="3662" class="Symbol"
+      >}</a
+      ><a name="3663"
+      > </a
+      ><a name="3664" class="Symbol"
+      >{</a
+      ><a name="3665" href="BasicIPC.Semantics.KripkeGodel.html#3637" class="Bound"
+      >B</a
+      ><a name="3666" class="Symbol"
+      >}</a
+      ><a name="3667"
+      > </a
+      ><a name="3668" class="Symbol"
+      >{</a
+      ><a name="3669" href="BasicIPC.Semantics.KripkeGodel.html#3641" class="Bound"
+      >C</a
+      ><a name="3670" class="Symbol"
+      >}</a
+      ><a name="3671"
+      > </a
+      ><a name="3672" class="Symbol"
+      >(</a
+      ><a name="3673" href="BasicIPC.Semantics.KripkeGodel.html#3644" class="Bound"
+      >f</a
+      ><a name="3674"
+      > </a
+      ><a name="3675" href="BasicIPC.Semantics.KripkeGodel.html#3650" class="Bound"
+      >&#947;</a
+      ><a name="3676" class="Symbol"
+      >)</a
+      ><a name="3677"
+      > </a
+      ><a name="3678" class="Symbol"
+      >(</a
+      ><a name="3679" href="BasicIPC.Semantics.KripkeGodel.html#3646" class="Bound"
+      >g</a
+      ><a name="3680"
+      > </a
+      ><a name="3681" href="BasicIPC.Semantics.KripkeGodel.html#3650" class="Bound"
+      >&#947;</a
+      ><a name="3682" class="Symbol"
+      >)</a
+      ><a name="3683"
+      > </a
+      ><a name="3684" class="Symbol"
+      >(</a
+      ><a name="3685" href="BasicIPC.Semantics.KripkeGodel.html#3648" class="Bound"
+      >a</a
+      ><a name="3686"
+      > </a
+      ><a name="3687" href="BasicIPC.Semantics.KripkeGodel.html#3650" class="Bound"
+      >&#947;</a
+      ><a name="3688" class="Symbol"
+      >)</a
+      ><a name="3689"
+      >
+
+  </a
+      ><a name="3693" href="BasicIPC.Semantics.KripkeGodel.html#3693" class="Function Operator"
+      >_&#10214;,&#10215;_</a
+      ><a name="3698"
+      > </a
+      ><a name="3699" class="Symbol"
+      >:</a
+      ><a name="3700"
+      > </a
+      ><a name="3701" class="Symbol"
+      >&#8704;</a
+      ><a name="3702"
+      > </a
+      ><a name="3703" class="Symbol"
+      >{</a
+      ><a name="3704" href="BasicIPC.Semantics.KripkeGodel.html#3704" class="Bound"
+      >A</a
+      ><a name="3705"
+      > </a
+      ><a name="3706" href="BasicIPC.Semantics.KripkeGodel.html#3706" class="Bound"
+      >B</a
+      ><a name="3707"
+      > </a
+      ><a name="3708" href="BasicIPC.Semantics.KripkeGodel.html#3708" class="Bound"
+      >&#915;</a
+      ><a name="3709"
+      > </a
+      ><a name="3710" href="BasicIPC.Semantics.KripkeGodel.html#3710" class="Bound"
+      >w</a
+      ><a name="3711" class="Symbol"
+      >}</a
+      ><a name="3712"
+      > </a
+      ><a name="3713" class="Symbol"
+      >&#8594;</a
+      ><a name="3714"
+      > </a
+      ><a name="3715" href="BasicIPC.Semantics.KripkeGodel.html#3710" class="Bound"
+      >w</a
+      ><a name="3716"
+      > </a
+      ><a name="3717" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3718"
+      > </a
+      ><a name="3719" href="BasicIPC.Semantics.KripkeGodel.html#3708" class="Bound"
+      >&#915;</a
+      ><a name="3720"
+      > </a
+      ><a name="3721" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3722"
+      > </a
+      ><a name="3723" href="BasicIPC.Semantics.KripkeGodel.html#3704" class="Bound"
+      >A</a
+      ><a name="3724"
+      > </a
+      ><a name="3725" class="Symbol"
+      >&#8594;</a
+      ><a name="3726"
+      > </a
+      ><a name="3727" href="BasicIPC.Semantics.KripkeGodel.html#3710" class="Bound"
+      >w</a
+      ><a name="3728"
+      > </a
+      ><a name="3729" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3730"
+      > </a
+      ><a name="3731" href="BasicIPC.Semantics.KripkeGodel.html#3708" class="Bound"
+      >&#915;</a
+      ><a name="3732"
+      > </a
+      ><a name="3733" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3734"
+      > </a
+      ><a name="3735" href="BasicIPC.Semantics.KripkeGodel.html#3706" class="Bound"
+      >B</a
+      ><a name="3736"
+      > </a
+      ><a name="3737" class="Symbol"
+      >&#8594;</a
+      ><a name="3738"
+      > </a
+      ><a name="3739" href="BasicIPC.Semantics.KripkeGodel.html#3710" class="Bound"
+      >w</a
+      ><a name="3740"
+      > </a
+      ><a name="3741" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3742"
+      > </a
+      ><a name="3743" href="BasicIPC.Semantics.KripkeGodel.html#3708" class="Bound"
+      >&#915;</a
+      ><a name="3744"
+      > </a
+      ><a name="3745" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3746"
+      > </a
+      ><a name="3747" href="BasicIPC.Semantics.KripkeGodel.html#3704" class="Bound"
+      >A</a
+      ><a name="3748"
+      > </a
+      ><a name="3749" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3750"
+      > </a
+      ><a name="3751" href="BasicIPC.Semantics.KripkeGodel.html#3706" class="Bound"
+      >B</a
+      ><a name="3752"
+      >
+  </a
+      ><a name="3755" href="BasicIPC.Semantics.KripkeGodel.html#3693" class="Function Operator"
+      >_&#10214;,&#10215;_</a
+      ><a name="3760"
+      > </a
+      ><a name="3761" class="Symbol"
+      >{</a
+      ><a name="3762" href="BasicIPC.Semantics.KripkeGodel.html#3762" class="Bound"
+      >A</a
+      ><a name="3763" class="Symbol"
+      >}</a
+      ><a name="3764"
+      > </a
+      ><a name="3765" class="Symbol"
+      >{</a
+      ><a name="3766" href="BasicIPC.Semantics.KripkeGodel.html#3766" class="Bound"
+      >B</a
+      ><a name="3767" class="Symbol"
+      >}</a
+      ><a name="3768"
+      > </a
+      ><a name="3769" href="BasicIPC.Semantics.KripkeGodel.html#3769" class="Bound"
+      >a</a
+      ><a name="3770"
+      > </a
+      ><a name="3771" href="BasicIPC.Semantics.KripkeGodel.html#3771" class="Bound"
+      >b</a
+      ><a name="3772"
+      > </a
+      ><a name="3773" href="BasicIPC.Semantics.KripkeGodel.html#3773" class="Bound"
+      >&#947;</a
+      ><a name="3774"
+      > </a
+      ><a name="3775" class="Symbol"
+      >=</a
+      ><a name="3776"
+      > </a
+      ><a name="3777" href="BasicIPC.Semantics.KripkeGodel.html#2279" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="3783"
+      > </a
+      ><a name="3784" class="Symbol"
+      >{</a
+      ><a name="3785" href="BasicIPC.Semantics.KripkeGodel.html#3762" class="Bound"
+      >A</a
+      ><a name="3786" class="Symbol"
+      >}</a
+      ><a name="3787"
+      > </a
+      ><a name="3788" class="Symbol"
+      >{</a
+      ><a name="3789" href="BasicIPC.Semantics.KripkeGodel.html#3766" class="Bound"
+      >B</a
+      ><a name="3790" class="Symbol"
+      >}</a
+      ><a name="3791"
+      > </a
+      ><a name="3792" class="Symbol"
+      >(</a
+      ><a name="3793" href="BasicIPC.Semantics.KripkeGodel.html#3769" class="Bound"
+      >a</a
+      ><a name="3794"
+      > </a
+      ><a name="3795" href="BasicIPC.Semantics.KripkeGodel.html#3773" class="Bound"
+      >&#947;</a
+      ><a name="3796" class="Symbol"
+      >)</a
+      ><a name="3797"
+      > </a
+      ><a name="3798" class="Symbol"
+      >(</a
+      ><a name="3799" href="BasicIPC.Semantics.KripkeGodel.html#3771" class="Bound"
+      >b</a
+      ><a name="3800"
+      > </a
+      ><a name="3801" href="BasicIPC.Semantics.KripkeGodel.html#3773" class="Bound"
+      >&#947;</a
+      ><a name="3802" class="Symbol"
+      >)</a
+      ><a name="3803"
+      >
+
+  </a
+      ><a name="3807" href="BasicIPC.Semantics.KripkeGodel.html#3807" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="3811"
+      > </a
+      ><a name="3812" class="Symbol"
+      >:</a
+      ><a name="3813"
+      > </a
+      ><a name="3814" class="Symbol"
+      >&#8704;</a
+      ><a name="3815"
+      > </a
+      ><a name="3816" class="Symbol"
+      >{</a
+      ><a name="3817" href="BasicIPC.Semantics.KripkeGodel.html#3817" class="Bound"
+      >A</a
+      ><a name="3818"
+      > </a
+      ><a name="3819" href="BasicIPC.Semantics.KripkeGodel.html#3819" class="Bound"
+      >B</a
+      ><a name="3820"
+      > </a
+      ><a name="3821" href="BasicIPC.Semantics.KripkeGodel.html#3821" class="Bound"
+      >&#915;</a
+      ><a name="3822"
+      > </a
+      ><a name="3823" href="BasicIPC.Semantics.KripkeGodel.html#3823" class="Bound"
+      >w</a
+      ><a name="3824" class="Symbol"
+      >}</a
+      ><a name="3825"
+      > </a
+      ><a name="3826" class="Symbol"
+      >&#8594;</a
+      ><a name="3827"
+      > </a
+      ><a name="3828" href="BasicIPC.Semantics.KripkeGodel.html#3823" class="Bound"
+      >w</a
+      ><a name="3829"
+      > </a
+      ><a name="3830" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3831"
+      > </a
+      ><a name="3832" href="BasicIPC.Semantics.KripkeGodel.html#3821" class="Bound"
+      >&#915;</a
+      ><a name="3833"
+      > </a
+      ><a name="3834" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3835"
+      > </a
+      ><a name="3836" href="BasicIPC.Semantics.KripkeGodel.html#3817" class="Bound"
+      >A</a
+      ><a name="3837"
+      > </a
+      ><a name="3838" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3839"
+      > </a
+      ><a name="3840" href="BasicIPC.Semantics.KripkeGodel.html#3819" class="Bound"
+      >B</a
+      ><a name="3841"
+      > </a
+      ><a name="3842" class="Symbol"
+      >&#8594;</a
+      ><a name="3843"
+      > </a
+      ><a name="3844" href="BasicIPC.Semantics.KripkeGodel.html#3823" class="Bound"
+      >w</a
+      ><a name="3845"
+      > </a
+      ><a name="3846" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3847"
+      > </a
+      ><a name="3848" href="BasicIPC.Semantics.KripkeGodel.html#3821" class="Bound"
+      >&#915;</a
+      ><a name="3849"
+      > </a
+      ><a name="3850" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3851"
+      > </a
+      ><a name="3852" href="BasicIPC.Semantics.KripkeGodel.html#3817" class="Bound"
+      >A</a
+      ><a name="3853"
+      >
+  </a
+      ><a name="3856" href="BasicIPC.Semantics.KripkeGodel.html#3807" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="3860"
+      > </a
+      ><a name="3861" class="Symbol"
+      >{</a
+      ><a name="3862" href="BasicIPC.Semantics.KripkeGodel.html#3862" class="Bound"
+      >A</a
+      ><a name="3863" class="Symbol"
+      >}</a
+      ><a name="3864"
+      > </a
+      ><a name="3865" class="Symbol"
+      >{</a
+      ><a name="3866" href="BasicIPC.Semantics.KripkeGodel.html#3866" class="Bound"
+      >B</a
+      ><a name="3867" class="Symbol"
+      >}</a
+      ><a name="3868"
+      > </a
+      ><a name="3869" href="BasicIPC.Semantics.KripkeGodel.html#3869" class="Bound"
+      >s</a
+      ><a name="3870"
+      > </a
+      ><a name="3871" href="BasicIPC.Semantics.KripkeGodel.html#3871" class="Bound"
+      >&#947;</a
+      ><a name="3872"
+      > </a
+      ><a name="3873" class="Symbol"
+      >=</a
+      ><a name="3874"
+      > </a
+      ><a name="3875" href="BasicIPC.Semantics.KripkeGodel.html#2376" class="Function"
+      >&#10218;&#960;&#8321;&#10219;</a
+      ><a name="3879"
+      > </a
+      ><a name="3880" class="Symbol"
+      >{</a
+      ><a name="3881" href="BasicIPC.Semantics.KripkeGodel.html#3862" class="Bound"
+      >A</a
+      ><a name="3882" class="Symbol"
+      >}</a
+      ><a name="3883"
+      > </a
+      ><a name="3884" class="Symbol"
+      >{</a
+      ><a name="3885" href="BasicIPC.Semantics.KripkeGodel.html#3866" class="Bound"
+      >B</a
+      ><a name="3886" class="Symbol"
+      >}</a
+      ><a name="3887"
+      > </a
+      ><a name="3888" class="Symbol"
+      >(</a
+      ><a name="3889" href="BasicIPC.Semantics.KripkeGodel.html#3869" class="Bound"
+      >s</a
+      ><a name="3890"
+      > </a
+      ><a name="3891" href="BasicIPC.Semantics.KripkeGodel.html#3871" class="Bound"
+      >&#947;</a
+      ><a name="3892" class="Symbol"
+      >)</a
+      ><a name="3893"
+      >
+
+  </a
+      ><a name="3897" href="BasicIPC.Semantics.KripkeGodel.html#3897" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="3901"
+      > </a
+      ><a name="3902" class="Symbol"
+      >:</a
+      ><a name="3903"
+      > </a
+      ><a name="3904" class="Symbol"
+      >&#8704;</a
+      ><a name="3905"
+      > </a
+      ><a name="3906" class="Symbol"
+      >{</a
+      ><a name="3907" href="BasicIPC.Semantics.KripkeGodel.html#3907" class="Bound"
+      >A</a
+      ><a name="3908"
+      > </a
+      ><a name="3909" href="BasicIPC.Semantics.KripkeGodel.html#3909" class="Bound"
+      >B</a
+      ><a name="3910"
+      > </a
+      ><a name="3911" href="BasicIPC.Semantics.KripkeGodel.html#3911" class="Bound"
+      >&#915;</a
+      ><a name="3912"
+      > </a
+      ><a name="3913" href="BasicIPC.Semantics.KripkeGodel.html#3913" class="Bound"
+      >w</a
+      ><a name="3914" class="Symbol"
+      >}</a
+      ><a name="3915"
+      > </a
+      ><a name="3916" class="Symbol"
+      >&#8594;</a
+      ><a name="3917"
+      > </a
+      ><a name="3918" href="BasicIPC.Semantics.KripkeGodel.html#3913" class="Bound"
+      >w</a
+      ><a name="3919"
+      > </a
+      ><a name="3920" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3921"
+      > </a
+      ><a name="3922" href="BasicIPC.Semantics.KripkeGodel.html#3911" class="Bound"
+      >&#915;</a
+      ><a name="3923"
+      > </a
+      ><a name="3924" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3925"
+      > </a
+      ><a name="3926" href="BasicIPC.Semantics.KripkeGodel.html#3907" class="Bound"
+      >A</a
+      ><a name="3927"
+      > </a
+      ><a name="3928" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3929"
+      > </a
+      ><a name="3930" href="BasicIPC.Semantics.KripkeGodel.html#3909" class="Bound"
+      >B</a
+      ><a name="3931"
+      > </a
+      ><a name="3932" class="Symbol"
+      >&#8594;</a
+      ><a name="3933"
+      > </a
+      ><a name="3934" href="BasicIPC.Semantics.KripkeGodel.html#3913" class="Bound"
+      >w</a
+      ><a name="3935"
+      > </a
+      ><a name="3936" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8873;</a
+      ><a name="3937"
+      > </a
+      ><a name="3938" href="BasicIPC.Semantics.KripkeGodel.html#3911" class="Bound"
+      >&#915;</a
+      ><a name="3939"
+      > </a
+      ><a name="3940" href="BasicIPC.Semantics.KripkeGodel.html#2624" class="Function Operator"
+      >&#8658;</a
+      ><a name="3941"
+      > </a
+      ><a name="3942" href="BasicIPC.Semantics.KripkeGodel.html#3909" class="Bound"
+      >B</a
+      ><a name="3943"
+      >
+  </a
+      ><a name="3946" href="BasicIPC.Semantics.KripkeGodel.html#3897" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="3950"
+      > </a
+      ><a name="3951" class="Symbol"
+      >{</a
+      ><a name="3952" href="BasicIPC.Semantics.KripkeGodel.html#3952" class="Bound"
+      >A</a
+      ><a name="3953" class="Symbol"
+      >}</a
+      ><a name="3954"
+      > </a
+      ><a name="3955" class="Symbol"
+      >{</a
+      ><a name="3956" href="BasicIPC.Semantics.KripkeGodel.html#3956" class="Bound"
+      >B</a
+      ><a name="3957" class="Symbol"
+      >}</a
+      ><a name="3958"
+      > </a
+      ><a name="3959" href="BasicIPC.Semantics.KripkeGodel.html#3959" class="Bound"
+      >s</a
+      ><a name="3960"
+      > </a
+      ><a name="3961" href="BasicIPC.Semantics.KripkeGodel.html#3961" class="Bound"
+      >&#947;</a
+      ><a name="3962"
+      > </a
+      ><a name="3963" class="Symbol"
+      >=</a
+      ><a name="3964"
+      > </a
+      ><a name="3965" href="BasicIPC.Semantics.KripkeGodel.html#2440" class="Function"
+      >&#10218;&#960;&#8322;&#10219;</a
+      ><a name="3969"
+      > </a
+      ><a name="3970" class="Symbol"
+      >{</a
+      ><a name="3971" href="BasicIPC.Semantics.KripkeGodel.html#3952" class="Bound"
+      >A</a
+      ><a name="3972" class="Symbol"
+      >}</a
+      ><a name="3973"
+      > </a
+      ><a name="3974" class="Symbol"
+      >{</a
+      ><a name="3975" href="BasicIPC.Semantics.KripkeGodel.html#3956" class="Bound"
+      >B</a
+      ><a name="3976" class="Symbol"
+      >}</a
+      ><a name="3977"
+      > </a
+      ><a name="3978" class="Symbol"
+      >(</a
+      ><a name="3979" href="BasicIPC.Semantics.KripkeGodel.html#3959" class="Bound"
+      >s</a
+      ><a name="3980"
+      > </a
+      ><a name="3981" href="BasicIPC.Semantics.KripkeGodel.html#3961" class="Bound"
+      >&#947;</a
+      ><a name="3982" class="Symbol"
+      >)</a
+      ><a name="3983"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

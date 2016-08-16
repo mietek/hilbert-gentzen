@@ -1,0 +1,4931 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Syntax.OpenDyadicHilbertLinear</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Linear Hilbert-style axiomatic formalisation of open syntax with separate modal context.</a
+      ><a name="92"
+      >
+
+</a
+      ><a name="94" class="Keyword"
+      >module</a
+      ><a name="100"
+      > </a
+      ><a name="101" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1" class="Module"
+      >BasicIS4.Syntax.OpenDyadicHilbertLinear</a
+      ><a name="140"
+      > </a
+      ><a name="141" class="Keyword"
+      >where</a
+      ><a name="146"
+      >
+
+</a
+      ><a name="148" class="Keyword"
+      >open</a
+      ><a name="152"
+      > </a
+      ><a name="153" class="Keyword"
+      >import</a
+      ><a name="159"
+      > </a
+      ><a name="160" href="Common.ContextPair.html#1" class="Module"
+      >Common.ContextPair</a
+      ><a name="178"
+      > </a
+      ><a name="179" class="Keyword"
+      >public</a
+      ><a name="185"
+      >
+</a
+      ><a name="186" class="Keyword"
+      >open</a
+      ><a name="190"
+      > </a
+      ><a name="191" class="Keyword"
+      >import</a
+      ><a name="197"
+      > </a
+      ><a name="198" href="BasicIS4.Syntax.Common.html#1" class="Module"
+      >BasicIS4.Syntax.Common</a
+      ><a name="220"
+      > </a
+      ><a name="221" class="Keyword"
+      >public</a
+      ><a name="227"
+      >
+
+
+</a
+      ><a name="230" class="Comment"
+      >-- Derivations.</a
+      ><a name="245"
+      >
+
+</a
+      ><a name="247" class="Keyword"
+      >infix</a
+      ><a name="252"
+      > </a
+      ><a name="253" class="Number"
+      >3</a
+      ><a name="254"
+      > _&#8271;_&#8866;&#215;_
+</a
+      ><a name="262" class="Keyword"
+      >data</a
+      ><a name="266"
+      > </a
+      ><a name="267" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >_&#8271;_&#8866;&#215;_</a
+      ><a name="273"
+      > </a
+      ><a name="274" class="Symbol"
+      >(</a
+      ><a name="275" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="276"
+      > </a
+      ><a name="277" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="278"
+      > </a
+      ><a name="279" class="Symbol"
+      >:</a
+      ><a name="280"
+      > </a
+      ><a name="281" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="283"
+      > </a
+      ><a name="284" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="286" class="Symbol"
+      >)</a
+      ><a name="287"
+      > </a
+      ><a name="288" class="Symbol"
+      >:</a
+      ><a name="289"
+      > </a
+      ><a name="290" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="292"
+      > </a
+      ><a name="293" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="295"
+      > </a
+      ><a name="296" class="Symbol"
+      >&#8594;</a
+      ><a name="297"
+      > </a
+      ><a name="298" class="PrimitiveType"
+      >Set</a
+      ><a name="301"
+      > </a
+      ><a name="302" class="Keyword"
+      >where</a
+      ><a name="307"
+      >
+  </a
+      ><a name="310" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#310" class="InductiveConstructor"
+      >nil</a
+      ><a name="313"
+      >   </a
+      ><a name="316" class="Symbol"
+      >:</a
+      ><a name="317"
+      > </a
+      ><a name="318" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="319"
+      > </a
+      ><a name="320" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="321"
+      > </a
+      ><a name="322" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="323"
+      > </a
+      ><a name="324" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="326"
+      > </a
+      ><a name="327" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="328"
+      >
+  </a
+      ><a name="331" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#331" class="InductiveConstructor"
+      >var</a
+      ><a name="334"
+      >   </a
+      ><a name="337" class="Symbol"
+      >:</a
+      ><a name="338"
+      > </a
+      ><a name="339" class="Symbol"
+      >&#8704;</a
+      ><a name="340"
+      > </a
+      ><a name="341" class="Symbol"
+      >{</a
+      ><a name="342" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#342" class="Bound"
+      >&#928;</a
+      ><a name="343"
+      > </a
+      ><a name="344" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#344" class="Bound"
+      >A</a
+      ><a name="345" class="Symbol"
+      >}</a
+      ><a name="346"
+      >     </a
+      ><a name="351" class="Symbol"
+      >&#8594;</a
+      ><a name="352"
+      > </a
+      ><a name="353" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#344" class="Bound"
+      >A</a
+      ><a name="354"
+      > </a
+      ><a name="355" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="356"
+      > </a
+      ><a name="357" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="358"
+      > </a
+      ><a name="359" class="Symbol"
+      >&#8594;</a
+      ><a name="360"
+      > </a
+      ><a name="361" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="362"
+      > </a
+      ><a name="363" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="364"
+      > </a
+      ><a name="365" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="366"
+      > </a
+      ><a name="367" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="369"
+      > </a
+      ><a name="370" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#342" class="Bound"
+      >&#928;</a
+      ><a name="371"
+      > </a
+      ><a name="372" class="Symbol"
+      >&#8594;</a
+      ><a name="373"
+      > </a
+      ><a name="374" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="375"
+      > </a
+      ><a name="376" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="377"
+      > </a
+      ><a name="378" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="379"
+      > </a
+      ><a name="380" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="382"
+      > </a
+      ><a name="383" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#342" class="Bound"
+      >&#928;</a
+      ><a name="384"
+      > </a
+      ><a name="385" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="386"
+      > </a
+      ><a name="387" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#344" class="Bound"
+      >A</a
+      ><a name="388"
+      >
+  </a
+      ><a name="391" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#391" class="InductiveConstructor"
+      >mp</a
+      ><a name="393"
+      >    </a
+      ><a name="397" class="Symbol"
+      >:</a
+      ><a name="398"
+      > </a
+      ><a name="399" class="Symbol"
+      >&#8704;</a
+      ><a name="400"
+      > </a
+      ><a name="401" class="Symbol"
+      >{</a
+      ><a name="402" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#402" class="Bound"
+      >&#928;</a
+      ><a name="403"
+      > </a
+      ><a name="404" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#404" class="Bound"
+      >A</a
+      ><a name="405"
+      > </a
+      ><a name="406" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#406" class="Bound"
+      >B</a
+      ><a name="407" class="Symbol"
+      >}</a
+      ><a name="408"
+      >   </a
+      ><a name="411" class="Symbol"
+      >&#8594;</a
+      ><a name="412"
+      > </a
+      ><a name="413" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#404" class="Bound"
+      >A</a
+      ><a name="414"
+      > </a
+      ><a name="415" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="416"
+      > </a
+      ><a name="417" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#406" class="Bound"
+      >B</a
+      ><a name="418"
+      > </a
+      ><a name="419" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="420"
+      > </a
+      ><a name="421" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#402" class="Bound"
+      >&#928;</a
+      ><a name="422"
+      > </a
+      ><a name="423" class="Symbol"
+      >&#8594;</a
+      ><a name="424"
+      > </a
+      ><a name="425" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#404" class="Bound"
+      >A</a
+      ><a name="426"
+      > </a
+      ><a name="427" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#402" class="Bound"
+      >&#928;</a
+      ><a name="430"
+      > </a
+      ><a name="431" class="Symbol"
+      >&#8594;</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="434"
+      > </a
+      ><a name="435" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="436"
+      > </a
+      ><a name="437" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="441"
+      > </a
+      ><a name="442" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#402" class="Bound"
+      >&#928;</a
+      ><a name="443"
+      > </a
+      ><a name="444" class="Symbol"
+      >&#8594;</a
+      ><a name="445"
+      > </a
+      ><a name="446" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="447"
+      > </a
+      ><a name="448" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="449"
+      > </a
+      ><a name="450" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="451"
+      > </a
+      ><a name="452" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="454"
+      > </a
+      ><a name="455" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#402" class="Bound"
+      >&#928;</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#406" class="Bound"
+      >B</a
+      ><a name="460"
+      >
+  </a
+      ><a name="463" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#463" class="InductiveConstructor"
+      >ci</a
+      ><a name="465"
+      >    </a
+      ><a name="469" class="Symbol"
+      >:</a
+      ><a name="470"
+      > </a
+      ><a name="471" class="Symbol"
+      >&#8704;</a
+      ><a name="472"
+      > </a
+      ><a name="473" class="Symbol"
+      >{</a
+      ><a name="474" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#474" class="Bound"
+      >&#928;</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#476" class="Bound"
+      >A</a
+      ><a name="477" class="Symbol"
+      >}</a
+      ><a name="478"
+      >     </a
+      ><a name="483" class="Symbol"
+      >&#8594;</a
+      ><a name="484"
+      > </a
+      ><a name="485" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="486"
+      > </a
+      ><a name="487" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="488"
+      > </a
+      ><a name="489" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="490"
+      > </a
+      ><a name="491" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="493"
+      > </a
+      ><a name="494" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#474" class="Bound"
+      >&#928;</a
+      ><a name="495"
+      > </a
+      ><a name="496" class="Symbol"
+      >&#8594;</a
+      ><a name="497"
+      > </a
+      ><a name="498" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="499"
+      > </a
+      ><a name="500" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="503"
+      > </a
+      ><a name="504" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="506"
+      > </a
+      ><a name="507" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#474" class="Bound"
+      >&#928;</a
+      ><a name="508"
+      > </a
+      ><a name="509" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="510"
+      > </a
+      ><a name="511" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#476" class="Bound"
+      >A</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="514"
+      > </a
+      ><a name="515" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#476" class="Bound"
+      >A</a
+      ><a name="516"
+      >
+  </a
+      ><a name="519" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#519" class="InductiveConstructor"
+      >ck</a
+      ><a name="521"
+      >    </a
+      ><a name="525" class="Symbol"
+      >:</a
+      ><a name="526"
+      > </a
+      ><a name="527" class="Symbol"
+      >&#8704;</a
+      ><a name="528"
+      > </a
+      ><a name="529" class="Symbol"
+      >{</a
+      ><a name="530" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#530" class="Bound"
+      >&#928;</a
+      ><a name="531"
+      > </a
+      ><a name="532" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#532" class="Bound"
+      >A</a
+      ><a name="533"
+      > </a
+      ><a name="534" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#534" class="Bound"
+      >B</a
+      ><a name="535" class="Symbol"
+      >}</a
+      ><a name="536"
+      >   </a
+      ><a name="539" class="Symbol"
+      >&#8594;</a
+      ><a name="540"
+      > </a
+      ><a name="541" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="542"
+      > </a
+      ><a name="543" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="544"
+      > </a
+      ><a name="545" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="546"
+      > </a
+      ><a name="547" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="549"
+      > </a
+      ><a name="550" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#530" class="Bound"
+      >&#928;</a
+      ><a name="551"
+      > </a
+      ><a name="552" class="Symbol"
+      >&#8594;</a
+      ><a name="553"
+      > </a
+      ><a name="554" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="555"
+      > </a
+      ><a name="556" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="557"
+      > </a
+      ><a name="558" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="559"
+      > </a
+      ><a name="560" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="562"
+      > </a
+      ><a name="563" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#530" class="Bound"
+      >&#928;</a
+      ><a name="564"
+      > </a
+      ><a name="565" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="566"
+      > </a
+      ><a name="567" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#532" class="Bound"
+      >A</a
+      ><a name="568"
+      > </a
+      ><a name="569" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="570"
+      > </a
+      ><a name="571" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#534" class="Bound"
+      >B</a
+      ><a name="572"
+      > </a
+      ><a name="573" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="574"
+      > </a
+      ><a name="575" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#532" class="Bound"
+      >A</a
+      ><a name="576"
+      >
+  </a
+      ><a name="579" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#579" class="InductiveConstructor"
+      >cs</a
+      ><a name="581"
+      >    </a
+      ><a name="585" class="Symbol"
+      >:</a
+      ><a name="586"
+      > </a
+      ><a name="587" class="Symbol"
+      >&#8704;</a
+      ><a name="588"
+      > </a
+      ><a name="589" class="Symbol"
+      >{</a
+      ><a name="590" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#590" class="Bound"
+      >&#928;</a
+      ><a name="591"
+      > </a
+      ><a name="592" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#592" class="Bound"
+      >A</a
+      ><a name="593"
+      > </a
+      ><a name="594" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#594" class="Bound"
+      >B</a
+      ><a name="595"
+      > </a
+      ><a name="596" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#596" class="Bound"
+      >C</a
+      ><a name="597" class="Symbol"
+      >}</a
+      ><a name="598"
+      > </a
+      ><a name="599" class="Symbol"
+      >&#8594;</a
+      ><a name="600"
+      > </a
+      ><a name="601" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="602"
+      > </a
+      ><a name="603" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="604"
+      > </a
+      ><a name="605" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="606"
+      > </a
+      ><a name="607" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="609"
+      > </a
+      ><a name="610" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#590" class="Bound"
+      >&#928;</a
+      ><a name="611"
+      > </a
+      ><a name="612" class="Symbol"
+      >&#8594;</a
+      ><a name="613"
+      > </a
+      ><a name="614" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="615"
+      > </a
+      ><a name="616" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="619"
+      > </a
+      ><a name="620" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="622"
+      > </a
+      ><a name="623" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#590" class="Bound"
+      >&#928;</a
+      ><a name="624"
+      > </a
+      ><a name="625" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="626"
+      > </a
+      ><a name="627" class="Symbol"
+      >(</a
+      ><a name="628" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#592" class="Bound"
+      >A</a
+      ><a name="629"
+      > </a
+      ><a name="630" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="631"
+      > </a
+      ><a name="632" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#594" class="Bound"
+      >B</a
+      ><a name="633"
+      > </a
+      ><a name="634" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="635"
+      > </a
+      ><a name="636" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#596" class="Bound"
+      >C</a
+      ><a name="637" class="Symbol"
+      >)</a
+      ><a name="638"
+      > </a
+      ><a name="639" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="640"
+      > </a
+      ><a name="641" class="Symbol"
+      >(</a
+      ><a name="642" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#592" class="Bound"
+      >A</a
+      ><a name="643"
+      > </a
+      ><a name="644" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="645"
+      > </a
+      ><a name="646" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#594" class="Bound"
+      >B</a
+      ><a name="647" class="Symbol"
+      >)</a
+      ><a name="648"
+      > </a
+      ><a name="649" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="650"
+      > </a
+      ><a name="651" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#592" class="Bound"
+      >A</a
+      ><a name="652"
+      > </a
+      ><a name="653" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="654"
+      > </a
+      ><a name="655" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#596" class="Bound"
+      >C</a
+      ><a name="656"
+      >
+  </a
+      ><a name="659" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#659" class="InductiveConstructor"
+      >mvar</a
+      ><a name="663"
+      >  </a
+      ><a name="665" class="Symbol"
+      >:</a
+      ><a name="666"
+      > </a
+      ><a name="667" class="Symbol"
+      >&#8704;</a
+      ><a name="668"
+      > </a
+      ><a name="669" class="Symbol"
+      >{</a
+      ><a name="670" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#670" class="Bound"
+      >&#928;</a
+      ><a name="671"
+      > </a
+      ><a name="672" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#672" class="Bound"
+      >A</a
+      ><a name="673" class="Symbol"
+      >}</a
+      ><a name="674"
+      >     </a
+      ><a name="679" class="Symbol"
+      >&#8594;</a
+      ><a name="680"
+      > </a
+      ><a name="681" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#672" class="Bound"
+      >A</a
+      ><a name="682"
+      > </a
+      ><a name="683" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="684"
+      > </a
+      ><a name="685" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="686"
+      > </a
+      ><a name="687" class="Symbol"
+      >&#8594;</a
+      ><a name="688"
+      > </a
+      ><a name="689" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="694"
+      > </a
+      ><a name="695" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#670" class="Bound"
+      >&#928;</a
+      ><a name="699"
+      > </a
+      ><a name="700" class="Symbol"
+      >&#8594;</a
+      ><a name="701"
+      > </a
+      ><a name="702" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="703"
+      > </a
+      ><a name="704" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="705"
+      > </a
+      ><a name="706" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="707"
+      > </a
+      ><a name="708" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="710"
+      > </a
+      ><a name="711" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#670" class="Bound"
+      >&#928;</a
+      ><a name="712"
+      > </a
+      ><a name="713" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="714"
+      > </a
+      ><a name="715" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#672" class="Bound"
+      >A</a
+      ><a name="716"
+      >
+  </a
+      ><a name="719" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#719" class="InductiveConstructor"
+      >nec</a
+      ><a name="722"
+      >   </a
+      ><a name="725" class="Symbol"
+      >:</a
+      ><a name="726"
+      > </a
+      ><a name="727" class="Symbol"
+      >&#8704;</a
+      ><a name="728"
+      > </a
+      ><a name="729" class="Symbol"
+      >{</a
+      ><a name="730" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#730" class="Bound"
+      >&#928;</a
+      ><a name="731"
+      > </a
+      ><a name="732" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#732" class="Bound"
+      >&#926;</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#734" class="Bound"
+      >A</a
+      ><a name="735" class="Symbol"
+      >}</a
+      ><a name="736"
+      >   </a
+      ><a name="739" class="Symbol"
+      >&#8594;</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="742"
+      > </a
+      ><a name="743" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="744"
+      > </a
+      ><a name="745" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="746"
+      > </a
+      ><a name="747" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#732" class="Bound"
+      >&#926;</a
+      ><a name="751"
+      > </a
+      ><a name="752" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#734" class="Bound"
+      >A</a
+      ><a name="755"
+      > </a
+      ><a name="756" class="Symbol"
+      >&#8594;</a
+      ><a name="757"
+      > </a
+      ><a name="758" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="759"
+      > </a
+      ><a name="760" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="761"
+      > </a
+      ><a name="762" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="763"
+      > </a
+      ><a name="764" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#730" class="Bound"
+      >&#928;</a
+      ><a name="768"
+      > </a
+      ><a name="769" class="Symbol"
+      >&#8594;</a
+      ><a name="770"
+      > </a
+      ><a name="771" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="772"
+      > </a
+      ><a name="773" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="774"
+      > </a
+      ><a name="775" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="776"
+      > </a
+      ><a name="777" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#730" class="Bound"
+      >&#928;</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="785"
+      > </a
+      ><a name="786" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#734" class="Bound"
+      >A</a
+      ><a name="787"
+      >
+  </a
+      ><a name="790" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#790" class="InductiveConstructor"
+      >cdist</a
+      ><a name="795"
+      > </a
+      ><a name="796" class="Symbol"
+      >:</a
+      ><a name="797"
+      > </a
+      ><a name="798" class="Symbol"
+      >&#8704;</a
+      ><a name="799"
+      > </a
+      ><a name="800" class="Symbol"
+      >{</a
+      ><a name="801" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#801" class="Bound"
+      >&#928;</a
+      ><a name="802"
+      > </a
+      ><a name="803" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#803" class="Bound"
+      >A</a
+      ><a name="804"
+      > </a
+      ><a name="805" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#805" class="Bound"
+      >B</a
+      ><a name="806" class="Symbol"
+      >}</a
+      ><a name="807"
+      >   </a
+      ><a name="810" class="Symbol"
+      >&#8594;</a
+      ><a name="811"
+      > </a
+      ><a name="812" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="813"
+      > </a
+      ><a name="814" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="815"
+      > </a
+      ><a name="816" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="817"
+      > </a
+      ><a name="818" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="820"
+      > </a
+      ><a name="821" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#801" class="Bound"
+      >&#928;</a
+      ><a name="822"
+      > </a
+      ><a name="823" class="Symbol"
+      >&#8594;</a
+      ><a name="824"
+      > </a
+      ><a name="825" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="830"
+      > </a
+      ><a name="831" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="833"
+      > </a
+      ><a name="834" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#801" class="Bound"
+      >&#928;</a
+      ><a name="835"
+      > </a
+      ><a name="836" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="837"
+      > </a
+      ><a name="838" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="839"
+      > </a
+      ><a name="840" class="Symbol"
+      >(</a
+      ><a name="841" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#803" class="Bound"
+      >A</a
+      ><a name="842"
+      > </a
+      ><a name="843" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="844"
+      > </a
+      ><a name="845" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#805" class="Bound"
+      >B</a
+      ><a name="846" class="Symbol"
+      >)</a
+      ><a name="847"
+      > </a
+      ><a name="848" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="851"
+      > </a
+      ><a name="852" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#803" class="Bound"
+      >A</a
+      ><a name="853"
+      > </a
+      ><a name="854" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="855"
+      > </a
+      ><a name="856" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#805" class="Bound"
+      >B</a
+      ><a name="859"
+      >
+  </a
+      ><a name="862" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#862" class="InductiveConstructor"
+      >cup</a
+      ><a name="865"
+      >   </a
+      ><a name="868" class="Symbol"
+      >:</a
+      ><a name="869"
+      > </a
+      ><a name="870" class="Symbol"
+      >&#8704;</a
+      ><a name="871"
+      > </a
+      ><a name="872" class="Symbol"
+      >{</a
+      ><a name="873" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#873" class="Bound"
+      >&#928;</a
+      ><a name="874"
+      > </a
+      ><a name="875" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#875" class="Bound"
+      >A</a
+      ><a name="876" class="Symbol"
+      >}</a
+      ><a name="877"
+      >     </a
+      ><a name="882" class="Symbol"
+      >&#8594;</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="885"
+      > </a
+      ><a name="886" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="889"
+      > </a
+      ><a name="890" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#873" class="Bound"
+      >&#928;</a
+      ><a name="894"
+      > </a
+      ><a name="895" class="Symbol"
+      >&#8594;</a
+      ><a name="896"
+      > </a
+      ><a name="897" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="900"
+      > </a
+      ><a name="901" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="902"
+      > </a
+      ><a name="903" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="905"
+      > </a
+      ><a name="906" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#873" class="Bound"
+      >&#928;</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="909"
+      > </a
+      ><a name="910" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#875" class="Bound"
+      >A</a
+      ><a name="913"
+      > </a
+      ><a name="914" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="915"
+      > </a
+      ><a name="916" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="917"
+      > </a
+      ><a name="918" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="919"
+      > </a
+      ><a name="920" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#875" class="Bound"
+      >A</a
+      ><a name="921"
+      >
+  </a
+      ><a name="924" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#924" class="InductiveConstructor"
+      >cdown</a
+      ><a name="929"
+      > </a
+      ><a name="930" class="Symbol"
+      >:</a
+      ><a name="931"
+      > </a
+      ><a name="932" class="Symbol"
+      >&#8704;</a
+      ><a name="933"
+      > </a
+      ><a name="934" class="Symbol"
+      >{</a
+      ><a name="935" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#935" class="Bound"
+      >&#928;</a
+      ><a name="936"
+      > </a
+      ><a name="937" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#937" class="Bound"
+      >A</a
+      ><a name="938" class="Symbol"
+      >}</a
+      ><a name="939"
+      >     </a
+      ><a name="944" class="Symbol"
+      >&#8594;</a
+      ><a name="945"
+      > </a
+      ><a name="946" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="947"
+      > </a
+      ><a name="948" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="949"
+      > </a
+      ><a name="950" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="951"
+      > </a
+      ><a name="952" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="954"
+      > </a
+      ><a name="955" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#935" class="Bound"
+      >&#928;</a
+      ><a name="956"
+      > </a
+      ><a name="957" class="Symbol"
+      >&#8594;</a
+      ><a name="958"
+      > </a
+      ><a name="959" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="960"
+      > </a
+      ><a name="961" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="962"
+      > </a
+      ><a name="963" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="964"
+      > </a
+      ><a name="965" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="967"
+      > </a
+      ><a name="968" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#935" class="Bound"
+      >&#928;</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#937" class="Bound"
+      >A</a
+      ><a name="975"
+      > </a
+      ><a name="976" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="977"
+      > </a
+      ><a name="978" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#937" class="Bound"
+      >A</a
+      ><a name="979"
+      >
+  </a
+      ><a name="982" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#982" class="InductiveConstructor"
+      >cpair</a
+      ><a name="987"
+      > </a
+      ><a name="988" class="Symbol"
+      >:</a
+      ><a name="989"
+      > </a
+      ><a name="990" class="Symbol"
+      >&#8704;</a
+      ><a name="991"
+      > </a
+      ><a name="992" class="Symbol"
+      >{</a
+      ><a name="993" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#993" class="Bound"
+      >&#928;</a
+      ><a name="994"
+      > </a
+      ><a name="995" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#995" class="Bound"
+      >A</a
+      ><a name="996"
+      > </a
+      ><a name="997" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#997" class="Bound"
+      >B</a
+      ><a name="998" class="Symbol"
+      >}</a
+      ><a name="999"
+      >   </a
+      ><a name="1002" class="Symbol"
+      >&#8594;</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#993" class="Bound"
+      >&#928;</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" class="Symbol"
+      >&#8594;</a
+      ><a name="1016"
+      > </a
+      ><a name="1017" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="1022"
+      > </a
+      ><a name="1023" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#993" class="Bound"
+      >&#928;</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#995" class="Bound"
+      >A</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#997" class="Bound"
+      >B</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#995" class="Bound"
+      >A</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#997" class="Bound"
+      >B</a
+      ><a name="1043"
+      >
+  </a
+      ><a name="1046" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1046" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1050"
+      >  </a
+      ><a name="1052" class="Symbol"
+      >:</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" class="Symbol"
+      >&#8704;</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" class="Symbol"
+      >{</a
+      ><a name="1057" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1057" class="Bound"
+      >&#928;</a
+      ><a name="1058"
+      > </a
+      ><a name="1059" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1059" class="Bound"
+      >A</a
+      ><a name="1060"
+      > </a
+      ><a name="1061" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1061" class="Bound"
+      >B</a
+      ><a name="1062" class="Symbol"
+      >}</a
+      ><a name="1063"
+      >   </a
+      ><a name="1066" class="Symbol"
+      >&#8594;</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="1073"
+      > </a
+      ><a name="1074" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1057" class="Bound"
+      >&#928;</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" class="Symbol"
+      >&#8594;</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1057" class="Bound"
+      >&#928;</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1059" class="Bound"
+      >A</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1061" class="Bound"
+      >B</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1059" class="Bound"
+      >A</a
+      ><a name="1103"
+      >
+  </a
+      ><a name="1106" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1106" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1110"
+      >  </a
+      ><a name="1112" class="Symbol"
+      >:</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" class="Symbol"
+      >&#8704;</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" class="Symbol"
+      >{</a
+      ><a name="1117" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1117" class="Bound"
+      >&#928;</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1119" class="Bound"
+      >A</a
+      ><a name="1120"
+      > </a
+      ><a name="1121" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1121" class="Bound"
+      >B</a
+      ><a name="1122" class="Symbol"
+      >}</a
+      ><a name="1123"
+      >   </a
+      ><a name="1126" class="Symbol"
+      >&#8594;</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="1129"
+      > </a
+      ><a name="1130" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1131"
+      > </a
+      ><a name="1132" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="1133"
+      > </a
+      ><a name="1134" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1117" class="Bound"
+      >&#928;</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" class="Symbol"
+      >&#8594;</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="1146"
+      > </a
+      ><a name="1147" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1117" class="Bound"
+      >&#928;</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1119" class="Bound"
+      >A</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1121" class="Bound"
+      >B</a
+      ><a name="1159"
+      > </a
+      ><a name="1160" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1161"
+      > </a
+      ><a name="1162" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1121" class="Bound"
+      >B</a
+      ><a name="1163"
+      >
+  </a
+      ><a name="1166" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1166" class="InductiveConstructor"
+      >tt</a
+      ><a name="1168"
+      >    </a
+      ><a name="1172" class="Symbol"
+      >:</a
+      ><a name="1173"
+      > </a
+      ><a name="1174" class="Symbol"
+      >&#8704;</a
+      ><a name="1175"
+      > </a
+      ><a name="1176" class="Symbol"
+      >{</a
+      ><a name="1177" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1177" class="Bound"
+      >&#928;</a
+      ><a name="1178" class="Symbol"
+      >}</a
+      ><a name="1179"
+      >       </a
+      ><a name="1186" class="Symbol"
+      >&#8594;</a
+      ><a name="1187"
+      > </a
+      ><a name="1188" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1191"
+      > </a
+      ><a name="1192" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="1193"
+      > </a
+      ><a name="1194" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1177" class="Bound"
+      >&#928;</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" class="Symbol"
+      >&#8594;</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#275" class="Bound"
+      >&#915;</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1204"
+      > </a
+      ><a name="1205" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#277" class="Bound"
+      >&#916;</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1177" class="Bound"
+      >&#928;</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1213"
+      > </a
+      ><a name="1214" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1215"
+      >
+
+</a
+      ><a name="1217" class="Keyword"
+      >infix</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" class="Number"
+      >3</a
+      ><a name="1224"
+      > _&#8271;_&#8866;_
+</a
+      ><a name="1231" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >_&#8271;_&#8866;_</a
+      ><a name="1236"
+      > </a
+      ><a name="1237" class="Symbol"
+      >:</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" class="Symbol"
+      >&#8594;</a
+      ><a name="1246"
+      > </a
+      ><a name="1247" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" class="Symbol"
+      >&#8594;</a
+      ><a name="1254"
+      > </a
+      ><a name="1255" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1257"
+      > </a
+      ><a name="1258" class="Symbol"
+      >&#8594;</a
+      ><a name="1259"
+      > </a
+      ><a name="1260" class="PrimitiveType"
+      >Set</a
+      ><a name="1263"
+      >
+</a
+      ><a name="1264" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1264" class="Bound"
+      >&#915;</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1268" class="Bound"
+      >&#916;</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1272" class="Bound"
+      >A</a
+      ><a name="1273"
+      > </a
+      ><a name="1274" class="Symbol"
+      >=</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" href="Data.Product.html#823" class="Function"
+      >&#8707;</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" class="Symbol"
+      >(&#955;</a
+      ><a name="1280"
+      > </a
+      ><a name="1281" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1281" class="Bound"
+      >&#928;</a
+      ><a name="1282"
+      > </a
+      ><a name="1283" class="Symbol"
+      >&#8594;</a
+      ><a name="1284"
+      > </a
+      ><a name="1285" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1264" class="Bound"
+      >&#915;</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1288"
+      > </a
+      ><a name="1289" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1268" class="Bound"
+      >&#916;</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1293"
+      > </a
+      ><a name="1294" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1281" class="Bound"
+      >&#928;</a
+      ><a name="1295"
+      > </a
+      ><a name="1296" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1297"
+      > </a
+      ><a name="1298" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1272" class="Bound"
+      >A</a
+      ><a name="1299" class="Symbol"
+      >)</a
+      ><a name="1300"
+      >
+
+
+</a
+      ><a name="1303" class="Comment"
+      >-- Monotonicity with respect to context inclusion.</a
+      ><a name="1353"
+      >
+
+</a
+      ><a name="1355" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" class="Symbol"
+      >:</a
+      ><a name="1363"
+      > </a
+      ><a name="1364" class="Symbol"
+      >&#8704;</a
+      ><a name="1365"
+      > </a
+      ><a name="1366" class="Symbol"
+      >{</a
+      ><a name="1367" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1367" class="Bound"
+      >&#928;</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1369" class="Bound"
+      >&#915;</a
+      ><a name="1370"
+      > </a
+      ><a name="1371" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1371" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1374" class="Bound"
+      >&#916;</a
+      ><a name="1375" class="Symbol"
+      >}</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" class="Symbol"
+      >&#8594;</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1369" class="Bound"
+      >&#915;</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1371" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" class="Symbol"
+      >&#8594;</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1369" class="Bound"
+      >&#915;</a
+      ><a name="1389"
+      > </a
+      ><a name="1390" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1391"
+      > </a
+      ><a name="1392" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1374" class="Bound"
+      >&#916;</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1367" class="Bound"
+      >&#928;</a
+      ><a name="1398"
+      > </a
+      ><a name="1399" class="Symbol"
+      >&#8594;</a
+      ><a name="1400"
+      > </a
+      ><a name="1401" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1371" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1403"
+      > </a
+      ><a name="1404" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1405"
+      > </a
+      ><a name="1406" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1374" class="Bound"
+      >&#916;</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1410"
+      > </a
+      ><a name="1411" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1367" class="Bound"
+      >&#928;</a
+      ><a name="1412"
+      >
+</a
+      ><a name="1413" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1419"
+      > </a
+      ><a name="1420" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1420" class="Bound"
+      >&#951;</a
+      ><a name="1421"
+      > </a
+      ><a name="1422" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#310" class="InductiveConstructor"
+      >nil</a
+      ><a name="1425"
+      >         </a
+      ><a name="1434" class="Symbol"
+      >=</a
+      ><a name="1435"
+      > </a
+      ><a name="1436" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#310" class="InductiveConstructor"
+      >nil</a
+      ><a name="1439"
+      >
+</a
+      ><a name="1440" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1446"
+      > </a
+      ><a name="1447" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1447" class="Bound"
+      >&#951;</a
+      ><a name="1448"
+      > </a
+      ><a name="1449" class="Symbol"
+      >(</a
+      ><a name="1450" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#331" class="InductiveConstructor"
+      >var</a
+      ><a name="1453"
+      > </a
+      ><a name="1454" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1454" class="Bound"
+      >i</a
+      ><a name="1455"
+      > </a
+      ><a name="1456" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1456" class="Bound"
+      >ts</a
+      ><a name="1458" class="Symbol"
+      >)</a
+      ><a name="1459"
+      >  </a
+      ><a name="1461" class="Symbol"
+      >=</a
+      ><a name="1462"
+      > </a
+      ><a name="1463" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#331" class="InductiveConstructor"
+      >var</a
+      ><a name="1466"
+      > </a
+      ><a name="1467" class="Symbol"
+      >(</a
+      ><a name="1468" href="Common.Context.html#2392" class="Function"
+      >mono&#8712;</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1447" class="Bound"
+      >&#951;</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1454" class="Bound"
+      >i</a
+      ><a name="1477" class="Symbol"
+      >)</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" class="Symbol"
+      >(</a
+      ><a name="1480" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1486"
+      > </a
+      ><a name="1487" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1447" class="Bound"
+      >&#951;</a
+      ><a name="1488"
+      > </a
+      ><a name="1489" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1456" class="Bound"
+      >ts</a
+      ><a name="1491" class="Symbol"
+      >)</a
+      ><a name="1492"
+      >
+</a
+      ><a name="1493" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1499"
+      > </a
+      ><a name="1500" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1500" class="Bound"
+      >&#951;</a
+      ><a name="1501"
+      > </a
+      ><a name="1502" class="Symbol"
+      >(</a
+      ><a name="1503" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#391" class="InductiveConstructor"
+      >mp</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1506" class="Bound"
+      >i</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1508" class="Bound"
+      >j</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1510" class="Bound"
+      >ts</a
+      ><a name="1512" class="Symbol"
+      >)</a
+      ><a name="1513"
+      > </a
+      ><a name="1514" class="Symbol"
+      >=</a
+      ><a name="1515"
+      > </a
+      ><a name="1516" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#391" class="InductiveConstructor"
+      >mp</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1506" class="Bound"
+      >i</a
+      ><a name="1520"
+      > </a
+      ><a name="1521" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1508" class="Bound"
+      >j</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" class="Symbol"
+      >(</a
+      ><a name="1524" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1530"
+      > </a
+      ><a name="1531" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1500" class="Bound"
+      >&#951;</a
+      ><a name="1532"
+      > </a
+      ><a name="1533" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1510" class="Bound"
+      >ts</a
+      ><a name="1535" class="Symbol"
+      >)</a
+      ><a name="1536"
+      >
+</a
+      ><a name="1537" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1543"
+      > </a
+      ><a name="1544" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1544" class="Bound"
+      >&#951;</a
+      ><a name="1545"
+      > </a
+      ><a name="1546" class="Symbol"
+      >(</a
+      ><a name="1547" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#463" class="InductiveConstructor"
+      >ci</a
+      ><a name="1549"
+      > </a
+      ><a name="1550" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1550" class="Bound"
+      >ts</a
+      ><a name="1552" class="Symbol"
+      >)</a
+      ><a name="1553"
+      >     </a
+      ><a name="1558" class="Symbol"
+      >=</a
+      ><a name="1559"
+      > </a
+      ><a name="1560" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#463" class="InductiveConstructor"
+      >ci</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" class="Symbol"
+      >(</a
+      ><a name="1564" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1570"
+      > </a
+      ><a name="1571" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1544" class="Bound"
+      >&#951;</a
+      ><a name="1572"
+      > </a
+      ><a name="1573" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1550" class="Bound"
+      >ts</a
+      ><a name="1575" class="Symbol"
+      >)</a
+      ><a name="1576"
+      >
+</a
+      ><a name="1577" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1584" class="Bound"
+      >&#951;</a
+      ><a name="1585"
+      > </a
+      ><a name="1586" class="Symbol"
+      >(</a
+      ><a name="1587" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#519" class="InductiveConstructor"
+      >ck</a
+      ><a name="1589"
+      > </a
+      ><a name="1590" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1590" class="Bound"
+      >ts</a
+      ><a name="1592" class="Symbol"
+      >)</a
+      ><a name="1593"
+      >     </a
+      ><a name="1598" class="Symbol"
+      >=</a
+      ><a name="1599"
+      > </a
+      ><a name="1600" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#519" class="InductiveConstructor"
+      >ck</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" class="Symbol"
+      >(</a
+      ><a name="1604" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1610"
+      > </a
+      ><a name="1611" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1584" class="Bound"
+      >&#951;</a
+      ><a name="1612"
+      > </a
+      ><a name="1613" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1590" class="Bound"
+      >ts</a
+      ><a name="1615" class="Symbol"
+      >)</a
+      ><a name="1616"
+      >
+</a
+      ><a name="1617" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1623"
+      > </a
+      ><a name="1624" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1624" class="Bound"
+      >&#951;</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" class="Symbol"
+      >(</a
+      ><a name="1627" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#579" class="InductiveConstructor"
+      >cs</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1630" class="Bound"
+      >ts</a
+      ><a name="1632" class="Symbol"
+      >)</a
+      ><a name="1633"
+      >     </a
+      ><a name="1638" class="Symbol"
+      >=</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#579" class="InductiveConstructor"
+      >cs</a
+      ><a name="1642"
+      > </a
+      ><a name="1643" class="Symbol"
+      >(</a
+      ><a name="1644" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1650"
+      > </a
+      ><a name="1651" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1624" class="Bound"
+      >&#951;</a
+      ><a name="1652"
+      > </a
+      ><a name="1653" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1630" class="Bound"
+      >ts</a
+      ><a name="1655" class="Symbol"
+      >)</a
+      ><a name="1656"
+      >
+</a
+      ><a name="1657" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1663"
+      > </a
+      ><a name="1664" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1664" class="Bound"
+      >&#951;</a
+      ><a name="1665"
+      > </a
+      ><a name="1666" class="Symbol"
+      >(</a
+      ><a name="1667" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#659" class="InductiveConstructor"
+      >mvar</a
+      ><a name="1671"
+      > </a
+      ><a name="1672" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1672" class="Bound"
+      >i</a
+      ><a name="1673"
+      > </a
+      ><a name="1674" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1674" class="Bound"
+      >ts</a
+      ><a name="1676" class="Symbol"
+      >)</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" class="Symbol"
+      >=</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#659" class="InductiveConstructor"
+      >mvar</a
+      ><a name="1684"
+      > </a
+      ><a name="1685" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1672" class="Bound"
+      >i</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" class="Symbol"
+      >(</a
+      ><a name="1688" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1694"
+      > </a
+      ><a name="1695" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1664" class="Bound"
+      >&#951;</a
+      ><a name="1696"
+      > </a
+      ><a name="1697" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1674" class="Bound"
+      >ts</a
+      ><a name="1699" class="Symbol"
+      >)</a
+      ><a name="1700"
+      >
+</a
+      ><a name="1701" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1707"
+      > </a
+      ><a name="1708" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1708" class="Bound"
+      >&#951;</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" class="Symbol"
+      >(</a
+      ><a name="1711" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#719" class="InductiveConstructor"
+      >nec</a
+      ><a name="1714"
+      > </a
+      ><a name="1715" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1715" class="Bound"
+      >ss</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1718" class="Bound"
+      >ts</a
+      ><a name="1720" class="Symbol"
+      >)</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" class="Symbol"
+      >=</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#719" class="InductiveConstructor"
+      >nec</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1715" class="Bound"
+      >ss</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" class="Symbol"
+      >(</a
+      ><a name="1732" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1738"
+      > </a
+      ><a name="1739" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1708" class="Bound"
+      >&#951;</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1718" class="Bound"
+      >ts</a
+      ><a name="1743" class="Symbol"
+      >)</a
+      ><a name="1744"
+      >
+</a
+      ><a name="1745" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1752" class="Bound"
+      >&#951;</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" class="Symbol"
+      >(</a
+      ><a name="1755" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#790" class="InductiveConstructor"
+      >cdist</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1761" class="Bound"
+      >ts</a
+      ><a name="1763" class="Symbol"
+      >)</a
+      ><a name="1764"
+      >  </a
+      ><a name="1766" class="Symbol"
+      >=</a
+      ><a name="1767"
+      > </a
+      ><a name="1768" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#790" class="InductiveConstructor"
+      >cdist</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" class="Symbol"
+      >(</a
+      ><a name="1775" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1781"
+      > </a
+      ><a name="1782" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1752" class="Bound"
+      >&#951;</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1761" class="Bound"
+      >ts</a
+      ><a name="1786" class="Symbol"
+      >)</a
+      ><a name="1787"
+      >
+</a
+      ><a name="1788" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1795" class="Bound"
+      >&#951;</a
+      ><a name="1796"
+      > </a
+      ><a name="1797" class="Symbol"
+      >(</a
+      ><a name="1798" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#862" class="InductiveConstructor"
+      >cup</a
+      ><a name="1801"
+      > </a
+      ><a name="1802" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1802" class="Bound"
+      >ts</a
+      ><a name="1804" class="Symbol"
+      >)</a
+      ><a name="1805"
+      >    </a
+      ><a name="1809" class="Symbol"
+      >=</a
+      ><a name="1810"
+      > </a
+      ><a name="1811" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#862" class="InductiveConstructor"
+      >cup</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" class="Symbol"
+      >(</a
+      ><a name="1816" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1795" class="Bound"
+      >&#951;</a
+      ><a name="1824"
+      > </a
+      ><a name="1825" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1802" class="Bound"
+      >ts</a
+      ><a name="1827" class="Symbol"
+      >)</a
+      ><a name="1828"
+      >
+</a
+      ><a name="1829" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1836" class="Bound"
+      >&#951;</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" class="Symbol"
+      >(</a
+      ><a name="1839" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#924" class="InductiveConstructor"
+      >cdown</a
+      ><a name="1844"
+      > </a
+      ><a name="1845" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1845" class="Bound"
+      >ts</a
+      ><a name="1847" class="Symbol"
+      >)</a
+      ><a name="1848"
+      >  </a
+      ><a name="1850" class="Symbol"
+      >=</a
+      ><a name="1851"
+      > </a
+      ><a name="1852" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#924" class="InductiveConstructor"
+      >cdown</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" class="Symbol"
+      >(</a
+      ><a name="1859" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1865"
+      > </a
+      ><a name="1866" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1836" class="Bound"
+      >&#951;</a
+      ><a name="1867"
+      > </a
+      ><a name="1868" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1845" class="Bound"
+      >ts</a
+      ><a name="1870" class="Symbol"
+      >)</a
+      ><a name="1871"
+      >
+</a
+      ><a name="1872" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1878"
+      > </a
+      ><a name="1879" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1879" class="Bound"
+      >&#951;</a
+      ><a name="1880"
+      > </a
+      ><a name="1881" class="Symbol"
+      >(</a
+      ><a name="1882" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#982" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1887"
+      > </a
+      ><a name="1888" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1888" class="Bound"
+      >ts</a
+      ><a name="1890" class="Symbol"
+      >)</a
+      ><a name="1891"
+      >  </a
+      ><a name="1893" class="Symbol"
+      >=</a
+      ><a name="1894"
+      > </a
+      ><a name="1895" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#982" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1900"
+      > </a
+      ><a name="1901" class="Symbol"
+      >(</a
+      ><a name="1902" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1879" class="Bound"
+      >&#951;</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1888" class="Bound"
+      >ts</a
+      ><a name="1913" class="Symbol"
+      >)</a
+      ><a name="1914"
+      >
+</a
+      ><a name="1915" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1921"
+      > </a
+      ><a name="1922" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1922" class="Bound"
+      >&#951;</a
+      ><a name="1923"
+      > </a
+      ><a name="1924" class="Symbol"
+      >(</a
+      ><a name="1925" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1046" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1930" class="Bound"
+      >ts</a
+      ><a name="1932" class="Symbol"
+      >)</a
+      ><a name="1933"
+      >   </a
+      ><a name="1936" class="Symbol"
+      >=</a
+      ><a name="1937"
+      > </a
+      ><a name="1938" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1046" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1942"
+      > </a
+      ><a name="1943" class="Symbol"
+      >(</a
+      ><a name="1944" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1950"
+      > </a
+      ><a name="1951" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1922" class="Bound"
+      >&#951;</a
+      ><a name="1952"
+      > </a
+      ><a name="1953" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1930" class="Bound"
+      >ts</a
+      ><a name="1955" class="Symbol"
+      >)</a
+      ><a name="1956"
+      >
+</a
+      ><a name="1957" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1963"
+      > </a
+      ><a name="1964" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1964" class="Bound"
+      >&#951;</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" class="Symbol"
+      >(</a
+      ><a name="1967" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1106" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1972" class="Bound"
+      >ts</a
+      ><a name="1974" class="Symbol"
+      >)</a
+      ><a name="1975"
+      >   </a
+      ><a name="1978" class="Symbol"
+      >=</a
+      ><a name="1979"
+      > </a
+      ><a name="1980" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1106" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1984"
+      > </a
+      ><a name="1985" class="Symbol"
+      >(</a
+      ><a name="1986" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1992"
+      > </a
+      ><a name="1993" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1964" class="Bound"
+      >&#951;</a
+      ><a name="1994"
+      > </a
+      ><a name="1995" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1972" class="Bound"
+      >ts</a
+      ><a name="1997" class="Symbol"
+      >)</a
+      ><a name="1998"
+      >
+</a
+      ><a name="1999" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="2005"
+      > </a
+      ><a name="2006" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2006" class="Bound"
+      >&#951;</a
+      ><a name="2007"
+      > </a
+      ><a name="2008" class="Symbol"
+      >(</a
+      ><a name="2009" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1166" class="InductiveConstructor"
+      >tt</a
+      ><a name="2011"
+      > </a
+      ><a name="2012" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2012" class="Bound"
+      >ts</a
+      ><a name="2014" class="Symbol"
+      >)</a
+      ><a name="2015"
+      >     </a
+      ><a name="2020" class="Symbol"
+      >=</a
+      ><a name="2021"
+      > </a
+      ><a name="2022" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1166" class="InductiveConstructor"
+      >tt</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" class="Symbol"
+      >(</a
+      ><a name="2026" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="2032"
+      > </a
+      ><a name="2033" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2006" class="Bound"
+      >&#951;</a
+      ><a name="2034"
+      > </a
+      ><a name="2035" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2012" class="Bound"
+      >ts</a
+      ><a name="2037" class="Symbol"
+      >)</a
+      ><a name="2038"
+      >
+
+</a
+      ><a name="2040" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2040" class="Function"
+      >mono&#8866;</a
+      ><a name="2045"
+      > </a
+      ><a name="2046" class="Symbol"
+      >:</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" class="Symbol"
+      >&#8704;</a
+      ><a name="2049"
+      > </a
+      ><a name="2050" class="Symbol"
+      >{</a
+      ><a name="2051" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2051" class="Bound"
+      >A</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2053" class="Bound"
+      >&#915;</a
+      ><a name="2054"
+      > </a
+      ><a name="2055" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2055" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2057"
+      > </a
+      ><a name="2058" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2058" class="Bound"
+      >&#916;</a
+      ><a name="2059" class="Symbol"
+      >}</a
+      ><a name="2060"
+      > </a
+      ><a name="2061" class="Symbol"
+      >&#8594;</a
+      ><a name="2062"
+      > </a
+      ><a name="2063" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2053" class="Bound"
+      >&#915;</a
+      ><a name="2064"
+      > </a
+      ><a name="2065" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2066"
+      > </a
+      ><a name="2067" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2055" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2069"
+      > </a
+      ><a name="2070" class="Symbol"
+      >&#8594;</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2053" class="Bound"
+      >&#915;</a
+      ><a name="2073"
+      > </a
+      ><a name="2074" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="2075"
+      > </a
+      ><a name="2076" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2058" class="Bound"
+      >&#916;</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="2079"
+      > </a
+      ><a name="2080" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2051" class="Bound"
+      >A</a
+      ><a name="2081"
+      > </a
+      ><a name="2082" class="Symbol"
+      >&#8594;</a
+      ><a name="2083"
+      > </a
+      ><a name="2084" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2055" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2086"
+      > </a
+      ><a name="2087" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="2088"
+      > </a
+      ><a name="2089" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2058" class="Bound"
+      >&#916;</a
+      ><a name="2090"
+      > </a
+      ><a name="2091" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="2092"
+      > </a
+      ><a name="2093" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2051" class="Bound"
+      >A</a
+      ><a name="2094"
+      >
+</a
+      ><a name="2095" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2040" class="Function"
+      >mono&#8866;</a
+      ><a name="2100"
+      > </a
+      ><a name="2101" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2101" class="Bound"
+      >&#951;</a
+      ><a name="2102"
+      > </a
+      ><a name="2103" class="Symbol"
+      >(</a
+      ><a name="2104" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2104" class="Bound"
+      >&#928;</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2108" class="Bound"
+      >ts</a
+      ><a name="2110" class="Symbol"
+      >)</a
+      ><a name="2111"
+      > </a
+      ><a name="2112" class="Symbol"
+      >=</a
+      ><a name="2113"
+      > </a
+      ><a name="2114" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2104" class="Bound"
+      >&#928;</a
+      ><a name="2115"
+      > </a
+      ><a name="2116" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2117"
+      > </a
+      ><a name="2118" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1355" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2101" class="Bound"
+      >&#951;</a
+      ><a name="2126"
+      > </a
+      ><a name="2127" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2108" class="Bound"
+      >ts</a
+      ><a name="2129"
+      >
+
+
+</a
+      ><a name="2132" class="Comment"
+      >-- Monotonicity with respect to modal context inclusion.</a
+      ><a name="2188"
+      >
+
+</a
+      ><a name="2190" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2197"
+      > </a
+      ><a name="2198" class="Symbol"
+      >:</a
+      ><a name="2199"
+      > </a
+      ><a name="2200" class="Symbol"
+      >&#8704;</a
+      ><a name="2201"
+      > </a
+      ><a name="2202" class="Symbol"
+      >{</a
+      ><a name="2203" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2203" class="Bound"
+      >&#928;</a
+      ><a name="2204"
+      > </a
+      ><a name="2205" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2205" class="Bound"
+      >&#915;</a
+      ><a name="2206"
+      > </a
+      ><a name="2207" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2207" class="Bound"
+      >&#916;</a
+      ><a name="2208"
+      > </a
+      ><a name="2209" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2209" class="Bound"
+      >&#916;&#8242;</a
+      ><a name="2211" class="Symbol"
+      >}</a
+      ><a name="2212"
+      > </a
+      ><a name="2213" class="Symbol"
+      >&#8594;</a
+      ><a name="2214"
+      > </a
+      ><a name="2215" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2207" class="Bound"
+      >&#916;</a
+      ><a name="2216"
+      > </a
+      ><a name="2217" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2218"
+      > </a
+      ><a name="2219" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2209" class="Bound"
+      >&#916;&#8242;</a
+      ><a name="2221"
+      > </a
+      ><a name="2222" class="Symbol"
+      >&#8594;</a
+      ><a name="2223"
+      > </a
+      ><a name="2224" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2205" class="Bound"
+      >&#915;</a
+      ><a name="2225"
+      > </a
+      ><a name="2226" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="2227"
+      > </a
+      ><a name="2228" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2207" class="Bound"
+      >&#916;</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="2232"
+      > </a
+      ><a name="2233" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2203" class="Bound"
+      >&#928;</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" class="Symbol"
+      >&#8594;</a
+      ><a name="2236"
+      > </a
+      ><a name="2237" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2205" class="Bound"
+      >&#915;</a
+      ><a name="2238"
+      > </a
+      ><a name="2239" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="2240"
+      > </a
+      ><a name="2241" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2209" class="Bound"
+      >&#916;&#8242;</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="2246"
+      > </a
+      ><a name="2247" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2203" class="Bound"
+      >&#928;</a
+      ><a name="2248"
+      >
+</a
+      ><a name="2249" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2256"
+      > </a
+      ><a name="2257" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2257" class="Bound"
+      >&#952;</a
+      ><a name="2258"
+      > </a
+      ><a name="2259" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#310" class="InductiveConstructor"
+      >nil</a
+      ><a name="2262"
+      >         </a
+      ><a name="2271" class="Symbol"
+      >=</a
+      ><a name="2272"
+      > </a
+      ><a name="2273" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#310" class="InductiveConstructor"
+      >nil</a
+      ><a name="2276"
+      >
+</a
+      ><a name="2277" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2284"
+      > </a
+      ><a name="2285" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2285" class="Bound"
+      >&#952;</a
+      ><a name="2286"
+      > </a
+      ><a name="2287" class="Symbol"
+      >(</a
+      ><a name="2288" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#331" class="InductiveConstructor"
+      >var</a
+      ><a name="2291"
+      > </a
+      ><a name="2292" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2292" class="Bound"
+      >i</a
+      ><a name="2293"
+      > </a
+      ><a name="2294" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2294" class="Bound"
+      >ts</a
+      ><a name="2296" class="Symbol"
+      >)</a
+      ><a name="2297"
+      >  </a
+      ><a name="2299" class="Symbol"
+      >=</a
+      ><a name="2300"
+      > </a
+      ><a name="2301" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#331" class="InductiveConstructor"
+      >var</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2292" class="Bound"
+      >i</a
+      ><a name="2306"
+      > </a
+      ><a name="2307" class="Symbol"
+      >(</a
+      ><a name="2308" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2315"
+      > </a
+      ><a name="2316" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2285" class="Bound"
+      >&#952;</a
+      ><a name="2317"
+      > </a
+      ><a name="2318" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2294" class="Bound"
+      >ts</a
+      ><a name="2320" class="Symbol"
+      >)</a
+      ><a name="2321"
+      >
+</a
+      ><a name="2322" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2329"
+      > </a
+      ><a name="2330" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2330" class="Bound"
+      >&#952;</a
+      ><a name="2331"
+      > </a
+      ><a name="2332" class="Symbol"
+      >(</a
+      ><a name="2333" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#391" class="InductiveConstructor"
+      >mp</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2336" class="Bound"
+      >i</a
+      ><a name="2337"
+      > </a
+      ><a name="2338" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2338" class="Bound"
+      >j</a
+      ><a name="2339"
+      > </a
+      ><a name="2340" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2340" class="Bound"
+      >ts</a
+      ><a name="2342" class="Symbol"
+      >)</a
+      ><a name="2343"
+      > </a
+      ><a name="2344" class="Symbol"
+      >=</a
+      ><a name="2345"
+      > </a
+      ><a name="2346" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#391" class="InductiveConstructor"
+      >mp</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2336" class="Bound"
+      >i</a
+      ><a name="2350"
+      > </a
+      ><a name="2351" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2338" class="Bound"
+      >j</a
+      ><a name="2352"
+      > </a
+      ><a name="2353" class="Symbol"
+      >(</a
+      ><a name="2354" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2361"
+      > </a
+      ><a name="2362" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2330" class="Bound"
+      >&#952;</a
+      ><a name="2363"
+      > </a
+      ><a name="2364" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2340" class="Bound"
+      >ts</a
+      ><a name="2366" class="Symbol"
+      >)</a
+      ><a name="2367"
+      >
+</a
+      ><a name="2368" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2375"
+      > </a
+      ><a name="2376" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2376" class="Bound"
+      >&#952;</a
+      ><a name="2377"
+      > </a
+      ><a name="2378" class="Symbol"
+      >(</a
+      ><a name="2379" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#463" class="InductiveConstructor"
+      >ci</a
+      ><a name="2381"
+      > </a
+      ><a name="2382" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2382" class="Bound"
+      >ts</a
+      ><a name="2384" class="Symbol"
+      >)</a
+      ><a name="2385"
+      >     </a
+      ><a name="2390" class="Symbol"
+      >=</a
+      ><a name="2391"
+      > </a
+      ><a name="2392" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#463" class="InductiveConstructor"
+      >ci</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" class="Symbol"
+      >(</a
+      ><a name="2396" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2376" class="Bound"
+      >&#952;</a
+      ><a name="2405"
+      > </a
+      ><a name="2406" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2382" class="Bound"
+      >ts</a
+      ><a name="2408" class="Symbol"
+      >)</a
+      ><a name="2409"
+      >
+</a
+      ><a name="2410" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2418" class="Bound"
+      >&#952;</a
+      ><a name="2419"
+      > </a
+      ><a name="2420" class="Symbol"
+      >(</a
+      ><a name="2421" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#519" class="InductiveConstructor"
+      >ck</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2424" class="Bound"
+      >ts</a
+      ><a name="2426" class="Symbol"
+      >)</a
+      ><a name="2427"
+      >     </a
+      ><a name="2432" class="Symbol"
+      >=</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#519" class="InductiveConstructor"
+      >ck</a
+      ><a name="2436"
+      > </a
+      ><a name="2437" class="Symbol"
+      >(</a
+      ><a name="2438" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2445"
+      > </a
+      ><a name="2446" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2418" class="Bound"
+      >&#952;</a
+      ><a name="2447"
+      > </a
+      ><a name="2448" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2424" class="Bound"
+      >ts</a
+      ><a name="2450" class="Symbol"
+      >)</a
+      ><a name="2451"
+      >
+</a
+      ><a name="2452" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2459"
+      > </a
+      ><a name="2460" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2460" class="Bound"
+      >&#952;</a
+      ><a name="2461"
+      > </a
+      ><a name="2462" class="Symbol"
+      >(</a
+      ><a name="2463" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#579" class="InductiveConstructor"
+      >cs</a
+      ><a name="2465"
+      > </a
+      ><a name="2466" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2466" class="Bound"
+      >ts</a
+      ><a name="2468" class="Symbol"
+      >)</a
+      ><a name="2469"
+      >     </a
+      ><a name="2474" class="Symbol"
+      >=</a
+      ><a name="2475"
+      > </a
+      ><a name="2476" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#579" class="InductiveConstructor"
+      >cs</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" class="Symbol"
+      >(</a
+      ><a name="2480" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2487"
+      > </a
+      ><a name="2488" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2460" class="Bound"
+      >&#952;</a
+      ><a name="2489"
+      > </a
+      ><a name="2490" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2466" class="Bound"
+      >ts</a
+      ><a name="2492" class="Symbol"
+      >)</a
+      ><a name="2493"
+      >
+</a
+      ><a name="2494" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2501"
+      > </a
+      ><a name="2502" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2502" class="Bound"
+      >&#952;</a
+      ><a name="2503"
+      > </a
+      ><a name="2504" class="Symbol"
+      >(</a
+      ><a name="2505" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#659" class="InductiveConstructor"
+      >mvar</a
+      ><a name="2509"
+      > </a
+      ><a name="2510" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2510" class="Bound"
+      >i</a
+      ><a name="2511"
+      > </a
+      ><a name="2512" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2512" class="Bound"
+      >ts</a
+      ><a name="2514" class="Symbol"
+      >)</a
+      ><a name="2515"
+      > </a
+      ><a name="2516" class="Symbol"
+      >=</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#659" class="InductiveConstructor"
+      >mvar</a
+      ><a name="2522"
+      > </a
+      ><a name="2523" class="Symbol"
+      >(</a
+      ><a name="2524" href="Common.Context.html#2392" class="Function"
+      >mono&#8712;</a
+      ><a name="2529"
+      > </a
+      ><a name="2530" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2502" class="Bound"
+      >&#952;</a
+      ><a name="2531"
+      > </a
+      ><a name="2532" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2510" class="Bound"
+      >i</a
+      ><a name="2533" class="Symbol"
+      >)</a
+      ><a name="2534"
+      > </a
+      ><a name="2535" class="Symbol"
+      >(</a
+      ><a name="2536" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2543"
+      > </a
+      ><a name="2544" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2502" class="Bound"
+      >&#952;</a
+      ><a name="2545"
+      > </a
+      ><a name="2546" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2512" class="Bound"
+      >ts</a
+      ><a name="2548" class="Symbol"
+      >)</a
+      ><a name="2549"
+      >
+</a
+      ><a name="2550" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2557"
+      > </a
+      ><a name="2558" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2558" class="Bound"
+      >&#952;</a
+      ><a name="2559"
+      > </a
+      ><a name="2560" class="Symbol"
+      >(</a
+      ><a name="2561" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#719" class="InductiveConstructor"
+      >nec</a
+      ><a name="2564"
+      > </a
+      ><a name="2565" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2565" class="Bound"
+      >ss</a
+      ><a name="2567"
+      > </a
+      ><a name="2568" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2568" class="Bound"
+      >ts</a
+      ><a name="2570" class="Symbol"
+      >)</a
+      ><a name="2571"
+      > </a
+      ><a name="2572" class="Symbol"
+      >=</a
+      ><a name="2573"
+      > </a
+      ><a name="2574" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#719" class="InductiveConstructor"
+      >nec</a
+      ><a name="2577"
+      > </a
+      ><a name="2578" class="Symbol"
+      >(</a
+      ><a name="2579" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2586"
+      > </a
+      ><a name="2587" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2558" class="Bound"
+      >&#952;</a
+      ><a name="2588"
+      > </a
+      ><a name="2589" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2565" class="Bound"
+      >ss</a
+      ><a name="2591" class="Symbol"
+      >)</a
+      ><a name="2592"
+      > </a
+      ><a name="2593" class="Symbol"
+      >(</a
+      ><a name="2594" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2601"
+      > </a
+      ><a name="2602" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2558" class="Bound"
+      >&#952;</a
+      ><a name="2603"
+      > </a
+      ><a name="2604" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2568" class="Bound"
+      >ts</a
+      ><a name="2606" class="Symbol"
+      >)</a
+      ><a name="2607"
+      >
+</a
+      ><a name="2608" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2615"
+      > </a
+      ><a name="2616" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2616" class="Bound"
+      >&#952;</a
+      ><a name="2617"
+      > </a
+      ><a name="2618" class="Symbol"
+      >(</a
+      ><a name="2619" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#790" class="InductiveConstructor"
+      >cdist</a
+      ><a name="2624"
+      > </a
+      ><a name="2625" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2625" class="Bound"
+      >ts</a
+      ><a name="2627" class="Symbol"
+      >)</a
+      ><a name="2628"
+      >  </a
+      ><a name="2630" class="Symbol"
+      >=</a
+      ><a name="2631"
+      > </a
+      ><a name="2632" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#790" class="InductiveConstructor"
+      >cdist</a
+      ><a name="2637"
+      > </a
+      ><a name="2638" class="Symbol"
+      >(</a
+      ><a name="2639" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2646"
+      > </a
+      ><a name="2647" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2616" class="Bound"
+      >&#952;</a
+      ><a name="2648"
+      > </a
+      ><a name="2649" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2625" class="Bound"
+      >ts</a
+      ><a name="2651" class="Symbol"
+      >)</a
+      ><a name="2652"
+      >
+</a
+      ><a name="2653" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2660"
+      > </a
+      ><a name="2661" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2661" class="Bound"
+      >&#952;</a
+      ><a name="2662"
+      > </a
+      ><a name="2663" class="Symbol"
+      >(</a
+      ><a name="2664" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#862" class="InductiveConstructor"
+      >cup</a
+      ><a name="2667"
+      > </a
+      ><a name="2668" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2668" class="Bound"
+      >ts</a
+      ><a name="2670" class="Symbol"
+      >)</a
+      ><a name="2671"
+      >    </a
+      ><a name="2675" class="Symbol"
+      >=</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#862" class="InductiveConstructor"
+      >cup</a
+      ><a name="2680"
+      > </a
+      ><a name="2681" class="Symbol"
+      >(</a
+      ><a name="2682" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2689"
+      > </a
+      ><a name="2690" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2661" class="Bound"
+      >&#952;</a
+      ><a name="2691"
+      > </a
+      ><a name="2692" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2668" class="Bound"
+      >ts</a
+      ><a name="2694" class="Symbol"
+      >)</a
+      ><a name="2695"
+      >
+</a
+      ><a name="2696" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2703"
+      > </a
+      ><a name="2704" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2704" class="Bound"
+      >&#952;</a
+      ><a name="2705"
+      > </a
+      ><a name="2706" class="Symbol"
+      >(</a
+      ><a name="2707" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#924" class="InductiveConstructor"
+      >cdown</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2713" class="Bound"
+      >ts</a
+      ><a name="2715" class="Symbol"
+      >)</a
+      ><a name="2716"
+      >  </a
+      ><a name="2718" class="Symbol"
+      >=</a
+      ><a name="2719"
+      > </a
+      ><a name="2720" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#924" class="InductiveConstructor"
+      >cdown</a
+      ><a name="2725"
+      > </a
+      ><a name="2726" class="Symbol"
+      >(</a
+      ><a name="2727" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2734"
+      > </a
+      ><a name="2735" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2704" class="Bound"
+      >&#952;</a
+      ><a name="2736"
+      > </a
+      ><a name="2737" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2713" class="Bound"
+      >ts</a
+      ><a name="2739" class="Symbol"
+      >)</a
+      ><a name="2740"
+      >
+</a
+      ><a name="2741" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2748"
+      > </a
+      ><a name="2749" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2749" class="Bound"
+      >&#952;</a
+      ><a name="2750"
+      > </a
+      ><a name="2751" class="Symbol"
+      >(</a
+      ><a name="2752" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#982" class="InductiveConstructor"
+      >cpair</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2758" class="Bound"
+      >ts</a
+      ><a name="2760" class="Symbol"
+      >)</a
+      ><a name="2761"
+      >  </a
+      ><a name="2763" class="Symbol"
+      >=</a
+      ><a name="2764"
+      > </a
+      ><a name="2765" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#982" class="InductiveConstructor"
+      >cpair</a
+      ><a name="2770"
+      > </a
+      ><a name="2771" class="Symbol"
+      >(</a
+      ><a name="2772" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2779"
+      > </a
+      ><a name="2780" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2749" class="Bound"
+      >&#952;</a
+      ><a name="2781"
+      > </a
+      ><a name="2782" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2758" class="Bound"
+      >ts</a
+      ><a name="2784" class="Symbol"
+      >)</a
+      ><a name="2785"
+      >
+</a
+      ><a name="2786" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2793"
+      > </a
+      ><a name="2794" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2794" class="Bound"
+      >&#952;</a
+      ><a name="2795"
+      > </a
+      ><a name="2796" class="Symbol"
+      >(</a
+      ><a name="2797" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1046" class="InductiveConstructor"
+      >cfst</a
+      ><a name="2801"
+      > </a
+      ><a name="2802" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2802" class="Bound"
+      >ts</a
+      ><a name="2804" class="Symbol"
+      >)</a
+      ><a name="2805"
+      >   </a
+      ><a name="2808" class="Symbol"
+      >=</a
+      ><a name="2809"
+      > </a
+      ><a name="2810" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1046" class="InductiveConstructor"
+      >cfst</a
+      ><a name="2814"
+      > </a
+      ><a name="2815" class="Symbol"
+      >(</a
+      ><a name="2816" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2823"
+      > </a
+      ><a name="2824" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2794" class="Bound"
+      >&#952;</a
+      ><a name="2825"
+      > </a
+      ><a name="2826" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2802" class="Bound"
+      >ts</a
+      ><a name="2828" class="Symbol"
+      >)</a
+      ><a name="2829"
+      >
+</a
+      ><a name="2830" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2837"
+      > </a
+      ><a name="2838" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2838" class="Bound"
+      >&#952;</a
+      ><a name="2839"
+      > </a
+      ><a name="2840" class="Symbol"
+      >(</a
+      ><a name="2841" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1106" class="InductiveConstructor"
+      >csnd</a
+      ><a name="2845"
+      > </a
+      ><a name="2846" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2846" class="Bound"
+      >ts</a
+      ><a name="2848" class="Symbol"
+      >)</a
+      ><a name="2849"
+      >   </a
+      ><a name="2852" class="Symbol"
+      >=</a
+      ><a name="2853"
+      > </a
+      ><a name="2854" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1106" class="InductiveConstructor"
+      >csnd</a
+      ><a name="2858"
+      > </a
+      ><a name="2859" class="Symbol"
+      >(</a
+      ><a name="2860" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2867"
+      > </a
+      ><a name="2868" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2838" class="Bound"
+      >&#952;</a
+      ><a name="2869"
+      > </a
+      ><a name="2870" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2846" class="Bound"
+      >ts</a
+      ><a name="2872" class="Symbol"
+      >)</a
+      ><a name="2873"
+      >
+</a
+      ><a name="2874" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2881"
+      > </a
+      ><a name="2882" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2882" class="Bound"
+      >&#952;</a
+      ><a name="2883"
+      > </a
+      ><a name="2884" class="Symbol"
+      >(</a
+      ><a name="2885" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1166" class="InductiveConstructor"
+      >tt</a
+      ><a name="2887"
+      > </a
+      ><a name="2888" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2888" class="Bound"
+      >ts</a
+      ><a name="2890" class="Symbol"
+      >)</a
+      ><a name="2891"
+      >     </a
+      ><a name="2896" class="Symbol"
+      >=</a
+      ><a name="2897"
+      > </a
+      ><a name="2898" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1166" class="InductiveConstructor"
+      >tt</a
+      ><a name="2900"
+      > </a
+      ><a name="2901" class="Symbol"
+      >(</a
+      ><a name="2902" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="2909"
+      > </a
+      ><a name="2910" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2882" class="Bound"
+      >&#952;</a
+      ><a name="2911"
+      > </a
+      ><a name="2912" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2888" class="Bound"
+      >ts</a
+      ><a name="2914" class="Symbol"
+      >)</a
+      ><a name="2915"
+      >
+
+</a
+      ><a name="2917" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2917" class="Function"
+      >mmono&#8866;</a
+      ><a name="2923"
+      > </a
+      ><a name="2924" class="Symbol"
+      >:</a
+      ><a name="2925"
+      > </a
+      ><a name="2926" class="Symbol"
+      >&#8704;</a
+      ><a name="2927"
+      > </a
+      ><a name="2928" class="Symbol"
+      >{</a
+      ><a name="2929" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2929" class="Bound"
+      >A</a
+      ><a name="2930"
+      > </a
+      ><a name="2931" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2931" class="Bound"
+      >&#915;</a
+      ><a name="2932"
+      > </a
+      ><a name="2933" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2933" class="Bound"
+      >&#916;</a
+      ><a name="2934"
+      > </a
+      ><a name="2935" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2935" class="Bound"
+      >&#916;&#8242;</a
+      ><a name="2937" class="Symbol"
+      >}</a
+      ><a name="2938"
+      > </a
+      ><a name="2939" class="Symbol"
+      >&#8594;</a
+      ><a name="2940"
+      > </a
+      ><a name="2941" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2933" class="Bound"
+      >&#916;</a
+      ><a name="2942"
+      > </a
+      ><a name="2943" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2944"
+      > </a
+      ><a name="2945" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2935" class="Bound"
+      >&#916;&#8242;</a
+      ><a name="2947"
+      > </a
+      ><a name="2948" class="Symbol"
+      >&#8594;</a
+      ><a name="2949"
+      > </a
+      ><a name="2950" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2931" class="Bound"
+      >&#915;</a
+      ><a name="2951"
+      > </a
+      ><a name="2952" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="2953"
+      > </a
+      ><a name="2954" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2933" class="Bound"
+      >&#916;</a
+      ><a name="2955"
+      > </a
+      ><a name="2956" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="2957"
+      > </a
+      ><a name="2958" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2929" class="Bound"
+      >A</a
+      ><a name="2959"
+      > </a
+      ><a name="2960" class="Symbol"
+      >&#8594;</a
+      ><a name="2961"
+      > </a
+      ><a name="2962" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2931" class="Bound"
+      >&#915;</a
+      ><a name="2963"
+      > </a
+      ><a name="2964" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="2965"
+      > </a
+      ><a name="2966" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2935" class="Bound"
+      >&#916;&#8242;</a
+      ><a name="2968"
+      > </a
+      ><a name="2969" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="2970"
+      > </a
+      ><a name="2971" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2929" class="Bound"
+      >A</a
+      ><a name="2972"
+      >
+</a
+      ><a name="2973" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2917" class="Function"
+      >mmono&#8866;</a
+      ><a name="2979"
+      > </a
+      ><a name="2980" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2980" class="Bound"
+      >&#952;</a
+      ><a name="2981"
+      > </a
+      ><a name="2982" class="Symbol"
+      >(</a
+      ><a name="2983" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2983" class="Bound"
+      >&#928;</a
+      ><a name="2984"
+      > </a
+      ><a name="2985" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2986"
+      > </a
+      ><a name="2987" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2987" class="Bound"
+      >ts</a
+      ><a name="2989" class="Symbol"
+      >)</a
+      ><a name="2990"
+      > </a
+      ><a name="2991" class="Symbol"
+      >=</a
+      ><a name="2992"
+      > </a
+      ><a name="2993" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2983" class="Bound"
+      >&#928;</a
+      ><a name="2994"
+      > </a
+      ><a name="2995" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2996"
+      > </a
+      ><a name="2997" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2190" class="Function"
+      >mmono&#8866;&#215;</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2980" class="Bound"
+      >&#952;</a
+      ><a name="3006"
+      > </a
+      ><a name="3007" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#2987" class="Bound"
+      >ts</a
+      ><a name="3009"
+      >
+
+
+</a
+      ><a name="3012" class="Comment"
+      >-- Derivation concatenation.</a
+      ><a name="3040"
+      >
+
+</a
+      ><a name="3042" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >_&#10747;_</a
+      ><a name="3045"
+      > </a
+      ><a name="3046" class="Symbol"
+      >:</a
+      ><a name="3047"
+      > </a
+      ><a name="3048" class="Symbol"
+      >&#8704;</a
+      ><a name="3049"
+      > </a
+      ><a name="3050" class="Symbol"
+      >{</a
+      ><a name="3051" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3051" class="Bound"
+      >&#915;</a
+      ><a name="3052"
+      > </a
+      ><a name="3053" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3053" class="Bound"
+      >&#916;</a
+      ><a name="3054"
+      > </a
+      ><a name="3055" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3055" class="Bound"
+      >&#928;</a
+      ><a name="3056"
+      > </a
+      ><a name="3057" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3057" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="3059" class="Symbol"
+      >}</a
+      ><a name="3060"
+      > </a
+      ><a name="3061" class="Symbol"
+      >&#8594;</a
+      ><a name="3062"
+      > </a
+      ><a name="3063" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3051" class="Bound"
+      >&#915;</a
+      ><a name="3064"
+      > </a
+      ><a name="3065" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="3066"
+      > </a
+      ><a name="3067" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3053" class="Bound"
+      >&#916;</a
+      ><a name="3068"
+      > </a
+      ><a name="3069" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="3071"
+      > </a
+      ><a name="3072" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3055" class="Bound"
+      >&#928;</a
+      ><a name="3073"
+      > </a
+      ><a name="3074" class="Symbol"
+      >&#8594;</a
+      ><a name="3075"
+      > </a
+      ><a name="3076" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3051" class="Bound"
+      >&#915;</a
+      ><a name="3077"
+      > </a
+      ><a name="3078" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="3079"
+      > </a
+      ><a name="3080" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3053" class="Bound"
+      >&#916;</a
+      ><a name="3081"
+      > </a
+      ><a name="3082" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="3084"
+      > </a
+      ><a name="3085" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3057" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="3087"
+      > </a
+      ><a name="3088" class="Symbol"
+      >&#8594;</a
+      ><a name="3089"
+      > </a
+      ><a name="3090" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3051" class="Bound"
+      >&#915;</a
+      ><a name="3091"
+      > </a
+      ><a name="3092" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="3093"
+      > </a
+      ><a name="3094" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3053" class="Bound"
+      >&#916;</a
+      ><a name="3095"
+      > </a
+      ><a name="3096" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#267" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="3098"
+      > </a
+      ><a name="3099" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3055" class="Bound"
+      >&#928;</a
+      ><a name="3100"
+      > </a
+      ><a name="3101" href="Common.Context.html#3194" class="Function Operator"
+      >&#10746;</a
+      ><a name="3102"
+      > </a
+      ><a name="3103" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3057" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="3105"
+      >
+</a
+      ><a name="3106" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3106" class="Bound"
+      >us</a
+      ><a name="3108"
+      > </a
+      ><a name="3109" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#310" class="InductiveConstructor"
+      >nil</a
+      ><a name="3114"
+      >       </a
+      ><a name="3121" class="Symbol"
+      >=</a
+      ><a name="3122"
+      > </a
+      ><a name="3123" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3106" class="Bound"
+      >us</a
+      ><a name="3125"
+      >
+</a
+      ><a name="3126" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3126" class="Bound"
+      >us</a
+      ><a name="3128"
+      > </a
+      ><a name="3129" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3130"
+      > </a
+      ><a name="3131" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#331" class="InductiveConstructor"
+      >var</a
+      ><a name="3134"
+      > </a
+      ><a name="3135" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3135" class="Bound"
+      >i</a
+      ><a name="3136"
+      > </a
+      ><a name="3137" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3137" class="Bound"
+      >ts</a
+      ><a name="3139"
+      >  </a
+      ><a name="3141" class="Symbol"
+      >=</a
+      ><a name="3142"
+      > </a
+      ><a name="3143" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#331" class="InductiveConstructor"
+      >var</a
+      ><a name="3146"
+      > </a
+      ><a name="3147" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3135" class="Bound"
+      >i</a
+      ><a name="3148"
+      > </a
+      ><a name="3149" class="Symbol"
+      >(</a
+      ><a name="3150" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3126" class="Bound"
+      >us</a
+      ><a name="3152"
+      > </a
+      ><a name="3153" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3154"
+      > </a
+      ><a name="3155" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3137" class="Bound"
+      >ts</a
+      ><a name="3157" class="Symbol"
+      >)</a
+      ><a name="3158"
+      >
+</a
+      ><a name="3159" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3159" class="Bound"
+      >us</a
+      ><a name="3161"
+      > </a
+      ><a name="3162" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3163"
+      > </a
+      ><a name="3164" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#391" class="InductiveConstructor"
+      >mp</a
+      ><a name="3166"
+      > </a
+      ><a name="3167" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3167" class="Bound"
+      >i</a
+      ><a name="3168"
+      > </a
+      ><a name="3169" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3169" class="Bound"
+      >j</a
+      ><a name="3170"
+      > </a
+      ><a name="3171" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3171" class="Bound"
+      >ts</a
+      ><a name="3173"
+      > </a
+      ><a name="3174" class="Symbol"
+      >=</a
+      ><a name="3175"
+      > </a
+      ><a name="3176" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#391" class="InductiveConstructor"
+      >mp</a
+      ><a name="3178"
+      > </a
+      ><a name="3179" class="Symbol"
+      >(</a
+      ><a name="3180" href="Common.Context.html#2392" class="Function"
+      >mono&#8712;</a
+      ><a name="3185"
+      > </a
+      ><a name="3186" href="Common.Context.html#3501" class="Function"
+      >weak&#8838;&#10746;&#7523;</a
+      ><a name="3193"
+      > </a
+      ><a name="3194" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3167" class="Bound"
+      >i</a
+      ><a name="3195" class="Symbol"
+      >)</a
+      ><a name="3196"
+      > </a
+      ><a name="3197" class="Symbol"
+      >(</a
+      ><a name="3198" href="Common.Context.html#2392" class="Function"
+      >mono&#8712;</a
+      ><a name="3203"
+      > </a
+      ><a name="3204" href="Common.Context.html#3501" class="Function"
+      >weak&#8838;&#10746;&#7523;</a
+      ><a name="3211"
+      > </a
+      ><a name="3212" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3169" class="Bound"
+      >j</a
+      ><a name="3213" class="Symbol"
+      >)</a
+      ><a name="3214"
+      > </a
+      ><a name="3215" class="Symbol"
+      >(</a
+      ><a name="3216" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3159" class="Bound"
+      >us</a
+      ><a name="3218"
+      > </a
+      ><a name="3219" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3220"
+      > </a
+      ><a name="3221" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3171" class="Bound"
+      >ts</a
+      ><a name="3223" class="Symbol"
+      >)</a
+      ><a name="3224"
+      >
+</a
+      ><a name="3225" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3225" class="Bound"
+      >us</a
+      ><a name="3227"
+      > </a
+      ><a name="3228" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3229"
+      > </a
+      ><a name="3230" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#463" class="InductiveConstructor"
+      >ci</a
+      ><a name="3232"
+      > </a
+      ><a name="3233" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3233" class="Bound"
+      >ts</a
+      ><a name="3235"
+      >     </a
+      ><a name="3240" class="Symbol"
+      >=</a
+      ><a name="3241"
+      > </a
+      ><a name="3242" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#463" class="InductiveConstructor"
+      >ci</a
+      ><a name="3244"
+      > </a
+      ><a name="3245" class="Symbol"
+      >(</a
+      ><a name="3246" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3225" class="Bound"
+      >us</a
+      ><a name="3248"
+      > </a
+      ><a name="3249" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3250"
+      > </a
+      ><a name="3251" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3233" class="Bound"
+      >ts</a
+      ><a name="3253" class="Symbol"
+      >)</a
+      ><a name="3254"
+      >
+</a
+      ><a name="3255" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3255" class="Bound"
+      >us</a
+      ><a name="3257"
+      > </a
+      ><a name="3258" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3259"
+      > </a
+      ><a name="3260" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#519" class="InductiveConstructor"
+      >ck</a
+      ><a name="3262"
+      > </a
+      ><a name="3263" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3263" class="Bound"
+      >ts</a
+      ><a name="3265"
+      >     </a
+      ><a name="3270" class="Symbol"
+      >=</a
+      ><a name="3271"
+      > </a
+      ><a name="3272" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#519" class="InductiveConstructor"
+      >ck</a
+      ><a name="3274"
+      > </a
+      ><a name="3275" class="Symbol"
+      >(</a
+      ><a name="3276" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3255" class="Bound"
+      >us</a
+      ><a name="3278"
+      > </a
+      ><a name="3279" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3280"
+      > </a
+      ><a name="3281" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3263" class="Bound"
+      >ts</a
+      ><a name="3283" class="Symbol"
+      >)</a
+      ><a name="3284"
+      >
+</a
+      ><a name="3285" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3285" class="Bound"
+      >us</a
+      ><a name="3287"
+      > </a
+      ><a name="3288" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3289"
+      > </a
+      ><a name="3290" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#579" class="InductiveConstructor"
+      >cs</a
+      ><a name="3292"
+      > </a
+      ><a name="3293" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3293" class="Bound"
+      >ts</a
+      ><a name="3295"
+      >     </a
+      ><a name="3300" class="Symbol"
+      >=</a
+      ><a name="3301"
+      > </a
+      ><a name="3302" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#579" class="InductiveConstructor"
+      >cs</a
+      ><a name="3304"
+      > </a
+      ><a name="3305" class="Symbol"
+      >(</a
+      ><a name="3306" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3285" class="Bound"
+      >us</a
+      ><a name="3308"
+      > </a
+      ><a name="3309" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3310"
+      > </a
+      ><a name="3311" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3293" class="Bound"
+      >ts</a
+      ><a name="3313" class="Symbol"
+      >)</a
+      ><a name="3314"
+      >
+</a
+      ><a name="3315" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3315" class="Bound"
+      >us</a
+      ><a name="3317"
+      > </a
+      ><a name="3318" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3319"
+      > </a
+      ><a name="3320" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#659" class="InductiveConstructor"
+      >mvar</a
+      ><a name="3324"
+      > </a
+      ><a name="3325" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3325" class="Bound"
+      >i</a
+      ><a name="3326"
+      > </a
+      ><a name="3327" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3327" class="Bound"
+      >ts</a
+      ><a name="3329"
+      > </a
+      ><a name="3330" class="Symbol"
+      >=</a
+      ><a name="3331"
+      > </a
+      ><a name="3332" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#659" class="InductiveConstructor"
+      >mvar</a
+      ><a name="3336"
+      > </a
+      ><a name="3337" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3325" class="Bound"
+      >i</a
+      ><a name="3338"
+      > </a
+      ><a name="3339" class="Symbol"
+      >(</a
+      ><a name="3340" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3315" class="Bound"
+      >us</a
+      ><a name="3342"
+      > </a
+      ><a name="3343" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3344"
+      > </a
+      ><a name="3345" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3327" class="Bound"
+      >ts</a
+      ><a name="3347" class="Symbol"
+      >)</a
+      ><a name="3348"
+      >
+</a
+      ><a name="3349" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3349" class="Bound"
+      >us</a
+      ><a name="3351"
+      > </a
+      ><a name="3352" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3353"
+      > </a
+      ><a name="3354" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#719" class="InductiveConstructor"
+      >nec</a
+      ><a name="3357"
+      > </a
+      ><a name="3358" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3358" class="Bound"
+      >ss</a
+      ><a name="3360"
+      > </a
+      ><a name="3361" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3361" class="Bound"
+      >ts</a
+      ><a name="3363"
+      > </a
+      ><a name="3364" class="Symbol"
+      >=</a
+      ><a name="3365"
+      > </a
+      ><a name="3366" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#719" class="InductiveConstructor"
+      >nec</a
+      ><a name="3369"
+      > </a
+      ><a name="3370" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3358" class="Bound"
+      >ss</a
+      ><a name="3372"
+      > </a
+      ><a name="3373" class="Symbol"
+      >(</a
+      ><a name="3374" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3349" class="Bound"
+      >us</a
+      ><a name="3376"
+      > </a
+      ><a name="3377" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3378"
+      > </a
+      ><a name="3379" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3361" class="Bound"
+      >ts</a
+      ><a name="3381" class="Symbol"
+      >)</a
+      ><a name="3382"
+      >
+</a
+      ><a name="3383" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3383" class="Bound"
+      >us</a
+      ><a name="3385"
+      > </a
+      ><a name="3386" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3387"
+      > </a
+      ><a name="3388" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#790" class="InductiveConstructor"
+      >cdist</a
+      ><a name="3393"
+      > </a
+      ><a name="3394" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3394" class="Bound"
+      >ts</a
+      ><a name="3396"
+      >  </a
+      ><a name="3398" class="Symbol"
+      >=</a
+      ><a name="3399"
+      > </a
+      ><a name="3400" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#790" class="InductiveConstructor"
+      >cdist</a
+      ><a name="3405"
+      > </a
+      ><a name="3406" class="Symbol"
+      >(</a
+      ><a name="3407" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3383" class="Bound"
+      >us</a
+      ><a name="3409"
+      > </a
+      ><a name="3410" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3411"
+      > </a
+      ><a name="3412" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3394" class="Bound"
+      >ts</a
+      ><a name="3414" class="Symbol"
+      >)</a
+      ><a name="3415"
+      >
+</a
+      ><a name="3416" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3416" class="Bound"
+      >us</a
+      ><a name="3418"
+      > </a
+      ><a name="3419" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3420"
+      > </a
+      ><a name="3421" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#862" class="InductiveConstructor"
+      >cup</a
+      ><a name="3424"
+      > </a
+      ><a name="3425" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3425" class="Bound"
+      >ts</a
+      ><a name="3427"
+      >    </a
+      ><a name="3431" class="Symbol"
+      >=</a
+      ><a name="3432"
+      > </a
+      ><a name="3433" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#862" class="InductiveConstructor"
+      >cup</a
+      ><a name="3436"
+      > </a
+      ><a name="3437" class="Symbol"
+      >(</a
+      ><a name="3438" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3416" class="Bound"
+      >us</a
+      ><a name="3440"
+      > </a
+      ><a name="3441" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3442"
+      > </a
+      ><a name="3443" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3425" class="Bound"
+      >ts</a
+      ><a name="3445" class="Symbol"
+      >)</a
+      ><a name="3446"
+      >
+</a
+      ><a name="3447" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3447" class="Bound"
+      >us</a
+      ><a name="3449"
+      > </a
+      ><a name="3450" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3451"
+      > </a
+      ><a name="3452" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#924" class="InductiveConstructor"
+      >cdown</a
+      ><a name="3457"
+      > </a
+      ><a name="3458" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3458" class="Bound"
+      >ts</a
+      ><a name="3460"
+      >  </a
+      ><a name="3462" class="Symbol"
+      >=</a
+      ><a name="3463"
+      > </a
+      ><a name="3464" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#924" class="InductiveConstructor"
+      >cdown</a
+      ><a name="3469"
+      > </a
+      ><a name="3470" class="Symbol"
+      >(</a
+      ><a name="3471" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3447" class="Bound"
+      >us</a
+      ><a name="3473"
+      > </a
+      ><a name="3474" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3475"
+      > </a
+      ><a name="3476" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3458" class="Bound"
+      >ts</a
+      ><a name="3478" class="Symbol"
+      >)</a
+      ><a name="3479"
+      >
+</a
+      ><a name="3480" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3480" class="Bound"
+      >us</a
+      ><a name="3482"
+      > </a
+      ><a name="3483" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3484"
+      > </a
+      ><a name="3485" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#982" class="InductiveConstructor"
+      >cpair</a
+      ><a name="3490"
+      > </a
+      ><a name="3491" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3491" class="Bound"
+      >ts</a
+      ><a name="3493"
+      >  </a
+      ><a name="3495" class="Symbol"
+      >=</a
+      ><a name="3496"
+      > </a
+      ><a name="3497" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#982" class="InductiveConstructor"
+      >cpair</a
+      ><a name="3502"
+      > </a
+      ><a name="3503" class="Symbol"
+      >(</a
+      ><a name="3504" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3480" class="Bound"
+      >us</a
+      ><a name="3506"
+      > </a
+      ><a name="3507" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3508"
+      > </a
+      ><a name="3509" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3491" class="Bound"
+      >ts</a
+      ><a name="3511" class="Symbol"
+      >)</a
+      ><a name="3512"
+      >
+</a
+      ><a name="3513" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3513" class="Bound"
+      >us</a
+      ><a name="3515"
+      > </a
+      ><a name="3516" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3517"
+      > </a
+      ><a name="3518" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1046" class="InductiveConstructor"
+      >cfst</a
+      ><a name="3522"
+      > </a
+      ><a name="3523" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3523" class="Bound"
+      >ts</a
+      ><a name="3525"
+      >   </a
+      ><a name="3528" class="Symbol"
+      >=</a
+      ><a name="3529"
+      > </a
+      ><a name="3530" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1046" class="InductiveConstructor"
+      >cfst</a
+      ><a name="3534"
+      > </a
+      ><a name="3535" class="Symbol"
+      >(</a
+      ><a name="3536" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3513" class="Bound"
+      >us</a
+      ><a name="3538"
+      > </a
+      ><a name="3539" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3540"
+      > </a
+      ><a name="3541" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3523" class="Bound"
+      >ts</a
+      ><a name="3543" class="Symbol"
+      >)</a
+      ><a name="3544"
+      >
+</a
+      ><a name="3545" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3545" class="Bound"
+      >us</a
+      ><a name="3547"
+      > </a
+      ><a name="3548" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3549"
+      > </a
+      ><a name="3550" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1106" class="InductiveConstructor"
+      >csnd</a
+      ><a name="3554"
+      > </a
+      ><a name="3555" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3555" class="Bound"
+      >ts</a
+      ><a name="3557"
+      >   </a
+      ><a name="3560" class="Symbol"
+      >=</a
+      ><a name="3561"
+      > </a
+      ><a name="3562" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1106" class="InductiveConstructor"
+      >csnd</a
+      ><a name="3566"
+      > </a
+      ><a name="3567" class="Symbol"
+      >(</a
+      ><a name="3568" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3545" class="Bound"
+      >us</a
+      ><a name="3570"
+      > </a
+      ><a name="3571" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3572"
+      > </a
+      ><a name="3573" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3555" class="Bound"
+      >ts</a
+      ><a name="3575" class="Symbol"
+      >)</a
+      ><a name="3576"
+      >
+</a
+      ><a name="3577" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3577" class="Bound"
+      >us</a
+      ><a name="3579"
+      > </a
+      ><a name="3580" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3581"
+      > </a
+      ><a name="3582" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1166" class="InductiveConstructor"
+      >tt</a
+      ><a name="3584"
+      > </a
+      ><a name="3585" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3585" class="Bound"
+      >ts</a
+      ><a name="3587"
+      >     </a
+      ><a name="3592" class="Symbol"
+      >=</a
+      ><a name="3593"
+      > </a
+      ><a name="3594" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1166" class="InductiveConstructor"
+      >tt</a
+      ><a name="3596"
+      > </a
+      ><a name="3597" class="Symbol"
+      >(</a
+      ><a name="3598" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3577" class="Bound"
+      >us</a
+      ><a name="3600"
+      > </a
+      ><a name="3601" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3602"
+      > </a
+      ><a name="3603" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3585" class="Bound"
+      >ts</a
+      ><a name="3605" class="Symbol"
+      >)</a
+      ><a name="3606"
+      >
+
+
+</a
+      ><a name="3609" class="Comment"
+      >-- Modus ponens and necessitation in expanded form.</a
+      ><a name="3660"
+      >
+
+</a
+      ><a name="3662" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3662" class="Function"
+      >app</a
+      ><a name="3665"
+      > </a
+      ><a name="3666" class="Symbol"
+      >:</a
+      ><a name="3667"
+      > </a
+      ><a name="3668" class="Symbol"
+      >&#8704;</a
+      ><a name="3669"
+      > </a
+      ><a name="3670" class="Symbol"
+      >{</a
+      ><a name="3671" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3671" class="Bound"
+      >A</a
+      ><a name="3672"
+      > </a
+      ><a name="3673" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3673" class="Bound"
+      >B</a
+      ><a name="3674"
+      > </a
+      ><a name="3675" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3675" class="Bound"
+      >&#915;</a
+      ><a name="3676"
+      > </a
+      ><a name="3677" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3677" class="Bound"
+      >&#916;</a
+      ><a name="3678" class="Symbol"
+      >}</a
+      ><a name="3679"
+      > </a
+      ><a name="3680" class="Symbol"
+      >&#8594;</a
+      ><a name="3681"
+      > </a
+      ><a name="3682" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3675" class="Bound"
+      >&#915;</a
+      ><a name="3683"
+      > </a
+      ><a name="3684" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="3685"
+      > </a
+      ><a name="3686" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3677" class="Bound"
+      >&#916;</a
+      ><a name="3687"
+      > </a
+      ><a name="3688" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="3689"
+      > </a
+      ><a name="3690" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3671" class="Bound"
+      >A</a
+      ><a name="3691"
+      > </a
+      ><a name="3692" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3693"
+      > </a
+      ><a name="3694" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3673" class="Bound"
+      >B</a
+      ><a name="3695"
+      > </a
+      ><a name="3696" class="Symbol"
+      >&#8594;</a
+      ><a name="3697"
+      > </a
+      ><a name="3698" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3675" class="Bound"
+      >&#915;</a
+      ><a name="3699"
+      > </a
+      ><a name="3700" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="3701"
+      > </a
+      ><a name="3702" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3677" class="Bound"
+      >&#916;</a
+      ><a name="3703"
+      > </a
+      ><a name="3704" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="3705"
+      > </a
+      ><a name="3706" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3671" class="Bound"
+      >A</a
+      ><a name="3707"
+      > </a
+      ><a name="3708" class="Symbol"
+      >&#8594;</a
+      ><a name="3709"
+      > </a
+      ><a name="3710" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3675" class="Bound"
+      >&#915;</a
+      ><a name="3711"
+      > </a
+      ><a name="3712" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="3713"
+      > </a
+      ><a name="3714" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3677" class="Bound"
+      >&#916;</a
+      ><a name="3715"
+      > </a
+      ><a name="3716" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="3717"
+      > </a
+      ><a name="3718" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3673" class="Bound"
+      >B</a
+      ><a name="3719"
+      >
+</a
+      ><a name="3720" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3662" class="Function"
+      >app</a
+      ><a name="3723"
+      > </a
+      ><a name="3724" class="Symbol"
+      >{</a
+      ><a name="3725" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3725" class="Bound"
+      >A</a
+      ><a name="3726" class="Symbol"
+      >}</a
+      ><a name="3727"
+      > </a
+      ><a name="3728" class="Symbol"
+      >{</a
+      ><a name="3729" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3729" class="Bound"
+      >B</a
+      ><a name="3730" class="Symbol"
+      >}</a
+      ><a name="3731"
+      > </a
+      ><a name="3732" class="Symbol"
+      >(</a
+      ><a name="3733" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3733" class="Bound"
+      >&#928;</a
+      ><a name="3734"
+      > </a
+      ><a name="3735" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3736"
+      > </a
+      ><a name="3737" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3737" class="Bound"
+      >ts</a
+      ><a name="3739" class="Symbol"
+      >)</a
+      ><a name="3740"
+      > </a
+      ><a name="3741" class="Symbol"
+      >(</a
+      ><a name="3742" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3742" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="3744"
+      > </a
+      ><a name="3745" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3746"
+      > </a
+      ><a name="3747" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3747" class="Bound"
+      >us</a
+      ><a name="3749" class="Symbol"
+      >)</a
+      ><a name="3750"
+      > </a
+      ><a name="3751" class="Symbol"
+      >=</a
+      ><a name="3752"
+      > </a
+      ><a name="3753" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3769" class="Function"
+      >&#928;&#8243;</a
+      ><a name="3755"
+      > </a
+      ><a name="3756" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3757"
+      > </a
+      ><a name="3758" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3805" class="Function"
+      >vs</a
+      ><a name="3760"
+      >
+  </a
+      ><a name="3763" class="Keyword"
+      >where</a
+      ><a name="3768"
+      > </a
+      ><a name="3769" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3769" class="Function"
+      >&#928;&#8243;</a
+      ><a name="3771"
+      > </a
+      ><a name="3772" class="Symbol"
+      >=</a
+      ><a name="3773"
+      > </a
+      ><a name="3774" class="Symbol"
+      >(</a
+      ><a name="3775" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3742" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="3777"
+      > </a
+      ><a name="3778" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3779"
+      > </a
+      ><a name="3780" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3725" class="Bound"
+      >A</a
+      ><a name="3781" class="Symbol"
+      >)</a
+      ><a name="3782"
+      > </a
+      ><a name="3783" href="Common.Context.html#3194" class="Function Operator"
+      >&#10746;</a
+      ><a name="3784"
+      > </a
+      ><a name="3785" class="Symbol"
+      >(</a
+      ><a name="3786" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3733" class="Bound"
+      >&#928;</a
+      ><a name="3787"
+      > </a
+      ><a name="3788" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3789"
+      > </a
+      ><a name="3790" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3725" class="Bound"
+      >A</a
+      ><a name="3791"
+      > </a
+      ><a name="3792" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3793"
+      > </a
+      ><a name="3794" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3729" class="Bound"
+      >B</a
+      ><a name="3795" class="Symbol"
+      >)</a
+      ><a name="3796"
+      >
+        </a
+      ><a name="3805" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3805" class="Function"
+      >vs</a
+      ><a name="3807"
+      > </a
+      ><a name="3808" class="Symbol"
+      >=</a
+      ><a name="3809"
+      > </a
+      ><a name="3810" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#391" class="InductiveConstructor"
+      >mp</a
+      ><a name="3812"
+      > </a
+      ><a name="3813" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="3816"
+      > </a
+      ><a name="3817" class="Symbol"
+      >(</a
+      ><a name="3818" href="Common.Context.html#2392" class="Function"
+      >mono&#8712;</a
+      ><a name="3823"
+      > </a
+      ><a name="3824" class="Symbol"
+      >(</a
+      ><a name="3825" href="Common.Context.html#3400" class="Function"
+      >weak&#8838;&#10746;&#8343;</a
+      ><a name="3832"
+      > </a
+      ><a name="3833" class="Symbol"
+      >(</a
+      ><a name="3834" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3733" class="Bound"
+      >&#928;</a
+      ><a name="3835"
+      > </a
+      ><a name="3836" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3837"
+      > </a
+      ><a name="3838" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3725" class="Bound"
+      >A</a
+      ><a name="3839"
+      > </a
+      ><a name="3840" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3841"
+      > </a
+      ><a name="3842" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3729" class="Bound"
+      >B</a
+      ><a name="3843" class="Symbol"
+      >))</a
+      ><a name="3845"
+      > </a
+      ><a name="3846" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="3849" class="Symbol"
+      >)</a
+      ><a name="3850"
+      > </a
+      ><a name="3851" class="Symbol"
+      >(</a
+      ><a name="3852" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3747" class="Bound"
+      >us</a
+      ><a name="3854"
+      > </a
+      ><a name="3855" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3042" class="Function Operator"
+      >&#10747;</a
+      ><a name="3856"
+      > </a
+      ><a name="3857" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3737" class="Bound"
+      >ts</a
+      ><a name="3859" class="Symbol"
+      >)</a
+      ><a name="3860"
+      >
+
+</a
+      ><a name="3862" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3862" class="Function"
+      >box</a
+      ><a name="3865"
+      > </a
+      ><a name="3866" class="Symbol"
+      >:</a
+      ><a name="3867"
+      > </a
+      ><a name="3868" class="Symbol"
+      >&#8704;</a
+      ><a name="3869"
+      > </a
+      ><a name="3870" class="Symbol"
+      >{</a
+      ><a name="3871" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3871" class="Bound"
+      >A</a
+      ><a name="3872"
+      > </a
+      ><a name="3873" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3873" class="Bound"
+      >&#915;</a
+      ><a name="3874"
+      > </a
+      ><a name="3875" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3875" class="Bound"
+      >&#916;</a
+      ><a name="3876" class="Symbol"
+      >}</a
+      ><a name="3877"
+      > </a
+      ><a name="3878" class="Symbol"
+      >&#8594;</a
+      ><a name="3879"
+      > </a
+      ><a name="3880" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="3881"
+      > </a
+      ><a name="3882" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="3883"
+      > </a
+      ><a name="3884" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3875" class="Bound"
+      >&#916;</a
+      ><a name="3885"
+      > </a
+      ><a name="3886" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="3887"
+      > </a
+      ><a name="3888" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3871" class="Bound"
+      >A</a
+      ><a name="3889"
+      > </a
+      ><a name="3890" class="Symbol"
+      >&#8594;</a
+      ><a name="3891"
+      > </a
+      ><a name="3892" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3873" class="Bound"
+      >&#915;</a
+      ><a name="3893"
+      > </a
+      ><a name="3894" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8271;</a
+      ><a name="3895"
+      > </a
+      ><a name="3896" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3875" class="Bound"
+      >&#916;</a
+      ><a name="3897"
+      > </a
+      ><a name="3898" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#1231" class="Function Operator"
+      >&#8866;</a
+      ><a name="3899"
+      > </a
+      ><a name="3900" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3901"
+      > </a
+      ><a name="3902" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3871" class="Bound"
+      >A</a
+      ><a name="3903"
+      >
+</a
+      ><a name="3904" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3862" class="Function"
+      >box</a
+      ><a name="3907"
+      > </a
+      ><a name="3908" class="Symbol"
+      >(</a
+      ><a name="3909" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3909" class="Bound"
+      >&#928;</a
+      ><a name="3910"
+      > </a
+      ><a name="3911" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3912"
+      > </a
+      ><a name="3913" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3913" class="Bound"
+      >ts</a
+      ><a name="3915" class="Symbol"
+      >)</a
+      ><a name="3916"
+      > </a
+      ><a name="3917" class="Symbol"
+      >=</a
+      ><a name="3918"
+      > </a
+      ><a name="3919" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="3920"
+      > </a
+      ><a name="3921" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3922"
+      > </a
+      ><a name="3923" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#719" class="InductiveConstructor"
+      >nec</a
+      ><a name="3926"
+      > </a
+      ><a name="3927" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#3913" class="Bound"
+      >ts</a
+      ><a name="3929"
+      > </a
+      ><a name="3930" href="BasicIS4.Syntax.OpenDyadicHilbertLinear.html#310" class="InductiveConstructor"
+      >nil</a
+      ><a name="3933"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
