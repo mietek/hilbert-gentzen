@@ -1,0 +1,1547 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1" class="Module"
+      >BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski</a
+      ><a name="62"
+      > </a
+      ><a name="63" class="Keyword"
+      >where</a
+      ><a name="68"
+      >
+
+</a
+      ><a name="70" class="Keyword"
+      >open</a
+      ><a name="74"
+      > </a
+      ><a name="75" class="Keyword"
+      >import</a
+      ><a name="81"
+      > </a
+      ><a name="82" href="BasicIS4.Syntax.Gentzen.html#1" class="Module"
+      >BasicIS4.Syntax.Gentzen</a
+      ><a name="105"
+      > </a
+      ><a name="106" class="Keyword"
+      >public</a
+      ><a name="112"
+      >
+</a
+      ><a name="113" class="Keyword"
+      >open</a
+      ><a name="117"
+      > </a
+      ><a name="118" class="Keyword"
+      >import</a
+      ><a name="124"
+      > </a
+      ><a name="125" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1" class="Module"
+      >BasicIS4.Semantics.TarskiClosedGabbayNanevski</a
+      ><a name="170"
+      > </a
+      ><a name="171" class="Keyword"
+      >public</a
+      ><a name="177"
+      >
+
+
+</a
+      ><a name="180" class="Keyword"
+      >open</a
+      ><a name="184"
+      > </a
+      ><a name="185" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#359" class="Module"
+      >SyntacticComponent</a
+      ><a name="203"
+      > </a
+      ><a name="204" class="Symbol"
+      >(</a
+      ><a name="205" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="206"
+      > </a
+      ><a name="207" href="BasicIS4.Syntax.Gentzen.html#213" class="Datatype Operator"
+      >&#8866;_</a
+      ><a name="209" class="Symbol"
+      >)</a
+      ><a name="210"
+      > </a
+      ><a name="211" class="Keyword"
+      >public</a
+      ><a name="217"
+      >
+
+
+</a
+      ><a name="220" class="Comment"
+      >-- Completeness with respect to a particular model.</a
+      ><a name="271"
+      >
+
+</a
+      ><a name="273" class="Keyword"
+      >module</a
+      ><a name="279"
+      > </a
+      ><a name="280" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#280" class="Module"
+      >_</a
+      ><a name="281"
+      > </a
+      ><a name="282" class="Symbol"
+      >{{</a
+      ><a name="284" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#284" class="Bound"
+      >_</a
+      ><a name="285"
+      > </a
+      ><a name="286" class="Symbol"
+      >:</a
+      ><a name="287"
+      > </a
+      ><a name="288" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#216" class="Record"
+      >Model</a
+      ><a name="293" class="Symbol"
+      >}}</a
+      ><a name="295"
+      > </a
+      ><a name="296" class="Keyword"
+      >where</a
+      ><a name="301"
+      >
+  </a
+      ><a name="304" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="309"
+      > </a
+      ><a name="310" class="Symbol"
+      >:</a
+      ><a name="311"
+      > </a
+      ><a name="312" class="Symbol"
+      >&#8704;</a
+      ><a name="313"
+      > </a
+      ><a name="314" class="Symbol"
+      >{</a
+      ><a name="315" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#315" class="Bound"
+      >A</a
+      ><a name="316" class="Symbol"
+      >}</a
+      ><a name="317"
+      > </a
+      ><a name="318" class="Symbol"
+      >&#8594;</a
+      ><a name="319"
+      > </a
+      ><a name="320" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#501" class="Function Operator"
+      >&#8872;</a
+      ><a name="321"
+      > </a
+      ><a name="322" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#315" class="Bound"
+      >A</a
+      ><a name="323"
+      > </a
+      ><a name="324" class="Symbol"
+      >&#8594;</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="327"
+      > </a
+      ><a name="328" href="BasicIS4.Syntax.Gentzen.html#213" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="329"
+      > </a
+      ><a name="330" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#315" class="Bound"
+      >A</a
+      ><a name="331"
+      >
+  </a
+      ><a name="334" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="339"
+      > </a
+      ><a name="340" class="Symbol"
+      >{</a
+      ><a name="341" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="342"
+      > </a
+      ><a name="343" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#343" class="Bound"
+      >P</a
+      ><a name="344" class="Symbol"
+      >}</a
+      ><a name="345"
+      >   </a
+      ><a name="348" class="Symbol"
+      >(</a
+      ><a name="349" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#349" class="Bound"
+      >t</a
+      ><a name="350"
+      > </a
+      ><a name="351" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="352"
+      > </a
+      ><a name="353" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#353" class="Bound"
+      >s</a
+      ><a name="354" class="Symbol"
+      >)</a
+      ><a name="355"
+      > </a
+      ><a name="356" class="Symbol"
+      >=</a
+      ><a name="357"
+      > </a
+      ><a name="358" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#349" class="Bound"
+      >t</a
+      ><a name="359"
+      >
+  </a
+      ><a name="362" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="367"
+      > </a
+      ><a name="368" class="Symbol"
+      >{</a
+      ><a name="369" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#369" class="Bound"
+      >A</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="372"
+      > </a
+      ><a name="373" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#373" class="Bound"
+      >B</a
+      ><a name="374" class="Symbol"
+      >}</a
+      ><a name="375"
+      > </a
+      ><a name="376" class="Symbol"
+      >(</a
+      ><a name="377" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#377" class="Bound"
+      >t</a
+      ><a name="378"
+      > </a
+      ><a name="379" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="380"
+      > </a
+      ><a name="381" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#381" class="Bound"
+      >f</a
+      ><a name="382" class="Symbol"
+      >)</a
+      ><a name="383"
+      > </a
+      ><a name="384" class="Symbol"
+      >=</a
+      ><a name="385"
+      > </a
+      ><a name="386" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#377" class="Bound"
+      >t</a
+      ><a name="387"
+      >
+  </a
+      ><a name="390" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="395"
+      > </a
+      ><a name="396" class="Symbol"
+      >{</a
+      ><a name="397" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="398"
+      > </a
+      ><a name="399" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#399" class="Bound"
+      >A</a
+      ><a name="400" class="Symbol"
+      >}</a
+      ><a name="401"
+      >   </a
+      ><a name="404" class="Symbol"
+      >(</a
+      ><a name="405" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#405" class="Bound"
+      >t</a
+      ><a name="406"
+      > </a
+      ><a name="407" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="408"
+      > </a
+      ><a name="409" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#409" class="Bound"
+      >a</a
+      ><a name="410" class="Symbol"
+      >)</a
+      ><a name="411"
+      > </a
+      ><a name="412" class="Symbol"
+      >=</a
+      ><a name="413"
+      > </a
+      ><a name="414" href="BasicIS4.Syntax.Gentzen.html#3492" class="Function"
+      >box</a
+      ><a name="417"
+      > </a
+      ><a name="418" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#405" class="Bound"
+      >t</a
+      ><a name="419"
+      >
+  </a
+      ><a name="422" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="427"
+      > </a
+      ><a name="428" class="Symbol"
+      >{</a
+      ><a name="429" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#429" class="Bound"
+      >A</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#433" class="Bound"
+      >B</a
+      ><a name="434" class="Symbol"
+      >}</a
+      ><a name="435"
+      > </a
+      ><a name="436" class="Symbol"
+      >(</a
+      ><a name="437" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#437" class="Bound"
+      >a</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="440"
+      > </a
+      ><a name="441" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#441" class="Bound"
+      >b</a
+      ><a name="442" class="Symbol"
+      >)</a
+      ><a name="443"
+      > </a
+      ><a name="444" class="Symbol"
+      >=</a
+      ><a name="445"
+      > </a
+      ><a name="446" href="BasicIS4.Syntax.Gentzen.html#484" class="InductiveConstructor"
+      >pair</a
+      ><a name="450"
+      > </a
+      ><a name="451" class="Symbol"
+      >(</a
+      ><a name="452" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="457"
+      > </a
+      ><a name="458" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#437" class="Bound"
+      >a</a
+      ><a name="459" class="Symbol"
+      >)</a
+      ><a name="460"
+      > </a
+      ><a name="461" class="Symbol"
+      >(</a
+      ><a name="462" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="467"
+      > </a
+      ><a name="468" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#441" class="Bound"
+      >b</a
+      ><a name="469" class="Symbol"
+      >)</a
+      ><a name="470"
+      >
+  </a
+      ><a name="473" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="478"
+      > </a
+      ><a name="479" class="Symbol"
+      >{</a
+      ><a name="480" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="481" class="Symbol"
+      >}</a
+      ><a name="482"
+      >    </a
+      ><a name="486" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="487"
+      >       </a
+      ><a name="494" class="Symbol"
+      >=</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="BasicIS4.Syntax.Gentzen.html#621" class="InductiveConstructor"
+      >tt</a
+      ><a name="498"
+      >
+
+  </a
+      ><a name="502" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#502" class="Function"
+      >reify&#8902;</a
+      ><a name="508"
+      > </a
+      ><a name="509" class="Symbol"
+      >:</a
+      ><a name="510"
+      > </a
+      ><a name="511" class="Symbol"
+      >&#8704;</a
+      ><a name="512"
+      > </a
+      ><a name="513" class="Symbol"
+      >{</a
+      ><a name="514" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#514" class="Bound"
+      >&#928;</a
+      ><a name="515" class="Symbol"
+      >}</a
+      ><a name="516"
+      > </a
+      ><a name="517" class="Symbol"
+      >&#8594;</a
+      ><a name="518"
+      > </a
+      ><a name="519" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#668" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="521"
+      > </a
+      ><a name="522" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#514" class="Bound"
+      >&#928;</a
+      ><a name="523"
+      > </a
+      ><a name="524" class="Symbol"
+      >&#8594;</a
+      ><a name="525"
+      > </a
+      ><a name="526" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="527"
+      > </a
+      ><a name="528" href="BasicIS4.Syntax.Gentzen.html#656" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="530"
+      > </a
+      ><a name="531" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#514" class="Bound"
+      >&#928;</a
+      ><a name="532"
+      >
+  </a
+      ><a name="535" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#502" class="Function"
+      >reify&#8902;</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="Symbol"
+      >{</a
+      ><a name="543" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="544" class="Symbol"
+      >}</a
+      ><a name="545"
+      >     </a
+      ><a name="550" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="551"
+      >        </a
+      ><a name="559" class="Symbol"
+      >=</a
+      ><a name="560"
+      > </a
+      ><a name="561" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="562"
+      >
+  </a
+      ><a name="565" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#502" class="Function"
+      >reify&#8902;</a
+      ><a name="571"
+      > </a
+      ><a name="572" class="Symbol"
+      >{</a
+      ><a name="573" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#573" class="Bound"
+      >&#928;</a
+      ><a name="574"
+      > </a
+      ><a name="575" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="576"
+      > </a
+      ><a name="577" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#577" class="Bound"
+      >A</a
+      ><a name="578" class="Symbol"
+      >}</a
+      ><a name="579"
+      > </a
+      ><a name="580" class="Symbol"
+      >(</a
+      ><a name="581" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#581" class="Bound"
+      >ts</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="585"
+      > </a
+      ><a name="586" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#586" class="Bound"
+      >t</a
+      ><a name="587" class="Symbol"
+      >)</a
+      ><a name="588"
+      > </a
+      ><a name="589" class="Symbol"
+      >=</a
+      ><a name="590"
+      > </a
+      ><a name="591" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#502" class="Function"
+      >reify&#8902;</a
+      ><a name="597"
+      > </a
+      ><a name="598" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#581" class="Bound"
+      >ts</a
+      ><a name="600"
+      > </a
+      ><a name="601" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="602"
+      > </a
+      ><a name="603" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="608"
+      > </a
+      ><a name="609" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#586" class="Bound"
+      >t</a
+      ><a name="610"
+      >
+
+
+</a
+      ><a name="613" class="Comment"
+      >-- Soundness with respect to all models, or evaluation.</a
+      ><a name="668"
+      >
+
+</a
+      ><a name="670" class="Keyword"
+      >mutual</a
+      ><a name="676"
+      >
+  </a
+      ><a name="679" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="683"
+      > </a
+      ><a name="684" class="Symbol"
+      >:</a
+      ><a name="685"
+      > </a
+      ><a name="686" class="Symbol"
+      >&#8704;</a
+      ><a name="687"
+      > </a
+      ><a name="688" class="Symbol"
+      >{</a
+      ><a name="689" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#689" class="Bound"
+      >A</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#691" class="Bound"
+      >&#915;</a
+      ><a name="692" class="Symbol"
+      >}</a
+      ><a name="693"
+      > </a
+      ><a name="694" class="Symbol"
+      >&#8594;</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#691" class="Bound"
+      >&#915;</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="BasicIS4.Syntax.Gentzen.html#213" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="699"
+      > </a
+      ><a name="700" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#689" class="Bound"
+      >A</a
+      ><a name="701"
+      > </a
+      ><a name="702" class="Symbol"
+      >&#8594;</a
+      ><a name="703"
+      > </a
+      ><a name="704" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1406" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="707"
+      > </a
+      ><a name="708" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#691" class="Bound"
+      >&#915;</a
+      ><a name="709"
+      > </a
+      ><a name="710" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1406" class="Function Operator"
+      >&#8658;</a
+      ><a name="711"
+      > </a
+      ><a name="712" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#689" class="Bound"
+      >A</a
+      ><a name="713"
+      >
+  </a
+      ><a name="716" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Symbol"
+      >(</a
+      ><a name="722" href="BasicIS4.Syntax.Gentzen.html#250" class="InductiveConstructor"
+      >var</a
+      ><a name="725"
+      > </a
+      ><a name="726" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#726" class="Bound"
+      >i</a
+      ><a name="727" class="Symbol"
+      >)</a
+      ><a name="728"
+      >         </a
+      ><a name="737" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#737" class="Bound"
+      >&#947;</a
+      ><a name="738"
+      > </a
+      ><a name="739" class="Symbol"
+      >=</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1635" class="Function"
+      >lookup</a
+      ><a name="747"
+      > </a
+      ><a name="748" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#726" class="Bound"
+      >i</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#737" class="Bound"
+      >&#947;</a
+      ><a name="751"
+      >
+  </a
+      ><a name="754" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="758"
+      > </a
+      ><a name="759" class="Symbol"
+      >(</a
+      ><a name="760" href="BasicIS4.Syntax.Gentzen.html#289" class="InductiveConstructor"
+      >lam</a
+      ><a name="763"
+      > </a
+      ><a name="764" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#764" class="Bound"
+      >t</a
+      ><a name="765" class="Symbol"
+      >)</a
+      ><a name="766"
+      >         </a
+      ><a name="775" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#775" class="Bound"
+      >&#947;</a
+      ><a name="776"
+      > </a
+      ><a name="777" class="Symbol"
+      >=</a
+      ><a name="778"
+      > </a
+      ><a name="779" href="BasicIS4.Syntax.Gentzen.html#2150" class="Function"
+      >multicut</a
+      ><a name="787"
+      > </a
+      ><a name="788" class="Symbol"
+      >(</a
+      ><a name="789" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#502" class="Function"
+      >reify&#8902;</a
+      ><a name="795"
+      > </a
+      ><a name="796" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#775" class="Bound"
+      >&#947;</a
+      ><a name="797" class="Symbol"
+      >)</a
+      ><a name="798"
+      > </a
+      ><a name="799" class="Symbol"
+      >(</a
+      ><a name="800" href="BasicIS4.Syntax.Gentzen.html#289" class="InductiveConstructor"
+      >lam</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#764" class="Bound"
+      >t</a
+      ><a name="805" class="Symbol"
+      >)</a
+      ><a name="806"
+      > </a
+      ><a name="807" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="808"
+      > </a
+      ><a name="809" class="Symbol"
+      >&#955;</a
+      ><a name="810"
+      > </a
+      ><a name="811" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#811" class="Bound"
+      >a</a
+      ><a name="812"
+      > </a
+      ><a name="813" class="Symbol"
+      >&#8594;</a
+      ><a name="814"
+      >
+                             </a
+      ><a name="844" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#764" class="Bound"
+      >t</a
+      ><a name="850"
+      > </a
+      ><a name="851" class="Symbol"
+      >(</a
+      ><a name="852" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#775" class="Bound"
+      >&#947;</a
+      ><a name="853"
+      > </a
+      ><a name="854" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="855"
+      > </a
+      ><a name="856" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#811" class="Bound"
+      >a</a
+      ><a name="857" class="Symbol"
+      >)</a
+      ><a name="858"
+      >
+  </a
+      ><a name="861" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="865"
+      > </a
+      ><a name="866" class="Symbol"
+      >(</a
+      ><a name="867" href="BasicIS4.Syntax.Gentzen.html#336" class="InductiveConstructor"
+      >app</a
+      ><a name="870"
+      > </a
+      ><a name="871" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#871" class="Bound"
+      >t</a
+      ><a name="872"
+      > </a
+      ><a name="873" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#873" class="Bound"
+      >u</a
+      ><a name="874" class="Symbol"
+      >)</a
+      ><a name="875"
+      >       </a
+      ><a name="882" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#882" class="Bound"
+      >&#947;</a
+      ><a name="883"
+      > </a
+      ><a name="884" class="Symbol"
+      >=</a
+      ><a name="885"
+      > </a
+      ><a name="886" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#871" class="Bound"
+      >t</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#882" class="Bound"
+      >&#947;</a
+      ><a name="894"
+      > </a
+      ><a name="895" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#888" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="903"
+      > </a
+      ><a name="904" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#873" class="Bound"
+      >u</a
+      ><a name="905"
+      > </a
+      ><a name="906" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#882" class="Bound"
+      >&#947;</a
+      ><a name="907"
+      >
+  </a
+      ><a name="910" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="914"
+      > </a
+      ><a name="915" class="Symbol"
+      >(</a
+      ><a name="916" href="BasicIS4.Syntax.Gentzen.html#387" class="InductiveConstructor"
+      >multibox</a
+      ><a name="924"
+      > </a
+      ><a name="925" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#925" class="Bound"
+      >ts</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#928" class="Bound"
+      >u</a
+      ><a name="929" class="Symbol"
+      >)</a
+      ><a name="930"
+      > </a
+      ><a name="931" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#931" class="Bound"
+      >&#947;</a
+      ><a name="932"
+      > </a
+      ><a name="933" class="Symbol"
+      >=</a
+      ><a name="934"
+      > </a
+      ><a name="935" href="BasicIS4.Syntax.Gentzen.html#2150" class="Function"
+      >multicut</a
+      ><a name="943"
+      > </a
+      ><a name="944" class="Symbol"
+      >(</a
+      ><a name="945" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#502" class="Function"
+      >reify&#8902;</a
+      ><a name="951"
+      > </a
+      ><a name="952" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#931" class="Bound"
+      >&#947;</a
+      ><a name="953" class="Symbol"
+      >)</a
+      ><a name="954"
+      > </a
+      ><a name="955" class="Symbol"
+      >(</a
+      ><a name="956" href="BasicIS4.Syntax.Gentzen.html#443" class="InductiveConstructor"
+      >down</a
+      ><a name="960"
+      > </a
+      ><a name="961" class="Symbol"
+      >(</a
+      ><a name="962" href="BasicIS4.Syntax.Gentzen.html#387" class="InductiveConstructor"
+      >multibox</a
+      ><a name="970"
+      > </a
+      ><a name="971" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#925" class="Bound"
+      >ts</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#928" class="Bound"
+      >u</a
+      ><a name="975" class="Symbol"
+      >))</a
+      ><a name="977"
+      > </a
+      ><a name="978" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="979"
+      >
+                             </a
+      ><a name="1009" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#928" class="Bound"
+      >u</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" class="Symbol"
+      >(</a
+      ><a name="1017" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1232" class="Function"
+      >eval&#8902;</a
+      ><a name="1022"
+      > </a
+      ><a name="1023" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#925" class="Bound"
+      >ts</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#931" class="Bound"
+      >&#947;</a
+      ><a name="1027" class="Symbol"
+      >)</a
+      ><a name="1028"
+      >
+  </a
+      ><a name="1031" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" class="Symbol"
+      >(</a
+      ><a name="1037" href="BasicIS4.Syntax.Gentzen.html#443" class="InductiveConstructor"
+      >down</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1042" class="Bound"
+      >t</a
+      ><a name="1043" class="Symbol"
+      >)</a
+      ><a name="1044"
+      >        </a
+      ><a name="1052" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1052" class="Bound"
+      >&#947;</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" class="Symbol"
+      >=</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1071" class="Function"
+      >&#10218;&#8659;&#10219;</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" class="Symbol"
+      >(</a
+      ><a name="1061" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1065"
+      > </a
+      ><a name="1066" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1042" class="Bound"
+      >t</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1052" class="Bound"
+      >&#947;</a
+      ><a name="1069" class="Symbol"
+      >)</a
+      ><a name="1070"
+      >
+  </a
+      ><a name="1073" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" class="Symbol"
+      >(</a
+      ><a name="1079" href="BasicIS4.Syntax.Gentzen.html#484" class="InductiveConstructor"
+      >pair</a
+      ><a name="1083"
+      > </a
+      ><a name="1084" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1084" class="Bound"
+      >t</a
+      ><a name="1085"
+      > </a
+      ><a name="1086" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1086" class="Bound"
+      >u</a
+      ><a name="1087" class="Symbol"
+      >)</a
+      ><a name="1088"
+      >      </a
+      ><a name="1094" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1094" class="Bound"
+      >&#947;</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" class="Symbol"
+      >=</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1084" class="Bound"
+      >t</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1094" class="Bound"
+      >&#947;</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1086" class="Bound"
+      >u</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1094" class="Bound"
+      >&#947;</a
+      ><a name="1117"
+      >
+  </a
+      ><a name="1120" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" class="Symbol"
+      >(</a
+      ><a name="1126" href="BasicIS4.Syntax.Gentzen.html#535" class="InductiveConstructor"
+      >fst</a
+      ><a name="1129"
+      > </a
+      ><a name="1130" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1130" class="Bound"
+      >t</a
+      ><a name="1131" class="Symbol"
+      >)</a
+      ><a name="1132"
+      >         </a
+      ><a name="1141" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1141" class="Bound"
+      >&#947;</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" class="Symbol"
+      >=</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" class="Symbol"
+      >(</a
+      ><a name="1149" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1130" class="Bound"
+      >t</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1141" class="Bound"
+      >&#947;</a
+      ><a name="1157" class="Symbol"
+      >)</a
+      ><a name="1158"
+      >
+  </a
+      ><a name="1161" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" class="Symbol"
+      >(</a
+      ><a name="1167" href="BasicIS4.Syntax.Gentzen.html#578" class="InductiveConstructor"
+      >snd</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1171" class="Bound"
+      >t</a
+      ><a name="1172" class="Symbol"
+      >)</a
+      ><a name="1173"
+      >         </a
+      ><a name="1182" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1182" class="Bound"
+      >&#947;</a
+      ><a name="1183"
+      > </a
+      ><a name="1184" class="Symbol"
+      >=</a
+      ><a name="1185"
+      > </a
+      ><a name="1186" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="1188"
+      > </a
+      ><a name="1189" class="Symbol"
+      >(</a
+      ><a name="1190" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1194"
+      > </a
+      ><a name="1195" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1171" class="Bound"
+      >t</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1182" class="Bound"
+      >&#947;</a
+      ><a name="1198" class="Symbol"
+      >)</a
+      ><a name="1199"
+      >
+  </a
+      ><a name="1202" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" href="BasicIS4.Syntax.Gentzen.html#621" class="InductiveConstructor"
+      >tt</a
+      ><a name="1209"
+      >              </a
+      ><a name="1223" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1223" class="Bound"
+      >&#947;</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" class="Symbol"
+      >=</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1228"
+      >
+
+  </a
+      ><a name="1232" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1232" class="Function"
+      >eval&#8902;</a
+      ><a name="1237"
+      > </a
+      ><a name="1238" class="Symbol"
+      >:</a
+      ><a name="1239"
+      > </a
+      ><a name="1240" class="Symbol"
+      >&#8704;</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" class="Symbol"
+      >{</a
+      ><a name="1243" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1243" class="Bound"
+      >&#928;</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1245" class="Bound"
+      >&#915;</a
+      ><a name="1246" class="Symbol"
+      >}</a
+      ><a name="1247"
+      > </a
+      ><a name="1248" class="Symbol"
+      >&#8594;</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1245" class="Bound"
+      >&#915;</a
+      ><a name="1251"
+      > </a
+      ><a name="1252" href="BasicIS4.Syntax.Gentzen.html#656" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1254"
+      > </a
+      ><a name="1255" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1243" class="Bound"
+      >&#928;</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" class="Symbol"
+      >&#8594;</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1476" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="1262"
+      > </a
+      ><a name="1263" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1245" class="Bound"
+      >&#915;</a
+      ><a name="1264"
+      > </a
+      ><a name="1265" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1476" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1243" class="Bound"
+      >&#928;</a
+      ><a name="1269"
+      >
+  </a
+      ><a name="1272" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1232" class="Function"
+      >eval&#8902;</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" class="Symbol"
+      >{</a
+      ><a name="1279" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1280" class="Symbol"
+      >}</a
+      ><a name="1281"
+      >     </a
+      ><a name="1286" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1287"
+      >        </a
+      ><a name="1295" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1295" class="Bound"
+      >&#947;</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" class="Symbol"
+      >=</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1300"
+      >
+  </a
+      ><a name="1303" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1232" class="Function"
+      >eval&#8902;</a
+      ><a name="1308"
+      > </a
+      ><a name="1309" class="Symbol"
+      >{</a
+      ><a name="1310" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1310" class="Bound"
+      >&#928;</a
+      ><a name="1311"
+      > </a
+      ><a name="1312" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1313"
+      > </a
+      ><a name="1314" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1314" class="Bound"
+      >A</a
+      ><a name="1315" class="Symbol"
+      >}</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" class="Symbol"
+      >(</a
+      ><a name="1318" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1318" class="Bound"
+      >ts</a
+      ><a name="1320"
+      > </a
+      ><a name="1321" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1323" class="Bound"
+      >t</a
+      ><a name="1324" class="Symbol"
+      >)</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1326" class="Bound"
+      >&#947;</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" class="Symbol"
+      >=</a
+      ><a name="1329"
+      > </a
+      ><a name="1330" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1232" class="Function"
+      >eval&#8902;</a
+      ><a name="1335"
+      > </a
+      ><a name="1336" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1318" class="Bound"
+      >ts</a
+      ><a name="1338"
+      > </a
+      ><a name="1339" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1326" class="Bound"
+      >&#947;</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1342"
+      > </a
+      ><a name="1343" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1347"
+      > </a
+      ><a name="1348" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1323" class="Bound"
+      >t</a
+      ><a name="1349"
+      > </a
+      ><a name="1350" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1326" class="Bound"
+      >&#947;</a
+      ><a name="1351"
+      >
+
+
+</a
+      ><a name="1354" class="Comment"
+      >-- TODO: Correctness of evaluation with respect to conversion.</a
+      ><a name="1416"
+      >
+
+
+</a
+      ><a name="1419" class="Comment"
+      >-- The canonical model.</a
+      ><a name="1442"
+      >
+
+</a
+      ><a name="1444" class="Keyword"
+      >instance</a
+      ><a name="1452"
+      >
+  </a
+      ><a name="1455" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1455" class="Function"
+      >canon</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" class="Symbol"
+      >:</a
+      ><a name="1462"
+      > </a
+      ><a name="1463" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#216" class="Record"
+      >Model</a
+      ><a name="1468"
+      >
+  </a
+      ><a name="1471" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1455" class="Function"
+      >canon</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" class="Symbol"
+      >=</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" class="Keyword"
+      >record</a
+      ><a name="1485"
+      >
+    </a
+      ><a name="1490" class="Symbol"
+      >{</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" class="Field Operator"
+      >&#8872;&#7493;_</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" class="Symbol"
+      >=</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" class="Symbol"
+      >&#955;</a
+      ><a name="1499"
+      > </a
+      ><a name="1500" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1500" class="Bound"
+      >P</a
+      ><a name="1501"
+      > </a
+      ><a name="1502" class="Symbol"
+      >&#8594;</a
+      ><a name="1503"
+      > </a
+      ><a name="1504" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="BasicIS4.Syntax.Gentzen.html#213" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1500" class="Bound"
+      >P</a
+      ><a name="1511"
+      >
+    </a
+      ><a name="1516" class="Symbol"
+      >}</a
+      ><a name="1517"
+      >
+
+
+</a
+      ><a name="1520" class="Comment"
+      >-- Completeness with respect to all models, or quotation, for closed terms only.</a
+      ><a name="1600"
+      >
+
+</a
+      ><a name="1602" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1602" class="Function"
+      >quot&#8320;</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" class="Symbol"
+      >:</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" class="Symbol"
+      >&#8704;</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" class="Symbol"
+      >{</a
+      ><a name="1613" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1613" class="Bound"
+      >A</a
+      ><a name="1614" class="Symbol"
+      >}</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" class="Symbol"
+      >&#8594;</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1406" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="1621"
+      > </a
+      ><a name="1622" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1623"
+      > </a
+      ><a name="1624" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1406" class="Function Operator"
+      >&#8658;</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1613" class="Bound"
+      >A</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" class="Symbol"
+      >&#8594;</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" href="BasicIS4.Syntax.Gentzen.html#213" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1633"
+      > </a
+      ><a name="1634" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1613" class="Bound"
+      >A</a
+      ><a name="1635"
+      >
+</a
+      ><a name="1636" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1602" class="Function"
+      >quot&#8320;</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1642" class="Bound"
+      >t</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" class="Symbol"
+      >=</a
+      ><a name="1645"
+      > </a
+      ><a name="1646" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#304" class="Function"
+      >reify</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" class="Symbol"
+      >(</a
+      ><a name="1653" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1642" class="Bound"
+      >t</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1656" class="Symbol"
+      >)</a
+      ><a name="1657"
+      >
+
+
+</a
+      ><a name="1660" class="Comment"
+      >-- Normalisation by evaluation, for closed terms only.</a
+      ><a name="1714"
+      >
+
+</a
+      ><a name="1716" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1716" class="Function"
+      >norm&#8320;</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" class="Symbol"
+      >:</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" class="Symbol"
+      >&#8704;</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" class="Symbol"
+      >{</a
+      ><a name="1727" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1727" class="Bound"
+      >A</a
+      ><a name="1728" class="Symbol"
+      >}</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" class="Symbol"
+      >&#8594;</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="BasicIS4.Syntax.Gentzen.html#213" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1727" class="Bound"
+      >A</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" class="Symbol"
+      >&#8594;</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1741"
+      > </a
+      ><a name="1742" href="BasicIS4.Syntax.Gentzen.html#213" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1743"
+      > </a
+      ><a name="1744" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1727" class="Bound"
+      >A</a
+      ><a name="1745"
+      >
+</a
+      ><a name="1746" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1716" class="Function"
+      >norm&#8320;</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" class="Symbol"
+      >=</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#1602" class="Function"
+      >quot&#8320;</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" href="BasicIS4.Metatheory.Gentzen-TarskiClosedGabbayNanevski.html#679" class="Function"
+      >eval</a
+      ><a name="1766"
+      >
+
+
+</a
+      ><a name="1769" class="Comment"
+      >-- TODO: Correctness of normalisation with respect to conversion.</a
+      ><a name="1834"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

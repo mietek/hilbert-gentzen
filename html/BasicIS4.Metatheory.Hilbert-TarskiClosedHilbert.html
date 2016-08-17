@@ -1,0 +1,2349 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1" class="Module"
+      >BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert</a
+      ><a name="55"
+      > </a
+      ><a name="56" class="Keyword"
+      >where</a
+      ><a name="61"
+      >
+
+</a
+      ><a name="63" class="Keyword"
+      >open</a
+      ><a name="67"
+      > </a
+      ><a name="68" class="Keyword"
+      >import</a
+      ><a name="74"
+      > </a
+      ><a name="75" href="BasicIS4.Syntax.Hilbert.html#1" class="Module"
+      >BasicIS4.Syntax.Hilbert</a
+      ><a name="98"
+      > </a
+      ><a name="99" class="Keyword"
+      >public</a
+      ><a name="105"
+      >
+</a
+      ><a name="106" class="Keyword"
+      >open</a
+      ><a name="110"
+      > </a
+      ><a name="111" class="Keyword"
+      >import</a
+      ><a name="117"
+      > </a
+      ><a name="118" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1" class="Module"
+      >BasicIS4.Semantics.TarskiClosedHilbert</a
+      ><a name="156"
+      > </a
+      ><a name="157" class="Keyword"
+      >public</a
+      ><a name="163"
+      >
+
+
+</a
+      ><a name="166" class="Comment"
+      >-- Soundness with respect to the syntax representation in a particular model.</a
+      ><a name="243"
+      >
+
+</a
+      ><a name="245" class="Keyword"
+      >module</a
+      ><a name="251"
+      > </a
+      ><a name="252" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#252" class="Module"
+      >_</a
+      ><a name="253"
+      > </a
+      ><a name="254" class="Symbol"
+      >{{</a
+      ><a name="256" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#256" class="Bound"
+      >_</a
+      ><a name="257"
+      > </a
+      ><a name="258" class="Symbol"
+      >:</a
+      ><a name="259"
+      > </a
+      ><a name="260" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="265" class="Symbol"
+      >}}</a
+      ><a name="267"
+      > </a
+      ><a name="268" class="Keyword"
+      >where</a
+      ><a name="273"
+      >
+  </a
+      ><a name="276" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="285"
+      > </a
+      ><a name="286" class="Symbol"
+      >:</a
+      ><a name="287"
+      > </a
+      ><a name="288" class="Symbol"
+      >&#8704;</a
+      ><a name="289"
+      > </a
+      ><a name="290" class="Symbol"
+      >{</a
+      ><a name="291" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#291" class="Bound"
+      >A</a
+      ><a name="292" class="Symbol"
+      >}</a
+      ><a name="293"
+      > </a
+      ><a name="294" class="Symbol"
+      >&#8594;</a
+      ><a name="295"
+      > </a
+      ><a name="296" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="297"
+      > </a
+      ><a name="298" href="BasicIS4.Syntax.Hilbert.html#170" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="299"
+      > </a
+      ><a name="300" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#291" class="Bound"
+      >A</a
+      ><a name="301"
+      > </a
+      ><a name="302" class="Symbol"
+      >&#8594;</a
+      ><a name="303"
+      > </a
+      ><a name="304" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="305"
+      > </a
+      ><a name="306" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#291" class="Bound"
+      >A</a
+      ><a name="307"
+      > </a
+      ><a name="308" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="309"
+      >
+  </a
+      ><a name="312" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="321"
+      > </a
+      ><a name="322" class="Symbol"
+      >(</a
+      ><a name="323" href="BasicIS4.Syntax.Hilbert.html#205" class="InductiveConstructor"
+      >var</a
+      ><a name="326"
+      > </a
+      ><a name="327" class="Symbol"
+      >())</a
+      ><a name="330"
+      >
+  </a
+      ><a name="333" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="342"
+      > </a
+      ><a name="343" class="Symbol"
+      >(</a
+      ><a name="344" href="BasicIS4.Syntax.Hilbert.html#241" class="InductiveConstructor"
+      >app</a
+      ><a name="347"
+      > </a
+      ><a name="348" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#348" class="Bound"
+      >t</a
+      ><a name="349"
+      > </a
+      ><a name="350" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#350" class="Bound"
+      >u</a
+      ><a name="351" class="Symbol"
+      >)</a
+      ><a name="352"
+      > </a
+      ><a name="353" class="Symbol"
+      >=</a
+      ><a name="354"
+      > </a
+      ><a name="355" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="360"
+      > </a
+      ><a name="361" class="Symbol"
+      >(</a
+      ><a name="362" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="371"
+      > </a
+      ><a name="372" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#348" class="Bound"
+      >t</a
+      ><a name="373" class="Symbol"
+      >)</a
+      ><a name="374"
+      > </a
+      ><a name="375" class="Symbol"
+      >(</a
+      ><a name="376" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="385"
+      > </a
+      ><a name="386" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#350" class="Bound"
+      >u</a
+      ><a name="387" class="Symbol"
+      >)</a
+      ><a name="388"
+      >
+  </a
+      ><a name="391" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="400"
+      > </a
+      ><a name="401" href="BasicIS4.Syntax.Hilbert.html#289" class="InductiveConstructor"
+      >ci</a
+      ><a name="403"
+      >        </a
+      ><a name="411" class="Symbol"
+      >=</a
+      ><a name="412"
+      > </a
+      ><a name="413" href="BasicIS4.Semantics.TarskiClosedHilbert.html#440" class="Field"
+      >[ci]</a
+      ><a name="417"
+      >
+  </a
+      ><a name="420" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="429"
+      > </a
+      ><a name="430" href="BasicIS4.Syntax.Hilbert.html#321" class="InductiveConstructor"
+      >ck</a
+      ><a name="432"
+      >        </a
+      ><a name="440" class="Symbol"
+      >=</a
+      ><a name="441"
+      > </a
+      ><a name="442" href="BasicIS4.Semantics.TarskiClosedHilbert.html#476" class="Field"
+      >[ck]</a
+      ><a name="446"
+      >
+  </a
+      ><a name="449" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="BasicIS4.Syntax.Hilbert.html#357" class="InductiveConstructor"
+      >cs</a
+      ><a name="461"
+      >        </a
+      ><a name="469" class="Symbol"
+      >=</a
+      ><a name="470"
+      > </a
+      ><a name="471" href="BasicIS4.Semantics.TarskiClosedHilbert.html#516" class="Field"
+      >[cs]</a
+      ><a name="475"
+      >
+  </a
+      ><a name="478" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="487"
+      > </a
+      ><a name="488" class="Symbol"
+      >(</a
+      ><a name="489" href="BasicIS4.Syntax.Hilbert.html#413" class="InductiveConstructor"
+      >box</a
+      ><a name="492"
+      > </a
+      ><a name="493" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#493" class="Bound"
+      >t</a
+      ><a name="494" class="Symbol"
+      >)</a
+      ><a name="495"
+      >   </a
+      ><a name="498" class="Symbol"
+      >=</a
+      ><a name="499"
+      > </a
+      ><a name="500" href="BasicIS4.Semantics.TarskiClosedHilbert.html#576" class="Field"
+      >[box]</a
+      ><a name="505"
+      > </a
+      ><a name="506" class="Symbol"
+      >(</a
+      ><a name="507" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="516"
+      > </a
+      ><a name="517" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#493" class="Bound"
+      >t</a
+      ><a name="518" class="Symbol"
+      >)</a
+      ><a name="519"
+      >
+  </a
+      ><a name="522" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="531"
+      > </a
+      ><a name="532" href="BasicIS4.Syntax.Hilbert.html#451" class="InductiveConstructor"
+      >cdist</a
+      ><a name="537"
+      >     </a
+      ><a name="542" class="Symbol"
+      >=</a
+      ><a name="543"
+      > </a
+      ><a name="544" href="BasicIS4.Semantics.TarskiClosedHilbert.html#618" class="Field"
+      >[cdist]</a
+      ><a name="551"
+      >
+  </a
+      ><a name="554" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicIS4.Syntax.Hilbert.html#499" class="InductiveConstructor"
+      >cup</a
+      ><a name="567"
+      >       </a
+      ><a name="574" class="Symbol"
+      >=</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="BasicIS4.Semantics.TarskiClosedHilbert.html#670" class="Field"
+      >[cup]</a
+      ><a name="581"
+      >
+  </a
+      ><a name="584" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="593"
+      > </a
+      ><a name="594" href="BasicIS4.Syntax.Hilbert.html#537" class="InductiveConstructor"
+      >cdown</a
+      ><a name="599"
+      >     </a
+      ><a name="604" class="Symbol"
+      >=</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="BasicIS4.Semantics.TarskiClosedHilbert.html#712" class="Field"
+      >[cdown]</a
+      ><a name="613"
+      >
+  </a
+      ><a name="616" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="625"
+      > </a
+      ><a name="626" href="BasicIS4.Syntax.Hilbert.html#571" class="InductiveConstructor"
+      >cpair</a
+      ><a name="631"
+      >     </a
+      ><a name="636" class="Symbol"
+      >=</a
+      ><a name="637"
+      > </a
+      ><a name="638" href="BasicIS4.Semantics.TarskiClosedHilbert.html#750" class="Field"
+      >[cpair]</a
+      ><a name="645"
+      >
+  </a
+      ><a name="648" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="657"
+      > </a
+      ><a name="658" href="BasicIS4.Syntax.Hilbert.html#611" class="InductiveConstructor"
+      >cfst</a
+      ><a name="662"
+      >      </a
+      ><a name="668" class="Symbol"
+      >=</a
+      ><a name="669"
+      > </a
+      ><a name="670" href="BasicIS4.Semantics.TarskiClosedHilbert.html#794" class="Field"
+      >[cfst]</a
+      ><a name="676"
+      >
+  </a
+      ><a name="679" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="688"
+      > </a
+      ><a name="689" href="BasicIS4.Syntax.Hilbert.html#647" class="InductiveConstructor"
+      >csnd</a
+      ><a name="693"
+      >      </a
+      ><a name="699" class="Symbol"
+      >=</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="BasicIS4.Semantics.TarskiClosedHilbert.html#834" class="Field"
+      >[csnd]</a
+      ><a name="707"
+      >
+  </a
+      ><a name="710" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="719"
+      > </a
+      ><a name="720" href="BasicIS4.Syntax.Hilbert.html#683" class="InductiveConstructor"
+      >tt</a
+      ><a name="722"
+      >        </a
+      ><a name="730" class="Symbol"
+      >=</a
+      ><a name="731"
+      > </a
+      ><a name="732" href="BasicIS4.Semantics.TarskiClosedHilbert.html#874" class="Field"
+      >[tt]</a
+      ><a name="736"
+      >
+
+
+</a
+      ><a name="739" class="Comment"
+      >-- Soundness with respect to all models, or evaluation.</a
+      ><a name="794"
+      >
+
+</a
+      ><a name="796" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="800"
+      > </a
+      ><a name="801" class="Symbol"
+      >:</a
+      ><a name="802"
+      > </a
+      ><a name="803" class="Symbol"
+      >&#8704;</a
+      ><a name="804"
+      > </a
+      ><a name="805" class="Symbol"
+      >{</a
+      ><a name="806" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#806" class="Bound"
+      >A</a
+      ><a name="807"
+      > </a
+      ><a name="808" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#808" class="Bound"
+      >&#915;</a
+      ><a name="809" class="Symbol"
+      >}</a
+      ><a name="810"
+      > </a
+      ><a name="811" class="Symbol"
+      >&#8594;</a
+      ><a name="812"
+      > </a
+      ><a name="813" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#808" class="Bound"
+      >&#915;</a
+      ><a name="814"
+      > </a
+      ><a name="815" href="BasicIS4.Syntax.Hilbert.html#170" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="816"
+      > </a
+      ><a name="817" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#806" class="Bound"
+      >A</a
+      ><a name="818"
+      > </a
+      ><a name="819" class="Symbol"
+      >&#8594;</a
+      ><a name="820"
+      > </a
+      ><a name="821" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2768" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="824"
+      > </a
+      ><a name="825" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#808" class="Bound"
+      >&#915;</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2768" class="Function Operator"
+      >&#8658;</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#806" class="Bound"
+      >A</a
+      ><a name="830"
+      >
+</a
+      ><a name="831" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="835"
+      > </a
+      ><a name="836" class="Symbol"
+      >(</a
+      ><a name="837" href="BasicIS4.Syntax.Hilbert.html#205" class="InductiveConstructor"
+      >var</a
+      ><a name="840"
+      > </a
+      ><a name="841" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#841" class="Bound"
+      >i</a
+      ><a name="842" class="Symbol"
+      >)</a
+      ><a name="843"
+      >   </a
+      ><a name="846" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#846" class="Bound"
+      >&#947;</a
+      ><a name="847"
+      > </a
+      ><a name="848" class="Symbol"
+      >=</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2985" class="Function"
+      >lookup</a
+      ><a name="856"
+      > </a
+      ><a name="857" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#841" class="Bound"
+      >i</a
+      ><a name="858"
+      > </a
+      ><a name="859" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#846" class="Bound"
+      >&#947;</a
+      ><a name="860"
+      >
+</a
+      ><a name="861" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="865"
+      > </a
+      ><a name="866" class="Symbol"
+      >(</a
+      ><a name="867" href="BasicIS4.Syntax.Hilbert.html#241" class="InductiveConstructor"
+      >app</a
+      ><a name="870"
+      > </a
+      ><a name="871" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#871" class="Bound"
+      >t</a
+      ><a name="872"
+      > </a
+      ><a name="873" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#873" class="Bound"
+      >u</a
+      ><a name="874" class="Symbol"
+      >)</a
+      ><a name="875"
+      > </a
+      ><a name="876" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#876" class="Bound"
+      >&#947;</a
+      ><a name="877"
+      > </a
+      ><a name="878" class="Symbol"
+      >=</a
+      ><a name="879"
+      > </a
+      ><a name="880" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="884"
+      > </a
+      ><a name="885" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#871" class="Bound"
+      >t</a
+      ><a name="886"
+      > </a
+      ><a name="887" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#876" class="Bound"
+      >&#947;</a
+      ><a name="888"
+      > </a
+      ><a name="889" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1686" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#873" class="Bound"
+      >u</a
+      ><a name="899"
+      > </a
+      ><a name="900" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#876" class="Bound"
+      >&#947;</a
+      ><a name="901"
+      >
+</a
+      ><a name="902" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="906"
+      > </a
+      ><a name="907" href="BasicIS4.Syntax.Hilbert.html#289" class="InductiveConstructor"
+      >ci</a
+      ><a name="909"
+      >        </a
+      ><a name="917" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#917" class="Bound"
+      >&#947;</a
+      ><a name="918"
+      > </a
+      ><a name="919" class="Symbol"
+      >=</a
+      ><a name="920"
+      > </a
+      ><a name="921" href="BasicIS4.Semantics.TarskiClosedHilbert.html#440" class="Field"
+      >[ci]</a
+      ><a name="925"
+      > </a
+      ><a name="926" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="Function.html#1012" class="Function"
+      >id</a
+      ><a name="930"
+      >
+</a
+      ><a name="931" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="935"
+      > </a
+      ><a name="936" href="BasicIS4.Syntax.Hilbert.html#321" class="InductiveConstructor"
+      >ck</a
+      ><a name="938"
+      >        </a
+      ><a name="946" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#946" class="Bound"
+      >&#947;</a
+      ><a name="947"
+      > </a
+      ><a name="948" class="Symbol"
+      >=</a
+      ><a name="949"
+      > </a
+      ><a name="950" href="BasicIS4.Semantics.TarskiClosedHilbert.html#476" class="Field"
+      >[ck]</a
+      ><a name="954"
+      > </a
+      ><a name="955" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="956"
+      > </a
+      ><a name="957" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1749" class="Function"
+      >&#10218;const&#10219;</a
+      ><a name="964"
+      >
+</a
+      ><a name="965" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="BasicIS4.Syntax.Hilbert.html#357" class="InductiveConstructor"
+      >cs</a
+      ><a name="972"
+      >        </a
+      ><a name="980" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#980" class="Bound"
+      >&#947;</a
+      ><a name="981"
+      > </a
+      ><a name="982" class="Symbol"
+      >=</a
+      ><a name="983"
+      > </a
+      ><a name="984" href="BasicIS4.Semantics.TarskiClosedHilbert.html#516" class="Field"
+      >[cs]</a
+      ><a name="988"
+      > </a
+      ><a name="989" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="990"
+      > </a
+      ><a name="991" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1945" class="Function"
+      >&#10218;ap&#10219;&#8242;</a
+      ><a name="996"
+      >
+</a
+      ><a name="997" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" class="Symbol"
+      >(</a
+      ><a name="1003" href="BasicIS4.Syntax.Hilbert.html#413" class="InductiveConstructor"
+      >box</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1007" class="Bound"
+      >t</a
+      ><a name="1008" class="Symbol"
+      >)</a
+      ><a name="1009"
+      >   </a
+      ><a name="1012" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1012" class="Bound"
+      >&#947;</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" class="Symbol"
+      >=</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#276" class="Function"
+      >reflect[]</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1007" class="Bound"
+      >t</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1007" class="Bound"
+      >t</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1038"
+      >
+</a
+      ><a name="1039" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" href="BasicIS4.Syntax.Hilbert.html#451" class="InductiveConstructor"
+      >cdist</a
+      ><a name="1049"
+      >     </a
+      ><a name="1054" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1054" class="Bound"
+      >&#947;</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" class="Symbol"
+      >=</a
+      ><a name="1057"
+      > </a
+      ><a name="1058" href="BasicIS4.Semantics.TarskiClosedHilbert.html#618" class="Field"
+      >[cdist]</a
+      ><a name="1065"
+      > </a
+      ><a name="1066" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2204" class="Function Operator"
+      >_&#10218;&#9678;&#10219;&#8242;_</a
+      ><a name="1074"
+      >
+</a
+      ><a name="1075" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1079"
+      > </a
+      ><a name="1080" href="BasicIS4.Syntax.Hilbert.html#499" class="InductiveConstructor"
+      >cup</a
+      ><a name="1083"
+      >       </a
+      ><a name="1090" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1090" class="Bound"
+      >&#947;</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" class="Symbol"
+      >=</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="BasicIS4.Semantics.TarskiClosedHilbert.html#670" class="Field"
+      >[cup]</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2301" class="Function"
+      >&#10218;&#8657;&#10219;</a
+      ><a name="1105"
+      >
+</a
+      ><a name="1106" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="BasicIS4.Syntax.Hilbert.html#537" class="InductiveConstructor"
+      >cdown</a
+      ><a name="1116"
+      >     </a
+      ><a name="1121" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1121" class="Bound"
+      >&#947;</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" class="Symbol"
+      >=</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" href="BasicIS4.Semantics.TarskiClosedHilbert.html#712" class="Field"
+      >[cdown]</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2368" class="Function"
+      >&#10218;&#8659;&#10219;</a
+      ><a name="1138"
+      >
+</a
+      ><a name="1139" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1143"
+      > </a
+      ><a name="1144" href="BasicIS4.Syntax.Hilbert.html#571" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1149"
+      >     </a
+      ><a name="1154" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1154" class="Bound"
+      >&#947;</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" class="Symbol"
+      >=</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="BasicIS4.Semantics.TarskiClosedHilbert.html#750" class="Field"
+      >[cpair]</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1167"
+      > </a
+      ><a name="1168" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2415" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="1174"
+      >
+</a
+      ><a name="1175" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1179"
+      > </a
+      ><a name="1180" href="BasicIS4.Syntax.Hilbert.html#611" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1184"
+      >      </a
+      ><a name="1190" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1190" class="Bound"
+      >&#947;</a
+      ><a name="1191"
+      > </a
+      ><a name="1192" class="Symbol"
+      >=</a
+      ><a name="1193"
+      > </a
+      ><a name="1194" href="BasicIS4.Semantics.TarskiClosedHilbert.html#794" class="Field"
+      >[cfst]</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="1205"
+      >
+</a
+      ><a name="1206" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1210"
+      > </a
+      ><a name="1211" href="BasicIS4.Syntax.Hilbert.html#647" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1215"
+      >      </a
+      ><a name="1221" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1221" class="Bound"
+      >&#947;</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" class="Symbol"
+      >=</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" href="BasicIS4.Semantics.TarskiClosedHilbert.html#834" class="Field"
+      >[csnd]</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1233"
+      > </a
+      ><a name="1234" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="1236"
+      >
+</a
+      ><a name="1237" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" href="BasicIS4.Syntax.Hilbert.html#683" class="InductiveConstructor"
+      >tt</a
+      ><a name="1244"
+      >        </a
+      ><a name="1252" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1252" class="Bound"
+      >&#947;</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" class="Symbol"
+      >=</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1257"
+      >
+
+
+</a
+      ><a name="1260" class="Comment"
+      >-- Correctness of evaluation with respect to conversion.</a
+      ><a name="1316"
+      >
+
+</a
+      ><a name="1318" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1323"
+      > </a
+      ><a name="1324" class="Symbol"
+      >:</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" class="Symbol"
+      >&#8704;</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" class="Symbol"
+      >{{</a
+      ><a name="1330" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1330" class="Bound"
+      >_</a
+      ><a name="1331"
+      > </a
+      ><a name="1332" class="Symbol"
+      >:</a
+      ><a name="1333"
+      > </a
+      ><a name="1334" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="1339" class="Symbol"
+      >}}</a
+      ><a name="1341"
+      > </a
+      ><a name="1342" class="Symbol"
+      >{</a
+      ><a name="1343" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1343" class="Bound"
+      >A</a
+      ><a name="1344"
+      > </a
+      ><a name="1345" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1345" class="Bound"
+      >&#915;</a
+      ><a name="1346" class="Symbol"
+      >}</a
+      ><a name="1347"
+      > </a
+      ><a name="1348" class="Symbol"
+      >{</a
+      ><a name="1349" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1349" class="Bound"
+      >t</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1351" class="Bound"
+      >t&#8242;</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" class="Symbol"
+      >:</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1345" class="Bound"
+      >&#915;</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" href="BasicIS4.Syntax.Hilbert.html#170" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1343" class="Bound"
+      >A</a
+      ><a name="1361" class="Symbol"
+      >}</a
+      ><a name="1362"
+      > </a
+      ><a name="1363" class="Symbol"
+      >&#8594;</a
+      ><a name="1364"
+      > </a
+      ><a name="1365" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1349" class="Bound"
+      >t</a
+      ><a name="1366"
+      > </a
+      ><a name="1367" href="BasicIS4.Syntax.Hilbert.html#5181" class="Datatype Operator"
+      >&#8921;</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1351" class="Bound"
+      >t&#8242;</a
+      ><a name="1371"
+      > </a
+      ><a name="1372" class="Symbol"
+      >&#8594;</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1349" class="Bound"
+      >t</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" href="Agda.Builtin.Equality.html#55" class="Datatype Operator"
+      >&#8801;</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1351" class="Bound"
+      >t&#8242;</a
+      ><a name="1390"
+      >
+</a
+      ><a name="1391" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" href="BasicIS4.Syntax.Hilbert.html#5235" class="InductiveConstructor"
+      >refl&#8921;</a
+      ><a name="1402"
+      >                   </a
+      ><a name="1421" class="Symbol"
+      >=</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" href="Agda.Builtin.Equality.html#112" class="InductiveConstructor"
+      >refl</a
+      ><a name="1427"
+      >
+</a
+      ><a name="1428" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1433"
+      > </a
+      ><a name="1434" class="Symbol"
+      >(</a
+      ><a name="1435" href="BasicIS4.Syntax.Hilbert.html#5290" class="InductiveConstructor"
+      >trans&#8921;</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1442" class="Bound"
+      >p</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1444" class="Bound"
+      >q</a
+      ><a name="1445" class="Symbol"
+      >)</a
+      ><a name="1446"
+      >            </a
+      ><a name="1458" class="Symbol"
+      >=</a
+      ><a name="1459"
+      > </a
+      ><a name="1460" href="Relation.Binary.PropositionalEquality.Core.html#632" class="Function"
+      >trans</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" class="Symbol"
+      >(</a
+      ><a name="1467" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1442" class="Bound"
+      >p</a
+      ><a name="1474" class="Symbol"
+      >)</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" class="Symbol"
+      >(</a
+      ><a name="1477" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1482"
+      > </a
+      ><a name="1483" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1444" class="Bound"
+      >q</a
+      ><a name="1484" class="Symbol"
+      >)</a
+      ><a name="1485"
+      >
+</a
+      ><a name="1486" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" class="Symbol"
+      >(</a
+      ><a name="1493" href="BasicIS4.Syntax.Hilbert.html#5371" class="InductiveConstructor"
+      >sym&#8921;</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1498" class="Bound"
+      >p</a
+      ><a name="1499" class="Symbol"
+      >)</a
+      ><a name="1500"
+      >                </a
+      ><a name="1516" class="Symbol"
+      >=</a
+      ><a name="1517"
+      > </a
+      ><a name="1518" href="Relation.Binary.PropositionalEquality.Core.html#565" class="Function"
+      >sym</a
+      ><a name="1521"
+      > </a
+      ><a name="1522" class="Symbol"
+      >(</a
+      ><a name="1523" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1528"
+      > </a
+      ><a name="1529" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1498" class="Bound"
+      >p</a
+      ><a name="1530" class="Symbol"
+      >)</a
+      ><a name="1531"
+      >
+</a
+      ><a name="1532" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" class="Symbol"
+      >(</a
+      ><a name="1539" href="BasicIS4.Syntax.Hilbert.html#5439" class="InductiveConstructor"
+      >congapp&#8921;</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1548" class="Bound"
+      >p</a
+      ><a name="1549"
+      > </a
+      ><a name="1550" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1550" class="Bound"
+      >q</a
+      ><a name="1551" class="Symbol"
+      >)</a
+      ><a name="1552"
+      >          </a
+      ><a name="1562" class="Symbol"
+      >=</a
+      ><a name="1563"
+      > </a
+      ><a name="1564" href="Relation.Binary.PropositionalEquality.html#1274" class="Function"
+      >cong&#8322;</a
+      ><a name="1569"
+      > </a
+      ><a name="1570" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3183" class="Function Operator"
+      >_&#10214;$&#10215;_</a
+      ><a name="1575"
+      > </a
+      ><a name="1576" class="Symbol"
+      >(</a
+      ><a name="1577" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1582"
+      > </a
+      ><a name="1583" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1548" class="Bound"
+      >p</a
+      ><a name="1584" class="Symbol"
+      >)</a
+      ><a name="1585"
+      > </a
+      ><a name="1586" class="Symbol"
+      >(</a
+      ><a name="1587" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1592"
+      > </a
+      ><a name="1593" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1550" class="Bound"
+      >q</a
+      ><a name="1594" class="Symbol"
+      >)</a
+      ><a name="1595"
+      >
+</a
+      ><a name="1596" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1601"
+      > </a
+      ><a name="1602" class="Symbol"
+      >(</a
+      ><a name="1603" href="BasicIS4.Syntax.Hilbert.html#5565" class="InductiveConstructor"
+      >congi&#8921;</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1610" class="Bound"
+      >p</a
+      ><a name="1611" class="Symbol"
+      >)</a
+      ><a name="1612"
+      >              </a
+      ><a name="1626" class="Symbol"
+      >=</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" href="Relation.Binary.PropositionalEquality.html#1036" class="Function"
+      >cong</a
+      ><a name="1632"
+      > </a
+      ><a name="1633" href="Function.html#1012" class="Function"
+      >id</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" class="Symbol"
+      >(</a
+      ><a name="1637" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1642"
+      > </a
+      ><a name="1643" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1610" class="Bound"
+      >p</a
+      ><a name="1644" class="Symbol"
+      >)</a
+      ><a name="1645"
+      >
+</a
+      ><a name="1646" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" class="Symbol"
+      >(</a
+      ><a name="1653" href="BasicIS4.Syntax.Hilbert.html#5662" class="InductiveConstructor"
+      >congk&#8921;</a
+      ><a name="1659"
+      > </a
+      ><a name="1660" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1660" class="Bound"
+      >p</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1662" class="Bound"
+      >q</a
+      ><a name="1663" class="Symbol"
+      >)</a
+      ><a name="1664"
+      >            </a
+      ><a name="1676" class="Symbol"
+      >=</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" href="Relation.Binary.PropositionalEquality.html#1274" class="Function"
+      >cong&#8322;</a
+      ><a name="1683"
+      > </a
+      ><a name="1684" href="Function.html#1053" class="Function"
+      >const</a
+      ><a name="1689"
+      > </a
+      ><a name="1690" class="Symbol"
+      >(</a
+      ><a name="1691" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1696"
+      > </a
+      ><a name="1697" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1660" class="Bound"
+      >p</a
+      ><a name="1698" class="Symbol"
+      >)</a
+      ><a name="1699"
+      > </a
+      ><a name="1700" class="Symbol"
+      >(</a
+      ><a name="1701" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1662" class="Bound"
+      >q</a
+      ><a name="1708" class="Symbol"
+      >)</a
+      ><a name="1709"
+      >
+</a
+      ><a name="1710" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" class="Symbol"
+      >(</a
+      ><a name="1717" href="BasicIS4.Syntax.Hilbert.html#5802" class="InductiveConstructor"
+      >congs&#8921;</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1724" class="Bound"
+      >p</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1726" class="Bound"
+      >q</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1728" class="Bound"
+      >r</a
+      ><a name="1729" class="Symbol"
+      >)</a
+      ><a name="1730"
+      >          </a
+      ><a name="1740" class="Symbol"
+      >=</a
+      ><a name="1741"
+      > </a
+      ><a name="1742" href="Common.html#1592" class="Function"
+      >cong&#8323;</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3266" class="Function"
+      >&#10214;ap&#10215;</a
+      ><a name="1752"
+      > </a
+      ><a name="1753" class="Symbol"
+      >(</a
+      ><a name="1754" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1724" class="Bound"
+      >p</a
+      ><a name="1761" class="Symbol"
+      >)</a
+      ><a name="1762"
+      > </a
+      ><a name="1763" class="Symbol"
+      >(</a
+      ><a name="1764" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1769"
+      > </a
+      ><a name="1770" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1726" class="Bound"
+      >q</a
+      ><a name="1771" class="Symbol"
+      >)</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" class="Symbol"
+      >(</a
+      ><a name="1774" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1728" class="Bound"
+      >r</a
+      ><a name="1781" class="Symbol"
+      >)</a
+      ><a name="1782"
+      >
+</a
+      ><a name="1783" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1788"
+      > </a
+      ><a name="1789" class="Symbol"
+      >(</a
+      ><a name="1790" href="BasicIS4.Syntax.Hilbert.html#6149" class="InductiveConstructor"
+      >congdist&#8921;</a
+      ><a name="1799"
+      > </a
+      ><a name="1800" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1800" class="Bound"
+      >p</a
+      ><a name="1801"
+      > </a
+      ><a name="1802" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1802" class="Bound"
+      >q</a
+      ><a name="1803" class="Symbol"
+      >)</a
+      ><a name="1804"
+      >         </a
+      ><a name="1813" class="Symbol"
+      >=</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" href="Relation.Binary.PropositionalEquality.html#1274" class="Function"
+      >cong&#8322;</a
+      ><a name="1820"
+      > </a
+      ><a name="1821" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3380" class="Function Operator"
+      >_&#10214;&#9678;&#10215;_</a
+      ><a name="1826"
+      > </a
+      ><a name="1827" class="Symbol"
+      >(</a
+      ><a name="1828" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1833"
+      > </a
+      ><a name="1834" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1800" class="Bound"
+      >p</a
+      ><a name="1835" class="Symbol"
+      >)</a
+      ><a name="1836"
+      > </a
+      ><a name="1837" class="Symbol"
+      >(</a
+      ><a name="1838" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1843"
+      > </a
+      ><a name="1844" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1802" class="Bound"
+      >q</a
+      ><a name="1845" class="Symbol"
+      >)</a
+      ><a name="1846"
+      >
+</a
+      ><a name="1847" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1852"
+      > </a
+      ><a name="1853" class="Symbol"
+      >(</a
+      ><a name="1854" href="BasicIS4.Syntax.Hilbert.html#6305" class="InductiveConstructor"
+      >congup&#8921;</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1862" class="Bound"
+      >p</a
+      ><a name="1863" class="Symbol"
+      >)</a
+      ><a name="1864"
+      >             </a
+      ><a name="1877" class="Symbol"
+      >=</a
+      ><a name="1878"
+      > </a
+      ><a name="1879" href="Relation.Binary.PropositionalEquality.html#1036" class="Function"
+      >cong</a
+      ><a name="1883"
+      > </a
+      ><a name="1884" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3479" class="Function"
+      >&#10214;&#8657;&#10215;</a
+      ><a name="1887"
+      > </a
+      ><a name="1888" class="Symbol"
+      >(</a
+      ><a name="1889" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1894"
+      > </a
+      ><a name="1895" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1862" class="Bound"
+      >p</a
+      ><a name="1896" class="Symbol"
+      >)</a
+      ><a name="1897"
+      >
+</a
+      ><a name="1898" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1903"
+      > </a
+      ><a name="1904" class="Symbol"
+      >(</a
+      ><a name="1905" href="BasicIS4.Syntax.Hilbert.html#6406" class="InductiveConstructor"
+      >congdown&#8921;</a
+      ><a name="1914"
+      > </a
+      ><a name="1915" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1915" class="Bound"
+      >p</a
+      ><a name="1916" class="Symbol"
+      >)</a
+      ><a name="1917"
+      >           </a
+      ><a name="1928" class="Symbol"
+      >=</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" href="Relation.Binary.PropositionalEquality.html#1036" class="Function"
+      >cong</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3544" class="Function"
+      >&#10214;&#8659;&#10215;</a
+      ><a name="1938"
+      > </a
+      ><a name="1939" class="Symbol"
+      >(</a
+      ><a name="1940" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1915" class="Bound"
+      >p</a
+      ><a name="1947" class="Symbol"
+      >)</a
+      ><a name="1948"
+      >
+</a
+      ><a name="1949" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="1954"
+      > </a
+      ><a name="1955" class="Symbol"
+      >(</a
+      ><a name="1956" href="BasicIS4.Syntax.Hilbert.html#6511" class="InductiveConstructor"
+      >congpair&#8921;</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" class="Symbol"
+      >{</a
+      ><a name="1967" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1967" class="Bound"
+      >A</a
+      ><a name="1968" class="Symbol"
+      >}</a
+      ><a name="1969"
+      > </a
+      ><a name="1970" class="Symbol"
+      >{</a
+      ><a name="1971" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1971" class="Bound"
+      >B</a
+      ><a name="1972" class="Symbol"
+      >}</a
+      ><a name="1973"
+      > </a
+      ><a name="1974" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1974" class="Bound"
+      >p</a
+      ><a name="1975"
+      > </a
+      ><a name="1976" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1976" class="Bound"
+      >q</a
+      ><a name="1977" class="Symbol"
+      >)</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" class="Symbol"
+      >=</a
+      ><a name="1980"
+      > </a
+      ><a name="1981" href="Relation.Binary.PropositionalEquality.html#1274" class="Function"
+      >cong&#8322;</a
+      ><a name="1986"
+      > </a
+      ><a name="1987" class="Symbol"
+      >(</a
+      ><a name="1988" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3605" class="Function Operator"
+      >_&#10214;,&#10215;_</a
+      ><a name="1993"
+      > </a
+      ><a name="1994" class="Symbol"
+      >{</a
+      ><a name="1995" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1967" class="Bound"
+      >A</a
+      ><a name="1996" class="Symbol"
+      >}</a
+      ><a name="1997"
+      > </a
+      ><a name="1998" class="Symbol"
+      >{</a
+      ><a name="1999" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1971" class="Bound"
+      >B</a
+      ><a name="2000" class="Symbol"
+      >})</a
+      ><a name="2002"
+      > </a
+      ><a name="2003" class="Symbol"
+      >(</a
+      ><a name="2004" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2009"
+      > </a
+      ><a name="2010" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1974" class="Bound"
+      >p</a
+      ><a name="2011" class="Symbol"
+      >)</a
+      ><a name="2012"
+      > </a
+      ><a name="2013" class="Symbol"
+      >(</a
+      ><a name="2014" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1976" class="Bound"
+      >q</a
+      ><a name="2021" class="Symbol"
+      >)</a
+      ><a name="2022"
+      >
+</a
+      ><a name="2023" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" class="Symbol"
+      >(</a
+      ><a name="2030" href="BasicIS4.Syntax.Hilbert.html#6657" class="InductiveConstructor"
+      >congfst&#8921;</a
+      ><a name="2038"
+      > </a
+      ><a name="2039" class="Symbol"
+      >{</a
+      ><a name="2040" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2040" class="Bound"
+      >A</a
+      ><a name="2041" class="Symbol"
+      >}</a
+      ><a name="2042"
+      > </a
+      ><a name="2043" class="Symbol"
+      >{</a
+      ><a name="2044" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2044" class="Bound"
+      >B</a
+      ><a name="2045" class="Symbol"
+      >}</a
+      ><a name="2046"
+      > </a
+      ><a name="2047" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2047" class="Bound"
+      >p</a
+      ><a name="2048" class="Symbol"
+      >)</a
+      ><a name="2049"
+      >    </a
+      ><a name="2053" class="Symbol"
+      >=</a
+      ><a name="2054"
+      > </a
+      ><a name="2055" href="Relation.Binary.PropositionalEquality.html#1036" class="Function"
+      >cong</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" class="Symbol"
+      >(</a
+      ><a name="2061" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3686" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="2065"
+      > </a
+      ><a name="2066" class="Symbol"
+      >{</a
+      ><a name="2067" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2040" class="Bound"
+      >A</a
+      ><a name="2068" class="Symbol"
+      >}</a
+      ><a name="2069"
+      > </a
+      ><a name="2070" class="Symbol"
+      >{</a
+      ><a name="2071" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2044" class="Bound"
+      >B</a
+      ><a name="2072" class="Symbol"
+      >})</a
+      ><a name="2074"
+      > </a
+      ><a name="2075" class="Symbol"
+      >(</a
+      ><a name="2076" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2081"
+      > </a
+      ><a name="2082" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2047" class="Bound"
+      >p</a
+      ><a name="2083" class="Symbol"
+      >)</a
+      ><a name="2084"
+      >
+</a
+      ><a name="2085" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2090"
+      > </a
+      ><a name="2091" class="Symbol"
+      >(</a
+      ><a name="2092" href="BasicIS4.Syntax.Hilbert.html#6764" class="InductiveConstructor"
+      >congsnd&#8921;</a
+      ><a name="2100"
+      > </a
+      ><a name="2101" class="Symbol"
+      >{</a
+      ><a name="2102" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2102" class="Bound"
+      >A</a
+      ><a name="2103" class="Symbol"
+      >}</a
+      ><a name="2104"
+      > </a
+      ><a name="2105" class="Symbol"
+      >{</a
+      ><a name="2106" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2106" class="Bound"
+      >B</a
+      ><a name="2107" class="Symbol"
+      >}</a
+      ><a name="2108"
+      > </a
+      ><a name="2109" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2109" class="Bound"
+      >p</a
+      ><a name="2110" class="Symbol"
+      >)</a
+      ><a name="2111"
+      >    </a
+      ><a name="2115" class="Symbol"
+      >=</a
+      ><a name="2116"
+      > </a
+      ><a name="2117" href="Relation.Binary.PropositionalEquality.html#1036" class="Function"
+      >cong</a
+      ><a name="2121"
+      > </a
+      ><a name="2122" class="Symbol"
+      >(</a
+      ><a name="2123" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3752" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="2127"
+      > </a
+      ><a name="2128" class="Symbol"
+      >{</a
+      ><a name="2129" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2102" class="Bound"
+      >A</a
+      ><a name="2130" class="Symbol"
+      >}</a
+      ><a name="2131"
+      > </a
+      ><a name="2132" class="Symbol"
+      >{</a
+      ><a name="2133" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2106" class="Bound"
+      >B</a
+      ><a name="2134" class="Symbol"
+      >})</a
+      ><a name="2136"
+      > </a
+      ><a name="2137" class="Symbol"
+      >(</a
+      ><a name="2138" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2143"
+      > </a
+      ><a name="2144" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2109" class="Bound"
+      >p</a
+      ><a name="2145" class="Symbol"
+      >)</a
+      ><a name="2146"
+      >
+</a
+      ><a name="2147" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2152"
+      > </a
+      ><a name="2153" href="BasicIS4.Syntax.Hilbert.html#6895" class="InductiveConstructor"
+      >beta&#9659;&#8342;&#8921;</a
+      ><a name="2160"
+      >                 </a
+      ><a name="2177" class="Symbol"
+      >=</a
+      ><a name="2178"
+      > </a
+      ><a name="2179" href="Agda.Builtin.Equality.html#112" class="InductiveConstructor"
+      >refl</a
+      ><a name="2183"
+      >
+</a
+      ><a name="2184" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2189"
+      > </a
+      ><a name="2190" href="BasicIS4.Syntax.Hilbert.html#7003" class="InductiveConstructor"
+      >beta&#9659;&#8347;&#8921;</a
+      ><a name="2197"
+      >                 </a
+      ><a name="2214" class="Symbol"
+      >=</a
+      ><a name="2215"
+      > </a
+      ><a name="2216" href="Agda.Builtin.Equality.html#112" class="InductiveConstructor"
+      >refl</a
+      ><a name="2220"
+      >
+</a
+      ><a name="2221" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2226"
+      > </a
+      ><a name="2227" href="BasicIS4.Syntax.Hilbert.html#7196" class="InductiveConstructor"
+      >beta&#8743;&#8321;&#8921;</a
+      ><a name="2234"
+      >                 </a
+      ><a name="2251" class="Symbol"
+      >=</a
+      ><a name="2252"
+      > </a
+      ><a name="2253" href="Agda.Builtin.Equality.html#112" class="InductiveConstructor"
+      >refl</a
+      ><a name="2257"
+      >
+</a
+      ><a name="2258" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2263"
+      > </a
+      ><a name="2264" href="BasicIS4.Syntax.Hilbert.html#7294" class="InductiveConstructor"
+      >beta&#8743;&#8322;&#8921;</a
+      ><a name="2271"
+      >                 </a
+      ><a name="2288" class="Symbol"
+      >=</a
+      ><a name="2289"
+      > </a
+      ><a name="2290" href="Agda.Builtin.Equality.html#112" class="InductiveConstructor"
+      >refl</a
+      ><a name="2294"
+      >
+</a
+      ><a name="2295" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2300"
+      > </a
+      ><a name="2301" href="BasicIS4.Syntax.Hilbert.html#7392" class="InductiveConstructor"
+      >eta&#8743;&#8921;</a
+      ><a name="2306"
+      >                   </a
+      ><a name="2325" class="Symbol"
+      >=</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" href="Agda.Builtin.Equality.html#112" class="InductiveConstructor"
+      >refl</a
+      ><a name="2331"
+      >
+</a
+      ><a name="2332" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#1318" class="Function"
+      >check</a
+      ><a name="2337"
+      > </a
+      ><a name="2338" href="BasicIS4.Syntax.Hilbert.html#7493" class="InductiveConstructor"
+      >eta&#8868;&#8921;</a
+      ><a name="2343"
+      >                  </a
+      ><a name="2361" class="Symbol"
+      >=</a
+      ><a name="2362"
+      > </a
+      ><a name="2363" href="Agda.Builtin.Equality.html#112" class="InductiveConstructor"
+      >refl</a
+      ><a name="2367"
+      >
+
+
+</a
+      ><a name="2370" class="Comment"
+      >-- The canonical model.</a
+      ><a name="2393"
+      >
+
+</a
+      ><a name="2395" class="Keyword"
+      >instance</a
+      ><a name="2403"
+      >
+  </a
+      ><a name="2406" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2406" class="Function"
+      >canon</a
+      ><a name="2411"
+      > </a
+      ><a name="2412" class="Symbol"
+      >:</a
+      ><a name="2413"
+      > </a
+      ><a name="2414" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="2419"
+      >
+  </a
+      ><a name="2422" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2406" class="Function"
+      >canon</a
+      ><a name="2427"
+      > </a
+      ><a name="2428" class="Symbol"
+      >=</a
+      ><a name="2429"
+      > </a
+      ><a name="2430" class="Keyword"
+      >record</a
+      ><a name="2436"
+      >
+    </a
+      ><a name="2441" class="Symbol"
+      >{</a
+      ><a name="2442"
+      > </a
+      ><a name="2443" class="Field Operator"
+      >&#8872;&#7493;_</a
+      ><a name="2446"
+      >    </a
+      ><a name="2450" class="Symbol"
+      >=</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" class="Symbol"
+      >&#955;</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2454" class="Bound"
+      >P</a
+      ><a name="2455"
+      > </a
+      ><a name="2456" class="Symbol"
+      >&#8594;</a
+      ><a name="2457"
+      > </a
+      ><a name="2458" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2459"
+      > </a
+      ><a name="2460" href="BasicIS4.Syntax.Hilbert.html#170" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2461"
+      > </a
+      ><a name="2462" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="2463"
+      > </a
+      ><a name="2464" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2454" class="Bound"
+      >P</a
+      ><a name="2465"
+      >
+    </a
+      ><a name="2470" class="Symbol"
+      >;</a
+      ><a name="2471"
+      > </a
+      ><a name="2472" class="Field Operator"
+      >[_]</a
+      ><a name="2475"
+      >     </a
+      ><a name="2480" class="Symbol"
+      >=</a
+      ><a name="2481"
+      > </a
+      ><a name="2482" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" href="BasicIS4.Syntax.Hilbert.html#170" class="Datatype Operator"
+      >&#8866;_</a
+      ><a name="2486"
+      >
+    </a
+      ><a name="2491" class="Symbol"
+      >;</a
+      ><a name="2492"
+      > </a
+      ><a name="2493" class="Field"
+      >[app]</a
+      ><a name="2498"
+      >   </a
+      ><a name="2501" class="Symbol"
+      >=</a
+      ><a name="2502"
+      > </a
+      ><a name="2503" href="BasicIS4.Syntax.Hilbert.html#241" class="InductiveConstructor"
+      >app</a
+      ><a name="2506"
+      >
+    </a
+      ><a name="2511" class="Symbol"
+      >;</a
+      ><a name="2512"
+      > </a
+      ><a name="2513" class="Field"
+      >[ci]</a
+      ><a name="2517"
+      >    </a
+      ><a name="2521" class="Symbol"
+      >=</a
+      ><a name="2522"
+      > </a
+      ><a name="2523" href="BasicIS4.Syntax.Hilbert.html#289" class="InductiveConstructor"
+      >ci</a
+      ><a name="2525"
+      >
+    </a
+      ><a name="2530" class="Symbol"
+      >;</a
+      ><a name="2531"
+      > </a
+      ><a name="2532" class="Field"
+      >[ck]</a
+      ><a name="2536"
+      >    </a
+      ><a name="2540" class="Symbol"
+      >=</a
+      ><a name="2541"
+      > </a
+      ><a name="2542" href="BasicIS4.Syntax.Hilbert.html#321" class="InductiveConstructor"
+      >ck</a
+      ><a name="2544"
+      >
+    </a
+      ><a name="2549" class="Symbol"
+      >;</a
+      ><a name="2550"
+      > </a
+      ><a name="2551" class="Field"
+      >[cs]</a
+      ><a name="2555"
+      >    </a
+      ><a name="2559" class="Symbol"
+      >=</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" href="BasicIS4.Syntax.Hilbert.html#357" class="InductiveConstructor"
+      >cs</a
+      ><a name="2563"
+      >
+    </a
+      ><a name="2568" class="Symbol"
+      >;</a
+      ><a name="2569"
+      > </a
+      ><a name="2570" class="Field"
+      >[box]</a
+      ><a name="2575"
+      >   </a
+      ><a name="2578" class="Symbol"
+      >=</a
+      ><a name="2579"
+      > </a
+      ><a name="2580" href="BasicIS4.Syntax.Hilbert.html#413" class="InductiveConstructor"
+      >box</a
+      ><a name="2583"
+      >
+    </a
+      ><a name="2588" class="Symbol"
+      >;</a
+      ><a name="2589"
+      > </a
+      ><a name="2590" class="Field"
+      >[cdist]</a
+      ><a name="2597"
+      > </a
+      ><a name="2598" class="Symbol"
+      >=</a
+      ><a name="2599"
+      > </a
+      ><a name="2600" href="BasicIS4.Syntax.Hilbert.html#451" class="InductiveConstructor"
+      >cdist</a
+      ><a name="2605"
+      >
+    </a
+      ><a name="2610" class="Symbol"
+      >;</a
+      ><a name="2611"
+      > </a
+      ><a name="2612" class="Field"
+      >[cup]</a
+      ><a name="2617"
+      >   </a
+      ><a name="2620" class="Symbol"
+      >=</a
+      ><a name="2621"
+      > </a
+      ><a name="2622" href="BasicIS4.Syntax.Hilbert.html#499" class="InductiveConstructor"
+      >cup</a
+      ><a name="2625"
+      >
+    </a
+      ><a name="2630" class="Symbol"
+      >;</a
+      ><a name="2631"
+      > </a
+      ><a name="2632" class="Field"
+      >[cdown]</a
+      ><a name="2639"
+      > </a
+      ><a name="2640" class="Symbol"
+      >=</a
+      ><a name="2641"
+      > </a
+      ><a name="2642" href="BasicIS4.Syntax.Hilbert.html#537" class="InductiveConstructor"
+      >cdown</a
+      ><a name="2647"
+      >
+    </a
+      ><a name="2652" class="Symbol"
+      >;</a
+      ><a name="2653"
+      > </a
+      ><a name="2654" class="Field"
+      >[cpair]</a
+      ><a name="2661"
+      > </a
+      ><a name="2662" class="Symbol"
+      >=</a
+      ><a name="2663"
+      > </a
+      ><a name="2664" href="BasicIS4.Syntax.Hilbert.html#571" class="InductiveConstructor"
+      >cpair</a
+      ><a name="2669"
+      >
+    </a
+      ><a name="2674" class="Symbol"
+      >;</a
+      ><a name="2675"
+      > </a
+      ><a name="2676" class="Field"
+      >[cfst]</a
+      ><a name="2682"
+      >  </a
+      ><a name="2684" class="Symbol"
+      >=</a
+      ><a name="2685"
+      > </a
+      ><a name="2686" href="BasicIS4.Syntax.Hilbert.html#611" class="InductiveConstructor"
+      >cfst</a
+      ><a name="2690"
+      >
+    </a
+      ><a name="2695" class="Symbol"
+      >;</a
+      ><a name="2696"
+      > </a
+      ><a name="2697" class="Field"
+      >[csnd]</a
+      ><a name="2703"
+      >  </a
+      ><a name="2705" class="Symbol"
+      >=</a
+      ><a name="2706"
+      > </a
+      ><a name="2707" href="BasicIS4.Syntax.Hilbert.html#647" class="InductiveConstructor"
+      >csnd</a
+      ><a name="2711"
+      >
+    </a
+      ><a name="2716" class="Symbol"
+      >;</a
+      ><a name="2717"
+      > </a
+      ><a name="2718" class="Field"
+      >[tt]</a
+      ><a name="2722"
+      >    </a
+      ><a name="2726" class="Symbol"
+      >=</a
+      ><a name="2727"
+      > </a
+      ><a name="2728" href="BasicIS4.Syntax.Hilbert.html#683" class="InductiveConstructor"
+      >tt</a
+      ><a name="2730"
+      >
+    </a
+      ><a name="2735" class="Symbol"
+      >}</a
+      ><a name="2736"
+      >
+
+
+</a
+      ><a name="2739" class="Comment"
+      >-- Completeness with respect to all models, or quotation, for closed terms only.</a
+      ><a name="2819"
+      >
+
+</a
+      ><a name="2821" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2821" class="Function"
+      >quot&#8320;</a
+      ><a name="2826"
+      > </a
+      ><a name="2827" class="Symbol"
+      >:</a
+      ><a name="2828"
+      > </a
+      ><a name="2829" class="Symbol"
+      >&#8704;</a
+      ><a name="2830"
+      > </a
+      ><a name="2831" class="Symbol"
+      >{</a
+      ><a name="2832" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2832" class="Bound"
+      >A</a
+      ><a name="2833" class="Symbol"
+      >}</a
+      ><a name="2834"
+      > </a
+      ><a name="2835" class="Symbol"
+      >&#8594;</a
+      ><a name="2836"
+      > </a
+      ><a name="2837" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2768" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="2840"
+      > </a
+      ><a name="2841" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2842"
+      > </a
+      ><a name="2843" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2768" class="Function Operator"
+      >&#8658;</a
+      ><a name="2844"
+      > </a
+      ><a name="2845" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2832" class="Bound"
+      >A</a
+      ><a name="2846"
+      > </a
+      ><a name="2847" class="Symbol"
+      >&#8594;</a
+      ><a name="2848"
+      > </a
+      ><a name="2849" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2850"
+      > </a
+      ><a name="2851" href="BasicIS4.Syntax.Hilbert.html#170" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2852"
+      > </a
+      ><a name="2853" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2832" class="Bound"
+      >A</a
+      ><a name="2854"
+      >
+</a
+      ><a name="2855" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2821" class="Function"
+      >quot&#8320;</a
+      ><a name="2860"
+      > </a
+      ><a name="2861" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2861" class="Bound"
+      >t</a
+      ><a name="2862"
+      > </a
+      ><a name="2863" class="Symbol"
+      >=</a
+      ><a name="2864"
+      > </a
+      ><a name="2865" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="2872"
+      > </a
+      ><a name="2873" class="Symbol"
+      >(</a
+      ><a name="2874" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2861" class="Bound"
+      >t</a
+      ><a name="2875"
+      > </a
+      ><a name="2876" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2877" class="Symbol"
+      >)</a
+      ><a name="2878"
+      >
+
+
+</a
+      ><a name="2881" class="Comment"
+      >-- Normalisation by evaluation, for closed terms only.</a
+      ><a name="2935"
+      >
+
+</a
+      ><a name="2937" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2937" class="Function"
+      >norm&#8320;</a
+      ><a name="2942"
+      > </a
+      ><a name="2943" class="Symbol"
+      >:</a
+      ><a name="2944"
+      > </a
+      ><a name="2945" class="Symbol"
+      >&#8704;</a
+      ><a name="2946"
+      > </a
+      ><a name="2947" class="Symbol"
+      >{</a
+      ><a name="2948" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2948" class="Bound"
+      >A</a
+      ><a name="2949" class="Symbol"
+      >}</a
+      ><a name="2950"
+      > </a
+      ><a name="2951" class="Symbol"
+      >&#8594;</a
+      ><a name="2952"
+      > </a
+      ><a name="2953" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2954"
+      > </a
+      ><a name="2955" href="BasicIS4.Syntax.Hilbert.html#170" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2956"
+      > </a
+      ><a name="2957" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2948" class="Bound"
+      >A</a
+      ><a name="2958"
+      > </a
+      ><a name="2959" class="Symbol"
+      >&#8594;</a
+      ><a name="2960"
+      > </a
+      ><a name="2961" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2962"
+      > </a
+      ><a name="2963" href="BasicIS4.Syntax.Hilbert.html#170" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2964"
+      > </a
+      ><a name="2965" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2948" class="Bound"
+      >A</a
+      ><a name="2966"
+      >
+</a
+      ><a name="2967" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2937" class="Function"
+      >norm&#8320;</a
+      ><a name="2972"
+      > </a
+      ><a name="2973" class="Symbol"
+      >=</a
+      ><a name="2974"
+      > </a
+      ><a name="2975" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#2821" class="Function"
+      >quot&#8320;</a
+      ><a name="2980"
+      > </a
+      ><a name="2981" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="2982"
+      > </a
+      ><a name="2983" href="BasicIS4.Metatheory.Hilbert-TarskiClosedHilbert.html#796" class="Function"
+      >eval</a
+      ><a name="2987"
+      >
+
+
+</a
+      ><a name="2990" class="Comment"
+      >-- TODO: Correctness of normalisation with respect to conversion.</a
+      ><a name="3055"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

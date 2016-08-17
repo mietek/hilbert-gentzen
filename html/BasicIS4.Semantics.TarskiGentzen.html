@@ -1,0 +1,5629 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Semantics.TarskiGentzen</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Tarski-style semantics with a Gentzen-style syntax representation.</a
+      ><a name="70"
+      >
+
+</a
+      ><a name="72" class="Keyword"
+      >module</a
+      ><a name="78"
+      > </a
+      ><a name="79" href="BasicIS4.Semantics.TarskiGentzen.html#1" class="Module"
+      >BasicIS4.Semantics.TarskiGentzen</a
+      ><a name="111"
+      > </a
+      ><a name="112" class="Keyword"
+      >where</a
+      ><a name="117"
+      >
+
+</a
+      ><a name="119" class="Keyword"
+      >open</a
+      ><a name="123"
+      > </a
+      ><a name="124" class="Keyword"
+      >import</a
+      ><a name="130"
+      > </a
+      ><a name="131" href="BasicIS4.Syntax.Common.html#1" class="Module"
+      >BasicIS4.Syntax.Common</a
+      ><a name="153"
+      > </a
+      ><a name="154" class="Keyword"
+      >public</a
+      ><a name="160"
+      >
+
+
+</a
+      ><a name="163" class="Comment"
+      >-- Intuitionistic Tarski models.</a
+      ><a name="195"
+      >
+
+</a
+      ><a name="197" class="Keyword"
+      >record</a
+      ><a name="203"
+      > </a
+      ><a name="204" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Record"
+      >Model</a
+      ><a name="209"
+      > </a
+      ><a name="210" class="Symbol"
+      >:</a
+      ><a name="211"
+      > </a
+      ><a name="212" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="216"
+      > </a
+      ><a name="217" class="Keyword"
+      >where</a
+      ><a name="222"
+      >
+  </a
+      ><a name="225" class="Keyword"
+      >infix</a
+      ><a name="230"
+      > </a
+      ><a name="231" class="Number"
+      >3</a
+      ><a name="232"
+      > _&#8872;&#7493;_
+  </a
+      ><a name="240" class="Keyword"
+      >field</a
+      ><a name="245"
+      >
+    </a
+      ><a name="250" class="Comment"
+      >-- Satisfaction for atomic propositions; monotonic.</a
+      ><a name="301"
+      >
+    </a
+      ><a name="306" href="BasicIS4.Semantics.TarskiGentzen.html#306" class="Field Operator"
+      >_&#8872;&#7493;_</a
+      ><a name="310"
+      >   </a
+      ><a name="313" class="Symbol"
+      >:</a
+      ><a name="314"
+      > </a
+      ><a name="315" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="317"
+      > </a
+      ><a name="318" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="320"
+      > </a
+      ><a name="321" class="Symbol"
+      >&#8594;</a
+      ><a name="322"
+      > </a
+      ><a name="323" href="Common.html#1171" class="Function"
+      >Atom</a
+      ><a name="327"
+      > </a
+      ><a name="328" class="Symbol"
+      >&#8594;</a
+      ><a name="329"
+      > </a
+      ><a name="330" class="PrimitiveType"
+      >Set</a
+      ><a name="333"
+      >
+    </a
+      ><a name="338" href="BasicIS4.Semantics.TarskiGentzen.html#338" class="Field"
+      >mono&#8872;&#7493;</a
+      ><a name="344"
+      > </a
+      ><a name="345" class="Symbol"
+      >:</a
+      ><a name="346"
+      > </a
+      ><a name="347" class="Symbol"
+      >&#8704;</a
+      ><a name="348"
+      > </a
+      ><a name="349" class="Symbol"
+      >{</a
+      ><a name="350" href="BasicIS4.Semantics.TarskiGentzen.html#350" class="Bound"
+      >P</a
+      ><a name="351"
+      > </a
+      ><a name="352" href="BasicIS4.Semantics.TarskiGentzen.html#352" class="Bound"
+      >&#915;</a
+      ><a name="353"
+      > </a
+      ><a name="354" href="BasicIS4.Semantics.TarskiGentzen.html#354" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="356" class="Symbol"
+      >}</a
+      ><a name="357"
+      > </a
+      ><a name="358" class="Symbol"
+      >&#8594;</a
+      ><a name="359"
+      > </a
+      ><a name="360" href="BasicIS4.Semantics.TarskiGentzen.html#352" class="Bound"
+      >&#915;</a
+      ><a name="361"
+      > </a
+      ><a name="362" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="363"
+      > </a
+      ><a name="364" href="BasicIS4.Semantics.TarskiGentzen.html#354" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="366"
+      > </a
+      ><a name="367" class="Symbol"
+      >&#8594;</a
+      ><a name="368"
+      > </a
+      ><a name="369" href="BasicIS4.Semantics.TarskiGentzen.html#352" class="Bound"
+      >&#915;</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="BasicIS4.Semantics.TarskiGentzen.html#306" class="Field Operator"
+      >&#8872;&#7493;</a
+      ><a name="373"
+      > </a
+      ><a name="374" href="BasicIS4.Semantics.TarskiGentzen.html#350" class="Bound"
+      >P</a
+      ><a name="375"
+      > </a
+      ><a name="376" class="Symbol"
+      >&#8594;</a
+      ><a name="377"
+      > </a
+      ><a name="378" href="BasicIS4.Semantics.TarskiGentzen.html#354" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="380"
+      > </a
+      ><a name="381" href="BasicIS4.Semantics.TarskiGentzen.html#306" class="Field Operator"
+      >&#8872;&#7493;</a
+      ><a name="383"
+      > </a
+      ><a name="384" href="BasicIS4.Semantics.TarskiGentzen.html#350" class="Bound"
+      >P</a
+      ><a name="385"
+      >
+
+    </a
+      ><a name="391" class="Comment"
+      >-- Gentzen-style syntax representation; monotonic.</a
+      ><a name="441"
+      >
+    </a
+      ><a name="446" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[_&#8866;_]</a
+      ><a name="451"
+      >   </a
+      ><a name="454" class="Symbol"
+      >:</a
+      ><a name="455"
+      > </a
+      ><a name="456" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="461"
+      > </a
+      ><a name="462" class="Symbol"
+      >&#8594;</a
+      ><a name="463"
+      > </a
+      ><a name="464" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="466"
+      > </a
+      ><a name="467" class="Symbol"
+      >&#8594;</a
+      ><a name="468"
+      > </a
+      ><a name="469" class="PrimitiveType"
+      >Set</a
+      ><a name="472"
+      >
+    </a
+      ><a name="477" href="BasicIS4.Semantics.TarskiGentzen.html#477" class="Field"
+      >mono[&#8866;]</a
+      ><a name="484"
+      > </a
+      ><a name="485" class="Symbol"
+      >:</a
+      ><a name="486"
+      > </a
+      ><a name="487" class="Symbol"
+      >&#8704;</a
+      ><a name="488"
+      > </a
+      ><a name="489" class="Symbol"
+      >{</a
+      ><a name="490" href="BasicIS4.Semantics.TarskiGentzen.html#490" class="Bound"
+      >A</a
+      ><a name="491"
+      > </a
+      ><a name="492" href="BasicIS4.Semantics.TarskiGentzen.html#492" class="Bound"
+      >&#915;</a
+      ><a name="493"
+      > </a
+      ><a name="494" href="BasicIS4.Semantics.TarskiGentzen.html#494" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="496" class="Symbol"
+      >}</a
+      ><a name="497"
+      > </a
+      ><a name="498" class="Symbol"
+      >&#8594;</a
+      ><a name="499"
+      > </a
+      ><a name="500" href="BasicIS4.Semantics.TarskiGentzen.html#492" class="Bound"
+      >&#915;</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="503"
+      > </a
+      ><a name="504" href="BasicIS4.Semantics.TarskiGentzen.html#494" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="506"
+      > </a
+      ><a name="507" class="Symbol"
+      >&#8594;</a
+      ><a name="508"
+      > </a
+      ><a name="509" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="510"
+      > </a
+      ><a name="511" href="BasicIS4.Semantics.TarskiGentzen.html#492" class="Bound"
+      >&#915;</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="514"
+      > </a
+      ><a name="515" href="BasicIS4.Semantics.TarskiGentzen.html#490" class="Bound"
+      >A</a
+      ><a name="516"
+      > </a
+      ><a name="517" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="518"
+      > </a
+      ><a name="519" class="Symbol"
+      >&#8594;</a
+      ><a name="520"
+      > </a
+      ><a name="521" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="522"
+      > </a
+      ><a name="523" href="BasicIS4.Semantics.TarskiGentzen.html#494" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="525"
+      > </a
+      ><a name="526" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="527"
+      > </a
+      ><a name="528" href="BasicIS4.Semantics.TarskiGentzen.html#490" class="Bound"
+      >A</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="531"
+      >
+    </a
+      ><a name="536" href="BasicIS4.Semantics.TarskiGentzen.html#536" class="Field"
+      >[var]</a
+      ><a name="541"
+      >    </a
+      ><a name="545" class="Symbol"
+      >:</a
+      ><a name="546"
+      > </a
+      ><a name="547" class="Symbol"
+      >&#8704;</a
+      ><a name="548"
+      > </a
+      ><a name="549" class="Symbol"
+      >{</a
+      ><a name="550" href="BasicIS4.Semantics.TarskiGentzen.html#550" class="Bound"
+      >A</a
+      ><a name="551"
+      > </a
+      ><a name="552" href="BasicIS4.Semantics.TarskiGentzen.html#552" class="Bound"
+      >&#915;</a
+      ><a name="553" class="Symbol"
+      >}</a
+      ><a name="554"
+      >    </a
+      ><a name="558" class="Symbol"
+      >&#8594;</a
+      ><a name="559"
+      > </a
+      ><a name="560" href="BasicIS4.Semantics.TarskiGentzen.html#550" class="Bound"
+      >A</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicIS4.Semantics.TarskiGentzen.html#552" class="Bound"
+      >&#915;</a
+      ><a name="565"
+      > </a
+      ><a name="566" class="Symbol"
+      >&#8594;</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="BasicIS4.Semantics.TarskiGentzen.html#552" class="Bound"
+      >&#915;</a
+      ><a name="571"
+      > </a
+      ><a name="572" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="BasicIS4.Semantics.TarskiGentzen.html#550" class="Bound"
+      >A</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="577"
+      >
+    </a
+      ><a name="582" href="BasicIS4.Semantics.TarskiGentzen.html#582" class="Field"
+      >[lam]</a
+      ><a name="587"
+      >    </a
+      ><a name="591" class="Symbol"
+      >:</a
+      ><a name="592"
+      > </a
+      ><a name="593" class="Symbol"
+      >&#8704;</a
+      ><a name="594"
+      > </a
+      ><a name="595" class="Symbol"
+      >{</a
+      ><a name="596" href="BasicIS4.Semantics.TarskiGentzen.html#596" class="Bound"
+      >A</a
+      ><a name="597"
+      > </a
+      ><a name="598" href="BasicIS4.Semantics.TarskiGentzen.html#598" class="Bound"
+      >B</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="BasicIS4.Semantics.TarskiGentzen.html#600" class="Bound"
+      >&#915;</a
+      ><a name="601" class="Symbol"
+      >}</a
+      ><a name="602"
+      >  </a
+      ><a name="604" class="Symbol"
+      >&#8594;</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="BasicIS4.Semantics.TarskiGentzen.html#600" class="Bound"
+      >&#915;</a
+      ><a name="609"
+      > </a
+      ><a name="610" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="611"
+      > </a
+      ><a name="612" href="BasicIS4.Semantics.TarskiGentzen.html#596" class="Bound"
+      >A</a
+      ><a name="613"
+      > </a
+      ><a name="614" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="615"
+      > </a
+      ><a name="616" href="BasicIS4.Semantics.TarskiGentzen.html#598" class="Bound"
+      >B</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="619"
+      > </a
+      ><a name="620" class="Symbol"
+      >&#8594;</a
+      ><a name="621"
+      > </a
+      ><a name="622" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="623"
+      > </a
+      ><a name="624" href="BasicIS4.Semantics.TarskiGentzen.html#600" class="Bound"
+      >&#915;</a
+      ><a name="625"
+      > </a
+      ><a name="626" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="627"
+      > </a
+      ><a name="628" href="BasicIS4.Semantics.TarskiGentzen.html#596" class="Bound"
+      >A</a
+      ><a name="629"
+      > </a
+      ><a name="630" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="631"
+      > </a
+      ><a name="632" href="BasicIS4.Semantics.TarskiGentzen.html#598" class="Bound"
+      >B</a
+      ><a name="633"
+      > </a
+      ><a name="634" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="635"
+      >
+    </a
+      ><a name="640" href="BasicIS4.Semantics.TarskiGentzen.html#640" class="Field"
+      >[app]</a
+      ><a name="645"
+      >    </a
+      ><a name="649" class="Symbol"
+      >:</a
+      ><a name="650"
+      > </a
+      ><a name="651" class="Symbol"
+      >&#8704;</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="Symbol"
+      >{</a
+      ><a name="654" href="BasicIS4.Semantics.TarskiGentzen.html#654" class="Bound"
+      >A</a
+      ><a name="655"
+      > </a
+      ><a name="656" href="BasicIS4.Semantics.TarskiGentzen.html#656" class="Bound"
+      >B</a
+      ><a name="657"
+      > </a
+      ><a name="658" href="BasicIS4.Semantics.TarskiGentzen.html#658" class="Bound"
+      >&#915;</a
+      ><a name="659" class="Symbol"
+      >}</a
+      ><a name="660"
+      >  </a
+      ><a name="662" class="Symbol"
+      >&#8594;</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="665"
+      > </a
+      ><a name="666" href="BasicIS4.Semantics.TarskiGentzen.html#658" class="Bound"
+      >&#915;</a
+      ><a name="667"
+      > </a
+      ><a name="668" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="669"
+      > </a
+      ><a name="670" href="BasicIS4.Semantics.TarskiGentzen.html#654" class="Bound"
+      >A</a
+      ><a name="671"
+      > </a
+      ><a name="672" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="673"
+      > </a
+      ><a name="674" href="BasicIS4.Semantics.TarskiGentzen.html#656" class="Bound"
+      >B</a
+      ><a name="675"
+      > </a
+      ><a name="676" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="677"
+      > </a
+      ><a name="678" class="Symbol"
+      >&#8594;</a
+      ><a name="679"
+      > </a
+      ><a name="680" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="681"
+      > </a
+      ><a name="682" href="BasicIS4.Semantics.TarskiGentzen.html#658" class="Bound"
+      >&#915;</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="685"
+      > </a
+      ><a name="686" href="BasicIS4.Semantics.TarskiGentzen.html#654" class="Bound"
+      >A</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="689"
+      > </a
+      ><a name="690" class="Symbol"
+      >&#8594;</a
+      ><a name="691"
+      > </a
+      ><a name="692" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="693"
+      > </a
+      ><a name="694" href="BasicIS4.Semantics.TarskiGentzen.html#658" class="Bound"
+      >&#915;</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="BasicIS4.Semantics.TarskiGentzen.html#656" class="Bound"
+      >B</a
+      ><a name="699"
+      > </a
+      ><a name="700" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="701"
+      >
+    </a
+      ><a name="706" href="BasicIS4.Semantics.TarskiGentzen.html#706" class="Field"
+      >[box]</a
+      ><a name="711"
+      >    </a
+      ><a name="715" class="Symbol"
+      >:</a
+      ><a name="716"
+      > </a
+      ><a name="717" class="Symbol"
+      >&#8704;</a
+      ><a name="718"
+      > </a
+      ><a name="719" class="Symbol"
+      >{</a
+      ><a name="720" href="BasicIS4.Semantics.TarskiGentzen.html#720" class="Bound"
+      >A</a
+      ><a name="721"
+      > </a
+      ><a name="722" href="BasicIS4.Semantics.TarskiGentzen.html#722" class="Bound"
+      >&#915;</a
+      ><a name="723" class="Symbol"
+      >}</a
+      ><a name="724"
+      >    </a
+      ><a name="728" class="Symbol"
+      >&#8594;</a
+      ><a name="729"
+      > </a
+      ><a name="730" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="731"
+      > </a
+      ><a name="732" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="BasicIS4.Semantics.TarskiGentzen.html#720" class="Bound"
+      >A</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="739"
+      > </a
+      ><a name="740" class="Symbol"
+      >&#8594;</a
+      ><a name="741"
+      > </a
+      ><a name="742" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="BasicIS4.Semantics.TarskiGentzen.html#722" class="Bound"
+      >&#915;</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="747"
+      > </a
+      ><a name="748" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="BasicIS4.Semantics.TarskiGentzen.html#720" class="Bound"
+      >A</a
+      ><a name="751"
+      > </a
+      ><a name="752" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="753"
+      >
+    </a
+      ><a name="758" href="BasicIS4.Semantics.TarskiGentzen.html#758" class="Field"
+      >[down]</a
+      ><a name="764"
+      >   </a
+      ><a name="767" class="Symbol"
+      >:</a
+      ><a name="768"
+      > </a
+      ><a name="769" class="Symbol"
+      >&#8704;</a
+      ><a name="770"
+      > </a
+      ><a name="771" class="Symbol"
+      >{</a
+      ><a name="772" href="BasicIS4.Semantics.TarskiGentzen.html#772" class="Bound"
+      >A</a
+      ><a name="773"
+      > </a
+      ><a name="774" href="BasicIS4.Semantics.TarskiGentzen.html#774" class="Bound"
+      >&#915;</a
+      ><a name="775" class="Symbol"
+      >}</a
+      ><a name="776"
+      >    </a
+      ><a name="780" class="Symbol"
+      >&#8594;</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="BasicIS4.Semantics.TarskiGentzen.html#774" class="Bound"
+      >&#915;</a
+      ><a name="785"
+      > </a
+      ><a name="786" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="787"
+      > </a
+      ><a name="788" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="789"
+      > </a
+      ><a name="790" href="BasicIS4.Semantics.TarskiGentzen.html#772" class="Bound"
+      >A</a
+      ><a name="791"
+      > </a
+      ><a name="792" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="793"
+      > </a
+      ><a name="794" class="Symbol"
+      >&#8594;</a
+      ><a name="795"
+      > </a
+      ><a name="796" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="797"
+      > </a
+      ><a name="798" href="BasicIS4.Semantics.TarskiGentzen.html#774" class="Bound"
+      >&#915;</a
+      ><a name="799"
+      > </a
+      ><a name="800" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="801"
+      > </a
+      ><a name="802" href="BasicIS4.Semantics.TarskiGentzen.html#772" class="Bound"
+      >A</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="805"
+      >
+    </a
+      ><a name="810" href="BasicIS4.Semantics.TarskiGentzen.html#810" class="Field"
+      >[pair]</a
+      ><a name="816"
+      >   </a
+      ><a name="819" class="Symbol"
+      >:</a
+      ><a name="820"
+      > </a
+      ><a name="821" class="Symbol"
+      >&#8704;</a
+      ><a name="822"
+      > </a
+      ><a name="823" class="Symbol"
+      >{</a
+      ><a name="824" href="BasicIS4.Semantics.TarskiGentzen.html#824" class="Bound"
+      >A</a
+      ><a name="825"
+      > </a
+      ><a name="826" href="BasicIS4.Semantics.TarskiGentzen.html#826" class="Bound"
+      >B</a
+      ><a name="827"
+      > </a
+      ><a name="828" href="BasicIS4.Semantics.TarskiGentzen.html#828" class="Bound"
+      >&#915;</a
+      ><a name="829" class="Symbol"
+      >}</a
+      ><a name="830"
+      >  </a
+      ><a name="832" class="Symbol"
+      >&#8594;</a
+      ><a name="833"
+      > </a
+      ><a name="834" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="835"
+      > </a
+      ><a name="836" href="BasicIS4.Semantics.TarskiGentzen.html#828" class="Bound"
+      >&#915;</a
+      ><a name="837"
+      > </a
+      ><a name="838" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="839"
+      > </a
+      ><a name="840" href="BasicIS4.Semantics.TarskiGentzen.html#824" class="Bound"
+      >A</a
+      ><a name="841"
+      > </a
+      ><a name="842" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="843"
+      > </a
+      ><a name="844" class="Symbol"
+      >&#8594;</a
+      ><a name="845"
+      > </a
+      ><a name="846" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="847"
+      > </a
+      ><a name="848" href="BasicIS4.Semantics.TarskiGentzen.html#828" class="Bound"
+      >&#915;</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="851"
+      > </a
+      ><a name="852" href="BasicIS4.Semantics.TarskiGentzen.html#826" class="Bound"
+      >B</a
+      ><a name="853"
+      > </a
+      ><a name="854" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="855"
+      > </a
+      ><a name="856" class="Symbol"
+      >&#8594;</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="859"
+      > </a
+      ><a name="860" href="BasicIS4.Semantics.TarskiGentzen.html#828" class="Bound"
+      >&#915;</a
+      ><a name="861"
+      > </a
+      ><a name="862" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="863"
+      > </a
+      ><a name="864" href="BasicIS4.Semantics.TarskiGentzen.html#824" class="Bound"
+      >A</a
+      ><a name="865"
+      > </a
+      ><a name="866" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="867"
+      > </a
+      ><a name="868" href="BasicIS4.Semantics.TarskiGentzen.html#826" class="Bound"
+      >B</a
+      ><a name="869"
+      > </a
+      ><a name="870" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="871"
+      >
+    </a
+      ><a name="876" href="BasicIS4.Semantics.TarskiGentzen.html#876" class="Field"
+      >[fst]</a
+      ><a name="881"
+      >    </a
+      ><a name="885" class="Symbol"
+      >:</a
+      ><a name="886"
+      > </a
+      ><a name="887" class="Symbol"
+      >&#8704;</a
+      ><a name="888"
+      > </a
+      ><a name="889" class="Symbol"
+      >{</a
+      ><a name="890" href="BasicIS4.Semantics.TarskiGentzen.html#890" class="Bound"
+      >A</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="BasicIS4.Semantics.TarskiGentzen.html#892" class="Bound"
+      >B</a
+      ><a name="893"
+      > </a
+      ><a name="894" href="BasicIS4.Semantics.TarskiGentzen.html#894" class="Bound"
+      >&#915;</a
+      ><a name="895" class="Symbol"
+      >}</a
+      ><a name="896"
+      >  </a
+      ><a name="898" class="Symbol"
+      >&#8594;</a
+      ><a name="899"
+      > </a
+      ><a name="900" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="901"
+      > </a
+      ><a name="902" href="BasicIS4.Semantics.TarskiGentzen.html#894" class="Bound"
+      >&#915;</a
+      ><a name="903"
+      > </a
+      ><a name="904" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="905"
+      > </a
+      ><a name="906" href="BasicIS4.Semantics.TarskiGentzen.html#890" class="Bound"
+      >A</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="909"
+      > </a
+      ><a name="910" href="BasicIS4.Semantics.TarskiGentzen.html#892" class="Bound"
+      >B</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="913"
+      > </a
+      ><a name="914" class="Symbol"
+      >&#8594;</a
+      ><a name="915"
+      > </a
+      ><a name="916" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="917"
+      > </a
+      ><a name="918" href="BasicIS4.Semantics.TarskiGentzen.html#894" class="Bound"
+      >&#915;</a
+      ><a name="919"
+      > </a
+      ><a name="920" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="921"
+      > </a
+      ><a name="922" href="BasicIS4.Semantics.TarskiGentzen.html#890" class="Bound"
+      >A</a
+      ><a name="923"
+      > </a
+      ><a name="924" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="925"
+      >
+    </a
+      ><a name="930" href="BasicIS4.Semantics.TarskiGentzen.html#930" class="Field"
+      >[snd]</a
+      ><a name="935"
+      >    </a
+      ><a name="939" class="Symbol"
+      >:</a
+      ><a name="940"
+      > </a
+      ><a name="941" class="Symbol"
+      >&#8704;</a
+      ><a name="942"
+      > </a
+      ><a name="943" class="Symbol"
+      >{</a
+      ><a name="944" href="BasicIS4.Semantics.TarskiGentzen.html#944" class="Bound"
+      >A</a
+      ><a name="945"
+      > </a
+      ><a name="946" href="BasicIS4.Semantics.TarskiGentzen.html#946" class="Bound"
+      >B</a
+      ><a name="947"
+      > </a
+      ><a name="948" href="BasicIS4.Semantics.TarskiGentzen.html#948" class="Bound"
+      >&#915;</a
+      ><a name="949" class="Symbol"
+      >}</a
+      ><a name="950"
+      >  </a
+      ><a name="952" class="Symbol"
+      >&#8594;</a
+      ><a name="953"
+      > </a
+      ><a name="954" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="955"
+      > </a
+      ><a name="956" href="BasicIS4.Semantics.TarskiGentzen.html#948" class="Bound"
+      >&#915;</a
+      ><a name="957"
+      > </a
+      ><a name="958" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="959"
+      > </a
+      ><a name="960" href="BasicIS4.Semantics.TarskiGentzen.html#944" class="Bound"
+      >A</a
+      ><a name="961"
+      > </a
+      ><a name="962" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="963"
+      > </a
+      ><a name="964" href="BasicIS4.Semantics.TarskiGentzen.html#946" class="Bound"
+      >B</a
+      ><a name="965"
+      > </a
+      ><a name="966" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="967"
+      > </a
+      ><a name="968" class="Symbol"
+      >&#8594;</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="BasicIS4.Semantics.TarskiGentzen.html#948" class="Bound"
+      >&#915;</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="975"
+      > </a
+      ><a name="976" href="BasicIS4.Semantics.TarskiGentzen.html#946" class="Bound"
+      >B</a
+      ><a name="977"
+      > </a
+      ><a name="978" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="979"
+      >
+    </a
+      ><a name="984" href="BasicIS4.Semantics.TarskiGentzen.html#984" class="Field"
+      >[tt]</a
+      ><a name="988"
+      >     </a
+      ><a name="993" class="Symbol"
+      >:</a
+      ><a name="994"
+      > </a
+      ><a name="995" class="Symbol"
+      >&#8704;</a
+      ><a name="996"
+      > </a
+      ><a name="997" class="Symbol"
+      >{</a
+      ><a name="998" href="BasicIS4.Semantics.TarskiGentzen.html#998" class="Bound"
+      >&#915;</a
+      ><a name="999" class="Symbol"
+      >}</a
+      ><a name="1000"
+      >      </a
+      ><a name="1006" class="Symbol"
+      >&#8594;</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="BasicIS4.Semantics.TarskiGentzen.html#998" class="Bound"
+      >&#915;</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="1017"
+      >
+
+  </a
+      ><a name="1021" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >[_&#8866;_]&#8902;</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" class="Symbol"
+      >:</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" class="Symbol"
+      >&#8594;</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1040"
+      > </a
+      ><a name="1041" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" class="Symbol"
+      >&#8594;</a
+      ><a name="1045"
+      > </a
+      ><a name="1046" class="PrimitiveType"
+      >Set</a
+      ><a name="1049"
+      >
+  </a
+      ><a name="1052" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >[</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" href="BasicIS4.Semantics.TarskiGentzen.html#1054" class="Bound"
+      >&#915;</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >&#8866;</a
+      ><a name="1057"
+      > </a
+      ><a name="1058" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >]&#8902;</a
+      ><a name="1062"
+      >     </a
+      ><a name="1067" class="Symbol"
+      >=</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1070"
+      >
+  </a
+      ><a name="1073" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >[</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" href="BasicIS4.Semantics.TarskiGentzen.html#1075" class="Bound"
+      >&#915;</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >&#8866;</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="BasicIS4.Semantics.TarskiGentzen.html#1079" class="Bound"
+      >&#928;</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="BasicIS4.Semantics.TarskiGentzen.html#1083" class="Bound"
+      >A</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >]&#8902;</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" class="Symbol"
+      >=</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >[</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" href="BasicIS4.Semantics.TarskiGentzen.html#1075" class="Bound"
+      >&#915;</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >&#8866;</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="BasicIS4.Semantics.TarskiGentzen.html#1079" class="Bound"
+      >&#928;</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >]&#8902;</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1102"
+      > </a
+      ><a name="1103" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="BasicIS4.Semantics.TarskiGentzen.html#1075" class="Bound"
+      >&#915;</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" href="BasicIS4.Semantics.TarskiGentzen.html#1083" class="Bound"
+      >A</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="1112"
+      >
+
+</a
+      ><a name="1114" class="Keyword"
+      >open</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Module"
+      >Model</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" class="Keyword"
+      >public</a
+      ><a name="1137"
+      >
+
+
+</a
+      ><a name="1140" class="Comment"
+      >-- Satisfaction in a particular model.</a
+      ><a name="1178"
+      >
+
+</a
+      ><a name="1180" class="Keyword"
+      >module</a
+      ><a name="1186"
+      > </a
+      ><a name="1187" href="BasicIS4.Semantics.TarskiGentzen.html#1187" class="Module"
+      >_</a
+      ><a name="1188"
+      > </a
+      ><a name="1189" class="Symbol"
+      >{{</a
+      ><a name="1191" href="BasicIS4.Semantics.TarskiGentzen.html#1191" class="Bound"
+      >_</a
+      ><a name="1192"
+      > </a
+      ><a name="1193" class="Symbol"
+      >:</a
+      ><a name="1194"
+      > </a
+      ><a name="1195" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Record"
+      >Model</a
+      ><a name="1200" class="Symbol"
+      >}}</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" class="Keyword"
+      >where</a
+      ><a name="1208"
+      >
+  </a
+      ><a name="1211" class="Keyword"
+      >infix</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" class="Number"
+      >3</a
+      ><a name="1218"
+      > _&#8872;_
+  </a
+      ><a name="1225" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >_&#8872;_</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" class="Symbol"
+      >:</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1233"
+      > </a
+      ><a name="1234" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1236"
+      > </a
+      ><a name="1237" class="Symbol"
+      >&#8594;</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1241"
+      > </a
+      ><a name="1242" class="Symbol"
+      >&#8594;</a
+      ><a name="1243"
+      > </a
+      ><a name="1244" class="PrimitiveType"
+      >Set</a
+      ><a name="1247"
+      >
+  </a
+      ><a name="1250" href="BasicIS4.Semantics.TarskiGentzen.html#1250" class="Bound"
+      >&#915;</a
+      ><a name="1251"
+      > </a
+      ><a name="1252" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" href="BasicIS4.Semantics.TarskiGentzen.html#1256" class="Bound"
+      >P</a
+      ><a name="1257"
+      >   </a
+      ><a name="1260" class="Symbol"
+      >=</a
+      ><a name="1261"
+      > </a
+      ><a name="1262" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="1263"
+      > </a
+      ><a name="1264" href="BasicIS4.Semantics.TarskiGentzen.html#1250" class="Bound"
+      >&#915;</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" href="BasicIS4.Semantics.TarskiGentzen.html#1256" class="Bound"
+      >P</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="1273"
+      > </a
+      ><a name="1274" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" href="BasicIS4.Semantics.TarskiGentzen.html#1250" class="Bound"
+      >&#915;</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" href="BasicIS4.Semantics.TarskiGentzen.html#306" class="Field Operator"
+      >&#8872;&#7493;</a
+      ><a name="1280"
+      > </a
+      ><a name="1281" href="BasicIS4.Semantics.TarskiGentzen.html#1256" class="Bound"
+      >P</a
+      ><a name="1282"
+      >
+  </a
+      ><a name="1285" href="BasicIS4.Semantics.TarskiGentzen.html#1285" class="Bound"
+      >&#915;</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1288"
+      > </a
+      ><a name="1289" href="BasicIS4.Semantics.TarskiGentzen.html#1289" class="Bound"
+      >A</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" href="BasicIS4.Semantics.TarskiGentzen.html#1293" class="Bound"
+      >B</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" class="Symbol"
+      >=</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" class="Symbol"
+      >&#8704;</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" class="Symbol"
+      >{</a
+      ><a name="1300" href="BasicIS4.Semantics.TarskiGentzen.html#1300" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1302" class="Symbol"
+      >}</a
+      ><a name="1303"
+      > </a
+      ><a name="1304" class="Symbol"
+      >&#8594;</a
+      ><a name="1305"
+      > </a
+      ><a name="1306" href="BasicIS4.Semantics.TarskiGentzen.html#1285" class="Bound"
+      >&#915;</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" href="BasicIS4.Semantics.TarskiGentzen.html#1300" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" class="Symbol"
+      >&#8594;</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="BasicIS4.Semantics.TarskiGentzen.html#1300" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1319"
+      > </a
+      ><a name="1320" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="1321"
+      > </a
+      ><a name="1322" href="BasicIS4.Semantics.TarskiGentzen.html#1289" class="Bound"
+      >A</a
+      ><a name="1323"
+      > </a
+      ><a name="1324" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" href="BasicIS4.Semantics.TarskiGentzen.html#1293" class="Bound"
+      >B</a
+      ><a name="1327"
+      > </a
+      ><a name="1328" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="1329"
+      > </a
+      ><a name="1330" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1331"
+      > </a
+      ><a name="1332" class="Symbol"
+      >(</a
+      ><a name="1333" href="BasicIS4.Semantics.TarskiGentzen.html#1300" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1335"
+      > </a
+      ><a name="1336" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1337"
+      > </a
+      ><a name="1338" href="BasicIS4.Semantics.TarskiGentzen.html#1289" class="Bound"
+      >A</a
+      ><a name="1339"
+      > </a
+      ><a name="1340" class="Symbol"
+      >&#8594;</a
+      ><a name="1341"
+      > </a
+      ><a name="1342" href="BasicIS4.Semantics.TarskiGentzen.html#1300" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1344"
+      > </a
+      ><a name="1345" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" href="BasicIS4.Semantics.TarskiGentzen.html#1293" class="Bound"
+      >B</a
+      ><a name="1348" class="Symbol"
+      >)</a
+      ><a name="1349"
+      >
+  </a
+      ><a name="1352" href="BasicIS4.Semantics.TarskiGentzen.html#1352" class="Bound"
+      >&#915;</a
+      ><a name="1353"
+      > </a
+      ><a name="1354" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" href="BasicIS4.Semantics.TarskiGentzen.html#1358" class="Bound"
+      >A</a
+      ><a name="1359"
+      >   </a
+      ><a name="1362" class="Symbol"
+      >=</a
+      ><a name="1363"
+      > </a
+      ><a name="1364" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="1365"
+      > </a
+      ><a name="1366" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1367"
+      > </a
+      ><a name="1368" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="1369"
+      > </a
+      ><a name="1370" href="BasicIS4.Semantics.TarskiGentzen.html#1358" class="Bound"
+      >A</a
+      ><a name="1371"
+      > </a
+      ><a name="1372" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1375"
+      > </a
+      ><a name="1376" href="BasicIS4.Semantics.TarskiGentzen.html#1352" class="Bound"
+      >&#915;</a
+      ><a name="1377"
+      > </a
+      ><a name="1378" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1379"
+      > </a
+      ><a name="1380" href="BasicIS4.Semantics.TarskiGentzen.html#1358" class="Bound"
+      >A</a
+      ><a name="1381"
+      >
+  </a
+      ><a name="1384" href="BasicIS4.Semantics.TarskiGentzen.html#1384" class="Bound"
+      >&#915;</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" href="BasicIS4.Semantics.TarskiGentzen.html#1388" class="Bound"
+      >A</a
+      ><a name="1389"
+      > </a
+      ><a name="1390" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1391"
+      > </a
+      ><a name="1392" href="BasicIS4.Semantics.TarskiGentzen.html#1392" class="Bound"
+      >B</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" class="Symbol"
+      >=</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" href="BasicIS4.Semantics.TarskiGentzen.html#1384" class="Bound"
+      >&#915;</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1399"
+      > </a
+      ><a name="1400" href="BasicIS4.Semantics.TarskiGentzen.html#1388" class="Bound"
+      >A</a
+      ><a name="1401"
+      > </a
+      ><a name="1402" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1403"
+      > </a
+      ><a name="1404" href="BasicIS4.Semantics.TarskiGentzen.html#1384" class="Bound"
+      >&#915;</a
+      ><a name="1405"
+      > </a
+      ><a name="1406" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" href="BasicIS4.Semantics.TarskiGentzen.html#1392" class="Bound"
+      >B</a
+      ><a name="1409"
+      >
+  </a
+      ><a name="1412" href="BasicIS4.Semantics.TarskiGentzen.html#1412" class="Bound"
+      >&#915;</a
+      ><a name="1413"
+      > </a
+      ><a name="1414" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1415"
+      > </a
+      ><a name="1416" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1417"
+      >    </a
+      ><a name="1421" class="Symbol"
+      >=</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1424"
+      >
+
+  </a
+      ><a name="1428" class="Keyword"
+      >infix</a
+      ><a name="1433"
+      > </a
+      ><a name="1434" class="Number"
+      >3</a
+      ><a name="1435"
+      > _&#8872;&#8902;_
+  </a
+      ><a name="1443" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >_&#8872;&#8902;_</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" class="Symbol"
+      >:</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1452"
+      > </a
+      ><a name="1453" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1455"
+      > </a
+      ><a name="1456" class="Symbol"
+      >&#8594;</a
+      ><a name="1457"
+      > </a
+      ><a name="1458" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" class="Symbol"
+      >&#8594;</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" class="PrimitiveType"
+      >Set</a
+      ><a name="1469"
+      >
+  </a
+      ><a name="1472" href="BasicIS4.Semantics.TarskiGentzen.html#1472" class="Bound"
+      >&#915;</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1478"
+      >     </a
+      ><a name="1483" class="Symbol"
+      >=</a
+      ><a name="1484"
+      > </a
+      ><a name="1485" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1486"
+      >
+  </a
+      ><a name="1489" href="BasicIS4.Semantics.TarskiGentzen.html#1489" class="Bound"
+      >&#915;</a
+      ><a name="1490"
+      > </a
+      ><a name="1491" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" href="BasicIS4.Semantics.TarskiGentzen.html#1494" class="Bound"
+      >&#928;</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="BasicIS4.Semantics.TarskiGentzen.html#1498" class="Bound"
+      >A</a
+      ><a name="1499"
+      > </a
+      ><a name="1500" class="Symbol"
+      >=</a
+      ><a name="1501"
+      > </a
+      ><a name="1502" href="BasicIS4.Semantics.TarskiGentzen.html#1489" class="Bound"
+      >&#915;</a
+      ><a name="1503"
+      > </a
+      ><a name="1504" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1506"
+      > </a
+      ><a name="1507" href="BasicIS4.Semantics.TarskiGentzen.html#1494" class="Bound"
+      >&#928;</a
+      ><a name="1508"
+      > </a
+      ><a name="1509" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1510"
+      > </a
+      ><a name="1511" href="BasicIS4.Semantics.TarskiGentzen.html#1489" class="Bound"
+      >&#915;</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" href="BasicIS4.Semantics.TarskiGentzen.html#1498" class="Bound"
+      >A</a
+      ><a name="1516"
+      >
+
+
+</a
+      ><a name="1519" class="Comment"
+      >-- Monotonicity with respect to context inclusion.</a
+      ><a name="1569"
+      >
+
+</a
+      ><a name="1571" class="Keyword"
+      >module</a
+      ><a name="1577"
+      > </a
+      ><a name="1578" href="BasicIS4.Semantics.TarskiGentzen.html#1578" class="Module"
+      >_</a
+      ><a name="1579"
+      > </a
+      ><a name="1580" class="Symbol"
+      >{{</a
+      ><a name="1582" href="BasicIS4.Semantics.TarskiGentzen.html#1582" class="Bound"
+      >_</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" class="Symbol"
+      >:</a
+      ><a name="1585"
+      > </a
+      ><a name="1586" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Record"
+      >Model</a
+      ><a name="1591" class="Symbol"
+      >}}</a
+      ><a name="1593"
+      > </a
+      ><a name="1594" class="Keyword"
+      >where</a
+      ><a name="1599"
+      >
+  </a
+      ><a name="1602" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" class="Symbol"
+      >:</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" class="Symbol"
+      >&#8704;</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" class="Symbol"
+      >{</a
+      ><a name="1613" href="BasicIS4.Semantics.TarskiGentzen.html#1613" class="Bound"
+      >A</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="BasicIS4.Semantics.TarskiGentzen.html#1615" class="Bound"
+      >&#915;</a
+      ><a name="1616"
+      > </a
+      ><a name="1617" href="BasicIS4.Semantics.TarskiGentzen.html#1617" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1619" class="Symbol"
+      >}</a
+      ><a name="1620"
+      > </a
+      ><a name="1621" class="Symbol"
+      >&#8594;</a
+      ><a name="1622"
+      > </a
+      ><a name="1623" href="BasicIS4.Semantics.TarskiGentzen.html#1615" class="Bound"
+      >&#915;</a
+      ><a name="1624"
+      > </a
+      ><a name="1625" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1626"
+      > </a
+      ><a name="1627" href="BasicIS4.Semantics.TarskiGentzen.html#1617" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" class="Symbol"
+      >&#8594;</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" href="BasicIS4.Semantics.TarskiGentzen.html#1615" class="Bound"
+      >&#915;</a
+      ><a name="1633"
+      > </a
+      ><a name="1634" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1635"
+      > </a
+      ><a name="1636" href="BasicIS4.Semantics.TarskiGentzen.html#1613" class="Bound"
+      >A</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" class="Symbol"
+      >&#8594;</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" href="BasicIS4.Semantics.TarskiGentzen.html#1617" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1642"
+      > </a
+      ><a name="1643" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="1644"
+      > </a
+      ><a name="1645" href="BasicIS4.Semantics.TarskiGentzen.html#1613" class="Bound"
+      >A</a
+      ><a name="1646"
+      >
+  </a
+      ><a name="1649" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" class="Symbol"
+      >{</a
+      ><a name="1656" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1657"
+      > </a
+      ><a name="1658" href="BasicIS4.Semantics.TarskiGentzen.html#1658" class="Bound"
+      >P</a
+      ><a name="1659" class="Symbol"
+      >}</a
+      ><a name="1660"
+      >   </a
+      ><a name="1663" href="BasicIS4.Semantics.TarskiGentzen.html#1663" class="Bound"
+      >&#951;</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" class="Symbol"
+      >(</a
+      ><a name="1666" href="BasicIS4.Semantics.TarskiGentzen.html#1666" class="Bound"
+      >t</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1669"
+      > </a
+      ><a name="1670" href="BasicIS4.Semantics.TarskiGentzen.html#1670" class="Bound"
+      >s</a
+      ><a name="1671" class="Symbol"
+      >)</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" class="Symbol"
+      >=</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" href="BasicIS4.Semantics.TarskiGentzen.html#477" class="Field"
+      >mono[&#8866;]</a
+      ><a name="1682"
+      > </a
+      ><a name="1683" href="BasicIS4.Semantics.TarskiGentzen.html#1663" class="Bound"
+      >&#951;</a
+      ><a name="1684"
+      > </a
+      ><a name="1685" href="BasicIS4.Semantics.TarskiGentzen.html#1666" class="Bound"
+      >t</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" href="BasicIS4.Semantics.TarskiGentzen.html#338" class="Field"
+      >mono&#8872;&#7493;</a
+      ><a name="1695"
+      > </a
+      ><a name="1696" href="BasicIS4.Semantics.TarskiGentzen.html#1663" class="Bound"
+      >&#951;</a
+      ><a name="1697"
+      > </a
+      ><a name="1698" href="BasicIS4.Semantics.TarskiGentzen.html#1670" class="Bound"
+      >s</a
+      ><a name="1699"
+      >
+  </a
+      ><a name="1702" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="1707"
+      > </a
+      ><a name="1708" class="Symbol"
+      >{</a
+      ><a name="1709" href="BasicIS4.Semantics.TarskiGentzen.html#1709" class="Bound"
+      >A</a
+      ><a name="1710"
+      > </a
+      ><a name="1711" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" href="BasicIS4.Semantics.TarskiGentzen.html#1713" class="Bound"
+      >B</a
+      ><a name="1714" class="Symbol"
+      >}</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="BasicIS4.Semantics.TarskiGentzen.html#1716" class="Bound"
+      >&#951;</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" href="BasicIS4.Semantics.TarskiGentzen.html#1718" class="Bound"
+      >s</a
+      ><a name="1719"
+      >       </a
+      ><a name="1726" class="Symbol"
+      >=</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" class="Symbol"
+      >&#955;</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="BasicIS4.Semantics.TarskiGentzen.html#1730" class="Bound"
+      >&#951;&#8242;</a
+      ><a name="1732"
+      > </a
+      ><a name="1733" class="Symbol"
+      >&#8594;</a
+      ><a name="1734"
+      > </a
+      ><a name="1735" href="BasicIS4.Semantics.TarskiGentzen.html#1718" class="Bound"
+      >s</a
+      ><a name="1736"
+      > </a
+      ><a name="1737" class="Symbol"
+      >(</a
+      ><a name="1738" href="Common.Context.html#1742" class="Function"
+      >trans&#8838;</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" href="BasicIS4.Semantics.TarskiGentzen.html#1716" class="Bound"
+      >&#951;</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" href="BasicIS4.Semantics.TarskiGentzen.html#1730" class="Bound"
+      >&#951;&#8242;</a
+      ><a name="1749" class="Symbol"
+      >)</a
+      ><a name="1750"
+      >
+  </a
+      ><a name="1753" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="1758"
+      > </a
+      ><a name="1759" class="Symbol"
+      >{</a
+      ><a name="1760" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" href="BasicIS4.Semantics.TarskiGentzen.html#1762" class="Bound"
+      >A</a
+      ><a name="1763" class="Symbol"
+      >}</a
+      ><a name="1764"
+      >   </a
+      ><a name="1767" href="BasicIS4.Semantics.TarskiGentzen.html#1767" class="Bound"
+      >&#951;</a
+      ><a name="1768"
+      > </a
+      ><a name="1769" class="Symbol"
+      >(</a
+      ><a name="1770" href="BasicIS4.Semantics.TarskiGentzen.html#1770" class="Bound"
+      >t</a
+      ><a name="1771"
+      > </a
+      ><a name="1772" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" href="BasicIS4.Semantics.TarskiGentzen.html#1774" class="Bound"
+      >a</a
+      ><a name="1775" class="Symbol"
+      >)</a
+      ><a name="1776"
+      > </a
+      ><a name="1777" class="Symbol"
+      >=</a
+      ><a name="1778"
+      > </a
+      ><a name="1779" href="BasicIS4.Semantics.TarskiGentzen.html#1770" class="Bound"
+      >t</a
+      ><a name="1780"
+      > </a
+      ><a name="1781" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1782"
+      > </a
+      ><a name="1783" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="1788"
+      > </a
+      ><a name="1789" class="Symbol"
+      >{</a
+      ><a name="1790" href="BasicIS4.Semantics.TarskiGentzen.html#1762" class="Bound"
+      >A</a
+      ><a name="1791" class="Symbol"
+      >}</a
+      ><a name="1792"
+      > </a
+      ><a name="1793" href="BasicIS4.Semantics.TarskiGentzen.html#1767" class="Bound"
+      >&#951;</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" href="BasicIS4.Semantics.TarskiGentzen.html#1774" class="Bound"
+      >a</a
+      ><a name="1796"
+      >
+  </a
+      ><a name="1799" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="1804"
+      > </a
+      ><a name="1805" class="Symbol"
+      >{</a
+      ><a name="1806" href="BasicIS4.Semantics.TarskiGentzen.html#1806" class="Bound"
+      >A</a
+      ><a name="1807"
+      > </a
+      ><a name="1808" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1809"
+      > </a
+      ><a name="1810" href="BasicIS4.Semantics.TarskiGentzen.html#1810" class="Bound"
+      >B</a
+      ><a name="1811" class="Symbol"
+      >}</a
+      ><a name="1812"
+      > </a
+      ><a name="1813" href="BasicIS4.Semantics.TarskiGentzen.html#1813" class="Bound"
+      >&#951;</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" class="Symbol"
+      >(</a
+      ><a name="1816" href="BasicIS4.Semantics.TarskiGentzen.html#1816" class="Bound"
+      >a</a
+      ><a name="1817"
+      > </a
+      ><a name="1818" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" href="BasicIS4.Semantics.TarskiGentzen.html#1820" class="Bound"
+      >b</a
+      ><a name="1821" class="Symbol"
+      >)</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" class="Symbol"
+      >=</a
+      ><a name="1824"
+      > </a
+      ><a name="1825" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="1830"
+      > </a
+      ><a name="1831" class="Symbol"
+      >{</a
+      ><a name="1832" href="BasicIS4.Semantics.TarskiGentzen.html#1806" class="Bound"
+      >A</a
+      ><a name="1833" class="Symbol"
+      >}</a
+      ><a name="1834"
+      > </a
+      ><a name="1835" href="BasicIS4.Semantics.TarskiGentzen.html#1813" class="Bound"
+      >&#951;</a
+      ><a name="1836"
+      > </a
+      ><a name="1837" href="BasicIS4.Semantics.TarskiGentzen.html#1816" class="Bound"
+      >a</a
+      ><a name="1838"
+      > </a
+      ><a name="1839" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1840"
+      > </a
+      ><a name="1841" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="1846"
+      > </a
+      ><a name="1847" class="Symbol"
+      >{</a
+      ><a name="1848" href="BasicIS4.Semantics.TarskiGentzen.html#1810" class="Bound"
+      >B</a
+      ><a name="1849" class="Symbol"
+      >}</a
+      ><a name="1850"
+      > </a
+      ><a name="1851" href="BasicIS4.Semantics.TarskiGentzen.html#1813" class="Bound"
+      >&#951;</a
+      ><a name="1852"
+      > </a
+      ><a name="1853" href="BasicIS4.Semantics.TarskiGentzen.html#1820" class="Bound"
+      >b</a
+      ><a name="1854"
+      >
+  </a
+      ><a name="1857" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" class="Symbol"
+      >{</a
+      ><a name="1864" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1865" class="Symbol"
+      >}</a
+      ><a name="1866"
+      >    </a
+      ><a name="1870" href="BasicIS4.Semantics.TarskiGentzen.html#1870" class="Bound"
+      >&#951;</a
+      ><a name="1871"
+      > </a
+      ><a name="1872" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1873"
+      >       </a
+      ><a name="1880" class="Symbol"
+      >=</a
+      ><a name="1881"
+      > </a
+      ><a name="1882" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1883"
+      >
+
+  </a
+      ><a name="1887" href="BasicIS4.Semantics.TarskiGentzen.html#1887" class="Function"
+      >mono&#8872;&#8902;</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" class="Symbol"
+      >:</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" class="Symbol"
+      >&#8704;</a
+      ><a name="1897"
+      > </a
+      ><a name="1898" class="Symbol"
+      >{</a
+      ><a name="1899" href="BasicIS4.Semantics.TarskiGentzen.html#1899" class="Bound"
+      >&#928;</a
+      ><a name="1900"
+      > </a
+      ><a name="1901" href="BasicIS4.Semantics.TarskiGentzen.html#1901" class="Bound"
+      >&#915;</a
+      ><a name="1902"
+      > </a
+      ><a name="1903" href="BasicIS4.Semantics.TarskiGentzen.html#1903" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1905" class="Symbol"
+      >}</a
+      ><a name="1906"
+      > </a
+      ><a name="1907" class="Symbol"
+      >&#8594;</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" href="BasicIS4.Semantics.TarskiGentzen.html#1901" class="Bound"
+      >&#915;</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" href="Common.Context.html#1523" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1912"
+      > </a
+      ><a name="1913" href="BasicIS4.Semantics.TarskiGentzen.html#1903" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1915"
+      > </a
+      ><a name="1916" class="Symbol"
+      >&#8594;</a
+      ><a name="1917"
+      > </a
+      ><a name="1918" href="BasicIS4.Semantics.TarskiGentzen.html#1901" class="Bound"
+      >&#915;</a
+      ><a name="1919"
+      > </a
+      ><a name="1920" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" href="BasicIS4.Semantics.TarskiGentzen.html#1899" class="Bound"
+      >&#928;</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" class="Symbol"
+      >&#8594;</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" href="BasicIS4.Semantics.TarskiGentzen.html#1903" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1932"
+      > </a
+      ><a name="1933" href="BasicIS4.Semantics.TarskiGentzen.html#1899" class="Bound"
+      >&#928;</a
+      ><a name="1934"
+      >
+  </a
+      ><a name="1937" href="BasicIS4.Semantics.TarskiGentzen.html#1887" class="Function"
+      >mono&#8872;&#8902;</a
+      ><a name="1943"
+      > </a
+      ><a name="1944" class="Symbol"
+      >{</a
+      ><a name="1945" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1946" class="Symbol"
+      >}</a
+      ><a name="1947"
+      >     </a
+      ><a name="1952" href="BasicIS4.Semantics.TarskiGentzen.html#1952" class="Bound"
+      >&#951;</a
+      ><a name="1953"
+      > </a
+      ><a name="1954" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1955"
+      >        </a
+      ><a name="1963" class="Symbol"
+      >=</a
+      ><a name="1964"
+      > </a
+      ><a name="1965" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1966"
+      >
+  </a
+      ><a name="1969" href="BasicIS4.Semantics.TarskiGentzen.html#1887" class="Function"
+      >mono&#8872;&#8902;</a
+      ><a name="1975"
+      > </a
+      ><a name="1976" class="Symbol"
+      >{</a
+      ><a name="1977" href="BasicIS4.Semantics.TarskiGentzen.html#1977" class="Bound"
+      >&#928;</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1980"
+      > </a
+      ><a name="1981" href="BasicIS4.Semantics.TarskiGentzen.html#1981" class="Bound"
+      >A</a
+      ><a name="1982" class="Symbol"
+      >}</a
+      ><a name="1983"
+      > </a
+      ><a name="1984" href="BasicIS4.Semantics.TarskiGentzen.html#1984" class="Bound"
+      >&#951;</a
+      ><a name="1985"
+      > </a
+      ><a name="1986" class="Symbol"
+      >(</a
+      ><a name="1987" href="BasicIS4.Semantics.TarskiGentzen.html#1987" class="Bound"
+      >ts</a
+      ><a name="1989"
+      > </a
+      ><a name="1990" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1991"
+      > </a
+      ><a name="1992" href="BasicIS4.Semantics.TarskiGentzen.html#1992" class="Bound"
+      >t</a
+      ><a name="1993" class="Symbol"
+      >)</a
+      ><a name="1994"
+      > </a
+      ><a name="1995" class="Symbol"
+      >=</a
+      ><a name="1996"
+      > </a
+      ><a name="1997" href="BasicIS4.Semantics.TarskiGentzen.html#1887" class="Function"
+      >mono&#8872;&#8902;</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" class="Symbol"
+      >{</a
+      ><a name="2005" href="BasicIS4.Semantics.TarskiGentzen.html#1977" class="Bound"
+      >&#928;</a
+      ><a name="2006" class="Symbol"
+      >}</a
+      ><a name="2007"
+      > </a
+      ><a name="2008" href="BasicIS4.Semantics.TarskiGentzen.html#1984" class="Bound"
+      >&#951;</a
+      ><a name="2009"
+      > </a
+      ><a name="2010" href="BasicIS4.Semantics.TarskiGentzen.html#1987" class="Bound"
+      >ts</a
+      ><a name="2012"
+      > </a
+      ><a name="2013" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2014"
+      > </a
+      ><a name="2015" href="BasicIS4.Semantics.TarskiGentzen.html#1602" class="Function"
+      >mono&#8872;</a
+      ><a name="2020"
+      > </a
+      ><a name="2021" class="Symbol"
+      >{</a
+      ><a name="2022" href="BasicIS4.Semantics.TarskiGentzen.html#1981" class="Bound"
+      >A</a
+      ><a name="2023" class="Symbol"
+      >}</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" href="BasicIS4.Semantics.TarskiGentzen.html#1984" class="Bound"
+      >&#951;</a
+      ><a name="2026"
+      > </a
+      ><a name="2027" href="BasicIS4.Semantics.TarskiGentzen.html#1992" class="Bound"
+      >t</a
+      ><a name="2028"
+      >
+
+
+</a
+      ><a name="2031" class="Comment"
+      >-- Completeness with respect to the syntax representation in a particular model.</a
+      ><a name="2111"
+      >
+
+</a
+      ><a name="2113" class="Keyword"
+      >module</a
+      ><a name="2119"
+      > </a
+      ><a name="2120" href="BasicIS4.Semantics.TarskiGentzen.html#2120" class="Module"
+      >_</a
+      ><a name="2121"
+      > </a
+      ><a name="2122" class="Symbol"
+      >{{</a
+      ><a name="2124" href="BasicIS4.Semantics.TarskiGentzen.html#2124" class="Bound"
+      >_</a
+      ><a name="2125"
+      > </a
+      ><a name="2126" class="Symbol"
+      >:</a
+      ><a name="2127"
+      > </a
+      ><a name="2128" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Record"
+      >Model</a
+      ><a name="2133" class="Symbol"
+      >}}</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" class="Keyword"
+      >where</a
+      ><a name="2141"
+      >
+  </a
+      ><a name="2144" href="BasicIS4.Semantics.TarskiGentzen.html#2144" class="Function"
+      >reify[]</a
+      ><a name="2151"
+      > </a
+      ><a name="2152" class="Symbol"
+      >:</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" class="Symbol"
+      >&#8704;</a
+      ><a name="2155"
+      > </a
+      ><a name="2156" class="Symbol"
+      >{</a
+      ><a name="2157" href="BasicIS4.Semantics.TarskiGentzen.html#2157" class="Bound"
+      >A</a
+      ><a name="2158"
+      > </a
+      ><a name="2159" href="BasicIS4.Semantics.TarskiGentzen.html#2159" class="Bound"
+      >&#915;</a
+      ><a name="2160" class="Symbol"
+      >}</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" class="Symbol"
+      >&#8594;</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="BasicIS4.Semantics.TarskiGentzen.html#2159" class="Bound"
+      >&#915;</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2167"
+      > </a
+      ><a name="2168" href="BasicIS4.Semantics.TarskiGentzen.html#2157" class="Bound"
+      >A</a
+      ><a name="2169"
+      > </a
+      ><a name="2170" class="Symbol"
+      >&#8594;</a
+      ><a name="2171"
+      > </a
+      ><a name="2172" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >[</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" href="BasicIS4.Semantics.TarskiGentzen.html#2159" class="Bound"
+      >&#915;</a
+      ><a name="2175"
+      > </a
+      ><a name="2176" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >&#8866;</a
+      ><a name="2177"
+      > </a
+      ><a name="2178" href="BasicIS4.Semantics.TarskiGentzen.html#2157" class="Bound"
+      >A</a
+      ><a name="2179"
+      > </a
+      ><a name="2180" href="BasicIS4.Semantics.TarskiGentzen.html#446" class="Field Operator"
+      >]</a
+      ><a name="2181"
+      >
+  </a
+      ><a name="2184" href="BasicIS4.Semantics.TarskiGentzen.html#2144" class="Function"
+      >reify[]</a
+      ><a name="2191"
+      > </a
+      ><a name="2192" class="Symbol"
+      >{</a
+      ><a name="2193" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="2194"
+      > </a
+      ><a name="2195" href="BasicIS4.Semantics.TarskiGentzen.html#2195" class="Bound"
+      >P</a
+      ><a name="2196" class="Symbol"
+      >}</a
+      ><a name="2197"
+      >   </a
+      ><a name="2200" class="Symbol"
+      >(</a
+      ><a name="2201" href="BasicIS4.Semantics.TarskiGentzen.html#2201" class="Bound"
+      >t</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2204"
+      > </a
+      ><a name="2205" href="BasicIS4.Semantics.TarskiGentzen.html#2205" class="Bound"
+      >s</a
+      ><a name="2206" class="Symbol"
+      >)</a
+      ><a name="2207"
+      > </a
+      ><a name="2208" class="Symbol"
+      >=</a
+      ><a name="2209"
+      > </a
+      ><a name="2210" href="BasicIS4.Semantics.TarskiGentzen.html#2201" class="Bound"
+      >t</a
+      ><a name="2211"
+      >
+  </a
+      ><a name="2214" href="BasicIS4.Semantics.TarskiGentzen.html#2144" class="Function"
+      >reify[]</a
+      ><a name="2221"
+      > </a
+      ><a name="2222" class="Symbol"
+      >{</a
+      ><a name="2223" href="BasicIS4.Semantics.TarskiGentzen.html#2223" class="Bound"
+      >A</a
+      ><a name="2224"
+      > </a
+      ><a name="2225" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2226"
+      > </a
+      ><a name="2227" href="BasicIS4.Semantics.TarskiGentzen.html#2227" class="Bound"
+      >B</a
+      ><a name="2228" class="Symbol"
+      >}</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" href="BasicIS4.Semantics.TarskiGentzen.html#2230" class="Bound"
+      >s</a
+      ><a name="2231"
+      >       </a
+      ><a name="2238" class="Symbol"
+      >=</a
+      ><a name="2239"
+      > </a
+      ><a name="2240" class="Keyword"
+      >let</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" href="BasicIS4.Semantics.TarskiGentzen.html#2244" class="Bound"
+      >t</a
+      ><a name="2245"
+      > </a
+      ><a name="2246" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2247"
+      > </a
+      ><a name="2248" href="BasicIS4.Semantics.TarskiGentzen.html#2248" class="Bound"
+      >f</a
+      ><a name="2249"
+      > </a
+      ><a name="2250" class="Symbol"
+      >=</a
+      ><a name="2251"
+      > </a
+      ><a name="2252" href="BasicIS4.Semantics.TarskiGentzen.html#2230" class="Bound"
+      >s</a
+      ><a name="2253"
+      > </a
+      ><a name="2254" href="Common.Context.html#1665" class="Function"
+      >refl&#8838;</a
+      ><a name="2259"
+      > </a
+      ><a name="2260" class="Keyword"
+      >in</a
+      ><a name="2262"
+      > </a
+      ><a name="2263" href="BasicIS4.Semantics.TarskiGentzen.html#2244" class="Bound"
+      >t</a
+      ><a name="2264"
+      >
+  </a
+      ><a name="2267" href="BasicIS4.Semantics.TarskiGentzen.html#2144" class="Function"
+      >reify[]</a
+      ><a name="2274"
+      > </a
+      ><a name="2275" class="Symbol"
+      >{</a
+      ><a name="2276" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2277"
+      > </a
+      ><a name="2278" href="BasicIS4.Semantics.TarskiGentzen.html#2278" class="Bound"
+      >A</a
+      ><a name="2279" class="Symbol"
+      >}</a
+      ><a name="2280"
+      >   </a
+      ><a name="2283" class="Symbol"
+      >(</a
+      ><a name="2284" href="BasicIS4.Semantics.TarskiGentzen.html#2284" class="Bound"
+      >t</a
+      ><a name="2285"
+      > </a
+      ><a name="2286" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2287"
+      > </a
+      ><a name="2288" href="BasicIS4.Semantics.TarskiGentzen.html#2288" class="Bound"
+      >a</a
+      ><a name="2289" class="Symbol"
+      >)</a
+      ><a name="2290"
+      > </a
+      ><a name="2291" class="Symbol"
+      >=</a
+      ><a name="2292"
+      > </a
+      ><a name="2293" href="BasicIS4.Semantics.TarskiGentzen.html#706" class="Field"
+      >[box]</a
+      ><a name="2298"
+      > </a
+      ><a name="2299" href="BasicIS4.Semantics.TarskiGentzen.html#2284" class="Bound"
+      >t</a
+      ><a name="2300"
+      >
+  </a
+      ><a name="2303" href="BasicIS4.Semantics.TarskiGentzen.html#2144" class="Function"
+      >reify[]</a
+      ><a name="2310"
+      > </a
+      ><a name="2311" class="Symbol"
+      >{</a
+      ><a name="2312" href="BasicIS4.Semantics.TarskiGentzen.html#2312" class="Bound"
+      >A</a
+      ><a name="2313"
+      > </a
+      ><a name="2314" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2315"
+      > </a
+      ><a name="2316" href="BasicIS4.Semantics.TarskiGentzen.html#2316" class="Bound"
+      >B</a
+      ><a name="2317" class="Symbol"
+      >}</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" class="Symbol"
+      >(</a
+      ><a name="2320" href="BasicIS4.Semantics.TarskiGentzen.html#2320" class="Bound"
+      >a</a
+      ><a name="2321"
+      > </a
+      ><a name="2322" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2323"
+      > </a
+      ><a name="2324" href="BasicIS4.Semantics.TarskiGentzen.html#2324" class="Bound"
+      >b</a
+      ><a name="2325" class="Symbol"
+      >)</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" class="Symbol"
+      >=</a
+      ><a name="2328"
+      > </a
+      ><a name="2329" href="BasicIS4.Semantics.TarskiGentzen.html#810" class="Field"
+      >[pair]</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" class="Symbol"
+      >(</a
+      ><a name="2337" href="BasicIS4.Semantics.TarskiGentzen.html#2144" class="Function"
+      >reify[]</a
+      ><a name="2344"
+      > </a
+      ><a name="2345" class="Symbol"
+      >{</a
+      ><a name="2346" href="BasicIS4.Semantics.TarskiGentzen.html#2312" class="Bound"
+      >A</a
+      ><a name="2347" class="Symbol"
+      >}</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" href="BasicIS4.Semantics.TarskiGentzen.html#2320" class="Bound"
+      >a</a
+      ><a name="2350" class="Symbol"
+      >)</a
+      ><a name="2351"
+      > </a
+      ><a name="2352" class="Symbol"
+      >(</a
+      ><a name="2353" href="BasicIS4.Semantics.TarskiGentzen.html#2144" class="Function"
+      >reify[]</a
+      ><a name="2360"
+      > </a
+      ><a name="2361" class="Symbol"
+      >{</a
+      ><a name="2362" href="BasicIS4.Semantics.TarskiGentzen.html#2316" class="Bound"
+      >B</a
+      ><a name="2363" class="Symbol"
+      >}</a
+      ><a name="2364"
+      > </a
+      ><a name="2365" href="BasicIS4.Semantics.TarskiGentzen.html#2324" class="Bound"
+      >b</a
+      ><a name="2366" class="Symbol"
+      >)</a
+      ><a name="2367"
+      >
+  </a
+      ><a name="2370" href="BasicIS4.Semantics.TarskiGentzen.html#2144" class="Function"
+      >reify[]</a
+      ><a name="2377"
+      > </a
+      ><a name="2378" class="Symbol"
+      >{</a
+      ><a name="2379" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="2380" class="Symbol"
+      >}</a
+      ><a name="2381"
+      >    </a
+      ><a name="2385" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2386"
+      >       </a
+      ><a name="2393" class="Symbol"
+      >=</a
+      ><a name="2394"
+      > </a
+      ><a name="2395" href="BasicIS4.Semantics.TarskiGentzen.html#984" class="Field"
+      >[tt]</a
+      ><a name="2399"
+      >
+
+  </a
+      ><a name="2403" href="BasicIS4.Semantics.TarskiGentzen.html#2403" class="Function"
+      >reify[]&#8902;</a
+      ><a name="2411"
+      > </a
+      ><a name="2412" class="Symbol"
+      >:</a
+      ><a name="2413"
+      > </a
+      ><a name="2414" class="Symbol"
+      >&#8704;</a
+      ><a name="2415"
+      > </a
+      ><a name="2416" class="Symbol"
+      >{</a
+      ><a name="2417" href="BasicIS4.Semantics.TarskiGentzen.html#2417" class="Bound"
+      >&#928;</a
+      ><a name="2418"
+      > </a
+      ><a name="2419" href="BasicIS4.Semantics.TarskiGentzen.html#2419" class="Bound"
+      >&#915;</a
+      ><a name="2420" class="Symbol"
+      >}</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" class="Symbol"
+      >&#8594;</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" href="BasicIS4.Semantics.TarskiGentzen.html#2419" class="Bound"
+      >&#915;</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" href="BasicIS4.Semantics.TarskiGentzen.html#2417" class="Bound"
+      >&#928;</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" class="Symbol"
+      >&#8594;</a
+      ><a name="2432"
+      > </a
+      ><a name="2433" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >[</a
+      ><a name="2434"
+      > </a
+      ><a name="2435" href="BasicIS4.Semantics.TarskiGentzen.html#2419" class="Bound"
+      >&#915;</a
+      ><a name="2436"
+      > </a
+      ><a name="2437" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >&#8866;</a
+      ><a name="2438"
+      > </a
+      ><a name="2439" href="BasicIS4.Semantics.TarskiGentzen.html#2417" class="Bound"
+      >&#928;</a
+      ><a name="2440"
+      > </a
+      ><a name="2441" href="BasicIS4.Semantics.TarskiGentzen.html#1021" class="Function Operator"
+      >]&#8902;</a
+      ><a name="2443"
+      >
+  </a
+      ><a name="2446" href="BasicIS4.Semantics.TarskiGentzen.html#2403" class="Function"
+      >reify[]&#8902;</a
+      ><a name="2454"
+      > </a
+      ><a name="2455" class="Symbol"
+      >{</a
+      ><a name="2456" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2457" class="Symbol"
+      >}</a
+      ><a name="2458"
+      >     </a
+      ><a name="2463" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2464"
+      >        </a
+      ><a name="2472" class="Symbol"
+      >=</a
+      ><a name="2473"
+      > </a
+      ><a name="2474" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2475"
+      >
+  </a
+      ><a name="2478" href="BasicIS4.Semantics.TarskiGentzen.html#2403" class="Function"
+      >reify[]&#8902;</a
+      ><a name="2486"
+      > </a
+      ><a name="2487" class="Symbol"
+      >{</a
+      ><a name="2488" href="BasicIS4.Semantics.TarskiGentzen.html#2488" class="Bound"
+      >&#928;</a
+      ><a name="2489"
+      > </a
+      ><a name="2490" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2491"
+      > </a
+      ><a name="2492" href="BasicIS4.Semantics.TarskiGentzen.html#2492" class="Bound"
+      >A</a
+      ><a name="2493" class="Symbol"
+      >}</a
+      ><a name="2494"
+      > </a
+      ><a name="2495" class="Symbol"
+      >(</a
+      ><a name="2496" href="BasicIS4.Semantics.TarskiGentzen.html#2496" class="Bound"
+      >ts</a
+      ><a name="2498"
+      > </a
+      ><a name="2499" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2500"
+      > </a
+      ><a name="2501" href="BasicIS4.Semantics.TarskiGentzen.html#2501" class="Bound"
+      >t</a
+      ><a name="2502" class="Symbol"
+      >)</a
+      ><a name="2503"
+      > </a
+      ><a name="2504" class="Symbol"
+      >=</a
+      ><a name="2505"
+      > </a
+      ><a name="2506" href="BasicIS4.Semantics.TarskiGentzen.html#2403" class="Function"
+      >reify[]&#8902;</a
+      ><a name="2514"
+      > </a
+      ><a name="2515" href="BasicIS4.Semantics.TarskiGentzen.html#2496" class="Bound"
+      >ts</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2519"
+      > </a
+      ><a name="2520" href="BasicIS4.Semantics.TarskiGentzen.html#2144" class="Function"
+      >reify[]</a
+      ><a name="2527"
+      > </a
+      ><a name="2528" href="BasicIS4.Semantics.TarskiGentzen.html#2501" class="Bound"
+      >t</a
+      ><a name="2529"
+      >
+
+
+</a
+      ><a name="2532" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="2563"
+      >
+
+</a
+      ><a name="2565" class="Keyword"
+      >module</a
+      ><a name="2571"
+      > </a
+      ><a name="2572" href="BasicIS4.Semantics.TarskiGentzen.html#2572" class="Module"
+      >_</a
+      ><a name="2573"
+      > </a
+      ><a name="2574" class="Symbol"
+      >{{</a
+      ><a name="2576" href="BasicIS4.Semantics.TarskiGentzen.html#2576" class="Bound"
+      >_</a
+      ><a name="2577"
+      > </a
+      ><a name="2578" class="Symbol"
+      >:</a
+      ><a name="2579"
+      > </a
+      ><a name="2580" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Record"
+      >Model</a
+      ><a name="2585" class="Symbol"
+      >}}</a
+      ><a name="2587"
+      > </a
+      ><a name="2588" class="Keyword"
+      >where</a
+      ><a name="2593"
+      >
+  </a
+      ><a name="2596" href="BasicIS4.Semantics.TarskiGentzen.html#2596" class="Function Operator"
+      >_&#10218;$&#10219;_</a
+      ><a name="2601"
+      > </a
+      ><a name="2602" class="Symbol"
+      >:</a
+      ><a name="2603"
+      > </a
+      ><a name="2604" class="Symbol"
+      >&#8704;</a
+      ><a name="2605"
+      > </a
+      ><a name="2606" class="Symbol"
+      >{</a
+      ><a name="2607" href="BasicIS4.Semantics.TarskiGentzen.html#2607" class="Bound"
+      >A</a
+      ><a name="2608"
+      > </a
+      ><a name="2609" href="BasicIS4.Semantics.TarskiGentzen.html#2609" class="Bound"
+      >B</a
+      ><a name="2610"
+      > </a
+      ><a name="2611" href="BasicIS4.Semantics.TarskiGentzen.html#2611" class="Bound"
+      >&#915;</a
+      ><a name="2612" class="Symbol"
+      >}</a
+      ><a name="2613"
+      > </a
+      ><a name="2614" class="Symbol"
+      >&#8594;</a
+      ><a name="2615"
+      > </a
+      ><a name="2616" href="BasicIS4.Semantics.TarskiGentzen.html#2611" class="Bound"
+      >&#915;</a
+      ><a name="2617"
+      > </a
+      ><a name="2618" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2619"
+      > </a
+      ><a name="2620" href="BasicIS4.Semantics.TarskiGentzen.html#2607" class="Bound"
+      >A</a
+      ><a name="2621"
+      > </a
+      ><a name="2622" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2623"
+      > </a
+      ><a name="2624" href="BasicIS4.Semantics.TarskiGentzen.html#2609" class="Bound"
+      >B</a
+      ><a name="2625"
+      > </a
+      ><a name="2626" class="Symbol"
+      >&#8594;</a
+      ><a name="2627"
+      > </a
+      ><a name="2628" href="BasicIS4.Semantics.TarskiGentzen.html#2611" class="Bound"
+      >&#915;</a
+      ><a name="2629"
+      > </a
+      ><a name="2630" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2631"
+      > </a
+      ><a name="2632" href="BasicIS4.Semantics.TarskiGentzen.html#2607" class="Bound"
+      >A</a
+      ><a name="2633"
+      > </a
+      ><a name="2634" class="Symbol"
+      >&#8594;</a
+      ><a name="2635"
+      > </a
+      ><a name="2636" href="BasicIS4.Semantics.TarskiGentzen.html#2611" class="Bound"
+      >&#915;</a
+      ><a name="2637"
+      > </a
+      ><a name="2638" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2639"
+      > </a
+      ><a name="2640" href="BasicIS4.Semantics.TarskiGentzen.html#2609" class="Bound"
+      >B</a
+      ><a name="2641"
+      >
+  </a
+      ><a name="2644" href="BasicIS4.Semantics.TarskiGentzen.html#2644" class="Bound"
+      >s</a
+      ><a name="2645"
+      > </a
+      ><a name="2646" href="BasicIS4.Semantics.TarskiGentzen.html#2596" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="2649"
+      > </a
+      ><a name="2650" href="BasicIS4.Semantics.TarskiGentzen.html#2650" class="Bound"
+      >a</a
+      ><a name="2651"
+      > </a
+      ><a name="2652" class="Symbol"
+      >=</a
+      ><a name="2653"
+      > </a
+      ><a name="2654" class="Keyword"
+      >let</a
+      ><a name="2657"
+      > </a
+      ><a name="2658" href="BasicIS4.Semantics.TarskiGentzen.html#2658" class="Bound"
+      >t</a
+      ><a name="2659"
+      > </a
+      ><a name="2660" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2661"
+      > </a
+      ><a name="2662" href="BasicIS4.Semantics.TarskiGentzen.html#2662" class="Bound"
+      >f</a
+      ><a name="2663"
+      > </a
+      ><a name="2664" class="Symbol"
+      >=</a
+      ><a name="2665"
+      > </a
+      ><a name="2666" href="BasicIS4.Semantics.TarskiGentzen.html#2644" class="Bound"
+      >s</a
+      ><a name="2667"
+      > </a
+      ><a name="2668" href="Common.Context.html#1665" class="Function"
+      >refl&#8838;</a
+      ><a name="2673"
+      > </a
+      ><a name="2674" class="Keyword"
+      >in</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" href="BasicIS4.Semantics.TarskiGentzen.html#2662" class="Bound"
+      >f</a
+      ><a name="2678"
+      > </a
+      ><a name="2679" href="BasicIS4.Semantics.TarskiGentzen.html#2650" class="Bound"
+      >a</a
+      ><a name="2680"
+      >
+
+  </a
+      ><a name="2684" href="BasicIS4.Semantics.TarskiGentzen.html#2684" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="2688"
+      > </a
+      ><a name="2689" class="Symbol"
+      >:</a
+      ><a name="2690"
+      > </a
+      ><a name="2691" class="Symbol"
+      >&#8704;</a
+      ><a name="2692"
+      > </a
+      ><a name="2693" class="Symbol"
+      >{</a
+      ><a name="2694" href="BasicIS4.Semantics.TarskiGentzen.html#2694" class="Bound"
+      >A</a
+      ><a name="2695"
+      > </a
+      ><a name="2696" href="BasicIS4.Semantics.TarskiGentzen.html#2696" class="Bound"
+      >B</a
+      ><a name="2697"
+      > </a
+      ><a name="2698" href="BasicIS4.Semantics.TarskiGentzen.html#2698" class="Bound"
+      >C</a
+      ><a name="2699"
+      > </a
+      ><a name="2700" href="BasicIS4.Semantics.TarskiGentzen.html#2700" class="Bound"
+      >&#915;</a
+      ><a name="2701" class="Symbol"
+      >}</a
+      ><a name="2702"
+      > </a
+      ><a name="2703" class="Symbol"
+      >&#8594;</a
+      ><a name="2704"
+      > </a
+      ><a name="2705" href="BasicIS4.Semantics.TarskiGentzen.html#2700" class="Bound"
+      >&#915;</a
+      ><a name="2706"
+      > </a
+      ><a name="2707" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2708"
+      > </a
+      ><a name="2709" href="BasicIS4.Semantics.TarskiGentzen.html#2694" class="Bound"
+      >A</a
+      ><a name="2710"
+      > </a
+      ><a name="2711" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" href="BasicIS4.Semantics.TarskiGentzen.html#2696" class="Bound"
+      >B</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2716"
+      > </a
+      ><a name="2717" href="BasicIS4.Semantics.TarskiGentzen.html#2698" class="Bound"
+      >C</a
+      ><a name="2718"
+      > </a
+      ><a name="2719" class="Symbol"
+      >&#8594;</a
+      ><a name="2720"
+      > </a
+      ><a name="2721" href="BasicIS4.Semantics.TarskiGentzen.html#2700" class="Bound"
+      >&#915;</a
+      ><a name="2722"
+      > </a
+      ><a name="2723" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2724"
+      > </a
+      ><a name="2725" href="BasicIS4.Semantics.TarskiGentzen.html#2694" class="Bound"
+      >A</a
+      ><a name="2726"
+      > </a
+      ><a name="2727" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2728"
+      > </a
+      ><a name="2729" href="BasicIS4.Semantics.TarskiGentzen.html#2696" class="Bound"
+      >B</a
+      ><a name="2730"
+      > </a
+      ><a name="2731" class="Symbol"
+      >&#8594;</a
+      ><a name="2732"
+      > </a
+      ><a name="2733" href="BasicIS4.Semantics.TarskiGentzen.html#2700" class="Bound"
+      >&#915;</a
+      ><a name="2734"
+      > </a
+      ><a name="2735" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2736"
+      > </a
+      ><a name="2737" href="BasicIS4.Semantics.TarskiGentzen.html#2694" class="Bound"
+      >A</a
+      ><a name="2738"
+      > </a
+      ><a name="2739" class="Symbol"
+      >&#8594;</a
+      ><a name="2740"
+      > </a
+      ><a name="2741" href="BasicIS4.Semantics.TarskiGentzen.html#2700" class="Bound"
+      >&#915;</a
+      ><a name="2742"
+      > </a
+      ><a name="2743" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2744"
+      > </a
+      ><a name="2745" href="BasicIS4.Semantics.TarskiGentzen.html#2698" class="Bound"
+      >C</a
+      ><a name="2746"
+      >
+  </a
+      ><a name="2749" href="BasicIS4.Semantics.TarskiGentzen.html#2684" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="2753"
+      > </a
+      ><a name="2754" href="BasicIS4.Semantics.TarskiGentzen.html#2754" class="Bound"
+      >s&#8321;</a
+      ><a name="2756"
+      > </a
+      ><a name="2757" href="BasicIS4.Semantics.TarskiGentzen.html#2757" class="Bound"
+      >s&#8322;</a
+      ><a name="2759"
+      > </a
+      ><a name="2760" href="BasicIS4.Semantics.TarskiGentzen.html#2760" class="Bound"
+      >a</a
+      ><a name="2761"
+      > </a
+      ><a name="2762" class="Symbol"
+      >=</a
+      ><a name="2763"
+      > </a
+      ><a name="2764" class="Keyword"
+      >let</a
+      ><a name="2767"
+      > </a
+      ><a name="2768" href="BasicIS4.Semantics.TarskiGentzen.html#2768" class="Bound"
+      >t</a
+      ><a name="2769"
+      > </a
+      ><a name="2770" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2771"
+      > </a
+      ><a name="2772" href="BasicIS4.Semantics.TarskiGentzen.html#2772" class="Bound"
+      >f</a
+      ><a name="2773"
+      > </a
+      ><a name="2774" class="Symbol"
+      >=</a
+      ><a name="2775"
+      > </a
+      ><a name="2776" href="BasicIS4.Semantics.TarskiGentzen.html#2754" class="Bound"
+      >s&#8321;</a
+      ><a name="2778"
+      > </a
+      ><a name="2779" href="Common.Context.html#1665" class="Function"
+      >refl&#8838;</a
+      ><a name="2784"
+      >
+                     </a
+      ><a name="2806" href="BasicIS4.Semantics.TarskiGentzen.html#2806" class="Bound"
+      >u</a
+      ><a name="2807"
+      > </a
+      ><a name="2808" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2809"
+      > </a
+      ><a name="2810" href="BasicIS4.Semantics.TarskiGentzen.html#2810" class="Bound"
+      >g</a
+      ><a name="2811"
+      > </a
+      ><a name="2812" class="Symbol"
+      >=</a
+      ><a name="2813"
+      > </a
+      ><a name="2814" href="BasicIS4.Semantics.TarskiGentzen.html#2757" class="Bound"
+      >s&#8322;</a
+      ><a name="2816"
+      > </a
+      ><a name="2817" href="Common.Context.html#1665" class="Function"
+      >refl&#8838;</a
+      ><a name="2822"
+      >
+                     </a
+      ><a name="2844" class="Symbol"
+      >_</a
+      ><a name="2845"
+      > </a
+      ><a name="2846" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2847"
+      > </a
+      ><a name="2848" href="BasicIS4.Semantics.TarskiGentzen.html#2848" class="Bound"
+      >h</a
+      ><a name="2849"
+      > </a
+      ><a name="2850" class="Symbol"
+      >=</a
+      ><a name="2851"
+      > </a
+      ><a name="2852" class="Symbol"
+      >(</a
+      ><a name="2853" href="BasicIS4.Semantics.TarskiGentzen.html#2772" class="Bound"
+      >f</a
+      ><a name="2854"
+      > </a
+      ><a name="2855" href="BasicIS4.Semantics.TarskiGentzen.html#2760" class="Bound"
+      >a</a
+      ><a name="2856" class="Symbol"
+      >)</a
+      ><a name="2857"
+      > </a
+      ><a name="2858" href="Common.Context.html#1665" class="Function"
+      >refl&#8838;</a
+      ><a name="2863"
+      >
+                 </a
+      ><a name="2881" class="Keyword"
+      >in</a
+      ><a name="2883"
+      >  </a
+      ><a name="2885" href="BasicIS4.Semantics.TarskiGentzen.html#2848" class="Bound"
+      >h</a
+      ><a name="2886"
+      > </a
+      ><a name="2887" class="Symbol"
+      >(</a
+      ><a name="2888" href="BasicIS4.Semantics.TarskiGentzen.html#2810" class="Bound"
+      >g</a
+      ><a name="2889"
+      > </a
+      ><a name="2890" href="BasicIS4.Semantics.TarskiGentzen.html#2760" class="Bound"
+      >a</a
+      ><a name="2891" class="Symbol"
+      >)</a
+      ><a name="2892"
+      >
+
+  </a
+      ><a name="2896" href="BasicIS4.Semantics.TarskiGentzen.html#2896" class="Function Operator"
+      >_&#10218;&#9678;&#10219;_</a
+      ><a name="2901"
+      > </a
+      ><a name="2902" class="Symbol"
+      >:</a
+      ><a name="2903"
+      > </a
+      ><a name="2904" class="Symbol"
+      >&#8704;</a
+      ><a name="2905"
+      > </a
+      ><a name="2906" class="Symbol"
+      >{</a
+      ><a name="2907" href="BasicIS4.Semantics.TarskiGentzen.html#2907" class="Bound"
+      >A</a
+      ><a name="2908"
+      > </a
+      ><a name="2909" href="BasicIS4.Semantics.TarskiGentzen.html#2909" class="Bound"
+      >B</a
+      ><a name="2910"
+      > </a
+      ><a name="2911" href="BasicIS4.Semantics.TarskiGentzen.html#2911" class="Bound"
+      >&#915;</a
+      ><a name="2912" class="Symbol"
+      >}</a
+      ><a name="2913"
+      > </a
+      ><a name="2914" class="Symbol"
+      >&#8594;</a
+      ><a name="2915"
+      > </a
+      ><a name="2916" href="BasicIS4.Semantics.TarskiGentzen.html#2911" class="Bound"
+      >&#915;</a
+      ><a name="2917"
+      > </a
+      ><a name="2918" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2919"
+      > </a
+      ><a name="2920" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2921"
+      > </a
+      ><a name="2922" class="Symbol"
+      >(</a
+      ><a name="2923" href="BasicIS4.Semantics.TarskiGentzen.html#2907" class="Bound"
+      >A</a
+      ><a name="2924"
+      > </a
+      ><a name="2925" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2926"
+      > </a
+      ><a name="2927" href="BasicIS4.Semantics.TarskiGentzen.html#2909" class="Bound"
+      >B</a
+      ><a name="2928" class="Symbol"
+      >)</a
+      ><a name="2929"
+      > </a
+      ><a name="2930" class="Symbol"
+      >&#8594;</a
+      ><a name="2931"
+      > </a
+      ><a name="2932" href="BasicIS4.Semantics.TarskiGentzen.html#2911" class="Bound"
+      >&#915;</a
+      ><a name="2933"
+      > </a
+      ><a name="2934" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2935"
+      > </a
+      ><a name="2936" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2937"
+      > </a
+      ><a name="2938" href="BasicIS4.Semantics.TarskiGentzen.html#2907" class="Bound"
+      >A</a
+      ><a name="2939"
+      > </a
+      ><a name="2940" class="Symbol"
+      >&#8594;</a
+      ><a name="2941"
+      > </a
+      ><a name="2942" href="BasicIS4.Semantics.TarskiGentzen.html#2911" class="Bound"
+      >&#915;</a
+      ><a name="2943"
+      > </a
+      ><a name="2944" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="2945"
+      > </a
+      ><a name="2946" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2947"
+      > </a
+      ><a name="2948" href="BasicIS4.Semantics.TarskiGentzen.html#2909" class="Bound"
+      >B</a
+      ><a name="2949"
+      >
+  </a
+      ><a name="2952" class="Symbol"
+      >(</a
+      ><a name="2953" href="BasicIS4.Semantics.TarskiGentzen.html#2953" class="Bound"
+      >t</a
+      ><a name="2954"
+      > </a
+      ><a name="2955" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2956"
+      > </a
+      ><a name="2957" href="BasicIS4.Semantics.TarskiGentzen.html#2957" class="Bound"
+      >f</a
+      ><a name="2958" class="Symbol"
+      >)</a
+      ><a name="2959"
+      > </a
+      ><a name="2960" href="BasicIS4.Semantics.TarskiGentzen.html#2896" class="Function Operator"
+      >&#10218;&#9678;&#10219;</a
+      ><a name="2963"
+      > </a
+      ><a name="2964" class="Symbol"
+      >(</a
+      ><a name="2965" href="BasicIS4.Semantics.TarskiGentzen.html#2965" class="Bound"
+      >u</a
+      ><a name="2966"
+      > </a
+      ><a name="2967" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2968"
+      > </a
+      ><a name="2969" href="BasicIS4.Semantics.TarskiGentzen.html#2969" class="Bound"
+      >a</a
+      ><a name="2970" class="Symbol"
+      >)</a
+      ><a name="2971"
+      > </a
+      ><a name="2972" class="Symbol"
+      >=</a
+      ><a name="2973"
+      > </a
+      ><a name="2974" href="BasicIS4.Semantics.TarskiGentzen.html#640" class="Field"
+      >[app]</a
+      ><a name="2979"
+      > </a
+      ><a name="2980" href="BasicIS4.Semantics.TarskiGentzen.html#2953" class="Bound"
+      >t</a
+      ><a name="2981"
+      > </a
+      ><a name="2982" href="BasicIS4.Semantics.TarskiGentzen.html#2965" class="Bound"
+      >u</a
+      ><a name="2983"
+      > </a
+      ><a name="2984" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2985"
+      > </a
+      ><a name="2986" href="BasicIS4.Semantics.TarskiGentzen.html#2957" class="Bound"
+      >f</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" href="BasicIS4.Semantics.TarskiGentzen.html#2596" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="2991"
+      > </a
+      ><a name="2992" href="BasicIS4.Semantics.TarskiGentzen.html#2969" class="Bound"
+      >a</a
+      ><a name="2993"
+      >
+
+  </a
+      ><a name="2997" href="BasicIS4.Semantics.TarskiGentzen.html#2997" class="Function"
+      >&#10218;&#8657;&#10219;</a
+      ><a name="3000"
+      > </a
+      ><a name="3001" class="Symbol"
+      >:</a
+      ><a name="3002"
+      > </a
+      ><a name="3003" class="Symbol"
+      >&#8704;</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" class="Symbol"
+      >{</a
+      ><a name="3006" href="BasicIS4.Semantics.TarskiGentzen.html#3006" class="Bound"
+      >A</a
+      ><a name="3007"
+      > </a
+      ><a name="3008" href="BasicIS4.Semantics.TarskiGentzen.html#3008" class="Bound"
+      >&#915;</a
+      ><a name="3009" class="Symbol"
+      >}</a
+      ><a name="3010"
+      > </a
+      ><a name="3011" class="Symbol"
+      >&#8594;</a
+      ><a name="3012"
+      > </a
+      ><a name="3013" href="BasicIS4.Semantics.TarskiGentzen.html#3008" class="Bound"
+      >&#915;</a
+      ><a name="3014"
+      > </a
+      ><a name="3015" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="3016"
+      > </a
+      ><a name="3017" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3018"
+      > </a
+      ><a name="3019" href="BasicIS4.Semantics.TarskiGentzen.html#3006" class="Bound"
+      >A</a
+      ><a name="3020"
+      > </a
+      ><a name="3021" class="Symbol"
+      >&#8594;</a
+      ><a name="3022"
+      > </a
+      ><a name="3023" href="BasicIS4.Semantics.TarskiGentzen.html#3008" class="Bound"
+      >&#915;</a
+      ><a name="3024"
+      > </a
+      ><a name="3025" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="3026"
+      > </a
+      ><a name="3027" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3028"
+      > </a
+      ><a name="3029" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3030"
+      > </a
+      ><a name="3031" href="BasicIS4.Semantics.TarskiGentzen.html#3006" class="Bound"
+      >A</a
+      ><a name="3032"
+      >
+  </a
+      ><a name="3035" href="BasicIS4.Semantics.TarskiGentzen.html#2997" class="Function"
+      >&#10218;&#8657;&#10219;</a
+      ><a name="3038"
+      > </a
+      ><a name="3039" class="Symbol"
+      >(</a
+      ><a name="3040" href="BasicIS4.Semantics.TarskiGentzen.html#3040" class="Bound"
+      >t</a
+      ><a name="3041"
+      > </a
+      ><a name="3042" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3043"
+      > </a
+      ><a name="3044" href="BasicIS4.Semantics.TarskiGentzen.html#3044" class="Bound"
+      >a</a
+      ><a name="3045" class="Symbol"
+      >)</a
+      ><a name="3046"
+      > </a
+      ><a name="3047" class="Symbol"
+      >=</a
+      ><a name="3048"
+      > </a
+      ><a name="3049" href="BasicIS4.Semantics.TarskiGentzen.html#706" class="Field"
+      >[box]</a
+      ><a name="3054"
+      > </a
+      ><a name="3055" href="BasicIS4.Semantics.TarskiGentzen.html#3040" class="Bound"
+      >t</a
+      ><a name="3056"
+      > </a
+      ><a name="3057" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3058"
+      > </a
+      ><a name="3059" class="Symbol"
+      >(</a
+      ><a name="3060" href="BasicIS4.Semantics.TarskiGentzen.html#3040" class="Bound"
+      >t</a
+      ><a name="3061"
+      > </a
+      ><a name="3062" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3063"
+      > </a
+      ><a name="3064" href="BasicIS4.Semantics.TarskiGentzen.html#3044" class="Bound"
+      >a</a
+      ><a name="3065" class="Symbol"
+      >)</a
+      ><a name="3066"
+      >
+
+  </a
+      ><a name="3070" href="BasicIS4.Semantics.TarskiGentzen.html#3070" class="Function"
+      >&#10218;&#8659;&#10219;</a
+      ><a name="3073"
+      > </a
+      ><a name="3074" class="Symbol"
+      >:</a
+      ><a name="3075"
+      > </a
+      ><a name="3076" class="Symbol"
+      >&#8704;</a
+      ><a name="3077"
+      > </a
+      ><a name="3078" class="Symbol"
+      >{</a
+      ><a name="3079" href="BasicIS4.Semantics.TarskiGentzen.html#3079" class="Bound"
+      >A</a
+      ><a name="3080"
+      > </a
+      ><a name="3081" href="BasicIS4.Semantics.TarskiGentzen.html#3081" class="Bound"
+      >&#915;</a
+      ><a name="3082" class="Symbol"
+      >}</a
+      ><a name="3083"
+      > </a
+      ><a name="3084" class="Symbol"
+      >&#8594;</a
+      ><a name="3085"
+      > </a
+      ><a name="3086" href="BasicIS4.Semantics.TarskiGentzen.html#3081" class="Bound"
+      >&#915;</a
+      ><a name="3087"
+      > </a
+      ><a name="3088" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="3089"
+      > </a
+      ><a name="3090" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3091"
+      > </a
+      ><a name="3092" href="BasicIS4.Semantics.TarskiGentzen.html#3079" class="Bound"
+      >A</a
+      ><a name="3093"
+      > </a
+      ><a name="3094" class="Symbol"
+      >&#8594;</a
+      ><a name="3095"
+      > </a
+      ><a name="3096" href="BasicIS4.Semantics.TarskiGentzen.html#3081" class="Bound"
+      >&#915;</a
+      ><a name="3097"
+      > </a
+      ><a name="3098" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="3099"
+      > </a
+      ><a name="3100" href="BasicIS4.Semantics.TarskiGentzen.html#3079" class="Bound"
+      >A</a
+      ><a name="3101"
+      >
+  </a
+      ><a name="3104" href="BasicIS4.Semantics.TarskiGentzen.html#3070" class="Function"
+      >&#10218;&#8659;&#10219;</a
+      ><a name="3107"
+      > </a
+      ><a name="3108" class="Symbol"
+      >(</a
+      ><a name="3109" href="BasicIS4.Semantics.TarskiGentzen.html#3109" class="Bound"
+      >t</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3112"
+      > </a
+      ><a name="3113" href="BasicIS4.Semantics.TarskiGentzen.html#3113" class="Bound"
+      >a</a
+      ><a name="3114" class="Symbol"
+      >)</a
+      ><a name="3115"
+      > </a
+      ><a name="3116" class="Symbol"
+      >=</a
+      ><a name="3117"
+      > </a
+      ><a name="3118" href="BasicIS4.Semantics.TarskiGentzen.html#3113" class="Bound"
+      >a</a
+      ><a name="3119"
+      >
+
+
+</a
+      ><a name="3122" class="Comment"
+      >-- Satisfaction in a particular model, for sequents.</a
+      ><a name="3174"
+      >
+
+</a
+      ><a name="3176" class="Keyword"
+      >module</a
+      ><a name="3182"
+      > </a
+      ><a name="3183" href="BasicIS4.Semantics.TarskiGentzen.html#3183" class="Module"
+      >_</a
+      ><a name="3184"
+      > </a
+      ><a name="3185" class="Symbol"
+      >{{</a
+      ><a name="3187" href="BasicIS4.Semantics.TarskiGentzen.html#3187" class="Bound"
+      >_</a
+      ><a name="3188"
+      > </a
+      ><a name="3189" class="Symbol"
+      >:</a
+      ><a name="3190"
+      > </a
+      ><a name="3191" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Record"
+      >Model</a
+      ><a name="3196" class="Symbol"
+      >}}</a
+      ><a name="3198"
+      > </a
+      ><a name="3199" class="Keyword"
+      >where</a
+      ><a name="3204"
+      >
+  </a
+      ><a name="3207" class="Keyword"
+      >infix</a
+      ><a name="3212"
+      > </a
+      ><a name="3213" class="Number"
+      >3</a
+      ><a name="3214"
+      > _&#8872;_&#8658;_
+  </a
+      ><a name="3223" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >_&#8872;_&#8658;_</a
+      ><a name="3228"
+      > </a
+      ><a name="3229" class="Symbol"
+      >:</a
+      ><a name="3230"
+      > </a
+      ><a name="3231" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3233"
+      > </a
+      ><a name="3234" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3236"
+      > </a
+      ><a name="3237" class="Symbol"
+      >&#8594;</a
+      ><a name="3238"
+      > </a
+      ><a name="3239" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3241"
+      > </a
+      ><a name="3242" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3244"
+      > </a
+      ><a name="3245" class="Symbol"
+      >&#8594;</a
+      ><a name="3246"
+      > </a
+      ><a name="3247" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3249"
+      > </a
+      ><a name="3250" class="Symbol"
+      >&#8594;</a
+      ><a name="3251"
+      > </a
+      ><a name="3252" class="PrimitiveType"
+      >Set</a
+      ><a name="3255"
+      >
+  </a
+      ><a name="3258" href="BasicIS4.Semantics.TarskiGentzen.html#3258" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3260"
+      > </a
+      ><a name="3261" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3262"
+      > </a
+      ><a name="3263" href="BasicIS4.Semantics.TarskiGentzen.html#3263" class="Bound"
+      >&#915;</a
+      ><a name="3264"
+      > </a
+      ><a name="3265" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3266"
+      > </a
+      ><a name="3267" href="BasicIS4.Semantics.TarskiGentzen.html#3267" class="Bound"
+      >A</a
+      ><a name="3268"
+      > </a
+      ><a name="3269" class="Symbol"
+      >=</a
+      ><a name="3270"
+      > </a
+      ><a name="3271" href="BasicIS4.Semantics.TarskiGentzen.html#3258" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3273"
+      > </a
+      ><a name="3274" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="3276"
+      > </a
+      ><a name="3277" href="BasicIS4.Semantics.TarskiGentzen.html#3263" class="Bound"
+      >&#915;</a
+      ><a name="3278"
+      > </a
+      ><a name="3279" class="Symbol"
+      >&#8594;</a
+      ><a name="3280"
+      > </a
+      ><a name="3281" href="BasicIS4.Semantics.TarskiGentzen.html#3258" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3283"
+      > </a
+      ><a name="3284" href="BasicIS4.Semantics.TarskiGentzen.html#1225" class="Function Operator"
+      >&#8872;</a
+      ><a name="3285"
+      > </a
+      ><a name="3286" href="BasicIS4.Semantics.TarskiGentzen.html#3267" class="Bound"
+      >A</a
+      ><a name="3287"
+      >
+
+  </a
+      ><a name="3291" class="Keyword"
+      >infix</a
+      ><a name="3296"
+      > </a
+      ><a name="3297" class="Number"
+      >3</a
+      ><a name="3298"
+      > _&#8872;_&#8658;&#8902;_
+  </a
+      ><a name="3308" href="BasicIS4.Semantics.TarskiGentzen.html#3308" class="Function Operator"
+      >_&#8872;_&#8658;&#8902;_</a
+      ><a name="3314"
+      > </a
+      ><a name="3315" class="Symbol"
+      >:</a
+      ><a name="3316"
+      > </a
+      ><a name="3317" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3319"
+      > </a
+      ><a name="3320" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3322"
+      > </a
+      ><a name="3323" class="Symbol"
+      >&#8594;</a
+      ><a name="3324"
+      > </a
+      ><a name="3325" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3327"
+      > </a
+      ><a name="3328" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3330"
+      > </a
+      ><a name="3331" class="Symbol"
+      >&#8594;</a
+      ><a name="3332"
+      > </a
+      ><a name="3333" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3335"
+      > </a
+      ><a name="3336" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3338"
+      > </a
+      ><a name="3339" class="Symbol"
+      >&#8594;</a
+      ><a name="3340"
+      > </a
+      ><a name="3341" class="PrimitiveType"
+      >Set</a
+      ><a name="3344"
+      >
+  </a
+      ><a name="3347" href="BasicIS4.Semantics.TarskiGentzen.html#3347" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3349"
+      > </a
+      ><a name="3350" href="BasicIS4.Semantics.TarskiGentzen.html#3308" class="Function Operator"
+      >&#8872;</a
+      ><a name="3351"
+      > </a
+      ><a name="3352" href="BasicIS4.Semantics.TarskiGentzen.html#3352" class="Bound"
+      >&#915;</a
+      ><a name="3353"
+      > </a
+      ><a name="3354" href="BasicIS4.Semantics.TarskiGentzen.html#3308" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="3356"
+      > </a
+      ><a name="3357" href="BasicIS4.Semantics.TarskiGentzen.html#3357" class="Bound"
+      >&#928;</a
+      ><a name="3358"
+      > </a
+      ><a name="3359" class="Symbol"
+      >=</a
+      ><a name="3360"
+      > </a
+      ><a name="3361" href="BasicIS4.Semantics.TarskiGentzen.html#3347" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3363"
+      > </a
+      ><a name="3364" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="3366"
+      > </a
+      ><a name="3367" href="BasicIS4.Semantics.TarskiGentzen.html#3352" class="Bound"
+      >&#915;</a
+      ><a name="3368"
+      > </a
+      ><a name="3369" class="Symbol"
+      >&#8594;</a
+      ><a name="3370"
+      > </a
+      ><a name="3371" href="BasicIS4.Semantics.TarskiGentzen.html#3347" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3373"
+      > </a
+      ><a name="3374" href="BasicIS4.Semantics.TarskiGentzen.html#1443" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="3376"
+      > </a
+      ><a name="3377" href="BasicIS4.Semantics.TarskiGentzen.html#3357" class="Bound"
+      >&#928;</a
+      ><a name="3378"
+      >
+
+
+</a
+      ><a name="3381" class="Comment"
+      >-- Satisfaction in all models, for sequents.</a
+      ><a name="3425"
+      >
+
+</a
+      ><a name="3427" href="BasicIS4.Semantics.TarskiGentzen.html#3427" class="Function Operator"
+      >&#8704;&#7481;&#8872;_&#8658;_</a
+      ><a name="3433"
+      > </a
+      ><a name="3434" class="Symbol"
+      >:</a
+      ><a name="3435"
+      > </a
+      ><a name="3436" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3438"
+      > </a
+      ><a name="3439" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3441"
+      > </a
+      ><a name="3442" class="Symbol"
+      >&#8594;</a
+      ><a name="3443"
+      > </a
+      ><a name="3444" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3446"
+      > </a
+      ><a name="3447" class="Symbol"
+      >&#8594;</a
+      ><a name="3448"
+      > </a
+      ><a name="3449" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="3453"
+      >
+</a
+      ><a name="3454" href="BasicIS4.Semantics.TarskiGentzen.html#3427" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="3457"
+      > </a
+      ><a name="3458" href="BasicIS4.Semantics.TarskiGentzen.html#3458" class="Bound"
+      >&#915;</a
+      ><a name="3459"
+      > </a
+      ><a name="3460" href="BasicIS4.Semantics.TarskiGentzen.html#3427" class="Function Operator"
+      >&#8658;</a
+      ><a name="3461"
+      > </a
+      ><a name="3462" href="BasicIS4.Semantics.TarskiGentzen.html#3462" class="Bound"
+      >A</a
+      ><a name="3463"
+      > </a
+      ><a name="3464" class="Symbol"
+      >=</a
+      ><a name="3465"
+      > </a
+      ><a name="3466" class="Symbol"
+      >&#8704;</a
+      ><a name="3467"
+      > </a
+      ><a name="3468" class="Symbol"
+      >{{</a
+      ><a name="3470" href="BasicIS4.Semantics.TarskiGentzen.html#3470" class="Bound"
+      >_</a
+      ><a name="3471"
+      > </a
+      ><a name="3472" class="Symbol"
+      >:</a
+      ><a name="3473"
+      > </a
+      ><a name="3474" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Record"
+      >Model</a
+      ><a name="3479" class="Symbol"
+      >}}</a
+      ><a name="3481"
+      > </a
+      ><a name="3482" class="Symbol"
+      >{</a
+      ><a name="3483" href="BasicIS4.Semantics.TarskiGentzen.html#3483" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3485"
+      > </a
+      ><a name="3486" class="Symbol"
+      >:</a
+      ><a name="3487"
+      > </a
+      ><a name="3488" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3490"
+      > </a
+      ><a name="3491" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3493" class="Symbol"
+      >}</a
+      ><a name="3494"
+      > </a
+      ><a name="3495" class="Symbol"
+      >&#8594;</a
+      ><a name="3496"
+      > </a
+      ><a name="3497" href="BasicIS4.Semantics.TarskiGentzen.html#3483" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3499"
+      > </a
+      ><a name="3500" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3501"
+      > </a
+      ><a name="3502" href="BasicIS4.Semantics.TarskiGentzen.html#3458" class="Bound"
+      >&#915;</a
+      ><a name="3503"
+      > </a
+      ><a name="3504" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3505"
+      > </a
+      ><a name="3506" href="BasicIS4.Semantics.TarskiGentzen.html#3462" class="Bound"
+      >A</a
+      ><a name="3507"
+      >
+
+</a
+      ><a name="3509" href="BasicIS4.Semantics.TarskiGentzen.html#3509" class="Function Operator"
+      >&#8704;&#7481;&#8872;_&#8658;&#8902;_</a
+      ><a name="3516"
+      > </a
+      ><a name="3517" class="Symbol"
+      >:</a
+      ><a name="3518"
+      > </a
+      ><a name="3519" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3521"
+      > </a
+      ><a name="3522" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3524"
+      > </a
+      ><a name="3525" class="Symbol"
+      >&#8594;</a
+      ><a name="3526"
+      > </a
+      ><a name="3527" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3529"
+      > </a
+      ><a name="3530" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3532"
+      > </a
+      ><a name="3533" class="Symbol"
+      >&#8594;</a
+      ><a name="3534"
+      > </a
+      ><a name="3535" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="3539"
+      >
+</a
+      ><a name="3540" href="BasicIS4.Semantics.TarskiGentzen.html#3509" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="3543"
+      > </a
+      ><a name="3544" href="BasicIS4.Semantics.TarskiGentzen.html#3544" class="Bound"
+      >&#915;</a
+      ><a name="3545"
+      > </a
+      ><a name="3546" href="BasicIS4.Semantics.TarskiGentzen.html#3509" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="3548"
+      > </a
+      ><a name="3549" href="BasicIS4.Semantics.TarskiGentzen.html#3549" class="Bound"
+      >&#928;</a
+      ><a name="3550"
+      > </a
+      ><a name="3551" class="Symbol"
+      >=</a
+      ><a name="3552"
+      > </a
+      ><a name="3553" class="Symbol"
+      >&#8704;</a
+      ><a name="3554"
+      > </a
+      ><a name="3555" class="Symbol"
+      >{{</a
+      ><a name="3557" href="BasicIS4.Semantics.TarskiGentzen.html#3557" class="Bound"
+      >_</a
+      ><a name="3558"
+      > </a
+      ><a name="3559" class="Symbol"
+      >:</a
+      ><a name="3560"
+      > </a
+      ><a name="3561" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Record"
+      >Model</a
+      ><a name="3566" class="Symbol"
+      >}}</a
+      ><a name="3568"
+      > </a
+      ><a name="3569" class="Symbol"
+      >{</a
+      ><a name="3570" href="BasicIS4.Semantics.TarskiGentzen.html#3570" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3572"
+      > </a
+      ><a name="3573" class="Symbol"
+      >:</a
+      ><a name="3574"
+      > </a
+      ><a name="3575" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="3577"
+      > </a
+      ><a name="3578" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="3580" class="Symbol"
+      >}</a
+      ><a name="3581"
+      > </a
+      ><a name="3582" class="Symbol"
+      >&#8594;</a
+      ><a name="3583"
+      > </a
+      ><a name="3584" href="BasicIS4.Semantics.TarskiGentzen.html#3570" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3586"
+      > </a
+      ><a name="3587" href="BasicIS4.Semantics.TarskiGentzen.html#3308" class="Function Operator"
+      >&#8872;</a
+      ><a name="3588"
+      > </a
+      ><a name="3589" href="BasicIS4.Semantics.TarskiGentzen.html#3544" class="Bound"
+      >&#915;</a
+      ><a name="3590"
+      > </a
+      ><a name="3591" href="BasicIS4.Semantics.TarskiGentzen.html#3308" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="3593"
+      > </a
+      ><a name="3594" href="BasicIS4.Semantics.TarskiGentzen.html#3549" class="Bound"
+      >&#928;</a
+      ><a name="3595"
+      >
+
+
+</a
+      ><a name="3598" class="Comment"
+      >-- Additional useful equipment, for sequents.</a
+      ><a name="3643"
+      >
+
+</a
+      ><a name="3645" class="Keyword"
+      >module</a
+      ><a name="3651"
+      > </a
+      ><a name="3652" href="BasicIS4.Semantics.TarskiGentzen.html#3652" class="Module"
+      >_</a
+      ><a name="3653"
+      > </a
+      ><a name="3654" class="Symbol"
+      >{{</a
+      ><a name="3656" href="BasicIS4.Semantics.TarskiGentzen.html#3656" class="Bound"
+      >_</a
+      ><a name="3657"
+      > </a
+      ><a name="3658" class="Symbol"
+      >:</a
+      ><a name="3659"
+      > </a
+      ><a name="3660" href="BasicIS4.Semantics.TarskiGentzen.html#204" class="Record"
+      >Model</a
+      ><a name="3665" class="Symbol"
+      >}}</a
+      ><a name="3667"
+      > </a
+      ><a name="3668" class="Keyword"
+      >where</a
+      ><a name="3673"
+      >
+  </a
+      ><a name="3676" href="BasicIS4.Semantics.TarskiGentzen.html#3676" class="Function"
+      >lookup</a
+      ><a name="3682"
+      > </a
+      ><a name="3683" class="Symbol"
+      >:</a
+      ><a name="3684"
+      > </a
+      ><a name="3685" class="Symbol"
+      >&#8704;</a
+      ><a name="3686"
+      > </a
+      ><a name="3687" class="Symbol"
+      >{</a
+      ><a name="3688" href="BasicIS4.Semantics.TarskiGentzen.html#3688" class="Bound"
+      >A</a
+      ><a name="3689"
+      > </a
+      ><a name="3690" href="BasicIS4.Semantics.TarskiGentzen.html#3690" class="Bound"
+      >&#915;</a
+      ><a name="3691"
+      > </a
+      ><a name="3692" href="BasicIS4.Semantics.TarskiGentzen.html#3692" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3694" class="Symbol"
+      >}</a
+      ><a name="3695"
+      > </a
+      ><a name="3696" class="Symbol"
+      >&#8594;</a
+      ><a name="3697"
+      > </a
+      ><a name="3698" href="BasicIS4.Semantics.TarskiGentzen.html#3688" class="Bound"
+      >A</a
+      ><a name="3699"
+      > </a
+      ><a name="3700" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="3701"
+      > </a
+      ><a name="3702" href="BasicIS4.Semantics.TarskiGentzen.html#3690" class="Bound"
+      >&#915;</a
+      ><a name="3703"
+      > </a
+      ><a name="3704" class="Symbol"
+      >&#8594;</a
+      ><a name="3705"
+      > </a
+      ><a name="3706" href="BasicIS4.Semantics.TarskiGentzen.html#3692" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3708"
+      > </a
+      ><a name="3709" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3710"
+      > </a
+      ><a name="3711" href="BasicIS4.Semantics.TarskiGentzen.html#3690" class="Bound"
+      >&#915;</a
+      ><a name="3712"
+      > </a
+      ><a name="3713" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3714"
+      > </a
+      ><a name="3715" href="BasicIS4.Semantics.TarskiGentzen.html#3688" class="Bound"
+      >A</a
+      ><a name="3716"
+      >
+  </a
+      ><a name="3719" href="BasicIS4.Semantics.TarskiGentzen.html#3676" class="Function"
+      >lookup</a
+      ><a name="3725"
+      > </a
+      ><a name="3726" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="3729"
+      >     </a
+      ><a name="3734" class="Symbol"
+      >(</a
+      ><a name="3735" href="BasicIS4.Semantics.TarskiGentzen.html#3735" class="Bound"
+      >&#947;</a
+      ><a name="3736"
+      > </a
+      ><a name="3737" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3738"
+      > </a
+      ><a name="3739" href="BasicIS4.Semantics.TarskiGentzen.html#3739" class="Bound"
+      >a</a
+      ><a name="3740" class="Symbol"
+      >)</a
+      ><a name="3741"
+      > </a
+      ><a name="3742" class="Symbol"
+      >=</a
+      ><a name="3743"
+      > </a
+      ><a name="3744" href="BasicIS4.Semantics.TarskiGentzen.html#3739" class="Bound"
+      >a</a
+      ><a name="3745"
+      >
+  </a
+      ><a name="3748" href="BasicIS4.Semantics.TarskiGentzen.html#3676" class="Function"
+      >lookup</a
+      ><a name="3754"
+      > </a
+      ><a name="3755" class="Symbol"
+      >(</a
+      ><a name="3756" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="3759"
+      > </a
+      ><a name="3760" href="BasicIS4.Semantics.TarskiGentzen.html#3760" class="Bound"
+      >i</a
+      ><a name="3761" class="Symbol"
+      >)</a
+      ><a name="3762"
+      > </a
+      ><a name="3763" class="Symbol"
+      >(</a
+      ><a name="3764" href="BasicIS4.Semantics.TarskiGentzen.html#3764" class="Bound"
+      >&#947;</a
+      ><a name="3765"
+      > </a
+      ><a name="3766" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3767"
+      > </a
+      ><a name="3768" href="BasicIS4.Semantics.TarskiGentzen.html#3768" class="Bound"
+      >b</a
+      ><a name="3769" class="Symbol"
+      >)</a
+      ><a name="3770"
+      > </a
+      ><a name="3771" class="Symbol"
+      >=</a
+      ><a name="3772"
+      > </a
+      ><a name="3773" href="BasicIS4.Semantics.TarskiGentzen.html#3676" class="Function"
+      >lookup</a
+      ><a name="3779"
+      > </a
+      ><a name="3780" href="BasicIS4.Semantics.TarskiGentzen.html#3760" class="Bound"
+      >i</a
+      ><a name="3781"
+      > </a
+      ><a name="3782" href="BasicIS4.Semantics.TarskiGentzen.html#3764" class="Bound"
+      >&#947;</a
+      ><a name="3783"
+      >
+
+  </a
+      ><a name="3787" class="Comment"
+      >-- TODO: &#10214;&#955;&#10215;</a
+      ><a name="3799"
+      >
+
+  </a
+      ><a name="3803" href="BasicIS4.Semantics.TarskiGentzen.html#3803" class="Function Operator"
+      >_&#10214;$&#10215;_</a
+      ><a name="3808"
+      > </a
+      ><a name="3809" class="Symbol"
+      >:</a
+      ><a name="3810"
+      > </a
+      ><a name="3811" class="Symbol"
+      >&#8704;</a
+      ><a name="3812"
+      > </a
+      ><a name="3813" class="Symbol"
+      >{</a
+      ><a name="3814" href="BasicIS4.Semantics.TarskiGentzen.html#3814" class="Bound"
+      >A</a
+      ><a name="3815"
+      > </a
+      ><a name="3816" href="BasicIS4.Semantics.TarskiGentzen.html#3816" class="Bound"
+      >B</a
+      ><a name="3817"
+      > </a
+      ><a name="3818" href="BasicIS4.Semantics.TarskiGentzen.html#3818" class="Bound"
+      >&#915;</a
+      ><a name="3819"
+      > </a
+      ><a name="3820" href="BasicIS4.Semantics.TarskiGentzen.html#3820" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3822" class="Symbol"
+      >}</a
+      ><a name="3823"
+      > </a
+      ><a name="3824" class="Symbol"
+      >&#8594;</a
+      ><a name="3825"
+      > </a
+      ><a name="3826" href="BasicIS4.Semantics.TarskiGentzen.html#3820" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3828"
+      > </a
+      ><a name="3829" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3830"
+      > </a
+      ><a name="3831" href="BasicIS4.Semantics.TarskiGentzen.html#3818" class="Bound"
+      >&#915;</a
+      ><a name="3832"
+      > </a
+      ><a name="3833" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3834"
+      > </a
+      ><a name="3835" href="BasicIS4.Semantics.TarskiGentzen.html#3814" class="Bound"
+      >A</a
+      ><a name="3836"
+      > </a
+      ><a name="3837" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3838"
+      > </a
+      ><a name="3839" href="BasicIS4.Semantics.TarskiGentzen.html#3816" class="Bound"
+      >B</a
+      ><a name="3840"
+      > </a
+      ><a name="3841" class="Symbol"
+      >&#8594;</a
+      ><a name="3842"
+      > </a
+      ><a name="3843" href="BasicIS4.Semantics.TarskiGentzen.html#3820" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3845"
+      > </a
+      ><a name="3846" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3847"
+      > </a
+      ><a name="3848" href="BasicIS4.Semantics.TarskiGentzen.html#3818" class="Bound"
+      >&#915;</a
+      ><a name="3849"
+      > </a
+      ><a name="3850" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3851"
+      > </a
+      ><a name="3852" href="BasicIS4.Semantics.TarskiGentzen.html#3814" class="Bound"
+      >A</a
+      ><a name="3853"
+      > </a
+      ><a name="3854" class="Symbol"
+      >&#8594;</a
+      ><a name="3855"
+      > </a
+      ><a name="3856" href="BasicIS4.Semantics.TarskiGentzen.html#3820" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3858"
+      > </a
+      ><a name="3859" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3860"
+      > </a
+      ><a name="3861" href="BasicIS4.Semantics.TarskiGentzen.html#3818" class="Bound"
+      >&#915;</a
+      ><a name="3862"
+      > </a
+      ><a name="3863" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3864"
+      > </a
+      ><a name="3865" href="BasicIS4.Semantics.TarskiGentzen.html#3816" class="Bound"
+      >B</a
+      ><a name="3866"
+      >
+  </a
+      ><a name="3869" class="Symbol"
+      >(</a
+      ><a name="3870" href="BasicIS4.Semantics.TarskiGentzen.html#3870" class="Bound"
+      >f</a
+      ><a name="3871"
+      > </a
+      ><a name="3872" href="BasicIS4.Semantics.TarskiGentzen.html#3803" class="Function Operator"
+      >&#10214;$&#10215;</a
+      ><a name="3875"
+      > </a
+      ><a name="3876" href="BasicIS4.Semantics.TarskiGentzen.html#3876" class="Bound"
+      >g</a
+      ><a name="3877" class="Symbol"
+      >)</a
+      ><a name="3878"
+      > </a
+      ><a name="3879" href="BasicIS4.Semantics.TarskiGentzen.html#3879" class="Bound"
+      >&#947;</a
+      ><a name="3880"
+      > </a
+      ><a name="3881" class="Symbol"
+      >=</a
+      ><a name="3882"
+      > </a
+      ><a name="3883" href="BasicIS4.Semantics.TarskiGentzen.html#3870" class="Bound"
+      >f</a
+      ><a name="3884"
+      > </a
+      ><a name="3885" href="BasicIS4.Semantics.TarskiGentzen.html#3879" class="Bound"
+      >&#947;</a
+      ><a name="3886"
+      > </a
+      ><a name="3887" href="BasicIS4.Semantics.TarskiGentzen.html#2596" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="3890"
+      > </a
+      ><a name="3891" href="BasicIS4.Semantics.TarskiGentzen.html#3876" class="Bound"
+      >g</a
+      ><a name="3892"
+      > </a
+      ><a name="3893" href="BasicIS4.Semantics.TarskiGentzen.html#3879" class="Bound"
+      >&#947;</a
+      ><a name="3894"
+      >
+
+  </a
+      ><a name="3898" href="BasicIS4.Semantics.TarskiGentzen.html#3898" class="Function"
+      >&#10214;ap&#10215;</a
+      ><a name="3902"
+      > </a
+      ><a name="3903" class="Symbol"
+      >:</a
+      ><a name="3904"
+      > </a
+      ><a name="3905" class="Symbol"
+      >&#8704;</a
+      ><a name="3906"
+      > </a
+      ><a name="3907" class="Symbol"
+      >{</a
+      ><a name="3908" href="BasicIS4.Semantics.TarskiGentzen.html#3908" class="Bound"
+      >A</a
+      ><a name="3909"
+      > </a
+      ><a name="3910" href="BasicIS4.Semantics.TarskiGentzen.html#3910" class="Bound"
+      >B</a
+      ><a name="3911"
+      > </a
+      ><a name="3912" href="BasicIS4.Semantics.TarskiGentzen.html#3912" class="Bound"
+      >C</a
+      ><a name="3913"
+      > </a
+      ><a name="3914" href="BasicIS4.Semantics.TarskiGentzen.html#3914" class="Bound"
+      >&#915;</a
+      ><a name="3915"
+      > </a
+      ><a name="3916" href="BasicIS4.Semantics.TarskiGentzen.html#3916" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3918" class="Symbol"
+      >}</a
+      ><a name="3919"
+      > </a
+      ><a name="3920" class="Symbol"
+      >&#8594;</a
+      ><a name="3921"
+      > </a
+      ><a name="3922" href="BasicIS4.Semantics.TarskiGentzen.html#3916" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3924"
+      > </a
+      ><a name="3925" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3926"
+      > </a
+      ><a name="3927" href="BasicIS4.Semantics.TarskiGentzen.html#3914" class="Bound"
+      >&#915;</a
+      ><a name="3928"
+      > </a
+      ><a name="3929" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3930"
+      > </a
+      ><a name="3931" href="BasicIS4.Semantics.TarskiGentzen.html#3908" class="Bound"
+      >A</a
+      ><a name="3932"
+      > </a
+      ><a name="3933" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3934"
+      > </a
+      ><a name="3935" href="BasicIS4.Semantics.TarskiGentzen.html#3910" class="Bound"
+      >B</a
+      ><a name="3936"
+      > </a
+      ><a name="3937" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3938"
+      > </a
+      ><a name="3939" href="BasicIS4.Semantics.TarskiGentzen.html#3912" class="Bound"
+      >C</a
+      ><a name="3940"
+      > </a
+      ><a name="3941" class="Symbol"
+      >&#8594;</a
+      ><a name="3942"
+      > </a
+      ><a name="3943" href="BasicIS4.Semantics.TarskiGentzen.html#3916" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3945"
+      > </a
+      ><a name="3946" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3947"
+      > </a
+      ><a name="3948" href="BasicIS4.Semantics.TarskiGentzen.html#3914" class="Bound"
+      >&#915;</a
+      ><a name="3949"
+      > </a
+      ><a name="3950" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3951"
+      > </a
+      ><a name="3952" href="BasicIS4.Semantics.TarskiGentzen.html#3908" class="Bound"
+      >A</a
+      ><a name="3953"
+      > </a
+      ><a name="3954" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3955"
+      > </a
+      ><a name="3956" href="BasicIS4.Semantics.TarskiGentzen.html#3910" class="Bound"
+      >B</a
+      ><a name="3957"
+      > </a
+      ><a name="3958" class="Symbol"
+      >&#8594;</a
+      ><a name="3959"
+      > </a
+      ><a name="3960" href="BasicIS4.Semantics.TarskiGentzen.html#3916" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3962"
+      > </a
+      ><a name="3963" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3964"
+      > </a
+      ><a name="3965" href="BasicIS4.Semantics.TarskiGentzen.html#3914" class="Bound"
+      >&#915;</a
+      ><a name="3966"
+      > </a
+      ><a name="3967" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3968"
+      > </a
+      ><a name="3969" href="BasicIS4.Semantics.TarskiGentzen.html#3908" class="Bound"
+      >A</a
+      ><a name="3970"
+      > </a
+      ><a name="3971" class="Symbol"
+      >&#8594;</a
+      ><a name="3972"
+      > </a
+      ><a name="3973" href="BasicIS4.Semantics.TarskiGentzen.html#3916" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="3975"
+      > </a
+      ><a name="3976" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="3977"
+      > </a
+      ><a name="3978" href="BasicIS4.Semantics.TarskiGentzen.html#3914" class="Bound"
+      >&#915;</a
+      ><a name="3979"
+      > </a
+      ><a name="3980" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="3981"
+      > </a
+      ><a name="3982" href="BasicIS4.Semantics.TarskiGentzen.html#3912" class="Bound"
+      >C</a
+      ><a name="3983"
+      >
+  </a
+      ><a name="3986" href="BasicIS4.Semantics.TarskiGentzen.html#3898" class="Function"
+      >&#10214;ap&#10215;</a
+      ><a name="3990"
+      > </a
+      ><a name="3991" href="BasicIS4.Semantics.TarskiGentzen.html#3991" class="Bound"
+      >f</a
+      ><a name="3992"
+      > </a
+      ><a name="3993" href="BasicIS4.Semantics.TarskiGentzen.html#3993" class="Bound"
+      >g</a
+      ><a name="3994"
+      > </a
+      ><a name="3995" href="BasicIS4.Semantics.TarskiGentzen.html#3995" class="Bound"
+      >a</a
+      ><a name="3996"
+      > </a
+      ><a name="3997" href="BasicIS4.Semantics.TarskiGentzen.html#3997" class="Bound"
+      >&#947;</a
+      ><a name="3998"
+      > </a
+      ><a name="3999" class="Symbol"
+      >=</a
+      ><a name="4000"
+      > </a
+      ><a name="4001" href="BasicIS4.Semantics.TarskiGentzen.html#2684" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="4005"
+      > </a
+      ><a name="4006" class="Symbol"
+      >(</a
+      ><a name="4007" href="BasicIS4.Semantics.TarskiGentzen.html#3991" class="Bound"
+      >f</a
+      ><a name="4008"
+      > </a
+      ><a name="4009" href="BasicIS4.Semantics.TarskiGentzen.html#3997" class="Bound"
+      >&#947;</a
+      ><a name="4010" class="Symbol"
+      >)</a
+      ><a name="4011"
+      > </a
+      ><a name="4012" class="Symbol"
+      >(</a
+      ><a name="4013" href="BasicIS4.Semantics.TarskiGentzen.html#3993" class="Bound"
+      >g</a
+      ><a name="4014"
+      > </a
+      ><a name="4015" href="BasicIS4.Semantics.TarskiGentzen.html#3997" class="Bound"
+      >&#947;</a
+      ><a name="4016" class="Symbol"
+      >)</a
+      ><a name="4017"
+      > </a
+      ><a name="4018" class="Symbol"
+      >(</a
+      ><a name="4019" href="BasicIS4.Semantics.TarskiGentzen.html#3995" class="Bound"
+      >a</a
+      ><a name="4020"
+      > </a
+      ><a name="4021" href="BasicIS4.Semantics.TarskiGentzen.html#3997" class="Bound"
+      >&#947;</a
+      ><a name="4022" class="Symbol"
+      >)</a
+      ><a name="4023"
+      >
+
+  </a
+      ><a name="4027" href="BasicIS4.Semantics.TarskiGentzen.html#4027" class="Function Operator"
+      >_&#10214;&#9678;&#10215;_</a
+      ><a name="4032"
+      > </a
+      ><a name="4033" class="Symbol"
+      >:</a
+      ><a name="4034"
+      > </a
+      ><a name="4035" class="Symbol"
+      >&#8704;</a
+      ><a name="4036"
+      > </a
+      ><a name="4037" class="Symbol"
+      >{</a
+      ><a name="4038" href="BasicIS4.Semantics.TarskiGentzen.html#4038" class="Bound"
+      >A</a
+      ><a name="4039"
+      > </a
+      ><a name="4040" href="BasicIS4.Semantics.TarskiGentzen.html#4040" class="Bound"
+      >B</a
+      ><a name="4041"
+      > </a
+      ><a name="4042" href="BasicIS4.Semantics.TarskiGentzen.html#4042" class="Bound"
+      >&#915;</a
+      ><a name="4043"
+      > </a
+      ><a name="4044" href="BasicIS4.Semantics.TarskiGentzen.html#4044" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4046" class="Symbol"
+      >}</a
+      ><a name="4047"
+      > </a
+      ><a name="4048" class="Symbol"
+      >&#8594;</a
+      ><a name="4049"
+      > </a
+      ><a name="4050" href="BasicIS4.Semantics.TarskiGentzen.html#4044" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4052"
+      > </a
+      ><a name="4053" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4054"
+      > </a
+      ><a name="4055" href="BasicIS4.Semantics.TarskiGentzen.html#4042" class="Bound"
+      >&#915;</a
+      ><a name="4056"
+      > </a
+      ><a name="4057" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4058"
+      > </a
+      ><a name="4059" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="4060"
+      > </a
+      ><a name="4061" class="Symbol"
+      >(</a
+      ><a name="4062" href="BasicIS4.Semantics.TarskiGentzen.html#4038" class="Bound"
+      >A</a
+      ><a name="4063"
+      > </a
+      ><a name="4064" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4065"
+      > </a
+      ><a name="4066" href="BasicIS4.Semantics.TarskiGentzen.html#4040" class="Bound"
+      >B</a
+      ><a name="4067" class="Symbol"
+      >)</a
+      ><a name="4068"
+      > </a
+      ><a name="4069" class="Symbol"
+      >&#8594;</a
+      ><a name="4070"
+      > </a
+      ><a name="4071" href="BasicIS4.Semantics.TarskiGentzen.html#4044" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4073"
+      > </a
+      ><a name="4074" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4075"
+      > </a
+      ><a name="4076" href="BasicIS4.Semantics.TarskiGentzen.html#4042" class="Bound"
+      >&#915;</a
+      ><a name="4077"
+      > </a
+      ><a name="4078" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4079"
+      > </a
+      ><a name="4080" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="4081"
+      > </a
+      ><a name="4082" href="BasicIS4.Semantics.TarskiGentzen.html#4038" class="Bound"
+      >A</a
+      ><a name="4083"
+      > </a
+      ><a name="4084" class="Symbol"
+      >&#8594;</a
+      ><a name="4085"
+      > </a
+      ><a name="4086" href="BasicIS4.Semantics.TarskiGentzen.html#4044" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4088"
+      > </a
+      ><a name="4089" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4090"
+      > </a
+      ><a name="4091" href="BasicIS4.Semantics.TarskiGentzen.html#4042" class="Bound"
+      >&#915;</a
+      ><a name="4092"
+      > </a
+      ><a name="4093" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4094"
+      > </a
+      ><a name="4095" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="4096"
+      > </a
+      ><a name="4097" href="BasicIS4.Semantics.TarskiGentzen.html#4040" class="Bound"
+      >B</a
+      ><a name="4098"
+      >
+  </a
+      ><a name="4101" class="Symbol"
+      >(</a
+      ><a name="4102" href="BasicIS4.Semantics.TarskiGentzen.html#4102" class="Bound"
+      >s&#8321;</a
+      ><a name="4104"
+      > </a
+      ><a name="4105" href="BasicIS4.Semantics.TarskiGentzen.html#4027" class="Function Operator"
+      >&#10214;&#9678;&#10215;</a
+      ><a name="4108"
+      > </a
+      ><a name="4109" href="BasicIS4.Semantics.TarskiGentzen.html#4109" class="Bound"
+      >s&#8322;</a
+      ><a name="4111" class="Symbol"
+      >)</a
+      ><a name="4112"
+      > </a
+      ><a name="4113" href="BasicIS4.Semantics.TarskiGentzen.html#4113" class="Bound"
+      >&#947;</a
+      ><a name="4114"
+      > </a
+      ><a name="4115" class="Symbol"
+      >=</a
+      ><a name="4116"
+      > </a
+      ><a name="4117" class="Symbol"
+      >(</a
+      ><a name="4118" href="BasicIS4.Semantics.TarskiGentzen.html#4102" class="Bound"
+      >s&#8321;</a
+      ><a name="4120"
+      > </a
+      ><a name="4121" href="BasicIS4.Semantics.TarskiGentzen.html#4113" class="Bound"
+      >&#947;</a
+      ><a name="4122" class="Symbol"
+      >)</a
+      ><a name="4123"
+      > </a
+      ><a name="4124" href="BasicIS4.Semantics.TarskiGentzen.html#2896" class="Function Operator"
+      >&#10218;&#9678;&#10219;</a
+      ><a name="4127"
+      > </a
+      ><a name="4128" class="Symbol"
+      >(</a
+      ><a name="4129" href="BasicIS4.Semantics.TarskiGentzen.html#4109" class="Bound"
+      >s&#8322;</a
+      ><a name="4131"
+      > </a
+      ><a name="4132" href="BasicIS4.Semantics.TarskiGentzen.html#4113" class="Bound"
+      >&#947;</a
+      ><a name="4133" class="Symbol"
+      >)</a
+      ><a name="4134"
+      >
+
+  </a
+      ><a name="4138" href="BasicIS4.Semantics.TarskiGentzen.html#4138" class="Function"
+      >&#10214;&#8657;&#10215;</a
+      ><a name="4141"
+      > </a
+      ><a name="4142" class="Symbol"
+      >:</a
+      ><a name="4143"
+      > </a
+      ><a name="4144" class="Symbol"
+      >&#8704;</a
+      ><a name="4145"
+      > </a
+      ><a name="4146" class="Symbol"
+      >{</a
+      ><a name="4147" href="BasicIS4.Semantics.TarskiGentzen.html#4147" class="Bound"
+      >A</a
+      ><a name="4148"
+      > </a
+      ><a name="4149" href="BasicIS4.Semantics.TarskiGentzen.html#4149" class="Bound"
+      >&#915;</a
+      ><a name="4150"
+      > </a
+      ><a name="4151" href="BasicIS4.Semantics.TarskiGentzen.html#4151" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4153" class="Symbol"
+      >}</a
+      ><a name="4154"
+      > </a
+      ><a name="4155" class="Symbol"
+      >&#8594;</a
+      ><a name="4156"
+      > </a
+      ><a name="4157" href="BasicIS4.Semantics.TarskiGentzen.html#4151" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4159"
+      > </a
+      ><a name="4160" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4161"
+      > </a
+      ><a name="4162" href="BasicIS4.Semantics.TarskiGentzen.html#4149" class="Bound"
+      >&#915;</a
+      ><a name="4163"
+      > </a
+      ><a name="4164" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4165"
+      > </a
+      ><a name="4166" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="4167"
+      > </a
+      ><a name="4168" href="BasicIS4.Semantics.TarskiGentzen.html#4147" class="Bound"
+      >A</a
+      ><a name="4169"
+      > </a
+      ><a name="4170" class="Symbol"
+      >&#8594;</a
+      ><a name="4171"
+      > </a
+      ><a name="4172" href="BasicIS4.Semantics.TarskiGentzen.html#4151" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4174"
+      > </a
+      ><a name="4175" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4176"
+      > </a
+      ><a name="4177" href="BasicIS4.Semantics.TarskiGentzen.html#4149" class="Bound"
+      >&#915;</a
+      ><a name="4178"
+      > </a
+      ><a name="4179" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4180"
+      > </a
+      ><a name="4181" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="4182"
+      > </a
+      ><a name="4183" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="4184"
+      > </a
+      ><a name="4185" href="BasicIS4.Semantics.TarskiGentzen.html#4147" class="Bound"
+      >A</a
+      ><a name="4186"
+      >
+  </a
+      ><a name="4189" href="BasicIS4.Semantics.TarskiGentzen.html#4138" class="Function"
+      >&#10214;&#8657;&#10215;</a
+      ><a name="4192"
+      > </a
+      ><a name="4193" href="BasicIS4.Semantics.TarskiGentzen.html#4193" class="Bound"
+      >s</a
+      ><a name="4194"
+      > </a
+      ><a name="4195" href="BasicIS4.Semantics.TarskiGentzen.html#4195" class="Bound"
+      >&#947;</a
+      ><a name="4196"
+      > </a
+      ><a name="4197" class="Symbol"
+      >=</a
+      ><a name="4198"
+      > </a
+      ><a name="4199" href="BasicIS4.Semantics.TarskiGentzen.html#2997" class="Function"
+      >&#10218;&#8657;&#10219;</a
+      ><a name="4202"
+      > </a
+      ><a name="4203" class="Symbol"
+      >(</a
+      ><a name="4204" href="BasicIS4.Semantics.TarskiGentzen.html#4193" class="Bound"
+      >s</a
+      ><a name="4205"
+      > </a
+      ><a name="4206" href="BasicIS4.Semantics.TarskiGentzen.html#4195" class="Bound"
+      >&#947;</a
+      ><a name="4207" class="Symbol"
+      >)</a
+      ><a name="4208"
+      >
+
+  </a
+      ><a name="4212" href="BasicIS4.Semantics.TarskiGentzen.html#4212" class="Function"
+      >&#10214;&#8659;&#10215;</a
+      ><a name="4215"
+      > </a
+      ><a name="4216" class="Symbol"
+      >:</a
+      ><a name="4217"
+      > </a
+      ><a name="4218" class="Symbol"
+      >&#8704;</a
+      ><a name="4219"
+      > </a
+      ><a name="4220" class="Symbol"
+      >{</a
+      ><a name="4221" href="BasicIS4.Semantics.TarskiGentzen.html#4221" class="Bound"
+      >A</a
+      ><a name="4222"
+      > </a
+      ><a name="4223" href="BasicIS4.Semantics.TarskiGentzen.html#4223" class="Bound"
+      >&#915;</a
+      ><a name="4224"
+      > </a
+      ><a name="4225" href="BasicIS4.Semantics.TarskiGentzen.html#4225" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4227" class="Symbol"
+      >}</a
+      ><a name="4228"
+      > </a
+      ><a name="4229" class="Symbol"
+      >&#8594;</a
+      ><a name="4230"
+      > </a
+      ><a name="4231" href="BasicIS4.Semantics.TarskiGentzen.html#4225" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4233"
+      > </a
+      ><a name="4234" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4235"
+      > </a
+      ><a name="4236" href="BasicIS4.Semantics.TarskiGentzen.html#4223" class="Bound"
+      >&#915;</a
+      ><a name="4237"
+      > </a
+      ><a name="4238" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4239"
+      > </a
+      ><a name="4240" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="4241"
+      > </a
+      ><a name="4242" href="BasicIS4.Semantics.TarskiGentzen.html#4221" class="Bound"
+      >A</a
+      ><a name="4243"
+      > </a
+      ><a name="4244" class="Symbol"
+      >&#8594;</a
+      ><a name="4245"
+      > </a
+      ><a name="4246" href="BasicIS4.Semantics.TarskiGentzen.html#4225" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4248"
+      > </a
+      ><a name="4249" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4250"
+      > </a
+      ><a name="4251" href="BasicIS4.Semantics.TarskiGentzen.html#4223" class="Bound"
+      >&#915;</a
+      ><a name="4252"
+      > </a
+      ><a name="4253" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4254"
+      > </a
+      ><a name="4255" href="BasicIS4.Semantics.TarskiGentzen.html#4221" class="Bound"
+      >A</a
+      ><a name="4256"
+      >
+  </a
+      ><a name="4259" href="BasicIS4.Semantics.TarskiGentzen.html#4212" class="Function"
+      >&#10214;&#8659;&#10215;</a
+      ><a name="4262"
+      > </a
+      ><a name="4263" href="BasicIS4.Semantics.TarskiGentzen.html#4263" class="Bound"
+      >s</a
+      ><a name="4264"
+      > </a
+      ><a name="4265" href="BasicIS4.Semantics.TarskiGentzen.html#4265" class="Bound"
+      >&#947;</a
+      ><a name="4266"
+      > </a
+      ><a name="4267" class="Symbol"
+      >=</a
+      ><a name="4268"
+      > </a
+      ><a name="4269" href="BasicIS4.Semantics.TarskiGentzen.html#3070" class="Function"
+      >&#10218;&#8659;&#10219;</a
+      ><a name="4272"
+      > </a
+      ><a name="4273" class="Symbol"
+      >(</a
+      ><a name="4274" href="BasicIS4.Semantics.TarskiGentzen.html#4263" class="Bound"
+      >s</a
+      ><a name="4275"
+      > </a
+      ><a name="4276" href="BasicIS4.Semantics.TarskiGentzen.html#4265" class="Bound"
+      >&#947;</a
+      ><a name="4277" class="Symbol"
+      >)</a
+      ><a name="4278"
+      >
+
+  </a
+      ><a name="4282" href="BasicIS4.Semantics.TarskiGentzen.html#4282" class="Function Operator"
+      >_&#10214;,&#10215;_</a
+      ><a name="4287"
+      > </a
+      ><a name="4288" class="Symbol"
+      >:</a
+      ><a name="4289"
+      > </a
+      ><a name="4290" class="Symbol"
+      >&#8704;</a
+      ><a name="4291"
+      > </a
+      ><a name="4292" class="Symbol"
+      >{</a
+      ><a name="4293" href="BasicIS4.Semantics.TarskiGentzen.html#4293" class="Bound"
+      >A</a
+      ><a name="4294"
+      > </a
+      ><a name="4295" href="BasicIS4.Semantics.TarskiGentzen.html#4295" class="Bound"
+      >B</a
+      ><a name="4296"
+      > </a
+      ><a name="4297" href="BasicIS4.Semantics.TarskiGentzen.html#4297" class="Bound"
+      >&#915;</a
+      ><a name="4298"
+      > </a
+      ><a name="4299" href="BasicIS4.Semantics.TarskiGentzen.html#4299" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4301" class="Symbol"
+      >}</a
+      ><a name="4302"
+      > </a
+      ><a name="4303" class="Symbol"
+      >&#8594;</a
+      ><a name="4304"
+      > </a
+      ><a name="4305" href="BasicIS4.Semantics.TarskiGentzen.html#4299" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4307"
+      > </a
+      ><a name="4308" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4309"
+      > </a
+      ><a name="4310" href="BasicIS4.Semantics.TarskiGentzen.html#4297" class="Bound"
+      >&#915;</a
+      ><a name="4311"
+      > </a
+      ><a name="4312" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4313"
+      > </a
+      ><a name="4314" href="BasicIS4.Semantics.TarskiGentzen.html#4293" class="Bound"
+      >A</a
+      ><a name="4315"
+      > </a
+      ><a name="4316" class="Symbol"
+      >&#8594;</a
+      ><a name="4317"
+      > </a
+      ><a name="4318" href="BasicIS4.Semantics.TarskiGentzen.html#4299" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4320"
+      > </a
+      ><a name="4321" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4322"
+      > </a
+      ><a name="4323" href="BasicIS4.Semantics.TarskiGentzen.html#4297" class="Bound"
+      >&#915;</a
+      ><a name="4324"
+      > </a
+      ><a name="4325" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4326"
+      > </a
+      ><a name="4327" href="BasicIS4.Semantics.TarskiGentzen.html#4295" class="Bound"
+      >B</a
+      ><a name="4328"
+      > </a
+      ><a name="4329" class="Symbol"
+      >&#8594;</a
+      ><a name="4330"
+      > </a
+      ><a name="4331" href="BasicIS4.Semantics.TarskiGentzen.html#4299" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4333"
+      > </a
+      ><a name="4334" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4335"
+      > </a
+      ><a name="4336" href="BasicIS4.Semantics.TarskiGentzen.html#4297" class="Bound"
+      >&#915;</a
+      ><a name="4337"
+      > </a
+      ><a name="4338" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4339"
+      > </a
+      ><a name="4340" href="BasicIS4.Semantics.TarskiGentzen.html#4293" class="Bound"
+      >A</a
+      ><a name="4341"
+      > </a
+      ><a name="4342" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="4343"
+      > </a
+      ><a name="4344" href="BasicIS4.Semantics.TarskiGentzen.html#4295" class="Bound"
+      >B</a
+      ><a name="4345"
+      >
+  </a
+      ><a name="4348" class="Symbol"
+      >(</a
+      ><a name="4349" href="BasicIS4.Semantics.TarskiGentzen.html#4349" class="Bound"
+      >a</a
+      ><a name="4350"
+      > </a
+      ><a name="4351" href="BasicIS4.Semantics.TarskiGentzen.html#4282" class="Function Operator"
+      >&#10214;,&#10215;</a
+      ><a name="4354"
+      > </a
+      ><a name="4355" href="BasicIS4.Semantics.TarskiGentzen.html#4355" class="Bound"
+      >b</a
+      ><a name="4356" class="Symbol"
+      >)</a
+      ><a name="4357"
+      > </a
+      ><a name="4358" href="BasicIS4.Semantics.TarskiGentzen.html#4358" class="Bound"
+      >&#947;</a
+      ><a name="4359"
+      > </a
+      ><a name="4360" class="Symbol"
+      >=</a
+      ><a name="4361"
+      > </a
+      ><a name="4362" href="BasicIS4.Semantics.TarskiGentzen.html#4349" class="Bound"
+      >a</a
+      ><a name="4363"
+      > </a
+      ><a name="4364" href="BasicIS4.Semantics.TarskiGentzen.html#4358" class="Bound"
+      >&#947;</a
+      ><a name="4365"
+      > </a
+      ><a name="4366" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="4367"
+      > </a
+      ><a name="4368" href="BasicIS4.Semantics.TarskiGentzen.html#4355" class="Bound"
+      >b</a
+      ><a name="4369"
+      > </a
+      ><a name="4370" href="BasicIS4.Semantics.TarskiGentzen.html#4358" class="Bound"
+      >&#947;</a
+      ><a name="4371"
+      >
+
+  </a
+      ><a name="4375" href="BasicIS4.Semantics.TarskiGentzen.html#4375" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="4379"
+      > </a
+      ><a name="4380" class="Symbol"
+      >:</a
+      ><a name="4381"
+      > </a
+      ><a name="4382" class="Symbol"
+      >&#8704;</a
+      ><a name="4383"
+      > </a
+      ><a name="4384" class="Symbol"
+      >{</a
+      ><a name="4385" href="BasicIS4.Semantics.TarskiGentzen.html#4385" class="Bound"
+      >A</a
+      ><a name="4386"
+      > </a
+      ><a name="4387" href="BasicIS4.Semantics.TarskiGentzen.html#4387" class="Bound"
+      >B</a
+      ><a name="4388"
+      > </a
+      ><a name="4389" href="BasicIS4.Semantics.TarskiGentzen.html#4389" class="Bound"
+      >&#915;</a
+      ><a name="4390"
+      > </a
+      ><a name="4391" href="BasicIS4.Semantics.TarskiGentzen.html#4391" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4393" class="Symbol"
+      >}</a
+      ><a name="4394"
+      > </a
+      ><a name="4395" class="Symbol"
+      >&#8594;</a
+      ><a name="4396"
+      > </a
+      ><a name="4397" href="BasicIS4.Semantics.TarskiGentzen.html#4391" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4399"
+      > </a
+      ><a name="4400" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4401"
+      > </a
+      ><a name="4402" href="BasicIS4.Semantics.TarskiGentzen.html#4389" class="Bound"
+      >&#915;</a
+      ><a name="4403"
+      > </a
+      ><a name="4404" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4405"
+      > </a
+      ><a name="4406" href="BasicIS4.Semantics.TarskiGentzen.html#4385" class="Bound"
+      >A</a
+      ><a name="4407"
+      > </a
+      ><a name="4408" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="4409"
+      > </a
+      ><a name="4410" href="BasicIS4.Semantics.TarskiGentzen.html#4387" class="Bound"
+      >B</a
+      ><a name="4411"
+      > </a
+      ><a name="4412" class="Symbol"
+      >&#8594;</a
+      ><a name="4413"
+      > </a
+      ><a name="4414" href="BasicIS4.Semantics.TarskiGentzen.html#4391" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4416"
+      > </a
+      ><a name="4417" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4418"
+      > </a
+      ><a name="4419" href="BasicIS4.Semantics.TarskiGentzen.html#4389" class="Bound"
+      >&#915;</a
+      ><a name="4420"
+      > </a
+      ><a name="4421" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4422"
+      > </a
+      ><a name="4423" href="BasicIS4.Semantics.TarskiGentzen.html#4385" class="Bound"
+      >A</a
+      ><a name="4424"
+      >
+  </a
+      ><a name="4427" href="BasicIS4.Semantics.TarskiGentzen.html#4375" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="4431"
+      > </a
+      ><a name="4432" href="BasicIS4.Semantics.TarskiGentzen.html#4432" class="Bound"
+      >s</a
+      ><a name="4433"
+      > </a
+      ><a name="4434" href="BasicIS4.Semantics.TarskiGentzen.html#4434" class="Bound"
+      >&#947;</a
+      ><a name="4435"
+      > </a
+      ><a name="4436" class="Symbol"
+      >=</a
+      ><a name="4437"
+      > </a
+      ><a name="4438" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="4440"
+      > </a
+      ><a name="4441" class="Symbol"
+      >(</a
+      ><a name="4442" href="BasicIS4.Semantics.TarskiGentzen.html#4432" class="Bound"
+      >s</a
+      ><a name="4443"
+      > </a
+      ><a name="4444" href="BasicIS4.Semantics.TarskiGentzen.html#4434" class="Bound"
+      >&#947;</a
+      ><a name="4445" class="Symbol"
+      >)</a
+      ><a name="4446"
+      >
+
+  </a
+      ><a name="4450" href="BasicIS4.Semantics.TarskiGentzen.html#4450" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="4454"
+      > </a
+      ><a name="4455" class="Symbol"
+      >:</a
+      ><a name="4456"
+      > </a
+      ><a name="4457" class="Symbol"
+      >&#8704;</a
+      ><a name="4458"
+      > </a
+      ><a name="4459" class="Symbol"
+      >{</a
+      ><a name="4460" href="BasicIS4.Semantics.TarskiGentzen.html#4460" class="Bound"
+      >A</a
+      ><a name="4461"
+      > </a
+      ><a name="4462" href="BasicIS4.Semantics.TarskiGentzen.html#4462" class="Bound"
+      >B</a
+      ><a name="4463"
+      > </a
+      ><a name="4464" href="BasicIS4.Semantics.TarskiGentzen.html#4464" class="Bound"
+      >&#915;</a
+      ><a name="4465"
+      > </a
+      ><a name="4466" href="BasicIS4.Semantics.TarskiGentzen.html#4466" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4468" class="Symbol"
+      >}</a
+      ><a name="4469"
+      > </a
+      ><a name="4470" class="Symbol"
+      >&#8594;</a
+      ><a name="4471"
+      > </a
+      ><a name="4472" href="BasicIS4.Semantics.TarskiGentzen.html#4466" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4474"
+      > </a
+      ><a name="4475" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4476"
+      > </a
+      ><a name="4477" href="BasicIS4.Semantics.TarskiGentzen.html#4464" class="Bound"
+      >&#915;</a
+      ><a name="4478"
+      > </a
+      ><a name="4479" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4480"
+      > </a
+      ><a name="4481" href="BasicIS4.Semantics.TarskiGentzen.html#4460" class="Bound"
+      >A</a
+      ><a name="4482"
+      > </a
+      ><a name="4483" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="4484"
+      > </a
+      ><a name="4485" href="BasicIS4.Semantics.TarskiGentzen.html#4462" class="Bound"
+      >B</a
+      ><a name="4486"
+      > </a
+      ><a name="4487" class="Symbol"
+      >&#8594;</a
+      ><a name="4488"
+      > </a
+      ><a name="4489" href="BasicIS4.Semantics.TarskiGentzen.html#4466" class="Bound"
+      >&#915;&#8320;</a
+      ><a name="4491"
+      > </a
+      ><a name="4492" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8872;</a
+      ><a name="4493"
+      > </a
+      ><a name="4494" href="BasicIS4.Semantics.TarskiGentzen.html#4464" class="Bound"
+      >&#915;</a
+      ><a name="4495"
+      > </a
+      ><a name="4496" href="BasicIS4.Semantics.TarskiGentzen.html#3223" class="Function Operator"
+      >&#8658;</a
+      ><a name="4497"
+      > </a
+      ><a name="4498" href="BasicIS4.Semantics.TarskiGentzen.html#4462" class="Bound"
+      >B</a
+      ><a name="4499"
+      >
+  </a
+      ><a name="4502" href="BasicIS4.Semantics.TarskiGentzen.html#4450" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="4506"
+      > </a
+      ><a name="4507" href="BasicIS4.Semantics.TarskiGentzen.html#4507" class="Bound"
+      >s</a
+      ><a name="4508"
+      > </a
+      ><a name="4509" href="BasicIS4.Semantics.TarskiGentzen.html#4509" class="Bound"
+      >&#947;</a
+      ><a name="4510"
+      > </a
+      ><a name="4511" class="Symbol"
+      >=</a
+      ><a name="4512"
+      > </a
+      ><a name="4513" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="4515"
+      > </a
+      ><a name="4516" class="Symbol"
+      >(</a
+      ><a name="4517" href="BasicIS4.Semantics.TarskiGentzen.html#4507" class="Bound"
+      >s</a
+      ><a name="4518"
+      > </a
+      ><a name="4519" href="BasicIS4.Semantics.TarskiGentzen.html#4509" class="Bound"
+      >&#947;</a
+      ><a name="4520" class="Symbol"
+      >)</a
+      ><a name="4521"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

@@ -1,0 +1,4745 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Semantics.TarskiClosedHilbert</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Tarski-style semantics with a Hilbert-style closed syntax representation.</a
+      ><a name="77"
+      >
+
+</a
+      ><a name="79" class="Keyword"
+      >module</a
+      ><a name="85"
+      > </a
+      ><a name="86" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1" class="Module"
+      >BasicIS4.Semantics.TarskiClosedHilbert</a
+      ><a name="124"
+      > </a
+      ><a name="125" class="Keyword"
+      >where</a
+      ><a name="130"
+      >
+
+</a
+      ><a name="132" class="Keyword"
+      >open</a
+      ><a name="136"
+      > </a
+      ><a name="137" class="Keyword"
+      >import</a
+      ><a name="143"
+      > </a
+      ><a name="144" href="BasicIS4.Syntax.Common.html#1" class="Module"
+      >BasicIS4.Syntax.Common</a
+      ><a name="166"
+      > </a
+      ><a name="167" class="Keyword"
+      >public</a
+      ><a name="173"
+      >
+
+
+</a
+      ><a name="176" class="Comment"
+      >-- Tarski models.</a
+      ><a name="193"
+      >
+
+</a
+      ><a name="195" class="Keyword"
+      >record</a
+      ><a name="201"
+      > </a
+      ><a name="202" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="207"
+      > </a
+      ><a name="208" class="Symbol"
+      >:</a
+      ><a name="209"
+      > </a
+      ><a name="210" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="214"
+      > </a
+      ><a name="215" class="Keyword"
+      >where</a
+      ><a name="220"
+      >
+  </a
+      ><a name="223" class="Keyword"
+      >infix</a
+      ><a name="228"
+      > </a
+      ><a name="229" class="Number"
+      >3</a
+      ><a name="230"
+      > &#8872;&#7493;_
+  </a
+      ><a name="237" class="Keyword"
+      >field</a
+      ><a name="242"
+      >
+    </a
+      ><a name="247" class="Comment"
+      >-- Satisfaction for atomic propositions.</a
+      ><a name="287"
+      >
+    </a
+      ><a name="292" href="BasicIS4.Semantics.TarskiClosedHilbert.html#292" class="Field Operator"
+      >&#8872;&#7493;_</a
+      ><a name="295"
+      > </a
+      ><a name="296" class="Symbol"
+      >:</a
+      ><a name="297"
+      > </a
+      ><a name="298" href="Common.html#1171" class="Function"
+      >Atom</a
+      ><a name="302"
+      > </a
+      ><a name="303" class="Symbol"
+      >&#8594;</a
+      ><a name="304"
+      > </a
+      ><a name="305" class="PrimitiveType"
+      >Set</a
+      ><a name="308"
+      >
+
+    </a
+      ><a name="314" class="Comment"
+      >-- Hilbert-style closed syntax representation.</a
+      ><a name="360"
+      >
+    </a
+      ><a name="365" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[_]</a
+      ><a name="368"
+      >     </a
+      ><a name="373" class="Symbol"
+      >:</a
+      ><a name="374"
+      > </a
+      ><a name="375" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="377"
+      > </a
+      ><a name="378" class="Symbol"
+      >&#8594;</a
+      ><a name="379"
+      > </a
+      ><a name="380" class="PrimitiveType"
+      >Set</a
+      ><a name="383"
+      >
+    </a
+      ><a name="388" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="393"
+      >   </a
+      ><a name="396" class="Symbol"
+      >:</a
+      ><a name="397"
+      > </a
+      ><a name="398" class="Symbol"
+      >&#8704;</a
+      ><a name="399"
+      > </a
+      ><a name="400" class="Symbol"
+      >{</a
+      ><a name="401" href="BasicIS4.Semantics.TarskiClosedHilbert.html#401" class="Bound"
+      >A</a
+      ><a name="402"
+      > </a
+      ><a name="403" href="BasicIS4.Semantics.TarskiClosedHilbert.html#403" class="Bound"
+      >B</a
+      ><a name="404" class="Symbol"
+      >}</a
+      ><a name="405"
+      >   </a
+      ><a name="408" class="Symbol"
+      >&#8594;</a
+      ><a name="409"
+      > </a
+      ><a name="410" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="BasicIS4.Semantics.TarskiClosedHilbert.html#401" class="Bound"
+      >A</a
+      ><a name="413"
+      > </a
+      ><a name="414" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="415"
+      > </a
+      ><a name="416" href="BasicIS4.Semantics.TarskiClosedHilbert.html#403" class="Bound"
+      >B</a
+      ><a name="417"
+      > </a
+      ><a name="418" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="419"
+      > </a
+      ><a name="420" class="Symbol"
+      >&#8594;</a
+      ><a name="421"
+      > </a
+      ><a name="422" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="423"
+      > </a
+      ><a name="424" href="BasicIS4.Semantics.TarskiClosedHilbert.html#401" class="Bound"
+      >A</a
+      ><a name="425"
+      > </a
+      ><a name="426" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="427"
+      > </a
+      ><a name="428" class="Symbol"
+      >&#8594;</a
+      ><a name="429"
+      > </a
+      ><a name="430" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="431"
+      > </a
+      ><a name="432" href="BasicIS4.Semantics.TarskiClosedHilbert.html#403" class="Bound"
+      >B</a
+      ><a name="433"
+      > </a
+      ><a name="434" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="435"
+      >
+    </a
+      ><a name="440" href="BasicIS4.Semantics.TarskiClosedHilbert.html#440" class="Field"
+      >[ci]</a
+      ><a name="444"
+      >    </a
+      ><a name="448" class="Symbol"
+      >:</a
+      ><a name="449"
+      > </a
+      ><a name="450" class="Symbol"
+      >&#8704;</a
+      ><a name="451"
+      > </a
+      ><a name="452" class="Symbol"
+      >{</a
+      ><a name="453" href="BasicIS4.Semantics.TarskiClosedHilbert.html#453" class="Bound"
+      >A</a
+      ><a name="454" class="Symbol"
+      >}</a
+      ><a name="455"
+      >     </a
+      ><a name="460" class="Symbol"
+      >&#8594;</a
+      ><a name="461"
+      > </a
+      ><a name="462" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="463"
+      > </a
+      ><a name="464" href="BasicIS4.Semantics.TarskiClosedHilbert.html#453" class="Bound"
+      >A</a
+      ><a name="465"
+      > </a
+      ><a name="466" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="467"
+      > </a
+      ><a name="468" href="BasicIS4.Semantics.TarskiClosedHilbert.html#453" class="Bound"
+      >A</a
+      ><a name="469"
+      > </a
+      ><a name="470" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="471"
+      >
+    </a
+      ><a name="476" href="BasicIS4.Semantics.TarskiClosedHilbert.html#476" class="Field"
+      >[ck]</a
+      ><a name="480"
+      >    </a
+      ><a name="484" class="Symbol"
+      >:</a
+      ><a name="485"
+      > </a
+      ><a name="486" class="Symbol"
+      >&#8704;</a
+      ><a name="487"
+      > </a
+      ><a name="488" class="Symbol"
+      >{</a
+      ><a name="489" href="BasicIS4.Semantics.TarskiClosedHilbert.html#489" class="Bound"
+      >A</a
+      ><a name="490"
+      > </a
+      ><a name="491" href="BasicIS4.Semantics.TarskiClosedHilbert.html#491" class="Bound"
+      >B</a
+      ><a name="492" class="Symbol"
+      >}</a
+      ><a name="493"
+      >   </a
+      ><a name="496" class="Symbol"
+      >&#8594;</a
+      ><a name="497"
+      > </a
+      ><a name="498" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="499"
+      > </a
+      ><a name="500" href="BasicIS4.Semantics.TarskiClosedHilbert.html#489" class="Bound"
+      >A</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="503"
+      > </a
+      ><a name="504" href="BasicIS4.Semantics.TarskiClosedHilbert.html#491" class="Bound"
+      >B</a
+      ><a name="505"
+      > </a
+      ><a name="506" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="507"
+      > </a
+      ><a name="508" href="BasicIS4.Semantics.TarskiClosedHilbert.html#489" class="Bound"
+      >A</a
+      ><a name="509"
+      > </a
+      ><a name="510" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="511"
+      >
+    </a
+      ><a name="516" href="BasicIS4.Semantics.TarskiClosedHilbert.html#516" class="Field"
+      >[cs]</a
+      ><a name="520"
+      >    </a
+      ><a name="524" class="Symbol"
+      >:</a
+      ><a name="525"
+      > </a
+      ><a name="526" class="Symbol"
+      >&#8704;</a
+      ><a name="527"
+      > </a
+      ><a name="528" class="Symbol"
+      >{</a
+      ><a name="529" href="BasicIS4.Semantics.TarskiClosedHilbert.html#529" class="Bound"
+      >A</a
+      ><a name="530"
+      > </a
+      ><a name="531" href="BasicIS4.Semantics.TarskiClosedHilbert.html#531" class="Bound"
+      >B</a
+      ><a name="532"
+      > </a
+      ><a name="533" href="BasicIS4.Semantics.TarskiClosedHilbert.html#533" class="Bound"
+      >C</a
+      ><a name="534" class="Symbol"
+      >}</a
+      ><a name="535"
+      > </a
+      ><a name="536" class="Symbol"
+      >&#8594;</a
+      ><a name="537"
+      > </a
+      ><a name="538" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="539"
+      > </a
+      ><a name="540" class="Symbol"
+      >(</a
+      ><a name="541" href="BasicIS4.Semantics.TarskiClosedHilbert.html#529" class="Bound"
+      >A</a
+      ><a name="542"
+      > </a
+      ><a name="543" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="544"
+      > </a
+      ><a name="545" href="BasicIS4.Semantics.TarskiClosedHilbert.html#531" class="Bound"
+      >B</a
+      ><a name="546"
+      > </a
+      ><a name="547" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="548"
+      > </a
+      ><a name="549" href="BasicIS4.Semantics.TarskiClosedHilbert.html#533" class="Bound"
+      >C</a
+      ><a name="550" class="Symbol"
+      >)</a
+      ><a name="551"
+      > </a
+      ><a name="552" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="553"
+      > </a
+      ><a name="554" class="Symbol"
+      >(</a
+      ><a name="555" href="BasicIS4.Semantics.TarskiClosedHilbert.html#529" class="Bound"
+      >A</a
+      ><a name="556"
+      > </a
+      ><a name="557" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="558"
+      > </a
+      ><a name="559" href="BasicIS4.Semantics.TarskiClosedHilbert.html#531" class="Bound"
+      >B</a
+      ><a name="560" class="Symbol"
+      >)</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicIS4.Semantics.TarskiClosedHilbert.html#529" class="Bound"
+      >A</a
+      ><a name="565"
+      > </a
+      ><a name="566" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="BasicIS4.Semantics.TarskiClosedHilbert.html#533" class="Bound"
+      >C</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="571"
+      >
+    </a
+      ><a name="576" href="BasicIS4.Semantics.TarskiClosedHilbert.html#576" class="Field"
+      >[box]</a
+      ><a name="581"
+      >   </a
+      ><a name="584" class="Symbol"
+      >:</a
+      ><a name="585"
+      > </a
+      ><a name="586" class="Symbol"
+      >&#8704;</a
+      ><a name="587"
+      > </a
+      ><a name="588" class="Symbol"
+      >{</a
+      ><a name="589" href="BasicIS4.Semantics.TarskiClosedHilbert.html#589" class="Bound"
+      >A</a
+      ><a name="590" class="Symbol"
+      >}</a
+      ><a name="591"
+      >     </a
+      ><a name="596" class="Symbol"
+      >&#8594;</a
+      ><a name="597"
+      > </a
+      ><a name="598" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="BasicIS4.Semantics.TarskiClosedHilbert.html#589" class="Bound"
+      >A</a
+      ><a name="601"
+      > </a
+      ><a name="602" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="603"
+      > </a
+      ><a name="604" class="Symbol"
+      >&#8594;</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="609"
+      > </a
+      ><a name="610" href="BasicIS4.Semantics.TarskiClosedHilbert.html#589" class="Bound"
+      >A</a
+      ><a name="611"
+      > </a
+      ><a name="612" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="613"
+      >
+    </a
+      ><a name="618" href="BasicIS4.Semantics.TarskiClosedHilbert.html#618" class="Field"
+      >[cdist]</a
+      ><a name="625"
+      > </a
+      ><a name="626" class="Symbol"
+      >:</a
+      ><a name="627"
+      > </a
+      ><a name="628" class="Symbol"
+      >&#8704;</a
+      ><a name="629"
+      > </a
+      ><a name="630" class="Symbol"
+      >{</a
+      ><a name="631" href="BasicIS4.Semantics.TarskiClosedHilbert.html#631" class="Bound"
+      >A</a
+      ><a name="632"
+      > </a
+      ><a name="633" href="BasicIS4.Semantics.TarskiClosedHilbert.html#633" class="Bound"
+      >B</a
+      ><a name="634" class="Symbol"
+      >}</a
+      ><a name="635"
+      >   </a
+      ><a name="638" class="Symbol"
+      >&#8594;</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="641"
+      > </a
+      ><a name="642" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="643"
+      > </a
+      ><a name="644" class="Symbol"
+      >(</a
+      ><a name="645" href="BasicIS4.Semantics.TarskiClosedHilbert.html#631" class="Bound"
+      >A</a
+      ><a name="646"
+      > </a
+      ><a name="647" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="648"
+      > </a
+      ><a name="649" href="BasicIS4.Semantics.TarskiClosedHilbert.html#633" class="Bound"
+      >B</a
+      ><a name="650" class="Symbol"
+      >)</a
+      ><a name="651"
+      > </a
+      ><a name="652" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="653"
+      > </a
+      ><a name="654" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="655"
+      > </a
+      ><a name="656" href="BasicIS4.Semantics.TarskiClosedHilbert.html#631" class="Bound"
+      >A</a
+      ><a name="657"
+      > </a
+      ><a name="658" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="659"
+      > </a
+      ><a name="660" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="661"
+      > </a
+      ><a name="662" href="BasicIS4.Semantics.TarskiClosedHilbert.html#633" class="Bound"
+      >B</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="665"
+      >
+    </a
+      ><a name="670" href="BasicIS4.Semantics.TarskiClosedHilbert.html#670" class="Field"
+      >[cup]</a
+      ><a name="675"
+      >   </a
+      ><a name="678" class="Symbol"
+      >:</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >&#8704;</a
+      ><a name="681"
+      > </a
+      ><a name="682" class="Symbol"
+      >{</a
+      ><a name="683" href="BasicIS4.Semantics.TarskiClosedHilbert.html#683" class="Bound"
+      >A</a
+      ><a name="684" class="Symbol"
+      >}</a
+      ><a name="685"
+      >     </a
+      ><a name="690" class="Symbol"
+      >&#8594;</a
+      ><a name="691"
+      > </a
+      ><a name="692" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="693"
+      > </a
+      ><a name="694" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="BasicIS4.Semantics.TarskiClosedHilbert.html#683" class="Bound"
+      >A</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="699"
+      > </a
+      ><a name="700" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="701"
+      > </a
+      ><a name="702" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="703"
+      > </a
+      ><a name="704" href="BasicIS4.Semantics.TarskiClosedHilbert.html#683" class="Bound"
+      >A</a
+      ><a name="705"
+      > </a
+      ><a name="706" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="707"
+      >
+    </a
+      ><a name="712" href="BasicIS4.Semantics.TarskiClosedHilbert.html#712" class="Field"
+      >[cdown]</a
+      ><a name="719"
+      > </a
+      ><a name="720" class="Symbol"
+      >:</a
+      ><a name="721"
+      > </a
+      ><a name="722" class="Symbol"
+      >&#8704;</a
+      ><a name="723"
+      > </a
+      ><a name="724" class="Symbol"
+      >{</a
+      ><a name="725" href="BasicIS4.Semantics.TarskiClosedHilbert.html#725" class="Bound"
+      >A</a
+      ><a name="726" class="Symbol"
+      >}</a
+      ><a name="727"
+      >     </a
+      ><a name="732" class="Symbol"
+      >&#8594;</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="BasicIS4.Semantics.TarskiClosedHilbert.html#725" class="Bound"
+      >A</a
+      ><a name="739"
+      > </a
+      ><a name="740" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="741"
+      > </a
+      ><a name="742" href="BasicIS4.Semantics.TarskiClosedHilbert.html#725" class="Bound"
+      >A</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="745"
+      >
+    </a
+      ><a name="750" href="BasicIS4.Semantics.TarskiClosedHilbert.html#750" class="Field"
+      >[cpair]</a
+      ><a name="757"
+      > </a
+      ><a name="758" class="Symbol"
+      >:</a
+      ><a name="759"
+      > </a
+      ><a name="760" class="Symbol"
+      >&#8704;</a
+      ><a name="761"
+      > </a
+      ><a name="762" class="Symbol"
+      >{</a
+      ><a name="763" href="BasicIS4.Semantics.TarskiClosedHilbert.html#763" class="Bound"
+      >A</a
+      ><a name="764"
+      > </a
+      ><a name="765" href="BasicIS4.Semantics.TarskiClosedHilbert.html#765" class="Bound"
+      >B</a
+      ><a name="766" class="Symbol"
+      >}</a
+      ><a name="767"
+      >   </a
+      ><a name="770" class="Symbol"
+      >&#8594;</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="773"
+      > </a
+      ><a name="774" href="BasicIS4.Semantics.TarskiClosedHilbert.html#763" class="Bound"
+      >A</a
+      ><a name="775"
+      > </a
+      ><a name="776" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="777"
+      > </a
+      ><a name="778" href="BasicIS4.Semantics.TarskiClosedHilbert.html#765" class="Bound"
+      >B</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="BasicIS4.Semantics.TarskiClosedHilbert.html#763" class="Bound"
+      >A</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="785"
+      > </a
+      ><a name="786" href="BasicIS4.Semantics.TarskiClosedHilbert.html#765" class="Bound"
+      >B</a
+      ><a name="787"
+      > </a
+      ><a name="788" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="789"
+      >
+    </a
+      ><a name="794" href="BasicIS4.Semantics.TarskiClosedHilbert.html#794" class="Field"
+      >[cfst]</a
+      ><a name="800"
+      >  </a
+      ><a name="802" class="Symbol"
+      >:</a
+      ><a name="803"
+      > </a
+      ><a name="804" class="Symbol"
+      >&#8704;</a
+      ><a name="805"
+      > </a
+      ><a name="806" class="Symbol"
+      >{</a
+      ><a name="807" href="BasicIS4.Semantics.TarskiClosedHilbert.html#807" class="Bound"
+      >A</a
+      ><a name="808"
+      > </a
+      ><a name="809" href="BasicIS4.Semantics.TarskiClosedHilbert.html#809" class="Bound"
+      >B</a
+      ><a name="810" class="Symbol"
+      >}</a
+      ><a name="811"
+      >   </a
+      ><a name="814" class="Symbol"
+      >&#8594;</a
+      ><a name="815"
+      > </a
+      ><a name="816" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="817"
+      > </a
+      ><a name="818" href="BasicIS4.Semantics.TarskiClosedHilbert.html#807" class="Bound"
+      >A</a
+      ><a name="819"
+      > </a
+      ><a name="820" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="821"
+      > </a
+      ><a name="822" href="BasicIS4.Semantics.TarskiClosedHilbert.html#809" class="Bound"
+      >B</a
+      ><a name="823"
+      > </a
+      ><a name="824" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="825"
+      > </a
+      ><a name="826" href="BasicIS4.Semantics.TarskiClosedHilbert.html#807" class="Bound"
+      >A</a
+      ><a name="827"
+      > </a
+      ><a name="828" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="829"
+      >
+    </a
+      ><a name="834" href="BasicIS4.Semantics.TarskiClosedHilbert.html#834" class="Field"
+      >[csnd]</a
+      ><a name="840"
+      >  </a
+      ><a name="842" class="Symbol"
+      >:</a
+      ><a name="843"
+      > </a
+      ><a name="844" class="Symbol"
+      >&#8704;</a
+      ><a name="845"
+      > </a
+      ><a name="846" class="Symbol"
+      >{</a
+      ><a name="847" href="BasicIS4.Semantics.TarskiClosedHilbert.html#847" class="Bound"
+      >A</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="BasicIS4.Semantics.TarskiClosedHilbert.html#849" class="Bound"
+      >B</a
+      ><a name="850" class="Symbol"
+      >}</a
+      ><a name="851"
+      >   </a
+      ><a name="854" class="Symbol"
+      >&#8594;</a
+      ><a name="855"
+      > </a
+      ><a name="856" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="857"
+      > </a
+      ><a name="858" href="BasicIS4.Semantics.TarskiClosedHilbert.html#847" class="Bound"
+      >A</a
+      ><a name="859"
+      > </a
+      ><a name="860" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="861"
+      > </a
+      ><a name="862" href="BasicIS4.Semantics.TarskiClosedHilbert.html#849" class="Bound"
+      >B</a
+      ><a name="863"
+      > </a
+      ><a name="864" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="865"
+      > </a
+      ><a name="866" href="BasicIS4.Semantics.TarskiClosedHilbert.html#849" class="Bound"
+      >B</a
+      ><a name="867"
+      > </a
+      ><a name="868" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="869"
+      >
+    </a
+      ><a name="874" href="BasicIS4.Semantics.TarskiClosedHilbert.html#874" class="Field"
+      >[tt]</a
+      ><a name="878"
+      >    </a
+      ><a name="882" class="Symbol"
+      >:</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="885"
+      > </a
+      ><a name="886" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="889"
+      >
+
+</a
+      ><a name="891" class="Keyword"
+      >open</a
+      ><a name="895"
+      > </a
+      ><a name="896" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Module"
+      >Model</a
+      ><a name="901"
+      > </a
+      ><a name="902" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="907"
+      > </a
+      ><a name="908" class="Keyword"
+      >public</a
+      ><a name="914"
+      >
+
+
+</a
+      ><a name="917" class="Comment"
+      >-- Satisfaction in a particular model.</a
+      ><a name="955"
+      >
+
+</a
+      ><a name="957" class="Keyword"
+      >module</a
+      ><a name="963"
+      > </a
+      ><a name="964" href="BasicIS4.Semantics.TarskiClosedHilbert.html#964" class="Module"
+      >_</a
+      ><a name="965"
+      > </a
+      ><a name="966" class="Symbol"
+      >{{</a
+      ><a name="968" href="BasicIS4.Semantics.TarskiClosedHilbert.html#968" class="Bound"
+      >_</a
+      ><a name="969"
+      > </a
+      ><a name="970" class="Symbol"
+      >:</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="977" class="Symbol"
+      >}}</a
+      ><a name="979"
+      > </a
+      ><a name="980" class="Keyword"
+      >where</a
+      ><a name="985"
+      >
+  </a
+      ><a name="988" class="Keyword"
+      >infix</a
+      ><a name="993"
+      > </a
+      ><a name="994" class="Number"
+      >3</a
+      ><a name="995"
+      > &#8872;_
+  </a
+      ><a name="1001" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;_</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" class="Symbol"
+      >:</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1008"
+      > </a
+      ><a name="1009" class="Symbol"
+      >&#8594;</a
+      ><a name="1010"
+      > </a
+      ><a name="1011" class="PrimitiveType"
+      >Set</a
+      ><a name="1014"
+      >
+  </a
+      ><a name="1017" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1021" class="Bound"
+      >P</a
+      ><a name="1022"
+      >   </a
+      ><a name="1025" class="Symbol"
+      >=</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1021" class="Bound"
+      >P</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" href="BasicIS4.Semantics.TarskiClosedHilbert.html#292" class="Field Operator"
+      >&#8872;&#7493;</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1021" class="Bound"
+      >P</a
+      ><a name="1041"
+      >
+  </a
+      ><a name="1044" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1045"
+      > </a
+      ><a name="1046" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1046" class="Bound"
+      >A</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1049"
+      > </a
+      ><a name="1050" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1050" class="Bound"
+      >B</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" class="Symbol"
+      >=</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1046" class="Bound"
+      >A</a
+      ><a name="1057"
+      > </a
+      ><a name="1058" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1050" class="Bound"
+      >B</a
+      ><a name="1061"
+      > </a
+      ><a name="1062" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="1063"
+      > </a
+      ><a name="1064" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1065"
+      > </a
+      ><a name="1066" class="Symbol"
+      >(</a
+      ><a name="1067" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1046" class="Bound"
+      >A</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" class="Symbol"
+      >&#8594;</a
+      ><a name="1072"
+      > </a
+      ><a name="1073" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1050" class="Bound"
+      >B</a
+      ><a name="1076" class="Symbol"
+      >)</a
+      ><a name="1077"
+      >
+  </a
+      ><a name="1080" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="1083"
+      > </a
+      ><a name="1084" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1084" class="Bound"
+      >A</a
+      ><a name="1085"
+      >   </a
+      ><a name="1088" class="Symbol"
+      >=</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1084" class="Bound"
+      >A</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1084" class="Bound"
+      >A</a
+      ><a name="1101"
+      >
+  </a
+      ><a name="1104" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1105"
+      > </a
+      ><a name="1106" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1106" class="Bound"
+      >A</a
+      ><a name="1107"
+      > </a
+      ><a name="1108" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1109"
+      > </a
+      ><a name="1110" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1110" class="Bound"
+      >B</a
+      ><a name="1111"
+      > </a
+      ><a name="1112" class="Symbol"
+      >=</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1106" class="Bound"
+      >A</a
+      ><a name="1117"
+      > </a
+      ><a name="1118" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1119"
+      > </a
+      ><a name="1120" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1121"
+      > </a
+      ><a name="1122" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1110" class="Bound"
+      >B</a
+      ><a name="1123"
+      >
+  </a
+      ><a name="1126" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1129"
+      >    </a
+      ><a name="1133" class="Symbol"
+      >=</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1136"
+      >
+
+  </a
+      ><a name="1140" class="Keyword"
+      >infix</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" class="Number"
+      >3</a
+      ><a name="1147"
+      > &#8872;&#8902;_
+  </a
+      ><a name="1154" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1154" class="Function Operator"
+      >&#8872;&#8902;_</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" class="Symbol"
+      >:</a
+      ><a name="1159"
+      > </a
+      ><a name="1160" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1162"
+      > </a
+      ><a name="1163" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" class="Symbol"
+      >&#8594;</a
+      ><a name="1167"
+      > </a
+      ><a name="1168" class="PrimitiveType"
+      >Set</a
+      ><a name="1171"
+      >
+  </a
+      ><a name="1174" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1154" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1176"
+      > </a
+      ><a name="1177" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1178"
+      >     </a
+      ><a name="1183" class="Symbol"
+      >=</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1186"
+      >
+  </a
+      ><a name="1189" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1154" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1191"
+      > </a
+      ><a name="1192" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1192" class="Bound"
+      >&#928;</a
+      ><a name="1193"
+      > </a
+      ><a name="1194" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1195"
+      > </a
+      ><a name="1196" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1196" class="Bound"
+      >A</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" class="Symbol"
+      >=</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1154" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1192" class="Bound"
+      >&#928;</a
+      ><a name="1204"
+      > </a
+      ><a name="1205" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1208"
+      > </a
+      ><a name="1209" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1196" class="Bound"
+      >A</a
+      ><a name="1210"
+      >
+
+
+</a
+      ><a name="1213" class="Comment"
+      >-- Satisfaction in all models.</a
+      ><a name="1243"
+      >
+
+</a
+      ><a name="1245" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1245" class="Function Operator"
+      >&#8704;&#7481;&#8872;_</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" class="Symbol"
+      >:</a
+      ><a name="1251"
+      > </a
+      ><a name="1252" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1254"
+      > </a
+      ><a name="1255" class="Symbol"
+      >&#8594;</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="1261"
+      >
+</a
+      ><a name="1262" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1245" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1266" class="Bound"
+      >A</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" class="Symbol"
+      >=</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" class="Symbol"
+      >&#8704;</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" class="Symbol"
+      >{{</a
+      ><a name="1274" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1274" class="Bound"
+      >_</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" class="Symbol"
+      >:</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="1283" class="Symbol"
+      >}}</a
+      ><a name="1285"
+      > </a
+      ><a name="1286" class="Symbol"
+      >&#8594;</a
+      ><a name="1287"
+      > </a
+      ><a name="1288" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1289"
+      > </a
+      ><a name="1290" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1266" class="Bound"
+      >A</a
+      ><a name="1291"
+      >
+
+
+</a
+      ><a name="1294" class="Comment"
+      >-- Completeness with respect to the syntax representation in a particular model.</a
+      ><a name="1374"
+      >
+
+</a
+      ><a name="1376" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="1383"
+      > </a
+      ><a name="1384" class="Symbol"
+      >:</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" class="Symbol"
+      >&#8704;</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" class="Symbol"
+      >{{</a
+      ><a name="1390" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1390" class="Bound"
+      >_</a
+      ><a name="1391"
+      > </a
+      ><a name="1392" class="Symbol"
+      >:</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="1399" class="Symbol"
+      >}}</a
+      ><a name="1401"
+      > </a
+      ><a name="1402" class="Symbol"
+      >{</a
+      ><a name="1403" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1403" class="Bound"
+      >A</a
+      ><a name="1404" class="Symbol"
+      >}</a
+      ><a name="1405"
+      > </a
+      ><a name="1406" class="Symbol"
+      >&#8594;</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1403" class="Bound"
+      >A</a
+      ><a name="1411"
+      > </a
+      ><a name="1412" class="Symbol"
+      >&#8594;</a
+      ><a name="1413"
+      > </a
+      ><a name="1414" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="1415"
+      > </a
+      ><a name="1416" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1403" class="Bound"
+      >A</a
+      ><a name="1417"
+      > </a
+      ><a name="1418" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="1419"
+      >
+</a
+      ><a name="1420" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="1427"
+      > </a
+      ><a name="1428" class="Symbol"
+      >{</a
+      ><a name="1429" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1431" class="Bound"
+      >P</a
+      ><a name="1432" class="Symbol"
+      >}</a
+      ><a name="1433"
+      >   </a
+      ><a name="1436" class="Symbol"
+      >(</a
+      ><a name="1437" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1437" class="Bound"
+      >t</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1440"
+      > </a
+      ><a name="1441" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1441" class="Bound"
+      >s</a
+      ><a name="1442" class="Symbol"
+      >)</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" class="Symbol"
+      >=</a
+      ><a name="1445"
+      > </a
+      ><a name="1446" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1437" class="Bound"
+      >t</a
+      ><a name="1447"
+      >
+</a
+      ><a name="1448" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="1455"
+      > </a
+      ><a name="1456" class="Symbol"
+      >{</a
+      ><a name="1457" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1457" class="Bound"
+      >A</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1461" class="Bound"
+      >B</a
+      ><a name="1462" class="Symbol"
+      >}</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" class="Symbol"
+      >(</a
+      ><a name="1465" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1465" class="Bound"
+      >t</a
+      ><a name="1466"
+      > </a
+      ><a name="1467" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1469" class="Bound"
+      >f</a
+      ><a name="1470" class="Symbol"
+      >)</a
+      ><a name="1471"
+      > </a
+      ><a name="1472" class="Symbol"
+      >=</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1465" class="Bound"
+      >t</a
+      ><a name="1475"
+      >
+</a
+      ><a name="1476" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" class="Symbol"
+      >{</a
+      ><a name="1485" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="1486"
+      > </a
+      ><a name="1487" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1487" class="Bound"
+      >A</a
+      ><a name="1488" class="Symbol"
+      >}</a
+      ><a name="1489"
+      >   </a
+      ><a name="1492" class="Symbol"
+      >(</a
+      ><a name="1493" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1493" class="Bound"
+      >t</a
+      ><a name="1494"
+      > </a
+      ><a name="1495" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1496"
+      > </a
+      ><a name="1497" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1497" class="Bound"
+      >a</a
+      ><a name="1498" class="Symbol"
+      >)</a
+      ><a name="1499"
+      > </a
+      ><a name="1500" class="Symbol"
+      >=</a
+      ><a name="1501"
+      > </a
+      ><a name="1502" href="BasicIS4.Semantics.TarskiClosedHilbert.html#576" class="Field"
+      >[box]</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1493" class="Bound"
+      >t</a
+      ><a name="1509"
+      >
+</a
+      ><a name="1510" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="1517"
+      > </a
+      ><a name="1518" class="Symbol"
+      >{</a
+      ><a name="1519" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1519" class="Bound"
+      >A</a
+      ><a name="1520"
+      > </a
+      ><a name="1521" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1523" class="Bound"
+      >B</a
+      ><a name="1524" class="Symbol"
+      >}</a
+      ><a name="1525"
+      > </a
+      ><a name="1526" class="Symbol"
+      >(</a
+      ><a name="1527" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1527" class="Bound"
+      >a</a
+      ><a name="1528"
+      > </a
+      ><a name="1529" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1530"
+      > </a
+      ><a name="1531" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1531" class="Bound"
+      >b</a
+      ><a name="1532" class="Symbol"
+      >)</a
+      ><a name="1533"
+      > </a
+      ><a name="1534" class="Symbol"
+      >=</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" class="Symbol"
+      >(</a
+      ><a name="1543" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="1548"
+      > </a
+      ><a name="1549" href="BasicIS4.Semantics.TarskiClosedHilbert.html#750" class="Field"
+      >[cpair]</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" class="Symbol"
+      >(</a
+      ><a name="1558" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" class="Symbol"
+      >{</a
+      ><a name="1567" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1519" class="Bound"
+      >A</a
+      ><a name="1568" class="Symbol"
+      >}</a
+      ><a name="1569"
+      > </a
+      ><a name="1570" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1527" class="Bound"
+      >a</a
+      ><a name="1571" class="Symbol"
+      >))</a
+      ><a name="1573"
+      > </a
+      ><a name="1574" class="Symbol"
+      >(</a
+      ><a name="1575" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="1582"
+      > </a
+      ><a name="1583" class="Symbol"
+      >{</a
+      ><a name="1584" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1523" class="Bound"
+      >B</a
+      ><a name="1585" class="Symbol"
+      >}</a
+      ><a name="1586"
+      > </a
+      ><a name="1587" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1531" class="Bound"
+      >b</a
+      ><a name="1588" class="Symbol"
+      >)</a
+      ><a name="1589"
+      >
+</a
+      ><a name="1590" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="1597"
+      > </a
+      ><a name="1598" class="Symbol"
+      >{</a
+      ><a name="1599" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1600" class="Symbol"
+      >}</a
+      ><a name="1601"
+      >    </a
+      ><a name="1605" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1606"
+      >       </a
+      ><a name="1613" class="Symbol"
+      >=</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="BasicIS4.Semantics.TarskiClosedHilbert.html#874" class="Field"
+      >[tt]</a
+      ><a name="1619"
+      >
+
+
+</a
+      ><a name="1622" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="1653"
+      >
+
+</a
+      ><a name="1655" class="Keyword"
+      >module</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1662" class="Module"
+      >_</a
+      ><a name="1663"
+      > </a
+      ><a name="1664" class="Symbol"
+      >{{</a
+      ><a name="1666" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1666" class="Bound"
+      >_</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" class="Symbol"
+      >:</a
+      ><a name="1669"
+      > </a
+      ><a name="1670" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="1675" class="Symbol"
+      >}}</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" class="Keyword"
+      >where</a
+      ><a name="1683"
+      >
+  </a
+      ><a name="1686" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1686" class="Function Operator"
+      >_&#10218;$&#10219;_</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" class="Symbol"
+      >:</a
+      ><a name="1693"
+      > </a
+      ><a name="1694" class="Symbol"
+      >&#8704;</a
+      ><a name="1695"
+      > </a
+      ><a name="1696" class="Symbol"
+      >{</a
+      ><a name="1697" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1697" class="Bound"
+      >A</a
+      ><a name="1698"
+      > </a
+      ><a name="1699" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1699" class="Bound"
+      >B</a
+      ><a name="1700" class="Symbol"
+      >}</a
+      ><a name="1701"
+      > </a
+      ><a name="1702" class="Symbol"
+      >&#8594;</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1697" class="Bound"
+      >A</a
+      ><a name="1707"
+      > </a
+      ><a name="1708" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1699" class="Bound"
+      >B</a
+      ><a name="1711"
+      > </a
+      ><a name="1712" class="Symbol"
+      >&#8594;</a
+      ><a name="1713"
+      > </a
+      ><a name="1714" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1697" class="Bound"
+      >A</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" class="Symbol"
+      >&#8594;</a
+      ><a name="1719"
+      > </a
+      ><a name="1720" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1699" class="Bound"
+      >B</a
+      ><a name="1723"
+      >
+  </a
+      ><a name="1726" class="Symbol"
+      >(</a
+      ><a name="1727" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1727" class="Bound"
+      >t</a
+      ><a name="1728"
+      > </a
+      ><a name="1729" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1731" class="Bound"
+      >f</a
+      ><a name="1732" class="Symbol"
+      >)</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1686" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1738" class="Bound"
+      >a</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" class="Symbol"
+      >=</a
+      ><a name="1741"
+      > </a
+      ><a name="1742" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1731" class="Bound"
+      >f</a
+      ><a name="1743"
+      > </a
+      ><a name="1744" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1738" class="Bound"
+      >a</a
+      ><a name="1745"
+      >
+
+  </a
+      ><a name="1749" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1749" class="Function"
+      >&#10218;const&#10219;</a
+      ><a name="1756"
+      > </a
+      ><a name="1757" class="Symbol"
+      >:</a
+      ><a name="1758"
+      > </a
+      ><a name="1759" class="Symbol"
+      >&#8704;</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" class="Symbol"
+      >{</a
+      ><a name="1762" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1762" class="Bound"
+      >A</a
+      ><a name="1763"
+      > </a
+      ><a name="1764" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1764" class="Bound"
+      >B</a
+      ><a name="1765" class="Symbol"
+      >}</a
+      ><a name="1766"
+      > </a
+      ><a name="1767" class="Symbol"
+      >&#8594;</a
+      ><a name="1768"
+      > </a
+      ><a name="1769" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1770"
+      > </a
+      ><a name="1771" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1762" class="Bound"
+      >A</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" class="Symbol"
+      >&#8594;</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1776"
+      > </a
+      ><a name="1777" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1764" class="Bound"
+      >B</a
+      ><a name="1778"
+      > </a
+      ><a name="1779" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1780"
+      > </a
+      ><a name="1781" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1762" class="Bound"
+      >A</a
+      ><a name="1782"
+      >
+  </a
+      ><a name="1785" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1749" class="Function"
+      >&#10218;const&#10219;</a
+      ><a name="1792"
+      > </a
+      ><a name="1793" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1793" class="Bound"
+      >a</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" class="Symbol"
+      >=</a
+      ><a name="1796"
+      > </a
+      ><a name="1797" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="1802"
+      > </a
+      ><a name="1803" href="BasicIS4.Semantics.TarskiClosedHilbert.html#476" class="Field"
+      >[ck]</a
+      ><a name="1807"
+      > </a
+      ><a name="1808" class="Symbol"
+      >(</a
+      ><a name="1809" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="1816"
+      > </a
+      ><a name="1817" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1793" class="Bound"
+      >a</a
+      ><a name="1818" class="Symbol"
+      >)</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" href="Function.html#1053" class="Function"
+      >const</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1793" class="Bound"
+      >a</a
+      ><a name="1829"
+      >
+
+  </a
+      ><a name="1833" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1833" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" class="Symbol"
+      >:</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" class="Symbol"
+      >&#8704;</a
+      ><a name="1841"
+      > </a
+      ><a name="1842" class="Symbol"
+      >{</a
+      ><a name="1843" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1843" class="Bound"
+      >A</a
+      ><a name="1844"
+      > </a
+      ><a name="1845" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1845" class="Bound"
+      >B</a
+      ><a name="1846"
+      > </a
+      ><a name="1847" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1847" class="Bound"
+      >C</a
+      ><a name="1848" class="Symbol"
+      >}</a
+      ><a name="1849"
+      > </a
+      ><a name="1850" class="Symbol"
+      >&#8594;</a
+      ><a name="1851"
+      > </a
+      ><a name="1852" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1853"
+      > </a
+      ><a name="1854" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1843" class="Bound"
+      >A</a
+      ><a name="1855"
+      > </a
+      ><a name="1856" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1845" class="Bound"
+      >B</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1847" class="Bound"
+      >C</a
+      ><a name="1863"
+      > </a
+      ><a name="1864" class="Symbol"
+      >&#8594;</a
+      ><a name="1865"
+      > </a
+      ><a name="1866" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1867"
+      > </a
+      ><a name="1868" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1843" class="Bound"
+      >A</a
+      ><a name="1869"
+      > </a
+      ><a name="1870" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1871"
+      > </a
+      ><a name="1872" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1845" class="Bound"
+      >B</a
+      ><a name="1873"
+      > </a
+      ><a name="1874" class="Symbol"
+      >&#8594;</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1877"
+      > </a
+      ><a name="1878" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1843" class="Bound"
+      >A</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" class="Symbol"
+      >&#8594;</a
+      ><a name="1881"
+      > </a
+      ><a name="1882" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1883"
+      > </a
+      ><a name="1884" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1847" class="Bound"
+      >C</a
+      ><a name="1885"
+      >
+  </a
+      ><a name="1888" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1833" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="1892"
+      > </a
+      ><a name="1893" class="Symbol"
+      >(</a
+      ><a name="1894" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1894" class="Bound"
+      >t</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1897"
+      > </a
+      ><a name="1898" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1898" class="Bound"
+      >f</a
+      ><a name="1899" class="Symbol"
+      >)</a
+      ><a name="1900"
+      > </a
+      ><a name="1901" class="Symbol"
+      >(</a
+      ><a name="1902" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1902" class="Bound"
+      >u</a
+      ><a name="1903"
+      > </a
+      ><a name="1904" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1905"
+      > </a
+      ><a name="1906" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1906" class="Bound"
+      >g</a
+      ><a name="1907" class="Symbol"
+      >)</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1909" class="Bound"
+      >a</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" class="Symbol"
+      >=</a
+      ><a name="1912"
+      > </a
+      ><a name="1913" class="Keyword"
+      >let</a
+      ><a name="1916"
+      > </a
+      ><a name="1917" class="Symbol"
+      >(_</a
+      ><a name="1919"
+      > </a
+      ><a name="1920" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1921"
+      > </a
+      ><a name="1922" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1922" class="Bound"
+      >h</a
+      ><a name="1923" class="Symbol"
+      >)</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" class="Symbol"
+      >=</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1898" class="Bound"
+      >f</a
+      ><a name="1928"
+      > </a
+      ><a name="1929" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1909" class="Bound"
+      >a</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" class="Keyword"
+      >in</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1922" class="Bound"
+      >h</a
+      ><a name="1935"
+      > </a
+      ><a name="1936" class="Symbol"
+      >(</a
+      ><a name="1937" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1906" class="Bound"
+      >g</a
+      ><a name="1938"
+      > </a
+      ><a name="1939" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1909" class="Bound"
+      >a</a
+      ><a name="1940" class="Symbol"
+      >)</a
+      ><a name="1941"
+      >
+
+  </a
+      ><a name="1945" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1945" class="Function"
+      >&#10218;ap&#10219;&#8242;</a
+      ><a name="1950"
+      > </a
+      ><a name="1951" class="Symbol"
+      >:</a
+      ><a name="1952"
+      > </a
+      ><a name="1953" class="Symbol"
+      >&#8704;</a
+      ><a name="1954"
+      > </a
+      ><a name="1955" class="Symbol"
+      >{</a
+      ><a name="1956" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1956" class="Bound"
+      >A</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1958" class="Bound"
+      >B</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1960" class="Bound"
+      >C</a
+      ><a name="1961" class="Symbol"
+      >}</a
+      ><a name="1962"
+      > </a
+      ><a name="1963" class="Symbol"
+      >&#8594;</a
+      ><a name="1964"
+      > </a
+      ><a name="1965" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1966"
+      > </a
+      ><a name="1967" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1956" class="Bound"
+      >A</a
+      ><a name="1968"
+      > </a
+      ><a name="1969" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1970"
+      > </a
+      ><a name="1971" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1958" class="Bound"
+      >B</a
+      ><a name="1972"
+      > </a
+      ><a name="1973" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1974"
+      > </a
+      ><a name="1975" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1960" class="Bound"
+      >C</a
+      ><a name="1976"
+      > </a
+      ><a name="1977" class="Symbol"
+      >&#8594;</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="1980"
+      > </a
+      ><a name="1981" class="Symbol"
+      >(</a
+      ><a name="1982" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1956" class="Bound"
+      >A</a
+      ><a name="1983"
+      > </a
+      ><a name="1984" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1985"
+      > </a
+      ><a name="1986" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1958" class="Bound"
+      >B</a
+      ><a name="1987" class="Symbol"
+      >)</a
+      ><a name="1988"
+      > </a
+      ><a name="1989" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1990"
+      > </a
+      ><a name="1991" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1956" class="Bound"
+      >A</a
+      ><a name="1992"
+      > </a
+      ><a name="1993" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1994"
+      > </a
+      ><a name="1995" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1960" class="Bound"
+      >C</a
+      ><a name="1996"
+      >
+  </a
+      ><a name="1999" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1945" class="Function"
+      >&#10218;ap&#10219;&#8242;</a
+      ><a name="2004"
+      > </a
+      ><a name="2005" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2005" class="Bound"
+      >f</a
+      ><a name="2006"
+      > </a
+      ><a name="2007" class="Symbol"
+      >=</a
+      ><a name="2008"
+      > </a
+      ><a name="2009" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="2014"
+      > </a
+      ><a name="2015" href="BasicIS4.Semantics.TarskiClosedHilbert.html#516" class="Field"
+      >[cs]</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" class="Symbol"
+      >(</a
+      ><a name="2021" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2005" class="Bound"
+      >f</a
+      ><a name="2030" class="Symbol"
+      >)</a
+      ><a name="2031"
+      > </a
+      ><a name="2032" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2033"
+      > </a
+      ><a name="2034" class="Symbol"
+      >&#955;</a
+      ><a name="2035"
+      > </a
+      ><a name="2036" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2036" class="Bound"
+      >g</a
+      ><a name="2037"
+      > </a
+      ><a name="2038" class="Symbol"
+      >&#8594;</a
+      ><a name="2039"
+      >
+              </a
+      ><a name="2054" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" class="Symbol"
+      >(</a
+      ><a name="2061" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="2066"
+      > </a
+      ><a name="2067" href="BasicIS4.Semantics.TarskiClosedHilbert.html#516" class="Field"
+      >[cs]</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" class="Symbol"
+      >(</a
+      ><a name="2073" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="2080"
+      > </a
+      ><a name="2081" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2005" class="Bound"
+      >f</a
+      ><a name="2082" class="Symbol"
+      >))</a
+      ><a name="2084"
+      > </a
+      ><a name="2085" class="Symbol"
+      >(</a
+      ><a name="2086" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2036" class="Bound"
+      >g</a
+      ><a name="2095" class="Symbol"
+      >)</a
+      ><a name="2096"
+      > </a
+      ><a name="2097" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2098"
+      > </a
+      ><a name="2099" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1833" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="2103"
+      > </a
+      ><a name="2104" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2005" class="Bound"
+      >f</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2036" class="Bound"
+      >g</a
+      ><a name="2107"
+      >
+
+  </a
+      ><a name="2111" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2111" class="Function Operator"
+      >_&#10218;&#9678;&#10219;_</a
+      ><a name="2116"
+      > </a
+      ><a name="2117" class="Symbol"
+      >:</a
+      ><a name="2118"
+      > </a
+      ><a name="2119" class="Symbol"
+      >&#8704;</a
+      ><a name="2120"
+      > </a
+      ><a name="2121" class="Symbol"
+      >{</a
+      ><a name="2122" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2122" class="Bound"
+      >A</a
+      ><a name="2123"
+      > </a
+      ><a name="2124" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2124" class="Bound"
+      >B</a
+      ><a name="2125" class="Symbol"
+      >}</a
+      ><a name="2126"
+      > </a
+      ><a name="2127" class="Symbol"
+      >&#8594;</a
+      ><a name="2128"
+      > </a
+      ><a name="2129" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2130"
+      > </a
+      ><a name="2131" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2132"
+      > </a
+      ><a name="2133" class="Symbol"
+      >(</a
+      ><a name="2134" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2122" class="Bound"
+      >A</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2137"
+      > </a
+      ><a name="2138" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2124" class="Bound"
+      >B</a
+      ><a name="2139" class="Symbol"
+      >)</a
+      ><a name="2140"
+      > </a
+      ><a name="2141" class="Symbol"
+      >&#8594;</a
+      ><a name="2142"
+      > </a
+      ><a name="2143" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2144"
+      > </a
+      ><a name="2145" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2146"
+      > </a
+      ><a name="2147" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2122" class="Bound"
+      >A</a
+      ><a name="2148"
+      > </a
+      ><a name="2149" class="Symbol"
+      >&#8594;</a
+      ><a name="2150"
+      > </a
+      ><a name="2151" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2152"
+      > </a
+      ><a name="2153" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2154"
+      > </a
+      ><a name="2155" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2124" class="Bound"
+      >B</a
+      ><a name="2156"
+      >
+  </a
+      ><a name="2159" class="Symbol"
+      >(</a
+      ><a name="2160" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2160" class="Bound"
+      >t</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2164" class="Bound"
+      >f</a
+      ><a name="2165" class="Symbol"
+      >)</a
+      ><a name="2166"
+      > </a
+      ><a name="2167" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2111" class="Function Operator"
+      >&#10218;&#9678;&#10219;</a
+      ><a name="2170"
+      > </a
+      ><a name="2171" class="Symbol"
+      >(</a
+      ><a name="2172" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2172" class="Bound"
+      >u</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2175"
+      > </a
+      ><a name="2176" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2176" class="Bound"
+      >a</a
+      ><a name="2177" class="Symbol"
+      >)</a
+      ><a name="2178"
+      > </a
+      ><a name="2179" class="Symbol"
+      >=</a
+      ><a name="2180"
+      > </a
+      ><a name="2181" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="2186"
+      > </a
+      ><a name="2187" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2160" class="Bound"
+      >t</a
+      ><a name="2188"
+      > </a
+      ><a name="2189" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2172" class="Bound"
+      >u</a
+      ><a name="2190"
+      > </a
+      ><a name="2191" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2192"
+      > </a
+      ><a name="2193" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2164" class="Bound"
+      >f</a
+      ><a name="2194"
+      > </a
+      ><a name="2195" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1686" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="2198"
+      > </a
+      ><a name="2199" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2176" class="Bound"
+      >a</a
+      ><a name="2200"
+      >
+
+  </a
+      ><a name="2204" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2204" class="Function Operator"
+      >_&#10218;&#9678;&#10219;&#8242;_</a
+      ><a name="2210"
+      > </a
+      ><a name="2211" class="Symbol"
+      >:</a
+      ><a name="2212"
+      > </a
+      ><a name="2213" class="Symbol"
+      >&#8704;</a
+      ><a name="2214"
+      > </a
+      ><a name="2215" class="Symbol"
+      >{</a
+      ><a name="2216" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2216" class="Bound"
+      >A</a
+      ><a name="2217"
+      > </a
+      ><a name="2218" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2218" class="Bound"
+      >B</a
+      ><a name="2219" class="Symbol"
+      >}</a
+      ><a name="2220"
+      > </a
+      ><a name="2221" class="Symbol"
+      >&#8594;</a
+      ><a name="2222"
+      > </a
+      ><a name="2223" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2224"
+      > </a
+      ><a name="2225" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2226"
+      > </a
+      ><a name="2227" class="Symbol"
+      >(</a
+      ><a name="2228" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2216" class="Bound"
+      >A</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2231"
+      > </a
+      ><a name="2232" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2218" class="Bound"
+      >B</a
+      ><a name="2233" class="Symbol"
+      >)</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" class="Symbol"
+      >&#8594;</a
+      ><a name="2236"
+      > </a
+      ><a name="2237" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2238"
+      > </a
+      ><a name="2239" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2240"
+      > </a
+      ><a name="2241" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2216" class="Bound"
+      >A</a
+      ><a name="2242"
+      > </a
+      ><a name="2243" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2244"
+      > </a
+      ><a name="2245" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2246"
+      > </a
+      ><a name="2247" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2218" class="Bound"
+      >B</a
+      ><a name="2248"
+      >
+  </a
+      ><a name="2251" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2204" class="Function Operator"
+      >_&#10218;&#9678;&#10219;&#8242;_</a
+      ><a name="2257"
+      > </a
+      ><a name="2258" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2258" class="Bound"
+      >s</a
+      ><a name="2259"
+      > </a
+      ><a name="2260" class="Symbol"
+      >=</a
+      ><a name="2261"
+      > </a
+      ><a name="2262" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="2267"
+      > </a
+      ><a name="2268" href="BasicIS4.Semantics.TarskiClosedHilbert.html#618" class="Field"
+      >[cdist]</a
+      ><a name="2275"
+      > </a
+      ><a name="2276" class="Symbol"
+      >(</a
+      ><a name="2277" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="2284"
+      > </a
+      ><a name="2285" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2258" class="Bound"
+      >s</a
+      ><a name="2286" class="Symbol"
+      >)</a
+      ><a name="2287"
+      > </a
+      ><a name="2288" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2289"
+      > </a
+      ><a name="2290" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2111" class="Function Operator"
+      >_&#10218;&#9678;&#10219;_</a
+      ><a name="2295"
+      > </a
+      ><a name="2296" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2258" class="Bound"
+      >s</a
+      ><a name="2297"
+      >
+
+  </a
+      ><a name="2301" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2301" class="Function"
+      >&#10218;&#8657;&#10219;</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" class="Symbol"
+      >:</a
+      ><a name="2306"
+      > </a
+      ><a name="2307" class="Symbol"
+      >&#8704;</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" class="Symbol"
+      >{</a
+      ><a name="2310" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2310" class="Bound"
+      >A</a
+      ><a name="2311" class="Symbol"
+      >}</a
+      ><a name="2312"
+      > </a
+      ><a name="2313" class="Symbol"
+      >&#8594;</a
+      ><a name="2314"
+      > </a
+      ><a name="2315" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2316"
+      > </a
+      ><a name="2317" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2310" class="Bound"
+      >A</a
+      ><a name="2320"
+      > </a
+      ><a name="2321" class="Symbol"
+      >&#8594;</a
+      ><a name="2322"
+      > </a
+      ><a name="2323" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2324"
+      > </a
+      ><a name="2325" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2328"
+      > </a
+      ><a name="2329" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2310" class="Bound"
+      >A</a
+      ><a name="2330"
+      >
+  </a
+      ><a name="2333" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2301" class="Function"
+      >&#10218;&#8657;&#10219;</a
+      ><a name="2336"
+      > </a
+      ><a name="2337" class="Symbol"
+      >(</a
+      ><a name="2338" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2338" class="Bound"
+      >t</a
+      ><a name="2339"
+      > </a
+      ><a name="2340" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2341"
+      > </a
+      ><a name="2342" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2342" class="Bound"
+      >a</a
+      ><a name="2343" class="Symbol"
+      >)</a
+      ><a name="2344"
+      > </a
+      ><a name="2345" class="Symbol"
+      >=</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" href="BasicIS4.Semantics.TarskiClosedHilbert.html#576" class="Field"
+      >[box]</a
+      ><a name="2352"
+      > </a
+      ><a name="2353" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2338" class="Bound"
+      >t</a
+      ><a name="2354"
+      > </a
+      ><a name="2355" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2356"
+      > </a
+      ><a name="2357" class="Symbol"
+      >(</a
+      ><a name="2358" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2338" class="Bound"
+      >t</a
+      ><a name="2359"
+      > </a
+      ><a name="2360" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2361"
+      > </a
+      ><a name="2362" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2342" class="Bound"
+      >a</a
+      ><a name="2363" class="Symbol"
+      >)</a
+      ><a name="2364"
+      >
+
+  </a
+      ><a name="2368" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2368" class="Function"
+      >&#10218;&#8659;&#10219;</a
+      ><a name="2371"
+      > </a
+      ><a name="2372" class="Symbol"
+      >:</a
+      ><a name="2373"
+      > </a
+      ><a name="2374" class="Symbol"
+      >&#8704;</a
+      ><a name="2375"
+      > </a
+      ><a name="2376" class="Symbol"
+      >{</a
+      ><a name="2377" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2377" class="Bound"
+      >A</a
+      ><a name="2378" class="Symbol"
+      >}</a
+      ><a name="2379"
+      > </a
+      ><a name="2380" class="Symbol"
+      >&#8594;</a
+      ><a name="2381"
+      > </a
+      ><a name="2382" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2383"
+      > </a
+      ><a name="2384" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2385"
+      > </a
+      ><a name="2386" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2377" class="Bound"
+      >A</a
+      ><a name="2387"
+      > </a
+      ><a name="2388" class="Symbol"
+      >&#8594;</a
+      ><a name="2389"
+      > </a
+      ><a name="2390" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2391"
+      > </a
+      ><a name="2392" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2377" class="Bound"
+      >A</a
+      ><a name="2393"
+      >
+  </a
+      ><a name="2396" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2368" class="Function"
+      >&#10218;&#8659;&#10219;</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" class="Symbol"
+      >(</a
+      ><a name="2401" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2401" class="Bound"
+      >t</a
+      ><a name="2402"
+      > </a
+      ><a name="2403" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2404"
+      > </a
+      ><a name="2405" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2405" class="Bound"
+      >a</a
+      ><a name="2406" class="Symbol"
+      >)</a
+      ><a name="2407"
+      > </a
+      ><a name="2408" class="Symbol"
+      >=</a
+      ><a name="2409"
+      > </a
+      ><a name="2410" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2405" class="Bound"
+      >a</a
+      ><a name="2411"
+      >
+
+  </a
+      ><a name="2415" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2415" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" class="Symbol"
+      >:</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" class="Symbol"
+      >&#8704;</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" class="Symbol"
+      >{</a
+      ><a name="2427" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2427" class="Bound"
+      >A</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2429" class="Bound"
+      >B</a
+      ><a name="2430" class="Symbol"
+      >}</a
+      ><a name="2431"
+      > </a
+      ><a name="2432" class="Symbol"
+      >&#8594;</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2435"
+      > </a
+      ><a name="2436" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2427" class="Bound"
+      >A</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" class="Symbol"
+      >&#8594;</a
+      ><a name="2439"
+      > </a
+      ><a name="2440" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2441"
+      > </a
+      ><a name="2442" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2429" class="Bound"
+      >B</a
+      ><a name="2443"
+      > </a
+      ><a name="2444" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2445"
+      > </a
+      ><a name="2446" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2427" class="Bound"
+      >A</a
+      ><a name="2447"
+      > </a
+      ><a name="2448" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2449"
+      > </a
+      ><a name="2450" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2429" class="Bound"
+      >B</a
+      ><a name="2451"
+      >
+  </a
+      ><a name="2454" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2415" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="2460"
+      > </a
+      ><a name="2461" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2461" class="Bound"
+      >a</a
+      ><a name="2462"
+      > </a
+      ><a name="2463" class="Symbol"
+      >=</a
+      ><a name="2464"
+      > </a
+      ><a name="2465" href="BasicIS4.Semantics.TarskiClosedHilbert.html#388" class="Field"
+      >[app]</a
+      ><a name="2470"
+      > </a
+      ><a name="2471" href="BasicIS4.Semantics.TarskiClosedHilbert.html#750" class="Field"
+      >[cpair]</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" class="Symbol"
+      >(</a
+      ><a name="2480" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1376" class="Function"
+      >reify[]</a
+      ><a name="2487"
+      > </a
+      ><a name="2488" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2461" class="Bound"
+      >a</a
+      ><a name="2489" class="Symbol"
+      >)</a
+      ><a name="2490"
+      > </a
+      ><a name="2491" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2492"
+      > </a
+      ><a name="2493" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >_,_</a
+      ><a name="2496"
+      > </a
+      ><a name="2497" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2461" class="Bound"
+      >a</a
+      ><a name="2498"
+      >
+
+
+</a
+      ><a name="2501" class="Comment"
+      >-- Satisfaction in a particular model, for sequents.</a
+      ><a name="2553"
+      >
+
+</a
+      ><a name="2555" class="Keyword"
+      >module</a
+      ><a name="2561"
+      > </a
+      ><a name="2562" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2562" class="Module"
+      >_</a
+      ><a name="2563"
+      > </a
+      ><a name="2564" class="Symbol"
+      >{{</a
+      ><a name="2566" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2566" class="Bound"
+      >_</a
+      ><a name="2567"
+      > </a
+      ><a name="2568" class="Symbol"
+      >:</a
+      ><a name="2569"
+      > </a
+      ><a name="2570" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="2575" class="Symbol"
+      >}}</a
+      ><a name="2577"
+      > </a
+      ><a name="2578" class="Keyword"
+      >where</a
+      ><a name="2583"
+      >
+  </a
+      ><a name="2586" class="Keyword"
+      >infix</a
+      ><a name="2591"
+      > </a
+      ><a name="2592" class="Number"
+      >3</a
+      ><a name="2593"
+      > &#8872;_&#8658;_
+  </a
+      ><a name="2601" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;_&#8658;_</a
+      ><a name="2605"
+      > </a
+      ><a name="2606" class="Symbol"
+      >:</a
+      ><a name="2607"
+      > </a
+      ><a name="2608" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2610"
+      > </a
+      ><a name="2611" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2613"
+      > </a
+      ><a name="2614" class="Symbol"
+      >&#8594;</a
+      ><a name="2615"
+      > </a
+      ><a name="2616" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2618"
+      > </a
+      ><a name="2619" class="Symbol"
+      >&#8594;</a
+      ><a name="2620"
+      > </a
+      ><a name="2621" class="PrimitiveType"
+      >Set</a
+      ><a name="2624"
+      >
+  </a
+      ><a name="2627" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="2628"
+      > </a
+      ><a name="2629" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2629" class="Bound"
+      >&#915;</a
+      ><a name="2630"
+      > </a
+      ><a name="2631" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="2632"
+      > </a
+      ><a name="2633" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2633" class="Bound"
+      >A</a
+      ><a name="2634"
+      > </a
+      ><a name="2635" class="Symbol"
+      >=</a
+      ><a name="2636"
+      > </a
+      ><a name="2637" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1154" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="2639"
+      > </a
+      ><a name="2640" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2629" class="Bound"
+      >&#915;</a
+      ><a name="2641"
+      > </a
+      ><a name="2642" class="Symbol"
+      >&#8594;</a
+      ><a name="2643"
+      > </a
+      ><a name="2644" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1001" class="Function Operator"
+      >&#8872;</a
+      ><a name="2645"
+      > </a
+      ><a name="2646" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2633" class="Bound"
+      >A</a
+      ><a name="2647"
+      >
+
+  </a
+      ><a name="2651" class="Keyword"
+      >infix</a
+      ><a name="2656"
+      > </a
+      ><a name="2657" class="Number"
+      >3</a
+      ><a name="2658"
+      > &#8872;_&#8658;&#8902;_
+  </a
+      ><a name="2667" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2667" class="Function Operator"
+      >&#8872;_&#8658;&#8902;_</a
+      ><a name="2672"
+      > </a
+      ><a name="2673" class="Symbol"
+      >:</a
+      ><a name="2674"
+      > </a
+      ><a name="2675" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2677"
+      > </a
+      ><a name="2678" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2680"
+      > </a
+      ><a name="2681" class="Symbol"
+      >&#8594;</a
+      ><a name="2682"
+      > </a
+      ><a name="2683" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2685"
+      > </a
+      ><a name="2686" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2688"
+      > </a
+      ><a name="2689" class="Symbol"
+      >&#8594;</a
+      ><a name="2690"
+      > </a
+      ><a name="2691" class="PrimitiveType"
+      >Set</a
+      ><a name="2694"
+      >
+  </a
+      ><a name="2697" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2667" class="Function Operator"
+      >&#8872;</a
+      ><a name="2698"
+      > </a
+      ><a name="2699" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2699" class="Bound"
+      >&#915;</a
+      ><a name="2700"
+      > </a
+      ><a name="2701" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2667" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="2703"
+      > </a
+      ><a name="2704" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2704" class="Bound"
+      >&#928;</a
+      ><a name="2705"
+      > </a
+      ><a name="2706" class="Symbol"
+      >=</a
+      ><a name="2707"
+      > </a
+      ><a name="2708" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1154" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="2710"
+      > </a
+      ><a name="2711" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2699" class="Bound"
+      >&#915;</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" class="Symbol"
+      >&#8594;</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1154" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="2717"
+      > </a
+      ><a name="2718" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2704" class="Bound"
+      >&#928;</a
+      ><a name="2719"
+      >
+
+
+</a
+      ><a name="2722" class="Comment"
+      >-- Satisfaction in all models, for sequents.</a
+      ><a name="2766"
+      >
+
+</a
+      ><a name="2768" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2768" class="Function Operator"
+      >&#8704;&#7481;&#8872;_&#8658;_</a
+      ><a name="2774"
+      > </a
+      ><a name="2775" class="Symbol"
+      >:</a
+      ><a name="2776"
+      > </a
+      ><a name="2777" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2779"
+      > </a
+      ><a name="2780" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2782"
+      > </a
+      ><a name="2783" class="Symbol"
+      >&#8594;</a
+      ><a name="2784"
+      > </a
+      ><a name="2785" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2787"
+      > </a
+      ><a name="2788" class="Symbol"
+      >&#8594;</a
+      ><a name="2789"
+      > </a
+      ><a name="2790" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="2794"
+      >
+</a
+      ><a name="2795" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2768" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="2798"
+      > </a
+      ><a name="2799" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2799" class="Bound"
+      >&#915;</a
+      ><a name="2800"
+      > </a
+      ><a name="2801" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2768" class="Function Operator"
+      >&#8658;</a
+      ><a name="2802"
+      > </a
+      ><a name="2803" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2803" class="Bound"
+      >A</a
+      ><a name="2804"
+      > </a
+      ><a name="2805" class="Symbol"
+      >=</a
+      ><a name="2806"
+      > </a
+      ><a name="2807" class="Symbol"
+      >&#8704;</a
+      ><a name="2808"
+      > </a
+      ><a name="2809" class="Symbol"
+      >{{</a
+      ><a name="2811" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2811" class="Bound"
+      >_</a
+      ><a name="2812"
+      > </a
+      ><a name="2813" class="Symbol"
+      >:</a
+      ><a name="2814"
+      > </a
+      ><a name="2815" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="2820" class="Symbol"
+      >}}</a
+      ><a name="2822"
+      > </a
+      ><a name="2823" class="Symbol"
+      >&#8594;</a
+      ><a name="2824"
+      > </a
+      ><a name="2825" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="2826"
+      > </a
+      ><a name="2827" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2799" class="Bound"
+      >&#915;</a
+      ><a name="2828"
+      > </a
+      ><a name="2829" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="2830"
+      > </a
+      ><a name="2831" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2803" class="Bound"
+      >A</a
+      ><a name="2832"
+      >
+
+</a
+      ><a name="2834" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2834" class="Function Operator"
+      >&#8704;&#7481;&#8872;_&#8658;&#8902;_</a
+      ><a name="2841"
+      > </a
+      ><a name="2842" class="Symbol"
+      >:</a
+      ><a name="2843"
+      > </a
+      ><a name="2844" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2846"
+      > </a
+      ><a name="2847" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2849"
+      > </a
+      ><a name="2850" class="Symbol"
+      >&#8594;</a
+      ><a name="2851"
+      > </a
+      ><a name="2852" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="2854"
+      > </a
+      ><a name="2855" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="2857"
+      > </a
+      ><a name="2858" class="Symbol"
+      >&#8594;</a
+      ><a name="2859"
+      > </a
+      ><a name="2860" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="2864"
+      >
+</a
+      ><a name="2865" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2834" class="Function Operator"
+      >&#8704;&#7481;&#8872;</a
+      ><a name="2868"
+      > </a
+      ><a name="2869" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2869" class="Bound"
+      >&#915;</a
+      ><a name="2870"
+      > </a
+      ><a name="2871" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2834" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="2873"
+      > </a
+      ><a name="2874" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2874" class="Bound"
+      >&#928;</a
+      ><a name="2875"
+      > </a
+      ><a name="2876" class="Symbol"
+      >=</a
+      ><a name="2877"
+      > </a
+      ><a name="2878" class="Symbol"
+      >&#8704;</a
+      ><a name="2879"
+      > </a
+      ><a name="2880" class="Symbol"
+      >{{</a
+      ><a name="2882" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2882" class="Bound"
+      >_</a
+      ><a name="2883"
+      > </a
+      ><a name="2884" class="Symbol"
+      >:</a
+      ><a name="2885"
+      > </a
+      ><a name="2886" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="2891" class="Symbol"
+      >}}</a
+      ><a name="2893"
+      > </a
+      ><a name="2894" class="Symbol"
+      >&#8594;</a
+      ><a name="2895"
+      > </a
+      ><a name="2896" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2667" class="Function Operator"
+      >&#8872;</a
+      ><a name="2897"
+      > </a
+      ><a name="2898" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2869" class="Bound"
+      >&#915;</a
+      ><a name="2899"
+      > </a
+      ><a name="2900" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2667" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="2902"
+      > </a
+      ><a name="2903" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2874" class="Bound"
+      >&#928;</a
+      ><a name="2904"
+      >
+
+
+</a
+      ><a name="2907" class="Comment"
+      >-- Additional useful equipment, for sequents.</a
+      ><a name="2952"
+      >
+
+</a
+      ><a name="2954" class="Keyword"
+      >module</a
+      ><a name="2960"
+      > </a
+      ><a name="2961" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2961" class="Module"
+      >_</a
+      ><a name="2962"
+      > </a
+      ><a name="2963" class="Symbol"
+      >{{</a
+      ><a name="2965" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2965" class="Bound"
+      >_</a
+      ><a name="2966"
+      > </a
+      ><a name="2967" class="Symbol"
+      >:</a
+      ><a name="2968"
+      > </a
+      ><a name="2969" href="BasicIS4.Semantics.TarskiClosedHilbert.html#202" class="Record"
+      >Model</a
+      ><a name="2974" class="Symbol"
+      >}}</a
+      ><a name="2976"
+      > </a
+      ><a name="2977" class="Keyword"
+      >where</a
+      ><a name="2982"
+      >
+  </a
+      ><a name="2985" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2985" class="Function"
+      >lookup</a
+      ><a name="2991"
+      > </a
+      ><a name="2992" class="Symbol"
+      >:</a
+      ><a name="2993"
+      > </a
+      ><a name="2994" class="Symbol"
+      >&#8704;</a
+      ><a name="2995"
+      > </a
+      ><a name="2996" class="Symbol"
+      >{</a
+      ><a name="2997" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2997" class="Bound"
+      >A</a
+      ><a name="2998"
+      > </a
+      ><a name="2999" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2999" class="Bound"
+      >&#915;</a
+      ><a name="3000" class="Symbol"
+      >}</a
+      ><a name="3001"
+      > </a
+      ><a name="3002" class="Symbol"
+      >&#8594;</a
+      ><a name="3003"
+      > </a
+      ><a name="3004" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2997" class="Bound"
+      >A</a
+      ><a name="3005"
+      > </a
+      ><a name="3006" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="3007"
+      > </a
+      ><a name="3008" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2999" class="Bound"
+      >&#915;</a
+      ><a name="3009"
+      > </a
+      ><a name="3010" class="Symbol"
+      >&#8594;</a
+      ><a name="3011"
+      > </a
+      ><a name="3012" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3013"
+      > </a
+      ><a name="3014" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2999" class="Bound"
+      >&#915;</a
+      ><a name="3015"
+      > </a
+      ><a name="3016" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3017"
+      > </a
+      ><a name="3018" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2997" class="Bound"
+      >A</a
+      ><a name="3019"
+      >
+  </a
+      ><a name="3022" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2985" class="Function"
+      >lookup</a
+      ><a name="3028"
+      > </a
+      ><a name="3029" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="3032"
+      >     </a
+      ><a name="3037" class="Symbol"
+      >(</a
+      ><a name="3038" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3038" class="Bound"
+      >&#947;</a
+      ><a name="3039"
+      > </a
+      ><a name="3040" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3041"
+      > </a
+      ><a name="3042" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3042" class="Bound"
+      >a</a
+      ><a name="3043" class="Symbol"
+      >)</a
+      ><a name="3044"
+      > </a
+      ><a name="3045" class="Symbol"
+      >=</a
+      ><a name="3046"
+      > </a
+      ><a name="3047" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3042" class="Bound"
+      >a</a
+      ><a name="3048"
+      >
+  </a
+      ><a name="3051" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2985" class="Function"
+      >lookup</a
+      ><a name="3057"
+      > </a
+      ><a name="3058" class="Symbol"
+      >(</a
+      ><a name="3059" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="3062"
+      > </a
+      ><a name="3063" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3063" class="Bound"
+      >i</a
+      ><a name="3064" class="Symbol"
+      >)</a
+      ><a name="3065"
+      > </a
+      ><a name="3066" class="Symbol"
+      >(</a
+      ><a name="3067" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3067" class="Bound"
+      >&#947;</a
+      ><a name="3068"
+      > </a
+      ><a name="3069" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3070"
+      > </a
+      ><a name="3071" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3071" class="Bound"
+      >b</a
+      ><a name="3072" class="Symbol"
+      >)</a
+      ><a name="3073"
+      > </a
+      ><a name="3074" class="Symbol"
+      >=</a
+      ><a name="3075"
+      > </a
+      ><a name="3076" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2985" class="Function"
+      >lookup</a
+      ><a name="3082"
+      > </a
+      ><a name="3083" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3063" class="Bound"
+      >i</a
+      ><a name="3084"
+      > </a
+      ><a name="3085" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3067" class="Bound"
+      >&#947;</a
+      ><a name="3086"
+      >
+
+  </a
+      ><a name="3090" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3090" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="3093"
+      > </a
+      ><a name="3094" class="Symbol"
+      >:</a
+      ><a name="3095"
+      > </a
+      ><a name="3096" class="Symbol"
+      >&#8704;</a
+      ><a name="3097"
+      > </a
+      ><a name="3098" class="Symbol"
+      >{</a
+      ><a name="3099" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3099" class="Bound"
+      >A</a
+      ><a name="3100"
+      > </a
+      ><a name="3101" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3101" class="Bound"
+      >B</a
+      ><a name="3102"
+      > </a
+      ><a name="3103" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3103" class="Bound"
+      >&#915;</a
+      ><a name="3104" class="Symbol"
+      >}</a
+      ><a name="3105"
+      > </a
+      ><a name="3106" class="Symbol"
+      >&#8594;</a
+      ><a name="3107"
+      > </a
+      ><a name="3108" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >[</a
+      ><a name="3109"
+      > </a
+      ><a name="3110" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3099" class="Bound"
+      >A</a
+      ><a name="3111"
+      > </a
+      ><a name="3112" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3113"
+      > </a
+      ><a name="3114" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3101" class="Bound"
+      >B</a
+      ><a name="3115"
+      > </a
+      ><a name="3116" href="BasicIS4.Semantics.TarskiClosedHilbert.html#365" class="Field Operator"
+      >]</a
+      ><a name="3117"
+      > </a
+      ><a name="3118" class="Symbol"
+      >&#8594;</a
+      ><a name="3119"
+      > </a
+      ><a name="3120" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3121"
+      > </a
+      ><a name="3122" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3103" class="Bound"
+      >&#915;</a
+      ><a name="3123"
+      > </a
+      ><a name="3124" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3125"
+      > </a
+      ><a name="3126" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3099" class="Bound"
+      >A</a
+      ><a name="3127"
+      > </a
+      ><a name="3128" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3129"
+      > </a
+      ><a name="3130" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3101" class="Bound"
+      >B</a
+      ><a name="3131"
+      > </a
+      ><a name="3132" class="Symbol"
+      >&#8594;</a
+      ><a name="3133"
+      > </a
+      ><a name="3134" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3135"
+      > </a
+      ><a name="3136" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3103" class="Bound"
+      >&#915;</a
+      ><a name="3137"
+      > </a
+      ><a name="3138" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3139"
+      > </a
+      ><a name="3140" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3099" class="Bound"
+      >A</a
+      ><a name="3141"
+      > </a
+      ><a name="3142" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3143"
+      > </a
+      ><a name="3144" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3101" class="Bound"
+      >B</a
+      ><a name="3145"
+      >
+  </a
+      ><a name="3148" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3090" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="3151"
+      > </a
+      ><a name="3152" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3152" class="Bound"
+      >t</a
+      ><a name="3153"
+      > </a
+      ><a name="3154" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3154" class="Bound"
+      >f</a
+      ><a name="3155"
+      > </a
+      ><a name="3156" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3156" class="Bound"
+      >&#947;</a
+      ><a name="3157"
+      > </a
+      ><a name="3158" class="Symbol"
+      >=</a
+      ><a name="3159"
+      > </a
+      ><a name="3160" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3152" class="Bound"
+      >t</a
+      ><a name="3161"
+      > </a
+      ><a name="3162" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3163"
+      > </a
+      ><a name="3164" class="Symbol"
+      >&#955;</a
+      ><a name="3165"
+      > </a
+      ><a name="3166" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3166" class="Bound"
+      >a</a
+      ><a name="3167"
+      > </a
+      ><a name="3168" class="Symbol"
+      >&#8594;</a
+      ><a name="3169"
+      > </a
+      ><a name="3170" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3154" class="Bound"
+      >f</a
+      ><a name="3171"
+      > </a
+      ><a name="3172" class="Symbol"
+      >(</a
+      ><a name="3173" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3156" class="Bound"
+      >&#947;</a
+      ><a name="3174"
+      > </a
+      ><a name="3175" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3176"
+      > </a
+      ><a name="3177" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3166" class="Bound"
+      >a</a
+      ><a name="3178" class="Symbol"
+      >)</a
+      ><a name="3179"
+      >
+
+  </a
+      ><a name="3183" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3183" class="Function Operator"
+      >_&#10214;$&#10215;_</a
+      ><a name="3188"
+      > </a
+      ><a name="3189" class="Symbol"
+      >:</a
+      ><a name="3190"
+      > </a
+      ><a name="3191" class="Symbol"
+      >&#8704;</a
+      ><a name="3192"
+      > </a
+      ><a name="3193" class="Symbol"
+      >{</a
+      ><a name="3194" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3194" class="Bound"
+      >A</a
+      ><a name="3195"
+      > </a
+      ><a name="3196" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3196" class="Bound"
+      >B</a
+      ><a name="3197"
+      > </a
+      ><a name="3198" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3198" class="Bound"
+      >&#915;</a
+      ><a name="3199" class="Symbol"
+      >}</a
+      ><a name="3200"
+      > </a
+      ><a name="3201" class="Symbol"
+      >&#8594;</a
+      ><a name="3202"
+      > </a
+      ><a name="3203" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3204"
+      > </a
+      ><a name="3205" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3198" class="Bound"
+      >&#915;</a
+      ><a name="3206"
+      > </a
+      ><a name="3207" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3208"
+      > </a
+      ><a name="3209" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3194" class="Bound"
+      >A</a
+      ><a name="3210"
+      > </a
+      ><a name="3211" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3212"
+      > </a
+      ><a name="3213" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3196" class="Bound"
+      >B</a
+      ><a name="3214"
+      > </a
+      ><a name="3215" class="Symbol"
+      >&#8594;</a
+      ><a name="3216"
+      > </a
+      ><a name="3217" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3218"
+      > </a
+      ><a name="3219" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3198" class="Bound"
+      >&#915;</a
+      ><a name="3220"
+      > </a
+      ><a name="3221" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3222"
+      > </a
+      ><a name="3223" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3194" class="Bound"
+      >A</a
+      ><a name="3224"
+      > </a
+      ><a name="3225" class="Symbol"
+      >&#8594;</a
+      ><a name="3226"
+      > </a
+      ><a name="3227" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3228"
+      > </a
+      ><a name="3229" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3198" class="Bound"
+      >&#915;</a
+      ><a name="3230"
+      > </a
+      ><a name="3231" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3232"
+      > </a
+      ><a name="3233" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3196" class="Bound"
+      >B</a
+      ><a name="3234"
+      >
+  </a
+      ><a name="3237" class="Symbol"
+      >(</a
+      ><a name="3238" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3238" class="Bound"
+      >f</a
+      ><a name="3239"
+      > </a
+      ><a name="3240" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3183" class="Function Operator"
+      >&#10214;$&#10215;</a
+      ><a name="3243"
+      > </a
+      ><a name="3244" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3244" class="Bound"
+      >g</a
+      ><a name="3245" class="Symbol"
+      >)</a
+      ><a name="3246"
+      > </a
+      ><a name="3247" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3247" class="Bound"
+      >&#947;</a
+      ><a name="3248"
+      > </a
+      ><a name="3249" class="Symbol"
+      >=</a
+      ><a name="3250"
+      > </a
+      ><a name="3251" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3238" class="Bound"
+      >f</a
+      ><a name="3252"
+      > </a
+      ><a name="3253" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3247" class="Bound"
+      >&#947;</a
+      ><a name="3254"
+      > </a
+      ><a name="3255" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1686" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="3258"
+      > </a
+      ><a name="3259" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3244" class="Bound"
+      >g</a
+      ><a name="3260"
+      > </a
+      ><a name="3261" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3247" class="Bound"
+      >&#947;</a
+      ><a name="3262"
+      >
+
+  </a
+      ><a name="3266" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3266" class="Function"
+      >&#10214;ap&#10215;</a
+      ><a name="3270"
+      > </a
+      ><a name="3271" class="Symbol"
+      >:</a
+      ><a name="3272"
+      > </a
+      ><a name="3273" class="Symbol"
+      >&#8704;</a
+      ><a name="3274"
+      > </a
+      ><a name="3275" class="Symbol"
+      >{</a
+      ><a name="3276" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3276" class="Bound"
+      >A</a
+      ><a name="3277"
+      > </a
+      ><a name="3278" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3278" class="Bound"
+      >B</a
+      ><a name="3279"
+      > </a
+      ><a name="3280" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3280" class="Bound"
+      >C</a
+      ><a name="3281"
+      > </a
+      ><a name="3282" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3282" class="Bound"
+      >&#915;</a
+      ><a name="3283" class="Symbol"
+      >}</a
+      ><a name="3284"
+      > </a
+      ><a name="3285" class="Symbol"
+      >&#8594;</a
+      ><a name="3286"
+      > </a
+      ><a name="3287" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3288"
+      > </a
+      ><a name="3289" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3282" class="Bound"
+      >&#915;</a
+      ><a name="3290"
+      > </a
+      ><a name="3291" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3292"
+      > </a
+      ><a name="3293" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3276" class="Bound"
+      >A</a
+      ><a name="3294"
+      > </a
+      ><a name="3295" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3296"
+      > </a
+      ><a name="3297" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3278" class="Bound"
+      >B</a
+      ><a name="3298"
+      > </a
+      ><a name="3299" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3300"
+      > </a
+      ><a name="3301" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3280" class="Bound"
+      >C</a
+      ><a name="3302"
+      > </a
+      ><a name="3303" class="Symbol"
+      >&#8594;</a
+      ><a name="3304"
+      > </a
+      ><a name="3305" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3306"
+      > </a
+      ><a name="3307" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3282" class="Bound"
+      >&#915;</a
+      ><a name="3308"
+      > </a
+      ><a name="3309" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3310"
+      > </a
+      ><a name="3311" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3276" class="Bound"
+      >A</a
+      ><a name="3312"
+      > </a
+      ><a name="3313" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3314"
+      > </a
+      ><a name="3315" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3278" class="Bound"
+      >B</a
+      ><a name="3316"
+      > </a
+      ><a name="3317" class="Symbol"
+      >&#8594;</a
+      ><a name="3318"
+      > </a
+      ><a name="3319" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3320"
+      > </a
+      ><a name="3321" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3282" class="Bound"
+      >&#915;</a
+      ><a name="3322"
+      > </a
+      ><a name="3323" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3324"
+      > </a
+      ><a name="3325" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3276" class="Bound"
+      >A</a
+      ><a name="3326"
+      > </a
+      ><a name="3327" class="Symbol"
+      >&#8594;</a
+      ><a name="3328"
+      > </a
+      ><a name="3329" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3330"
+      > </a
+      ><a name="3331" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3282" class="Bound"
+      >&#915;</a
+      ><a name="3332"
+      > </a
+      ><a name="3333" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3334"
+      > </a
+      ><a name="3335" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3280" class="Bound"
+      >C</a
+      ><a name="3336"
+      >
+  </a
+      ><a name="3339" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3266" class="Function"
+      >&#10214;ap&#10215;</a
+      ><a name="3343"
+      > </a
+      ><a name="3344" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3344" class="Bound"
+      >f</a
+      ><a name="3345"
+      > </a
+      ><a name="3346" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3346" class="Bound"
+      >g</a
+      ><a name="3347"
+      > </a
+      ><a name="3348" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3348" class="Bound"
+      >a</a
+      ><a name="3349"
+      > </a
+      ><a name="3350" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3350" class="Bound"
+      >&#947;</a
+      ><a name="3351"
+      > </a
+      ><a name="3352" class="Symbol"
+      >=</a
+      ><a name="3353"
+      > </a
+      ><a name="3354" href="BasicIS4.Semantics.TarskiClosedHilbert.html#1833" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="3358"
+      > </a
+      ><a name="3359" class="Symbol"
+      >(</a
+      ><a name="3360" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3344" class="Bound"
+      >f</a
+      ><a name="3361"
+      > </a
+      ><a name="3362" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3350" class="Bound"
+      >&#947;</a
+      ><a name="3363" class="Symbol"
+      >)</a
+      ><a name="3364"
+      > </a
+      ><a name="3365" class="Symbol"
+      >(</a
+      ><a name="3366" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3346" class="Bound"
+      >g</a
+      ><a name="3367"
+      > </a
+      ><a name="3368" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3350" class="Bound"
+      >&#947;</a
+      ><a name="3369" class="Symbol"
+      >)</a
+      ><a name="3370"
+      > </a
+      ><a name="3371" class="Symbol"
+      >(</a
+      ><a name="3372" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3348" class="Bound"
+      >a</a
+      ><a name="3373"
+      > </a
+      ><a name="3374" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3350" class="Bound"
+      >&#947;</a
+      ><a name="3375" class="Symbol"
+      >)</a
+      ><a name="3376"
+      >
+
+  </a
+      ><a name="3380" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3380" class="Function Operator"
+      >_&#10214;&#9678;&#10215;_</a
+      ><a name="3385"
+      > </a
+      ><a name="3386" class="Symbol"
+      >:</a
+      ><a name="3387"
+      > </a
+      ><a name="3388" class="Symbol"
+      >&#8704;</a
+      ><a name="3389"
+      > </a
+      ><a name="3390" class="Symbol"
+      >{</a
+      ><a name="3391" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3391" class="Bound"
+      >A</a
+      ><a name="3392"
+      > </a
+      ><a name="3393" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3393" class="Bound"
+      >B</a
+      ><a name="3394"
+      > </a
+      ><a name="3395" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3395" class="Bound"
+      >&#915;</a
+      ><a name="3396" class="Symbol"
+      >}</a
+      ><a name="3397"
+      > </a
+      ><a name="3398" class="Symbol"
+      >&#8594;</a
+      ><a name="3399"
+      > </a
+      ><a name="3400" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3401"
+      > </a
+      ><a name="3402" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3395" class="Bound"
+      >&#915;</a
+      ><a name="3403"
+      > </a
+      ><a name="3404" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3405"
+      > </a
+      ><a name="3406" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3407"
+      > </a
+      ><a name="3408" class="Symbol"
+      >(</a
+      ><a name="3409" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3391" class="Bound"
+      >A</a
+      ><a name="3410"
+      > </a
+      ><a name="3411" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3412"
+      > </a
+      ><a name="3413" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3393" class="Bound"
+      >B</a
+      ><a name="3414" class="Symbol"
+      >)</a
+      ><a name="3415"
+      > </a
+      ><a name="3416" class="Symbol"
+      >&#8594;</a
+      ><a name="3417"
+      > </a
+      ><a name="3418" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3419"
+      > </a
+      ><a name="3420" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3395" class="Bound"
+      >&#915;</a
+      ><a name="3421"
+      > </a
+      ><a name="3422" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3423"
+      > </a
+      ><a name="3424" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3425"
+      > </a
+      ><a name="3426" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3391" class="Bound"
+      >A</a
+      ><a name="3427"
+      > </a
+      ><a name="3428" class="Symbol"
+      >&#8594;</a
+      ><a name="3429"
+      > </a
+      ><a name="3430" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3431"
+      > </a
+      ><a name="3432" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3395" class="Bound"
+      >&#915;</a
+      ><a name="3433"
+      > </a
+      ><a name="3434" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3435"
+      > </a
+      ><a name="3436" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3437"
+      > </a
+      ><a name="3438" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3393" class="Bound"
+      >B</a
+      ><a name="3439"
+      >
+  </a
+      ><a name="3442" class="Symbol"
+      >(</a
+      ><a name="3443" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3443" class="Bound"
+      >s&#8321;</a
+      ><a name="3445"
+      > </a
+      ><a name="3446" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3380" class="Function Operator"
+      >&#10214;&#9678;&#10215;</a
+      ><a name="3449"
+      > </a
+      ><a name="3450" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3450" class="Bound"
+      >s&#8322;</a
+      ><a name="3452" class="Symbol"
+      >)</a
+      ><a name="3453"
+      > </a
+      ><a name="3454" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3454" class="Bound"
+      >&#947;</a
+      ><a name="3455"
+      > </a
+      ><a name="3456" class="Symbol"
+      >=</a
+      ><a name="3457"
+      > </a
+      ><a name="3458" class="Symbol"
+      >(</a
+      ><a name="3459" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3443" class="Bound"
+      >s&#8321;</a
+      ><a name="3461"
+      > </a
+      ><a name="3462" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3454" class="Bound"
+      >&#947;</a
+      ><a name="3463" class="Symbol"
+      >)</a
+      ><a name="3464"
+      > </a
+      ><a name="3465" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2111" class="Function Operator"
+      >&#10218;&#9678;&#10219;</a
+      ><a name="3468"
+      > </a
+      ><a name="3469" class="Symbol"
+      >(</a
+      ><a name="3470" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3450" class="Bound"
+      >s&#8322;</a
+      ><a name="3472"
+      > </a
+      ><a name="3473" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3454" class="Bound"
+      >&#947;</a
+      ><a name="3474" class="Symbol"
+      >)</a
+      ><a name="3475"
+      >
+
+  </a
+      ><a name="3479" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3479" class="Function"
+      >&#10214;&#8657;&#10215;</a
+      ><a name="3482"
+      > </a
+      ><a name="3483" class="Symbol"
+      >:</a
+      ><a name="3484"
+      > </a
+      ><a name="3485" class="Symbol"
+      >&#8704;</a
+      ><a name="3486"
+      > </a
+      ><a name="3487" class="Symbol"
+      >{</a
+      ><a name="3488" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3488" class="Bound"
+      >A</a
+      ><a name="3489"
+      > </a
+      ><a name="3490" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3490" class="Bound"
+      >&#915;</a
+      ><a name="3491" class="Symbol"
+      >}</a
+      ><a name="3492"
+      > </a
+      ><a name="3493" class="Symbol"
+      >&#8594;</a
+      ><a name="3494"
+      > </a
+      ><a name="3495" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3496"
+      > </a
+      ><a name="3497" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3490" class="Bound"
+      >&#915;</a
+      ><a name="3498"
+      > </a
+      ><a name="3499" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3500"
+      > </a
+      ><a name="3501" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3502"
+      > </a
+      ><a name="3503" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3488" class="Bound"
+      >A</a
+      ><a name="3504"
+      > </a
+      ><a name="3505" class="Symbol"
+      >&#8594;</a
+      ><a name="3506"
+      > </a
+      ><a name="3507" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3508"
+      > </a
+      ><a name="3509" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3490" class="Bound"
+      >&#915;</a
+      ><a name="3510"
+      > </a
+      ><a name="3511" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3512"
+      > </a
+      ><a name="3513" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3514"
+      > </a
+      ><a name="3515" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3516"
+      > </a
+      ><a name="3517" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3488" class="Bound"
+      >A</a
+      ><a name="3518"
+      >
+  </a
+      ><a name="3521" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3479" class="Function"
+      >&#10214;&#8657;&#10215;</a
+      ><a name="3524"
+      > </a
+      ><a name="3525" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3525" class="Bound"
+      >s</a
+      ><a name="3526"
+      > </a
+      ><a name="3527" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3527" class="Bound"
+      >&#947;</a
+      ><a name="3528"
+      > </a
+      ><a name="3529" class="Symbol"
+      >=</a
+      ><a name="3530"
+      > </a
+      ><a name="3531" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2301" class="Function"
+      >&#10218;&#8657;&#10219;</a
+      ><a name="3534"
+      > </a
+      ><a name="3535" class="Symbol"
+      >(</a
+      ><a name="3536" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3525" class="Bound"
+      >s</a
+      ><a name="3537"
+      > </a
+      ><a name="3538" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3527" class="Bound"
+      >&#947;</a
+      ><a name="3539" class="Symbol"
+      >)</a
+      ><a name="3540"
+      >
+
+  </a
+      ><a name="3544" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3544" class="Function"
+      >&#10214;&#8659;&#10215;</a
+      ><a name="3547"
+      > </a
+      ><a name="3548" class="Symbol"
+      >:</a
+      ><a name="3549"
+      > </a
+      ><a name="3550" class="Symbol"
+      >&#8704;</a
+      ><a name="3551"
+      > </a
+      ><a name="3552" class="Symbol"
+      >{</a
+      ><a name="3553" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3553" class="Bound"
+      >A</a
+      ><a name="3554"
+      > </a
+      ><a name="3555" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3555" class="Bound"
+      >&#915;</a
+      ><a name="3556" class="Symbol"
+      >}</a
+      ><a name="3557"
+      > </a
+      ><a name="3558" class="Symbol"
+      >&#8594;</a
+      ><a name="3559"
+      > </a
+      ><a name="3560" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3561"
+      > </a
+      ><a name="3562" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3555" class="Bound"
+      >&#915;</a
+      ><a name="3563"
+      > </a
+      ><a name="3564" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3565"
+      > </a
+      ><a name="3566" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="3567"
+      > </a
+      ><a name="3568" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3553" class="Bound"
+      >A</a
+      ><a name="3569"
+      > </a
+      ><a name="3570" class="Symbol"
+      >&#8594;</a
+      ><a name="3571"
+      > </a
+      ><a name="3572" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3573"
+      > </a
+      ><a name="3574" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3555" class="Bound"
+      >&#915;</a
+      ><a name="3575"
+      > </a
+      ><a name="3576" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3577"
+      > </a
+      ><a name="3578" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3553" class="Bound"
+      >A</a
+      ><a name="3579"
+      >
+  </a
+      ><a name="3582" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3544" class="Function"
+      >&#10214;&#8659;&#10215;</a
+      ><a name="3585"
+      > </a
+      ><a name="3586" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3586" class="Bound"
+      >s</a
+      ><a name="3587"
+      > </a
+      ><a name="3588" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3588" class="Bound"
+      >&#947;</a
+      ><a name="3589"
+      > </a
+      ><a name="3590" class="Symbol"
+      >=</a
+      ><a name="3591"
+      > </a
+      ><a name="3592" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2368" class="Function"
+      >&#10218;&#8659;&#10219;</a
+      ><a name="3595"
+      > </a
+      ><a name="3596" class="Symbol"
+      >(</a
+      ><a name="3597" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3586" class="Bound"
+      >s</a
+      ><a name="3598"
+      > </a
+      ><a name="3599" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3588" class="Bound"
+      >&#947;</a
+      ><a name="3600" class="Symbol"
+      >)</a
+      ><a name="3601"
+      >
+
+  </a
+      ><a name="3605" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3605" class="Function Operator"
+      >_&#10214;,&#10215;_</a
+      ><a name="3610"
+      > </a
+      ><a name="3611" class="Symbol"
+      >:</a
+      ><a name="3612"
+      > </a
+      ><a name="3613" class="Symbol"
+      >&#8704;</a
+      ><a name="3614"
+      > </a
+      ><a name="3615" class="Symbol"
+      >{</a
+      ><a name="3616" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3616" class="Bound"
+      >A</a
+      ><a name="3617"
+      > </a
+      ><a name="3618" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3618" class="Bound"
+      >B</a
+      ><a name="3619"
+      > </a
+      ><a name="3620" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3620" class="Bound"
+      >&#915;</a
+      ><a name="3621" class="Symbol"
+      >}</a
+      ><a name="3622"
+      > </a
+      ><a name="3623" class="Symbol"
+      >&#8594;</a
+      ><a name="3624"
+      > </a
+      ><a name="3625" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3626"
+      > </a
+      ><a name="3627" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3620" class="Bound"
+      >&#915;</a
+      ><a name="3628"
+      > </a
+      ><a name="3629" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3630"
+      > </a
+      ><a name="3631" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3616" class="Bound"
+      >A</a
+      ><a name="3632"
+      > </a
+      ><a name="3633" class="Symbol"
+      >&#8594;</a
+      ><a name="3634"
+      > </a
+      ><a name="3635" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3636"
+      > </a
+      ><a name="3637" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3620" class="Bound"
+      >&#915;</a
+      ><a name="3638"
+      > </a
+      ><a name="3639" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3640"
+      > </a
+      ><a name="3641" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3618" class="Bound"
+      >B</a
+      ><a name="3642"
+      > </a
+      ><a name="3643" class="Symbol"
+      >&#8594;</a
+      ><a name="3644"
+      > </a
+      ><a name="3645" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3646"
+      > </a
+      ><a name="3647" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3620" class="Bound"
+      >&#915;</a
+      ><a name="3648"
+      > </a
+      ><a name="3649" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3650"
+      > </a
+      ><a name="3651" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3616" class="Bound"
+      >A</a
+      ><a name="3652"
+      > </a
+      ><a name="3653" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3654"
+      > </a
+      ><a name="3655" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3618" class="Bound"
+      >B</a
+      ><a name="3656"
+      >
+  </a
+      ><a name="3659" class="Symbol"
+      >(</a
+      ><a name="3660" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3660" class="Bound"
+      >a</a
+      ><a name="3661"
+      > </a
+      ><a name="3662" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3605" class="Function Operator"
+      >&#10214;,&#10215;</a
+      ><a name="3665"
+      > </a
+      ><a name="3666" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3666" class="Bound"
+      >b</a
+      ><a name="3667" class="Symbol"
+      >)</a
+      ><a name="3668"
+      > </a
+      ><a name="3669" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3669" class="Bound"
+      >&#947;</a
+      ><a name="3670"
+      > </a
+      ><a name="3671" class="Symbol"
+      >=</a
+      ><a name="3672"
+      > </a
+      ><a name="3673" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3660" class="Bound"
+      >a</a
+      ><a name="3674"
+      > </a
+      ><a name="3675" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3669" class="Bound"
+      >&#947;</a
+      ><a name="3676"
+      > </a
+      ><a name="3677" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3678"
+      > </a
+      ><a name="3679" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3666" class="Bound"
+      >b</a
+      ><a name="3680"
+      > </a
+      ><a name="3681" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3669" class="Bound"
+      >&#947;</a
+      ><a name="3682"
+      >
+
+  </a
+      ><a name="3686" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3686" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="3690"
+      > </a
+      ><a name="3691" class="Symbol"
+      >:</a
+      ><a name="3692"
+      > </a
+      ><a name="3693" class="Symbol"
+      >&#8704;</a
+      ><a name="3694"
+      > </a
+      ><a name="3695" class="Symbol"
+      >{</a
+      ><a name="3696" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3696" class="Bound"
+      >A</a
+      ><a name="3697"
+      > </a
+      ><a name="3698" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3698" class="Bound"
+      >B</a
+      ><a name="3699"
+      > </a
+      ><a name="3700" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3700" class="Bound"
+      >&#915;</a
+      ><a name="3701" class="Symbol"
+      >}</a
+      ><a name="3702"
+      > </a
+      ><a name="3703" class="Symbol"
+      >&#8594;</a
+      ><a name="3704"
+      > </a
+      ><a name="3705" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3706"
+      > </a
+      ><a name="3707" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3700" class="Bound"
+      >&#915;</a
+      ><a name="3708"
+      > </a
+      ><a name="3709" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3710"
+      > </a
+      ><a name="3711" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3696" class="Bound"
+      >A</a
+      ><a name="3712"
+      > </a
+      ><a name="3713" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3714"
+      > </a
+      ><a name="3715" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3698" class="Bound"
+      >B</a
+      ><a name="3716"
+      > </a
+      ><a name="3717" class="Symbol"
+      >&#8594;</a
+      ><a name="3718"
+      > </a
+      ><a name="3719" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3720"
+      > </a
+      ><a name="3721" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3700" class="Bound"
+      >&#915;</a
+      ><a name="3722"
+      > </a
+      ><a name="3723" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3724"
+      > </a
+      ><a name="3725" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3696" class="Bound"
+      >A</a
+      ><a name="3726"
+      >
+  </a
+      ><a name="3729" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3686" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="3733"
+      > </a
+      ><a name="3734" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3734" class="Bound"
+      >s</a
+      ><a name="3735"
+      > </a
+      ><a name="3736" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3736" class="Bound"
+      >&#947;</a
+      ><a name="3737"
+      > </a
+      ><a name="3738" class="Symbol"
+      >=</a
+      ><a name="3739"
+      > </a
+      ><a name="3740" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="3742"
+      > </a
+      ><a name="3743" class="Symbol"
+      >(</a
+      ><a name="3744" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3734" class="Bound"
+      >s</a
+      ><a name="3745"
+      > </a
+      ><a name="3746" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3736" class="Bound"
+      >&#947;</a
+      ><a name="3747" class="Symbol"
+      >)</a
+      ><a name="3748"
+      >
+
+  </a
+      ><a name="3752" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3752" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="3756"
+      > </a
+      ><a name="3757" class="Symbol"
+      >:</a
+      ><a name="3758"
+      > </a
+      ><a name="3759" class="Symbol"
+      >&#8704;</a
+      ><a name="3760"
+      > </a
+      ><a name="3761" class="Symbol"
+      >{</a
+      ><a name="3762" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3762" class="Bound"
+      >A</a
+      ><a name="3763"
+      > </a
+      ><a name="3764" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3764" class="Bound"
+      >B</a
+      ><a name="3765"
+      > </a
+      ><a name="3766" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3766" class="Bound"
+      >&#915;</a
+      ><a name="3767" class="Symbol"
+      >}</a
+      ><a name="3768"
+      > </a
+      ><a name="3769" class="Symbol"
+      >&#8594;</a
+      ><a name="3770"
+      > </a
+      ><a name="3771" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3772"
+      > </a
+      ><a name="3773" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3766" class="Bound"
+      >&#915;</a
+      ><a name="3774"
+      > </a
+      ><a name="3775" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3776"
+      > </a
+      ><a name="3777" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3762" class="Bound"
+      >A</a
+      ><a name="3778"
+      > </a
+      ><a name="3779" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3780"
+      > </a
+      ><a name="3781" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3764" class="Bound"
+      >B</a
+      ><a name="3782"
+      > </a
+      ><a name="3783" class="Symbol"
+      >&#8594;</a
+      ><a name="3784"
+      > </a
+      ><a name="3785" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8872;</a
+      ><a name="3786"
+      > </a
+      ><a name="3787" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3766" class="Bound"
+      >&#915;</a
+      ><a name="3788"
+      > </a
+      ><a name="3789" href="BasicIS4.Semantics.TarskiClosedHilbert.html#2601" class="Function Operator"
+      >&#8658;</a
+      ><a name="3790"
+      > </a
+      ><a name="3791" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3764" class="Bound"
+      >B</a
+      ><a name="3792"
+      >
+  </a
+      ><a name="3795" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3752" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="3799"
+      > </a
+      ><a name="3800" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3800" class="Bound"
+      >s</a
+      ><a name="3801"
+      > </a
+      ><a name="3802" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3802" class="Bound"
+      >&#947;</a
+      ><a name="3803"
+      > </a
+      ><a name="3804" class="Symbol"
+      >=</a
+      ><a name="3805"
+      > </a
+      ><a name="3806" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="3808"
+      > </a
+      ><a name="3809" class="Symbol"
+      >(</a
+      ><a name="3810" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3800" class="Bound"
+      >s</a
+      ><a name="3811"
+      > </a
+      ><a name="3812" href="BasicIS4.Semantics.TarskiClosedHilbert.html#3802" class="Bound"
+      >&#947;</a
+      ><a name="3813" class="Symbol"
+      >)</a
+      ><a name="3814"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
