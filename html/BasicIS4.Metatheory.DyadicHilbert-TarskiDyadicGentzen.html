@@ -1,0 +1,3146 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1" class="Module"
+      >BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen</a
+      ><a name="61"
+      > </a
+      ><a name="62" class="Keyword"
+      >where</a
+      ><a name="67"
+      >
+
+</a
+      ><a name="69" class="Keyword"
+      >open</a
+      ><a name="73"
+      > </a
+      ><a name="74" class="Keyword"
+      >import</a
+      ><a name="80"
+      > </a
+      ><a name="81" href="BasicIS4.Syntax.DyadicHilbert.html#1" class="Module"
+      >BasicIS4.Syntax.DyadicHilbert</a
+      ><a name="110"
+      > </a
+      ><a name="111" class="Keyword"
+      >public</a
+      ><a name="117"
+      >
+</a
+      ><a name="118" class="Keyword"
+      >open</a
+      ><a name="122"
+      > </a
+      ><a name="123" class="Keyword"
+      >import</a
+      ><a name="129"
+      > </a
+      ><a name="130" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1" class="Module"
+      >BasicIS4.Semantics.TarskiDyadicGentzen</a
+      ><a name="168"
+      > </a
+      ><a name="169" class="Keyword"
+      >public</a
+      ><a name="175"
+      >
+
+</a
+      ><a name="177" class="Keyword"
+      >import</a
+      ><a name="183"
+      > </a
+      ><a name="184" href="BasicIS4.Metatheory.DyadicGentzen-TarskiDyadicGentzen.html#1" class="Module"
+      >BasicIS4.Metatheory.DyadicGentzen-TarskiDyadicGentzen</a
+      ><a name="237"
+      > </a
+      ><a name="238" class="Symbol"
+      >as</a
+      ><a name="240"
+      > </a
+      ><a name="241" class="Module"
+      >DG</a
+      ><a name="243"
+      >
+
+</a
+      ><a name="245" class="Keyword"
+      >open</a
+      ><a name="249"
+      > </a
+      ><a name="250" class="Keyword"
+      >import</a
+      ><a name="256"
+      > </a
+      ><a name="257" href="BasicIS4.Syntax.Translation.html#1" class="Module"
+      >BasicIS4.Syntax.Translation</a
+      ><a name="284"
+      > </a
+      ><a name="285" class="Keyword"
+      >using</a
+      ><a name="290"
+      > </a
+      ><a name="291" class="Symbol"
+      >(</a
+      ><a name="292" href="BasicIS4.Syntax.Translation.html#18213" class="Function"
+      >dh&#8594;dg</a
+      ><a name="297" class="Symbol"
+      >)</a
+      ><a name="298"
+      >
+
+
+</a
+      ><a name="301" class="Comment"
+      >-- Soundness with respect to the syntax representation in a particular model.</a
+      ><a name="378"
+      >
+
+</a
+      ><a name="380" class="Keyword"
+      >module</a
+      ><a name="386"
+      > </a
+      ><a name="387" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#387" class="Module"
+      >_</a
+      ><a name="388"
+      > </a
+      ><a name="389" class="Symbol"
+      >{{</a
+      ><a name="391" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#391" class="Bound"
+      >_</a
+      ><a name="392"
+      > </a
+      ><a name="393" class="Symbol"
+      >:</a
+      ><a name="394"
+      > </a
+      ><a name="395" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#284" class="Record"
+      >Model</a
+      ><a name="400" class="Symbol"
+      >}}</a
+      ><a name="402"
+      > </a
+      ><a name="403" class="Keyword"
+      >where</a
+      ><a name="408"
+      >
+  </a
+      ><a name="411" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[_]</a
+      ><a name="414"
+      > </a
+      ><a name="415" class="Symbol"
+      >:</a
+      ><a name="416"
+      > </a
+      ><a name="417" class="Symbol"
+      >&#8704;</a
+      ><a name="418"
+      > </a
+      ><a name="419" class="Symbol"
+      >{</a
+      ><a name="420" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#420" class="Bound"
+      >A</a
+      ><a name="421"
+      > </a
+      ><a name="422" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#422" class="Bound"
+      >&#915;</a
+      ><a name="423"
+      > </a
+      ><a name="424" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#424" class="Bound"
+      >&#916;</a
+      ><a name="425" class="Symbol"
+      >}</a
+      ><a name="426"
+      > </a
+      ><a name="427" class="Symbol"
+      >&#8594;</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#422" class="Bound"
+      >&#915;</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#424" class="Bound"
+      >&#916;</a
+      ><a name="434"
+      > </a
+      ><a name="435" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="436"
+      > </a
+      ><a name="437" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#420" class="Bound"
+      >A</a
+      ><a name="438"
+      > </a
+      ><a name="439" class="Symbol"
+      >&#8594;</a
+      ><a name="440"
+      > </a
+      ><a name="441" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#422" class="Bound"
+      >&#915;</a
+      ><a name="442"
+      > </a
+      ><a name="443" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#614" class="Field Operator"
+      >&#8271;</a
+      ><a name="444"
+      > </a
+      ><a name="445" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#424" class="Bound"
+      >&#916;</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#614" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="450"
+      > </a
+      ><a name="451" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#420" class="Bound"
+      >A</a
+      ><a name="452"
+      >
+  </a
+      ><a name="455" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#457" class="Bound"
+      >t</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="460"
+      > </a
+      ><a name="461" class="Symbol"
+      >=</a
+      ><a name="462"
+      > </a
+      ><a name="463" href="BasicIS4.Metatheory.DyadicGentzen-TarskiDyadicGentzen.html#289" class="Function Operator"
+      >DG.[</a
+      ><a name="467"
+      > </a
+      ><a name="468" href="BasicIS4.Syntax.Translation.html#18213" class="Function"
+      >dh&#8594;dg</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#457" class="Bound"
+      >t</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="BasicIS4.Metatheory.DyadicGentzen-TarskiDyadicGentzen.html#289" class="Function Operator"
+      >]</a
+      ><a name="477"
+      >
+
+
+</a
+      ><a name="480" class="Comment"
+      >-- Soundness with respect to all models, or evaluation.</a
+      ><a name="535"
+      >
+
+</a
+      ><a name="537" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="Symbol"
+      >:</a
+      ><a name="543"
+      > </a
+      ><a name="544" class="Symbol"
+      >&#8704;</a
+      ><a name="545"
+      > </a
+      ><a name="546" class="Symbol"
+      >{</a
+      ><a name="547" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#547" class="Bound"
+      >&#916;</a
+      ><a name="548"
+      > </a
+      ><a name="549" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#549" class="Bound"
+      >A</a
+      ><a name="550"
+      > </a
+      ><a name="551" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#551" class="Bound"
+      >&#915;</a
+      ><a name="552" class="Symbol"
+      >}</a
+      ><a name="553"
+      > </a
+      ><a name="554" class="Symbol"
+      >&#8594;</a
+      ><a name="555"
+      > </a
+      ><a name="556" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#551" class="Bound"
+      >&#915;</a
+      ><a name="557"
+      > </a
+      ><a name="558" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="559"
+      > </a
+      ><a name="560" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#547" class="Bound"
+      >&#916;</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#549" class="Bound"
+      >A</a
+      ><a name="565"
+      > </a
+      ><a name="566" class="Symbol"
+      >&#8594;</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#551" class="Bound"
+      >&#915;</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#8618" class="Function Operator"
+      >&#8271;</a
+      ><a name="571"
+      > </a
+      ><a name="572" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#547" class="Bound"
+      >&#916;</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#8618" class="Function Operator"
+      >&#8872;</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#549" class="Bound"
+      >A</a
+      ><a name="577"
+      >
+</a
+      ><a name="578" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="582"
+      > </a
+      ><a name="583" class="Symbol"
+      >(</a
+      ><a name="584" href="BasicIS4.Syntax.DyadicHilbert.html#285" class="InductiveConstructor"
+      >var</a
+      ><a name="587"
+      > </a
+      ><a name="588" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#588" class="Bound"
+      >i</a
+      ><a name="589" class="Symbol"
+      >)</a
+      ><a name="590"
+      >   </a
+      ><a name="593" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#593" class="Bound"
+      >&#947;</a
+      ><a name="594"
+      > </a
+      ><a name="595" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#595" class="Bound"
+      >&#948;</a
+      ><a name="596"
+      > </a
+      ><a name="597" class="Symbol"
+      >=</a
+      ><a name="598"
+      > </a
+      ><a name="599" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#8920" class="Function"
+      >lookup</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#588" class="Bound"
+      >i</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#593" class="Bound"
+      >&#947;</a
+      ><a name="609"
+      >
+</a
+      ><a name="610" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="614"
+      > </a
+      ><a name="615" class="Symbol"
+      >(</a
+      ><a name="616" href="BasicIS4.Syntax.DyadicHilbert.html#325" class="InductiveConstructor"
+      >app</a
+      ><a name="619"
+      > </a
+      ><a name="620" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#620" class="Bound"
+      >t</a
+      ><a name="621"
+      > </a
+      ><a name="622" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#622" class="Bound"
+      >u</a
+      ><a name="623" class="Symbol"
+      >)</a
+      ><a name="624"
+      > </a
+      ><a name="625" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#625" class="Bound"
+      >&#947;</a
+      ><a name="626"
+      > </a
+      ><a name="627" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#627" class="Bound"
+      >&#948;</a
+      ><a name="628"
+      > </a
+      ><a name="629" class="Symbol"
+      >=</a
+      ><a name="630"
+      > </a
+      ><a name="631" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="635"
+      > </a
+      ><a name="636" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#620" class="Bound"
+      >t</a
+      ><a name="637"
+      > </a
+      ><a name="638" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#625" class="Bound"
+      >&#947;</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#627" class="Bound"
+      >&#948;</a
+      ><a name="641"
+      > </a
+      ><a name="642" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#6165" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="645"
+      > </a
+      ><a name="646" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="650"
+      > </a
+      ><a name="651" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#622" class="Bound"
+      >u</a
+      ><a name="652"
+      > </a
+      ><a name="653" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#625" class="Bound"
+      >&#947;</a
+      ><a name="654"
+      > </a
+      ><a name="655" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#627" class="Bound"
+      >&#948;</a
+      ><a name="656"
+      >
+</a
+      ><a name="657" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="661"
+      > </a
+      ><a name="662" href="BasicIS4.Syntax.DyadicHilbert.html#385" class="InductiveConstructor"
+      >ci</a
+      ><a name="664"
+      >        </a
+      ><a name="672" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#672" class="Bound"
+      >&#947;</a
+      ><a name="673"
+      > </a
+      ><a name="674" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#674" class="Bound"
+      >&#948;</a
+      ><a name="675"
+      > </a
+      ><a name="676" class="Symbol"
+      >=</a
+      ><a name="677"
+      > </a
+      ><a name="678" href="Common.html#1490" class="Function"
+      >K&#178;</a
+      ><a name="680"
+      > </a
+      ><a name="681" class="Symbol"
+      >(</a
+      ><a name="682" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="BasicIS4.Syntax.DyadicHilbert.html#385" class="InductiveConstructor"
+      >ci</a
+      ><a name="686"
+      > </a
+      ><a name="687" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="688"
+      > </a
+      ><a name="689" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="Function.html#1012" class="Function"
+      >I</a
+      ><a name="692" class="Symbol"
+      >)</a
+      ><a name="693"
+      >
+</a
+      ><a name="694" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="698"
+      > </a
+      ><a name="699" href="BasicIS4.Syntax.DyadicHilbert.html#421" class="InductiveConstructor"
+      >ck</a
+      ><a name="701"
+      >        </a
+      ><a name="709" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#709" class="Bound"
+      >&#947;</a
+      ><a name="710"
+      > </a
+      ><a name="711" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#711" class="Bound"
+      >&#948;</a
+      ><a name="712"
+      > </a
+      ><a name="713" class="Symbol"
+      >=</a
+      ><a name="714"
+      > </a
+      ><a name="715" href="Common.html#1490" class="Function"
+      >K&#178;</a
+      ><a name="717"
+      > </a
+      ><a name="718" class="Symbol"
+      >(</a
+      ><a name="719" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="720"
+      > </a
+      ><a name="721" href="BasicIS4.Syntax.DyadicHilbert.html#421" class="InductiveConstructor"
+      >ck</a
+      ><a name="723"
+      > </a
+      ><a name="724" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="725"
+      > </a
+      ><a name="726" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="727"
+      > </a
+      ><a name="728" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#6286" class="Function"
+      >&#10218;K&#10219;</a
+      ><a name="731" class="Symbol"
+      >)</a
+      ><a name="732"
+      >
+</a
+      ><a name="733" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="BasicIS4.Syntax.DyadicHilbert.html#461" class="InductiveConstructor"
+      >cs</a
+      ><a name="740"
+      >        </a
+      ><a name="748" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#748" class="Bound"
+      >&#947;</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#750" class="Bound"
+      >&#948;</a
+      ><a name="751"
+      > </a
+      ><a name="752" class="Symbol"
+      >=</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="Common.html#1490" class="Function"
+      >K&#178;</a
+      ><a name="756"
+      > </a
+      ><a name="757" class="Symbol"
+      >(</a
+      ><a name="758" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="759"
+      > </a
+      ><a name="760" href="BasicIS4.Syntax.DyadicHilbert.html#461" class="InductiveConstructor"
+      >cs</a
+      ><a name="762"
+      > </a
+      ><a name="763" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="764"
+      > </a
+      ><a name="765" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#6678" class="Function"
+      >&#10218;S&#10219;&#8242;</a
+      ><a name="771" class="Symbol"
+      >)</a
+      ><a name="772"
+      >
+</a
+      ><a name="773" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="777"
+      > </a
+      ><a name="778" class="Symbol"
+      >(</a
+      ><a name="779" href="BasicIS4.Syntax.DyadicHilbert.html#521" class="InductiveConstructor"
+      >mvar</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#784" class="Bound"
+      >i</a
+      ><a name="785" class="Symbol"
+      >)</a
+      ><a name="786"
+      >  </a
+      ><a name="788" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#788" class="Bound"
+      >&#947;</a
+      ><a name="789"
+      > </a
+      ><a name="790" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#790" class="Bound"
+      >&#948;</a
+      ><a name="791"
+      > </a
+      ><a name="792" class="Symbol"
+      >=</a
+      ><a name="793"
+      > </a
+      ><a name="794" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#9050" class="Function"
+      >mlookup</a
+      ><a name="801"
+      > </a
+      ><a name="802" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#784" class="Bound"
+      >i</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#790" class="Bound"
+      >&#948;</a
+      ><a name="805"
+      >
+</a
+      ><a name="806" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="810"
+      > </a
+      ><a name="811" class="Symbol"
+      >(</a
+      ><a name="812" href="BasicIS4.Syntax.DyadicHilbert.html#561" class="InductiveConstructor"
+      >box</a
+      ><a name="815"
+      > </a
+      ><a name="816" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#816" class="Bound"
+      >t</a
+      ><a name="817" class="Symbol"
+      >)</a
+      ><a name="818"
+      >   </a
+      ><a name="821" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#821" class="Bound"
+      >&#947;</a
+      ><a name="822"
+      > </a
+      ><a name="823" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#823" class="Bound"
+      >&#948;</a
+      ><a name="824"
+      > </a
+      ><a name="825" class="Symbol"
+      >=</a
+      ><a name="826"
+      > </a
+      ><a name="827" class="Symbol"
+      >&#955;</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#829" class="Bound"
+      >&#951;</a
+      ><a name="830"
+      > </a
+      ><a name="831" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#831" class="Bound"
+      >&#952;</a
+      ><a name="832"
+      > </a
+      ><a name="833" class="Symbol"
+      >&#8594;</a
+      ><a name="834"
+      > </a
+      ><a name="835" class="Keyword"
+      >let</a
+      ><a name="838"
+      > </a
+      ><a name="839" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#839" class="Bound"
+      >&#948;&#8242;</a
+      ><a name="841"
+      > </a
+      ><a name="842" class="Symbol"
+      >=</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#3365" class="Function"
+      >mono&#178;&#8873;&#8902;</a
+      ><a name="851"
+      > </a
+      ><a name="852" class="Symbol"
+      >(</a
+      ><a name="853" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#829" class="Bound"
+      >&#951;</a
+      ><a name="854"
+      > </a
+      ><a name="855" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="856"
+      > </a
+      ><a name="857" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#831" class="Bound"
+      >&#952;</a
+      ><a name="858" class="Symbol"
+      >)</a
+      ><a name="859"
+      > </a
+      ><a name="860" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#823" class="Bound"
+      >&#948;</a
+      ><a name="861"
+      >
+                              </a
+      ><a name="892" class="Keyword"
+      >in</a
+      ><a name="894"
+      > </a
+      ><a name="895" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#4850" class="Function"
+      >[mmulticut]</a
+      ><a name="906"
+      > </a
+      ><a name="907" class="Symbol"
+      >(</a
+      ><a name="908" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#3893" class="Function"
+      >reify&#691;&#8902;</a
+      ><a name="915"
+      > </a
+      ><a name="916" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#839" class="Bound"
+      >&#948;&#8242;</a
+      ><a name="918" class="Symbol"
+      >)</a
+      ><a name="919"
+      > </a
+      ><a name="920" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="921"
+      > </a
+      ><a name="922" href="BasicIS4.Syntax.DyadicHilbert.html#561" class="InductiveConstructor"
+      >box</a
+      ><a name="925"
+      > </a
+      ><a name="926" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#816" class="Bound"
+      >t</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="929"
+      > </a
+      ><a name="930" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="931"
+      >
+                                   </a
+      ><a name="967" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#816" class="Bound"
+      >t</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="975"
+      > </a
+      ><a name="976" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#839" class="Bound"
+      >&#948;&#8242;</a
+      ><a name="978"
+      >
+</a
+      ><a name="979" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="983"
+      > </a
+      ><a name="984" href="BasicIS4.Syntax.DyadicHilbert.html#607" class="InductiveConstructor"
+      >cdist</a
+      ><a name="989"
+      >     </a
+      ><a name="994" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#994" class="Bound"
+      >&#947;</a
+      ><a name="995"
+      > </a
+      ><a name="996" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#996" class="Bound"
+      >&#948;</a
+      ><a name="997"
+      > </a
+      ><a name="998" class="Symbol"
+      >=</a
+      ><a name="999"
+      > </a
+      ><a name="1000" href="Common.html#1490" class="Function"
+      >K&#178;</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" class="Symbol"
+      >(</a
+      ><a name="1004" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="BasicIS4.Syntax.DyadicHilbert.html#607" class="InductiveConstructor"
+      >cdist</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#7540" class="Function Operator"
+      >_&#10218;D&#10219;&#8242;_</a
+      ><a name="1022" class="Symbol"
+      >)</a
+      ><a name="1023"
+      >
+</a
+      ><a name="1024" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" href="BasicIS4.Syntax.DyadicHilbert.html#659" class="InductiveConstructor"
+      >cup</a
+      ><a name="1032"
+      >       </a
+      ><a name="1039" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1039" class="Bound"
+      >&#947;</a
+      ><a name="1040"
+      > </a
+      ><a name="1041" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1041" class="Bound"
+      >&#948;</a
+      ><a name="1042"
+      > </a
+      ><a name="1043" class="Symbol"
+      >=</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" href="Common.html#1490" class="Function"
+      >K&#178;</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" class="Symbol"
+      >(</a
+      ><a name="1049" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="1050"
+      > </a
+      ><a name="1051" href="BasicIS4.Syntax.DyadicHilbert.html#659" class="InductiveConstructor"
+      >cup</a
+      ><a name="1054"
+      > </a
+      ><a name="1055" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="1056"
+      > </a
+      ><a name="1057" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1058"
+      > </a
+      ><a name="1059" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#7761" class="Function"
+      >&#10218;&#8593;&#10219;</a
+      ><a name="1062" class="Symbol"
+      >)</a
+      ><a name="1063"
+      >
+</a
+      ><a name="1064" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" href="BasicIS4.Syntax.DyadicHilbert.html#701" class="InductiveConstructor"
+      >cdown</a
+      ><a name="1074"
+      >     </a
+      ><a name="1079" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1079" class="Bound"
+      >&#947;</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1081" class="Bound"
+      >&#948;</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" class="Symbol"
+      >=</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="Common.html#1490" class="Function"
+      >K&#178;</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" class="Symbol"
+      >(</a
+      ><a name="1089" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="BasicIS4.Syntax.DyadicHilbert.html#701" class="InductiveConstructor"
+      >cdown</a
+      ><a name="1096"
+      > </a
+      ><a name="1097" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="1098"
+      > </a
+      ><a name="1099" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1100"
+      > </a
+      ><a name="1101" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#7924" class="Function"
+      >&#10218;&#8595;&#10219;</a
+      ><a name="1104" class="Symbol"
+      >)</a
+      ><a name="1105"
+      >
+</a
+      ><a name="1106" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="BasicIS4.Syntax.DyadicHilbert.html#739" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1116"
+      >     </a
+      ><a name="1121" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1121" class="Bound"
+      >&#947;</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1123" class="Bound"
+      >&#948;</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" class="Symbol"
+      >=</a
+      ><a name="1126"
+      > </a
+      ><a name="1127" href="Common.html#1490" class="Function"
+      >K&#178;</a
+      ><a name="1129"
+      > </a
+      ><a name="1130" class="Symbol"
+      >(</a
+      ><a name="1131" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" href="BasicIS4.Syntax.DyadicHilbert.html#739" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#8021" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="1149" class="Symbol"
+      >)</a
+      ><a name="1150"
+      >
+</a
+      ><a name="1151" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="BasicIS4.Syntax.DyadicHilbert.html#783" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1160"
+      >      </a
+      ><a name="1166" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1166" class="Bound"
+      >&#947;</a
+      ><a name="1167"
+      > </a
+      ><a name="1168" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1168" class="Bound"
+      >&#948;</a
+      ><a name="1169"
+      > </a
+      ><a name="1170" class="Symbol"
+      >=</a
+      ><a name="1171"
+      > </a
+      ><a name="1172" href="Common.html#1490" class="Function"
+      >K&#178;</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" class="Symbol"
+      >(</a
+      ><a name="1176" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" href="BasicIS4.Syntax.DyadicHilbert.html#783" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1186"
+      > </a
+      ><a name="1187" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="1189" class="Symbol"
+      >)</a
+      ><a name="1190"
+      >
+</a
+      ><a name="1191" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="1195"
+      > </a
+      ><a name="1196" href="BasicIS4.Syntax.DyadicHilbert.html#823" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1200"
+      >      </a
+      ><a name="1206" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1206" class="Bound"
+      >&#947;</a
+      ><a name="1207"
+      > </a
+      ><a name="1208" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1208" class="Bound"
+      >&#948;</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" class="Symbol"
+      >=</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="Common.html#1490" class="Function"
+      >K&#178;</a
+      ><a name="1214"
+      > </a
+      ><a name="1215" class="Symbol"
+      >(</a
+      ><a name="1216" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >[</a
+      ><a name="1217"
+      > </a
+      ><a name="1218" href="BasicIS4.Syntax.DyadicHilbert.html#823" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#411" class="Function Operator"
+      >]</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="1229" class="Symbol"
+      >)</a
+      ><a name="1230"
+      >
+</a
+      ><a name="1231" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="1235"
+      > </a
+      ><a name="1236" href="BasicIS4.Syntax.DyadicHilbert.html#863" class="InductiveConstructor"
+      >tt</a
+      ><a name="1238"
+      >        </a
+      ><a name="1246" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1246" class="Bound"
+      >&#947;</a
+      ><a name="1247"
+      > </a
+      ><a name="1248" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1248" class="Bound"
+      >&#948;</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" class="Symbol"
+      >=</a
+      ><a name="1251"
+      > </a
+      ><a name="1252" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1253"
+      >
+
+
+</a
+      ><a name="1256" class="Comment"
+      >-- TODO: Correctness of evaluation with respect to conversion.</a
+      ><a name="1318"
+      >
+
+
+</a
+      ><a name="1321" class="Comment"
+      >-- The canonical model.</a
+      ><a name="1344"
+      >
+
+</a
+      ><a name="1346" class="Keyword"
+      >private</a
+      ><a name="1353"
+      >
+  </a
+      ><a name="1356" class="Keyword"
+      >instance</a
+      ><a name="1364"
+      >
+    </a
+      ><a name="1369" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1369" class="Function"
+      >canon</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" class="Symbol"
+      >:</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#284" class="Record"
+      >Model</a
+      ><a name="1382"
+      >
+    </a
+      ><a name="1387" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1369" class="Function"
+      >canon</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" class="Symbol"
+      >=</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" class="Keyword"
+      >record</a
+      ><a name="1401"
+      >
+      </a
+      ><a name="1408" class="Symbol"
+      >{</a
+      ><a name="1409"
+      > </a
+      ><a name="1410" class="Field Operator"
+      >_&#8271;_&#8873;&#7493;_</a
+      ><a name="1416"
+      >   </a
+      ><a name="1419" class="Symbol"
+      >=</a
+      ><a name="1420"
+      > </a
+      ><a name="1421" class="Symbol"
+      >&#955;</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1423" class="Bound"
+      >&#915;</a
+      ><a name="1424"
+      > </a
+      ><a name="1425" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1425" class="Bound"
+      >&#916;</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1427" class="Bound"
+      >P</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" class="Symbol"
+      >&#8594;</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1423" class="Bound"
+      >&#915;</a
+      ><a name="1432"
+      > </a
+      ><a name="1433" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1434"
+      > </a
+      ><a name="1435" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1425" class="Bound"
+      >&#916;</a
+      ><a name="1436"
+      > </a
+      ><a name="1437" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1440"
+      > </a
+      ><a name="1441" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1427" class="Bound"
+      >P</a
+      ><a name="1442"
+      >
+      </a
+      ><a name="1449" class="Symbol"
+      >;</a
+      ><a name="1450"
+      > </a
+      ><a name="1451" class="Field"
+      >mono&#8873;&#7493;</a
+      ><a name="1457"
+      >   </a
+      ><a name="1460" class="Symbol"
+      >=</a
+      ><a name="1461"
+      > </a
+      ><a name="1462" href="BasicIS4.Syntax.DyadicHilbert.html#1047" class="Function"
+      >mono&#8866;</a
+      ><a name="1467"
+      >
+      </a
+      ><a name="1474" class="Symbol"
+      >;</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" class="Field"
+      >mmono&#8873;&#7493;</a
+      ><a name="1483"
+      >  </a
+      ><a name="1485" class="Symbol"
+      >=</a
+      ><a name="1486"
+      > </a
+      ><a name="1487" href="BasicIS4.Syntax.DyadicHilbert.html#1684" class="Function"
+      >mmono&#8866;</a
+      ><a name="1493"
+      >
+      </a
+      ><a name="1500" class="Symbol"
+      >;</a
+      ><a name="1501"
+      > </a
+      ><a name="1502" class="Field Operator"
+      >_&#8271;_[&#8866;]_</a
+      ><a name="1509"
+      >  </a
+      ><a name="1511" class="Symbol"
+      >=</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >_&#8271;_&#8866;_</a
+      ><a name="1518"
+      >
+      </a
+      ><a name="1525" class="Symbol"
+      >;</a
+      ><a name="1526"
+      > </a
+      ><a name="1527" class="Field"
+      >mono[&#8866;]</a
+      ><a name="1534"
+      >  </a
+      ><a name="1536" class="Symbol"
+      >=</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" href="BasicIS4.Syntax.DyadicHilbert.html#1047" class="Function"
+      >mono&#8866;</a
+      ><a name="1543"
+      >
+      </a
+      ><a name="1550" class="Symbol"
+      >;</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" class="Field"
+      >mmono[&#8866;]</a
+      ><a name="1560"
+      > </a
+      ><a name="1561" class="Symbol"
+      >=</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" href="BasicIS4.Syntax.DyadicHilbert.html#1684" class="Function"
+      >mmono&#8866;</a
+      ><a name="1569"
+      >
+      </a
+      ><a name="1576" class="Symbol"
+      >;</a
+      ><a name="1577"
+      > </a
+      ><a name="1578" class="Field"
+      >[var]</a
+      ><a name="1583"
+      >     </a
+      ><a name="1588" class="Symbol"
+      >=</a
+      ><a name="1589"
+      > </a
+      ><a name="1590" href="BasicIS4.Syntax.DyadicHilbert.html#285" class="InductiveConstructor"
+      >var</a
+      ><a name="1593"
+      >
+      </a
+      ><a name="1600" class="Symbol"
+      >;</a
+      ><a name="1601"
+      > </a
+      ><a name="1602" class="Field"
+      >[lam]</a
+      ><a name="1607"
+      >     </a
+      ><a name="1612" class="Symbol"
+      >=</a
+      ><a name="1613"
+      > </a
+      ><a name="1614" href="BasicIS4.Syntax.DyadicHilbert.html#2820" class="Function"
+      >lam</a
+      ><a name="1617"
+      >
+      </a
+      ><a name="1624" class="Symbol"
+      >;</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" class="Field"
+      >[app]</a
+      ><a name="1631"
+      >     </a
+      ><a name="1636" class="Symbol"
+      >=</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="BasicIS4.Syntax.DyadicHilbert.html#325" class="InductiveConstructor"
+      >app</a
+      ><a name="1641"
+      >
+      </a
+      ><a name="1648" class="Symbol"
+      >;</a
+      ><a name="1649"
+      > </a
+      ><a name="1650" class="Field"
+      >[mvar]</a
+      ><a name="1656"
+      >    </a
+      ><a name="1660" class="Symbol"
+      >=</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" href="BasicIS4.Syntax.DyadicHilbert.html#521" class="InductiveConstructor"
+      >mvar</a
+      ><a name="1666"
+      >
+      </a
+      ><a name="1673" class="Symbol"
+      >;</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" class="Field"
+      >[box]</a
+      ><a name="1680"
+      >     </a
+      ><a name="1685" class="Symbol"
+      >=</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" href="BasicIS4.Syntax.DyadicHilbert.html#561" class="InductiveConstructor"
+      >box</a
+      ><a name="1690"
+      >
+      </a
+      ><a name="1697" class="Symbol"
+      >;</a
+      ><a name="1698"
+      > </a
+      ><a name="1699" class="Field"
+      >[unbox]</a
+      ><a name="1706"
+      >   </a
+      ><a name="1709" class="Symbol"
+      >=</a
+      ><a name="1710"
+      > </a
+      ><a name="1711" href="BasicIS4.Syntax.DyadicHilbert.html#8695" class="Function"
+      >unbox</a
+      ><a name="1716"
+      >
+      </a
+      ><a name="1723" class="Symbol"
+      >;</a
+      ><a name="1724"
+      > </a
+      ><a name="1725" class="Field"
+      >[pair]</a
+      ><a name="1731"
+      >    </a
+      ><a name="1735" class="Symbol"
+      >=</a
+      ><a name="1736"
+      > </a
+      ><a name="1737" href="BasicIS4.Syntax.DyadicHilbert.html#8785" class="Function"
+      >pair</a
+      ><a name="1741"
+      >
+      </a
+      ><a name="1748" class="Symbol"
+      >;</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" class="Field"
+      >[fst]</a
+      ><a name="1755"
+      >     </a
+      ><a name="1760" class="Symbol"
+      >=</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" href="BasicIS4.Syntax.DyadicHilbert.html#8876" class="Function"
+      >fst</a
+      ><a name="1765"
+      >
+      </a
+      ><a name="1772" class="Symbol"
+      >;</a
+      ><a name="1773"
+      > </a
+      ><a name="1774" class="Field"
+      >[snd]</a
+      ><a name="1779"
+      >     </a
+      ><a name="1784" class="Symbol"
+      >=</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" href="BasicIS4.Syntax.DyadicHilbert.html#8942" class="Function"
+      >snd</a
+      ><a name="1789"
+      >
+      </a
+      ><a name="1796" class="Symbol"
+      >;</a
+      ><a name="1797"
+      > </a
+      ><a name="1798" class="Field"
+      >[tt]</a
+      ><a name="1802"
+      >      </a
+      ><a name="1808" class="Symbol"
+      >=</a
+      ><a name="1809"
+      > </a
+      ><a name="1810" href="BasicIS4.Syntax.DyadicHilbert.html#863" class="InductiveConstructor"
+      >tt</a
+      ><a name="1812"
+      >
+      </a
+      ><a name="1819" class="Symbol"
+      >}</a
+      ><a name="1820"
+      >
+
+
+</a
+      ><a name="1823" class="Comment"
+      >-- Soundness and completeness with respect to the canonical model.</a
+      ><a name="1889"
+      >
+
+</a
+      ><a name="1891" class="Keyword"
+      >mutual</a
+      ><a name="1897"
+      >
+  </a
+      ><a name="1900" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" class="Symbol"
+      >:</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" class="Symbol"
+      >&#8704;</a
+      ><a name="1912"
+      > </a
+      ><a name="1913" class="Symbol"
+      >{</a
+      ><a name="1914" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1914" class="Bound"
+      >A</a
+      ><a name="1915"
+      > </a
+      ><a name="1916" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1916" class="Bound"
+      >&#915;</a
+      ><a name="1917"
+      > </a
+      ><a name="1918" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1918" class="Bound"
+      >&#916;</a
+      ><a name="1919" class="Symbol"
+      >}</a
+      ><a name="1920"
+      > </a
+      ><a name="1921" class="Symbol"
+      >&#8594;</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1916" class="Bound"
+      >&#915;</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1918" class="Bound"
+      >&#916;</a
+      ><a name="1928"
+      > </a
+      ><a name="1929" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1914" class="Bound"
+      >A</a
+      ><a name="1932"
+      > </a
+      ><a name="1933" class="Symbol"
+      >&#8594;</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1916" class="Bound"
+      >&#915;</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1641" class="Function Operator"
+      >&#8271;</a
+      ><a name="1938"
+      > </a
+      ><a name="1939" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1918" class="Bound"
+      >&#916;</a
+      ><a name="1940"
+      > </a
+      ><a name="1941" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1641" class="Function Operator"
+      >&#8873;</a
+      ><a name="1942"
+      > </a
+      ><a name="1943" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1914" class="Bound"
+      >A</a
+      ><a name="1944"
+      >
+  </a
+      ><a name="1947" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="1955"
+      > </a
+      ><a name="1956" class="Symbol"
+      >{</a
+      ><a name="1957" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1958"
+      > </a
+      ><a name="1959" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1959" class="Bound"
+      >P</a
+      ><a name="1960" class="Symbol"
+      >}</a
+      ><a name="1961"
+      >   </a
+      ><a name="1964" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1964" class="Bound"
+      >t</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" class="Symbol"
+      >=</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1964" class="Bound"
+      >t</a
+      ><a name="1969"
+      > </a
+      ><a name="1970" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1964" class="Bound"
+      >t</a
+      ><a name="1973"
+      >
+  </a
+      ><a name="1976" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="1984"
+      > </a
+      ><a name="1985" class="Symbol"
+      >{</a
+      ><a name="1986" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1986" class="Bound"
+      >A</a
+      ><a name="1987"
+      > </a
+      ><a name="1988" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1989"
+      > </a
+      ><a name="1990" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1990" class="Bound"
+      >B</a
+      ><a name="1991" class="Symbol"
+      >}</a
+      ><a name="1992"
+      > </a
+      ><a name="1993" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1993" class="Bound"
+      >t</a
+      ><a name="1994"
+      > </a
+      ><a name="1995" class="Symbol"
+      >=</a
+      ><a name="1996"
+      > </a
+      ><a name="1997" class="Symbol"
+      >&#955;</a
+      ><a name="1998"
+      > </a
+      ><a name="1999" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1999" class="Bound"
+      >&#951;</a
+      ><a name="2000"
+      > </a
+      ><a name="2001" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2001" class="Bound"
+      >&#952;</a
+      ><a name="2002"
+      > </a
+      ><a name="2003" class="Symbol"
+      >&#8594;</a
+      ><a name="2004"
+      > </a
+      ><a name="2005" class="Keyword"
+      >let</a
+      ><a name="2008"
+      > </a
+      ><a name="2009" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2009" class="Bound"
+      >t&#8242;</a
+      ><a name="2011"
+      > </a
+      ><a name="2012" class="Symbol"
+      >=</a
+      ><a name="2013"
+      > </a
+      ><a name="2014" href="BasicIS4.Syntax.DyadicHilbert.html#2334" class="Function"
+      >mono&#178;&#8866;</a
+      ><a name="2020"
+      > </a
+      ><a name="2021" class="Symbol"
+      >(</a
+      ><a name="2022" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1999" class="Bound"
+      >&#951;</a
+      ><a name="2023"
+      > </a
+      ><a name="2024" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2025"
+      > </a
+      ><a name="2026" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2001" class="Bound"
+      >&#952;</a
+      ><a name="2027" class="Symbol"
+      >)</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1993" class="Bound"
+      >t</a
+      ><a name="2030"
+      >
+                                </a
+      ><a name="2063" class="Keyword"
+      >in</a
+      ><a name="2065"
+      >  </a
+      ><a name="2067" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2009" class="Bound"
+      >t&#8242;</a
+      ><a name="2069"
+      > </a
+      ><a name="2070" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" class="Symbol"
+      >&#955;</a
+      ><a name="2073"
+      > </a
+      ><a name="2074" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2074" class="Bound"
+      >a</a
+      ><a name="2075"
+      > </a
+      ><a name="2076" class="Symbol"
+      >&#8594;</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="2086"
+      > </a
+      ><a name="2087" class="Symbol"
+      >(</a
+      ><a name="2088" href="BasicIS4.Syntax.DyadicHilbert.html#325" class="InductiveConstructor"
+      >app</a
+      ><a name="2091"
+      > </a
+      ><a name="2092" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2009" class="Bound"
+      >t&#8242;</a
+      ><a name="2094"
+      > </a
+      ><a name="2095" class="Symbol"
+      >(</a
+      ><a name="2096" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2102"
+      > </a
+      ><a name="2103" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2074" class="Bound"
+      >a</a
+      ><a name="2104" class="Symbol"
+      >))</a
+      ><a name="2106"
+      >
+  </a
+      ><a name="2109" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="2117"
+      > </a
+      ><a name="2118" class="Symbol"
+      >{</a
+      ><a name="2119" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2120"
+      > </a
+      ><a name="2121" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2121" class="Bound"
+      >A</a
+      ><a name="2122" class="Symbol"
+      >}</a
+      ><a name="2123"
+      >   </a
+      ><a name="2126" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2126" class="Bound"
+      >t</a
+      ><a name="2127"
+      > </a
+      ><a name="2128" class="Symbol"
+      >=</a
+      ><a name="2129"
+      > </a
+      ><a name="2130" class="Symbol"
+      >&#955;</a
+      ><a name="2131"
+      > </a
+      ><a name="2132" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2132" class="Bound"
+      >&#951;</a
+      ><a name="2133"
+      > </a
+      ><a name="2134" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2134" class="Bound"
+      >&#952;</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" class="Symbol"
+      >&#8594;</a
+      ><a name="2137"
+      > </a
+      ><a name="2138" class="Keyword"
+      >let</a
+      ><a name="2141"
+      > </a
+      ><a name="2142" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2142" class="Bound"
+      >t&#8242;</a
+      ><a name="2144"
+      > </a
+      ><a name="2145" class="Symbol"
+      >=</a
+      ><a name="2146"
+      > </a
+      ><a name="2147" href="BasicIS4.Syntax.DyadicHilbert.html#2334" class="Function"
+      >mono&#178;&#8866;</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" class="Symbol"
+      >(</a
+      ><a name="2155" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2132" class="Bound"
+      >&#951;</a
+      ><a name="2156"
+      > </a
+      ><a name="2157" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2158"
+      > </a
+      ><a name="2159" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2134" class="Bound"
+      >&#952;</a
+      ><a name="2160" class="Symbol"
+      >)</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2126" class="Bound"
+      >t</a
+      ><a name="2163"
+      >
+                                </a
+      ><a name="2196" class="Keyword"
+      >in</a
+      ><a name="2198"
+      >  </a
+      ><a name="2200" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2142" class="Bound"
+      >t&#8242;</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2204"
+      > </a
+      ><a name="2205" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="2213"
+      > </a
+      ><a name="2214" class="Symbol"
+      >(</a
+      ><a name="2215" href="BasicIS4.Syntax.DyadicHilbert.html#8531" class="Function"
+      >down</a
+      ><a name="2219"
+      > </a
+      ><a name="2220" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2142" class="Bound"
+      >t&#8242;</a
+      ><a name="2222" class="Symbol"
+      >)</a
+      ><a name="2223"
+      >
+  </a
+      ><a name="2226" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" class="Symbol"
+      >{</a
+      ><a name="2236" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2236" class="Bound"
+      >A</a
+      ><a name="2237"
+      > </a
+      ><a name="2238" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2239"
+      > </a
+      ><a name="2240" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2240" class="Bound"
+      >B</a
+      ><a name="2241" class="Symbol"
+      >}</a
+      ><a name="2242"
+      > </a
+      ><a name="2243" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2243" class="Bound"
+      >t</a
+      ><a name="2244"
+      > </a
+      ><a name="2245" class="Symbol"
+      >=</a
+      ><a name="2246"
+      > </a
+      ><a name="2247" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="2255"
+      > </a
+      ><a name="2256" class="Symbol"
+      >(</a
+      ><a name="2257" href="BasicIS4.Syntax.DyadicHilbert.html#8876" class="Function"
+      >fst</a
+      ><a name="2260"
+      > </a
+      ><a name="2261" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2243" class="Bound"
+      >t</a
+      ><a name="2262" class="Symbol"
+      >)</a
+      ><a name="2263"
+      > </a
+      ><a name="2264" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2265"
+      > </a
+      ><a name="2266" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="2274"
+      > </a
+      ><a name="2275" class="Symbol"
+      >(</a
+      ><a name="2276" href="BasicIS4.Syntax.DyadicHilbert.html#8942" class="Function"
+      >snd</a
+      ><a name="2279"
+      > </a
+      ><a name="2280" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2243" class="Bound"
+      >t</a
+      ><a name="2281" class="Symbol"
+      >)</a
+      ><a name="2282"
+      >
+  </a
+      ><a name="2285" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="2293"
+      > </a
+      ><a name="2294" class="Symbol"
+      >{</a
+      ><a name="2295" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="2296" class="Symbol"
+      >}</a
+      ><a name="2297"
+      >    </a
+      ><a name="2301" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2301" class="Bound"
+      >t</a
+      ><a name="2302"
+      > </a
+      ><a name="2303" class="Symbol"
+      >=</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2306"
+      >
+
+  </a
+      ><a name="2310" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2316"
+      > </a
+      ><a name="2317" class="Symbol"
+      >:</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" class="Symbol"
+      >&#8704;</a
+      ><a name="2320"
+      > </a
+      ><a name="2321" class="Symbol"
+      >{</a
+      ><a name="2322" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2322" class="Bound"
+      >A</a
+      ><a name="2323"
+      > </a
+      ><a name="2324" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2324" class="Bound"
+      >&#915;</a
+      ><a name="2325"
+      > </a
+      ><a name="2326" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2326" class="Bound"
+      >&#916;</a
+      ><a name="2327" class="Symbol"
+      >}</a
+      ><a name="2328"
+      > </a
+      ><a name="2329" class="Symbol"
+      >&#8594;</a
+      ><a name="2330"
+      > </a
+      ><a name="2331" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2324" class="Bound"
+      >&#915;</a
+      ><a name="2332"
+      > </a
+      ><a name="2333" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1641" class="Function Operator"
+      >&#8271;</a
+      ><a name="2334"
+      > </a
+      ><a name="2335" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2326" class="Bound"
+      >&#916;</a
+      ><a name="2336"
+      > </a
+      ><a name="2337" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1641" class="Function Operator"
+      >&#8873;</a
+      ><a name="2338"
+      > </a
+      ><a name="2339" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2322" class="Bound"
+      >A</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" class="Symbol"
+      >&#8594;</a
+      ><a name="2342"
+      > </a
+      ><a name="2343" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2324" class="Bound"
+      >&#915;</a
+      ><a name="2344"
+      > </a
+      ><a name="2345" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2326" class="Bound"
+      >&#916;</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2350"
+      > </a
+      ><a name="2351" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2322" class="Bound"
+      >A</a
+      ><a name="2352"
+      >
+  </a
+      ><a name="2355" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2361"
+      > </a
+      ><a name="2362" class="Symbol"
+      >{</a
+      ><a name="2363" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="2364"
+      > </a
+      ><a name="2365" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2365" class="Bound"
+      >P</a
+      ><a name="2366" class="Symbol"
+      >}</a
+      ><a name="2367"
+      >   </a
+      ><a name="2370" class="Symbol"
+      >(</a
+      ><a name="2371" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2371" class="Bound"
+      >t</a
+      ><a name="2372"
+      > </a
+      ><a name="2373" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2374"
+      > </a
+      ><a name="2375" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2375" class="Bound"
+      >s</a
+      ><a name="2376" class="Symbol"
+      >)</a
+      ><a name="2377"
+      > </a
+      ><a name="2378" class="Symbol"
+      >=</a
+      ><a name="2379"
+      > </a
+      ><a name="2380" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2371" class="Bound"
+      >t</a
+      ><a name="2381"
+      >
+  </a
+      ><a name="2384" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2390"
+      > </a
+      ><a name="2391" class="Symbol"
+      >{</a
+      ><a name="2392" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2392" class="Bound"
+      >A</a
+      ><a name="2393"
+      > </a
+      ><a name="2394" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2395"
+      > </a
+      ><a name="2396" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2396" class="Bound"
+      >B</a
+      ><a name="2397" class="Symbol"
+      >}</a
+      ><a name="2398"
+      > </a
+      ><a name="2399" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2399" class="Bound"
+      >s</a
+      ><a name="2400"
+      >       </a
+      ><a name="2407" class="Symbol"
+      >=</a
+      ><a name="2408"
+      > </a
+      ><a name="2409" class="Keyword"
+      >let</a
+      ><a name="2412"
+      > </a
+      ><a name="2413" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2413" class="Bound"
+      >t</a
+      ><a name="2414"
+      > </a
+      ><a name="2415" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2416"
+      > </a
+      ><a name="2417" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2417" class="Bound"
+      >f</a
+      ><a name="2418"
+      > </a
+      ><a name="2419" class="Symbol"
+      >=</a
+      ><a name="2420"
+      > </a
+      ><a name="2421" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2399" class="Bound"
+      >s</a
+      ><a name="2422"
+      > </a
+      ><a name="2423" href="Common.Context.html#1661" class="Function"
+      >refl&#8838;</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" href="Common.Context.html#1661" class="Function"
+      >refl&#8838;</a
+      ><a name="2434"
+      > </a
+      ><a name="2435" class="Keyword"
+      >in</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2413" class="Bound"
+      >t</a
+      ><a name="2439"
+      >
+  </a
+      ><a name="2442" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2448"
+      > </a
+      ><a name="2449" class="Symbol"
+      >{</a
+      ><a name="2450" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2452" class="Bound"
+      >A</a
+      ><a name="2453" class="Symbol"
+      >}</a
+      ><a name="2454"
+      >   </a
+      ><a name="2457" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2457" class="Bound"
+      >s</a
+      ><a name="2458"
+      >       </a
+      ><a name="2465" class="Symbol"
+      >=</a
+      ><a name="2466"
+      > </a
+      ><a name="2467" class="Keyword"
+      >let</a
+      ><a name="2470"
+      > </a
+      ><a name="2471" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2471" class="Bound"
+      >t</a
+      ><a name="2472"
+      > </a
+      ><a name="2473" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2474"
+      > </a
+      ><a name="2475" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2475" class="Bound"
+      >a</a
+      ><a name="2476"
+      > </a
+      ><a name="2477" class="Symbol"
+      >=</a
+      ><a name="2478"
+      > </a
+      ><a name="2479" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2457" class="Bound"
+      >s</a
+      ><a name="2480"
+      > </a
+      ><a name="2481" href="Common.Context.html#1661" class="Function"
+      >refl&#8838;</a
+      ><a name="2486"
+      > </a
+      ><a name="2487" href="Common.Context.html#1661" class="Function"
+      >refl&#8838;</a
+      ><a name="2492"
+      > </a
+      ><a name="2493" class="Keyword"
+      >in</a
+      ><a name="2495"
+      > </a
+      ><a name="2496" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2471" class="Bound"
+      >t</a
+      ><a name="2497"
+      >
+  </a
+      ><a name="2500" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2506"
+      > </a
+      ><a name="2507" class="Symbol"
+      >{</a
+      ><a name="2508" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2508" class="Bound"
+      >A</a
+      ><a name="2509"
+      > </a
+      ><a name="2510" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2511"
+      > </a
+      ><a name="2512" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2512" class="Bound"
+      >B</a
+      ><a name="2513" class="Symbol"
+      >}</a
+      ><a name="2514"
+      > </a
+      ><a name="2515" class="Symbol"
+      >(</a
+      ><a name="2516" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2516" class="Bound"
+      >a</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2519"
+      > </a
+      ><a name="2520" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2520" class="Bound"
+      >b</a
+      ><a name="2521" class="Symbol"
+      >)</a
+      ><a name="2522"
+      > </a
+      ><a name="2523" class="Symbol"
+      >=</a
+      ><a name="2524"
+      > </a
+      ><a name="2525" href="BasicIS4.Syntax.DyadicHilbert.html#8785" class="Function"
+      >pair</a
+      ><a name="2529"
+      > </a
+      ><a name="2530" class="Symbol"
+      >(</a
+      ><a name="2531" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2537"
+      > </a
+      ><a name="2538" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2516" class="Bound"
+      >a</a
+      ><a name="2539" class="Symbol"
+      >)</a
+      ><a name="2540"
+      > </a
+      ><a name="2541" class="Symbol"
+      >(</a
+      ><a name="2542" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2548"
+      > </a
+      ><a name="2549" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2520" class="Bound"
+      >b</a
+      ><a name="2550" class="Symbol"
+      >)</a
+      ><a name="2551"
+      >
+  </a
+      ><a name="2554" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" class="Symbol"
+      >{</a
+      ><a name="2562" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="2563" class="Symbol"
+      >}</a
+      ><a name="2564"
+      >    </a
+      ><a name="2568" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2569"
+      >       </a
+      ><a name="2576" class="Symbol"
+      >=</a
+      ><a name="2577"
+      > </a
+      ><a name="2578" href="BasicIS4.Syntax.DyadicHilbert.html#863" class="InductiveConstructor"
+      >tt</a
+      ><a name="2580"
+      >
+
+</a
+      ><a name="2582" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2582" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="2591"
+      > </a
+      ><a name="2592" class="Symbol"
+      >:</a
+      ><a name="2593"
+      > </a
+      ><a name="2594" class="Symbol"
+      >&#8704;</a
+      ><a name="2595"
+      > </a
+      ><a name="2596" class="Symbol"
+      >{</a
+      ><a name="2597" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2597" class="Bound"
+      >&#928;</a
+      ><a name="2598"
+      > </a
+      ><a name="2599" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2599" class="Bound"
+      >&#915;</a
+      ><a name="2600"
+      > </a
+      ><a name="2601" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2601" class="Bound"
+      >&#916;</a
+      ><a name="2602" class="Symbol"
+      >}</a
+      ><a name="2603"
+      > </a
+      ><a name="2604" class="Symbol"
+      >&#8594;</a
+      ><a name="2605"
+      > </a
+      ><a name="2606" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2599" class="Bound"
+      >&#915;</a
+      ><a name="2607"
+      > </a
+      ><a name="2608" href="BasicIS4.Syntax.DyadicHilbert.html#897" class="Function Operator"
+      >&#8271;</a
+      ><a name="2609"
+      > </a
+      ><a name="2610" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2601" class="Bound"
+      >&#916;</a
+      ><a name="2611"
+      > </a
+      ><a name="2612" href="BasicIS4.Syntax.DyadicHilbert.html#897" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="2614"
+      > </a
+      ><a name="2615" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2597" class="Bound"
+      >&#928;</a
+      ><a name="2616"
+      > </a
+      ><a name="2617" class="Symbol"
+      >&#8594;</a
+      ><a name="2618"
+      > </a
+      ><a name="2619" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2599" class="Bound"
+      >&#915;</a
+      ><a name="2620"
+      > </a
+      ><a name="2621" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8271;</a
+      ><a name="2622"
+      > </a
+      ><a name="2623" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2601" class="Bound"
+      >&#916;</a
+      ><a name="2624"
+      > </a
+      ><a name="2625" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2627"
+      > </a
+      ><a name="2628" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2597" class="Bound"
+      >&#928;</a
+      ><a name="2629"
+      >
+</a
+      ><a name="2630" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2582" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="2639"
+      > </a
+      ><a name="2640" class="Symbol"
+      >{</a
+      ><a name="2641" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2642" class="Symbol"
+      >}</a
+      ><a name="2643"
+      >     </a
+      ><a name="2648" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2649"
+      >        </a
+      ><a name="2657" class="Symbol"
+      >=</a
+      ><a name="2658"
+      > </a
+      ><a name="2659" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2660"
+      >
+</a
+      ><a name="2661" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2582" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="2670"
+      > </a
+      ><a name="2671" class="Symbol"
+      >{</a
+      ><a name="2672" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2672" class="Bound"
+      >&#928;</a
+      ><a name="2673"
+      > </a
+      ><a name="2674" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2675"
+      > </a
+      ><a name="2676" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2676" class="Bound"
+      >A</a
+      ><a name="2677" class="Symbol"
+      >}</a
+      ><a name="2678"
+      > </a
+      ><a name="2679" class="Symbol"
+      >(</a
+      ><a name="2680" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2680" class="Bound"
+      >ts</a
+      ><a name="2682"
+      > </a
+      ><a name="2683" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2684"
+      > </a
+      ><a name="2685" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2685" class="Bound"
+      >t</a
+      ><a name="2686" class="Symbol"
+      >)</a
+      ><a name="2687"
+      > </a
+      ><a name="2688" class="Symbol"
+      >=</a
+      ><a name="2689"
+      > </a
+      ><a name="2690" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2582" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="2699"
+      > </a
+      ><a name="2700" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2680" class="Bound"
+      >ts</a
+      ><a name="2702"
+      > </a
+      ><a name="2703" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2704"
+      > </a
+      ><a name="2705" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#1900" class="Function"
+      >reflect&#7580;</a
+      ><a name="2713"
+      > </a
+      ><a name="2714" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2685" class="Bound"
+      >t</a
+      ><a name="2715"
+      >
+
+</a
+      ><a name="2717" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2717" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="2724"
+      > </a
+      ><a name="2725" class="Symbol"
+      >:</a
+      ><a name="2726"
+      > </a
+      ><a name="2727" class="Symbol"
+      >&#8704;</a
+      ><a name="2728"
+      > </a
+      ><a name="2729" class="Symbol"
+      >{</a
+      ><a name="2730" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2730" class="Bound"
+      >&#928;</a
+      ><a name="2731"
+      > </a
+      ><a name="2732" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2732" class="Bound"
+      >&#915;</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2734" class="Bound"
+      >&#916;</a
+      ><a name="2735" class="Symbol"
+      >}</a
+      ><a name="2736"
+      > </a
+      ><a name="2737" class="Symbol"
+      >&#8594;</a
+      ><a name="2738"
+      > </a
+      ><a name="2739" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2732" class="Bound"
+      >&#915;</a
+      ><a name="2740"
+      > </a
+      ><a name="2741" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8271;</a
+      ><a name="2742"
+      > </a
+      ><a name="2743" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2734" class="Bound"
+      >&#916;</a
+      ><a name="2744"
+      > </a
+      ><a name="2745" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2747"
+      > </a
+      ><a name="2748" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2730" class="Bound"
+      >&#928;</a
+      ><a name="2749"
+      > </a
+      ><a name="2750" class="Symbol"
+      >&#8594;</a
+      ><a name="2751"
+      > </a
+      ><a name="2752" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2732" class="Bound"
+      >&#915;</a
+      ><a name="2753"
+      > </a
+      ><a name="2754" href="BasicIS4.Syntax.DyadicHilbert.html#897" class="Function Operator"
+      >&#8271;</a
+      ><a name="2755"
+      > </a
+      ><a name="2756" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2734" class="Bound"
+      >&#916;</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="BasicIS4.Syntax.DyadicHilbert.html#897" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="2760"
+      > </a
+      ><a name="2761" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2730" class="Bound"
+      >&#928;</a
+      ><a name="2762"
+      >
+</a
+      ><a name="2763" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2717" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="2770"
+      > </a
+      ><a name="2771" class="Symbol"
+      >{</a
+      ><a name="2772" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="2773" class="Symbol"
+      >}</a
+      ><a name="2774"
+      >     </a
+      ><a name="2779" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2780"
+      >        </a
+      ><a name="2788" class="Symbol"
+      >=</a
+      ><a name="2789"
+      > </a
+      ><a name="2790" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2791"
+      >
+</a
+      ><a name="2792" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2717" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="2799"
+      > </a
+      ><a name="2800" class="Symbol"
+      >{</a
+      ><a name="2801" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2801" class="Bound"
+      >&#928;</a
+      ><a name="2802"
+      > </a
+      ><a name="2803" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2804"
+      > </a
+      ><a name="2805" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2805" class="Bound"
+      >A</a
+      ><a name="2806" class="Symbol"
+      >}</a
+      ><a name="2807"
+      > </a
+      ><a name="2808" class="Symbol"
+      >(</a
+      ><a name="2809" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2809" class="Bound"
+      >ts</a
+      ><a name="2811"
+      > </a
+      ><a name="2812" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2813"
+      > </a
+      ><a name="2814" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2814" class="Bound"
+      >t</a
+      ><a name="2815" class="Symbol"
+      >)</a
+      ><a name="2816"
+      > </a
+      ><a name="2817" class="Symbol"
+      >=</a
+      ><a name="2818"
+      > </a
+      ><a name="2819" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2717" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="2826"
+      > </a
+      ><a name="2827" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2809" class="Bound"
+      >ts</a
+      ><a name="2829"
+      > </a
+      ><a name="2830" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2831"
+      > </a
+      ><a name="2832" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="2838"
+      > </a
+      ><a name="2839" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2814" class="Bound"
+      >t</a
+      ><a name="2840"
+      >
+
+
+</a
+      ><a name="2843" class="Comment"
+      >-- Reflexivity and transitivity.</a
+      ><a name="2875"
+      >
+
+</a
+      ><a name="2877" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2877" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="2883"
+      > </a
+      ><a name="2884" class="Symbol"
+      >:</a
+      ><a name="2885"
+      > </a
+      ><a name="2886" class="Symbol"
+      >&#8704;</a
+      ><a name="2887"
+      > </a
+      ><a name="2888" class="Symbol"
+      >{</a
+      ><a name="2889" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2889" class="Bound"
+      >&#915;</a
+      ><a name="2890"
+      > </a
+      ><a name="2891" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2891" class="Bound"
+      >&#916;</a
+      ><a name="2892" class="Symbol"
+      >}</a
+      ><a name="2893"
+      > </a
+      ><a name="2894" class="Symbol"
+      >&#8594;</a
+      ><a name="2895"
+      > </a
+      ><a name="2896" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2889" class="Bound"
+      >&#915;</a
+      ><a name="2897"
+      > </a
+      ><a name="2898" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8271;</a
+      ><a name="2899"
+      > </a
+      ><a name="2900" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2891" class="Bound"
+      >&#916;</a
+      ><a name="2901"
+      > </a
+      ><a name="2902" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2889" class="Bound"
+      >&#915;</a
+      ><a name="2906"
+      >
+</a
+      ><a name="2907" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2877" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="2913"
+      > </a
+      ><a name="2914" class="Symbol"
+      >=</a
+      ><a name="2915"
+      > </a
+      ><a name="2916" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2582" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="2925"
+      > </a
+      ><a name="2926" href="BasicIS4.Syntax.DyadicHilbert.html#6770" class="Function"
+      >refl&#8866;&#8902;</a
+      ><a name="2932"
+      >
+
+</a
+      ><a name="2934" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2934" class="Function"
+      >mrefl&#8873;&#8902;</a
+      ><a name="2941"
+      > </a
+      ><a name="2942" class="Symbol"
+      >:</a
+      ><a name="2943"
+      > </a
+      ><a name="2944" class="Symbol"
+      >&#8704;</a
+      ><a name="2945"
+      > </a
+      ><a name="2946" class="Symbol"
+      >{</a
+      ><a name="2947" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2947" class="Bound"
+      >&#915;</a
+      ><a name="2948"
+      > </a
+      ><a name="2949" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2949" class="Bound"
+      >&#916;</a
+      ><a name="2950" class="Symbol"
+      >}</a
+      ><a name="2951"
+      > </a
+      ><a name="2952" class="Symbol"
+      >&#8594;</a
+      ><a name="2953"
+      > </a
+      ><a name="2954" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2947" class="Bound"
+      >&#915;</a
+      ><a name="2955"
+      > </a
+      ><a name="2956" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8271;</a
+      ><a name="2957"
+      > </a
+      ><a name="2958" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2949" class="Bound"
+      >&#916;</a
+      ><a name="2959"
+      > </a
+      ><a name="2960" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2962"
+      > </a
+      ><a name="2963" href="BasicIS4.Syntax.Common.html#2320" class="Function Operator"
+      >&#9633;&#8902;</a
+      ><a name="2965"
+      > </a
+      ><a name="2966" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2949" class="Bound"
+      >&#916;</a
+      ><a name="2967"
+      >
+</a
+      ><a name="2968" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2934" class="Function"
+      >mrefl&#8873;&#8902;</a
+      ><a name="2975"
+      > </a
+      ><a name="2976" class="Symbol"
+      >=</a
+      ><a name="2977"
+      > </a
+      ><a name="2978" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2582" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" href="BasicIS4.Syntax.DyadicHilbert.html#6938" class="Function"
+      >mrefl&#8866;&#8902;</a
+      ><a name="2995"
+      >
+
+</a
+      ><a name="2997" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2997" class="Function"
+      >trans&#8873;&#8902;</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" class="Symbol"
+      >:</a
+      ><a name="3006"
+      > </a
+      ><a name="3007" class="Symbol"
+      >&#8704;</a
+      ><a name="3008"
+      > </a
+      ><a name="3009" class="Symbol"
+      >{</a
+      ><a name="3010" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3010" class="Bound"
+      >&#915;</a
+      ><a name="3011"
+      > </a
+      ><a name="3012" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3012" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3014"
+      > </a
+      ><a name="3015" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3015" class="Bound"
+      >&#916;</a
+      ><a name="3016"
+      > </a
+      ><a name="3017" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3017" class="Bound"
+      >&#916;&#8242;</a
+      ><a name="3019"
+      > </a
+      ><a name="3020" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3020" class="Bound"
+      >&#928;</a
+      ><a name="3021" class="Symbol"
+      >}</a
+      ><a name="3022"
+      > </a
+      ><a name="3023" class="Symbol"
+      >&#8594;</a
+      ><a name="3024"
+      > </a
+      ><a name="3025" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3010" class="Bound"
+      >&#915;</a
+      ><a name="3026"
+      > </a
+      ><a name="3027" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8271;</a
+      ><a name="3028"
+      > </a
+      ><a name="3029" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3015" class="Bound"
+      >&#916;</a
+      ><a name="3030"
+      > </a
+      ><a name="3031" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3033"
+      > </a
+      ><a name="3034" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3012" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3036"
+      > </a
+      ><a name="3037" href="Common.Context.html#3190" class="Function Operator"
+      >&#10746;</a
+      ><a name="3038"
+      > </a
+      ><a name="3039" class="Symbol"
+      >(</a
+      ><a name="3040" href="BasicIS4.Syntax.Common.html#2320" class="Function Operator"
+      >&#9633;&#8902;</a
+      ><a name="3042"
+      > </a
+      ><a name="3043" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3017" class="Bound"
+      >&#916;&#8242;</a
+      ><a name="3045" class="Symbol"
+      >)</a
+      ><a name="3046"
+      > </a
+      ><a name="3047" class="Symbol"
+      >&#8594;</a
+      ><a name="3048"
+      > </a
+      ><a name="3049" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3012" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3051"
+      > </a
+      ><a name="3052" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8271;</a
+      ><a name="3053"
+      > </a
+      ><a name="3054" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3017" class="Bound"
+      >&#916;&#8242;</a
+      ><a name="3056"
+      > </a
+      ><a name="3057" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3059"
+      > </a
+      ><a name="3060" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3020" class="Bound"
+      >&#928;</a
+      ><a name="3061"
+      > </a
+      ><a name="3062" class="Symbol"
+      >&#8594;</a
+      ><a name="3063"
+      > </a
+      ><a name="3064" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3010" class="Bound"
+      >&#915;</a
+      ><a name="3065"
+      > </a
+      ><a name="3066" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8271;</a
+      ><a name="3067"
+      > </a
+      ><a name="3068" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3015" class="Bound"
+      >&#916;</a
+      ><a name="3069"
+      > </a
+      ><a name="3070" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#1972" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3072"
+      > </a
+      ><a name="3073" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3020" class="Bound"
+      >&#928;</a
+      ><a name="3074"
+      >
+</a
+      ><a name="3075" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2997" class="Function"
+      >trans&#8873;&#8902;</a
+      ><a name="3082"
+      > </a
+      ><a name="3083" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3083" class="Bound"
+      >ts</a
+      ><a name="3085"
+      > </a
+      ><a name="3086" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3086" class="Bound"
+      >us</a
+      ><a name="3088"
+      > </a
+      ><a name="3089" class="Symbol"
+      >=</a
+      ><a name="3090"
+      > </a
+      ><a name="3091" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2582" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="3100"
+      > </a
+      ><a name="3101" class="Symbol"
+      >(</a
+      ><a name="3102" href="BasicIS4.Syntax.DyadicHilbert.html#7168" class="Function"
+      >trans&#8866;&#8902;</a
+      ><a name="3109"
+      > </a
+      ><a name="3110" class="Symbol"
+      >(</a
+      ><a name="3111" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2717" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="3118"
+      > </a
+      ><a name="3119" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3083" class="Bound"
+      >ts</a
+      ><a name="3121" class="Symbol"
+      >)</a
+      ><a name="3122"
+      > </a
+      ><a name="3123" class="Symbol"
+      >(</a
+      ><a name="3124" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2717" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="3131"
+      > </a
+      ><a name="3132" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3086" class="Bound"
+      >us</a
+      ><a name="3134" class="Symbol"
+      >))</a
+      ><a name="3136"
+      >
+
+
+</a
+      ><a name="3139" class="Comment"
+      >-- Completeness with respect to all models, or quotation.</a
+      ><a name="3196"
+      >
+
+</a
+      ><a name="3198" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3198" class="Function"
+      >quot</a
+      ><a name="3202"
+      > </a
+      ><a name="3203" class="Symbol"
+      >:</a
+      ><a name="3204"
+      > </a
+      ><a name="3205" class="Symbol"
+      >&#8704;</a
+      ><a name="3206"
+      > </a
+      ><a name="3207" class="Symbol"
+      >{</a
+      ><a name="3208" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3208" class="Bound"
+      >A</a
+      ><a name="3209"
+      > </a
+      ><a name="3210" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3210" class="Bound"
+      >&#915;</a
+      ><a name="3211"
+      > </a
+      ><a name="3212" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3212" class="Bound"
+      >&#916;</a
+      ><a name="3213" class="Symbol"
+      >}</a
+      ><a name="3214"
+      > </a
+      ><a name="3215" class="Symbol"
+      >&#8594;</a
+      ><a name="3216"
+      > </a
+      ><a name="3217" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3210" class="Bound"
+      >&#915;</a
+      ><a name="3218"
+      > </a
+      ><a name="3219" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#8618" class="Function Operator"
+      >&#8271;</a
+      ><a name="3220"
+      > </a
+      ><a name="3221" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3212" class="Bound"
+      >&#916;</a
+      ><a name="3222"
+      > </a
+      ><a name="3223" href="BasicIS4.Semantics.TarskiDyadicGentzen.html#8618" class="Function Operator"
+      >&#8872;</a
+      ><a name="3224"
+      > </a
+      ><a name="3225" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3208" class="Bound"
+      >A</a
+      ><a name="3226"
+      > </a
+      ><a name="3227" class="Symbol"
+      >&#8594;</a
+      ><a name="3228"
+      > </a
+      ><a name="3229" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3210" class="Bound"
+      >&#915;</a
+      ><a name="3230"
+      > </a
+      ><a name="3231" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="3232"
+      > </a
+      ><a name="3233" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3212" class="Bound"
+      >&#916;</a
+      ><a name="3234"
+      > </a
+      ><a name="3235" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3236"
+      > </a
+      ><a name="3237" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3208" class="Bound"
+      >A</a
+      ><a name="3238"
+      >
+</a
+      ><a name="3239" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3198" class="Function"
+      >quot</a
+      ><a name="3243"
+      > </a
+      ><a name="3244" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3244" class="Bound"
+      >s</a
+      ><a name="3245"
+      > </a
+      ><a name="3246" class="Symbol"
+      >=</a
+      ><a name="3247"
+      > </a
+      ><a name="3248" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2310" class="Function"
+      >reify&#7580;</a
+      ><a name="3254"
+      > </a
+      ><a name="3255" class="Symbol"
+      >(</a
+      ><a name="3256" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3244" class="Bound"
+      >s</a
+      ><a name="3257"
+      > </a
+      ><a name="3258" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2877" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="3264"
+      > </a
+      ><a name="3265" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#2934" class="Function"
+      >mrefl&#8873;&#8902;</a
+      ><a name="3272" class="Symbol"
+      >)</a
+      ><a name="3273"
+      >
+
+
+</a
+      ><a name="3276" class="Comment"
+      >-- Normalisation by evaluation.</a
+      ><a name="3307"
+      >
+
+</a
+      ><a name="3309" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3309" class="Function"
+      >norm</a
+      ><a name="3313"
+      > </a
+      ><a name="3314" class="Symbol"
+      >:</a
+      ><a name="3315"
+      > </a
+      ><a name="3316" class="Symbol"
+      >&#8704;</a
+      ><a name="3317"
+      > </a
+      ><a name="3318" class="Symbol"
+      >{</a
+      ><a name="3319" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3319" class="Bound"
+      >A</a
+      ><a name="3320"
+      > </a
+      ><a name="3321" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3321" class="Bound"
+      >&#915;</a
+      ><a name="3322"
+      > </a
+      ><a name="3323" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3323" class="Bound"
+      >&#916;</a
+      ><a name="3324" class="Symbol"
+      >}</a
+      ><a name="3325"
+      > </a
+      ><a name="3326" class="Symbol"
+      >&#8594;</a
+      ><a name="3327"
+      > </a
+      ><a name="3328" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3321" class="Bound"
+      >&#915;</a
+      ><a name="3329"
+      > </a
+      ><a name="3330" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="3331"
+      > </a
+      ><a name="3332" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3323" class="Bound"
+      >&#916;</a
+      ><a name="3333"
+      > </a
+      ><a name="3334" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3335"
+      > </a
+      ><a name="3336" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3319" class="Bound"
+      >A</a
+      ><a name="3337"
+      > </a
+      ><a name="3338" class="Symbol"
+      >&#8594;</a
+      ><a name="3339"
+      > </a
+      ><a name="3340" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3321" class="Bound"
+      >&#915;</a
+      ><a name="3341"
+      > </a
+      ><a name="3342" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8271;</a
+      ><a name="3343"
+      > </a
+      ><a name="3344" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3323" class="Bound"
+      >&#916;</a
+      ><a name="3345"
+      > </a
+      ><a name="3346" href="BasicIS4.Syntax.DyadicHilbert.html#246" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3347"
+      > </a
+      ><a name="3348" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3319" class="Bound"
+      >A</a
+      ><a name="3349"
+      >
+</a
+      ><a name="3350" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3309" class="Function"
+      >norm</a
+      ><a name="3354"
+      > </a
+      ><a name="3355" class="Symbol"
+      >=</a
+      ><a name="3356"
+      > </a
+      ><a name="3357" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#3198" class="Function"
+      >quot</a
+      ><a name="3361"
+      > </a
+      ><a name="3362" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="3363"
+      > </a
+      ><a name="3364" href="BasicIS4.Metatheory.DyadicHilbert-TarskiDyadicGentzen.html#537" class="Function"
+      >eval</a
+      ><a name="3368"
+      >
+
+
+</a
+      ><a name="3371" class="Comment"
+      >-- TODO: Correctness of normalisation with respect to conversion.</a
+      ><a name="3436"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
