@@ -10,2379 +10,2406 @@
   ><body
   ><pre
     ><a name="1" class="Comment"
-      >-- Tarski-style semantics with a closed syntactic component, after Coquand-Dybjer.</a
-      ><a name="83"
+      >-- Tarski-style semantics with implicit closed syntax representation, after Coquand-Dybjer.</a
+      ><a name="92"
       >
 
 </a
-      ><a name="85" class="Keyword"
+      ><a name="94" class="Keyword"
       >module</a
-      ><a name="91"
+      ><a name="100"
       > </a
-      ><a name="92" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1" class="Module"
+      ><a name="101" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1" class="Module"
       >BasicIPC.Semantics.TarskiClosedCoquandDybjer</a
-      ><a name="136"
+      ><a name="145"
       > </a
-      ><a name="137" class="Keyword"
+      ><a name="146" class="Keyword"
       >where</a
-      ><a name="142"
+      ><a name="151"
       >
 
 </a
-      ><a name="144" class="Keyword"
+      ><a name="153" class="Keyword"
       >open</a
-      ><a name="148"
+      ><a name="157"
       > </a
-      ><a name="149" class="Keyword"
+      ><a name="158" class="Keyword"
       >import</a
-      ><a name="155"
+      ><a name="164"
       > </a
-      ><a name="156" href="BasicIPC.Syntax.Common.html#1" class="Module"
+      ><a name="165" href="BasicIPC.Syntax.Common.html#1" class="Module"
       >BasicIPC.Syntax.Common</a
-      ><a name="178"
+      ><a name="187"
       > </a
-      ><a name="179" class="Keyword"
+      ><a name="188" class="Keyword"
       >public</a
-      ><a name="185"
+      ><a name="194"
       >
 
 
 </a
-      ><a name="188" class="Comment"
+      ><a name="197" class="Comment"
       >-- Tarski models.</a
-      ><a name="205"
+      ><a name="214"
       >
 
 </a
-      ><a name="207" class="Keyword"
+      ><a name="216" class="Keyword"
       >record</a
-      ><a name="213"
+      ><a name="222"
       > </a
-      ><a name="214" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#214" class="Record"
+      ><a name="223" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#223" class="Record"
       >Model</a
-      ><a name="219"
+      ><a name="228"
       > </a
-      ><a name="220" class="Symbol"
+      ><a name="229" class="Symbol"
       >:</a
-      ><a name="221"
+      ><a name="230"
       > </a
-      ><a name="222" class="PrimitiveType"
+      ><a name="231" class="PrimitiveType"
       >Set&#8321;</a
-      ><a name="226"
+      ><a name="235"
       > </a
-      ><a name="227" class="Keyword"
+      ><a name="236" class="Keyword"
       >where</a
-      ><a name="232"
+      ><a name="241"
       >
   </a
-      ><a name="235" class="Keyword"
+      ><a name="244" class="Keyword"
       >infix</a
-      ><a name="240"
+      ><a name="249"
       > </a
-      ><a name="241" class="Number"
+      ><a name="250" class="Number"
       >3</a
-      ><a name="242"
+      ><a name="251"
       > &#8873;&#7493;_
   </a
-      ><a name="249" class="Keyword"
+      ><a name="258" class="Keyword"
       >field</a
-      ><a name="254"
+      ><a name="263"
       >
     </a
-      ><a name="259" class="Comment"
+      ><a name="268" class="Comment"
       >-- Forcing for atomic propositions.</a
-      ><a name="294"
+      ><a name="303"
       >
     </a
-      ><a name="299" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#299" class="Field Operator"
+      ><a name="308" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#308" class="Field Operator"
       >&#8873;&#7493;_</a
-      ><a name="302"
-      > </a
-      ><a name="303" class="Symbol"
-      >:</a
-      ><a name="304"
-      > </a
-      ><a name="305" href="Common.html#1171" class="Function"
-      >Atom</a
-      ><a name="309"
-      > </a
-      ><a name="310" class="Symbol"
-      >&#8594;</a
       ><a name="311"
       > </a
-      ><a name="312" class="PrimitiveType"
-      >Set</a
-      ><a name="315"
-      >
-
-</a
-      ><a name="317" class="Keyword"
-      >open</a
-      ><a name="321"
-      > </a
-      ><a name="322" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#214" class="Module"
-      >Model</a
-      ><a name="327"
-      > </a
-      ><a name="328" class="Symbol"
-      >{{&#8230;}}</a
-      ><a name="333"
-      > </a
-      ><a name="334" class="Keyword"
-      >public</a
-      ><a name="340"
-      >
-
-
-
-
-</a
-      ><a name="345" class="Keyword"
-      >module</a
-      ><a name="351"
-      > </a
-      ><a name="352" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#352" class="Module"
-      >SyntacticComponent</a
-      ><a name="370"
-      >
-    </a
-      ><a name="375" class="Symbol"
-      >(</a
-      ><a name="376" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#376" class="Bound Operator"
-      >[&#8866;]_</a
-      ><a name="380"
-      > </a
-      ><a name="381" class="Symbol"
+      ><a name="312" class="Symbol"
       >:</a
-      ><a name="382"
+      ><a name="313"
       > </a
-      ><a name="383" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="385"
+      ><a name="314" href="Common.html#1171" class="Function"
+      >Atom</a
+      ><a name="318"
       > </a
-      ><a name="386" class="Symbol"
+      ><a name="319" class="Symbol"
       >&#8594;</a
-      ><a name="387"
+      ><a name="320"
       > </a
-      ><a name="388" class="PrimitiveType"
+      ><a name="321" class="PrimitiveType"
       >Set</a
-      ><a name="391" class="Symbol"
-      >)</a
-      ><a name="392"
-      >
-  </a
-      ><a name="395" class="Keyword"
-      >where</a
-      ><a name="400"
+      ><a name="324"
       >
 
-
-  </a
-      ><a name="405" class="Comment"
-      >-- Forcing in a particular model.</a
-      ><a name="438"
-      >
-
-  </a
-      ><a name="442" class="Keyword"
-      >module</a
-      ><a name="448"
+</a
+      ><a name="326" class="Keyword"
+      >open</a
+      ><a name="330"
       > </a
-      ><a name="449" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#449" class="Module"
-      >_</a
-      ><a name="450"
-      > </a
-      ><a name="451" class="Symbol"
-      >{{</a
-      ><a name="453" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#453" class="Bound"
-      >_</a
-      ><a name="454"
-      > </a
-      ><a name="455" class="Symbol"
-      >:</a
-      ><a name="456"
-      > </a
-      ><a name="457" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#214" class="Record"
+      ><a name="331" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#223" class="Module"
       >Model</a
-      ><a name="462" class="Symbol"
-      >}}</a
-      ><a name="464"
+      ><a name="336"
       > </a
-      ><a name="465" class="Keyword"
-      >where</a
-      ><a name="470"
+      ><a name="337" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="342"
+      > </a
+      ><a name="343" class="Keyword"
+      >public</a
+      ><a name="349"
+      >
+
+
+
+
+</a
+      ><a name="354" class="Keyword"
+      >module</a
+      ><a name="360"
+      > </a
+      ><a name="361" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#361" class="Module"
+      >SyntacticComponent</a
+      ><a name="379"
       >
     </a
-      ><a name="475" class="Keyword"
-      >infix</a
-      ><a name="480"
+      ><a name="384" class="Symbol"
+      >(</a
+      ><a name="385" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#385" class="Bound Operator"
+      >[&#8866;]_</a
+      ><a name="389"
       > </a
-      ><a name="481" class="Number"
+      ><a name="390" class="Symbol"
+      >:</a
+      ><a name="391"
+      > </a
+      ><a name="392" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="394"
+      > </a
+      ><a name="395" class="Symbol"
+      >&#8594;</a
+      ><a name="396"
+      > </a
+      ><a name="397" class="PrimitiveType"
+      >Set</a
+      ><a name="400" class="Symbol"
+      >)</a
+      ><a name="401"
+      >
+  </a
+      ><a name="404" class="Keyword"
+      >where</a
+      ><a name="409"
+      >
+
+
+  </a
+      ><a name="414" class="Comment"
+      >-- Forcing in a particular model.</a
+      ><a name="447"
+      >
+
+  </a
+      ><a name="451" class="Keyword"
+      >module</a
+      ><a name="457"
+      > </a
+      ><a name="458" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#458" class="Module"
+      >_</a
+      ><a name="459"
+      > </a
+      ><a name="460" class="Symbol"
+      >{{</a
+      ><a name="462" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#462" class="Bound"
+      >_</a
+      ><a name="463"
+      > </a
+      ><a name="464" class="Symbol"
+      >:</a
+      ><a name="465"
+      > </a
+      ><a name="466" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#223" class="Record"
+      >Model</a
+      ><a name="471" class="Symbol"
+      >}}</a
+      ><a name="473"
+      > </a
+      ><a name="474" class="Keyword"
+      >where</a
+      ><a name="479"
+      >
+    </a
+      ><a name="484" class="Keyword"
+      >infix</a
+      ><a name="489"
+      > </a
+      ><a name="490" class="Number"
       >3</a
-      ><a name="482"
+      ><a name="491"
       > &#8873;_
     </a
-      ><a name="490" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
+      ><a name="499" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
       >&#8873;_</a
-      ><a name="492"
+      ><a name="501"
       > </a
-      ><a name="493" class="Symbol"
+      ><a name="502" class="Symbol"
       >:</a
-      ><a name="494"
-      > </a
-      ><a name="495" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="497"
-      > </a
-      ><a name="498" class="Symbol"
-      >&#8594;</a
-      ><a name="499"
-      > </a
-      ><a name="500" class="PrimitiveType"
-      >Set</a
       ><a name="503"
+      > </a
+      ><a name="504" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="506"
+      > </a
+      ><a name="507" class="Symbol"
+      >&#8594;</a
+      ><a name="508"
+      > </a
+      ><a name="509" class="PrimitiveType"
+      >Set</a
+      ><a name="512"
       >
     </a
-      ><a name="508" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
+      ><a name="517" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
       >&#8873;</a
-      ><a name="509"
+      ><a name="518"
       > </a
-      ><a name="510" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
+      ><a name="519" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
       >&#945;</a
-      ><a name="511"
+      ><a name="520"
       > </a
-      ><a name="512" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#512" class="Bound"
+      ><a name="521" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#521" class="Bound"
       >P</a
-      ><a name="513"
+      ><a name="522"
       >   </a
-      ><a name="516" class="Symbol"
+      ><a name="525" class="Symbol"
       >=</a
-      ><a name="517"
+      ><a name="526"
       > </a
-      ><a name="518" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#376" class="Bound Operator"
+      ><a name="527" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#385" class="Bound Operator"
       >[&#8866;]</a
-      ><a name="521"
+      ><a name="530"
       > </a
-      ><a name="522" class="Symbol"
+      ><a name="531" class="Symbol"
       >(</a
-      ><a name="523" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
+      ><a name="532" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
       >&#945;</a
-      ><a name="524"
+      ><a name="533"
       > </a
-      ><a name="525" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#512" class="Bound"
+      ><a name="534" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#521" class="Bound"
       >P</a
-      ><a name="526" class="Symbol"
+      ><a name="535" class="Symbol"
       >)</a
-      ><a name="527"
+      ><a name="536"
       > </a
-      ><a name="528" href="Data.Product.html#1073" class="Function Operator"
+      ><a name="537" href="Data.Product.html#1073" class="Function Operator"
       >&#215;</a
-      ><a name="529"
+      ><a name="538"
       > </a
-      ><a name="530" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#299" class="Field Operator"
+      ><a name="539" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#308" class="Field Operator"
       >&#8873;&#7493;</a
-      ><a name="532"
+      ><a name="541"
       > </a
-      ><a name="533" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#512" class="Bound"
+      ><a name="542" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#521" class="Bound"
       >P</a
-      ><a name="534"
+      ><a name="543"
       >
     </a
-      ><a name="539" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
+      ><a name="548" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
       >&#8873;</a
-      ><a name="540"
+      ><a name="549"
       > </a
-      ><a name="541" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#541" class="Bound"
+      ><a name="550" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#550" class="Bound"
       >A</a
-      ><a name="542"
+      ><a name="551"
       > </a
-      ><a name="543" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      ><a name="552" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
       >&#9659;</a
-      ><a name="544"
+      ><a name="553"
       > </a
-      ><a name="545" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#545" class="Bound"
+      ><a name="554" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#554" class="Bound"
       >B</a
-      ><a name="546"
-      > </a
-      ><a name="547" class="Symbol"
-      >=</a
-      ><a name="548"
-      > </a
-      ><a name="549" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#376" class="Bound Operator"
-      >[&#8866;]</a
-      ><a name="552"
-      > </a
-      ><a name="553" class="Symbol"
-      >(</a
-      ><a name="554" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#541" class="Bound"
-      >A</a
       ><a name="555"
       > </a
-      ><a name="556" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
+      ><a name="556" class="Symbol"
+      >=</a
       ><a name="557"
       > </a
-      ><a name="558" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#545" class="Bound"
-      >B</a
-      ><a name="559" class="Symbol"
-      >)</a
-      ><a name="560"
+      ><a name="558" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#385" class="Bound Operator"
+      >[&#8866;]</a
+      ><a name="561"
       > </a
-      ><a name="561" href="Data.Product.html#1073" class="Function Operator"
-      >&#215;</a
-      ><a name="562"
-      > </a
-      ><a name="563" class="Symbol"
+      ><a name="562" class="Symbol"
       >(</a
-      ><a name="564" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
-      ><a name="565"
-      > </a
-      ><a name="566" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#541" class="Bound"
+      ><a name="563" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#550" class="Bound"
       >A</a
-      ><a name="567"
+      ><a name="564"
       > </a
+      ><a name="565" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="566"
+      > </a
+      ><a name="567" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#554" class="Bound"
+      >B</a
       ><a name="568" class="Symbol"
-      >&#8594;</a
+      >)</a
       ><a name="569"
       > </a
-      ><a name="570" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
+      ><a name="570" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
       ><a name="571"
       > </a
-      ><a name="572" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#545" class="Bound"
-      >B</a
-      ><a name="573" class="Symbol"
-      >)</a
+      ><a name="572" class="Symbol"
+      >(</a
+      ><a name="573" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
       ><a name="574"
-      >
-    </a
-      ><a name="579" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
+      > </a
+      ><a name="575" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#550" class="Bound"
+      >A</a
+      ><a name="576"
+      > </a
+      ><a name="577" class="Symbol"
+      >&#8594;</a
+      ><a name="578"
+      > </a
+      ><a name="579" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
       >&#8873;</a
       ><a name="580"
       > </a
-      ><a name="581" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#581" class="Bound"
-      >A</a
-      ><a name="582"
-      > </a
-      ><a name="583" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
-      >&#8743;</a
-      ><a name="584"
-      > </a
-      ><a name="585" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#585" class="Bound"
+      ><a name="581" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#554" class="Bound"
       >B</a
-      ><a name="586"
-      > </a
-      ><a name="587" class="Symbol"
-      >=</a
-      ><a name="588"
-      > </a
-      ><a name="589" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
-      ><a name="590"
-      > </a
-      ><a name="591" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#581" class="Bound"
-      >A</a
-      ><a name="592"
-      > </a
-      ><a name="593" href="Data.Product.html#1073" class="Function Operator"
-      >&#215;</a
-      ><a name="594"
-      > </a
-      ><a name="595" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
-      ><a name="596"
-      > </a
-      ><a name="597" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#585" class="Bound"
-      >B</a
-      ><a name="598"
+      ><a name="582" class="Symbol"
+      >)</a
+      ><a name="583"
       >
     </a
-      ><a name="603" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
+      ><a name="588" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
       >&#8873;</a
-      ><a name="604"
+      ><a name="589"
       > </a
-      ><a name="605" href="BasicIPC.Syntax.Common.html#229" class="InductiveConstructor"
-      >&#8868;</a
-      ><a name="606"
-      >    </a
-      ><a name="610" class="Symbol"
+      ><a name="590" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#590" class="Bound"
+      >A</a
+      ><a name="591"
+      > </a
+      ><a name="592" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="593"
+      > </a
+      ><a name="594" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#594" class="Bound"
+      >B</a
+      ><a name="595"
+      > </a
+      ><a name="596" class="Symbol"
       >=</a
-      ><a name="611"
+      ><a name="597"
       > </a
-      ><a name="612" href="Agda.Builtin.Unit.html#41" class="Record"
-      >&#120793;</a
+      ><a name="598" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#590" class="Bound"
+      >A</a
+      ><a name="601"
+      > </a
+      ><a name="602" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="603"
+      > </a
+      ><a name="604" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#594" class="Bound"
+      >B</a
+      ><a name="607"
+      >
+    </a
+      ><a name="612" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
       ><a name="613"
+      > </a
+      ><a name="614" href="BasicIPC.Syntax.Common.html#229" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="615"
+      >    </a
+      ><a name="619" class="Symbol"
+      >=</a
+      ><a name="620"
+      > </a
+      ><a name="621" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="622"
       >
 
     </a
-      ><a name="619" class="Keyword"
+      ><a name="628" class="Keyword"
       >infix</a
-      ><a name="624"
+      ><a name="633"
       > </a
-      ><a name="625" class="Number"
+      ><a name="634" class="Number"
       >3</a
-      ><a name="626"
+      ><a name="635"
       > &#8873;&#8902;_
     </a
-      ><a name="635" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#635" class="Function Operator"
+      ><a name="644" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#644" class="Function Operator"
       >&#8873;&#8902;_</a
-      ><a name="638"
+      ><a name="647"
       > </a
-      ><a name="639" class="Symbol"
+      ><a name="648" class="Symbol"
       >:</a
-      ><a name="640"
+      ><a name="649"
       > </a
-      ><a name="641" href="Common.Context.html#90" class="Datatype"
+      ><a name="650" href="Common.Context.html#90" class="Datatype"
       >Cx</a
-      ><a name="643"
-      > </a
-      ><a name="644" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="646"
-      > </a
-      ><a name="647" class="Symbol"
-      >&#8594;</a
-      ><a name="648"
-      > </a
-      ><a name="649" class="PrimitiveType"
-      >Set</a
       ><a name="652"
-      >
-    </a
-      ><a name="657" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#635" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="659"
       > </a
-      ><a name="660" href="Common.Context.html#117" class="InductiveConstructor"
-      >&#8960;</a
+      ><a name="653" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Symbol"
+      >&#8594;</a
+      ><a name="657"
+      > </a
+      ><a name="658" class="PrimitiveType"
+      >Set</a
       ><a name="661"
-      >     </a
-      ><a name="666" class="Symbol"
-      >=</a
-      ><a name="667"
-      > </a
-      ><a name="668" href="Agda.Builtin.Unit.html#41" class="Record"
-      >&#120793;</a
-      ><a name="669"
       >
     </a
-      ><a name="674" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#635" class="Function Operator"
+      ><a name="666" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#644" class="Function Operator"
       >&#8873;&#8902;</a
+      ><a name="668"
+      > </a
+      ><a name="669" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="670"
+      >     </a
+      ><a name="675" class="Symbol"
+      >=</a
       ><a name="676"
       > </a
-      ><a name="677" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#677" class="Bound"
-      >&#928;</a
+      ><a name="677" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
       ><a name="678"
-      > </a
-      ><a name="679" href="Common.Context.html#130" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="680"
-      > </a
-      ><a name="681" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#681" class="Bound"
-      >A</a
-      ><a name="682"
-      > </a
-      ><a name="683" class="Symbol"
-      >=</a
-      ><a name="684"
-      > </a
-      ><a name="685" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#635" class="Function Operator"
+      >
+    </a
+      ><a name="683" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#644" class="Function Operator"
       >&#8873;&#8902;</a
+      ><a name="685"
+      > </a
+      ><a name="686" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#686" class="Bound"
+      >&#928;</a
       ><a name="687"
       > </a
-      ><a name="688" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#677" class="Bound"
-      >&#928;</a
+      ><a name="688" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
       ><a name="689"
       > </a
-      ><a name="690" href="Data.Product.html#1073" class="Function Operator"
-      >&#215;</a
+      ><a name="690" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#690" class="Bound"
+      >A</a
       ><a name="691"
       > </a
-      ><a name="692" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
+      ><a name="692" class="Symbol"
+      >=</a
       ><a name="693"
       > </a
-      ><a name="694" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#681" class="Bound"
+      ><a name="694" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#644" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#686" class="Bound"
+      >&#928;</a
+      ><a name="698"
+      > </a
+      ><a name="699" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#690" class="Bound"
       >A</a
-      ><a name="695"
+      ><a name="704"
       >
 
 
   </a
-      ><a name="700" class="Comment"
+      ><a name="709" class="Comment"
       >-- Forcing in all models.</a
-      ><a name="725"
+      ><a name="734"
       >
 
   </a
-      ><a name="729" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#729" class="Function Operator"
-      >&#8872;_</a
-      ><a name="731"
-      > </a
-      ><a name="732" class="Symbol"
-      >:</a
-      ><a name="733"
-      > </a
-      ><a name="734" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="736"
-      > </a
-      ><a name="737" class="Symbol"
-      >&#8594;</a
-      ><a name="738"
-      > </a
-      ><a name="739" class="PrimitiveType"
-      >Set&#8321;</a
+      ><a name="738" class="Keyword"
+      >infix</a
       ><a name="743"
-      >
+      > </a
+      ><a name="744" class="Number"
+      >3</a
+      ><a name="745"
+      > &#8872;_
   </a
-      ><a name="746" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#729" class="Function Operator"
-      >&#8872;</a
-      ><a name="747"
-      > </a
-      ><a name="748" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#748" class="Bound"
-      >A</a
-      ><a name="749"
-      > </a
-      ><a name="750" class="Symbol"
-      >=</a
-      ><a name="751"
-      > </a
-      ><a name="752" class="Symbol"
-      >&#8704;</a
+      ><a name="751" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#751" class="Function Operator"
+      >&#8872;_</a
       ><a name="753"
       > </a
       ><a name="754" class="Symbol"
-      >{{</a
-      ><a name="756" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#756" class="Bound"
-      >_</a
-      ><a name="757"
-      > </a
-      ><a name="758" class="Symbol"
       >:</a
-      ><a name="759"
+      ><a name="755"
       > </a
-      ><a name="760" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#214" class="Record"
-      >Model</a
-      ><a name="765" class="Symbol"
-      >}}</a
-      ><a name="767"
+      ><a name="756" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="758"
       > </a
-      ><a name="768" class="Symbol"
+      ><a name="759" class="Symbol"
       >&#8594;</a
+      ><a name="760"
+      > </a
+      ><a name="761" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="765"
+      >
+  </a
+      ><a name="768" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#751" class="Function Operator"
+      >&#8872;</a
       ><a name="769"
       > </a
-      ><a name="770" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
+      ><a name="770" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#770" class="Bound"
+      >A</a
       ><a name="771"
       > </a
-      ><a name="772" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#748" class="Bound"
-      >A</a
+      ><a name="772" class="Symbol"
+      >=</a
       ><a name="773"
-      >
-
-
-  </a
-      ><a name="778" class="Comment"
-      >-- Additional useful equipment.</a
-      ><a name="809"
-      >
-
-  </a
-      ><a name="813" class="Keyword"
-      >module</a
-      ><a name="819"
       > </a
-      ><a name="820" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#820" class="Module"
-      >_</a
-      ><a name="821"
+      ><a name="774" class="Symbol"
+      >&#8704;</a
+      ><a name="775"
       > </a
-      ><a name="822" class="Symbol"
+      ><a name="776" class="Symbol"
       >{{</a
-      ><a name="824" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#824" class="Bound"
+      ><a name="778" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#778" class="Bound"
       >_</a
-      ><a name="825"
+      ><a name="779"
       > </a
-      ><a name="826" class="Symbol"
+      ><a name="780" class="Symbol"
       >:</a
-      ><a name="827"
+      ><a name="781"
       > </a
-      ><a name="828" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#214" class="Record"
+      ><a name="782" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#223" class="Record"
       >Model</a
-      ><a name="833" class="Symbol"
+      ><a name="787" class="Symbol"
       >}}</a
-      ><a name="835"
+      ><a name="789"
       > </a
-      ><a name="836" class="Keyword"
-      >where</a
+      ><a name="790" class="Symbol"
+      >&#8594;</a
+      ><a name="791"
+      > </a
+      ><a name="792" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
+      ><a name="793"
+      > </a
+      ><a name="794" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#770" class="Bound"
+      >A</a
+      ><a name="795"
+      >
+
+
+  </a
+      ><a name="800" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="831"
+      >
+
+  </a
+      ><a name="835" class="Keyword"
+      >module</a
       ><a name="841"
+      > </a
+      ><a name="842" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#842" class="Module"
+      >_</a
+      ><a name="843"
+      > </a
+      ><a name="844" class="Symbol"
+      >{{</a
+      ><a name="846" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#846" class="Bound"
+      >_</a
+      ><a name="847"
+      > </a
+      ><a name="848" class="Symbol"
+      >:</a
+      ><a name="849"
+      > </a
+      ><a name="850" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#223" class="Record"
+      >Model</a
+      ><a name="855" class="Symbol"
+      >}}</a
+      ><a name="857"
+      > </a
+      ><a name="858" class="Keyword"
+      >where</a
+      ><a name="863"
       >
     </a
-      ><a name="846" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#846" class="Function Operator"
+      ><a name="868" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#868" class="Function Operator"
       >_&#10218;$&#10219;_</a
-      ><a name="851"
-      > </a
-      ><a name="852" class="Symbol"
-      >:</a
-      ><a name="853"
-      > </a
-      ><a name="854" class="Symbol"
-      >&#8704;</a
-      ><a name="855"
-      > </a
-      ><a name="856" class="Symbol"
-      >{</a
-      ><a name="857" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#857" class="Bound"
-      >A</a
-      ><a name="858"
-      > </a
-      ><a name="859" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#859" class="Bound"
-      >B</a
-      ><a name="860" class="Symbol"
-      >}</a
-      ><a name="861"
-      > </a
-      ><a name="862" class="Symbol"
-      >&#8594;</a
-      ><a name="863"
-      > </a
-      ><a name="864" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
-      ><a name="865"
-      > </a
-      ><a name="866" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#857" class="Bound"
-      >A</a
-      ><a name="867"
-      > </a
-      ><a name="868" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="869"
-      > </a
-      ><a name="870" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#859" class="Bound"
-      >B</a
-      ><a name="871"
-      > </a
-      ><a name="872" class="Symbol"
-      >&#8594;</a
       ><a name="873"
       > </a
-      ><a name="874" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
+      ><a name="874" class="Symbol"
+      >:</a
       ><a name="875"
       > </a
-      ><a name="876" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#857" class="Bound"
-      >A</a
+      ><a name="876" class="Symbol"
+      >&#8704;</a
       ><a name="877"
       > </a
       ><a name="878" class="Symbol"
-      >&#8594;</a
-      ><a name="879"
+      >{</a
+      ><a name="879" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#879" class="Bound"
+      >A</a
+      ><a name="880"
       > </a
-      ><a name="880" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
-      ><a name="881"
-      > </a
-      ><a name="882" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#859" class="Bound"
+      ><a name="881" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#881" class="Bound"
       >B</a
+      ><a name="882" class="Symbol"
+      >}</a
       ><a name="883"
-      >
-    </a
-      ><a name="888" class="Symbol"
-      >(</a
-      ><a name="889" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#889" class="Bound"
-      >t</a
-      ><a name="890"
       > </a
-      ><a name="891" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="892"
+      ><a name="884" class="Symbol"
+      >&#8594;</a
+      ><a name="885"
       > </a
-      ><a name="893" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#893" class="Bound"
-      >f</a
+      ><a name="886" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#879" class="Bound"
+      >A</a
+      ><a name="889"
+      > </a
+      ><a name="890" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#881" class="Bound"
+      >B</a
+      ><a name="893"
+      > </a
       ><a name="894" class="Symbol"
-      >)</a
+      >&#8594;</a
       ><a name="895"
       > </a
-      ><a name="896" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#846" class="Function Operator"
-      >&#10218;$&#10219;</a
+      ><a name="896" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#879" class="Bound"
+      >A</a
       ><a name="899"
       > </a
-      ><a name="900" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#900" class="Bound"
-      >a</a
+      ><a name="900" class="Symbol"
+      >&#8594;</a
       ><a name="901"
       > </a
-      ><a name="902" class="Symbol"
-      >=</a
+      ><a name="902" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
       ><a name="903"
       > </a
-      ><a name="904" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#893" class="Bound"
-      >f</a
+      ><a name="904" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#881" class="Bound"
+      >B</a
       ><a name="905"
+      >
+    </a
+      ><a name="910" class="Symbol"
+      >(</a
+      ><a name="911" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#911" class="Bound"
+      >t</a
+      ><a name="912"
       > </a
-      ><a name="906" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#900" class="Bound"
+      ><a name="913" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="914"
+      > </a
+      ><a name="915" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#915" class="Bound"
+      >f</a
+      ><a name="916" class="Symbol"
+      >)</a
+      ><a name="917"
+      > </a
+      ><a name="918" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#868" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="921"
+      > </a
+      ><a name="922" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#922" class="Bound"
       >a</a
-      ><a name="907"
+      ><a name="923"
+      > </a
+      ><a name="924" class="Symbol"
+      >=</a
+      ><a name="925"
+      > </a
+      ><a name="926" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#915" class="Bound"
+      >f</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#922" class="Bound"
+      >a</a
+      ><a name="929"
       >
 
     </a
-      ><a name="913" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#913" class="Function"
+      ><a name="935" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#935" class="Function"
       >&#10218;ap&#10219;</a
-      ><a name="917"
-      > </a
-      ><a name="918" class="Symbol"
-      >:</a
-      ><a name="919"
-      > </a
-      ><a name="920" class="Symbol"
-      >&#8704;</a
-      ><a name="921"
-      > </a
-      ><a name="922" class="Symbol"
-      >{</a
-      ><a name="923" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#923" class="Bound"
-      >A</a
-      ><a name="924"
-      > </a
-      ><a name="925" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#925" class="Bound"
-      >B</a
-      ><a name="926"
-      > </a
-      ><a name="927" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#927" class="Bound"
-      >C</a
-      ><a name="928" class="Symbol"
-      >}</a
-      ><a name="929"
-      > </a
-      ><a name="930" class="Symbol"
-      >&#8594;</a
-      ><a name="931"
-      > </a
-      ><a name="932" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
-      ><a name="933"
-      > </a
-      ><a name="934" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#923" class="Bound"
-      >A</a
-      ><a name="935"
-      > </a
-      ><a name="936" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="937"
-      > </a
-      ><a name="938" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#925" class="Bound"
-      >B</a
       ><a name="939"
       > </a
-      ><a name="940" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
+      ><a name="940" class="Symbol"
+      >:</a
       ><a name="941"
       > </a
-      ><a name="942" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#927" class="Bound"
-      >C</a
+      ><a name="942" class="Symbol"
+      >&#8704;</a
       ><a name="943"
       > </a
       ><a name="944" class="Symbol"
-      >&#8594;</a
-      ><a name="945"
-      > </a
-      ><a name="946" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
-      ><a name="947"
-      > </a
-      ><a name="948" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#923" class="Bound"
+      >{</a
+      ><a name="945" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#945" class="Bound"
       >A</a
-      ><a name="949"
+      ><a name="946"
       > </a
-      ><a name="950" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
+      ><a name="947" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#947" class="Bound"
+      >B</a
+      ><a name="948"
+      > </a
+      ><a name="949" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#949" class="Bound"
+      >C</a
+      ><a name="950" class="Symbol"
+      >}</a
       ><a name="951"
       > </a
-      ><a name="952" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#925" class="Bound"
-      >B</a
+      ><a name="952" class="Symbol"
+      >&#8594;</a
       ><a name="953"
       > </a
-      ><a name="954" class="Symbol"
-      >&#8594;</a
+      ><a name="954" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
       ><a name="955"
       > </a
-      ><a name="956" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
+      ><a name="956" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#945" class="Bound"
+      >A</a
       ><a name="957"
       > </a
-      ><a name="958" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#923" class="Bound"
-      >A</a
+      ><a name="958" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="959"
       > </a
-      ><a name="960" class="Symbol"
-      >&#8594;</a
+      ><a name="960" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#947" class="Bound"
+      >B</a
       ><a name="961"
       > </a
-      ><a name="962" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
+      ><a name="962" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="963"
       > </a
-      ><a name="964" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#927" class="Bound"
+      ><a name="964" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#949" class="Bound"
       >C</a
       ><a name="965"
-      >
-    </a
-      ><a name="970" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#913" class="Function"
-      >&#10218;ap&#10219;</a
-      ><a name="974"
       > </a
-      ><a name="975" class="Symbol"
-      >(</a
-      ><a name="976" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#976" class="Bound"
-      >t</a
+      ><a name="966" class="Symbol"
+      >&#8594;</a
+      ><a name="967"
+      > </a
+      ><a name="968" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#945" class="Bound"
+      >A</a
+      ><a name="971"
+      > </a
+      ><a name="972" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#947" class="Bound"
+      >B</a
+      ><a name="975"
+      > </a
+      ><a name="976" class="Symbol"
+      >&#8594;</a
       ><a name="977"
       > </a
-      ><a name="978" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
+      ><a name="978" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
       ><a name="979"
       > </a
-      ><a name="980" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#980" class="Bound"
-      >f</a
-      ><a name="981" class="Symbol"
-      >)</a
-      ><a name="982"
+      ><a name="980" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#945" class="Bound"
+      >A</a
+      ><a name="981"
       > </a
-      ><a name="983" class="Symbol"
-      >(</a
-      ><a name="984" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#984" class="Bound"
-      >u</a
+      ><a name="982" class="Symbol"
+      >&#8594;</a
+      ><a name="983"
+      > </a
+      ><a name="984" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
       ><a name="985"
       > </a
-      ><a name="986" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
+      ><a name="986" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#949" class="Bound"
+      >C</a
       ><a name="987"
+      >
+    </a
+      ><a name="992" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#935" class="Function"
+      >&#10218;ap&#10219;</a
+      ><a name="996"
       > </a
-      ><a name="988" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#988" class="Bound"
-      >g</a
-      ><a name="989" class="Symbol"
-      >)</a
-      ><a name="990"
+      ><a name="997" class="Symbol"
+      >(</a
+      ><a name="998" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#998" class="Bound"
+      >t</a
+      ><a name="999"
       > </a
-      ><a name="991" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#991" class="Bound"
-      >a</a
-      ><a name="992"
-      > </a
-      ><a name="993" class="Symbol"
-      >=</a
-      ><a name="994"
-      > </a
-      ><a name="995" class="Keyword"
-      >let</a
-      ><a name="998"
-      > </a
-      ><a name="999" class="Symbol"
-      >(_</a
+      ><a name="1000" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
       ><a name="1001"
       > </a
-      ><a name="1002" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1003"
-      > </a
-      ><a name="1004" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1004" class="Bound"
-      >h</a
-      ><a name="1005" class="Symbol"
-      >)</a
-      ><a name="1006"
-      > </a
-      ><a name="1007" class="Symbol"
-      >=</a
-      ><a name="1008"
-      > </a
-      ><a name="1009" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#980" class="Bound"
+      ><a name="1002" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1002" class="Bound"
       >f</a
-      ><a name="1010"
+      ><a name="1003" class="Symbol"
+      >)</a
+      ><a name="1004"
       > </a
-      ><a name="1011" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#991" class="Bound"
-      >a</a
+      ><a name="1005" class="Symbol"
+      >(</a
+      ><a name="1006" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1006" class="Bound"
+      >u</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1010" class="Bound"
+      >g</a
+      ><a name="1011" class="Symbol"
+      >)</a
       ><a name="1012"
       > </a
-      ><a name="1013" class="Keyword"
-      >in</a
-      ><a name="1015"
+      ><a name="1013" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1013" class="Bound"
+      >a</a
+      ><a name="1014"
       > </a
-      ><a name="1016" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1004" class="Bound"
-      >h</a
-      ><a name="1017"
+      ><a name="1015" class="Symbol"
+      >=</a
+      ><a name="1016"
       > </a
-      ><a name="1018" class="Symbol"
-      >(</a
-      ><a name="1019" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#988" class="Bound"
-      >g</a
+      ><a name="1017" class="Keyword"
+      >let</a
       ><a name="1020"
       > </a
-      ><a name="1021" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#991" class="Bound"
-      >a</a
-      ><a name="1022" class="Symbol"
-      >)</a
+      ><a name="1021" class="Symbol"
+      >(_</a
       ><a name="1023"
+      > </a
+      ><a name="1024" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1026" class="Bound"
+      >h</a
+      ><a name="1027" class="Symbol"
+      >)</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" class="Symbol"
+      >=</a
+      ><a name="1030"
+      > </a
+      ><a name="1031" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1002" class="Bound"
+      >f</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1013" class="Bound"
+      >a</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" class="Keyword"
+      >in</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1026" class="Bound"
+      >h</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" class="Symbol"
+      >(</a
+      ><a name="1041" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1010" class="Bound"
+      >g</a
+      ><a name="1042"
+      > </a
+      ><a name="1043" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1013" class="Bound"
+      >a</a
+      ><a name="1044" class="Symbol"
+      >)</a
+      ><a name="1045"
       >
 
 
   </a
-      ><a name="1028" class="Comment"
+      ><a name="1050" class="Comment"
       >-- Forcing in a particular model, for sequents.</a
-      ><a name="1075"
+      ><a name="1097"
       >
 
   </a
-      ><a name="1079" class="Keyword"
+      ><a name="1101" class="Keyword"
       >module</a
-      ><a name="1085"
-      > </a
-      ><a name="1086" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1086" class="Module"
-      >_</a
-      ><a name="1087"
-      > </a
-      ><a name="1088" class="Symbol"
-      >{{</a
-      ><a name="1090" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1090" class="Bound"
-      >_</a
-      ><a name="1091"
-      > </a
-      ><a name="1092" class="Symbol"
-      >:</a
-      ><a name="1093"
-      > </a
-      ><a name="1094" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#214" class="Record"
-      >Model</a
-      ><a name="1099" class="Symbol"
-      >}}</a
-      ><a name="1101"
-      > </a
-      ><a name="1102" class="Keyword"
-      >where</a
       ><a name="1107"
+      > </a
+      ><a name="1108" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1108" class="Module"
+      >_</a
+      ><a name="1109"
+      > </a
+      ><a name="1110" class="Symbol"
+      >{{</a
+      ><a name="1112" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1112" class="Bound"
+      >_</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" class="Symbol"
+      >:</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#223" class="Record"
+      >Model</a
+      ><a name="1121" class="Symbol"
+      >}}</a
+      ><a name="1123"
+      > </a
+      ><a name="1124" class="Keyword"
+      >where</a
+      ><a name="1129"
       >
     </a
-      ><a name="1112" class="Keyword"
+      ><a name="1134" class="Keyword"
       >infix</a
-      ><a name="1117"
+      ><a name="1139"
       > </a
-      ><a name="1118" class="Number"
+      ><a name="1140" class="Number"
       >3</a
-      ><a name="1119"
+      ><a name="1141"
       > &#8873;_&#8658;_
     </a
-      ><a name="1129" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
+      ><a name="1151" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
       >&#8873;_&#8658;_</a
-      ><a name="1133"
+      ><a name="1155"
       > </a
-      ><a name="1134" class="Symbol"
+      ><a name="1156" class="Symbol"
       >:</a
-      ><a name="1135"
+      ><a name="1157"
       > </a
-      ><a name="1136" href="Common.Context.html#90" class="Datatype"
+      ><a name="1158" href="Common.Context.html#90" class="Datatype"
       >Cx</a
-      ><a name="1138"
-      > </a
-      ><a name="1139" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1141"
-      > </a
-      ><a name="1142" class="Symbol"
-      >&#8594;</a
-      ><a name="1143"
-      > </a
-      ><a name="1144" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1146"
-      > </a
-      ><a name="1147" class="Symbol"
-      >&#8594;</a
-      ><a name="1148"
-      > </a
-      ><a name="1149" class="PrimitiveType"
-      >Set</a
-      ><a name="1152"
-      >
-    </a
-      ><a name="1157" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1158"
-      > </a
-      ><a name="1159" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1159" class="Bound"
-      >&#915;</a
       ><a name="1160"
       > </a
-      ><a name="1161" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1162"
+      ><a name="1161" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="1163"
       > </a
-      ><a name="1163" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1163" class="Bound"
-      >A</a
-      ><a name="1164"
-      > </a
-      ><a name="1165" class="Symbol"
-      >=</a
-      ><a name="1166"
-      > </a
-      ><a name="1167" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#635" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="1169"
-      > </a
-      ><a name="1170" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1159" class="Bound"
-      >&#915;</a
-      ><a name="1171"
-      > </a
-      ><a name="1172" class="Symbol"
+      ><a name="1164" class="Symbol"
       >&#8594;</a
-      ><a name="1173"
+      ><a name="1165"
       > </a
-      ><a name="1174" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#490" class="Function Operator"
-      >&#8873;</a
-      ><a name="1175"
+      ><a name="1166" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="1168"
       > </a
-      ><a name="1176" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1163" class="Bound"
-      >A</a
-      ><a name="1177"
+      ><a name="1169" class="Symbol"
+      >&#8594;</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" class="PrimitiveType"
+      >Set</a
+      ><a name="1174"
       >
-
     </a
-      ><a name="1183" class="Keyword"
-      >infix</a
+      ><a name="1179" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1181" class="Bound"
+      >&#915;</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1185" class="Bound"
+      >A</a
+      ><a name="1186"
+      > </a
+      ><a name="1187" class="Symbol"
+      >=</a
       ><a name="1188"
       > </a
-      ><a name="1189" class="Number"
+      ><a name="1189" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#644" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1191"
+      > </a
+      ><a name="1192" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1181" class="Bound"
+      >&#915;</a
+      ><a name="1193"
+      > </a
+      ><a name="1194" class="Symbol"
+      >&#8594;</a
+      ><a name="1195"
+      > </a
+      ><a name="1196" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#499" class="Function Operator"
+      >&#8873;</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1185" class="Bound"
+      >A</a
+      ><a name="1199"
+      >
+
+    </a
+      ><a name="1205" class="Keyword"
+      >infix</a
+      ><a name="1210"
+      > </a
+      ><a name="1211" class="Number"
       >3</a
-      ><a name="1190"
+      ><a name="1212"
       > &#8873;_&#8658;&#8902;_
     </a
-      ><a name="1201" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1201" class="Function Operator"
+      ><a name="1223" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1223" class="Function Operator"
       >&#8873;_&#8658;&#8902;_</a
-      ><a name="1206"
-      > </a
-      ><a name="1207" class="Symbol"
-      >:</a
-      ><a name="1208"
-      > </a
-      ><a name="1209" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1211"
-      > </a
-      ><a name="1212" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1214"
-      > </a
-      ><a name="1215" class="Symbol"
-      >&#8594;</a
-      ><a name="1216"
-      > </a
-      ><a name="1217" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1219"
-      > </a
-      ><a name="1220" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1222"
-      > </a
-      ><a name="1223" class="Symbol"
-      >&#8594;</a
-      ><a name="1224"
-      > </a
-      ><a name="1225" class="PrimitiveType"
-      >Set</a
       ><a name="1228"
-      >
-    </a
-      ><a name="1233" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1201" class="Function Operator"
-      >&#8873;</a
-      ><a name="1234"
       > </a
-      ><a name="1235" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1235" class="Bound"
-      >&#915;</a
+      ><a name="1229" class="Symbol"
+      >:</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1233"
+      > </a
+      ><a name="1234" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
       ><a name="1236"
       > </a
-      ><a name="1237" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1201" class="Function Operator"
-      >&#8658;&#8902;</a
-      ><a name="1239"
+      ><a name="1237" class="Symbol"
+      >&#8594;</a
+      ><a name="1238"
       > </a
-      ><a name="1240" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1240" class="Bound"
-      >&#928;</a
+      ><a name="1239" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
       ><a name="1241"
       > </a
-      ><a name="1242" class="Symbol"
-      >=</a
-      ><a name="1243"
+      ><a name="1242" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="1244"
       > </a
-      ><a name="1244" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#635" class="Function Operator"
-      >&#8873;&#8902;</a
+      ><a name="1245" class="Symbol"
+      >&#8594;</a
       ><a name="1246"
       > </a
-      ><a name="1247" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1235" class="Bound"
-      >&#915;</a
-      ><a name="1248"
-      > </a
-      ><a name="1249" class="Symbol"
-      >&#8594;</a
+      ><a name="1247" class="PrimitiveType"
+      >Set</a
       ><a name="1250"
-      > </a
-      ><a name="1251" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#635" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="1253"
-      > </a
-      ><a name="1254" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1240" class="Bound"
-      >&#928;</a
-      ><a name="1255"
       >
-
-
-  </a
-      ><a name="1260" class="Comment"
-      >-- Forcing in all models, for sequents.</a
-      ><a name="1299"
-      >
-
-  </a
-      ><a name="1303" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1303" class="Function Operator"
-      >_&#8872;_</a
-      ><a name="1306"
+    </a
+      ><a name="1255" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1223" class="Function Operator"
+      >&#8873;</a
+      ><a name="1256"
       > </a
-      ><a name="1307" class="Symbol"
-      >:</a
-      ><a name="1308"
-      > </a
-      ><a name="1309" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1311"
-      > </a
-      ><a name="1312" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1314"
-      > </a
-      ><a name="1315" class="Symbol"
-      >&#8594;</a
-      ><a name="1316"
-      > </a
-      ><a name="1317" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1319"
-      > </a
-      ><a name="1320" class="Symbol"
-      >&#8594;</a
-      ><a name="1321"
-      > </a
-      ><a name="1322" class="PrimitiveType"
-      >Set&#8321;</a
-      ><a name="1326"
-      >
-  </a
-      ><a name="1329" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1329" class="Bound"
+      ><a name="1257" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1257" class="Bound"
       >&#915;</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1223" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="1261"
+      > </a
+      ><a name="1262" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1262" class="Bound"
+      >&#928;</a
+      ><a name="1263"
+      > </a
+      ><a name="1264" class="Symbol"
+      >=</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#644" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1268"
+      > </a
+      ><a name="1269" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1257" class="Bound"
+      >&#915;</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" class="Symbol"
+      >&#8594;</a
+      ><a name="1272"
+      > </a
+      ><a name="1273" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#644" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1262" class="Bound"
+      >&#928;</a
+      ><a name="1277"
+      >
+
+
+  </a
+      ><a name="1282" class="Comment"
+      >-- Forcing in all models, for sequents.</a
+      ><a name="1321"
+      >
+
+  </a
+      ><a name="1325" class="Keyword"
+      >infix</a
       ><a name="1330"
       > </a
-      ><a name="1331" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1303" class="Function Operator"
-      >&#8872;</a
+      ><a name="1331" class="Number"
+      >3</a
       ><a name="1332"
-      > </a
-      ><a name="1333" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1333" class="Bound"
-      >A</a
-      ><a name="1334"
-      > </a
-      ><a name="1335" class="Symbol"
-      >=</a
-      ><a name="1336"
-      > </a
-      ><a name="1337" class="Symbol"
-      >&#8704;</a
-      ><a name="1338"
-      > </a
-      ><a name="1339" class="Symbol"
-      >{{</a
-      ><a name="1341" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1341" class="Bound"
-      >_</a
+      > _&#8872;_
+  </a
+      ><a name="1339" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1339" class="Function Operator"
+      >_&#8872;_</a
       ><a name="1342"
       > </a
       ><a name="1343" class="Symbol"
       >:</a
       ><a name="1344"
       > </a
-      ><a name="1345" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#214" class="Record"
-      >Model</a
-      ><a name="1350" class="Symbol"
-      >}}</a
+      ><a name="1345" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1347"
+      > </a
+      ><a name="1348" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" class="Symbol"
+      >&#8594;</a
       ><a name="1352"
       > </a
-      ><a name="1353" class="Symbol"
+      ><a name="1353" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" class="Symbol"
       >&#8594;</a
-      ><a name="1354"
+      ><a name="1357"
       > </a
-      ><a name="1355" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1356"
-      > </a
-      ><a name="1357" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1329" class="Bound"
-      >&#915;</a
-      ><a name="1358"
-      > </a
-      ><a name="1359" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1360"
-      > </a
-      ><a name="1361" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1333" class="Bound"
-      >A</a
+      ><a name="1358" class="PrimitiveType"
+      >Set&#8321;</a
       ><a name="1362"
       >
-
   </a
-      ><a name="1366" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1366" class="Function Operator"
-      >_&#8872;&#8902;_</a
+      ><a name="1365" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1365" class="Bound"
+      >&#915;</a
+      ><a name="1366"
+      > </a
+      ><a name="1367" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1339" class="Function Operator"
+      >&#8872;</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1369" class="Bound"
+      >A</a
       ><a name="1370"
       > </a
       ><a name="1371" class="Symbol"
-      >:</a
+      >=</a
       ><a name="1372"
       > </a
-      ><a name="1373" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1375"
+      ><a name="1373" class="Symbol"
+      >&#8704;</a
+      ><a name="1374"
       > </a
-      ><a name="1376" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
+      ><a name="1375" class="Symbol"
+      >{{</a
+      ><a name="1377" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1377" class="Bound"
+      >_</a
       ><a name="1378"
       > </a
       ><a name="1379" class="Symbol"
-      >&#8594;</a
+      >:</a
       ><a name="1380"
       > </a
-      ><a name="1381" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1383"
-      > </a
-      ><a name="1384" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1386"
-      > </a
-      ><a name="1387" class="Symbol"
-      >&#8594;</a
+      ><a name="1381" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#223" class="Record"
+      >Model</a
+      ><a name="1386" class="Symbol"
+      >}}</a
       ><a name="1388"
       > </a
-      ><a name="1389" class="PrimitiveType"
-      >Set&#8321;</a
-      ><a name="1393"
-      >
-  </a
-      ><a name="1396" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1396" class="Bound"
-      >&#915;</a
-      ><a name="1397"
-      > </a
-      ><a name="1398" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1366" class="Function Operator"
-      >&#8872;&#8902;</a
-      ><a name="1400"
-      > </a
-      ><a name="1401" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1401" class="Bound"
-      >&#928;</a
-      ><a name="1402"
-      > </a
-      ><a name="1403" class="Symbol"
-      >=</a
-      ><a name="1404"
-      > </a
-      ><a name="1405" class="Symbol"
-      >&#8704;</a
-      ><a name="1406"
-      > </a
-      ><a name="1407" class="Symbol"
-      >{{</a
-      ><a name="1409" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1409" class="Bound"
-      >_</a
-      ><a name="1410"
-      > </a
-      ><a name="1411" class="Symbol"
-      >:</a
-      ><a name="1412"
-      > </a
-      ><a name="1413" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#214" class="Record"
-      >Model</a
-      ><a name="1418" class="Symbol"
-      >}}</a
-      ><a name="1420"
-      > </a
-      ><a name="1421" class="Symbol"
+      ><a name="1389" class="Symbol"
       >&#8594;</a
-      ><a name="1422"
+      ><a name="1390"
       > </a
-      ><a name="1423" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1201" class="Function Operator"
+      ><a name="1391" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
       >&#8873;</a
-      ><a name="1424"
+      ><a name="1392"
       > </a
-      ><a name="1425" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1396" class="Bound"
+      ><a name="1393" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1365" class="Bound"
       >&#915;</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1369" class="Bound"
+      >A</a
+      ><a name="1398"
+      >
+
+  </a
+      ><a name="1402" class="Keyword"
+      >infix</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" class="Number"
+      >3</a
+      ><a name="1409"
+      > _&#8872;&#8902;_
+  </a
+      ><a name="1417" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1417" class="Function Operator"
+      >_&#8872;&#8902;_</a
+      ><a name="1421"
+      > </a
+      ><a name="1422" class="Symbol"
+      >:</a
+      ><a name="1423"
+      > </a
+      ><a name="1424" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
       ><a name="1426"
       > </a
-      ><a name="1427" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1201" class="Function Operator"
-      >&#8658;&#8902;</a
+      ><a name="1427" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
       ><a name="1429"
       > </a
-      ><a name="1430" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1401" class="Bound"
-      >&#928;</a
-      ><a name="1431"
-      >
-
-
-  </a
-      ><a name="1436" class="Comment"
-      >-- Additional useful equipment, for sequents.</a
-      ><a name="1481"
-      >
-
-  </a
-      ><a name="1485" class="Keyword"
-      >module</a
-      ><a name="1491"
-      > </a
-      ><a name="1492" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1492" class="Module"
-      >_</a
-      ><a name="1493"
-      > </a
-      ><a name="1494" class="Symbol"
-      >{{</a
-      ><a name="1496" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1496" class="Bound"
-      >_</a
-      ><a name="1497"
-      > </a
-      ><a name="1498" class="Symbol"
-      >:</a
-      ><a name="1499"
-      > </a
-      ><a name="1500" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#214" class="Record"
-      >Model</a
-      ><a name="1505" class="Symbol"
-      >}}</a
-      ><a name="1507"
-      > </a
-      ><a name="1508" class="Keyword"
-      >where</a
-      ><a name="1513"
-      >
-    </a
-      ><a name="1518" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1518" class="Function"
-      >lookup</a
-      ><a name="1524"
-      > </a
-      ><a name="1525" class="Symbol"
-      >:</a
-      ><a name="1526"
-      > </a
-      ><a name="1527" class="Symbol"
-      >&#8704;</a
-      ><a name="1528"
-      > </a
-      ><a name="1529" class="Symbol"
-      >{</a
-      ><a name="1530" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1530" class="Bound"
-      >A</a
-      ><a name="1531"
-      > </a
-      ><a name="1532" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1532" class="Bound"
-      >&#915;</a
-      ><a name="1533" class="Symbol"
-      >}</a
-      ><a name="1534"
-      > </a
-      ><a name="1535" class="Symbol"
+      ><a name="1430" class="Symbol"
       >&#8594;</a
-      ><a name="1536"
+      ><a name="1431"
       > </a
-      ><a name="1537" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1530" class="Bound"
-      >A</a
-      ><a name="1538"
+      ><a name="1432" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1434"
       > </a
-      ><a name="1539" href="Common.Context.html#1097" class="Datatype Operator"
-      >&#8712;</a
-      ><a name="1540"
+      ><a name="1435" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="1437"
       > </a
-      ><a name="1541" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1532" class="Bound"
+      ><a name="1438" class="Symbol"
+      >&#8594;</a
+      ><a name="1439"
+      > </a
+      ><a name="1440" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="1444"
+      >
+  </a
+      ><a name="1447" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1447" class="Bound"
       >&#915;</a
+      ><a name="1448"
+      > </a
+      ><a name="1449" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1417" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1451"
+      > </a
+      ><a name="1452" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1452" class="Bound"
+      >&#928;</a
+      ><a name="1453"
+      > </a
+      ><a name="1454" class="Symbol"
+      >=</a
+      ><a name="1455"
+      > </a
+      ><a name="1456" class="Symbol"
+      >&#8704;</a
+      ><a name="1457"
+      > </a
+      ><a name="1458" class="Symbol"
+      >{{</a
+      ><a name="1460" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1460" class="Bound"
+      >_</a
+      ><a name="1461"
+      > </a
+      ><a name="1462" class="Symbol"
+      >:</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#223" class="Record"
+      >Model</a
+      ><a name="1469" class="Symbol"
+      >}}</a
+      ><a name="1471"
+      > </a
+      ><a name="1472" class="Symbol"
+      >&#8594;</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1223" class="Function Operator"
+      >&#8873;</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1447" class="Bound"
+      >&#915;</a
+      ><a name="1477"
+      > </a
+      ><a name="1478" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1223" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="1480"
+      > </a
+      ><a name="1481" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1452" class="Bound"
+      >&#928;</a
+      ><a name="1482"
+      >
+
+
+  </a
+      ><a name="1487" class="Comment"
+      >-- Additional useful equipment, for sequents.</a
+      ><a name="1532"
+      >
+
+  </a
+      ><a name="1536" class="Keyword"
+      >module</a
       ><a name="1542"
       > </a
-      ><a name="1543" class="Symbol"
-      >&#8594;</a
+      ><a name="1543" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1543" class="Module"
+      >_</a
       ><a name="1544"
       > </a
-      ><a name="1545" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1546"
-      > </a
-      ><a name="1547" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1532" class="Bound"
-      >&#915;</a
+      ><a name="1545" class="Symbol"
+      >{{</a
+      ><a name="1547" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1547" class="Bound"
+      >_</a
       ><a name="1548"
       > </a
-      ><a name="1549" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
+      ><a name="1549" class="Symbol"
+      >:</a
       ><a name="1550"
       > </a
-      ><a name="1551" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1530" class="Bound"
-      >A</a
-      ><a name="1552"
+      ><a name="1551" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#223" class="Record"
+      >Model</a
+      ><a name="1556" class="Symbol"
+      >}}</a
+      ><a name="1558"
+      > </a
+      ><a name="1559" class="Keyword"
+      >where</a
+      ><a name="1564"
       >
     </a
-      ><a name="1557" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1518" class="Function"
+      ><a name="1569" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1569" class="Function"
       >lookup</a
-      ><a name="1563"
+      ><a name="1575"
       > </a
-      ><a name="1564" href="Common.Context.html#1132" class="InductiveConstructor"
-      >top</a
-      ><a name="1567"
-      >     </a
-      ><a name="1572" class="Symbol"
-      >(</a
-      ><a name="1573" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1573" class="Bound"
-      >&#947;</a
-      ><a name="1574"
+      ><a name="1576" class="Symbol"
+      >:</a
+      ><a name="1577"
       > </a
-      ><a name="1575" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1576"
-      > </a
-      ><a name="1577" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1577" class="Bound"
-      >a</a
       ><a name="1578" class="Symbol"
-      >)</a
+      >&#8704;</a
       ><a name="1579"
       > </a
       ><a name="1580" class="Symbol"
-      >=</a
-      ><a name="1581"
+      >{</a
+      ><a name="1581" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1581" class="Bound"
+      >A</a
+      ><a name="1582"
       > </a
-      ><a name="1582" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1577" class="Bound"
-      >a</a
-      ><a name="1583"
-      >
-    </a
-      ><a name="1588" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1518" class="Function"
-      >lookup</a
-      ><a name="1594"
+      ><a name="1583" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1583" class="Bound"
+      >&#915;</a
+      ><a name="1584" class="Symbol"
+      >}</a
+      ><a name="1585"
       > </a
-      ><a name="1595" class="Symbol"
-      >(</a
-      ><a name="1596" href="Common.Context.html#1160" class="InductiveConstructor"
-      >pop</a
+      ><a name="1586" class="Symbol"
+      >&#8594;</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1581" class="Bound"
+      >A</a
+      ><a name="1589"
+      > </a
+      ><a name="1590" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="1591"
+      > </a
+      ><a name="1592" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1583" class="Bound"
+      >&#915;</a
+      ><a name="1593"
+      > </a
+      ><a name="1594" class="Symbol"
+      >&#8594;</a
+      ><a name="1595"
+      > </a
+      ><a name="1596" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1597"
+      > </a
+      ><a name="1598" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1583" class="Bound"
+      >&#915;</a
       ><a name="1599"
       > </a
-      ><a name="1600" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1600" class="Bound"
-      >i</a
-      ><a name="1601" class="Symbol"
-      >)</a
-      ><a name="1602"
+      ><a name="1600" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1601"
       > </a
-      ><a name="1603" class="Symbol"
-      >(</a
-      ><a name="1604" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1604" class="Bound"
-      >&#947;</a
-      ><a name="1605"
-      > </a
-      ><a name="1606" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1607"
-      > </a
-      ><a name="1608" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1608" class="Bound"
-      >b</a
-      ><a name="1609" class="Symbol"
-      >)</a
-      ><a name="1610"
-      > </a
-      ><a name="1611" class="Symbol"
-      >=</a
-      ><a name="1612"
-      > </a
-      ><a name="1613" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1518" class="Function"
-      >lookup</a
-      ><a name="1619"
-      > </a
-      ><a name="1620" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1600" class="Bound"
-      >i</a
-      ><a name="1621"
-      > </a
-      ><a name="1622" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1604" class="Bound"
-      >&#947;</a
-      ><a name="1623"
+      ><a name="1602" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1581" class="Bound"
+      >A</a
+      ><a name="1603"
       >
-
     </a
-      ><a name="1629" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1629" class="Function"
-      >&#10214;&#955;&#10215;</a
+      ><a name="1608" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1569" class="Function"
+      >lookup</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="1618"
+      >     </a
+      ><a name="1623" class="Symbol"
+      >(</a
+      ><a name="1624" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1624" class="Bound"
+      >&#947;</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1628" class="Bound"
+      >a</a
+      ><a name="1629" class="Symbol"
+      >)</a
+      ><a name="1630"
+      > </a
+      ><a name="1631" class="Symbol"
+      >=</a
       ><a name="1632"
       > </a
-      ><a name="1633" class="Symbol"
-      >:</a
+      ><a name="1633" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1628" class="Bound"
+      >a</a
       ><a name="1634"
-      > </a
-      ><a name="1635" class="Symbol"
-      >&#8704;</a
-      ><a name="1636"
-      > </a
-      ><a name="1637" class="Symbol"
-      >{</a
-      ><a name="1638" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1638" class="Bound"
-      >A</a
-      ><a name="1639"
-      > </a
-      ><a name="1640" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1640" class="Bound"
-      >B</a
-      ><a name="1641"
-      > </a
-      ><a name="1642" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1642" class="Bound"
-      >&#915;</a
-      ><a name="1643" class="Symbol"
-      >}</a
-      ><a name="1644"
-      > </a
-      ><a name="1645" class="Symbol"
-      >&#8594;</a
-      ><a name="1646"
-      > </a
-      ><a name="1647" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#376" class="Bound Operator"
-      >[&#8866;]</a
-      ><a name="1650"
-      > </a
-      ><a name="1651" class="Symbol"
-      >(</a
-      ><a name="1652" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1638" class="Bound"
-      >A</a
-      ><a name="1653"
-      > </a
-      ><a name="1654" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1655"
-      > </a
-      ><a name="1656" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1640" class="Bound"
-      >B</a
-      ><a name="1657" class="Symbol"
-      >)</a
-      ><a name="1658"
-      > </a
-      ><a name="1659" class="Symbol"
-      >&#8594;</a
-      ><a name="1660"
-      > </a
-      ><a name="1661" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1662"
-      > </a
-      ><a name="1663" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1642" class="Bound"
-      >&#915;</a
-      ><a name="1664"
-      > </a
-      ><a name="1665" href="Common.Context.html#130" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1666"
-      > </a
-      ><a name="1667" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1638" class="Bound"
-      >A</a
-      ><a name="1668"
-      > </a
-      ><a name="1669" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1670"
-      > </a
-      ><a name="1671" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1640" class="Bound"
-      >B</a
-      ><a name="1672"
-      > </a
-      ><a name="1673" class="Symbol"
-      >&#8594;</a
-      ><a name="1674"
-      > </a
-      ><a name="1675" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1676"
-      > </a
-      ><a name="1677" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1642" class="Bound"
-      >&#915;</a
-      ><a name="1678"
-      > </a
-      ><a name="1679" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1680"
-      > </a
-      ><a name="1681" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1638" class="Bound"
-      >A</a
-      ><a name="1682"
-      > </a
-      ><a name="1683" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1684"
-      > </a
-      ><a name="1685" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1640" class="Bound"
-      >B</a
-      ><a name="1686"
       >
     </a
-      ><a name="1691" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1629" class="Function"
-      >&#10214;&#955;&#10215;</a
-      ><a name="1694"
+      ><a name="1639" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1569" class="Function"
+      >lookup</a
+      ><a name="1645"
       > </a
-      ><a name="1695" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1695" class="Bound"
-      >t</a
-      ><a name="1696"
-      > </a
-      ><a name="1697" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1697" class="Bound"
-      >f</a
-      ><a name="1698"
-      > </a
-      ><a name="1699" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1699" class="Bound"
-      >&#947;</a
-      ><a name="1700"
-      > </a
-      ><a name="1701" class="Symbol"
-      >=</a
-      ><a name="1702"
-      > </a
-      ><a name="1703" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1695" class="Bound"
-      >t</a
-      ><a name="1704"
-      > </a
-      ><a name="1705" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1706"
-      > </a
-      ><a name="1707" class="Symbol"
-      >&#955;</a
-      ><a name="1708"
-      > </a
-      ><a name="1709" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1709" class="Bound"
-      >a</a
-      ><a name="1710"
-      > </a
-      ><a name="1711" class="Symbol"
-      >&#8594;</a
-      ><a name="1712"
-      > </a
-      ><a name="1713" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1697" class="Bound"
-      >f</a
-      ><a name="1714"
-      > </a
-      ><a name="1715" class="Symbol"
+      ><a name="1646" class="Symbol"
       >(</a
-      ><a name="1716" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1699" class="Bound"
-      >&#947;</a
-      ><a name="1717"
+      ><a name="1647" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="1650"
       > </a
-      ><a name="1718" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1719"
-      > </a
-      ><a name="1720" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1709" class="Bound"
-      >a</a
-      ><a name="1721" class="Symbol"
+      ><a name="1651" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1651" class="Bound"
+      >i</a
+      ><a name="1652" class="Symbol"
       >)</a
-      ><a name="1722"
+      ><a name="1653"
+      > </a
+      ><a name="1654" class="Symbol"
+      >(</a
+      ><a name="1655" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1655" class="Bound"
+      >&#947;</a
+      ><a name="1656"
+      > </a
+      ><a name="1657" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1658"
+      > </a
+      ><a name="1659" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1659" class="Bound"
+      >b</a
+      ><a name="1660" class="Symbol"
+      >)</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" class="Symbol"
+      >=</a
+      ><a name="1663"
+      > </a
+      ><a name="1664" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1569" class="Function"
+      >lookup</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1651" class="Bound"
+      >i</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1655" class="Bound"
+      >&#947;</a
+      ><a name="1674"
       >
 
     </a
-      ><a name="1728" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1728" class="Function Operator"
-      >_&#10214;$&#10215;_</a
+      ><a name="1680" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1680" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="1683"
+      > </a
+      ><a name="1684" class="Symbol"
+      >:</a
+      ><a name="1685"
+      > </a
+      ><a name="1686" class="Symbol"
+      >&#8704;</a
+      ><a name="1687"
+      > </a
+      ><a name="1688" class="Symbol"
+      >{</a
+      ><a name="1689" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1689" class="Bound"
+      >A</a
+      ><a name="1690"
+      > </a
+      ><a name="1691" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1691" class="Bound"
+      >B</a
+      ><a name="1692"
+      > </a
+      ><a name="1693" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1693" class="Bound"
+      >&#915;</a
+      ><a name="1694" class="Symbol"
+      >}</a
+      ><a name="1695"
+      > </a
+      ><a name="1696" class="Symbol"
+      >&#8594;</a
+      ><a name="1697"
+      > </a
+      ><a name="1698" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#385" class="Bound Operator"
+      >[&#8866;]</a
+      ><a name="1701"
+      > </a
+      ><a name="1702" class="Symbol"
+      >(</a
+      ><a name="1703" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1689" class="Bound"
+      >A</a
+      ><a name="1704"
+      > </a
+      ><a name="1705" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1691" class="Bound"
+      >B</a
+      ><a name="1708" class="Symbol"
+      >)</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" class="Symbol"
+      >&#8594;</a
+      ><a name="1711"
+      > </a
+      ><a name="1712" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1713"
+      > </a
+      ><a name="1714" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1693" class="Bound"
+      >&#915;</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1689" class="Bound"
+      >A</a
+      ><a name="1719"
+      > </a
+      ><a name="1720" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1691" class="Bound"
+      >B</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" class="Symbol"
+      >&#8594;</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1693" class="Bound"
+      >&#915;</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1689" class="Bound"
+      >A</a
       ><a name="1733"
       > </a
-      ><a name="1734" class="Symbol"
-      >:</a
+      ><a name="1734" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="1735"
       > </a
-      ><a name="1736" class="Symbol"
-      >&#8704;</a
+      ><a name="1736" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1691" class="Bound"
+      >B</a
       ><a name="1737"
-      > </a
-      ><a name="1738" class="Symbol"
-      >{</a
-      ><a name="1739" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1739" class="Bound"
-      >A</a
-      ><a name="1740"
-      > </a
-      ><a name="1741" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1741" class="Bound"
-      >B</a
-      ><a name="1742"
-      > </a
-      ><a name="1743" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1743" class="Bound"
-      >&#915;</a
-      ><a name="1744" class="Symbol"
-      >}</a
-      ><a name="1745"
-      > </a
-      ><a name="1746" class="Symbol"
-      >&#8594;</a
-      ><a name="1747"
-      > </a
-      ><a name="1748" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1749"
-      > </a
-      ><a name="1750" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1743" class="Bound"
-      >&#915;</a
-      ><a name="1751"
-      > </a
-      ><a name="1752" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1753"
-      > </a
-      ><a name="1754" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1739" class="Bound"
-      >A</a
-      ><a name="1755"
-      > </a
-      ><a name="1756" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1757"
-      > </a
-      ><a name="1758" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1741" class="Bound"
-      >B</a
-      ><a name="1759"
-      > </a
-      ><a name="1760" class="Symbol"
-      >&#8594;</a
-      ><a name="1761"
-      > </a
-      ><a name="1762" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1763"
-      > </a
-      ><a name="1764" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1743" class="Bound"
-      >&#915;</a
-      ><a name="1765"
-      > </a
-      ><a name="1766" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1767"
-      > </a
-      ><a name="1768" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1739" class="Bound"
-      >A</a
-      ><a name="1769"
-      > </a
-      ><a name="1770" class="Symbol"
-      >&#8594;</a
-      ><a name="1771"
-      > </a
-      ><a name="1772" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1773"
-      > </a
-      ><a name="1774" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1743" class="Bound"
-      >&#915;</a
-      ><a name="1775"
-      > </a
-      ><a name="1776" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1777"
-      > </a
-      ><a name="1778" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1741" class="Bound"
-      >B</a
-      ><a name="1779"
       >
     </a
-      ><a name="1784" class="Symbol"
-      >(</a
-      ><a name="1785" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1785" class="Bound"
+      ><a name="1742" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1680" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1746" class="Bound"
+      >t</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1748" class="Bound"
       >f</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1750" class="Bound"
+      >&#947;</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" class="Symbol"
+      >=</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1746" class="Bound"
+      >t</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" class="Symbol"
+      >&#955;</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1760" class="Bound"
+      >a</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" class="Symbol"
+      >&#8594;</a
+      ><a name="1763"
+      > </a
+      ><a name="1764" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1748" class="Bound"
+      >f</a
+      ><a name="1765"
+      > </a
+      ><a name="1766" class="Symbol"
+      >(</a
+      ><a name="1767" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1750" class="Bound"
+      >&#947;</a
+      ><a name="1768"
+      > </a
+      ><a name="1769" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1770"
+      > </a
+      ><a name="1771" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1760" class="Bound"
+      >a</a
+      ><a name="1772" class="Symbol"
+      >)</a
+      ><a name="1773"
+      >
+
+    </a
+      ><a name="1779" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1779" class="Function Operator"
+      >_&#10214;$&#10215;_</a
+      ><a name="1784"
+      > </a
+      ><a name="1785" class="Symbol"
+      >:</a
       ><a name="1786"
       > </a
-      ><a name="1787" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1728" class="Function Operator"
-      >&#10214;$&#10215;</a
-      ><a name="1790"
+      ><a name="1787" class="Symbol"
+      >&#8704;</a
+      ><a name="1788"
       > </a
-      ><a name="1791" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1791" class="Bound"
-      >g</a
-      ><a name="1792" class="Symbol"
-      >)</a
+      ><a name="1789" class="Symbol"
+      >{</a
+      ><a name="1790" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1790" class="Bound"
+      >A</a
+      ><a name="1791"
+      > </a
+      ><a name="1792" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1792" class="Bound"
+      >B</a
       ><a name="1793"
       > </a
       ><a name="1794" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1794" class="Bound"
-      >&#947;</a
-      ><a name="1795"
+      >&#915;</a
+      ><a name="1795" class="Symbol"
+      >}</a
+      ><a name="1796"
       > </a
-      ><a name="1796" class="Symbol"
-      >=</a
-      ><a name="1797"
+      ><a name="1797" class="Symbol"
+      >&#8594;</a
+      ><a name="1798"
       > </a
-      ><a name="1798" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1785" class="Bound"
+      ><a name="1799" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1800"
+      > </a
+      ><a name="1801" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1794" class="Bound"
+      >&#915;</a
+      ><a name="1802"
+      > </a
+      ><a name="1803" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1804"
+      > </a
+      ><a name="1805" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1790" class="Bound"
+      >A</a
+      ><a name="1806"
+      > </a
+      ><a name="1807" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1808"
+      > </a
+      ><a name="1809" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1792" class="Bound"
+      >B</a
+      ><a name="1810"
+      > </a
+      ><a name="1811" class="Symbol"
+      >&#8594;</a
+      ><a name="1812"
+      > </a
+      ><a name="1813" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1794" class="Bound"
+      >&#915;</a
+      ><a name="1816"
+      > </a
+      ><a name="1817" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1818"
+      > </a
+      ><a name="1819" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1790" class="Bound"
+      >A</a
+      ><a name="1820"
+      > </a
+      ><a name="1821" class="Symbol"
+      >&#8594;</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1824"
+      > </a
+      ><a name="1825" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1794" class="Bound"
+      >&#915;</a
+      ><a name="1826"
+      > </a
+      ><a name="1827" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1828"
+      > </a
+      ><a name="1829" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1792" class="Bound"
+      >B</a
+      ><a name="1830"
+      >
+    </a
+      ><a name="1835" class="Symbol"
+      >(</a
+      ><a name="1836" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1836" class="Bound"
       >f</a
-      ><a name="1799"
+      ><a name="1837"
       > </a
-      ><a name="1800" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1794" class="Bound"
-      >&#947;</a
-      ><a name="1801"
+      ><a name="1838" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1779" class="Function Operator"
+      >&#10214;$&#10215;</a
+      ><a name="1841"
       > </a
-      ><a name="1802" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#846" class="Function Operator"
-      >&#10218;$&#10219;</a
-      ><a name="1805"
-      > </a
-      ><a name="1806" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1791" class="Bound"
+      ><a name="1842" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1842" class="Bound"
       >g</a
-      ><a name="1807"
+      ><a name="1843" class="Symbol"
+      >)</a
+      ><a name="1844"
       > </a
-      ><a name="1808" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1794" class="Bound"
+      ><a name="1845" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1845" class="Bound"
       >&#947;</a
-      ><a name="1809"
+      ><a name="1846"
+      > </a
+      ><a name="1847" class="Symbol"
+      >=</a
+      ><a name="1848"
+      > </a
+      ><a name="1849" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1836" class="Bound"
+      >f</a
+      ><a name="1850"
+      > </a
+      ><a name="1851" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1845" class="Bound"
+      >&#947;</a
+      ><a name="1852"
+      > </a
+      ><a name="1853" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#868" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="1856"
+      > </a
+      ><a name="1857" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1842" class="Bound"
+      >g</a
+      ><a name="1858"
+      > </a
+      ><a name="1859" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1845" class="Bound"
+      >&#947;</a
+      ><a name="1860"
       >
 
     </a
-      ><a name="1815" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1815" class="Function"
+      ><a name="1866" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1866" class="Function"
       >&#10214;ap&#10215;</a
-      ><a name="1819"
+      ><a name="1870"
       > </a
-      ><a name="1820" class="Symbol"
+      ><a name="1871" class="Symbol"
       >:</a
-      ><a name="1821"
+      ><a name="1872"
       > </a
-      ><a name="1822" class="Symbol"
+      ><a name="1873" class="Symbol"
       >&#8704;</a
-      ><a name="1823"
+      ><a name="1874"
       > </a
-      ><a name="1824" class="Symbol"
+      ><a name="1875" class="Symbol"
       >{</a
-      ><a name="1825" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1825" class="Bound"
+      ><a name="1876" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1876" class="Bound"
       >A</a
-      ><a name="1826"
-      > </a
-      ><a name="1827" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1827" class="Bound"
-      >B</a
-      ><a name="1828"
-      > </a
-      ><a name="1829" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1829" class="Bound"
-      >C</a
-      ><a name="1830"
-      > </a
-      ><a name="1831" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1831" class="Bound"
-      >&#915;</a
-      ><a name="1832" class="Symbol"
-      >}</a
-      ><a name="1833"
-      > </a
-      ><a name="1834" class="Symbol"
-      >&#8594;</a
-      ><a name="1835"
-      > </a
-      ><a name="1836" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1837"
-      > </a
-      ><a name="1838" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1831" class="Bound"
-      >&#915;</a
-      ><a name="1839"
-      > </a
-      ><a name="1840" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1841"
-      > </a
-      ><a name="1842" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1825" class="Bound"
-      >A</a
-      ><a name="1843"
-      > </a
-      ><a name="1844" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1845"
-      > </a
-      ><a name="1846" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1827" class="Bound"
-      >B</a
-      ><a name="1847"
-      > </a
-      ><a name="1848" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1849"
-      > </a
-      ><a name="1850" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1829" class="Bound"
-      >C</a
-      ><a name="1851"
-      > </a
-      ><a name="1852" class="Symbol"
-      >&#8594;</a
-      ><a name="1853"
-      > </a
-      ><a name="1854" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1855"
-      > </a
-      ><a name="1856" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1831" class="Bound"
-      >&#915;</a
-      ><a name="1857"
-      > </a
-      ><a name="1858" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1859"
-      > </a
-      ><a name="1860" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1825" class="Bound"
-      >A</a
-      ><a name="1861"
-      > </a
-      ><a name="1862" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1863"
-      > </a
-      ><a name="1864" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1827" class="Bound"
-      >B</a
-      ><a name="1865"
-      > </a
-      ><a name="1866" class="Symbol"
-      >&#8594;</a
-      ><a name="1867"
-      > </a
-      ><a name="1868" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1869"
-      > </a
-      ><a name="1870" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1831" class="Bound"
-      >&#915;</a
-      ><a name="1871"
-      > </a
-      ><a name="1872" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1873"
-      > </a
-      ><a name="1874" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1825" class="Bound"
-      >A</a
-      ><a name="1875"
-      > </a
-      ><a name="1876" class="Symbol"
-      >&#8594;</a
       ><a name="1877"
       > </a
-      ><a name="1878" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
+      ><a name="1878" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1878" class="Bound"
+      >B</a
       ><a name="1879"
       > </a
-      ><a name="1880" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1831" class="Bound"
-      >&#915;</a
+      ><a name="1880" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1880" class="Bound"
+      >C</a
       ><a name="1881"
       > </a
-      ><a name="1882" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1883"
+      ><a name="1882" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1882" class="Bound"
+      >&#915;</a
+      ><a name="1883" class="Symbol"
+      >}</a
+      ><a name="1884"
       > </a
-      ><a name="1884" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1829" class="Bound"
-      >C</a
-      ><a name="1885"
-      >
-    </a
-      ><a name="1890" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1815" class="Function"
-      >&#10214;ap&#10215;</a
+      ><a name="1885" class="Symbol"
+      >&#8594;</a
+      ><a name="1886"
+      > </a
+      ><a name="1887" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1888"
+      > </a
+      ><a name="1889" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1882" class="Bound"
+      >&#915;</a
+      ><a name="1890"
+      > </a
+      ><a name="1891" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1892"
+      > </a
+      ><a name="1893" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1876" class="Bound"
+      >A</a
       ><a name="1894"
       > </a
-      ><a name="1895" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1895" class="Bound"
-      >f</a
+      ><a name="1895" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="1896"
       > </a
-      ><a name="1897" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1897" class="Bound"
-      >g</a
+      ><a name="1897" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1878" class="Bound"
+      >B</a
       ><a name="1898"
       > </a
-      ><a name="1899" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1899" class="Bound"
-      >a</a
+      ><a name="1899" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="1900"
       > </a
-      ><a name="1901" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1901" class="Bound"
-      >&#947;</a
+      ><a name="1901" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1880" class="Bound"
+      >C</a
       ><a name="1902"
       > </a
       ><a name="1903" class="Symbol"
-      >=</a
+      >&#8594;</a
       ><a name="1904"
       > </a
-      ><a name="1905" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#913" class="Function"
-      >&#10218;ap&#10219;</a
-      ><a name="1909"
+      ><a name="1905" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1906"
       > </a
-      ><a name="1910" class="Symbol"
-      >(</a
-      ><a name="1911" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1895" class="Bound"
-      >f</a
+      ><a name="1907" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1882" class="Bound"
+      >&#915;</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1910"
+      > </a
+      ><a name="1911" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1876" class="Bound"
+      >A</a
       ><a name="1912"
       > </a
-      ><a name="1913" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1901" class="Bound"
-      >&#947;</a
-      ><a name="1914" class="Symbol"
-      >)</a
-      ><a name="1915"
+      ><a name="1913" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1914"
       > </a
-      ><a name="1916" class="Symbol"
-      >(</a
-      ><a name="1917" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1897" class="Bound"
-      >g</a
+      ><a name="1915" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1878" class="Bound"
+      >B</a
+      ><a name="1916"
+      > </a
+      ><a name="1917" class="Symbol"
+      >&#8594;</a
       ><a name="1918"
       > </a
-      ><a name="1919" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1901" class="Bound"
-      >&#947;</a
-      ><a name="1920" class="Symbol"
-      >)</a
-      ><a name="1921"
+      ><a name="1919" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1920"
       > </a
-      ><a name="1922" class="Symbol"
-      >(</a
-      ><a name="1923" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1899" class="Bound"
-      >a</a
+      ><a name="1921" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1882" class="Bound"
+      >&#915;</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
       ><a name="1924"
       > </a
-      ><a name="1925" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1901" class="Bound"
-      >&#947;</a
-      ><a name="1926" class="Symbol"
-      >)</a
-      ><a name="1927"
-      >
-
-    </a
-      ><a name="1933" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1933" class="Function Operator"
-      >_&#10214;,&#10215;_</a
-      ><a name="1938"
-      > </a
-      ><a name="1939" class="Symbol"
-      >:</a
-      ><a name="1940"
-      > </a
-      ><a name="1941" class="Symbol"
-      >&#8704;</a
-      ><a name="1942"
-      > </a
-      ><a name="1943" class="Symbol"
-      >{</a
-      ><a name="1944" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1944" class="Bound"
+      ><a name="1925" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1876" class="Bound"
       >A</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" class="Symbol"
+      >&#8594;</a
+      ><a name="1928"
+      > </a
+      ><a name="1929" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1882" class="Bound"
+      >&#915;</a
+      ><a name="1932"
+      > </a
+      ><a name="1933" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1880" class="Bound"
+      >C</a
+      ><a name="1936"
+      >
+    </a
+      ><a name="1941" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1866" class="Function"
+      >&#10214;ap&#10215;</a
       ><a name="1945"
       > </a
       ><a name="1946" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1946" class="Bound"
-      >B</a
+      >f</a
       ><a name="1947"
       > </a
       ><a name="1948" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1948" class="Bound"
-      >&#915;</a
-      ><a name="1949" class="Symbol"
-      >}</a
-      ><a name="1950"
+      >g</a
+      ><a name="1949"
       > </a
-      ><a name="1951" class="Symbol"
-      >&#8594;</a
-      ><a name="1952"
+      ><a name="1950" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1950" class="Bound"
+      >a</a
+      ><a name="1951"
       > </a
-      ><a name="1953" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1954"
+      ><a name="1952" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1952" class="Bound"
+      >&#947;</a
+      ><a name="1953"
       > </a
-      ><a name="1955" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1948" class="Bound"
-      >&#915;</a
-      ><a name="1956"
+      ><a name="1954" class="Symbol"
+      >=</a
+      ><a name="1955"
       > </a
-      ><a name="1957" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1958"
-      > </a
-      ><a name="1959" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1944" class="Bound"
-      >A</a
+      ><a name="1956" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#935" class="Function"
+      >&#10218;ap&#10219;</a
       ><a name="1960"
       > </a
       ><a name="1961" class="Symbol"
-      >&#8594;</a
-      ><a name="1962"
+      >(</a
+      ><a name="1962" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1946" class="Bound"
+      >f</a
+      ><a name="1963"
       > </a
-      ><a name="1963" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1964"
-      > </a
-      ><a name="1965" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1948" class="Bound"
-      >&#915;</a
+      ><a name="1964" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1952" class="Bound"
+      >&#947;</a
+      ><a name="1965" class="Symbol"
+      >)</a
       ><a name="1966"
       > </a
-      ><a name="1967" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1968"
+      ><a name="1967" class="Symbol"
+      >(</a
+      ><a name="1968" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1948" class="Bound"
+      >g</a
+      ><a name="1969"
       > </a
-      ><a name="1969" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1946" class="Bound"
-      >B</a
-      ><a name="1970"
-      > </a
+      ><a name="1970" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1952" class="Bound"
+      >&#947;</a
       ><a name="1971" class="Symbol"
-      >&#8594;</a
+      >)</a
       ><a name="1972"
       > </a
-      ><a name="1973" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="1974"
-      > </a
-      ><a name="1975" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1948" class="Bound"
-      >&#915;</a
-      ><a name="1976"
-      > </a
-      ><a name="1977" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="1978"
-      > </a
-      ><a name="1979" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1944" class="Bound"
-      >A</a
-      ><a name="1980"
-      > </a
-      ><a name="1981" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
-      >&#8743;</a
-      ><a name="1982"
-      > </a
-      ><a name="1983" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1946" class="Bound"
-      >B</a
-      ><a name="1984"
-      >
-    </a
-      ><a name="1989" class="Symbol"
+      ><a name="1973" class="Symbol"
       >(</a
-      ><a name="1990" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1990" class="Bound"
+      ><a name="1974" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1950" class="Bound"
       >a</a
+      ><a name="1975"
+      > </a
+      ><a name="1976" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1952" class="Bound"
+      >&#947;</a
+      ><a name="1977" class="Symbol"
+      >)</a
+      ><a name="1978"
+      >
+
+    </a
+      ><a name="1984" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1984" class="Function Operator"
+      >_&#10214;,&#10215;_</a
+      ><a name="1989"
+      > </a
+      ><a name="1990" class="Symbol"
+      >:</a
       ><a name="1991"
       > </a
-      ><a name="1992" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1933" class="Function Operator"
-      >&#10214;,&#10215;</a
-      ><a name="1995"
+      ><a name="1992" class="Symbol"
+      >&#8704;</a
+      ><a name="1993"
       > </a
-      ><a name="1996" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1996" class="Bound"
-      >b</a
-      ><a name="1997" class="Symbol"
-      >)</a
+      ><a name="1994" class="Symbol"
+      >{</a
+      ><a name="1995" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1995" class="Bound"
+      >A</a
+      ><a name="1996"
+      > </a
+      ><a name="1997" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1997" class="Bound"
+      >B</a
       ><a name="1998"
       > </a
       ><a name="1999" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1999" class="Bound"
-      >&#947;</a
-      ><a name="2000"
+      >&#915;</a
+      ><a name="2000" class="Symbol"
+      >}</a
+      ><a name="2001"
       > </a
-      ><a name="2001" class="Symbol"
-      >=</a
-      ><a name="2002"
+      ><a name="2002" class="Symbol"
+      >&#8594;</a
+      ><a name="2003"
       > </a
-      ><a name="2003" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1990" class="Bound"
-      >a</a
-      ><a name="2004"
+      ><a name="2004" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="2005"
       > </a
-      ><a name="2005" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1999" class="Bound"
-      >&#947;</a
-      ><a name="2006"
+      ><a name="2006" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1999" class="Bound"
+      >&#915;</a
+      ><a name="2007"
       > </a
-      ><a name="2007" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="2008"
+      ><a name="2008" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="2009"
       > </a
-      ><a name="2009" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1996" class="Bound"
-      >b</a
-      ><a name="2010"
-      > </a
-      ><a name="2011" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1999" class="Bound"
-      >&#947;</a
-      ><a name="2012"
-      >
-
-    </a
-      ><a name="2018" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2018" class="Function"
-      >&#10214;&#960;&#8321;&#10215;</a
-      ><a name="2022"
-      > </a
-      ><a name="2023" class="Symbol"
-      >:</a
-      ><a name="2024"
-      > </a
-      ><a name="2025" class="Symbol"
-      >&#8704;</a
-      ><a name="2026"
-      > </a
-      ><a name="2027" class="Symbol"
-      >{</a
-      ><a name="2028" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2028" class="Bound"
+      ><a name="2010" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1995" class="Bound"
       >A</a
+      ><a name="2011"
+      > </a
+      ><a name="2012" class="Symbol"
+      >&#8594;</a
+      ><a name="2013"
+      > </a
+      ><a name="2014" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="2015"
+      > </a
+      ><a name="2016" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1999" class="Bound"
+      >&#915;</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1997" class="Bound"
+      >B</a
+      ><a name="2021"
+      > </a
+      ><a name="2022" class="Symbol"
+      >&#8594;</a
+      ><a name="2023"
+      > </a
+      ><a name="2024" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="2025"
+      > </a
+      ><a name="2026" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1999" class="Bound"
+      >&#915;</a
+      ><a name="2027"
+      > </a
+      ><a name="2028" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
       ><a name="2029"
       > </a
-      ><a name="2030" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2030" class="Bound"
-      >B</a
+      ><a name="2030" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1995" class="Bound"
+      >A</a
       ><a name="2031"
       > </a
-      ><a name="2032" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2032" class="Bound"
-      >&#915;</a
-      ><a name="2033" class="Symbol"
-      >}</a
-      ><a name="2034"
-      > </a
-      ><a name="2035" class="Symbol"
-      >&#8594;</a
-      ><a name="2036"
-      > </a
-      ><a name="2037" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="2038"
-      > </a
-      ><a name="2039" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2032" class="Bound"
-      >&#915;</a
-      ><a name="2040"
-      > </a
-      ><a name="2041" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="2042"
-      > </a
-      ><a name="2043" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2028" class="Bound"
-      >A</a
-      ><a name="2044"
-      > </a
-      ><a name="2045" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      ><a name="2032" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
       >&#8743;</a
-      ><a name="2046"
+      ><a name="2033"
       > </a
-      ><a name="2047" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2030" class="Bound"
+      ><a name="2034" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1997" class="Bound"
       >B</a
-      ><a name="2048"
-      > </a
-      ><a name="2049" class="Symbol"
-      >&#8594;</a
-      ><a name="2050"
-      > </a
-      ><a name="2051" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="2052"
-      > </a
-      ><a name="2053" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2032" class="Bound"
-      >&#915;</a
-      ><a name="2054"
-      > </a
-      ><a name="2055" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="2056"
-      > </a
-      ><a name="2057" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2028" class="Bound"
-      >A</a
-      ><a name="2058"
+      ><a name="2035"
       >
     </a
-      ><a name="2063" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2018" class="Function"
-      >&#10214;&#960;&#8321;&#10215;</a
-      ><a name="2067"
-      > </a
-      ><a name="2068" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2068" class="Bound"
-      >s</a
-      ><a name="2069"
-      > </a
-      ><a name="2070" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2070" class="Bound"
-      >&#947;</a
-      ><a name="2071"
-      > </a
-      ><a name="2072" class="Symbol"
-      >=</a
-      ><a name="2073"
-      > </a
-      ><a name="2074" href="Data.Product.html#525" class="Field"
-      >&#960;&#8321;</a
-      ><a name="2076"
-      > </a
-      ><a name="2077" class="Symbol"
+      ><a name="2040" class="Symbol"
       >(</a
-      ><a name="2078" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2068" class="Bound"
-      >s</a
-      ><a name="2079"
+      ><a name="2041" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2041" class="Bound"
+      >a</a
+      ><a name="2042"
       > </a
-      ><a name="2080" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2070" class="Bound"
-      >&#947;</a
-      ><a name="2081" class="Symbol"
+      ><a name="2043" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1984" class="Function Operator"
+      >&#10214;,&#10215;</a
+      ><a name="2046"
+      > </a
+      ><a name="2047" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2047" class="Bound"
+      >b</a
+      ><a name="2048" class="Symbol"
       >)</a
-      ><a name="2082"
+      ><a name="2049"
+      > </a
+      ><a name="2050" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2050" class="Bound"
+      >&#947;</a
+      ><a name="2051"
+      > </a
+      ><a name="2052" class="Symbol"
+      >=</a
+      ><a name="2053"
+      > </a
+      ><a name="2054" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2041" class="Bound"
+      >a</a
+      ><a name="2055"
+      > </a
+      ><a name="2056" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2050" class="Bound"
+      >&#947;</a
+      ><a name="2057"
+      > </a
+      ><a name="2058" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2047" class="Bound"
+      >b</a
+      ><a name="2061"
+      > </a
+      ><a name="2062" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2050" class="Bound"
+      >&#947;</a
+      ><a name="2063"
       >
 
     </a
-      ><a name="2088" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2088" class="Function"
-      >&#10214;&#960;&#8322;&#10215;</a
-      ><a name="2092"
+      ><a name="2069" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2069" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="2073"
       > </a
-      ><a name="2093" class="Symbol"
+      ><a name="2074" class="Symbol"
       >:</a
-      ><a name="2094"
+      ><a name="2075"
       > </a
-      ><a name="2095" class="Symbol"
+      ><a name="2076" class="Symbol"
       >&#8704;</a
-      ><a name="2096"
+      ><a name="2077"
       > </a
-      ><a name="2097" class="Symbol"
+      ><a name="2078" class="Symbol"
       >{</a
-      ><a name="2098" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2098" class="Bound"
+      ><a name="2079" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2079" class="Bound"
       >A</a
+      ><a name="2080"
+      > </a
+      ><a name="2081" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2081" class="Bound"
+      >B</a
+      ><a name="2082"
+      > </a
+      ><a name="2083" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2083" class="Bound"
+      >&#915;</a
+      ><a name="2084" class="Symbol"
+      >}</a
+      ><a name="2085"
+      > </a
+      ><a name="2086" class="Symbol"
+      >&#8594;</a
+      ><a name="2087"
+      > </a
+      ><a name="2088" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="2089"
+      > </a
+      ><a name="2090" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2083" class="Bound"
+      >&#915;</a
+      ><a name="2091"
+      > </a
+      ><a name="2092" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2079" class="Bound"
+      >A</a
+      ><a name="2095"
+      > </a
+      ><a name="2096" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2097"
+      > </a
+      ><a name="2098" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2081" class="Bound"
+      >B</a
       ><a name="2099"
       > </a
-      ><a name="2100" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2100" class="Bound"
-      >B</a
+      ><a name="2100" class="Symbol"
+      >&#8594;</a
       ><a name="2101"
       > </a
-      ><a name="2102" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2102" class="Bound"
-      >&#915;</a
-      ><a name="2103" class="Symbol"
-      >}</a
-      ><a name="2104"
-      > </a
-      ><a name="2105" class="Symbol"
-      >&#8594;</a
-      ><a name="2106"
-      > </a
-      ><a name="2107" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
+      ><a name="2102" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
       >&#8873;</a
-      ><a name="2108"
+      ><a name="2103"
       > </a
-      ><a name="2109" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2102" class="Bound"
+      ><a name="2104" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2083" class="Bound"
       >&#915;</a
-      ><a name="2110"
+      ><a name="2105"
       > </a
-      ><a name="2111" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
+      ><a name="2106" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
       >&#8658;</a
-      ><a name="2112"
+      ><a name="2107"
       > </a
-      ><a name="2113" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2098" class="Bound"
+      ><a name="2108" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2079" class="Bound"
       >A</a
-      ><a name="2114"
-      > </a
-      ><a name="2115" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
-      >&#8743;</a
-      ><a name="2116"
-      > </a
-      ><a name="2117" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2100" class="Bound"
-      >B</a
-      ><a name="2118"
-      > </a
-      ><a name="2119" class="Symbol"
-      >&#8594;</a
-      ><a name="2120"
-      > </a
-      ><a name="2121" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8873;</a
-      ><a name="2122"
-      > </a
-      ><a name="2123" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2102" class="Bound"
-      >&#915;</a
-      ><a name="2124"
-      > </a
-      ><a name="2125" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1129" class="Function Operator"
-      >&#8658;</a
-      ><a name="2126"
-      > </a
-      ><a name="2127" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2100" class="Bound"
-      >B</a
-      ><a name="2128"
+      ><a name="2109"
       >
     </a
-      ><a name="2133" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2088" class="Function"
-      >&#10214;&#960;&#8322;&#10215;</a
-      ><a name="2137"
+      ><a name="2114" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2069" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="2118"
       > </a
-      ><a name="2138" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2138" class="Bound"
+      ><a name="2119" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2119" class="Bound"
       >s</a
-      ><a name="2139"
+      ><a name="2120"
       > </a
-      ><a name="2140" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2140" class="Bound"
+      ><a name="2121" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2121" class="Bound"
       >&#947;</a
-      ><a name="2141"
+      ><a name="2122"
       > </a
-      ><a name="2142" class="Symbol"
+      ><a name="2123" class="Symbol"
       >=</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="2127"
+      > </a
+      ><a name="2128" class="Symbol"
+      >(</a
+      ><a name="2129" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2119" class="Bound"
+      >s</a
+      ><a name="2130"
+      > </a
+      ><a name="2131" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2121" class="Bound"
+      >&#947;</a
+      ><a name="2132" class="Symbol"
+      >)</a
+      ><a name="2133"
+      >
+
+    </a
+      ><a name="2139" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2139" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
       ><a name="2143"
       > </a
-      ><a name="2144" href="Data.Product.html#539" class="Field"
-      >&#960;&#8322;</a
-      ><a name="2146"
+      ><a name="2144" class="Symbol"
+      >:</a
+      ><a name="2145"
       > </a
-      ><a name="2147" class="Symbol"
-      >(</a
-      ><a name="2148" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2138" class="Bound"
-      >s</a
-      ><a name="2149"
+      ><a name="2146" class="Symbol"
+      >&#8704;</a
+      ><a name="2147"
       > </a
-      ><a name="2150" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2140" class="Bound"
-      >&#947;</a
-      ><a name="2151" class="Symbol"
-      >)</a
+      ><a name="2148" class="Symbol"
+      >{</a
+      ><a name="2149" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2149" class="Bound"
+      >A</a
+      ><a name="2150"
+      > </a
+      ><a name="2151" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2151" class="Bound"
+      >B</a
       ><a name="2152"
+      > </a
+      ><a name="2153" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2153" class="Bound"
+      >&#915;</a
+      ><a name="2154" class="Symbol"
+      >}</a
+      ><a name="2155"
+      > </a
+      ><a name="2156" class="Symbol"
+      >&#8594;</a
+      ><a name="2157"
+      > </a
+      ><a name="2158" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2153" class="Bound"
+      >&#915;</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2149" class="Bound"
+      >A</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2167"
+      > </a
+      ><a name="2168" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2151" class="Bound"
+      >B</a
+      ><a name="2169"
+      > </a
+      ><a name="2170" class="Symbol"
+      >&#8594;</a
+      ><a name="2171"
+      > </a
+      ><a name="2172" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8873;</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2153" class="Bound"
+      >&#915;</a
+      ><a name="2175"
+      > </a
+      ><a name="2176" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#1151" class="Function Operator"
+      >&#8658;</a
+      ><a name="2177"
+      > </a
+      ><a name="2178" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2151" class="Bound"
+      >B</a
+      ><a name="2179"
+      >
+    </a
+      ><a name="2184" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2139" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="2188"
+      > </a
+      ><a name="2189" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2189" class="Bound"
+      >s</a
+      ><a name="2190"
+      > </a
+      ><a name="2191" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2191" class="Bound"
+      >&#947;</a
+      ><a name="2192"
+      > </a
+      ><a name="2193" class="Symbol"
+      >=</a
+      ><a name="2194"
+      > </a
+      ><a name="2195" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="2197"
+      > </a
+      ><a name="2198" class="Symbol"
+      >(</a
+      ><a name="2199" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2189" class="Bound"
+      >s</a
+      ><a name="2200"
+      > </a
+      ><a name="2201" href="BasicIPC.Semantics.TarskiClosedCoquandDybjer.html#2191" class="Bound"
+      >&#947;</a
+      ><a name="2202" class="Symbol"
+      >)</a
+      ><a name="2203"
       >
 </a
       ></pre
