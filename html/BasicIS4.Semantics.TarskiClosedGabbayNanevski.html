@@ -10,2633 +10,2638 @@
   ><body
   ><pre
     ><a name="1" class="Comment"
-      >-- Tarski-style semantics with implicit closed syntax representation, after Gabbay-Nanevski.</a
-      ><a name="93"
+      >-- Tarski-style semantics with glueing for &#945;, &#9659;, and &#9633;, after Coquand-Dybjer and Gabbay-Nanevski.</a
+      ><a name="98"
+      >
+</a
+      ><a name="99" class="Comment"
+      >-- Implicit closed syntax.</a
+      ><a name="125"
       >
 
 </a
-      ><a name="95" class="Keyword"
+      ><a name="127" class="Keyword"
       >module</a
-      ><a name="101"
+      ><a name="133"
       > </a
-      ><a name="102" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1" class="Module"
+      ><a name="134" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1" class="Module"
       >BasicIS4.Semantics.TarskiClosedGabbayNanevski</a
-      ><a name="147"
+      ><a name="179"
       > </a
-      ><a name="148" class="Keyword"
+      ><a name="180" class="Keyword"
       >where</a
-      ><a name="153"
+      ><a name="185"
       >
 
 </a
-      ><a name="155" class="Keyword"
+      ><a name="187" class="Keyword"
       >open</a
-      ><a name="159"
+      ><a name="191"
       > </a
-      ><a name="160" class="Keyword"
+      ><a name="192" class="Keyword"
       >import</a
-      ><a name="166"
+      ><a name="198"
       > </a
-      ><a name="167" href="BasicIS4.Syntax.Common.html#1" class="Module"
+      ><a name="199" href="BasicIS4.Syntax.Common.html#1" class="Module"
       >BasicIS4.Syntax.Common</a
-      ><a name="189"
+      ><a name="221"
       > </a
-      ><a name="190" class="Keyword"
+      ><a name="222" class="Keyword"
       >public</a
-      ><a name="196"
+      ><a name="228"
       >
 
 
 </a
-      ><a name="199" class="Comment"
+      ><a name="231" class="Comment"
       >-- Tarski models.</a
-      ><a name="216"
+      ><a name="248"
       >
 
 </a
-      ><a name="218" class="Keyword"
+      ><a name="250" class="Keyword"
       >record</a
-      ><a name="224"
+      ><a name="256"
       > </a
-      ><a name="225" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#225" class="Record"
+      ><a name="257" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#257" class="Record"
       >Model</a
-      ><a name="230"
+      ><a name="262"
       > </a
-      ><a name="231" class="Symbol"
+      ><a name="263" class="Symbol"
       >:</a
-      ><a name="232"
+      ><a name="264"
       > </a
-      ><a name="233" class="PrimitiveType"
+      ><a name="265" class="PrimitiveType"
       >Set&#8321;</a
-      ><a name="237"
+      ><a name="269"
       > </a
-      ><a name="238" class="Keyword"
+      ><a name="270" class="Keyword"
       >where</a
-      ><a name="243"
+      ><a name="275"
       >
   </a
-      ><a name="246" class="Keyword"
+      ><a name="278" class="Keyword"
       >infix</a
-      ><a name="251"
+      ><a name="283"
       > </a
-      ><a name="252" class="Number"
+      ><a name="284" class="Number"
       >3</a
-      ><a name="253"
+      ><a name="285"
       > &#8873;&#7493;_
   </a
-      ><a name="260" class="Keyword"
+      ><a name="292" class="Keyword"
       >field</a
-      ><a name="265"
+      ><a name="297"
       >
     </a
-      ><a name="270" class="Comment"
+      ><a name="302" class="Comment"
       >-- Forcing for atomic propositions.</a
-      ><a name="305"
+      ><a name="337"
       >
     </a
-      ><a name="310" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#310" class="Field Operator"
+      ><a name="342" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#342" class="Field Operator"
       >&#8873;&#7493;_</a
-      ><a name="313"
+      ><a name="345"
       > </a
-      ><a name="314" class="Symbol"
+      ><a name="346" class="Symbol"
       >:</a
-      ><a name="315"
+      ><a name="347"
       > </a
-      ><a name="316" href="Common.html#1200" class="Function"
+      ><a name="348" href="Common.html#1200" class="Function"
       >Atom</a
-      ><a name="320"
+      ><a name="352"
       > </a
-      ><a name="321" class="Symbol"
+      ><a name="353" class="Symbol"
       >&#8594;</a
-      ><a name="322"
+      ><a name="354"
       > </a
-      ><a name="323" class="PrimitiveType"
+      ><a name="355" class="PrimitiveType"
       >Set</a
-      ><a name="326"
+      ><a name="358"
       >
 
 </a
-      ><a name="328" class="Keyword"
+      ><a name="360" class="Keyword"
       >open</a
-      ><a name="332"
+      ><a name="364"
       > </a
-      ><a name="333" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#225" class="Module"
+      ><a name="365" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#257" class="Module"
       >Model</a
-      ><a name="338"
+      ><a name="370"
       > </a
-      ><a name="339" class="Symbol"
+      ><a name="371" class="Symbol"
       >{{&#8230;}}</a
-      ><a name="344"
+      ><a name="376"
       > </a
-      ><a name="345" class="Keyword"
+      ><a name="377" class="Keyword"
       >public</a
-      ><a name="351"
+      ><a name="383"
       >
 
 
 
 
 </a
-      ><a name="356" class="Keyword"
+      ><a name="388" class="Keyword"
       >module</a
-      ><a name="362"
-      > </a
-      ><a name="363" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#363" class="Module"
-      >ImplicitSyntax</a
-      ><a name="377"
-      >
-    </a
-      ><a name="382" class="Symbol"
-      >(</a
-      ><a name="383" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#383" class="Bound Operator"
-      >[&#8866;]_</a
-      ><a name="387"
-      > </a
-      ><a name="388" class="Symbol"
-      >:</a
-      ><a name="389"
-      > </a
-      ><a name="390" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="392"
-      > </a
-      ><a name="393" class="Symbol"
-      >&#8594;</a
       ><a name="394"
       > </a
-      ><a name="395" class="PrimitiveType"
-      >Set</a
-      ><a name="398" class="Symbol"
-      >)</a
-      ><a name="399"
+      ><a name="395" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#395" class="Module"
+      >ImplicitSyntax</a
+      ><a name="409"
       >
-  </a
-      ><a name="402" class="Keyword"
-      >where</a
-      ><a name="407"
-      >
-
-
-  </a
-      ><a name="412" class="Comment"
-      >-- Forcing in a particular model.</a
-      ><a name="445"
-      >
-
-  </a
-      ><a name="449" class="Keyword"
-      >module</a
-      ><a name="455"
+    </a
+      ><a name="414" class="Symbol"
+      >(</a
+      ><a name="415" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#415" class="Bound Operator"
+      >[&#8866;]_</a
+      ><a name="419"
       > </a
-      ><a name="456" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#456" class="Module"
-      >_</a
-      ><a name="457"
-      > </a
-      ><a name="458" class="Symbol"
-      >{{</a
-      ><a name="460" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#460" class="Bound"
-      >_</a
-      ><a name="461"
-      > </a
-      ><a name="462" class="Symbol"
+      ><a name="420" class="Symbol"
       >:</a
-      ><a name="463"
+      ><a name="421"
       > </a
-      ><a name="464" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#225" class="Record"
-      >Model</a
-      ><a name="469" class="Symbol"
-      >}}</a
-      ><a name="471"
+      ><a name="422" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="424"
       > </a
-      ><a name="472" class="Keyword"
+      ><a name="425" class="Symbol"
+      >&#8594;</a
+      ><a name="426"
+      > </a
+      ><a name="427" class="PrimitiveType"
+      >Set</a
+      ><a name="430" class="Symbol"
+      >)</a
+      ><a name="431"
+      >
+  </a
+      ><a name="434" class="Keyword"
       >where</a
+      ><a name="439"
+      >
+
+
+  </a
+      ><a name="444" class="Comment"
+      >-- Forcing in a particular model.</a
       ><a name="477"
       >
-    </a
-      ><a name="482" class="Keyword"
-      >infix</a
+
+  </a
+      ><a name="481" class="Keyword"
+      >module</a
       ><a name="487"
       > </a
-      ><a name="488" class="Number"
-      >3</a
+      ><a name="488" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#488" class="Module"
+      >_</a
       ><a name="489"
+      > </a
+      ><a name="490" class="Symbol"
+      >{{</a
+      ><a name="492" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#492" class="Bound"
+      >_</a
+      ><a name="493"
+      > </a
+      ><a name="494" class="Symbol"
+      >:</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#257" class="Record"
+      >Model</a
+      ><a name="501" class="Symbol"
+      >}}</a
+      ><a name="503"
+      > </a
+      ><a name="504" class="Keyword"
+      >where</a
+      ><a name="509"
+      >
+    </a
+      ><a name="514" class="Keyword"
+      >infix</a
+      ><a name="519"
+      > </a
+      ><a name="520" class="Number"
+      >3</a
+      ><a name="521"
       > &#8873;_
     </a
-      ><a name="497" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
+      ><a name="529" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
       >&#8873;_</a
-      ><a name="499"
-      > </a
-      ><a name="500" class="Symbol"
-      >:</a
-      ><a name="501"
-      > </a
-      ><a name="502" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="504"
-      > </a
-      ><a name="505" class="Symbol"
-      >&#8594;</a
-      ><a name="506"
-      > </a
-      ><a name="507" class="PrimitiveType"
-      >Set</a
-      ><a name="510"
-      >
-    </a
-      ><a name="515" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="516"
-      > </a
-      ><a name="517" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
-      >&#945;</a
-      ><a name="518"
-      > </a
-      ><a name="519" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#519" class="Bound"
-      >P</a
-      ><a name="520"
-      >   </a
-      ><a name="523" class="Symbol"
-      >=</a
-      ><a name="524"
-      > </a
-      ><a name="525" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#383" class="Bound Operator"
-      >[&#8866;]</a
-      ><a name="528"
-      > </a
-      ><a name="529" class="Symbol"
-      >(</a
-      ><a name="530" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
-      >&#945;</a
       ><a name="531"
       > </a
-      ><a name="532" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#519" class="Bound"
-      >P</a
-      ><a name="533" class="Symbol"
-      >)</a
-      ><a name="534"
+      ><a name="532" class="Symbol"
+      >:</a
+      ><a name="533"
       > </a
-      ><a name="535" href="Data.Product.html#1073" class="Function Operator"
-      >&#215;</a
+      ><a name="534" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
       ><a name="536"
       > </a
-      ><a name="537" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#310" class="Field Operator"
-      >&#8873;&#7493;</a
-      ><a name="539"
-      > </a
-      ><a name="540" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#519" class="Bound"
-      >P</a
-      ><a name="541"
-      >
-    </a
-      ><a name="546" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="547"
-      > </a
-      ><a name="548" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#548" class="Bound"
-      >A</a
-      ><a name="549"
-      > </a
-      ><a name="550" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="551"
-      > </a
-      ><a name="552" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#552" class="Bound"
-      >B</a
-      ><a name="553"
-      > </a
-      ><a name="554" class="Symbol"
-      >=</a
-      ><a name="555"
-      > </a
-      ><a name="556" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#383" class="Bound Operator"
-      >[&#8866;]</a
-      ><a name="559"
-      > </a
-      ><a name="560" class="Symbol"
-      >(</a
-      ><a name="561" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#548" class="Bound"
-      >A</a
-      ><a name="562"
-      > </a
-      ><a name="563" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="564"
-      > </a
-      ><a name="565" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#552" class="Bound"
-      >B</a
-      ><a name="566" class="Symbol"
-      >)</a
-      ><a name="567"
-      > </a
-      ><a name="568" href="Data.Product.html#1073" class="Function Operator"
-      >&#215;</a
-      ><a name="569"
-      > </a
-      ><a name="570" class="Symbol"
-      >(</a
-      ><a name="571" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="572"
-      > </a
-      ><a name="573" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#548" class="Bound"
-      >A</a
-      ><a name="574"
-      > </a
-      ><a name="575" class="Symbol"
+      ><a name="537" class="Symbol"
       >&#8594;</a
-      ><a name="576"
+      ><a name="538"
       > </a
-      ><a name="577" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="578"
-      > </a
-      ><a name="579" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#552" class="Bound"
-      >B</a
-      ><a name="580" class="Symbol"
-      >)</a
-      ><a name="581"
+      ><a name="539" class="PrimitiveType"
+      >Set</a
+      ><a name="542"
       >
     </a
-      ><a name="586" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
+      ><a name="547" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
       >&#8873;</a
+      ><a name="548"
+      > </a
+      ><a name="549" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="550"
+      > </a
+      ><a name="551" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#551" class="Bound"
+      >P</a
+      ><a name="552"
+      >   </a
+      ><a name="555" class="Symbol"
+      >=</a
+      ><a name="556"
+      > </a
+      ><a name="557" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#415" class="Bound Operator"
+      >[&#8866;]</a
+      ><a name="560"
+      > </a
+      ><a name="561" class="Symbol"
+      >(</a
+      ><a name="562" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#551" class="Bound"
+      >P</a
+      ><a name="565" class="Symbol"
+      >)</a
+      ><a name="566"
+      > </a
+      ><a name="567" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="568"
+      > </a
+      ><a name="569" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#342" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="571"
+      > </a
+      ><a name="572" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#551" class="Bound"
+      >P</a
+      ><a name="573"
+      >
+    </a
+      ><a name="578" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="579"
+      > </a
+      ><a name="580" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#580" class="Bound"
+      >A</a
+      ><a name="581"
+      > </a
+      ><a name="582" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#584" class="Bound"
+      >B</a
+      ><a name="585"
+      > </a
+      ><a name="586" class="Symbol"
+      >=</a
       ><a name="587"
       > </a
-      ><a name="588" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
-      >&#9633;</a
-      ><a name="589"
-      > </a
-      ><a name="590" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#590" class="Bound"
-      >A</a
-      ><a name="591"
-      >   </a
-      ><a name="594" class="Symbol"
-      >=</a
-      ><a name="595"
-      > </a
-      ><a name="596" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#383" class="Bound Operator"
+      ><a name="588" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#415" class="Bound Operator"
       >[&#8866;]</a
+      ><a name="591"
+      > </a
+      ><a name="592" class="Symbol"
+      >(</a
+      ><a name="593" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#580" class="Bound"
+      >A</a
+      ><a name="594"
+      > </a
+      ><a name="595" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="596"
+      > </a
+      ><a name="597" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#584" class="Bound"
+      >B</a
+      ><a name="598" class="Symbol"
+      >)</a
       ><a name="599"
       > </a
-      ><a name="600" class="Symbol"
-      >(</a
-      ><a name="601" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
-      >&#9633;</a
-      ><a name="602"
-      > </a
-      ><a name="603" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#590" class="Bound"
-      >A</a
-      ><a name="604" class="Symbol"
-      >)</a
-      ><a name="605"
-      > </a
-      ><a name="606" href="Data.Product.html#1073" class="Function Operator"
+      ><a name="600" href="Data.Product.html#1073" class="Function Operator"
       >&#215;</a
-      ><a name="607"
+      ><a name="601"
       > </a
-      ><a name="608" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
+      ><a name="602" class="Symbol"
+      >(</a
+      ><a name="603" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
       >&#8873;</a
-      ><a name="609"
+      ><a name="604"
       > </a
-      ><a name="610" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#590" class="Bound"
+      ><a name="605" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#580" class="Bound"
       >A</a
-      ><a name="611"
+      ><a name="606"
+      > </a
+      ><a name="607" class="Symbol"
+      >&#8594;</a
+      ><a name="608"
+      > </a
+      ><a name="609" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="610"
+      > </a
+      ><a name="611" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#584" class="Bound"
+      >B</a
+      ><a name="612" class="Symbol"
+      >)</a
+      ><a name="613"
       >
     </a
-      ><a name="616" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
+      ><a name="618" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
       >&#8873;</a
-      ><a name="617"
-      > </a
-      ><a name="618" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#618" class="Bound"
-      >A</a
       ><a name="619"
       > </a
-      ><a name="620" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
-      >&#8743;</a
+      ><a name="620" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
       ><a name="621"
       > </a
       ><a name="622" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#622" class="Bound"
-      >B</a
+      >A</a
       ><a name="623"
-      > </a
-      ><a name="624" class="Symbol"
+      >   </a
+      ><a name="626" class="Symbol"
       >=</a
-      ><a name="625"
-      > </a
-      ><a name="626" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
       ><a name="627"
       > </a
-      ><a name="628" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#618" class="Bound"
-      >A</a
-      ><a name="629"
-      > </a
-      ><a name="630" href="Data.Product.html#1073" class="Function Operator"
-      >&#215;</a
+      ><a name="628" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#415" class="Bound Operator"
+      >[&#8866;]</a
       ><a name="631"
       > </a
-      ><a name="632" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="633"
+      ><a name="632" class="Symbol"
+      >(</a
+      ><a name="633" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="634"
       > </a
-      ><a name="634" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#622" class="Bound"
-      >B</a
-      ><a name="635"
-      >
-    </a
-      ><a name="640" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
+      ><a name="635" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#622" class="Bound"
+      >A</a
+      ><a name="636" class="Symbol"
+      >)</a
+      ><a name="637"
+      > </a
+      ><a name="638" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
       >&#8873;</a
       ><a name="641"
       > </a
-      ><a name="642" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
-      >&#8868;</a
+      ><a name="642" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#622" class="Bound"
+      >A</a
       ><a name="643"
-      >    </a
-      ><a name="647" class="Symbol"
-      >=</a
-      ><a name="648"
-      > </a
-      ><a name="649" href="Agda.Builtin.Unit.html#41" class="Record"
-      >&#120793;</a
-      ><a name="650"
       >
-
     </a
-      ><a name="656" class="Keyword"
-      >infix</a
+      ><a name="648" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="649"
+      > </a
+      ><a name="650" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#650" class="Bound"
+      >A</a
+      ><a name="651"
+      > </a
+      ><a name="652" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="653"
+      > </a
+      ><a name="654" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#654" class="Bound"
+      >B</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Symbol"
+      >=</a
+      ><a name="657"
+      > </a
+      ><a name="658" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="659"
+      > </a
+      ><a name="660" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#650" class="Bound"
+      >A</a
       ><a name="661"
       > </a
-      ><a name="662" class="Number"
-      >3</a
+      ><a name="662" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
       ><a name="663"
-      > &#8873;&#8902;_
+      > </a
+      ><a name="664" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="665"
+      > </a
+      ><a name="666" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#654" class="Bound"
+      >B</a
+      ><a name="667"
+      >
     </a
-      ><a name="672" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#672" class="Function Operator"
-      >&#8873;&#8902;_</a
+      ><a name="672" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="673"
+      > </a
+      ><a name="674" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
       ><a name="675"
-      > </a
-      ><a name="676" class="Symbol"
-      >:</a
-      ><a name="677"
-      > </a
-      ><a name="678" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
+      >    </a
+      ><a name="679" class="Symbol"
+      >=</a
       ><a name="680"
       > </a
-      ><a name="681" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="683"
-      > </a
-      ><a name="684" class="Symbol"
-      >&#8594;</a
-      ><a name="685"
-      > </a
-      ><a name="686" class="PrimitiveType"
-      >Set</a
-      ><a name="689"
-      >
-    </a
-      ><a name="694" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#672" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="696"
-      > </a
-      ><a name="697" href="Common.Context.html#117" class="InductiveConstructor"
-      >&#8960;</a
-      ><a name="698"
-      >     </a
-      ><a name="703" class="Symbol"
-      >=</a
-      ><a name="704"
-      > </a
-      ><a name="705" href="Agda.Builtin.Unit.html#41" class="Record"
+      ><a name="681" href="Agda.Builtin.Unit.html#41" class="Record"
       >&#120793;</a
-      ><a name="706"
+      ><a name="682"
       >
+
     </a
-      ><a name="711" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#672" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="713"
+      ><a name="688" class="Keyword"
+      >infix</a
+      ><a name="693"
       > </a
-      ><a name="714" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#714" class="Bound"
-      >&#928;</a
+      ><a name="694" class="Number"
+      >3</a
+      ><a name="695"
+      > &#8873;&#8902;_
+    </a
+      ><a name="704" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#704" class="Function Operator"
+      >&#8873;&#8902;_</a
+      ><a name="707"
+      > </a
+      ><a name="708" class="Symbol"
+      >:</a
+      ><a name="709"
+      > </a
+      ><a name="710" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="712"
+      > </a
+      ><a name="713" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
       ><a name="715"
       > </a
-      ><a name="716" href="Common.Context.html#130" class="InductiveConstructor Operator"
-      >,</a
+      ><a name="716" class="Symbol"
+      >&#8594;</a
       ><a name="717"
       > </a
-      ><a name="718" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#718" class="Bound"
-      >A</a
-      ><a name="719"
-      > </a
-      ><a name="720" class="Symbol"
-      >=</a
+      ><a name="718" class="PrimitiveType"
+      >Set</a
       ><a name="721"
-      > </a
-      ><a name="722" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#672" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="724"
-      > </a
-      ><a name="725" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#714" class="Bound"
-      >&#928;</a
-      ><a name="726"
-      > </a
-      ><a name="727" href="Data.Product.html#1073" class="Function Operator"
-      >&#215;</a
-      ><a name="728"
-      > </a
-      ><a name="729" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="730"
-      > </a
-      ><a name="731" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#718" class="Bound"
-      >A</a
-      ><a name="732"
-      >
-
-
-  </a
-      ><a name="737" class="Comment"
-      >-- Entailment, or forcing in all models.</a
-      ><a name="777"
-      >
-
-  </a
-      ><a name="781" class="Keyword"
-      >infix</a
-      ><a name="786"
-      > </a
-      ><a name="787" class="Number"
-      >3</a
-      ><a name="788"
-      > &#8872;_
-  </a
-      ><a name="794" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#794" class="Function Operator"
-      >&#8872;_</a
-      ><a name="796"
-      > </a
-      ><a name="797" class="Symbol"
-      >:</a
-      ><a name="798"
-      > </a
-      ><a name="799" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="801"
-      > </a
-      ><a name="802" class="Symbol"
-      >&#8594;</a
-      ><a name="803"
-      > </a
-      ><a name="804" class="PrimitiveType"
-      >Set&#8321;</a
-      ><a name="808"
-      >
-  </a
-      ><a name="811" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#794" class="Function Operator"
-      >&#8872;</a
-      ><a name="812"
-      > </a
-      ><a name="813" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#813" class="Bound"
-      >A</a
-      ><a name="814"
-      > </a
-      ><a name="815" class="Symbol"
-      >=</a
-      ><a name="816"
-      > </a
-      ><a name="817" class="Symbol"
-      >&#8704;</a
-      ><a name="818"
-      > </a
-      ><a name="819" class="Symbol"
-      >{{</a
-      ><a name="821" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#821" class="Bound"
-      >_</a
-      ><a name="822"
-      > </a
-      ><a name="823" class="Symbol"
-      >:</a
-      ><a name="824"
-      > </a
-      ><a name="825" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#225" class="Record"
-      >Model</a
-      ><a name="830" class="Symbol"
-      >}}</a
-      ><a name="832"
-      > </a
-      ><a name="833" class="Symbol"
-      >&#8594;</a
-      ><a name="834"
-      > </a
-      ><a name="835" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="836"
-      > </a
-      ><a name="837" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#813" class="Bound"
-      >A</a
-      ><a name="838"
-      >
-
-
-  </a
-      ><a name="843" class="Comment"
-      >-- Additional useful equipment.</a
-      ><a name="874"
-      >
-
-  </a
-      ><a name="878" class="Keyword"
-      >module</a
-      ><a name="884"
-      > </a
-      ><a name="885" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#885" class="Module"
-      >_</a
-      ><a name="886"
-      > </a
-      ><a name="887" class="Symbol"
-      >{{</a
-      ><a name="889" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#889" class="Bound"
-      >_</a
-      ><a name="890"
-      > </a
-      ><a name="891" class="Symbol"
-      >:</a
-      ><a name="892"
-      > </a
-      ><a name="893" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#225" class="Record"
-      >Model</a
-      ><a name="898" class="Symbol"
-      >}}</a
-      ><a name="900"
-      > </a
-      ><a name="901" class="Keyword"
-      >where</a
-      ><a name="906"
       >
     </a
-      ><a name="911" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#911" class="Function Operator"
-      >_&#10218;$&#10219;_</a
+      ><a name="726" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#704" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="730"
+      >     </a
+      ><a name="735" class="Symbol"
+      >=</a
+      ><a name="736"
+      > </a
+      ><a name="737" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="738"
+      >
+    </a
+      ><a name="743" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#704" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#746" class="Bound"
+      >&#928;</a
+      ><a name="747"
+      > </a
+      ><a name="748" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#750" class="Bound"
+      >A</a
+      ><a name="751"
+      > </a
+      ><a name="752" class="Symbol"
+      >=</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#704" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#746" class="Bound"
+      >&#928;</a
+      ><a name="758"
+      > </a
+      ><a name="759" href="Data.Product.html#1073" class="Function Operator"
+      >&#215;</a
+      ><a name="760"
+      > </a
+      ><a name="761" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="762"
+      > </a
+      ><a name="763" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#750" class="Bound"
+      >A</a
+      ><a name="764"
+      >
+
+
+  </a
+      ><a name="769" class="Comment"
+      >-- Entailment, or forcing in all models.</a
+      ><a name="809"
+      >
+
+  </a
+      ><a name="813" class="Keyword"
+      >infix</a
+      ><a name="818"
+      > </a
+      ><a name="819" class="Number"
+      >3</a
+      ><a name="820"
+      > &#8872;_
+  </a
+      ><a name="826" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#826" class="Function Operator"
+      >&#8872;_</a
+      ><a name="828"
+      > </a
+      ><a name="829" class="Symbol"
+      >:</a
+      ><a name="830"
+      > </a
+      ><a name="831" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="833"
+      > </a
+      ><a name="834" class="Symbol"
+      >&#8594;</a
+      ><a name="835"
+      > </a
+      ><a name="836" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="840"
+      >
+  </a
+      ><a name="843" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#826" class="Function Operator"
+      >&#8872;</a
+      ><a name="844"
+      > </a
+      ><a name="845" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#845" class="Bound"
+      >A</a
+      ><a name="846"
+      > </a
+      ><a name="847" class="Symbol"
+      >=</a
+      ><a name="848"
+      > </a
+      ><a name="849" class="Symbol"
+      >&#8704;</a
+      ><a name="850"
+      > </a
+      ><a name="851" class="Symbol"
+      >{{</a
+      ><a name="853" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#853" class="Bound"
+      >_</a
+      ><a name="854"
+      > </a
+      ><a name="855" class="Symbol"
+      >:</a
+      ><a name="856"
+      > </a
+      ><a name="857" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#257" class="Record"
+      >Model</a
+      ><a name="862" class="Symbol"
+      >}}</a
+      ><a name="864"
+      > </a
+      ><a name="865" class="Symbol"
+      >&#8594;</a
+      ><a name="866"
+      > </a
+      ><a name="867" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="868"
+      > </a
+      ><a name="869" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#845" class="Bound"
+      >A</a
+      ><a name="870"
+      >
+
+
+  </a
+      ><a name="875" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="906"
+      >
+
+  </a
+      ><a name="910" class="Keyword"
+      >module</a
       ><a name="916"
       > </a
-      ><a name="917" class="Symbol"
-      >:</a
+      ><a name="917" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#917" class="Module"
+      >_</a
       ><a name="918"
       > </a
       ><a name="919" class="Symbol"
-      >&#8704;</a
-      ><a name="920"
+      >{{</a
+      ><a name="921" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#921" class="Bound"
+      >_</a
+      ><a name="922"
       > </a
-      ><a name="921" class="Symbol"
-      >{</a
-      ><a name="922" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#922" class="Bound"
-      >A</a
-      ><a name="923"
+      ><a name="923" class="Symbol"
+      >:</a
+      ><a name="924"
       > </a
-      ><a name="924" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#924" class="Bound"
-      >B</a
-      ><a name="925" class="Symbol"
-      >}</a
-      ><a name="926"
-      > </a
-      ><a name="927" class="Symbol"
-      >&#8594;</a
-      ><a name="928"
-      > </a
-      ><a name="929" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="930"
-      > </a
-      ><a name="931" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#922" class="Bound"
-      >A</a
+      ><a name="925" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#257" class="Record"
+      >Model</a
+      ><a name="930" class="Symbol"
+      >}}</a
       ><a name="932"
       > </a
-      ><a name="933" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="934"
-      > </a
-      ><a name="935" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#924" class="Bound"
-      >B</a
-      ><a name="936"
-      > </a
-      ><a name="937" class="Symbol"
-      >&#8594;</a
+      ><a name="933" class="Keyword"
+      >where</a
       ><a name="938"
-      > </a
-      ><a name="939" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="940"
-      > </a
-      ><a name="941" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#922" class="Bound"
-      >A</a
-      ><a name="942"
-      > </a
-      ><a name="943" class="Symbol"
-      >&#8594;</a
-      ><a name="944"
-      > </a
-      ><a name="945" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="946"
-      > </a
-      ><a name="947" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#924" class="Bound"
-      >B</a
-      ><a name="948"
       >
     </a
+      ><a name="943" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#943" class="Function Operator"
+      >_&#10218;$&#10219;_</a
+      ><a name="948"
+      > </a
+      ><a name="949" class="Symbol"
+      >:</a
+      ><a name="950"
+      > </a
+      ><a name="951" class="Symbol"
+      >&#8704;</a
+      ><a name="952"
+      > </a
       ><a name="953" class="Symbol"
-      >(</a
+      >{</a
       ><a name="954" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#954" class="Bound"
-      >t</a
+      >A</a
       ><a name="955"
       > </a
-      ><a name="956" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="957"
+      ><a name="956" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#956" class="Bound"
+      >B</a
+      ><a name="957" class="Symbol"
+      >}</a
+      ><a name="958"
       > </a
-      ><a name="958" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#958" class="Bound"
-      >f</a
       ><a name="959" class="Symbol"
-      >)</a
+      >&#8594;</a
       ><a name="960"
       > </a
-      ><a name="961" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#911" class="Function Operator"
-      >&#10218;$&#10219;</a
+      ><a name="961" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="962"
+      > </a
+      ><a name="963" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#954" class="Bound"
+      >A</a
       ><a name="964"
       > </a
-      ><a name="965" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#965" class="Bound"
-      >a</a
+      ><a name="965" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="966"
       > </a
-      ><a name="967" class="Symbol"
-      >=</a
+      ><a name="967" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#956" class="Bound"
+      >B</a
       ><a name="968"
       > </a
-      ><a name="969" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#958" class="Bound"
-      >f</a
+      ><a name="969" class="Symbol"
+      >&#8594;</a
       ><a name="970"
       > </a
-      ><a name="971" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#965" class="Bound"
-      >a</a
+      ><a name="971" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
       ><a name="972"
+      > </a
+      ><a name="973" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#954" class="Bound"
+      >A</a
+      ><a name="974"
+      > </a
+      ><a name="975" class="Symbol"
+      >&#8594;</a
+      ><a name="976"
+      > </a
+      ><a name="977" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="978"
+      > </a
+      ><a name="979" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#956" class="Bound"
+      >B</a
+      ><a name="980"
+      >
+    </a
+      ><a name="985" class="Symbol"
+      >(</a
+      ><a name="986" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#986" class="Bound"
+      >t</a
+      ><a name="987"
+      > </a
+      ><a name="988" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="989"
+      > </a
+      ><a name="990" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#990" class="Bound"
+      >f</a
+      ><a name="991" class="Symbol"
+      >)</a
+      ><a name="992"
+      > </a
+      ><a name="993" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#943" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="996"
+      > </a
+      ><a name="997" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#997" class="Bound"
+      >a</a
+      ><a name="998"
+      > </a
+      ><a name="999" class="Symbol"
+      >=</a
+      ><a name="1000"
+      > </a
+      ><a name="1001" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#990" class="Bound"
+      >f</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#997" class="Bound"
+      >a</a
+      ><a name="1004"
       >
 
     </a
-      ><a name="978" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#978" class="Function"
+      ><a name="1010" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1010" class="Function"
       >&#10218;S&#10219;</a
-      ><a name="981"
-      > </a
-      ><a name="982" class="Symbol"
-      >:</a
-      ><a name="983"
-      > </a
-      ><a name="984" class="Symbol"
-      >&#8704;</a
-      ><a name="985"
-      > </a
-      ><a name="986" class="Symbol"
-      >{</a
-      ><a name="987" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#987" class="Bound"
-      >A</a
-      ><a name="988"
-      > </a
-      ><a name="989" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#989" class="Bound"
-      >B</a
-      ><a name="990"
-      > </a
-      ><a name="991" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#991" class="Bound"
-      >C</a
-      ><a name="992" class="Symbol"
-      >}</a
-      ><a name="993"
-      > </a
-      ><a name="994" class="Symbol"
-      >&#8594;</a
-      ><a name="995"
-      > </a
-      ><a name="996" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="997"
-      > </a
-      ><a name="998" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#987" class="Bound"
-      >A</a
-      ><a name="999"
-      > </a
-      ><a name="1000" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1001"
-      > </a
-      ><a name="1002" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#989" class="Bound"
-      >B</a
-      ><a name="1003"
-      > </a
-      ><a name="1004" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1005"
-      > </a
-      ><a name="1006" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#991" class="Bound"
-      >C</a
-      ><a name="1007"
-      > </a
-      ><a name="1008" class="Symbol"
-      >&#8594;</a
-      ><a name="1009"
-      > </a
-      ><a name="1010" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="1011"
-      > </a
-      ><a name="1012" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#987" class="Bound"
-      >A</a
       ><a name="1013"
       > </a
-      ><a name="1014" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
+      ><a name="1014" class="Symbol"
+      >:</a
       ><a name="1015"
       > </a
-      ><a name="1016" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#989" class="Bound"
-      >B</a
+      ><a name="1016" class="Symbol"
+      >&#8704;</a
       ><a name="1017"
       > </a
       ><a name="1018" class="Symbol"
-      >&#8594;</a
-      ><a name="1019"
-      > </a
-      ><a name="1020" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
-      ><a name="1021"
-      > </a
-      ><a name="1022" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#987" class="Bound"
+      >{</a
+      ><a name="1019" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1019" class="Bound"
       >A</a
-      ><a name="1023"
+      ><a name="1020"
       > </a
+      ><a name="1021" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1021" class="Bound"
+      >B</a
+      ><a name="1022"
+      > </a
+      ><a name="1023" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1023" class="Bound"
+      >C</a
       ><a name="1024" class="Symbol"
-      >&#8594;</a
+      >}</a
       ><a name="1025"
       > </a
-      ><a name="1026" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
+      ><a name="1026" class="Symbol"
+      >&#8594;</a
       ><a name="1027"
       > </a
-      ><a name="1028" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#991" class="Bound"
-      >C</a
+      ><a name="1028" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
       ><a name="1029"
-      >
-    </a
-      ><a name="1034" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#978" class="Function"
-      >&#10218;S&#10219;</a
+      > </a
+      ><a name="1030" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1019" class="Bound"
+      >A</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1021" class="Bound"
+      >B</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="1037"
       > </a
-      ><a name="1038" class="Symbol"
-      >(</a
-      ><a name="1039" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1039" class="Bound"
-      >t</a
-      ><a name="1040"
+      ><a name="1038" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1023" class="Bound"
+      >C</a
+      ><a name="1039"
       > </a
-      ><a name="1041" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1042"
+      ><a name="1040" class="Symbol"
+      >&#8594;</a
+      ><a name="1041"
       > </a
-      ><a name="1043" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1043" class="Bound"
-      >f</a
-      ><a name="1044" class="Symbol"
-      >)</a
+      ><a name="1042" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1019" class="Bound"
+      >A</a
       ><a name="1045"
       > </a
-      ><a name="1046" class="Symbol"
-      >(</a
-      ><a name="1047" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1047" class="Bound"
-      >u</a
-      ><a name="1048"
+      ><a name="1046" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1047"
       > </a
-      ><a name="1049" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1050"
+      ><a name="1048" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1021" class="Bound"
+      >B</a
+      ><a name="1049"
       > </a
-      ><a name="1051" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1051" class="Bound"
-      >g</a
-      ><a name="1052" class="Symbol"
-      >)</a
+      ><a name="1050" class="Symbol"
+      >&#8594;</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
       ><a name="1053"
       > </a
-      ><a name="1054" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1054" class="Bound"
-      >a</a
+      ><a name="1054" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1019" class="Bound"
+      >A</a
       ><a name="1055"
       > </a
       ><a name="1056" class="Symbol"
-      >=</a
+      >&#8594;</a
       ><a name="1057"
       > </a
-      ><a name="1058" class="Keyword"
-      >let</a
+      ><a name="1058" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1023" class="Bound"
+      >C</a
       ><a name="1061"
-      > </a
-      ><a name="1062" class="Symbol"
-      >(_</a
-      ><a name="1064"
-      > </a
-      ><a name="1065" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1066"
-      > </a
-      ><a name="1067" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1067" class="Bound"
-      >h</a
-      ><a name="1068" class="Symbol"
-      >)</a
+      >
+    </a
+      ><a name="1066" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1010" class="Function"
+      >&#10218;S&#10219;</a
       ><a name="1069"
       > </a
       ><a name="1070" class="Symbol"
-      >=</a
-      ><a name="1071"
+      >(</a
+      ><a name="1071" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1071" class="Bound"
+      >t</a
+      ><a name="1072"
       > </a
-      ><a name="1072" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1043" class="Bound"
+      ><a name="1073" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1075" class="Bound"
       >f</a
-      ><a name="1073"
+      ><a name="1076" class="Symbol"
+      >)</a
+      ><a name="1077"
       > </a
-      ><a name="1074" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1054" class="Bound"
-      >a</a
-      ><a name="1075"
-      > </a
-      ><a name="1076" class="Keyword"
-      >in</a
-      ><a name="1078"
-      > </a
-      ><a name="1079" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1067" class="Bound"
-      >h</a
+      ><a name="1078" class="Symbol"
+      >(</a
+      ><a name="1079" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1079" class="Bound"
+      >u</a
       ><a name="1080"
       > </a
-      ><a name="1081" class="Symbol"
-      >(</a
-      ><a name="1082" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1051" class="Bound"
+      ><a name="1081" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1083" class="Bound"
       >g</a
-      ><a name="1083"
-      > </a
-      ><a name="1084" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1054" class="Bound"
-      >a</a
-      ><a name="1085" class="Symbol"
+      ><a name="1084" class="Symbol"
       >)</a
-      ><a name="1086"
-      >
-
-    </a
-      ><a name="1092" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1092" class="Function"
-      >&#10218;&#8595;&#10219;</a
-      ><a name="1095"
+      ><a name="1085"
       > </a
-      ><a name="1096" class="Symbol"
-      >:</a
-      ><a name="1097"
+      ><a name="1086" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1086" class="Bound"
+      >a</a
+      ><a name="1087"
       > </a
-      ><a name="1098" class="Symbol"
-      >&#8704;</a
-      ><a name="1099"
+      ><a name="1088" class="Symbol"
+      >=</a
+      ><a name="1089"
       > </a
+      ><a name="1090" class="Keyword"
+      >let</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" class="Symbol"
+      >(_</a
+      ><a name="1096"
+      > </a
+      ><a name="1097" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1098"
+      > </a
+      ><a name="1099" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1099" class="Bound"
+      >h</a
       ><a name="1100" class="Symbol"
-      >{</a
-      ><a name="1101" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1101" class="Bound"
-      >A</a
+      >)</a
+      ><a name="1101"
+      > </a
       ><a name="1102" class="Symbol"
-      >}</a
+      >=</a
       ><a name="1103"
       > </a
-      ><a name="1104" class="Symbol"
-      >&#8594;</a
+      ><a name="1104" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1075" class="Bound"
+      >f</a
       ><a name="1105"
       > </a
-      ><a name="1106" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
+      ><a name="1106" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1086" class="Bound"
+      >a</a
       ><a name="1107"
       > </a
-      ><a name="1108" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
-      >&#9633;</a
-      ><a name="1109"
+      ><a name="1108" class="Keyword"
+      >in</a
+      ><a name="1110"
       > </a
-      ><a name="1110" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1101" class="Bound"
-      >A</a
-      ><a name="1111"
+      ><a name="1111" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1099" class="Bound"
+      >h</a
+      ><a name="1112"
       > </a
-      ><a name="1112" class="Symbol"
-      >&#8594;</a
-      ><a name="1113"
-      > </a
-      ><a name="1114" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
+      ><a name="1113" class="Symbol"
+      >(</a
+      ><a name="1114" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1083" class="Bound"
+      >g</a
       ><a name="1115"
       > </a
-      ><a name="1116" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1101" class="Bound"
-      >A</a
-      ><a name="1117"
-      >
-    </a
-      ><a name="1122" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1092" class="Function"
-      >&#10218;&#8595;&#10219;</a
-      ><a name="1125"
-      > </a
-      ><a name="1126" class="Symbol"
-      >(</a
-      ><a name="1127" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1127" class="Bound"
-      >t</a
-      ><a name="1128"
-      > </a
-      ><a name="1129" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1130"
-      > </a
-      ><a name="1131" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1131" class="Bound"
+      ><a name="1116" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1086" class="Bound"
       >a</a
-      ><a name="1132" class="Symbol"
+      ><a name="1117" class="Symbol"
       >)</a
-      ><a name="1133"
+      ><a name="1118"
+      >
+
+    </a
+      ><a name="1124" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1124" class="Function"
+      >&#10218;&#8595;&#10219;</a
+      ><a name="1127"
       > </a
+      ><a name="1128" class="Symbol"
+      >:</a
+      ><a name="1129"
+      > </a
+      ><a name="1130" class="Symbol"
+      >&#8704;</a
+      ><a name="1131"
+      > </a
+      ><a name="1132" class="Symbol"
+      >{</a
+      ><a name="1133" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1133" class="Bound"
+      >A</a
       ><a name="1134" class="Symbol"
-      >=</a
+      >}</a
       ><a name="1135"
       > </a
-      ><a name="1136" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1131" class="Bound"
-      >a</a
+      ><a name="1136" class="Symbol"
+      >&#8594;</a
       ><a name="1137"
+      > </a
+      ><a name="1138" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="1141"
+      > </a
+      ><a name="1142" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1133" class="Bound"
+      >A</a
+      ><a name="1143"
+      > </a
+      ><a name="1144" class="Symbol"
+      >&#8594;</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1133" class="Bound"
+      >A</a
+      ><a name="1149"
+      >
+    </a
+      ><a name="1154" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1124" class="Function"
+      >&#10218;&#8595;&#10219;</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" class="Symbol"
+      >(</a
+      ><a name="1159" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1159" class="Bound"
+      >t</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1162"
+      > </a
+      ><a name="1163" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1163" class="Bound"
+      >a</a
+      ><a name="1164" class="Symbol"
+      >)</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" class="Symbol"
+      >=</a
+      ><a name="1167"
+      > </a
+      ><a name="1168" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1163" class="Bound"
+      >a</a
+      ><a name="1169"
       >
 
 
   </a
-      ><a name="1142" class="Comment"
+      ><a name="1174" class="Comment"
       >-- Forcing in a particular model, for sequents.</a
-      ><a name="1189"
-      >
-
-  </a
-      ><a name="1193" class="Keyword"
-      >module</a
-      ><a name="1199"
-      > </a
-      ><a name="1200" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1200" class="Module"
-      >_</a
-      ><a name="1201"
-      > </a
-      ><a name="1202" class="Symbol"
-      >{{</a
-      ><a name="1204" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1204" class="Bound"
-      >_</a
-      ><a name="1205"
-      > </a
-      ><a name="1206" class="Symbol"
-      >:</a
-      ><a name="1207"
-      > </a
-      ><a name="1208" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#225" class="Record"
-      >Model</a
-      ><a name="1213" class="Symbol"
-      >}}</a
-      ><a name="1215"
-      > </a
-      ><a name="1216" class="Keyword"
-      >where</a
       ><a name="1221"
       >
-    </a
-      ><a name="1226" class="Keyword"
-      >infix</a
+
+  </a
+      ><a name="1225" class="Keyword"
+      >module</a
       ><a name="1231"
       > </a
-      ><a name="1232" class="Number"
-      >3</a
+      ><a name="1232" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1232" class="Module"
+      >_</a
       ><a name="1233"
-      > &#8873;_&#8658;_
-    </a
-      ><a name="1243" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;_&#8658;_</a
+      > </a
+      ><a name="1234" class="Symbol"
+      >{{</a
+      ><a name="1236" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1236" class="Bound"
+      >_</a
+      ><a name="1237"
+      > </a
+      ><a name="1238" class="Symbol"
+      >:</a
+      ><a name="1239"
+      > </a
+      ><a name="1240" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#257" class="Record"
+      >Model</a
+      ><a name="1245" class="Symbol"
+      >}}</a
       ><a name="1247"
       > </a
-      ><a name="1248" class="Symbol"
-      >:</a
-      ><a name="1249"
-      > </a
-      ><a name="1250" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1252"
-      > </a
-      ><a name="1253" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="1255"
-      > </a
-      ><a name="1256" class="Symbol"
-      >&#8594;</a
-      ><a name="1257"
-      > </a
-      ><a name="1258" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="1260"
-      > </a
-      ><a name="1261" class="Symbol"
-      >&#8594;</a
-      ><a name="1262"
-      > </a
-      ><a name="1263" class="PrimitiveType"
-      >Set</a
-      ><a name="1266"
+      ><a name="1248" class="Keyword"
+      >where</a
+      ><a name="1253"
       >
     </a
-      ><a name="1271" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="1272"
+      ><a name="1258" class="Keyword"
+      >infix</a
+      ><a name="1263"
       > </a
-      ><a name="1273" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1273" class="Bound"
-      >&#915;</a
-      ><a name="1274"
+      ><a name="1264" class="Number"
+      >3</a
+      ><a name="1265"
+      > &#8873;_&#8658;_
+    </a
+      ><a name="1275" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;_&#8658;_</a
+      ><a name="1279"
       > </a
-      ><a name="1275" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="1276"
+      ><a name="1280" class="Symbol"
+      >:</a
+      ><a name="1281"
       > </a
-      ><a name="1277" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1277" class="Bound"
-      >A</a
-      ><a name="1278"
+      ><a name="1282" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1284"
       > </a
-      ><a name="1279" class="Symbol"
-      >=</a
-      ><a name="1280"
-      > </a
-      ><a name="1281" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#672" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="1283"
-      > </a
-      ><a name="1284" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1273" class="Bound"
-      >&#915;</a
-      ><a name="1285"
-      > </a
-      ><a name="1286" class="Symbol"
-      >&#8594;</a
+      ><a name="1285" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
       ><a name="1287"
       > </a
-      ><a name="1288" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#497" class="Function Operator"
-      >&#8873;</a
+      ><a name="1288" class="Symbol"
+      >&#8594;</a
       ><a name="1289"
       > </a
-      ><a name="1290" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1277" class="Bound"
+      ><a name="1290" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" class="Symbol"
+      >&#8594;</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" class="PrimitiveType"
+      >Set</a
+      ><a name="1298"
+      >
+    </a
+      ><a name="1303" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="1304"
+      > </a
+      ><a name="1305" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1305" class="Bound"
+      >&#915;</a
+      ><a name="1306"
+      > </a
+      ><a name="1307" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="1308"
+      > </a
+      ><a name="1309" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1309" class="Bound"
       >A</a
-      ><a name="1291"
+      ><a name="1310"
+      > </a
+      ><a name="1311" class="Symbol"
+      >=</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#704" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1315"
+      > </a
+      ><a name="1316" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1305" class="Bound"
+      >&#915;</a
+      ><a name="1317"
+      > </a
+      ><a name="1318" class="Symbol"
+      >&#8594;</a
+      ><a name="1319"
+      > </a
+      ><a name="1320" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#529" class="Function Operator"
+      >&#8873;</a
+      ><a name="1321"
+      > </a
+      ><a name="1322" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1309" class="Bound"
+      >A</a
+      ><a name="1323"
       >
 
     </a
-      ><a name="1297" class="Keyword"
+      ><a name="1329" class="Keyword"
       >infix</a
-      ><a name="1302"
+      ><a name="1334"
       > </a
-      ><a name="1303" class="Number"
+      ><a name="1335" class="Number"
       >3</a
-      ><a name="1304"
+      ><a name="1336"
       > &#8873;_&#8658;&#8902;_
     </a
-      ><a name="1315" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1315" class="Function Operator"
+      ><a name="1347" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1347" class="Function Operator"
       >&#8873;_&#8658;&#8902;_</a
-      ><a name="1320"
+      ><a name="1352"
       > </a
-      ><a name="1321" class="Symbol"
+      ><a name="1353" class="Symbol"
       >:</a
-      ><a name="1322"
+      ><a name="1354"
       > </a
-      ><a name="1323" href="Common.Context.html#90" class="Datatype"
+      ><a name="1355" href="Common.Context.html#90" class="Datatype"
       >Cx</a
-      ><a name="1325"
-      > </a
-      ><a name="1326" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="1328"
-      > </a
-      ><a name="1329" class="Symbol"
-      >&#8594;</a
-      ><a name="1330"
-      > </a
-      ><a name="1331" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1333"
-      > </a
-      ><a name="1334" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="1336"
-      > </a
-      ><a name="1337" class="Symbol"
-      >&#8594;</a
-      ><a name="1338"
-      > </a
-      ><a name="1339" class="PrimitiveType"
-      >Set</a
-      ><a name="1342"
-      >
-    </a
-      ><a name="1347" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1315" class="Function Operator"
-      >&#8873;</a
-      ><a name="1348"
-      > </a
-      ><a name="1349" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1349" class="Bound"
-      >&#915;</a
-      ><a name="1350"
-      > </a
-      ><a name="1351" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1315" class="Function Operator"
-      >&#8658;&#8902;</a
-      ><a name="1353"
-      > </a
-      ><a name="1354" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1354" class="Bound"
-      >&#928;</a
-      ><a name="1355"
-      > </a
-      ><a name="1356" class="Symbol"
-      >=</a
       ><a name="1357"
       > </a
-      ><a name="1358" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#672" class="Function Operator"
-      >&#8873;&#8902;</a
+      ><a name="1358" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
       ><a name="1360"
       > </a
-      ><a name="1361" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1349" class="Bound"
-      >&#915;</a
+      ><a name="1361" class="Symbol"
+      >&#8594;</a
       ><a name="1362"
       > </a
-      ><a name="1363" class="Symbol"
+      ><a name="1363" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1365"
+      > </a
+      ><a name="1366" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" class="Symbol"
       >&#8594;</a
-      ><a name="1364"
+      ><a name="1370"
       > </a
-      ><a name="1365" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#672" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="1367"
+      ><a name="1371" class="PrimitiveType"
+      >Set</a
+      ><a name="1374"
+      >
+    </a
+      ><a name="1379" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1347" class="Function Operator"
+      >&#8873;</a
+      ><a name="1380"
       > </a
-      ><a name="1368" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1354" class="Bound"
+      ><a name="1381" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1381" class="Bound"
+      >&#915;</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1347" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1386" class="Bound"
       >&#928;</a
-      ><a name="1369"
-      >
-
-
-  </a
-      ><a name="1374" class="Comment"
-      >-- Entailment, or forcing in all models, for sequents.</a
-      ><a name="1428"
-      >
-
-  </a
-      ><a name="1432" class="Keyword"
-      >infix</a
-      ><a name="1437"
+      ><a name="1387"
       > </a
-      ><a name="1438" class="Number"
+      ><a name="1388" class="Symbol"
+      >=</a
+      ><a name="1389"
+      > </a
+      ><a name="1390" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#704" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1381" class="Bound"
+      >&#915;</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" class="Symbol"
+      >&#8594;</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#704" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1399"
+      > </a
+      ><a name="1400" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1386" class="Bound"
+      >&#928;</a
+      ><a name="1401"
+      >
+
+
+  </a
+      ><a name="1406" class="Comment"
+      >-- Entailment, or forcing in all models, for sequents.</a
+      ><a name="1460"
+      >
+
+  </a
+      ><a name="1464" class="Keyword"
+      >infix</a
+      ><a name="1469"
+      > </a
+      ><a name="1470" class="Number"
       >3</a
-      ><a name="1439"
+      ><a name="1471"
       > _&#8872;_
   </a
-      ><a name="1446" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1446" class="Function Operator"
+      ><a name="1478" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1478" class="Function Operator"
       >_&#8872;_</a
-      ><a name="1449"
-      > </a
-      ><a name="1450" class="Symbol"
-      >:</a
-      ><a name="1451"
-      > </a
-      ><a name="1452" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1454"
-      > </a
-      ><a name="1455" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="1457"
-      > </a
-      ><a name="1458" class="Symbol"
-      >&#8594;</a
-      ><a name="1459"
-      > </a
-      ><a name="1460" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="1462"
-      > </a
-      ><a name="1463" class="Symbol"
-      >&#8594;</a
-      ><a name="1464"
-      > </a
-      ><a name="1465" class="PrimitiveType"
-      >Set&#8321;</a
-      ><a name="1469"
-      >
-  </a
-      ><a name="1472" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1472" class="Bound"
-      >&#915;</a
-      ><a name="1473"
-      > </a
-      ><a name="1474" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1446" class="Function Operator"
-      >&#8872;</a
-      ><a name="1475"
-      > </a
-      ><a name="1476" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1476" class="Bound"
-      >A</a
-      ><a name="1477"
-      > </a
-      ><a name="1478" class="Symbol"
-      >=</a
-      ><a name="1479"
-      > </a
-      ><a name="1480" class="Symbol"
-      >&#8704;</a
       ><a name="1481"
       > </a
       ><a name="1482" class="Symbol"
-      >{{</a
-      ><a name="1484" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1484" class="Bound"
-      >_</a
-      ><a name="1485"
-      > </a
-      ><a name="1486" class="Symbol"
       >:</a
-      ><a name="1487"
+      ><a name="1483"
       > </a
-      ><a name="1488" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#225" class="Record"
-      >Model</a
-      ><a name="1493" class="Symbol"
-      >}}</a
-      ><a name="1495"
+      ><a name="1484" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1486"
       > </a
-      ><a name="1496" class="Symbol"
+      ><a name="1487" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" class="Symbol"
       >&#8594;</a
-      ><a name="1497"
+      ><a name="1491"
       > </a
-      ><a name="1498" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="1499"
+      ><a name="1492" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1494"
       > </a
-      ><a name="1500" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1472" class="Bound"
-      >&#915;</a
+      ><a name="1495" class="Symbol"
+      >&#8594;</a
+      ><a name="1496"
+      > </a
+      ><a name="1497" class="PrimitiveType"
+      >Set&#8321;</a
       ><a name="1501"
-      > </a
-      ><a name="1502" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="1503"
-      > </a
-      ><a name="1504" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1476" class="Bound"
-      >A</a
+      >
+  </a
+      ><a name="1504" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1504" class="Bound"
+      >&#915;</a
       ><a name="1505"
+      > </a
+      ><a name="1506" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1478" class="Function Operator"
+      >&#8872;</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1508" class="Bound"
+      >A</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" class="Symbol"
+      >=</a
+      ><a name="1511"
+      > </a
+      ><a name="1512" class="Symbol"
+      >&#8704;</a
+      ><a name="1513"
+      > </a
+      ><a name="1514" class="Symbol"
+      >{{</a
+      ><a name="1516" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1516" class="Bound"
+      >_</a
+      ><a name="1517"
+      > </a
+      ><a name="1518" class="Symbol"
+      >:</a
+      ><a name="1519"
+      > </a
+      ><a name="1520" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#257" class="Record"
+      >Model</a
+      ><a name="1525" class="Symbol"
+      >}}</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" class="Symbol"
+      >&#8594;</a
+      ><a name="1529"
+      > </a
+      ><a name="1530" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="1531"
+      > </a
+      ><a name="1532" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1504" class="Bound"
+      >&#915;</a
+      ><a name="1533"
+      > </a
+      ><a name="1534" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1508" class="Bound"
+      >A</a
+      ><a name="1537"
       >
 
   </a
-      ><a name="1509" class="Keyword"
+      ><a name="1541" class="Keyword"
       >infix</a
-      ><a name="1514"
-      > </a
-      ><a name="1515" class="Number"
-      >3</a
-      ><a name="1516"
-      > _&#8872;&#8902;_
-  </a
-      ><a name="1524" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1524" class="Function Operator"
-      >_&#8872;&#8902;_</a
-      ><a name="1528"
-      > </a
-      ><a name="1529" class="Symbol"
-      >:</a
-      ><a name="1530"
-      > </a
-      ><a name="1531" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1533"
-      > </a
-      ><a name="1534" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="1536"
-      > </a
-      ><a name="1537" class="Symbol"
-      >&#8594;</a
-      ><a name="1538"
-      > </a
-      ><a name="1539" href="Common.Context.html#90" class="Datatype"
-      >Cx</a
-      ><a name="1541"
-      > </a
-      ><a name="1542" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
-      >Ty</a
-      ><a name="1544"
-      > </a
-      ><a name="1545" class="Symbol"
-      >&#8594;</a
       ><a name="1546"
       > </a
-      ><a name="1547" class="PrimitiveType"
-      >Set&#8321;</a
-      ><a name="1551"
-      >
+      ><a name="1547" class="Number"
+      >3</a
+      ><a name="1548"
+      > _&#8872;&#8902;_
   </a
-      ><a name="1554" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1554" class="Bound"
-      >&#915;</a
-      ><a name="1555"
-      > </a
-      ><a name="1556" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1524" class="Function Operator"
-      >&#8872;&#8902;</a
-      ><a name="1558"
-      > </a
-      ><a name="1559" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1559" class="Bound"
-      >&#928;</a
+      ><a name="1556" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1556" class="Function Operator"
+      >_&#8872;&#8902;_</a
       ><a name="1560"
       > </a
       ><a name="1561" class="Symbol"
-      >=</a
+      >:</a
       ><a name="1562"
       > </a
-      ><a name="1563" class="Symbol"
-      >&#8704;</a
-      ><a name="1564"
+      ><a name="1563" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1565"
       > </a
-      ><a name="1565" class="Symbol"
-      >{{</a
-      ><a name="1567" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1567" class="Bound"
-      >_</a
+      ><a name="1566" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
       ><a name="1568"
       > </a
       ><a name="1569" class="Symbol"
-      >:</a
+      >&#8594;</a
       ><a name="1570"
       > </a
-      ><a name="1571" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#225" class="Record"
-      >Model</a
-      ><a name="1576" class="Symbol"
-      >}}</a
+      ><a name="1571" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="1573"
+      > </a
+      ><a name="1574" href="BasicIS4.Syntax.Common.html#164" class="Datatype"
+      >Ty</a
+      ><a name="1576"
+      > </a
+      ><a name="1577" class="Symbol"
+      >&#8594;</a
       ><a name="1578"
       > </a
-      ><a name="1579" class="Symbol"
-      >&#8594;</a
-      ><a name="1580"
-      > </a
-      ><a name="1581" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1315" class="Function Operator"
-      >&#8873;</a
-      ><a name="1582"
-      > </a
-      ><a name="1583" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1554" class="Bound"
+      ><a name="1579" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="1583"
+      >
+  </a
+      ><a name="1586" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1586" class="Bound"
       >&#915;</a
-      ><a name="1584"
-      > </a
-      ><a name="1585" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1315" class="Function Operator"
-      >&#8658;&#8902;</a
       ><a name="1587"
       > </a
-      ><a name="1588" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1559" class="Bound"
+      ><a name="1588" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1556" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1591" class="Bound"
       >&#928;</a
-      ><a name="1589"
-      >
-
-
-  </a
-      ><a name="1594" class="Comment"
-      >-- Additional useful equipment, for sequents.</a
-      ><a name="1639"
-      >
-
-  </a
-      ><a name="1643" class="Keyword"
-      >module</a
-      ><a name="1649"
+      ><a name="1592"
       > </a
-      ><a name="1650" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1650" class="Module"
-      >_</a
-      ><a name="1651"
+      ><a name="1593" class="Symbol"
+      >=</a
+      ><a name="1594"
       > </a
-      ><a name="1652" class="Symbol"
+      ><a name="1595" class="Symbol"
+      >&#8704;</a
+      ><a name="1596"
+      > </a
+      ><a name="1597" class="Symbol"
       >{{</a
-      ><a name="1654" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1654" class="Bound"
+      ><a name="1599" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1599" class="Bound"
       >_</a
-      ><a name="1655"
+      ><a name="1600"
       > </a
-      ><a name="1656" class="Symbol"
+      ><a name="1601" class="Symbol"
       >:</a
-      ><a name="1657"
+      ><a name="1602"
       > </a
-      ><a name="1658" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#225" class="Record"
+      ><a name="1603" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#257" class="Record"
       >Model</a
-      ><a name="1663" class="Symbol"
+      ><a name="1608" class="Symbol"
       >}}</a
-      ><a name="1665"
+      ><a name="1610"
       > </a
-      ><a name="1666" class="Keyword"
-      >where</a
+      ><a name="1611" class="Symbol"
+      >&#8594;</a
+      ><a name="1612"
+      > </a
+      ><a name="1613" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1347" class="Function Operator"
+      >&#8873;</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1586" class="Bound"
+      >&#915;</a
+      ><a name="1616"
+      > </a
+      ><a name="1617" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1347" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1591" class="Bound"
+      >&#928;</a
+      ><a name="1621"
+      >
+
+
+  </a
+      ><a name="1626" class="Comment"
+      >-- Additional useful equipment, for sequents.</a
       ><a name="1671"
       >
-    </a
-      ><a name="1676" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1676" class="Function"
-      >lookup</a
-      ><a name="1682"
+
+  </a
+      ><a name="1675" class="Keyword"
+      >module</a
+      ><a name="1681"
       > </a
-      ><a name="1683" class="Symbol"
+      ><a name="1682" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1682" class="Module"
+      >_</a
+      ><a name="1683"
+      > </a
+      ><a name="1684" class="Symbol"
+      >{{</a
+      ><a name="1686" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1686" class="Bound"
+      >_</a
+      ><a name="1687"
+      > </a
+      ><a name="1688" class="Symbol"
       >:</a
-      ><a name="1684"
-      > </a
-      ><a name="1685" class="Symbol"
-      >&#8704;</a
-      ><a name="1686"
-      > </a
-      ><a name="1687" class="Symbol"
-      >{</a
-      ><a name="1688" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1688" class="Bound"
-      >A</a
       ><a name="1689"
       > </a
-      ><a name="1690" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1690" class="Bound"
-      >&#915;</a
-      ><a name="1691" class="Symbol"
-      >}</a
-      ><a name="1692"
+      ><a name="1690" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#257" class="Record"
+      >Model</a
+      ><a name="1695" class="Symbol"
+      >}}</a
+      ><a name="1697"
       > </a
-      ><a name="1693" class="Symbol"
-      >&#8594;</a
-      ><a name="1694"
-      > </a
-      ><a name="1695" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1688" class="Bound"
-      >A</a
-      ><a name="1696"
-      > </a
-      ><a name="1697" href="Common.Context.html#1097" class="Datatype Operator"
-      >&#8712;</a
-      ><a name="1698"
-      > </a
-      ><a name="1699" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1690" class="Bound"
-      >&#915;</a
-      ><a name="1700"
-      > </a
-      ><a name="1701" class="Symbol"
-      >&#8594;</a
-      ><a name="1702"
-      > </a
-      ><a name="1703" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="1704"
-      > </a
-      ><a name="1705" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1690" class="Bound"
-      >&#915;</a
-      ><a name="1706"
-      > </a
-      ><a name="1707" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="1708"
-      > </a
-      ><a name="1709" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1688" class="Bound"
-      >A</a
-      ><a name="1710"
+      ><a name="1698" class="Keyword"
+      >where</a
+      ><a name="1703"
       >
     </a
-      ><a name="1715" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1676" class="Function"
+      ><a name="1708" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1708" class="Function"
       >lookup</a
+      ><a name="1714"
+      > </a
+      ><a name="1715" class="Symbol"
+      >:</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" class="Symbol"
+      >&#8704;</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" class="Symbol"
+      >{</a
+      ><a name="1720" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1720" class="Bound"
+      >A</a
       ><a name="1721"
       > </a
-      ><a name="1722" href="Common.Context.html#1132" class="InductiveConstructor"
-      >top</a
-      ><a name="1725"
-      >     </a
-      ><a name="1730" class="Symbol"
-      >(</a
-      ><a name="1731" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1731" class="Bound"
-      >&#947;</a
+      ><a name="1722" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1722" class="Bound"
+      >&#915;</a
+      ><a name="1723" class="Symbol"
+      >}</a
+      ><a name="1724"
+      > </a
+      ><a name="1725" class="Symbol"
+      >&#8594;</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1720" class="Bound"
+      >A</a
+      ><a name="1728"
+      > </a
+      ><a name="1729" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="1730"
+      > </a
+      ><a name="1731" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1722" class="Bound"
+      >&#915;</a
       ><a name="1732"
       > </a
-      ><a name="1733" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
+      ><a name="1733" class="Symbol"
+      >&#8594;</a
       ><a name="1734"
       > </a
-      ><a name="1735" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1735" class="Bound"
-      >a</a
-      ><a name="1736" class="Symbol"
-      >)</a
-      ><a name="1737"
+      ><a name="1735" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="1736"
       > </a
-      ><a name="1738" class="Symbol"
-      >=</a
-      ><a name="1739"
+      ><a name="1737" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1722" class="Bound"
+      >&#915;</a
+      ><a name="1738"
       > </a
-      ><a name="1740" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1735" class="Bound"
-      >a</a
-      ><a name="1741"
+      ><a name="1739" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1720" class="Bound"
+      >A</a
+      ><a name="1742"
       >
     </a
-      ><a name="1746" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1676" class="Function"
+      ><a name="1747" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1708" class="Function"
       >lookup</a
-      ><a name="1752"
+      ><a name="1753"
       > </a
-      ><a name="1753" class="Symbol"
-      >(</a
-      ><a name="1754" href="Common.Context.html#1160" class="InductiveConstructor"
-      >pop</a
+      ><a name="1754" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
       ><a name="1757"
-      > </a
-      ><a name="1758" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1758" class="Bound"
-      >i</a
-      ><a name="1759" class="Symbol"
-      >)</a
-      ><a name="1760"
-      > </a
-      ><a name="1761" class="Symbol"
+      >     </a
+      ><a name="1762" class="Symbol"
       >(</a
-      ><a name="1762" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1762" class="Bound"
+      ><a name="1763" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1763" class="Bound"
       >&#947;</a
-      ><a name="1763"
+      ><a name="1764"
       > </a
-      ><a name="1764" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      ><a name="1765" href="Data.Product.html#509" class="InductiveConstructor Operator"
       >,</a
-      ><a name="1765"
+      ><a name="1766"
       > </a
-      ><a name="1766" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1766" class="Bound"
-      >b</a
-      ><a name="1767" class="Symbol"
+      ><a name="1767" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1767" class="Bound"
+      >a</a
+      ><a name="1768" class="Symbol"
       >)</a
-      ><a name="1768"
+      ><a name="1769"
       > </a
-      ><a name="1769" class="Symbol"
+      ><a name="1770" class="Symbol"
       >=</a
-      ><a name="1770"
+      ><a name="1771"
       > </a
-      ><a name="1771" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1676" class="Function"
-      >lookup</a
-      ><a name="1777"
-      > </a
-      ><a name="1778" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1758" class="Bound"
-      >i</a
-      ><a name="1779"
-      > </a
-      ><a name="1780" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1762" class="Bound"
-      >&#947;</a
-      ><a name="1781"
+      ><a name="1772" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1767" class="Bound"
+      >a</a
+      ><a name="1773"
       >
-
     </a
-      ><a name="1787" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1787" class="Function"
-      >&#10214;&#955;&#10215;</a
-      ><a name="1790"
+      ><a name="1778" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1708" class="Function"
+      >lookup</a
+      ><a name="1784"
       > </a
+      ><a name="1785" class="Symbol"
+      >(</a
+      ><a name="1786" href="Common.Context.html#1160" class="InductiveConstructor"
+      >pop</a
+      ><a name="1789"
+      > </a
+      ><a name="1790" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1790" class="Bound"
+      >i</a
       ><a name="1791" class="Symbol"
-      >:</a
+      >)</a
       ><a name="1792"
       > </a
       ><a name="1793" class="Symbol"
-      >&#8704;</a
-      ><a name="1794"
+      >(</a
+      ><a name="1794" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1794" class="Bound"
+      >&#947;</a
+      ><a name="1795"
       > </a
-      ><a name="1795" class="Symbol"
-      >{</a
-      ><a name="1796" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1796" class="Bound"
-      >A</a
+      ><a name="1796" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
       ><a name="1797"
       > </a
       ><a name="1798" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1798" class="Bound"
-      >B</a
-      ><a name="1799"
+      >b</a
+      ><a name="1799" class="Symbol"
+      >)</a
+      ><a name="1800"
       > </a
-      ><a name="1800" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1800" class="Bound"
-      >&#915;</a
       ><a name="1801" class="Symbol"
-      >}</a
+      >=</a
       ><a name="1802"
       > </a
-      ><a name="1803" class="Symbol"
-      >&#8594;</a
-      ><a name="1804"
+      ><a name="1803" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1708" class="Function"
+      >lookup</a
+      ><a name="1809"
       > </a
-      ><a name="1805" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#383" class="Bound Operator"
-      >[&#8866;]</a
-      ><a name="1808"
-      > </a
-      ><a name="1809" class="Symbol"
-      >(</a
-      ><a name="1810" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1796" class="Bound"
-      >A</a
+      ><a name="1810" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1790" class="Bound"
+      >i</a
       ><a name="1811"
       > </a
-      ><a name="1812" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
+      ><a name="1812" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1794" class="Bound"
+      >&#947;</a
       ><a name="1813"
-      > </a
-      ><a name="1814" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1798" class="Bound"
-      >B</a
-      ><a name="1815" class="Symbol"
-      >)</a
-      ><a name="1816"
-      > </a
-      ><a name="1817" class="Symbol"
-      >&#8594;</a
-      ><a name="1818"
-      > </a
-      ><a name="1819" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="1820"
-      > </a
-      ><a name="1821" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1800" class="Bound"
-      >&#915;</a
-      ><a name="1822"
-      > </a
-      ><a name="1823" href="Common.Context.html#130" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1824"
-      > </a
-      ><a name="1825" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1796" class="Bound"
-      >A</a
-      ><a name="1826"
-      > </a
-      ><a name="1827" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="1828"
-      > </a
-      ><a name="1829" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1798" class="Bound"
-      >B</a
-      ><a name="1830"
-      > </a
-      ><a name="1831" class="Symbol"
-      >&#8594;</a
-      ><a name="1832"
-      > </a
-      ><a name="1833" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="1834"
-      > </a
-      ><a name="1835" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1800" class="Bound"
-      >&#915;</a
-      ><a name="1836"
-      > </a
-      ><a name="1837" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="1838"
-      > </a
-      ><a name="1839" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1796" class="Bound"
-      >A</a
-      ><a name="1840"
-      > </a
-      ><a name="1841" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1842"
-      > </a
-      ><a name="1843" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1798" class="Bound"
-      >B</a
-      ><a name="1844"
-      >
-    </a
-      ><a name="1849" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1787" class="Function"
-      >&#10214;&#955;&#10215;</a
-      ><a name="1852"
-      > </a
-      ><a name="1853" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1853" class="Bound"
-      >t</a
-      ><a name="1854"
-      > </a
-      ><a name="1855" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1855" class="Bound"
-      >f</a
-      ><a name="1856"
-      > </a
-      ><a name="1857" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1857" class="Bound"
-      >&#947;</a
-      ><a name="1858"
-      > </a
-      ><a name="1859" class="Symbol"
-      >=</a
-      ><a name="1860"
-      > </a
-      ><a name="1861" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1853" class="Bound"
-      >t</a
-      ><a name="1862"
-      > </a
-      ><a name="1863" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1864"
-      > </a
-      ><a name="1865" class="Symbol"
-      >&#955;</a
-      ><a name="1866"
-      > </a
-      ><a name="1867" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1867" class="Bound"
-      >a</a
-      ><a name="1868"
-      > </a
-      ><a name="1869" class="Symbol"
-      >&#8594;</a
-      ><a name="1870"
-      > </a
-      ><a name="1871" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1855" class="Bound"
-      >f</a
-      ><a name="1872"
-      > </a
-      ><a name="1873" class="Symbol"
-      >(</a
-      ><a name="1874" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1857" class="Bound"
-      >&#947;</a
-      ><a name="1875"
-      > </a
-      ><a name="1876" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1877"
-      > </a
-      ><a name="1878" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1867" class="Bound"
-      >a</a
-      ><a name="1879" class="Symbol"
-      >)</a
-      ><a name="1880"
       >
 
     </a
-      ><a name="1886" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1886" class="Function Operator"
-      >_&#10214;$&#10215;_</a
-      ><a name="1891"
+      ><a name="1819" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1819" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="1822"
       > </a
-      ><a name="1892" class="Symbol"
+      ><a name="1823" class="Symbol"
       >:</a
-      ><a name="1893"
+      ><a name="1824"
       > </a
-      ><a name="1894" class="Symbol"
+      ><a name="1825" class="Symbol"
       >&#8704;</a
-      ><a name="1895"
+      ><a name="1826"
       > </a
-      ><a name="1896" class="Symbol"
+      ><a name="1827" class="Symbol"
       >{</a
-      ><a name="1897" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1897" class="Bound"
+      ><a name="1828" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1828" class="Bound"
       >A</a
+      ><a name="1829"
+      > </a
+      ><a name="1830" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1830" class="Bound"
+      >B</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1832" class="Bound"
+      >&#915;</a
+      ><a name="1833" class="Symbol"
+      >}</a
+      ><a name="1834"
+      > </a
+      ><a name="1835" class="Symbol"
+      >&#8594;</a
+      ><a name="1836"
+      > </a
+      ><a name="1837" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#415" class="Bound Operator"
+      >[&#8866;]</a
+      ><a name="1840"
+      > </a
+      ><a name="1841" class="Symbol"
+      >(</a
+      ><a name="1842" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1828" class="Bound"
+      >A</a
+      ><a name="1843"
+      > </a
+      ><a name="1844" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1845"
+      > </a
+      ><a name="1846" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1830" class="Bound"
+      >B</a
+      ><a name="1847" class="Symbol"
+      >)</a
+      ><a name="1848"
+      > </a
+      ><a name="1849" class="Symbol"
+      >&#8594;</a
+      ><a name="1850"
+      > </a
+      ><a name="1851" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="1852"
+      > </a
+      ><a name="1853" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1832" class="Bound"
+      >&#915;</a
+      ><a name="1854"
+      > </a
+      ><a name="1855" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1856"
+      > </a
+      ><a name="1857" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1828" class="Bound"
+      >A</a
+      ><a name="1858"
+      > </a
+      ><a name="1859" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="1860"
+      > </a
+      ><a name="1861" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1830" class="Bound"
+      >B</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" class="Symbol"
+      >&#8594;</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="1866"
+      > </a
+      ><a name="1867" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1832" class="Bound"
+      >&#915;</a
+      ><a name="1868"
+      > </a
+      ><a name="1869" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="1870"
+      > </a
+      ><a name="1871" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1828" class="Bound"
+      >A</a
+      ><a name="1872"
+      > </a
+      ><a name="1873" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1874"
+      > </a
+      ><a name="1875" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1830" class="Bound"
+      >B</a
+      ><a name="1876"
+      >
+    </a
+      ><a name="1881" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1819" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="1884"
+      > </a
+      ><a name="1885" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1885" class="Bound"
+      >t</a
+      ><a name="1886"
+      > </a
+      ><a name="1887" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1887" class="Bound"
+      >f</a
+      ><a name="1888"
+      > </a
+      ><a name="1889" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1889" class="Bound"
+      >&#947;</a
+      ><a name="1890"
+      > </a
+      ><a name="1891" class="Symbol"
+      >=</a
+      ><a name="1892"
+      > </a
+      ><a name="1893" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1885" class="Bound"
+      >t</a
+      ><a name="1894"
+      > </a
+      ><a name="1895" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1896"
+      > </a
+      ><a name="1897" class="Symbol"
+      >&#955;</a
       ><a name="1898"
       > </a
       ><a name="1899" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1899" class="Bound"
-      >B</a
+      >a</a
       ><a name="1900"
       > </a
-      ><a name="1901" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1901" class="Bound"
-      >&#915;</a
-      ><a name="1902" class="Symbol"
-      >}</a
-      ><a name="1903"
-      > </a
-      ><a name="1904" class="Symbol"
+      ><a name="1901" class="Symbol"
       >&#8594;</a
-      ><a name="1905"
+      ><a name="1902"
       > </a
-      ><a name="1906" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
+      ><a name="1903" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1887" class="Bound"
+      >f</a
+      ><a name="1904"
+      > </a
+      ><a name="1905" class="Symbol"
+      >(</a
+      ><a name="1906" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1889" class="Bound"
+      >&#947;</a
       ><a name="1907"
       > </a
-      ><a name="1908" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1901" class="Bound"
-      >&#915;</a
+      ><a name="1908" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
       ><a name="1909"
       > </a
-      ><a name="1910" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="1911"
-      > </a
-      ><a name="1912" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1897" class="Bound"
-      >A</a
-      ><a name="1913"
-      > </a
-      ><a name="1914" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1915"
-      > </a
-      ><a name="1916" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1899" class="Bound"
-      >B</a
-      ><a name="1917"
-      > </a
-      ><a name="1918" class="Symbol"
-      >&#8594;</a
-      ><a name="1919"
-      > </a
-      ><a name="1920" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="1921"
-      > </a
-      ><a name="1922" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1901" class="Bound"
-      >&#915;</a
-      ><a name="1923"
-      > </a
-      ><a name="1924" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="1925"
-      > </a
-      ><a name="1926" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1897" class="Bound"
-      >A</a
-      ><a name="1927"
-      > </a
-      ><a name="1928" class="Symbol"
-      >&#8594;</a
-      ><a name="1929"
-      > </a
-      ><a name="1930" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="1931"
-      > </a
-      ><a name="1932" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1901" class="Bound"
-      >&#915;</a
-      ><a name="1933"
-      > </a
-      ><a name="1934" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="1935"
-      > </a
-      ><a name="1936" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1899" class="Bound"
-      >B</a
-      ><a name="1937"
-      >
-    </a
-      ><a name="1942" class="Symbol"
-      >(</a
-      ><a name="1943" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1943" class="Bound"
-      >f</a
-      ><a name="1944"
-      > </a
-      ><a name="1945" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1886" class="Function Operator"
-      >&#10214;$&#10215;</a
-      ><a name="1948"
-      > </a
-      ><a name="1949" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1949" class="Bound"
-      >g</a
-      ><a name="1950" class="Symbol"
+      ><a name="1910" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1899" class="Bound"
+      >a</a
+      ><a name="1911" class="Symbol"
       >)</a
-      ><a name="1951"
-      > </a
-      ><a name="1952" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1952" class="Bound"
-      >&#947;</a
-      ><a name="1953"
-      > </a
-      ><a name="1954" class="Symbol"
-      >=</a
-      ><a name="1955"
-      > </a
-      ><a name="1956" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1943" class="Bound"
-      >f</a
-      ><a name="1957"
-      > </a
-      ><a name="1958" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1952" class="Bound"
-      >&#947;</a
-      ><a name="1959"
-      > </a
-      ><a name="1960" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#911" class="Function Operator"
-      >&#10218;$&#10219;</a
-      ><a name="1963"
-      > </a
-      ><a name="1964" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1949" class="Bound"
-      >g</a
-      ><a name="1965"
-      > </a
-      ><a name="1966" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1952" class="Bound"
-      >&#947;</a
-      ><a name="1967"
+      ><a name="1912"
       >
 
     </a
-      ><a name="1973" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1973" class="Function"
-      >&#10214;S&#10215;</a
+      ><a name="1918" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1918" class="Function Operator"
+      >_&#10214;$&#10215;_</a
+      ><a name="1923"
+      > </a
+      ><a name="1924" class="Symbol"
+      >:</a
+      ><a name="1925"
+      > </a
+      ><a name="1926" class="Symbol"
+      >&#8704;</a
+      ><a name="1927"
+      > </a
+      ><a name="1928" class="Symbol"
+      >{</a
+      ><a name="1929" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1929" class="Bound"
+      >A</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1931" class="Bound"
+      >B</a
+      ><a name="1932"
+      > </a
+      ><a name="1933" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1933" class="Bound"
+      >&#915;</a
+      ><a name="1934" class="Symbol"
+      >}</a
+      ><a name="1935"
+      > </a
+      ><a name="1936" class="Symbol"
+      >&#8594;</a
+      ><a name="1937"
+      > </a
+      ><a name="1938" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="1939"
+      > </a
+      ><a name="1940" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1933" class="Bound"
+      >&#915;</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="1943"
+      > </a
+      ><a name="1944" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1929" class="Bound"
+      >A</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1931" class="Bound"
+      >B</a
+      ><a name="1949"
+      > </a
+      ><a name="1950" class="Symbol"
+      >&#8594;</a
+      ><a name="1951"
+      > </a
+      ><a name="1952" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="1953"
+      > </a
+      ><a name="1954" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1933" class="Bound"
+      >&#915;</a
+      ><a name="1955"
+      > </a
+      ><a name="1956" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1929" class="Bound"
+      >A</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" class="Symbol"
+      >&#8594;</a
+      ><a name="1961"
+      > </a
+      ><a name="1962" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="1963"
+      > </a
+      ><a name="1964" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1933" class="Bound"
+      >&#915;</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1931" class="Bound"
+      >B</a
+      ><a name="1969"
+      >
+    </a
+      ><a name="1974" class="Symbol"
+      >(</a
+      ><a name="1975" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1975" class="Bound"
+      >f</a
       ><a name="1976"
       > </a
-      ><a name="1977" class="Symbol"
-      >:</a
-      ><a name="1978"
-      > </a
-      ><a name="1979" class="Symbol"
-      >&#8704;</a
+      ><a name="1977" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1918" class="Function Operator"
+      >&#10214;$&#10215;</a
       ><a name="1980"
       > </a
-      ><a name="1981" class="Symbol"
-      >{</a
-      ><a name="1982" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1982" class="Bound"
-      >A</a
+      ><a name="1981" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1981" class="Bound"
+      >g</a
+      ><a name="1982" class="Symbol"
+      >)</a
       ><a name="1983"
       > </a
       ><a name="1984" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1984" class="Bound"
-      >B</a
+      >&#947;</a
       ><a name="1985"
       > </a
-      ><a name="1986" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1986" class="Bound"
-      >C</a
+      ><a name="1986" class="Symbol"
+      >=</a
       ><a name="1987"
       > </a
-      ><a name="1988" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1988" class="Bound"
-      >&#915;</a
-      ><a name="1989" class="Symbol"
-      >}</a
-      ><a name="1990"
+      ><a name="1988" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1975" class="Bound"
+      >f</a
+      ><a name="1989"
       > </a
-      ><a name="1991" class="Symbol"
-      >&#8594;</a
-      ><a name="1992"
+      ><a name="1990" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1984" class="Bound"
+      >&#947;</a
+      ><a name="1991"
       > </a
-      ><a name="1993" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="1994"
+      ><a name="1992" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#943" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="1995"
       > </a
-      ><a name="1995" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1988" class="Bound"
-      >&#915;</a
-      ><a name="1996"
+      ><a name="1996" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1981" class="Bound"
+      >g</a
+      ><a name="1997"
       > </a
-      ><a name="1997" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="1998"
-      > </a
-      ><a name="1999" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1982" class="Bound"
-      >A</a
-      ><a name="2000"
-      > </a
-      ><a name="2001" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="2002"
-      > </a
-      ><a name="2003" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1984" class="Bound"
-      >B</a
-      ><a name="2004"
-      > </a
-      ><a name="2005" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="2006"
-      > </a
-      ><a name="2007" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1986" class="Bound"
-      >C</a
+      ><a name="1998" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1984" class="Bound"
+      >&#947;</a
+      ><a name="1999"
+      >
+
+    </a
+      ><a name="2005" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2005" class="Function"
+      >&#10214;S&#10215;</a
       ><a name="2008"
       > </a
       ><a name="2009" class="Symbol"
-      >&#8594;</a
+      >:</a
       ><a name="2010"
       > </a
-      ><a name="2011" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
+      ><a name="2011" class="Symbol"
+      >&#8704;</a
       ><a name="2012"
       > </a
-      ><a name="2013" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1988" class="Bound"
-      >&#915;</a
-      ><a name="2014"
-      > </a
-      ><a name="2015" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="2016"
-      > </a
-      ><a name="2017" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1982" class="Bound"
+      ><a name="2013" class="Symbol"
+      >{</a
+      ><a name="2014" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2014" class="Bound"
       >A</a
-      ><a name="2018"
+      ><a name="2015"
       > </a
-      ><a name="2019" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="2020"
-      > </a
-      ><a name="2021" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1984" class="Bound"
+      ><a name="2016" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2016" class="Bound"
       >B</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2018" class="Bound"
+      >C</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2020" class="Bound"
+      >&#915;</a
+      ><a name="2021" class="Symbol"
+      >}</a
       ><a name="2022"
       > </a
       ><a name="2023" class="Symbol"
       >&#8594;</a
       ><a name="2024"
       > </a
-      ><a name="2025" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
+      ><a name="2025" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
       >&#8873;</a
       ><a name="2026"
       > </a
-      ><a name="2027" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1988" class="Bound"
+      ><a name="2027" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2020" class="Bound"
       >&#915;</a
       ><a name="2028"
       > </a
-      ><a name="2029" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
+      ><a name="2029" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
       >&#8658;</a
       ><a name="2030"
       > </a
-      ><a name="2031" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1982" class="Bound"
+      ><a name="2031" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2014" class="Bound"
       >A</a
       ><a name="2032"
       > </a
-      ><a name="2033" class="Symbol"
-      >&#8594;</a
+      ><a name="2033" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="2034"
       > </a
-      ><a name="2035" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
+      ><a name="2035" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2016" class="Bound"
+      >B</a
       ><a name="2036"
       > </a
-      ><a name="2037" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1988" class="Bound"
-      >&#915;</a
+      ><a name="2037" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="2038"
       > </a
-      ><a name="2039" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
+      ><a name="2039" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2018" class="Bound"
+      >C</a
       ><a name="2040"
       > </a
-      ><a name="2041" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1986" class="Bound"
-      >C</a
+      ><a name="2041" class="Symbol"
+      >&#8594;</a
       ><a name="2042"
-      >
-    </a
-      ><a name="2047" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1973" class="Function"
-      >&#10214;S&#10215;</a
+      > </a
+      ><a name="2043" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2044"
+      > </a
+      ><a name="2045" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2020" class="Bound"
+      >&#915;</a
+      ><a name="2046"
+      > </a
+      ><a name="2047" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2048"
+      > </a
+      ><a name="2049" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2014" class="Bound"
+      >A</a
       ><a name="2050"
       > </a
-      ><a name="2051" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2051" class="Bound"
-      >f</a
+      ><a name="2051" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="2052"
       > </a
-      ><a name="2053" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2053" class="Bound"
-      >g</a
+      ><a name="2053" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2016" class="Bound"
+      >B</a
       ><a name="2054"
       > </a
-      ><a name="2055" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2055" class="Bound"
-      >a</a
+      ><a name="2055" class="Symbol"
+      >&#8594;</a
       ><a name="2056"
       > </a
-      ><a name="2057" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2057" class="Bound"
-      >&#947;</a
+      ><a name="2057" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
       ><a name="2058"
       > </a
-      ><a name="2059" class="Symbol"
-      >=</a
+      ><a name="2059" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2020" class="Bound"
+      >&#915;</a
       ><a name="2060"
       > </a
-      ><a name="2061" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#978" class="Function"
-      >&#10218;S&#10219;</a
+      ><a name="2061" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2062"
+      > </a
+      ><a name="2063" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2014" class="Bound"
+      >A</a
       ><a name="2064"
       > </a
       ><a name="2065" class="Symbol"
-      >(</a
-      ><a name="2066" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2051" class="Bound"
-      >f</a
-      ><a name="2067"
+      >&#8594;</a
+      ><a name="2066"
       > </a
-      ><a name="2068" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2057" class="Bound"
-      >&#947;</a
-      ><a name="2069" class="Symbol"
-      >)</a
+      ><a name="2067" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2068"
+      > </a
+      ><a name="2069" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2020" class="Bound"
+      >&#915;</a
       ><a name="2070"
       > </a
-      ><a name="2071" class="Symbol"
-      >(</a
-      ><a name="2072" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2053" class="Bound"
-      >g</a
-      ><a name="2073"
+      ><a name="2071" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2072"
       > </a
-      ><a name="2074" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2057" class="Bound"
-      >&#947;</a
-      ><a name="2075" class="Symbol"
-      >)</a
-      ><a name="2076"
-      > </a
-      ><a name="2077" class="Symbol"
-      >(</a
-      ><a name="2078" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2055" class="Bound"
-      >a</a
-      ><a name="2079"
-      > </a
-      ><a name="2080" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2057" class="Bound"
-      >&#947;</a
-      ><a name="2081" class="Symbol"
-      >)</a
-      ><a name="2082"
+      ><a name="2073" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2018" class="Bound"
+      >C</a
+      ><a name="2074"
       >
-
     </a
-      ><a name="2088" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2088" class="Function"
-      >&#10214;&#8595;&#10215;</a
-      ><a name="2091"
+      ><a name="2079" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2005" class="Function"
+      >&#10214;S&#10215;</a
+      ><a name="2082"
       > </a
-      ><a name="2092" class="Symbol"
-      >:</a
-      ><a name="2093"
+      ><a name="2083" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2083" class="Bound"
+      >f</a
+      ><a name="2084"
       > </a
-      ><a name="2094" class="Symbol"
-      >&#8704;</a
-      ><a name="2095"
+      ><a name="2085" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2085" class="Bound"
+      >g</a
+      ><a name="2086"
       > </a
-      ><a name="2096" class="Symbol"
-      >{</a
-      ><a name="2097" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2097" class="Bound"
-      >A</a
-      ><a name="2098"
+      ><a name="2087" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2087" class="Bound"
+      >a</a
+      ><a name="2088"
       > </a
-      ><a name="2099" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2099" class="Bound"
-      >&#915;</a
-      ><a name="2100" class="Symbol"
-      >}</a
-      ><a name="2101"
+      ><a name="2089" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2089" class="Bound"
+      >&#947;</a
+      ><a name="2090"
       > </a
-      ><a name="2102" class="Symbol"
-      >&#8594;</a
-      ><a name="2103"
+      ><a name="2091" class="Symbol"
+      >=</a
+      ><a name="2092"
       > </a
-      ><a name="2104" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
+      ><a name="2093" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1010" class="Function"
+      >&#10218;S&#10219;</a
+      ><a name="2096"
+      > </a
+      ><a name="2097" class="Symbol"
+      >(</a
+      ><a name="2098" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2083" class="Bound"
+      >f</a
+      ><a name="2099"
+      > </a
+      ><a name="2100" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2089" class="Bound"
+      >&#947;</a
+      ><a name="2101" class="Symbol"
+      >)</a
+      ><a name="2102"
+      > </a
+      ><a name="2103" class="Symbol"
+      >(</a
+      ><a name="2104" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2085" class="Bound"
+      >g</a
       ><a name="2105"
       > </a
-      ><a name="2106" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2099" class="Bound"
-      >&#915;</a
-      ><a name="2107"
+      ><a name="2106" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2089" class="Bound"
+      >&#947;</a
+      ><a name="2107" class="Symbol"
+      >)</a
+      ><a name="2108"
       > </a
-      ><a name="2108" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="2109"
-      > </a
-      ><a name="2110" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
-      >&#9633;</a
+      ><a name="2109" class="Symbol"
+      >(</a
+      ><a name="2110" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2087" class="Bound"
+      >a</a
       ><a name="2111"
       > </a
-      ><a name="2112" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2097" class="Bound"
-      >A</a
-      ><a name="2113"
-      > </a
-      ><a name="2114" class="Symbol"
-      >&#8594;</a
-      ><a name="2115"
-      > </a
-      ><a name="2116" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="2117"
-      > </a
-      ><a name="2118" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2099" class="Bound"
-      >&#915;</a
-      ><a name="2119"
-      > </a
-      ><a name="2120" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="2121"
-      > </a
-      ><a name="2122" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2097" class="Bound"
-      >A</a
-      ><a name="2123"
-      >
-    </a
-      ><a name="2128" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2088" class="Function"
-      >&#10214;&#8595;&#10215;</a
-      ><a name="2131"
-      > </a
-      ><a name="2132" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2132" class="Bound"
-      >s</a
-      ><a name="2133"
-      > </a
-      ><a name="2134" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2134" class="Bound"
+      ><a name="2112" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2089" class="Bound"
       >&#947;</a
-      ><a name="2135"
-      > </a
-      ><a name="2136" class="Symbol"
-      >=</a
-      ><a name="2137"
-      > </a
-      ><a name="2138" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1092" class="Function"
-      >&#10218;&#8595;&#10219;</a
-      ><a name="2141"
-      > </a
-      ><a name="2142" class="Symbol"
-      >(</a
-      ><a name="2143" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2132" class="Bound"
-      >s</a
-      ><a name="2144"
-      > </a
-      ><a name="2145" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2134" class="Bound"
-      >&#947;</a
-      ><a name="2146" class="Symbol"
+      ><a name="2113" class="Symbol"
       >)</a
-      ><a name="2147"
+      ><a name="2114"
       >
 
     </a
-      ><a name="2153" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2153" class="Function Operator"
-      >_&#10214;,&#10215;_</a
-      ><a name="2158"
+      ><a name="2120" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2120" class="Function"
+      >&#10214;&#8595;&#10215;</a
+      ><a name="2123"
       > </a
-      ><a name="2159" class="Symbol"
+      ><a name="2124" class="Symbol"
       >:</a
-      ><a name="2160"
+      ><a name="2125"
       > </a
-      ><a name="2161" class="Symbol"
+      ><a name="2126" class="Symbol"
       >&#8704;</a
-      ><a name="2162"
+      ><a name="2127"
       > </a
-      ><a name="2163" class="Symbol"
+      ><a name="2128" class="Symbol"
       >{</a
-      ><a name="2164" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2164" class="Bound"
+      ><a name="2129" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2129" class="Bound"
       >A</a
+      ><a name="2130"
+      > </a
+      ><a name="2131" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2131" class="Bound"
+      >&#915;</a
+      ><a name="2132" class="Symbol"
+      >}</a
+      ><a name="2133"
+      > </a
+      ><a name="2134" class="Symbol"
+      >&#8594;</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2137"
+      > </a
+      ><a name="2138" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2131" class="Bound"
+      >&#915;</a
+      ><a name="2139"
+      > </a
+      ><a name="2140" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2141"
+      > </a
+      ><a name="2142" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="2143"
+      > </a
+      ><a name="2144" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2129" class="Bound"
+      >A</a
+      ><a name="2145"
+      > </a
+      ><a name="2146" class="Symbol"
+      >&#8594;</a
+      ><a name="2147"
+      > </a
+      ><a name="2148" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2149"
+      > </a
+      ><a name="2150" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2131" class="Bound"
+      >&#915;</a
+      ><a name="2151"
+      > </a
+      ><a name="2152" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2129" class="Bound"
+      >A</a
+      ><a name="2155"
+      >
+    </a
+      ><a name="2160" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2120" class="Function"
+      >&#10214;&#8595;&#10215;</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2164" class="Bound"
+      >s</a
       ><a name="2165"
       > </a
       ><a name="2166" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2166" class="Bound"
-      >B</a
+      >&#947;</a
       ><a name="2167"
       > </a
-      ><a name="2168" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2168" class="Bound"
-      >&#915;</a
-      ><a name="2169" class="Symbol"
-      >}</a
-      ><a name="2170"
+      ><a name="2168" class="Symbol"
+      >=</a
+      ><a name="2169"
       > </a
-      ><a name="2171" class="Symbol"
-      >&#8594;</a
-      ><a name="2172"
+      ><a name="2170" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1124" class="Function"
+      >&#10218;&#8595;&#10219;</a
+      ><a name="2173"
       > </a
-      ><a name="2173" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="2174"
-      > </a
-      ><a name="2175" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2168" class="Bound"
-      >&#915;</a
+      ><a name="2174" class="Symbol"
+      >(</a
+      ><a name="2175" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2164" class="Bound"
+      >s</a
       ><a name="2176"
       > </a
-      ><a name="2177" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="2178"
-      > </a
-      ><a name="2179" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2164" class="Bound"
-      >A</a
-      ><a name="2180"
-      > </a
-      ><a name="2181" class="Symbol"
-      >&#8594;</a
-      ><a name="2182"
-      > </a
-      ><a name="2183" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="2184"
-      > </a
-      ><a name="2185" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2168" class="Bound"
-      >&#915;</a
-      ><a name="2186"
-      > </a
-      ><a name="2187" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="2188"
-      > </a
-      ><a name="2189" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2166" class="Bound"
-      >B</a
+      ><a name="2177" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2166" class="Bound"
+      >&#947;</a
+      ><a name="2178" class="Symbol"
+      >)</a
+      ><a name="2179"
+      >
+
+    </a
+      ><a name="2185" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2185" class="Function Operator"
+      >_&#10214;,&#10215;_</a
       ><a name="2190"
       > </a
       ><a name="2191" class="Symbol"
-      >&#8594;</a
+      >:</a
       ><a name="2192"
       > </a
-      ><a name="2193" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
+      ><a name="2193" class="Symbol"
+      >&#8704;</a
       ><a name="2194"
       > </a
-      ><a name="2195" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2168" class="Bound"
-      >&#915;</a
-      ><a name="2196"
-      > </a
-      ><a name="2197" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="2198"
-      > </a
-      ><a name="2199" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2164" class="Bound"
+      ><a name="2195" class="Symbol"
+      >{</a
+      ><a name="2196" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2196" class="Bound"
       >A</a
-      ><a name="2200"
+      ><a name="2197"
       > </a
-      ><a name="2201" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
-      >&#8743;</a
+      ><a name="2198" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2198" class="Bound"
+      >B</a
+      ><a name="2199"
+      > </a
+      ><a name="2200" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2200" class="Bound"
+      >&#915;</a
+      ><a name="2201" class="Symbol"
+      >}</a
       ><a name="2202"
       > </a
-      ><a name="2203" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2166" class="Bound"
-      >B</a
+      ><a name="2203" class="Symbol"
+      >&#8594;</a
       ><a name="2204"
-      >
-    </a
-      ><a name="2209" class="Symbol"
-      >(</a
-      ><a name="2210" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2210" class="Bound"
-      >a</a
-      ><a name="2211"
       > </a
-      ><a name="2212" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2153" class="Function Operator"
-      >&#10214;,&#10215;</a
-      ><a name="2215"
+      ><a name="2205" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2206"
       > </a
-      ><a name="2216" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2216" class="Bound"
-      >b</a
-      ><a name="2217" class="Symbol"
-      >)</a
+      ><a name="2207" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2200" class="Bound"
+      >&#915;</a
+      ><a name="2208"
+      > </a
+      ><a name="2209" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2210"
+      > </a
+      ><a name="2211" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2196" class="Bound"
+      >A</a
+      ><a name="2212"
+      > </a
+      ><a name="2213" class="Symbol"
+      >&#8594;</a
+      ><a name="2214"
+      > </a
+      ><a name="2215" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2216"
+      > </a
+      ><a name="2217" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2200" class="Bound"
+      >&#915;</a
       ><a name="2218"
       > </a
-      ><a name="2219" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2219" class="Bound"
-      >&#947;</a
+      ><a name="2219" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
       ><a name="2220"
       > </a
-      ><a name="2221" class="Symbol"
-      >=</a
+      ><a name="2221" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2198" class="Bound"
+      >B</a
       ><a name="2222"
       > </a
-      ><a name="2223" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2210" class="Bound"
-      >a</a
+      ><a name="2223" class="Symbol"
+      >&#8594;</a
       ><a name="2224"
       > </a
-      ><a name="2225" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2219" class="Bound"
-      >&#947;</a
+      ><a name="2225" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
       ><a name="2226"
       > </a
-      ><a name="2227" href="Data.Product.html#509" class="InductiveConstructor Operator"
-      >,</a
+      ><a name="2227" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2200" class="Bound"
+      >&#915;</a
       ><a name="2228"
       > </a
-      ><a name="2229" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2216" class="Bound"
-      >b</a
+      ><a name="2229" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
       ><a name="2230"
       > </a
-      ><a name="2231" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2219" class="Bound"
-      >&#947;</a
-      ><a name="2232"
-      >
-
-    </a
-      ><a name="2238" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2238" class="Function"
-      >&#10214;&#960;&#8321;&#10215;</a
-      ><a name="2242"
-      > </a
-      ><a name="2243" class="Symbol"
-      >:</a
-      ><a name="2244"
-      > </a
-      ><a name="2245" class="Symbol"
-      >&#8704;</a
-      ><a name="2246"
-      > </a
-      ><a name="2247" class="Symbol"
-      >{</a
-      ><a name="2248" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2248" class="Bound"
+      ><a name="2231" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2196" class="Bound"
       >A</a
-      ><a name="2249"
+      ><a name="2232"
       > </a
-      ><a name="2250" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2250" class="Bound"
+      ><a name="2233" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2198" class="Bound"
       >B</a
-      ><a name="2251"
+      ><a name="2236"
+      >
+    </a
+      ><a name="2241" class="Symbol"
+      >(</a
+      ><a name="2242" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2242" class="Bound"
+      >a</a
+      ><a name="2243"
       > </a
-      ><a name="2252" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2252" class="Bound"
-      >&#915;</a
+      ><a name="2244" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2185" class="Function Operator"
+      >&#10214;,&#10215;</a
+      ><a name="2247"
+      > </a
+      ><a name="2248" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2248" class="Bound"
+      >b</a
+      ><a name="2249" class="Symbol"
+      >)</a
+      ><a name="2250"
+      > </a
+      ><a name="2251" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2251" class="Bound"
+      >&#947;</a
+      ><a name="2252"
+      > </a
       ><a name="2253" class="Symbol"
-      >}</a
+      >=</a
       ><a name="2254"
       > </a
-      ><a name="2255" class="Symbol"
-      >&#8594;</a
+      ><a name="2255" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2242" class="Bound"
+      >a</a
       ><a name="2256"
       > </a
-      ><a name="2257" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
+      ><a name="2257" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2251" class="Bound"
+      >&#947;</a
       ><a name="2258"
       > </a
-      ><a name="2259" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2252" class="Bound"
-      >&#915;</a
+      ><a name="2259" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
       ><a name="2260"
       > </a
-      ><a name="2261" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
+      ><a name="2261" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2248" class="Bound"
+      >b</a
       ><a name="2262"
       > </a
-      ><a name="2263" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2248" class="Bound"
-      >A</a
+      ><a name="2263" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2251" class="Bound"
+      >&#947;</a
       ><a name="2264"
-      > </a
-      ><a name="2265" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
-      >&#8743;</a
-      ><a name="2266"
-      > </a
-      ><a name="2267" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2250" class="Bound"
-      >B</a
-      ><a name="2268"
-      > </a
-      ><a name="2269" class="Symbol"
-      >&#8594;</a
-      ><a name="2270"
-      > </a
-      ><a name="2271" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="2272"
-      > </a
-      ><a name="2273" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2252" class="Bound"
-      >&#915;</a
-      ><a name="2274"
-      > </a
-      ><a name="2275" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="2276"
-      > </a
-      ><a name="2277" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2248" class="Bound"
-      >A</a
-      ><a name="2278"
-      >
-    </a
-      ><a name="2283" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2238" class="Function"
-      >&#10214;&#960;&#8321;&#10215;</a
-      ><a name="2287"
-      > </a
-      ><a name="2288" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2288" class="Bound"
-      >s</a
-      ><a name="2289"
-      > </a
-      ><a name="2290" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2290" class="Bound"
-      >&#947;</a
-      ><a name="2291"
-      > </a
-      ><a name="2292" class="Symbol"
-      >=</a
-      ><a name="2293"
-      > </a
-      ><a name="2294" href="Data.Product.html#525" class="Field"
-      >&#960;&#8321;</a
-      ><a name="2296"
-      > </a
-      ><a name="2297" class="Symbol"
-      >(</a
-      ><a name="2298" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2288" class="Bound"
-      >s</a
-      ><a name="2299"
-      > </a
-      ><a name="2300" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2290" class="Bound"
-      >&#947;</a
-      ><a name="2301" class="Symbol"
-      >)</a
-      ><a name="2302"
       >
 
     </a
-      ><a name="2308" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2308" class="Function"
-      >&#10214;&#960;&#8322;&#10215;</a
-      ><a name="2312"
+      ><a name="2270" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2270" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="2274"
       > </a
-      ><a name="2313" class="Symbol"
+      ><a name="2275" class="Symbol"
       >:</a
-      ><a name="2314"
+      ><a name="2276"
       > </a
-      ><a name="2315" class="Symbol"
+      ><a name="2277" class="Symbol"
       >&#8704;</a
-      ><a name="2316"
+      ><a name="2278"
       > </a
-      ><a name="2317" class="Symbol"
+      ><a name="2279" class="Symbol"
       >{</a
-      ><a name="2318" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2318" class="Bound"
+      ><a name="2280" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2280" class="Bound"
       >A</a
+      ><a name="2281"
+      > </a
+      ><a name="2282" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2282" class="Bound"
+      >B</a
+      ><a name="2283"
+      > </a
+      ><a name="2284" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2284" class="Bound"
+      >&#915;</a
+      ><a name="2285" class="Symbol"
+      >}</a
+      ><a name="2286"
+      > </a
+      ><a name="2287" class="Symbol"
+      >&#8594;</a
+      ><a name="2288"
+      > </a
+      ><a name="2289" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2290"
+      > </a
+      ><a name="2291" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2284" class="Bound"
+      >&#915;</a
+      ><a name="2292"
+      > </a
+      ><a name="2293" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2294"
+      > </a
+      ><a name="2295" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2280" class="Bound"
+      >A</a
+      ><a name="2296"
+      > </a
+      ><a name="2297" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2298"
+      > </a
+      ><a name="2299" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2282" class="Bound"
+      >B</a
+      ><a name="2300"
+      > </a
+      ><a name="2301" class="Symbol"
+      >&#8594;</a
+      ><a name="2302"
+      > </a
+      ><a name="2303" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2284" class="Bound"
+      >&#915;</a
+      ><a name="2306"
+      > </a
+      ><a name="2307" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2280" class="Bound"
+      >A</a
+      ><a name="2310"
+      >
+    </a
+      ><a name="2315" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2270" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
       ><a name="2319"
       > </a
       ><a name="2320" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2320" class="Bound"
-      >B</a
+      >s</a
       ><a name="2321"
       > </a
       ><a name="2322" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2322" class="Bound"
-      >&#915;</a
-      ><a name="2323" class="Symbol"
-      >}</a
-      ><a name="2324"
+      >&#947;</a
+      ><a name="2323"
       > </a
-      ><a name="2325" class="Symbol"
-      >&#8594;</a
-      ><a name="2326"
+      ><a name="2324" class="Symbol"
+      >=</a
+      ><a name="2325"
       > </a
-      ><a name="2327" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
+      ><a name="2326" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
       ><a name="2328"
       > </a
-      ><a name="2329" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2322" class="Bound"
-      >&#915;</a
-      ><a name="2330"
+      ><a name="2329" class="Symbol"
+      >(</a
+      ><a name="2330" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2320" class="Bound"
+      >s</a
+      ><a name="2331"
       > </a
-      ><a name="2331" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
-      ><a name="2332"
-      > </a
-      ><a name="2333" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2318" class="Bound"
-      >A</a
+      ><a name="2332" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2322" class="Bound"
+      >&#947;</a
+      ><a name="2333" class="Symbol"
+      >)</a
       ><a name="2334"
-      > </a
-      ><a name="2335" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
-      >&#8743;</a
-      ><a name="2336"
-      > </a
-      ><a name="2337" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2320" class="Bound"
-      >B</a
-      ><a name="2338"
-      > </a
-      ><a name="2339" class="Symbol"
-      >&#8594;</a
-      ><a name="2340"
-      > </a
-      ><a name="2341" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8873;</a
-      ><a name="2342"
-      > </a
-      ><a name="2343" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2322" class="Bound"
-      >&#915;</a
+      >
+
+    </a
+      ><a name="2340" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2340" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
       ><a name="2344"
       > </a
-      ><a name="2345" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1243" class="Function Operator"
-      >&#8658;</a
+      ><a name="2345" class="Symbol"
+      >:</a
       ><a name="2346"
       > </a
-      ><a name="2347" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2320" class="Bound"
-      >B</a
+      ><a name="2347" class="Symbol"
+      >&#8704;</a
       ><a name="2348"
-      >
-    </a
-      ><a name="2353" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2308" class="Function"
-      >&#10214;&#960;&#8322;&#10215;</a
-      ><a name="2357"
       > </a
-      ><a name="2358" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2358" class="Bound"
-      >s</a
-      ><a name="2359"
+      ><a name="2349" class="Symbol"
+      >{</a
+      ><a name="2350" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2350" class="Bound"
+      >A</a
+      ><a name="2351"
       > </a
-      ><a name="2360" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2360" class="Bound"
-      >&#947;</a
-      ><a name="2361"
+      ><a name="2352" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2352" class="Bound"
+      >B</a
+      ><a name="2353"
       > </a
-      ><a name="2362" class="Symbol"
-      >=</a
-      ><a name="2363"
+      ><a name="2354" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2354" class="Bound"
+      >&#915;</a
+      ><a name="2355" class="Symbol"
+      >}</a
+      ><a name="2356"
       > </a
-      ><a name="2364" href="Data.Product.html#539" class="Field"
-      >&#960;&#8322;</a
+      ><a name="2357" class="Symbol"
+      >&#8594;</a
+      ><a name="2358"
+      > </a
+      ><a name="2359" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2360"
+      > </a
+      ><a name="2361" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2354" class="Bound"
+      >&#915;</a
+      ><a name="2362"
+      > </a
+      ><a name="2363" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2364"
+      > </a
+      ><a name="2365" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2350" class="Bound"
+      >A</a
       ><a name="2366"
       > </a
-      ><a name="2367" class="Symbol"
-      >(</a
-      ><a name="2368" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2358" class="Bound"
-      >s</a
-      ><a name="2369"
+      ><a name="2367" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2368"
       > </a
-      ><a name="2370" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2360" class="Bound"
-      >&#947;</a
+      ><a name="2369" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2352" class="Bound"
+      >B</a
+      ><a name="2370"
+      > </a
       ><a name="2371" class="Symbol"
-      >)</a
+      >&#8594;</a
       ><a name="2372"
+      > </a
+      ><a name="2373" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8873;</a
+      ><a name="2374"
+      > </a
+      ><a name="2375" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2354" class="Bound"
+      >&#915;</a
+      ><a name="2376"
+      > </a
+      ><a name="2377" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#1275" class="Function Operator"
+      >&#8658;</a
+      ><a name="2378"
+      > </a
+      ><a name="2379" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2352" class="Bound"
+      >B</a
+      ><a name="2380"
+      >
+    </a
+      ><a name="2385" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2340" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="2389"
+      > </a
+      ><a name="2390" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2390" class="Bound"
+      >s</a
+      ><a name="2391"
+      > </a
+      ><a name="2392" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2392" class="Bound"
+      >&#947;</a
+      ><a name="2393"
+      > </a
+      ><a name="2394" class="Symbol"
+      >=</a
+      ><a name="2395"
+      > </a
+      ><a name="2396" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="2398"
+      > </a
+      ><a name="2399" class="Symbol"
+      >(</a
+      ><a name="2400" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2390" class="Bound"
+      >s</a
+      ><a name="2401"
+      > </a
+      ><a name="2402" href="BasicIS4.Semantics.TarskiClosedGabbayNanevski.html#2392" class="Bound"
+      >&#947;</a
+      ><a name="2403" class="Symbol"
+      >)</a
+      ><a name="2404"
       >
 </a
       ></pre
