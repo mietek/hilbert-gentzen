@@ -1,0 +1,2546 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIPC.Syntax.HilbertSequential</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Hilbert-style formalisation of syntax.</a
+      ><a name="42"
+      >
+</a
+      ><a name="43" class="Comment"
+      >-- Sequences of terms.</a
+      ><a name="65"
+      >
+
+</a
+      ><a name="67" class="Keyword"
+      >module</a
+      ><a name="73"
+      > </a
+      ><a name="74" href="BasicIPC.Syntax.HilbertSequential.html#1" class="Module"
+      >BasicIPC.Syntax.HilbertSequential</a
+      ><a name="107"
+      > </a
+      ><a name="108" class="Keyword"
+      >where</a
+      ><a name="113"
+      >
+
+</a
+      ><a name="115" class="Keyword"
+      >open</a
+      ><a name="119"
+      > </a
+      ><a name="120" class="Keyword"
+      >import</a
+      ><a name="126"
+      > </a
+      ><a name="127" href="BasicIPC.Syntax.Common.html#1" class="Module"
+      >BasicIPC.Syntax.Common</a
+      ><a name="149"
+      > </a
+      ><a name="150" class="Keyword"
+      >public</a
+      ><a name="156"
+      >
+
+
+</a
+      ><a name="159" class="Comment"
+      >-- Derivations.</a
+      ><a name="174"
+      >
+
+</a
+      ><a name="176" class="Keyword"
+      >infix</a
+      ><a name="181"
+      > </a
+      ><a name="182" class="Number"
+      >3</a
+      ><a name="183"
+      > _&#8866;&#215;_
+</a
+      ><a name="189" class="Keyword"
+      >data</a
+      ><a name="193"
+      > </a
+      ><a name="194" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >_&#8866;&#215;_</a
+      ><a name="198"
+      > </a
+      ><a name="199" class="Symbol"
+      >(</a
+      ><a name="200" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="201"
+      > </a
+      ><a name="202" class="Symbol"
+      >:</a
+      ><a name="203"
+      > </a
+      ><a name="204" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="206"
+      > </a
+      ><a name="207" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="209" class="Symbol"
+      >)</a
+      ><a name="210"
+      > </a
+      ><a name="211" class="Symbol"
+      >:</a
+      ><a name="212"
+      > </a
+      ><a name="213" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="215"
+      > </a
+      ><a name="216" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="218"
+      > </a
+      ><a name="219" class="Symbol"
+      >&#8594;</a
+      ><a name="220"
+      > </a
+      ><a name="221" class="PrimitiveType"
+      >Set</a
+      ><a name="224"
+      > </a
+      ><a name="225" class="Keyword"
+      >where</a
+      ><a name="230"
+      >
+  </a
+      ><a name="233" href="BasicIPC.Syntax.HilbertSequential.html#233" class="InductiveConstructor"
+      >nil</a
+      ><a name="236"
+      >   </a
+      ><a name="239" class="Symbol"
+      >:</a
+      ><a name="240"
+      > </a
+      ><a name="241" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="242"
+      > </a
+      ><a name="243" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="245"
+      > </a
+      ><a name="246" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="247"
+      >
+  </a
+      ><a name="250" href="BasicIPC.Syntax.HilbertSequential.html#250" class="InductiveConstructor"
+      >var</a
+      ><a name="253"
+      >   </a
+      ><a name="256" class="Symbol"
+      >:</a
+      ><a name="257"
+      > </a
+      ><a name="258" class="Symbol"
+      >&#8704;</a
+      ><a name="259"
+      > </a
+      ><a name="260" class="Symbol"
+      >{</a
+      ><a name="261" href="BasicIPC.Syntax.HilbertSequential.html#261" class="Bound"
+      >&#928;</a
+      ><a name="262"
+      > </a
+      ><a name="263" href="BasicIPC.Syntax.HilbertSequential.html#263" class="Bound"
+      >A</a
+      ><a name="264" class="Symbol"
+      >}</a
+      ><a name="265"
+      >     </a
+      ><a name="270" class="Symbol"
+      >&#8594;</a
+      ><a name="271"
+      > </a
+      ><a name="272" href="BasicIPC.Syntax.HilbertSequential.html#263" class="Bound"
+      >A</a
+      ><a name="273"
+      > </a
+      ><a name="274" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="275"
+      > </a
+      ><a name="276" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="277"
+      > </a
+      ><a name="278" class="Symbol"
+      >&#8594;</a
+      ><a name="279"
+      > </a
+      ><a name="280" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="281"
+      > </a
+      ><a name="282" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="284"
+      > </a
+      ><a name="285" href="BasicIPC.Syntax.HilbertSequential.html#261" class="Bound"
+      >&#928;</a
+      ><a name="286"
+      > </a
+      ><a name="287" class="Symbol"
+      >&#8594;</a
+      ><a name="288"
+      > </a
+      ><a name="289" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="290"
+      > </a
+      ><a name="291" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="293"
+      > </a
+      ><a name="294" href="BasicIPC.Syntax.HilbertSequential.html#261" class="Bound"
+      >&#928;</a
+      ><a name="295"
+      > </a
+      ><a name="296" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="297"
+      > </a
+      ><a name="298" href="BasicIPC.Syntax.HilbertSequential.html#263" class="Bound"
+      >A</a
+      ><a name="299"
+      >
+  </a
+      ><a name="302" href="BasicIPC.Syntax.HilbertSequential.html#302" class="InductiveConstructor"
+      >mp</a
+      ><a name="304"
+      >    </a
+      ><a name="308" class="Symbol"
+      >:</a
+      ><a name="309"
+      > </a
+      ><a name="310" class="Symbol"
+      >&#8704;</a
+      ><a name="311"
+      > </a
+      ><a name="312" class="Symbol"
+      >{</a
+      ><a name="313" href="BasicIPC.Syntax.HilbertSequential.html#313" class="Bound"
+      >&#928;</a
+      ><a name="314"
+      > </a
+      ><a name="315" href="BasicIPC.Syntax.HilbertSequential.html#315" class="Bound"
+      >A</a
+      ><a name="316"
+      > </a
+      ><a name="317" href="BasicIPC.Syntax.HilbertSequential.html#317" class="Bound"
+      >B</a
+      ><a name="318" class="Symbol"
+      >}</a
+      ><a name="319"
+      >   </a
+      ><a name="322" class="Symbol"
+      >&#8594;</a
+      ><a name="323"
+      > </a
+      ><a name="324" href="BasicIPC.Syntax.HilbertSequential.html#315" class="Bound"
+      >A</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="327"
+      > </a
+      ><a name="328" href="BasicIPC.Syntax.HilbertSequential.html#317" class="Bound"
+      >B</a
+      ><a name="329"
+      > </a
+      ><a name="330" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="331"
+      > </a
+      ><a name="332" href="BasicIPC.Syntax.HilbertSequential.html#313" class="Bound"
+      >&#928;</a
+      ><a name="333"
+      > </a
+      ><a name="334" class="Symbol"
+      >&#8594;</a
+      ><a name="335"
+      > </a
+      ><a name="336" href="BasicIPC.Syntax.HilbertSequential.html#315" class="Bound"
+      >A</a
+      ><a name="337"
+      > </a
+      ><a name="338" href="Common.Context.html#1097" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="339"
+      > </a
+      ><a name="340" href="BasicIPC.Syntax.HilbertSequential.html#313" class="Bound"
+      >&#928;</a
+      ><a name="341"
+      > </a
+      ><a name="342" class="Symbol"
+      >&#8594;</a
+      ><a name="343"
+      > </a
+      ><a name="344" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="345"
+      > </a
+      ><a name="346" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="348"
+      > </a
+      ><a name="349" href="BasicIPC.Syntax.HilbertSequential.html#313" class="Bound"
+      >&#928;</a
+      ><a name="350"
+      > </a
+      ><a name="351" class="Symbol"
+      >&#8594;</a
+      ><a name="352"
+      > </a
+      ><a name="353" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="354"
+      > </a
+      ><a name="355" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="357"
+      > </a
+      ><a name="358" href="BasicIPC.Syntax.HilbertSequential.html#313" class="Bound"
+      >&#928;</a
+      ><a name="359"
+      > </a
+      ><a name="360" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="361"
+      > </a
+      ><a name="362" href="BasicIPC.Syntax.HilbertSequential.html#317" class="Bound"
+      >B</a
+      ><a name="363"
+      >
+  </a
+      ><a name="366" href="BasicIPC.Syntax.HilbertSequential.html#366" class="InductiveConstructor"
+      >ci</a
+      ><a name="368"
+      >    </a
+      ><a name="372" class="Symbol"
+      >:</a
+      ><a name="373"
+      > </a
+      ><a name="374" class="Symbol"
+      >&#8704;</a
+      ><a name="375"
+      > </a
+      ><a name="376" class="Symbol"
+      >{</a
+      ><a name="377" href="BasicIPC.Syntax.HilbertSequential.html#377" class="Bound"
+      >&#928;</a
+      ><a name="378"
+      > </a
+      ><a name="379" href="BasicIPC.Syntax.HilbertSequential.html#379" class="Bound"
+      >A</a
+      ><a name="380" class="Symbol"
+      >}</a
+      ><a name="381"
+      >     </a
+      ><a name="386" class="Symbol"
+      >&#8594;</a
+      ><a name="387"
+      > </a
+      ><a name="388" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="389"
+      > </a
+      ><a name="390" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="392"
+      > </a
+      ><a name="393" href="BasicIPC.Syntax.HilbertSequential.html#377" class="Bound"
+      >&#928;</a
+      ><a name="394"
+      > </a
+      ><a name="395" class="Symbol"
+      >&#8594;</a
+      ><a name="396"
+      > </a
+      ><a name="397" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="398"
+      > </a
+      ><a name="399" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="401"
+      > </a
+      ><a name="402" href="BasicIPC.Syntax.HilbertSequential.html#377" class="Bound"
+      >&#928;</a
+      ><a name="403"
+      > </a
+      ><a name="404" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="405"
+      > </a
+      ><a name="406" href="BasicIPC.Syntax.HilbertSequential.html#379" class="Bound"
+      >A</a
+      ><a name="407"
+      > </a
+      ><a name="408" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="409"
+      > </a
+      ><a name="410" href="BasicIPC.Syntax.HilbertSequential.html#379" class="Bound"
+      >A</a
+      ><a name="411"
+      >
+  </a
+      ><a name="414" href="BasicIPC.Syntax.HilbertSequential.html#414" class="InductiveConstructor"
+      >ck</a
+      ><a name="416"
+      >    </a
+      ><a name="420" class="Symbol"
+      >:</a
+      ><a name="421"
+      > </a
+      ><a name="422" class="Symbol"
+      >&#8704;</a
+      ><a name="423"
+      > </a
+      ><a name="424" class="Symbol"
+      >{</a
+      ><a name="425" href="BasicIPC.Syntax.HilbertSequential.html#425" class="Bound"
+      >&#928;</a
+      ><a name="426"
+      > </a
+      ><a name="427" href="BasicIPC.Syntax.HilbertSequential.html#427" class="Bound"
+      >A</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="BasicIPC.Syntax.HilbertSequential.html#429" class="Bound"
+      >B</a
+      ><a name="430" class="Symbol"
+      >}</a
+      ><a name="431"
+      >   </a
+      ><a name="434" class="Symbol"
+      >&#8594;</a
+      ><a name="435"
+      > </a
+      ><a name="436" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="437"
+      > </a
+      ><a name="438" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="440"
+      > </a
+      ><a name="441" href="BasicIPC.Syntax.HilbertSequential.html#425" class="Bound"
+      >&#928;</a
+      ><a name="442"
+      > </a
+      ><a name="443" class="Symbol"
+      >&#8594;</a
+      ><a name="444"
+      > </a
+      ><a name="445" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="449"
+      > </a
+      ><a name="450" href="BasicIPC.Syntax.HilbertSequential.html#425" class="Bound"
+      >&#928;</a
+      ><a name="451"
+      > </a
+      ><a name="452" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="453"
+      > </a
+      ><a name="454" href="BasicIPC.Syntax.HilbertSequential.html#427" class="Bound"
+      >A</a
+      ><a name="455"
+      > </a
+      ><a name="456" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="457"
+      > </a
+      ><a name="458" href="BasicIPC.Syntax.HilbertSequential.html#429" class="Bound"
+      >B</a
+      ><a name="459"
+      > </a
+      ><a name="460" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="461"
+      > </a
+      ><a name="462" href="BasicIPC.Syntax.HilbertSequential.html#427" class="Bound"
+      >A</a
+      ><a name="463"
+      >
+  </a
+      ><a name="466" href="BasicIPC.Syntax.HilbertSequential.html#466" class="InductiveConstructor"
+      >cs</a
+      ><a name="468"
+      >    </a
+      ><a name="472" class="Symbol"
+      >:</a
+      ><a name="473"
+      > </a
+      ><a name="474" class="Symbol"
+      >&#8704;</a
+      ><a name="475"
+      > </a
+      ><a name="476" class="Symbol"
+      >{</a
+      ><a name="477" href="BasicIPC.Syntax.HilbertSequential.html#477" class="Bound"
+      >&#928;</a
+      ><a name="478"
+      > </a
+      ><a name="479" href="BasicIPC.Syntax.HilbertSequential.html#479" class="Bound"
+      >A</a
+      ><a name="480"
+      > </a
+      ><a name="481" href="BasicIPC.Syntax.HilbertSequential.html#481" class="Bound"
+      >B</a
+      ><a name="482"
+      > </a
+      ><a name="483" href="BasicIPC.Syntax.HilbertSequential.html#483" class="Bound"
+      >C</a
+      ><a name="484" class="Symbol"
+      >}</a
+      ><a name="485"
+      > </a
+      ><a name="486" class="Symbol"
+      >&#8594;</a
+      ><a name="487"
+      > </a
+      ><a name="488" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="489"
+      > </a
+      ><a name="490" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="492"
+      > </a
+      ><a name="493" href="BasicIPC.Syntax.HilbertSequential.html#477" class="Bound"
+      >&#928;</a
+      ><a name="494"
+      > </a
+      ><a name="495" class="Symbol"
+      >&#8594;</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="498"
+      > </a
+      ><a name="499" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="BasicIPC.Syntax.HilbertSequential.html#477" class="Bound"
+      >&#928;</a
+      ><a name="503"
+      > </a
+      ><a name="504" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="505"
+      > </a
+      ><a name="506" class="Symbol"
+      >(</a
+      ><a name="507" href="BasicIPC.Syntax.HilbertSequential.html#479" class="Bound"
+      >A</a
+      ><a name="508"
+      > </a
+      ><a name="509" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="510"
+      > </a
+      ><a name="511" href="BasicIPC.Syntax.HilbertSequential.html#481" class="Bound"
+      >B</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="514"
+      > </a
+      ><a name="515" href="BasicIPC.Syntax.HilbertSequential.html#483" class="Bound"
+      >C</a
+      ><a name="516" class="Symbol"
+      >)</a
+      ><a name="517"
+      > </a
+      ><a name="518" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="519"
+      > </a
+      ><a name="520" class="Symbol"
+      >(</a
+      ><a name="521" href="BasicIPC.Syntax.HilbertSequential.html#479" class="Bound"
+      >A</a
+      ><a name="522"
+      > </a
+      ><a name="523" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="BasicIPC.Syntax.HilbertSequential.html#481" class="Bound"
+      >B</a
+      ><a name="526" class="Symbol"
+      >)</a
+      ><a name="527"
+      > </a
+      ><a name="528" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="BasicIPC.Syntax.HilbertSequential.html#479" class="Bound"
+      >A</a
+      ><a name="531"
+      > </a
+      ><a name="532" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="533"
+      > </a
+      ><a name="534" href="BasicIPC.Syntax.HilbertSequential.html#483" class="Bound"
+      >C</a
+      ><a name="535"
+      >
+  </a
+      ><a name="538" href="BasicIPC.Syntax.HilbertSequential.html#538" class="InductiveConstructor"
+      >cpair</a
+      ><a name="543"
+      > </a
+      ><a name="544" class="Symbol"
+      >:</a
+      ><a name="545"
+      > </a
+      ><a name="546" class="Symbol"
+      >&#8704;</a
+      ><a name="547"
+      > </a
+      ><a name="548" class="Symbol"
+      >{</a
+      ><a name="549" href="BasicIPC.Syntax.HilbertSequential.html#549" class="Bound"
+      >&#928;</a
+      ><a name="550"
+      > </a
+      ><a name="551" href="BasicIPC.Syntax.HilbertSequential.html#551" class="Bound"
+      >A</a
+      ><a name="552"
+      > </a
+      ><a name="553" href="BasicIPC.Syntax.HilbertSequential.html#553" class="Bound"
+      >B</a
+      ><a name="554" class="Symbol"
+      >}</a
+      ><a name="555"
+      >   </a
+      ><a name="558" class="Symbol"
+      >&#8594;</a
+      ><a name="559"
+      > </a
+      ><a name="560" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="564"
+      > </a
+      ><a name="565" href="BasicIPC.Syntax.HilbertSequential.html#549" class="Bound"
+      >&#928;</a
+      ><a name="566"
+      > </a
+      ><a name="567" class="Symbol"
+      >&#8594;</a
+      ><a name="568"
+      > </a
+      ><a name="569" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="570"
+      > </a
+      ><a name="571" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="BasicIPC.Syntax.HilbertSequential.html#549" class="Bound"
+      >&#928;</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="577"
+      > </a
+      ><a name="578" href="BasicIPC.Syntax.HilbertSequential.html#551" class="Bound"
+      >A</a
+      ><a name="579"
+      > </a
+      ><a name="580" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="581"
+      > </a
+      ><a name="582" href="BasicIPC.Syntax.HilbertSequential.html#553" class="Bound"
+      >B</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="585"
+      > </a
+      ><a name="586" href="BasicIPC.Syntax.HilbertSequential.html#551" class="Bound"
+      >A</a
+      ><a name="587"
+      > </a
+      ><a name="588" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="589"
+      > </a
+      ><a name="590" href="BasicIPC.Syntax.HilbertSequential.html#553" class="Bound"
+      >B</a
+      ><a name="591"
+      >
+  </a
+      ><a name="594" href="BasicIPC.Syntax.HilbertSequential.html#594" class="InductiveConstructor"
+      >cfst</a
+      ><a name="598"
+      >  </a
+      ><a name="600" class="Symbol"
+      >:</a
+      ><a name="601"
+      > </a
+      ><a name="602" class="Symbol"
+      >&#8704;</a
+      ><a name="603"
+      > </a
+      ><a name="604" class="Symbol"
+      >{</a
+      ><a name="605" href="BasicIPC.Syntax.HilbertSequential.html#605" class="Bound"
+      >&#928;</a
+      ><a name="606"
+      > </a
+      ><a name="607" href="BasicIPC.Syntax.HilbertSequential.html#607" class="Bound"
+      >A</a
+      ><a name="608"
+      > </a
+      ><a name="609" href="BasicIPC.Syntax.HilbertSequential.html#609" class="Bound"
+      >B</a
+      ><a name="610" class="Symbol"
+      >}</a
+      ><a name="611"
+      >   </a
+      ><a name="614" class="Symbol"
+      >&#8594;</a
+      ><a name="615"
+      > </a
+      ><a name="616" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="617"
+      > </a
+      ><a name="618" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="620"
+      > </a
+      ><a name="621" href="BasicIPC.Syntax.HilbertSequential.html#605" class="Bound"
+      >&#928;</a
+      ><a name="622"
+      > </a
+      ><a name="623" class="Symbol"
+      >&#8594;</a
+      ><a name="624"
+      > </a
+      ><a name="625" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="626"
+      > </a
+      ><a name="627" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="629"
+      > </a
+      ><a name="630" href="BasicIPC.Syntax.HilbertSequential.html#605" class="Bound"
+      >&#928;</a
+      ><a name="631"
+      > </a
+      ><a name="632" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="633"
+      > </a
+      ><a name="634" href="BasicIPC.Syntax.HilbertSequential.html#607" class="Bound"
+      >A</a
+      ><a name="635"
+      > </a
+      ><a name="636" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="637"
+      > </a
+      ><a name="638" href="BasicIPC.Syntax.HilbertSequential.html#609" class="Bound"
+      >B</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="641"
+      > </a
+      ><a name="642" href="BasicIPC.Syntax.HilbertSequential.html#607" class="Bound"
+      >A</a
+      ><a name="643"
+      >
+  </a
+      ><a name="646" href="BasicIPC.Syntax.HilbertSequential.html#646" class="InductiveConstructor"
+      >csnd</a
+      ><a name="650"
+      >  </a
+      ><a name="652" class="Symbol"
+      >:</a
+      ><a name="653"
+      > </a
+      ><a name="654" class="Symbol"
+      >&#8704;</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Symbol"
+      >{</a
+      ><a name="657" href="BasicIPC.Syntax.HilbertSequential.html#657" class="Bound"
+      >&#928;</a
+      ><a name="658"
+      > </a
+      ><a name="659" href="BasicIPC.Syntax.HilbertSequential.html#659" class="Bound"
+      >A</a
+      ><a name="660"
+      > </a
+      ><a name="661" href="BasicIPC.Syntax.HilbertSequential.html#661" class="Bound"
+      >B</a
+      ><a name="662" class="Symbol"
+      >}</a
+      ><a name="663"
+      >   </a
+      ><a name="666" class="Symbol"
+      >&#8594;</a
+      ><a name="667"
+      > </a
+      ><a name="668" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="669"
+      > </a
+      ><a name="670" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="672"
+      > </a
+      ><a name="673" href="BasicIPC.Syntax.HilbertSequential.html#657" class="Bound"
+      >&#928;</a
+      ><a name="674"
+      > </a
+      ><a name="675" class="Symbol"
+      >&#8594;</a
+      ><a name="676"
+      > </a
+      ><a name="677" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="678"
+      > </a
+      ><a name="679" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="681"
+      > </a
+      ><a name="682" href="BasicIPC.Syntax.HilbertSequential.html#657" class="Bound"
+      >&#928;</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="685"
+      > </a
+      ><a name="686" href="BasicIPC.Syntax.HilbertSequential.html#659" class="Bound"
+      >A</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="689"
+      > </a
+      ><a name="690" href="BasicIPC.Syntax.HilbertSequential.html#661" class="Bound"
+      >B</a
+      ><a name="691"
+      > </a
+      ><a name="692" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="693"
+      > </a
+      ><a name="694" href="BasicIPC.Syntax.HilbertSequential.html#661" class="Bound"
+      >B</a
+      ><a name="695"
+      >
+  </a
+      ><a name="698" href="BasicIPC.Syntax.HilbertSequential.html#698" class="InductiveConstructor"
+      >tt</a
+      ><a name="700"
+      >    </a
+      ><a name="704" class="Symbol"
+      >:</a
+      ><a name="705"
+      > </a
+      ><a name="706" class="Symbol"
+      >&#8704;</a
+      ><a name="707"
+      > </a
+      ><a name="708" class="Symbol"
+      >{</a
+      ><a name="709" href="BasicIPC.Syntax.HilbertSequential.html#709" class="Bound"
+      >&#928;</a
+      ><a name="710" class="Symbol"
+      >}</a
+      ><a name="711"
+      >       </a
+      ><a name="718" class="Symbol"
+      >&#8594;</a
+      ><a name="719"
+      > </a
+      ><a name="720" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="721"
+      > </a
+      ><a name="722" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="724"
+      > </a
+      ><a name="725" href="BasicIPC.Syntax.HilbertSequential.html#709" class="Bound"
+      >&#928;</a
+      ><a name="726"
+      > </a
+      ><a name="727" class="Symbol"
+      >&#8594;</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="BasicIPC.Syntax.HilbertSequential.html#200" class="Bound"
+      >&#915;</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="BasicIPC.Syntax.HilbertSequential.html#709" class="Bound"
+      >&#928;</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="BasicIPC.Syntax.Common.html#229" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="739"
+      >
+
+</a
+      ><a name="741" class="Keyword"
+      >infix</a
+      ><a name="746"
+      > </a
+      ><a name="747" class="Number"
+      >3</a
+      ><a name="748"
+      > _&#8866;_
+</a
+      ><a name="753" href="BasicIPC.Syntax.HilbertSequential.html#753" class="Function Operator"
+      >_&#8866;_</a
+      ><a name="756"
+      > </a
+      ><a name="757" class="Symbol"
+      >:</a
+      ><a name="758"
+      > </a
+      ><a name="759" href="Common.Context.html#90" class="Datatype"
+      >Cx</a
+      ><a name="761"
+      > </a
+      ><a name="762" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="764"
+      > </a
+      ><a name="765" class="Symbol"
+      >&#8594;</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      >Ty</a
+      ><a name="769"
+      > </a
+      ><a name="770" class="Symbol"
+      >&#8594;</a
+      ><a name="771"
+      > </a
+      ><a name="772" class="PrimitiveType"
+      >Set</a
+      ><a name="775"
+      >
+</a
+      ><a name="776" href="BasicIPC.Syntax.HilbertSequential.html#776" class="Bound"
+      >&#915;</a
+      ><a name="777"
+      > </a
+      ><a name="778" href="BasicIPC.Syntax.HilbertSequential.html#753" class="Function Operator"
+      >&#8866;</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="BasicIPC.Syntax.HilbertSequential.html#780" class="Bound"
+      >A</a
+      ><a name="781"
+      > </a
+      ><a name="782" class="Symbol"
+      >=</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="Data.Product.html#823" class="Function"
+      >&#8707;</a
+      ><a name="785"
+      > </a
+      ><a name="786" class="Symbol"
+      >(&#955;</a
+      ><a name="788"
+      > </a
+      ><a name="789" href="BasicIPC.Syntax.HilbertSequential.html#789" class="Bound"
+      >&#928;</a
+      ><a name="790"
+      > </a
+      ><a name="791" class="Symbol"
+      >&#8594;</a
+      ><a name="792"
+      > </a
+      ><a name="793" href="BasicIPC.Syntax.HilbertSequential.html#776" class="Bound"
+      >&#915;</a
+      ><a name="794"
+      > </a
+      ><a name="795" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="797"
+      > </a
+      ><a name="798" href="BasicIPC.Syntax.HilbertSequential.html#789" class="Bound"
+      >&#928;</a
+      ><a name="799"
+      > </a
+      ><a name="800" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="801"
+      > </a
+      ><a name="802" href="BasicIPC.Syntax.HilbertSequential.html#780" class="Bound"
+      >A</a
+      ><a name="803" class="Symbol"
+      >)</a
+      ><a name="804"
+      >
+
+
+</a
+      ><a name="807" class="Comment"
+      >-- Monotonicity with respect to context inclusion.</a
+      ><a name="857"
+      >
+
+</a
+      ><a name="859" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="865"
+      > </a
+      ><a name="866" class="Symbol"
+      >:</a
+      ><a name="867"
+      > </a
+      ><a name="868" class="Symbol"
+      >&#8704;</a
+      ><a name="869"
+      > </a
+      ><a name="870" class="Symbol"
+      >{</a
+      ><a name="871" href="BasicIPC.Syntax.HilbertSequential.html#871" class="Bound"
+      >&#928;</a
+      ><a name="872"
+      > </a
+      ><a name="873" href="BasicIPC.Syntax.HilbertSequential.html#873" class="Bound"
+      >&#915;</a
+      ><a name="874"
+      > </a
+      ><a name="875" href="BasicIPC.Syntax.HilbertSequential.html#875" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="877" class="Symbol"
+      >}</a
+      ><a name="878"
+      > </a
+      ><a name="879" class="Symbol"
+      >&#8594;</a
+      ><a name="880"
+      > </a
+      ><a name="881" href="BasicIPC.Syntax.HilbertSequential.html#873" class="Bound"
+      >&#915;</a
+      ><a name="882"
+      > </a
+      ><a name="883" href="Common.Context.html#1519" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="884"
+      > </a
+      ><a name="885" href="BasicIPC.Syntax.HilbertSequential.html#875" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="887"
+      > </a
+      ><a name="888" class="Symbol"
+      >&#8594;</a
+      ><a name="889"
+      > </a
+      ><a name="890" href="BasicIPC.Syntax.HilbertSequential.html#873" class="Bound"
+      >&#915;</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="894"
+      > </a
+      ><a name="895" href="BasicIPC.Syntax.HilbertSequential.html#871" class="Bound"
+      >&#928;</a
+      ><a name="896"
+      > </a
+      ><a name="897" class="Symbol"
+      >&#8594;</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="BasicIPC.Syntax.HilbertSequential.html#875" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="901"
+      > </a
+      ><a name="902" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="904"
+      > </a
+      ><a name="905" href="BasicIPC.Syntax.HilbertSequential.html#871" class="Bound"
+      >&#928;</a
+      ><a name="906"
+      >
+</a
+      ><a name="907" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="913"
+      > </a
+      ><a name="914" href="BasicIPC.Syntax.HilbertSequential.html#914" class="Bound"
+      >&#951;</a
+      ><a name="915"
+      > </a
+      ><a name="916" href="BasicIPC.Syntax.HilbertSequential.html#233" class="InductiveConstructor"
+      >nil</a
+      ><a name="919"
+      >         </a
+      ><a name="928" class="Symbol"
+      >=</a
+      ><a name="929"
+      > </a
+      ><a name="930" href="BasicIPC.Syntax.HilbertSequential.html#233" class="InductiveConstructor"
+      >nil</a
+      ><a name="933"
+      >
+</a
+      ><a name="934" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="940"
+      > </a
+      ><a name="941" href="BasicIPC.Syntax.HilbertSequential.html#941" class="Bound"
+      >&#951;</a
+      ><a name="942"
+      > </a
+      ><a name="943" class="Symbol"
+      >(</a
+      ><a name="944" href="BasicIPC.Syntax.HilbertSequential.html#250" class="InductiveConstructor"
+      >var</a
+      ><a name="947"
+      > </a
+      ><a name="948" href="BasicIPC.Syntax.HilbertSequential.html#948" class="Bound"
+      >i</a
+      ><a name="949"
+      > </a
+      ><a name="950" href="BasicIPC.Syntax.HilbertSequential.html#950" class="Bound"
+      >ts</a
+      ><a name="952" class="Symbol"
+      >)</a
+      ><a name="953"
+      >  </a
+      ><a name="955" class="Symbol"
+      >=</a
+      ><a name="956"
+      > </a
+      ><a name="957" href="BasicIPC.Syntax.HilbertSequential.html#250" class="InductiveConstructor"
+      >var</a
+      ><a name="960"
+      > </a
+      ><a name="961" class="Symbol"
+      >(</a
+      ><a name="962" href="Common.Context.html#2388" class="Function"
+      >mono&#8712;</a
+      ><a name="967"
+      > </a
+      ><a name="968" href="BasicIPC.Syntax.HilbertSequential.html#941" class="Bound"
+      >&#951;</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="BasicIPC.Syntax.HilbertSequential.html#948" class="Bound"
+      >i</a
+      ><a name="971" class="Symbol"
+      >)</a
+      ><a name="972"
+      > </a
+      ><a name="973" class="Symbol"
+      >(</a
+      ><a name="974" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="980"
+      > </a
+      ><a name="981" href="BasicIPC.Syntax.HilbertSequential.html#941" class="Bound"
+      >&#951;</a
+      ><a name="982"
+      > </a
+      ><a name="983" href="BasicIPC.Syntax.HilbertSequential.html#950" class="Bound"
+      >ts</a
+      ><a name="985" class="Symbol"
+      >)</a
+      ><a name="986"
+      >
+</a
+      ><a name="987" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="993"
+      > </a
+      ><a name="994" href="BasicIPC.Syntax.HilbertSequential.html#994" class="Bound"
+      >&#951;</a
+      ><a name="995"
+      > </a
+      ><a name="996" class="Symbol"
+      >(</a
+      ><a name="997" href="BasicIPC.Syntax.HilbertSequential.html#302" class="InductiveConstructor"
+      >mp</a
+      ><a name="999"
+      > </a
+      ><a name="1000" href="BasicIPC.Syntax.HilbertSequential.html#1000" class="Bound"
+      >i</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" href="BasicIPC.Syntax.HilbertSequential.html#1002" class="Bound"
+      >j</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" href="BasicIPC.Syntax.HilbertSequential.html#1004" class="Bound"
+      >ts</a
+      ><a name="1006" class="Symbol"
+      >)</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" class="Symbol"
+      >=</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="BasicIPC.Syntax.HilbertSequential.html#302" class="InductiveConstructor"
+      >mp</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" href="BasicIPC.Syntax.HilbertSequential.html#1000" class="Bound"
+      >i</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" href="BasicIPC.Syntax.HilbertSequential.html#1002" class="Bound"
+      >j</a
+      ><a name="1016"
+      > </a
+      ><a name="1017" class="Symbol"
+      >(</a
+      ><a name="1018" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" href="BasicIPC.Syntax.HilbertSequential.html#994" class="Bound"
+      >&#951;</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" href="BasicIPC.Syntax.HilbertSequential.html#1004" class="Bound"
+      >ts</a
+      ><a name="1029" class="Symbol"
+      >)</a
+      ><a name="1030"
+      >
+</a
+      ><a name="1031" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" href="BasicIPC.Syntax.HilbertSequential.html#1038" class="Bound"
+      >&#951;</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" class="Symbol"
+      >(</a
+      ><a name="1041" href="BasicIPC.Syntax.HilbertSequential.html#366" class="InductiveConstructor"
+      >ci</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" href="BasicIPC.Syntax.HilbertSequential.html#1044" class="Bound"
+      >ts</a
+      ><a name="1046" class="Symbol"
+      >)</a
+      ><a name="1047"
+      >     </a
+      ><a name="1052" class="Symbol"
+      >=</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" href="BasicIPC.Syntax.HilbertSequential.html#366" class="InductiveConstructor"
+      >ci</a
+      ><a name="1056"
+      > </a
+      ><a name="1057" class="Symbol"
+      >(</a
+      ><a name="1058" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" href="BasicIPC.Syntax.HilbertSequential.html#1038" class="Bound"
+      >&#951;</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" href="BasicIPC.Syntax.HilbertSequential.html#1044" class="Bound"
+      >ts</a
+      ><a name="1069" class="Symbol"
+      >)</a
+      ><a name="1070"
+      >
+</a
+      ><a name="1071" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" href="BasicIPC.Syntax.HilbertSequential.html#1078" class="Bound"
+      >&#951;</a
+      ><a name="1079"
+      > </a
+      ><a name="1080" class="Symbol"
+      >(</a
+      ><a name="1081" href="BasicIPC.Syntax.HilbertSequential.html#414" class="InductiveConstructor"
+      >ck</a
+      ><a name="1083"
+      > </a
+      ><a name="1084" href="BasicIPC.Syntax.HilbertSequential.html#1084" class="Bound"
+      >ts</a
+      ><a name="1086" class="Symbol"
+      >)</a
+      ><a name="1087"
+      >     </a
+      ><a name="1092" class="Symbol"
+      >=</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="BasicIPC.Syntax.HilbertSequential.html#414" class="InductiveConstructor"
+      >ck</a
+      ><a name="1096"
+      > </a
+      ><a name="1097" class="Symbol"
+      >(</a
+      ><a name="1098" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" href="BasicIPC.Syntax.HilbertSequential.html#1078" class="Bound"
+      >&#951;</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="BasicIPC.Syntax.HilbertSequential.html#1084" class="Bound"
+      >ts</a
+      ><a name="1109" class="Symbol"
+      >)</a
+      ><a name="1110"
+      >
+</a
+      ><a name="1111" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1117"
+      > </a
+      ><a name="1118" href="BasicIPC.Syntax.HilbertSequential.html#1118" class="Bound"
+      >&#951;</a
+      ><a name="1119"
+      > </a
+      ><a name="1120" class="Symbol"
+      >(</a
+      ><a name="1121" href="BasicIPC.Syntax.HilbertSequential.html#466" class="InductiveConstructor"
+      >cs</a
+      ><a name="1123"
+      > </a
+      ><a name="1124" href="BasicIPC.Syntax.HilbertSequential.html#1124" class="Bound"
+      >ts</a
+      ><a name="1126" class="Symbol"
+      >)</a
+      ><a name="1127"
+      >     </a
+      ><a name="1132" class="Symbol"
+      >=</a
+      ><a name="1133"
+      > </a
+      ><a name="1134" href="BasicIPC.Syntax.HilbertSequential.html#466" class="InductiveConstructor"
+      >cs</a
+      ><a name="1136"
+      > </a
+      ><a name="1137" class="Symbol"
+      >(</a
+      ><a name="1138" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" href="BasicIPC.Syntax.HilbertSequential.html#1118" class="Bound"
+      >&#951;</a
+      ><a name="1146"
+      > </a
+      ><a name="1147" href="BasicIPC.Syntax.HilbertSequential.html#1124" class="Bound"
+      >ts</a
+      ><a name="1149" class="Symbol"
+      >)</a
+      ><a name="1150"
+      >
+</a
+      ><a name="1151" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="BasicIPC.Syntax.HilbertSequential.html#1158" class="Bound"
+      >&#951;</a
+      ><a name="1159"
+      > </a
+      ><a name="1160" class="Symbol"
+      >(</a
+      ><a name="1161" href="BasicIPC.Syntax.HilbertSequential.html#538" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1166"
+      > </a
+      ><a name="1167" href="BasicIPC.Syntax.HilbertSequential.html#1167" class="Bound"
+      >ts</a
+      ><a name="1169" class="Symbol"
+      >)</a
+      ><a name="1170"
+      >  </a
+      ><a name="1172" class="Symbol"
+      >=</a
+      ><a name="1173"
+      > </a
+      ><a name="1174" href="BasicIPC.Syntax.HilbertSequential.html#538" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1179"
+      > </a
+      ><a name="1180" class="Symbol"
+      >(</a
+      ><a name="1181" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1187"
+      > </a
+      ><a name="1188" href="BasicIPC.Syntax.HilbertSequential.html#1158" class="Bound"
+      >&#951;</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" href="BasicIPC.Syntax.HilbertSequential.html#1167" class="Bound"
+      >ts</a
+      ><a name="1192" class="Symbol"
+      >)</a
+      ><a name="1193"
+      >
+</a
+      ><a name="1194" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" href="BasicIPC.Syntax.HilbertSequential.html#1201" class="Bound"
+      >&#951;</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" class="Symbol"
+      >(</a
+      ><a name="1204" href="BasicIPC.Syntax.HilbertSequential.html#594" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1208"
+      > </a
+      ><a name="1209" href="BasicIPC.Syntax.HilbertSequential.html#1209" class="Bound"
+      >ts</a
+      ><a name="1211" class="Symbol"
+      >)</a
+      ><a name="1212"
+      >   </a
+      ><a name="1215" class="Symbol"
+      >=</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" href="BasicIPC.Syntax.HilbertSequential.html#594" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1221"
+      > </a
+      ><a name="1222" class="Symbol"
+      >(</a
+      ><a name="1223" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1229"
+      > </a
+      ><a name="1230" href="BasicIPC.Syntax.HilbertSequential.html#1201" class="Bound"
+      >&#951;</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" href="BasicIPC.Syntax.HilbertSequential.html#1209" class="Bound"
+      >ts</a
+      ><a name="1234" class="Symbol"
+      >)</a
+      ><a name="1235"
+      >
+</a
+      ><a name="1236" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" href="BasicIPC.Syntax.HilbertSequential.html#1243" class="Bound"
+      >&#951;</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" class="Symbol"
+      >(</a
+      ><a name="1246" href="BasicIPC.Syntax.HilbertSequential.html#646" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1250"
+      > </a
+      ><a name="1251" href="BasicIPC.Syntax.HilbertSequential.html#1251" class="Bound"
+      >ts</a
+      ><a name="1253" class="Symbol"
+      >)</a
+      ><a name="1254"
+      >   </a
+      ><a name="1257" class="Symbol"
+      >=</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="BasicIPC.Syntax.HilbertSequential.html#646" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1263"
+      > </a
+      ><a name="1264" class="Symbol"
+      >(</a
+      ><a name="1265" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" href="BasicIPC.Syntax.HilbertSequential.html#1243" class="Bound"
+      >&#951;</a
+      ><a name="1273"
+      > </a
+      ><a name="1274" href="BasicIPC.Syntax.HilbertSequential.html#1251" class="Bound"
+      >ts</a
+      ><a name="1276" class="Symbol"
+      >)</a
+      ><a name="1277"
+      >
+</a
+      ><a name="1278" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1284"
+      > </a
+      ><a name="1285" href="BasicIPC.Syntax.HilbertSequential.html#1285" class="Bound"
+      >&#951;</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" class="Symbol"
+      >(</a
+      ><a name="1288" href="BasicIPC.Syntax.HilbertSequential.html#698" class="InductiveConstructor"
+      >tt</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" href="BasicIPC.Syntax.HilbertSequential.html#1291" class="Bound"
+      >ts</a
+      ><a name="1293" class="Symbol"
+      >)</a
+      ><a name="1294"
+      >     </a
+      ><a name="1299" class="Symbol"
+      >=</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="BasicIPC.Syntax.HilbertSequential.html#698" class="InductiveConstructor"
+      >tt</a
+      ><a name="1303"
+      > </a
+      ><a name="1304" class="Symbol"
+      >(</a
+      ><a name="1305" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1311"
+      > </a
+      ><a name="1312" href="BasicIPC.Syntax.HilbertSequential.html#1285" class="Bound"
+      >&#951;</a
+      ><a name="1313"
+      > </a
+      ><a name="1314" href="BasicIPC.Syntax.HilbertSequential.html#1291" class="Bound"
+      >ts</a
+      ><a name="1316" class="Symbol"
+      >)</a
+      ><a name="1317"
+      >
+
+</a
+      ><a name="1319" href="BasicIPC.Syntax.HilbertSequential.html#1319" class="Function"
+      >mono&#8866;</a
+      ><a name="1324"
+      > </a
+      ><a name="1325" class="Symbol"
+      >:</a
+      ><a name="1326"
+      > </a
+      ><a name="1327" class="Symbol"
+      >&#8704;</a
+      ><a name="1328"
+      > </a
+      ><a name="1329" class="Symbol"
+      >{</a
+      ><a name="1330" href="BasicIPC.Syntax.HilbertSequential.html#1330" class="Bound"
+      >A</a
+      ><a name="1331"
+      > </a
+      ><a name="1332" href="BasicIPC.Syntax.HilbertSequential.html#1332" class="Bound"
+      >&#915;</a
+      ><a name="1333"
+      > </a
+      ><a name="1334" href="BasicIPC.Syntax.HilbertSequential.html#1334" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1336" class="Symbol"
+      >}</a
+      ><a name="1337"
+      > </a
+      ><a name="1338" class="Symbol"
+      >&#8594;</a
+      ><a name="1339"
+      > </a
+      ><a name="1340" href="BasicIPC.Syntax.HilbertSequential.html#1332" class="Bound"
+      >&#915;</a
+      ><a name="1341"
+      > </a
+      ><a name="1342" href="Common.Context.html#1519" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1343"
+      > </a
+      ><a name="1344" href="BasicIPC.Syntax.HilbertSequential.html#1334" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1346"
+      > </a
+      ><a name="1347" class="Symbol"
+      >&#8594;</a
+      ><a name="1348"
+      > </a
+      ><a name="1349" href="BasicIPC.Syntax.HilbertSequential.html#1332" class="Bound"
+      >&#915;</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" href="BasicIPC.Syntax.HilbertSequential.html#753" class="Function Operator"
+      >&#8866;</a
+      ><a name="1352"
+      > </a
+      ><a name="1353" href="BasicIPC.Syntax.HilbertSequential.html#1330" class="Bound"
+      >A</a
+      ><a name="1354"
+      > </a
+      ><a name="1355" class="Symbol"
+      >&#8594;</a
+      ><a name="1356"
+      > </a
+      ><a name="1357" href="BasicIPC.Syntax.HilbertSequential.html#1334" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" href="BasicIPC.Syntax.HilbertSequential.html#753" class="Function Operator"
+      >&#8866;</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" href="BasicIPC.Syntax.HilbertSequential.html#1330" class="Bound"
+      >A</a
+      ><a name="1363"
+      >
+</a
+      ><a name="1364" href="BasicIPC.Syntax.HilbertSequential.html#1319" class="Function"
+      >mono&#8866;</a
+      ><a name="1369"
+      > </a
+      ><a name="1370" href="BasicIPC.Syntax.HilbertSequential.html#1370" class="Bound"
+      >&#951;</a
+      ><a name="1371"
+      > </a
+      ><a name="1372" class="Symbol"
+      >(</a
+      ><a name="1373" href="BasicIPC.Syntax.HilbertSequential.html#1373" class="Bound"
+      >&#928;</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" href="BasicIPC.Syntax.HilbertSequential.html#1377" class="Bound"
+      >ts</a
+      ><a name="1379" class="Symbol"
+      >)</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" class="Symbol"
+      >=</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="BasicIPC.Syntax.HilbertSequential.html#1373" class="Bound"
+      >&#928;</a
+      ><a name="1384"
+      > </a
+      ><a name="1385" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1386"
+      > </a
+      ><a name="1387" href="BasicIPC.Syntax.HilbertSequential.html#859" class="Function"
+      >mono&#8866;&#215;</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" href="BasicIPC.Syntax.HilbertSequential.html#1370" class="Bound"
+      >&#951;</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" href="BasicIPC.Syntax.HilbertSequential.html#1377" class="Bound"
+      >ts</a
+      ><a name="1398"
+      >
+
+
+</a
+      ><a name="1401" class="Comment"
+      >-- Derivation concatenation.</a
+      ><a name="1429"
+      >
+
+</a
+      ><a name="1431" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >_&#10747;_</a
+      ><a name="1434"
+      > </a
+      ><a name="1435" class="Symbol"
+      >:</a
+      ><a name="1436"
+      > </a
+      ><a name="1437" class="Symbol"
+      >&#8704;</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" class="Symbol"
+      >{</a
+      ><a name="1440" href="BasicIPC.Syntax.HilbertSequential.html#1440" class="Bound"
+      >&#915;</a
+      ><a name="1441"
+      > </a
+      ><a name="1442" href="BasicIPC.Syntax.HilbertSequential.html#1442" class="Bound"
+      >&#928;</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" href="BasicIPC.Syntax.HilbertSequential.html#1444" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="1446" class="Symbol"
+      >}</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" class="Symbol"
+      >&#8594;</a
+      ><a name="1449"
+      > </a
+      ><a name="1450" href="BasicIPC.Syntax.HilbertSequential.html#1440" class="Bound"
+      >&#915;</a
+      ><a name="1451"
+      > </a
+      ><a name="1452" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" href="BasicIPC.Syntax.HilbertSequential.html#1442" class="Bound"
+      >&#928;</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" class="Symbol"
+      >&#8594;</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" href="BasicIPC.Syntax.HilbertSequential.html#1440" class="Bound"
+      >&#915;</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" href="BasicIPC.Syntax.HilbertSequential.html#1444" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="1466"
+      > </a
+      ><a name="1467" class="Symbol"
+      >&#8594;</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" href="BasicIPC.Syntax.HilbertSequential.html#1440" class="Bound"
+      >&#915;</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" href="BasicIPC.Syntax.HilbertSequential.html#194" class="Datatype Operator"
+      >&#8866;&#215;</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="BasicIPC.Syntax.HilbertSequential.html#1442" class="Bound"
+      >&#928;</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="Common.Context.html#3190" class="Function Operator"
+      >&#10746;</a
+      ><a name="1477"
+      > </a
+      ><a name="1478" href="BasicIPC.Syntax.HilbertSequential.html#1444" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="1480"
+      >
+</a
+      ><a name="1481" href="BasicIPC.Syntax.HilbertSequential.html#1481" class="Bound"
+      >us</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" href="BasicIPC.Syntax.HilbertSequential.html#233" class="InductiveConstructor"
+      >nil</a
+      ><a name="1489"
+      >       </a
+      ><a name="1496" class="Symbol"
+      >=</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="BasicIPC.Syntax.HilbertSequential.html#1481" class="Bound"
+      >us</a
+      ><a name="1500"
+      >
+</a
+      ><a name="1501" href="BasicIPC.Syntax.HilbertSequential.html#1501" class="Bound"
+      >us</a
+      ><a name="1503"
+      > </a
+      ><a name="1504" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="BasicIPC.Syntax.HilbertSequential.html#250" class="InductiveConstructor"
+      >var</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" href="BasicIPC.Syntax.HilbertSequential.html#1510" class="Bound"
+      >i</a
+      ><a name="1511"
+      > </a
+      ><a name="1512" href="BasicIPC.Syntax.HilbertSequential.html#1512" class="Bound"
+      >ts</a
+      ><a name="1514"
+      >  </a
+      ><a name="1516" class="Symbol"
+      >=</a
+      ><a name="1517"
+      > </a
+      ><a name="1518" href="BasicIPC.Syntax.HilbertSequential.html#250" class="InductiveConstructor"
+      >var</a
+      ><a name="1521"
+      > </a
+      ><a name="1522" href="BasicIPC.Syntax.HilbertSequential.html#1510" class="Bound"
+      >i</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" class="Symbol"
+      >(</a
+      ><a name="1525" href="BasicIPC.Syntax.HilbertSequential.html#1501" class="Bound"
+      >us</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1529"
+      > </a
+      ><a name="1530" href="BasicIPC.Syntax.HilbertSequential.html#1512" class="Bound"
+      >ts</a
+      ><a name="1532" class="Symbol"
+      >)</a
+      ><a name="1533"
+      >
+</a
+      ><a name="1534" href="BasicIPC.Syntax.HilbertSequential.html#1534" class="Bound"
+      >us</a
+      ><a name="1536"
+      > </a
+      ><a name="1537" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1538"
+      > </a
+      ><a name="1539" href="BasicIPC.Syntax.HilbertSequential.html#302" class="InductiveConstructor"
+      >mp</a
+      ><a name="1541"
+      > </a
+      ><a name="1542" href="BasicIPC.Syntax.HilbertSequential.html#1542" class="Bound"
+      >i</a
+      ><a name="1543"
+      > </a
+      ><a name="1544" href="BasicIPC.Syntax.HilbertSequential.html#1544" class="Bound"
+      >j</a
+      ><a name="1545"
+      > </a
+      ><a name="1546" href="BasicIPC.Syntax.HilbertSequential.html#1546" class="Bound"
+      >ts</a
+      ><a name="1548"
+      > </a
+      ><a name="1549" class="Symbol"
+      >=</a
+      ><a name="1550"
+      > </a
+      ><a name="1551" href="BasicIPC.Syntax.HilbertSequential.html#302" class="InductiveConstructor"
+      >mp</a
+      ><a name="1553"
+      > </a
+      ><a name="1554" class="Symbol"
+      >(</a
+      ><a name="1555" href="Common.Context.html#2388" class="Function"
+      >mono&#8712;</a
+      ><a name="1560"
+      > </a
+      ><a name="1561" href="Common.Context.html#3497" class="Function"
+      >weak&#8838;&#10746;&#7523;</a
+      ><a name="1568"
+      > </a
+      ><a name="1569" href="BasicIPC.Syntax.HilbertSequential.html#1542" class="Bound"
+      >i</a
+      ><a name="1570" class="Symbol"
+      >)</a
+      ><a name="1571"
+      > </a
+      ><a name="1572" class="Symbol"
+      >(</a
+      ><a name="1573" href="Common.Context.html#2388" class="Function"
+      >mono&#8712;</a
+      ><a name="1578"
+      > </a
+      ><a name="1579" href="Common.Context.html#3497" class="Function"
+      >weak&#8838;&#10746;&#7523;</a
+      ><a name="1586"
+      > </a
+      ><a name="1587" href="BasicIPC.Syntax.HilbertSequential.html#1544" class="Bound"
+      >j</a
+      ><a name="1588" class="Symbol"
+      >)</a
+      ><a name="1589"
+      > </a
+      ><a name="1590" class="Symbol"
+      >(</a
+      ><a name="1591" href="BasicIPC.Syntax.HilbertSequential.html#1534" class="Bound"
+      >us</a
+      ><a name="1593"
+      > </a
+      ><a name="1594" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1595"
+      > </a
+      ><a name="1596" href="BasicIPC.Syntax.HilbertSequential.html#1546" class="Bound"
+      >ts</a
+      ><a name="1598" class="Symbol"
+      >)</a
+      ><a name="1599"
+      >
+</a
+      ><a name="1600" href="BasicIPC.Syntax.HilbertSequential.html#1600" class="Bound"
+      >us</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1604"
+      > </a
+      ><a name="1605" href="BasicIPC.Syntax.HilbertSequential.html#366" class="InductiveConstructor"
+      >ci</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" href="BasicIPC.Syntax.HilbertSequential.html#1608" class="Bound"
+      >ts</a
+      ><a name="1610"
+      >     </a
+      ><a name="1615" class="Symbol"
+      >=</a
+      ><a name="1616"
+      > </a
+      ><a name="1617" href="BasicIPC.Syntax.HilbertSequential.html#366" class="InductiveConstructor"
+      >ci</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" class="Symbol"
+      >(</a
+      ><a name="1621" href="BasicIPC.Syntax.HilbertSequential.html#1600" class="Bound"
+      >us</a
+      ><a name="1623"
+      > </a
+      ><a name="1624" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" href="BasicIPC.Syntax.HilbertSequential.html#1608" class="Bound"
+      >ts</a
+      ><a name="1628" class="Symbol"
+      >)</a
+      ><a name="1629"
+      >
+</a
+      ><a name="1630" href="BasicIPC.Syntax.HilbertSequential.html#1630" class="Bound"
+      >us</a
+      ><a name="1632"
+      > </a
+      ><a name="1633" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1634"
+      > </a
+      ><a name="1635" href="BasicIPC.Syntax.HilbertSequential.html#414" class="InductiveConstructor"
+      >ck</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="BasicIPC.Syntax.HilbertSequential.html#1638" class="Bound"
+      >ts</a
+      ><a name="1640"
+      >     </a
+      ><a name="1645" class="Symbol"
+      >=</a
+      ><a name="1646"
+      > </a
+      ><a name="1647" href="BasicIPC.Syntax.HilbertSequential.html#414" class="InductiveConstructor"
+      >ck</a
+      ><a name="1649"
+      > </a
+      ><a name="1650" class="Symbol"
+      >(</a
+      ><a name="1651" href="BasicIPC.Syntax.HilbertSequential.html#1630" class="Bound"
+      >us</a
+      ><a name="1653"
+      > </a
+      ><a name="1654" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1655"
+      > </a
+      ><a name="1656" href="BasicIPC.Syntax.HilbertSequential.html#1638" class="Bound"
+      >ts</a
+      ><a name="1658" class="Symbol"
+      >)</a
+      ><a name="1659"
+      >
+</a
+      ><a name="1660" href="BasicIPC.Syntax.HilbertSequential.html#1660" class="Bound"
+      >us</a
+      ><a name="1662"
+      > </a
+      ><a name="1663" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1664"
+      > </a
+      ><a name="1665" href="BasicIPC.Syntax.HilbertSequential.html#466" class="InductiveConstructor"
+      >cs</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" href="BasicIPC.Syntax.HilbertSequential.html#1668" class="Bound"
+      >ts</a
+      ><a name="1670"
+      >     </a
+      ><a name="1675" class="Symbol"
+      >=</a
+      ><a name="1676"
+      > </a
+      ><a name="1677" href="BasicIPC.Syntax.HilbertSequential.html#466" class="InductiveConstructor"
+      >cs</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" class="Symbol"
+      >(</a
+      ><a name="1681" href="BasicIPC.Syntax.HilbertSequential.html#1660" class="Bound"
+      >us</a
+      ><a name="1683"
+      > </a
+      ><a name="1684" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1685"
+      > </a
+      ><a name="1686" href="BasicIPC.Syntax.HilbertSequential.html#1668" class="Bound"
+      >ts</a
+      ><a name="1688" class="Symbol"
+      >)</a
+      ><a name="1689"
+      >
+</a
+      ><a name="1690" href="BasicIPC.Syntax.HilbertSequential.html#1690" class="Bound"
+      >us</a
+      ><a name="1692"
+      > </a
+      ><a name="1693" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1694"
+      > </a
+      ><a name="1695" href="BasicIPC.Syntax.HilbertSequential.html#538" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1700"
+      > </a
+      ><a name="1701" href="BasicIPC.Syntax.HilbertSequential.html#1701" class="Bound"
+      >ts</a
+      ><a name="1703"
+      >  </a
+      ><a name="1705" class="Symbol"
+      >=</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="BasicIPC.Syntax.HilbertSequential.html#538" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" class="Symbol"
+      >(</a
+      ><a name="1714" href="BasicIPC.Syntax.HilbertSequential.html#1690" class="Bound"
+      >us</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" href="BasicIPC.Syntax.HilbertSequential.html#1701" class="Bound"
+      >ts</a
+      ><a name="1721" class="Symbol"
+      >)</a
+      ><a name="1722"
+      >
+</a
+      ><a name="1723" href="BasicIPC.Syntax.HilbertSequential.html#1723" class="Bound"
+      >us</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" href="BasicIPC.Syntax.HilbertSequential.html#594" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1732"
+      > </a
+      ><a name="1733" href="BasicIPC.Syntax.HilbertSequential.html#1733" class="Bound"
+      >ts</a
+      ><a name="1735"
+      >   </a
+      ><a name="1738" class="Symbol"
+      >=</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" href="BasicIPC.Syntax.HilbertSequential.html#594" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" class="Symbol"
+      >(</a
+      ><a name="1746" href="BasicIPC.Syntax.HilbertSequential.html#1723" class="Bound"
+      >us</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1750"
+      > </a
+      ><a name="1751" href="BasicIPC.Syntax.HilbertSequential.html#1733" class="Bound"
+      >ts</a
+      ><a name="1753" class="Symbol"
+      >)</a
+      ><a name="1754"
+      >
+</a
+      ><a name="1755" href="BasicIPC.Syntax.HilbertSequential.html#1755" class="Bound"
+      >us</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" href="BasicIPC.Syntax.HilbertSequential.html#646" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="BasicIPC.Syntax.HilbertSequential.html#1765" class="Bound"
+      >ts</a
+      ><a name="1767"
+      >   </a
+      ><a name="1770" class="Symbol"
+      >=</a
+      ><a name="1771"
+      > </a
+      ><a name="1772" href="BasicIPC.Syntax.HilbertSequential.html#646" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1776"
+      > </a
+      ><a name="1777" class="Symbol"
+      >(</a
+      ><a name="1778" href="BasicIPC.Syntax.HilbertSequential.html#1755" class="Bound"
+      >us</a
+      ><a name="1780"
+      > </a
+      ><a name="1781" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1782"
+      > </a
+      ><a name="1783" href="BasicIPC.Syntax.HilbertSequential.html#1765" class="Bound"
+      >ts</a
+      ><a name="1785" class="Symbol"
+      >)</a
+      ><a name="1786"
+      >
+</a
+      ><a name="1787" href="BasicIPC.Syntax.HilbertSequential.html#1787" class="Bound"
+      >us</a
+      ><a name="1789"
+      > </a
+      ><a name="1790" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1791"
+      > </a
+      ><a name="1792" href="BasicIPC.Syntax.HilbertSequential.html#698" class="InductiveConstructor"
+      >tt</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" href="BasicIPC.Syntax.HilbertSequential.html#1795" class="Bound"
+      >ts</a
+      ><a name="1797"
+      >     </a
+      ><a name="1802" class="Symbol"
+      >=</a
+      ><a name="1803"
+      > </a
+      ><a name="1804" href="BasicIPC.Syntax.HilbertSequential.html#698" class="InductiveConstructor"
+      >tt</a
+      ><a name="1806"
+      > </a
+      ><a name="1807" class="Symbol"
+      >(</a
+      ><a name="1808" href="BasicIPC.Syntax.HilbertSequential.html#1787" class="Bound"
+      >us</a
+      ><a name="1810"
+      > </a
+      ><a name="1811" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="1812"
+      > </a
+      ><a name="1813" href="BasicIPC.Syntax.HilbertSequential.html#1795" class="Bound"
+      >ts</a
+      ><a name="1815" class="Symbol"
+      >)</a
+      ><a name="1816"
+      >
+
+
+</a
+      ><a name="1819" class="Comment"
+      >-- Modus ponens in expanded form.</a
+      ><a name="1852"
+      >
+
+</a
+      ><a name="1854" href="BasicIPC.Syntax.HilbertSequential.html#1854" class="Function"
+      >app</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" class="Symbol"
+      >:</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" class="Symbol"
+      >&#8704;</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" class="Symbol"
+      >{</a
+      ><a name="1863" href="BasicIPC.Syntax.HilbertSequential.html#1863" class="Bound"
+      >A</a
+      ><a name="1864"
+      > </a
+      ><a name="1865" href="BasicIPC.Syntax.HilbertSequential.html#1865" class="Bound"
+      >B</a
+      ><a name="1866"
+      > </a
+      ><a name="1867" href="BasicIPC.Syntax.HilbertSequential.html#1867" class="Bound"
+      >&#915;</a
+      ><a name="1868" class="Symbol"
+      >}</a
+      ><a name="1869"
+      > </a
+      ><a name="1870" class="Symbol"
+      >&#8594;</a
+      ><a name="1871"
+      > </a
+      ><a name="1872" href="BasicIPC.Syntax.HilbertSequential.html#1867" class="Bound"
+      >&#915;</a
+      ><a name="1873"
+      > </a
+      ><a name="1874" href="BasicIPC.Syntax.HilbertSequential.html#753" class="Function Operator"
+      >&#8866;</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" href="BasicIPC.Syntax.HilbertSequential.html#1863" class="Bound"
+      >A</a
+      ><a name="1877"
+      > </a
+      ><a name="1878" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" href="BasicIPC.Syntax.HilbertSequential.html#1865" class="Bound"
+      >B</a
+      ><a name="1881"
+      > </a
+      ><a name="1882" class="Symbol"
+      >&#8594;</a
+      ><a name="1883"
+      > </a
+      ><a name="1884" href="BasicIPC.Syntax.HilbertSequential.html#1867" class="Bound"
+      >&#915;</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" href="BasicIPC.Syntax.HilbertSequential.html#753" class="Function Operator"
+      >&#8866;</a
+      ><a name="1887"
+      > </a
+      ><a name="1888" href="BasicIPC.Syntax.HilbertSequential.html#1863" class="Bound"
+      >A</a
+      ><a name="1889"
+      > </a
+      ><a name="1890" class="Symbol"
+      >&#8594;</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" href="BasicIPC.Syntax.HilbertSequential.html#1867" class="Bound"
+      >&#915;</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" href="BasicIPC.Syntax.HilbertSequential.html#753" class="Function Operator"
+      >&#8866;</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" href="BasicIPC.Syntax.HilbertSequential.html#1865" class="Bound"
+      >B</a
+      ><a name="1897"
+      >
+</a
+      ><a name="1898" href="BasicIPC.Syntax.HilbertSequential.html#1854" class="Function"
+      >app</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" class="Symbol"
+      >{</a
+      ><a name="1903" href="BasicIPC.Syntax.HilbertSequential.html#1903" class="Bound"
+      >A</a
+      ><a name="1904" class="Symbol"
+      >}</a
+      ><a name="1905"
+      > </a
+      ><a name="1906" class="Symbol"
+      >{</a
+      ><a name="1907" href="BasicIPC.Syntax.HilbertSequential.html#1907" class="Bound"
+      >B</a
+      ><a name="1908" class="Symbol"
+      >}</a
+      ><a name="1909"
+      > </a
+      ><a name="1910" class="Symbol"
+      >(</a
+      ><a name="1911" href="BasicIPC.Syntax.HilbertSequential.html#1911" class="Bound"
+      >&#928;</a
+      ><a name="1912"
+      > </a
+      ><a name="1913" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1914"
+      > </a
+      ><a name="1915" href="BasicIPC.Syntax.HilbertSequential.html#1915" class="Bound"
+      >ts</a
+      ><a name="1917" class="Symbol"
+      >)</a
+      ><a name="1918"
+      > </a
+      ><a name="1919" class="Symbol"
+      >(</a
+      ><a name="1920" href="BasicIPC.Syntax.HilbertSequential.html#1920" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" href="BasicIPC.Syntax.HilbertSequential.html#1925" class="Bound"
+      >us</a
+      ><a name="1927" class="Symbol"
+      >)</a
+      ><a name="1928"
+      > </a
+      ><a name="1929" class="Symbol"
+      >=</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" href="BasicIPC.Syntax.HilbertSequential.html#1947" class="Function"
+      >&#928;&#8243;</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1935"
+      > </a
+      ><a name="1936" href="BasicIPC.Syntax.HilbertSequential.html#1983" class="Function"
+      >vs</a
+      ><a name="1938"
+      >
+  </a
+      ><a name="1941" class="Keyword"
+      >where</a
+      ><a name="1946"
+      > </a
+      ><a name="1947" href="BasicIPC.Syntax.HilbertSequential.html#1947" class="Function"
+      >&#928;&#8243;</a
+      ><a name="1949"
+      > </a
+      ><a name="1950" class="Symbol"
+      >=</a
+      ><a name="1951"
+      > </a
+      ><a name="1952" class="Symbol"
+      >(</a
+      ><a name="1953" href="BasicIPC.Syntax.HilbertSequential.html#1920" class="Bound"
+      >&#928;&#8242;</a
+      ><a name="1955"
+      > </a
+      ><a name="1956" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" href="BasicIPC.Syntax.HilbertSequential.html#1903" class="Bound"
+      >A</a
+      ><a name="1959" class="Symbol"
+      >)</a
+      ><a name="1960"
+      > </a
+      ><a name="1961" href="Common.Context.html#3190" class="Function Operator"
+      >&#10746;</a
+      ><a name="1962"
+      > </a
+      ><a name="1963" class="Symbol"
+      >(</a
+      ><a name="1964" href="BasicIPC.Syntax.HilbertSequential.html#1911" class="Bound"
+      >&#928;</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" href="BasicIPC.Syntax.HilbertSequential.html#1903" class="Bound"
+      >A</a
+      ><a name="1969"
+      > </a
+      ><a name="1970" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" href="BasicIPC.Syntax.HilbertSequential.html#1907" class="Bound"
+      >B</a
+      ><a name="1973" class="Symbol"
+      >)</a
+      ><a name="1974"
+      >
+        </a
+      ><a name="1983" href="BasicIPC.Syntax.HilbertSequential.html#1983" class="Function"
+      >vs</a
+      ><a name="1985"
+      > </a
+      ><a name="1986" class="Symbol"
+      >=</a
+      ><a name="1987"
+      > </a
+      ><a name="1988" href="BasicIPC.Syntax.HilbertSequential.html#302" class="InductiveConstructor"
+      >mp</a
+      ><a name="1990"
+      > </a
+      ><a name="1991" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="1994"
+      > </a
+      ><a name="1995" class="Symbol"
+      >(</a
+      ><a name="1996" href="Common.Context.html#2388" class="Function"
+      >mono&#8712;</a
+      ><a name="2001"
+      > </a
+      ><a name="2002" class="Symbol"
+      >(</a
+      ><a name="2003" href="Common.Context.html#3396" class="Function"
+      >weak&#8838;&#10746;&#8343;</a
+      ><a name="2010"
+      > </a
+      ><a name="2011" class="Symbol"
+      >(</a
+      ><a name="2012" href="BasicIPC.Syntax.HilbertSequential.html#1911" class="Bound"
+      >&#928;</a
+      ><a name="2013"
+      > </a
+      ><a name="2014" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2015"
+      > </a
+      ><a name="2016" href="BasicIPC.Syntax.HilbertSequential.html#1903" class="Bound"
+      >A</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" href="BasicIPC.Syntax.HilbertSequential.html#1907" class="Bound"
+      >B</a
+      ><a name="2021" class="Symbol"
+      >))</a
+      ><a name="2023"
+      > </a
+      ><a name="2024" href="Common.Context.html#1132" class="InductiveConstructor"
+      >top</a
+      ><a name="2027" class="Symbol"
+      >)</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" class="Symbol"
+      >(</a
+      ><a name="2030" href="BasicIPC.Syntax.HilbertSequential.html#1925" class="Bound"
+      >us</a
+      ><a name="2032"
+      > </a
+      ><a name="2033" href="BasicIPC.Syntax.HilbertSequential.html#1431" class="Function Operator"
+      >&#10747;</a
+      ><a name="2034"
+      > </a
+      ><a name="2035" href="BasicIPC.Syntax.HilbertSequential.html#1915" class="Bound"
+      >ts</a
+      ><a name="2037" class="Symbol"
+      >)</a
+      ><a name="2038"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
