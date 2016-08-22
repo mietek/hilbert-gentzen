@@ -1,0 +1,2192 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1" class="Module"
+      >BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen</a
+      ><a name="54"
+      > </a
+      ><a name="55" class="Keyword"
+      >where</a
+      ><a name="60"
+      >
+
+</a
+      ><a name="62" class="Keyword"
+      >open</a
+      ><a name="66"
+      > </a
+      ><a name="67" class="Keyword"
+      >import</a
+      ><a name="73"
+      > </a
+      ><a name="74" href="BasicIPC.Syntax.Hilbert.html#1" class="Module"
+      >BasicIPC.Syntax.Hilbert</a
+      ><a name="97"
+      > </a
+      ><a name="98" class="Keyword"
+      >public</a
+      ><a name="104"
+      >
+</a
+      ><a name="105" class="Keyword"
+      >open</a
+      ><a name="109"
+      > </a
+      ><a name="110" class="Keyword"
+      >import</a
+      ><a name="116"
+      > </a
+      ><a name="117" href="BasicIPC.Semantics.TarskiGluedGentzen.html#1" class="Module"
+      >BasicIPC.Semantics.TarskiGluedGentzen</a
+      ><a name="154"
+      > </a
+      ><a name="155" class="Keyword"
+      >public</a
+      ><a name="161"
+      >
+
+</a
+      ><a name="163" class="Keyword"
+      >import</a
+      ><a name="169"
+      > </a
+      ><a name="170" href="BasicIPC.Metatheory.Gentzen-TarskiGluedGentzen.html#1" class="Module"
+      >BasicIPC.Metatheory.Gentzen-TarskiGluedGentzen</a
+      ><a name="216"
+      > </a
+      ><a name="217" class="Symbol"
+      >as</a
+      ><a name="219"
+      > </a
+      ><a name="220" class="Module"
+      >G</a
+      ><a name="221"
+      >
+
+</a
+      ><a name="223" class="Keyword"
+      >open</a
+      ><a name="227"
+      > </a
+      ><a name="228" class="Keyword"
+      >import</a
+      ><a name="234"
+      > </a
+      ><a name="235" href="BasicIPC.Syntax.Translation.html#1" class="Module"
+      >BasicIPC.Syntax.Translation</a
+      ><a name="262"
+      > </a
+      ><a name="263" class="Keyword"
+      >using</a
+      ><a name="268"
+      > </a
+      ><a name="269" class="Symbol"
+      >(</a
+      ><a name="270" href="BasicIPC.Syntax.Translation.html#6906" class="Function"
+      >h&#8594;g</a
+      ><a name="273" class="Symbol"
+      >)</a
+      ><a name="274"
+      >
+
+
+</a
+      ><a name="277" class="Comment"
+      >-- Soundness with respect to the syntax representation in a particular model.</a
+      ><a name="354"
+      >
+
+</a
+      ><a name="356" class="Keyword"
+      >module</a
+      ><a name="362"
+      > </a
+      ><a name="363" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#363" class="Module"
+      >_</a
+      ><a name="364"
+      > </a
+      ><a name="365" class="Symbol"
+      >{{</a
+      ><a name="367" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#367" class="Bound"
+      >_</a
+      ><a name="368"
+      > </a
+      ><a name="369" class="Symbol"
+      >:</a
+      ><a name="370"
+      > </a
+      ><a name="371" href="BasicIPC.Semantics.TarskiGluedGentzen.html#249" class="Record"
+      >Model</a
+      ><a name="376" class="Symbol"
+      >}}</a
+      ><a name="378"
+      > </a
+      ><a name="379" class="Keyword"
+      >where</a
+      ><a name="384"
+      >
+  </a
+      ><a name="387" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >[_]</a
+      ><a name="390"
+      > </a
+      ><a name="391" class="Symbol"
+      >:</a
+      ><a name="392"
+      > </a
+      ><a name="393" class="Symbol"
+      >&#8704;</a
+      ><a name="394"
+      > </a
+      ><a name="395" class="Symbol"
+      >{</a
+      ><a name="396" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#396" class="Bound"
+      >A</a
+      ><a name="397"
+      > </a
+      ><a name="398" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#398" class="Bound"
+      >&#915;</a
+      ><a name="399" class="Symbol"
+      >}</a
+      ><a name="400"
+      > </a
+      ><a name="401" class="Symbol"
+      >&#8594;</a
+      ><a name="402"
+      > </a
+      ><a name="403" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#398" class="Bound"
+      >&#915;</a
+      ><a name="404"
+      > </a
+      ><a name="405" href="BasicIPC.Syntax.Hilbert.html#177" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="406"
+      > </a
+      ><a name="407" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#396" class="Bound"
+      >A</a
+      ><a name="408"
+      > </a
+      ><a name="409" class="Symbol"
+      >&#8594;</a
+      ><a name="410"
+      > </a
+      ><a name="411" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#398" class="Bound"
+      >&#915;</a
+      ><a name="412"
+      > </a
+      ><a name="413" href="BasicIPC.Semantics.TarskiGluedGentzen.html#492" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="416"
+      > </a
+      ><a name="417" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#396" class="Bound"
+      >A</a
+      ><a name="418"
+      >
+  </a
+      ><a name="421" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >[</a
+      ><a name="422"
+      > </a
+      ><a name="423" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#423" class="Bound"
+      >t</a
+      ><a name="424"
+      > </a
+      ><a name="425" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >]</a
+      ><a name="426"
+      > </a
+      ><a name="427" class="Symbol"
+      >=</a
+      ><a name="428"
+      > </a
+      ><a name="429" href="BasicIPC.Metatheory.Gentzen-TarskiGluedGentzen.html#274" class="Function Operator"
+      >G.[</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="BasicIPC.Syntax.Translation.html#6906" class="Function"
+      >h&#8594;g</a
+      ><a name="436"
+      > </a
+      ><a name="437" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#423" class="Bound"
+      >t</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="BasicIPC.Metatheory.Gentzen-TarskiGluedGentzen.html#274" class="Function Operator"
+      >]</a
+      ><a name="440"
+      >
+
+
+</a
+      ><a name="443" class="Comment"
+      >-- Soundness with respect to all models, or evaluation.</a
+      ><a name="498"
+      >
+
+</a
+      ><a name="500" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="504"
+      > </a
+      ><a name="505" class="Symbol"
+      >:</a
+      ><a name="506"
+      > </a
+      ><a name="507" class="Symbol"
+      >&#8704;</a
+      ><a name="508"
+      > </a
+      ><a name="509" class="Symbol"
+      >{</a
+      ><a name="510" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#510" class="Bound"
+      >A</a
+      ><a name="511"
+      > </a
+      ><a name="512" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#512" class="Bound"
+      >&#915;</a
+      ><a name="513" class="Symbol"
+      >}</a
+      ><a name="514"
+      > </a
+      ><a name="515" class="Symbol"
+      >&#8594;</a
+      ><a name="516"
+      > </a
+      ><a name="517" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#512" class="Bound"
+      >&#915;</a
+      ><a name="518"
+      > </a
+      ><a name="519" href="BasicIPC.Syntax.Hilbert.html#177" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="520"
+      > </a
+      ><a name="521" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#510" class="Bound"
+      >A</a
+      ><a name="522"
+      > </a
+      ><a name="523" class="Symbol"
+      >&#8594;</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#512" class="Bound"
+      >&#915;</a
+      ><a name="526"
+      > </a
+      ><a name="527" href="BasicIPC.Semantics.TarskiGluedGentzen.html#4701" class="Function Operator"
+      >&#8872;</a
+      ><a name="528"
+      > </a
+      ><a name="529" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#510" class="Bound"
+      >A</a
+      ><a name="530"
+      >
+</a
+      ><a name="531" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="535"
+      > </a
+      ><a name="536" class="Symbol"
+      >(</a
+      ><a name="537" href="BasicIPC.Syntax.Hilbert.html#212" class="InductiveConstructor"
+      >var</a
+      ><a name="540"
+      > </a
+      ><a name="541" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#541" class="Bound"
+      >i</a
+      ><a name="542" class="Symbol"
+      >)</a
+      ><a name="543"
+      >   </a
+      ><a name="546" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#546" class="Bound"
+      >&#947;</a
+      ><a name="547"
+      > </a
+      ><a name="548" class="Symbol"
+      >=</a
+      ><a name="549"
+      > </a
+      ><a name="550" href="BasicIPC.Semantics.TarskiGluedGentzen.html#4945" class="Function"
+      >lookup</a
+      ><a name="556"
+      > </a
+      ><a name="557" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#541" class="Bound"
+      >i</a
+      ><a name="558"
+      > </a
+      ><a name="559" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#546" class="Bound"
+      >&#947;</a
+      ><a name="560"
+      >
+</a
+      ><a name="561" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="565"
+      > </a
+      ><a name="566" class="Symbol"
+      >(</a
+      ><a name="567" href="BasicIPC.Syntax.Hilbert.html#248" class="InductiveConstructor"
+      >app</a
+      ><a name="570"
+      > </a
+      ><a name="571" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#571" class="Bound"
+      >t</a
+      ><a name="572"
+      > </a
+      ><a name="573" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#573" class="Bound"
+      >u</a
+      ><a name="574" class="Symbol"
+      >)</a
+      ><a name="575"
+      > </a
+      ><a name="576" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#576" class="Bound"
+      >&#947;</a
+      ><a name="577"
+      > </a
+      ><a name="578" class="Symbol"
+      >=</a
+      ><a name="579"
+      > </a
+      ><a name="580" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="584"
+      > </a
+      ><a name="585" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#571" class="Bound"
+      >t</a
+      ><a name="586"
+      > </a
+      ><a name="587" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#576" class="Bound"
+      >&#947;</a
+      ><a name="588"
+      > </a
+      ><a name="589" href="BasicIPC.Semantics.TarskiGluedGentzen.html#3215" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="592"
+      > </a
+      ><a name="593" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="597"
+      > </a
+      ><a name="598" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#573" class="Bound"
+      >u</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#576" class="Bound"
+      >&#947;</a
+      ><a name="601"
+      >
+</a
+      ><a name="602" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="606"
+      > </a
+      ><a name="607" href="BasicIPC.Syntax.Hilbert.html#296" class="InductiveConstructor"
+      >ci</a
+      ><a name="609"
+      >        </a
+      ><a name="617" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#617" class="Bound"
+      >&#947;</a
+      ><a name="618"
+      > </a
+      ><a name="619" class="Symbol"
+      >=</a
+      ><a name="620"
+      > </a
+      ><a name="621" href="Function.html#1053" class="Function"
+      >K</a
+      ><a name="622"
+      > </a
+      ><a name="623" class="Symbol"
+      >(</a
+      ><a name="624" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >[</a
+      ><a name="625"
+      > </a
+      ><a name="626" href="BasicIPC.Syntax.Hilbert.html#296" class="InductiveConstructor"
+      >ci</a
+      ><a name="628"
+      > </a
+      ><a name="629" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >]</a
+      ><a name="630"
+      > </a
+      ><a name="631" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="632"
+      > </a
+      ><a name="633" href="Function.html#1012" class="Function"
+      >I</a
+      ><a name="634" class="Symbol"
+      >)</a
+      ><a name="635"
+      >
+</a
+      ><a name="636" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="640"
+      > </a
+      ><a name="641" href="BasicIPC.Syntax.Hilbert.html#328" class="InductiveConstructor"
+      >ck</a
+      ><a name="643"
+      >        </a
+      ><a name="651" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#651" class="Bound"
+      >&#947;</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="Symbol"
+      >=</a
+      ><a name="654"
+      > </a
+      ><a name="655" href="Function.html#1053" class="Function"
+      >K</a
+      ><a name="656"
+      > </a
+      ><a name="657" class="Symbol"
+      >(</a
+      ><a name="658" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >[</a
+      ><a name="659"
+      > </a
+      ><a name="660" href="BasicIPC.Syntax.Hilbert.html#328" class="InductiveConstructor"
+      >ck</a
+      ><a name="662"
+      > </a
+      ><a name="663" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >]</a
+      ><a name="664"
+      > </a
+      ><a name="665" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="666"
+      > </a
+      ><a name="667" href="BasicIPC.Semantics.TarskiGluedGentzen.html#3316" class="Function"
+      >&#10218;K&#10219;</a
+      ><a name="670" class="Symbol"
+      >)</a
+      ><a name="671"
+      >
+</a
+      ><a name="672" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="676"
+      > </a
+      ><a name="677" href="BasicIPC.Syntax.Hilbert.html#364" class="InductiveConstructor"
+      >cs</a
+      ><a name="679"
+      >        </a
+      ><a name="687" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#687" class="Bound"
+      >&#947;</a
+      ><a name="688"
+      > </a
+      ><a name="689" class="Symbol"
+      >=</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="Function.html#1053" class="Function"
+      >K</a
+      ><a name="692"
+      > </a
+      ><a name="693" class="Symbol"
+      >(</a
+      ><a name="694" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >[</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="BasicIPC.Syntax.Hilbert.html#364" class="InductiveConstructor"
+      >cs</a
+      ><a name="698"
+      > </a
+      ><a name="699" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >]</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="BasicIPC.Semantics.TarskiGluedGentzen.html#3651" class="Function"
+      >&#10218;S&#10219;&#8242;</a
+      ><a name="707" class="Symbol"
+      >)</a
+      ><a name="708"
+      >
+</a
+      ><a name="709" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="713"
+      > </a
+      ><a name="714" href="BasicIPC.Syntax.Hilbert.html#420" class="InductiveConstructor"
+      >cpair</a
+      ><a name="719"
+      >     </a
+      ><a name="724" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#724" class="Bound"
+      >&#947;</a
+      ><a name="725"
+      > </a
+      ><a name="726" class="Symbol"
+      >=</a
+      ><a name="727"
+      > </a
+      ><a name="728" href="Function.html#1053" class="Function"
+      >K</a
+      ><a name="729"
+      > </a
+      ><a name="730" class="Symbol"
+      >(</a
+      ><a name="731" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >[</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="BasicIPC.Syntax.Hilbert.html#420" class="InductiveConstructor"
+      >cpair</a
+      ><a name="738"
+      > </a
+      ><a name="739" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >]</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="742"
+      > </a
+      ><a name="743" href="BasicIPC.Semantics.TarskiGluedGentzen.html#4204" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="749" class="Symbol"
+      >)</a
+      ><a name="750"
+      >
+</a
+      ><a name="751" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="755"
+      > </a
+      ><a name="756" href="BasicIPC.Syntax.Hilbert.html#460" class="InductiveConstructor"
+      >cfst</a
+      ><a name="760"
+      >      </a
+      ><a name="766" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#766" class="Bound"
+      >&#947;</a
+      ><a name="767"
+      > </a
+      ><a name="768" class="Symbol"
+      >=</a
+      ><a name="769"
+      > </a
+      ><a name="770" href="Function.html#1053" class="Function"
+      >K</a
+      ><a name="771"
+      > </a
+      ><a name="772" class="Symbol"
+      >(</a
+      ><a name="773" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >[</a
+      ><a name="774"
+      > </a
+      ><a name="775" href="BasicIPC.Syntax.Hilbert.html#460" class="InductiveConstructor"
+      >cfst</a
+      ><a name="779"
+      > </a
+      ><a name="780" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >]</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="786" class="Symbol"
+      >)</a
+      ><a name="787"
+      >
+</a
+      ><a name="788" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="792"
+      > </a
+      ><a name="793" href="BasicIPC.Syntax.Hilbert.html#496" class="InductiveConstructor"
+      >csnd</a
+      ><a name="797"
+      >      </a
+      ><a name="803" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#803" class="Bound"
+      >&#947;</a
+      ><a name="804"
+      > </a
+      ><a name="805" class="Symbol"
+      >=</a
+      ><a name="806"
+      > </a
+      ><a name="807" href="Function.html#1053" class="Function"
+      >K</a
+      ><a name="808"
+      > </a
+      ><a name="809" class="Symbol"
+      >(</a
+      ><a name="810" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >[</a
+      ><a name="811"
+      > </a
+      ><a name="812" href="BasicIPC.Syntax.Hilbert.html#496" class="InductiveConstructor"
+      >csnd</a
+      ><a name="816"
+      > </a
+      ><a name="817" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#387" class="Function Operator"
+      >]</a
+      ><a name="818"
+      > </a
+      ><a name="819" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="820"
+      > </a
+      ><a name="821" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="823" class="Symbol"
+      >)</a
+      ><a name="824"
+      >
+</a
+      ><a name="825" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="829"
+      > </a
+      ><a name="830" href="BasicIPC.Syntax.Hilbert.html#532" class="InductiveConstructor"
+      >tt</a
+      ><a name="832"
+      >        </a
+      ><a name="840" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#840" class="Bound"
+      >&#947;</a
+      ><a name="841"
+      > </a
+      ><a name="842" class="Symbol"
+      >=</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="845"
+      >
+
+
+</a
+      ><a name="848" class="Comment"
+      >-- TODO: Correctness of evaluation with respect to conversion.</a
+      ><a name="910"
+      >
+
+
+</a
+      ><a name="913" class="Comment"
+      >-- The canonical model.</a
+      ><a name="936"
+      >
+
+</a
+      ><a name="938" class="Keyword"
+      >private</a
+      ><a name="945"
+      >
+  </a
+      ><a name="948" class="Keyword"
+      >instance</a
+      ><a name="956"
+      >
+    </a
+      ><a name="961" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#961" class="Function"
+      >canon</a
+      ><a name="966"
+      > </a
+      ><a name="967" class="Symbol"
+      >:</a
+      ><a name="968"
+      > </a
+      ><a name="969" href="BasicIPC.Semantics.TarskiGluedGentzen.html#249" class="Record"
+      >Model</a
+      ><a name="974"
+      >
+    </a
+      ><a name="979" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#961" class="Function"
+      >canon</a
+      ><a name="984"
+      > </a
+      ><a name="985" class="Symbol"
+      >=</a
+      ><a name="986"
+      > </a
+      ><a name="987" class="Keyword"
+      >record</a
+      ><a name="993"
+      >
+      </a
+      ><a name="1000" class="Symbol"
+      >{</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" class="Field Operator"
+      >_&#8873;&#7493;_</a
+      ><a name="1006"
+      >    </a
+      ><a name="1010" class="Symbol"
+      >=</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" class="Symbol"
+      >&#955;</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1014" class="Bound"
+      >&#915;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1016" class="Bound"
+      >P</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" class="Symbol"
+      >&#8594;</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1014" class="Bound"
+      >&#915;</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="BasicIPC.Syntax.Hilbert.html#177" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1016" class="Bound"
+      >P</a
+      ><a name="1027"
+      >
+      </a
+      ><a name="1034" class="Symbol"
+      >;</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" class="Field"
+      >mono&#8873;&#7493;</a
+      ><a name="1042"
+      >  </a
+      ><a name="1044" class="Symbol"
+      >=</a
+      ><a name="1045"
+      > </a
+      ><a name="1046" href="BasicIPC.Syntax.Hilbert.html#684" class="Function"
+      >mono&#8866;</a
+      ><a name="1051"
+      >
+      </a
+      ><a name="1058" class="Symbol"
+      >;</a
+      ><a name="1059"
+      > </a
+      ><a name="1060" class="Field Operator"
+      >_[&#8866;]_</a
+      ><a name="1065"
+      >   </a
+      ><a name="1068" class="Symbol"
+      >=</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" href="BasicIPC.Syntax.Hilbert.html#177" class="Datatype Operator"
+      >_&#8866;_</a
+      ><a name="1073"
+      >
+      </a
+      ><a name="1080" class="Symbol"
+      >;</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" class="Field"
+      >mono[&#8866;]</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" class="Symbol"
+      >=</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" href="BasicIPC.Syntax.Hilbert.html#684" class="Function"
+      >mono&#8866;</a
+      ><a name="1097"
+      >
+      </a
+      ><a name="1104" class="Symbol"
+      >;</a
+      ><a name="1105"
+      > </a
+      ><a name="1106" class="Field"
+      >[var]</a
+      ><a name="1111"
+      >    </a
+      ><a name="1115" class="Symbol"
+      >=</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" href="BasicIPC.Syntax.Hilbert.html#212" class="InductiveConstructor"
+      >var</a
+      ><a name="1120"
+      >
+      </a
+      ><a name="1127" class="Symbol"
+      >;</a
+      ><a name="1128"
+      > </a
+      ><a name="1129" class="Field"
+      >[lam]</a
+      ><a name="1134"
+      >    </a
+      ><a name="1138" class="Symbol"
+      >=</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="BasicIPC.Syntax.Hilbert.html#1305" class="Function"
+      >lam</a
+      ><a name="1143"
+      >
+      </a
+      ><a name="1150" class="Symbol"
+      >;</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" class="Field"
+      >[app]</a
+      ><a name="1157"
+      >    </a
+      ><a name="1161" class="Symbol"
+      >=</a
+      ><a name="1162"
+      > </a
+      ><a name="1163" href="BasicIPC.Syntax.Hilbert.html#248" class="InductiveConstructor"
+      >app</a
+      ><a name="1166"
+      >
+      </a
+      ><a name="1173" class="Symbol"
+      >;</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" class="Field"
+      >[pair]</a
+      ><a name="1181"
+      >   </a
+      ><a name="1184" class="Symbol"
+      >=</a
+      ><a name="1185"
+      > </a
+      ><a name="1186" href="BasicIPC.Syntax.Hilbert.html#3291" class="Function"
+      >pair</a
+      ><a name="1190"
+      >
+      </a
+      ><a name="1197" class="Symbol"
+      >;</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" class="Field"
+      >[fst]</a
+      ><a name="1204"
+      >    </a
+      ><a name="1208" class="Symbol"
+      >=</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" href="BasicIPC.Syntax.Hilbert.html#3368" class="Function"
+      >fst</a
+      ><a name="1213"
+      >
+      </a
+      ><a name="1220" class="Symbol"
+      >;</a
+      ><a name="1221"
+      > </a
+      ><a name="1222" class="Field"
+      >[snd]</a
+      ><a name="1227"
+      >    </a
+      ><a name="1231" class="Symbol"
+      >=</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" href="BasicIPC.Syntax.Hilbert.html#3424" class="Function"
+      >snd</a
+      ><a name="1236"
+      >
+      </a
+      ><a name="1243" class="Symbol"
+      >;</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" class="Field"
+      >[tt]</a
+      ><a name="1249"
+      >     </a
+      ><a name="1254" class="Symbol"
+      >=</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" href="BasicIPC.Syntax.Hilbert.html#532" class="InductiveConstructor"
+      >tt</a
+      ><a name="1258"
+      >
+      </a
+      ><a name="1265" class="Symbol"
+      >}</a
+      ><a name="1266"
+      >
+
+
+</a
+      ><a name="1269" class="Comment"
+      >-- Soundness and completeness with respect to the canonical model.</a
+      ><a name="1335"
+      >
+
+</a
+      ><a name="1337" class="Keyword"
+      >mutual</a
+      ><a name="1343"
+      >
+  </a
+      ><a name="1346" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1346" class="Function"
+      >reflect&#7580;</a
+      ><a name="1354"
+      > </a
+      ><a name="1355" class="Symbol"
+      >:</a
+      ><a name="1356"
+      > </a
+      ><a name="1357" class="Symbol"
+      >&#8704;</a
+      ><a name="1358"
+      > </a
+      ><a name="1359" class="Symbol"
+      >{</a
+      ><a name="1360" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1360" class="Bound"
+      >A</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1362" class="Bound"
+      >&#915;</a
+      ><a name="1363" class="Symbol"
+      >}</a
+      ><a name="1364"
+      > </a
+      ><a name="1365" class="Symbol"
+      >&#8594;</a
+      ><a name="1366"
+      > </a
+      ><a name="1367" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1362" class="Bound"
+      >&#915;</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" href="BasicIPC.Syntax.Hilbert.html#177" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1370"
+      > </a
+      ><a name="1371" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1360" class="Bound"
+      >A</a
+      ><a name="1372"
+      > </a
+      ><a name="1373" class="Symbol"
+      >&#8594;</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1362" class="Bound"
+      >&#915;</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" href="BasicIPC.Semantics.TarskiGluedGentzen.html#1139" class="Function Operator"
+      >&#8873;</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1360" class="Bound"
+      >A</a
+      ><a name="1380"
+      >
+  </a
+      ><a name="1383" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1346" class="Function"
+      >reflect&#7580;</a
+      ><a name="1391"
+      > </a
+      ><a name="1392" class="Symbol"
+      >{</a
+      ><a name="1393" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1394"
+      > </a
+      ><a name="1395" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1395" class="Bound"
+      >P</a
+      ><a name="1396" class="Symbol"
+      >}</a
+      ><a name="1397"
+      >   </a
+      ><a name="1400" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1400" class="Bound"
+      >t</a
+      ><a name="1401"
+      > </a
+      ><a name="1402" class="Symbol"
+      >=</a
+      ><a name="1403"
+      > </a
+      ><a name="1404" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1400" class="Bound"
+      >t</a
+      ><a name="1405"
+      > </a
+      ><a name="1406" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1400" class="Bound"
+      >t</a
+      ><a name="1409"
+      >
+  </a
+      ><a name="1412" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1346" class="Function"
+      >reflect&#7580;</a
+      ><a name="1420"
+      > </a
+      ><a name="1421" class="Symbol"
+      >{</a
+      ><a name="1422" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1422" class="Bound"
+      >A</a
+      ><a name="1423"
+      > </a
+      ><a name="1424" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1425"
+      > </a
+      ><a name="1426" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1426" class="Bound"
+      >B</a
+      ><a name="1427" class="Symbol"
+      >}</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1429" class="Bound"
+      >t</a
+      ><a name="1430"
+      > </a
+      ><a name="1431" class="Symbol"
+      >=</a
+      ><a name="1432"
+      > </a
+      ><a name="1433" class="Symbol"
+      >&#955;</a
+      ><a name="1434"
+      > </a
+      ><a name="1435" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1435" class="Bound"
+      >&#951;</a
+      ><a name="1436"
+      > </a
+      ><a name="1437" class="Symbol"
+      >&#8594;</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" class="Keyword"
+      >let</a
+      ><a name="1442"
+      > </a
+      ><a name="1443" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1443" class="Bound"
+      >t&#8242;</a
+      ><a name="1445"
+      > </a
+      ><a name="1446" class="Symbol"
+      >=</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" href="BasicIPC.Syntax.Hilbert.html#684" class="Function"
+      >mono&#8866;</a
+      ><a name="1453"
+      > </a
+      ><a name="1454" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1435" class="Bound"
+      >&#951;</a
+      ><a name="1455"
+      > </a
+      ><a name="1456" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1429" class="Bound"
+      >t</a
+      ><a name="1457"
+      >
+                              </a
+      ><a name="1488" class="Keyword"
+      >in</a
+      ><a name="1490"
+      >  </a
+      ><a name="1492" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1443" class="Bound"
+      >t&#8242;</a
+      ><a name="1494"
+      > </a
+      ><a name="1495" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1496"
+      > </a
+      ><a name="1497" class="Symbol"
+      >&#955;</a
+      ><a name="1498"
+      > </a
+      ><a name="1499" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1499" class="Bound"
+      >a</a
+      ><a name="1500"
+      > </a
+      ><a name="1501" class="Symbol"
+      >&#8594;</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1346" class="Function"
+      >reflect&#7580;</a
+      ><a name="1511"
+      > </a
+      ><a name="1512" class="Symbol"
+      >(</a
+      ><a name="1513" href="BasicIPC.Syntax.Hilbert.html#248" class="InductiveConstructor"
+      >app</a
+      ><a name="1516"
+      > </a
+      ><a name="1517" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1443" class="Bound"
+      >t&#8242;</a
+      ><a name="1519"
+      > </a
+      ><a name="1520" class="Symbol"
+      >(</a
+      ><a name="1521" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1499" class="Bound"
+      >a</a
+      ><a name="1529" class="Symbol"
+      >))</a
+      ><a name="1531"
+      >
+  </a
+      ><a name="1534" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1346" class="Function"
+      >reflect&#7580;</a
+      ><a name="1542"
+      > </a
+      ><a name="1543" class="Symbol"
+      >{</a
+      ><a name="1544" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1544" class="Bound"
+      >A</a
+      ><a name="1545"
+      > </a
+      ><a name="1546" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1548" class="Bound"
+      >B</a
+      ><a name="1549" class="Symbol"
+      >}</a
+      ><a name="1550"
+      > </a
+      ><a name="1551" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1551" class="Bound"
+      >t</a
+      ><a name="1552"
+      > </a
+      ><a name="1553" class="Symbol"
+      >=</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1346" class="Function"
+      >reflect&#7580;</a
+      ><a name="1563"
+      > </a
+      ><a name="1564" class="Symbol"
+      >(</a
+      ><a name="1565" href="BasicIPC.Syntax.Hilbert.html#3368" class="Function"
+      >fst</a
+      ><a name="1568"
+      > </a
+      ><a name="1569" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1551" class="Bound"
+      >t</a
+      ><a name="1570" class="Symbol"
+      >)</a
+      ><a name="1571"
+      > </a
+      ><a name="1572" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1573"
+      > </a
+      ><a name="1574" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1346" class="Function"
+      >reflect&#7580;</a
+      ><a name="1582"
+      > </a
+      ><a name="1583" class="Symbol"
+      >(</a
+      ><a name="1584" href="BasicIPC.Syntax.Hilbert.html#3424" class="Function"
+      >snd</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1551" class="Bound"
+      >t</a
+      ><a name="1589" class="Symbol"
+      >)</a
+      ><a name="1590"
+      >
+  </a
+      ><a name="1593" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1346" class="Function"
+      >reflect&#7580;</a
+      ><a name="1601"
+      > </a
+      ><a name="1602" class="Symbol"
+      >{</a
+      ><a name="1603" href="BasicIPC.Syntax.Common.html#229" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1604" class="Symbol"
+      >}</a
+      ><a name="1605"
+      >    </a
+      ><a name="1609" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1609" class="Bound"
+      >t</a
+      ><a name="1610"
+      > </a
+      ><a name="1611" class="Symbol"
+      >=</a
+      ><a name="1612"
+      > </a
+      ><a name="1613" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1614"
+      >
+
+  </a
+      ><a name="1618" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="1624"
+      > </a
+      ><a name="1625" class="Symbol"
+      >:</a
+      ><a name="1626"
+      > </a
+      ><a name="1627" class="Symbol"
+      >&#8704;</a
+      ><a name="1628"
+      > </a
+      ><a name="1629" class="Symbol"
+      >{</a
+      ><a name="1630" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1630" class="Bound"
+      >A</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1632" class="Bound"
+      >&#915;</a
+      ><a name="1633" class="Symbol"
+      >}</a
+      ><a name="1634"
+      > </a
+      ><a name="1635" class="Symbol"
+      >&#8594;</a
+      ><a name="1636"
+      > </a
+      ><a name="1637" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1632" class="Bound"
+      >&#915;</a
+      ><a name="1638"
+      > </a
+      ><a name="1639" href="BasicIPC.Semantics.TarskiGluedGentzen.html#1139" class="Function Operator"
+      >&#8873;</a
+      ><a name="1640"
+      > </a
+      ><a name="1641" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1630" class="Bound"
+      >A</a
+      ><a name="1642"
+      > </a
+      ><a name="1643" class="Symbol"
+      >&#8594;</a
+      ><a name="1644"
+      > </a
+      ><a name="1645" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1632" class="Bound"
+      >&#915;</a
+      ><a name="1646"
+      > </a
+      ><a name="1647" href="BasicIPC.Syntax.Hilbert.html#177" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1648"
+      > </a
+      ><a name="1649" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1630" class="Bound"
+      >A</a
+      ><a name="1650"
+      >
+  </a
+      ><a name="1653" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="1659"
+      > </a
+      ><a name="1660" class="Symbol"
+      >{</a
+      ><a name="1661" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1662"
+      > </a
+      ><a name="1663" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1663" class="Bound"
+      >P</a
+      ><a name="1664" class="Symbol"
+      >}</a
+      ><a name="1665"
+      >   </a
+      ><a name="1668" class="Symbol"
+      >(</a
+      ><a name="1669" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1669" class="Bound"
+      >t</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1673" class="Bound"
+      >s</a
+      ><a name="1674" class="Symbol"
+      >)</a
+      ><a name="1675"
+      > </a
+      ><a name="1676" class="Symbol"
+      >=</a
+      ><a name="1677"
+      > </a
+      ><a name="1678" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1669" class="Bound"
+      >t</a
+      ><a name="1679"
+      >
+  </a
+      ><a name="1682" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" class="Symbol"
+      >{</a
+      ><a name="1690" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1690" class="Bound"
+      >A</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1693"
+      > </a
+      ><a name="1694" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1694" class="Bound"
+      >B</a
+      ><a name="1695" class="Symbol"
+      >}</a
+      ><a name="1696"
+      > </a
+      ><a name="1697" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1697" class="Bound"
+      >s</a
+      ><a name="1698"
+      >       </a
+      ><a name="1705" class="Symbol"
+      >=</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" class="Keyword"
+      >let</a
+      ><a name="1710"
+      > </a
+      ><a name="1711" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1711" class="Bound"
+      >t</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1714"
+      > </a
+      ><a name="1715" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1715" class="Bound"
+      >f</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" class="Symbol"
+      >=</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1697" class="Bound"
+      >s</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" href="Common.Context.html#1661" class="Function"
+      >refl&#8838;</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" class="Keyword"
+      >in</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1711" class="Bound"
+      >t</a
+      ><a name="1731"
+      >
+  </a
+      ><a name="1734" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" class="Symbol"
+      >{</a
+      ><a name="1742" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1742" class="Bound"
+      >A</a
+      ><a name="1743"
+      > </a
+      ><a name="1744" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1746" class="Bound"
+      >B</a
+      ><a name="1747" class="Symbol"
+      >}</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" class="Symbol"
+      >(</a
+      ><a name="1750" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1750" class="Bound"
+      >a</a
+      ><a name="1751"
+      > </a
+      ><a name="1752" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1754" class="Bound"
+      >b</a
+      ><a name="1755" class="Symbol"
+      >)</a
+      ><a name="1756"
+      > </a
+      ><a name="1757" class="Symbol"
+      >=</a
+      ><a name="1758"
+      > </a
+      ><a name="1759" href="BasicIPC.Syntax.Hilbert.html#3291" class="Function"
+      >pair</a
+      ><a name="1763"
+      > </a
+      ><a name="1764" class="Symbol"
+      >(</a
+      ><a name="1765" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="1771"
+      > </a
+      ><a name="1772" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1750" class="Bound"
+      >a</a
+      ><a name="1773" class="Symbol"
+      >)</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" class="Symbol"
+      >(</a
+      ><a name="1776" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="1782"
+      > </a
+      ><a name="1783" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1754" class="Bound"
+      >b</a
+      ><a name="1784" class="Symbol"
+      >)</a
+      ><a name="1785"
+      >
+  </a
+      ><a name="1788" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" class="Symbol"
+      >{</a
+      ><a name="1796" href="BasicIPC.Syntax.Common.html#229" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1797" class="Symbol"
+      >}</a
+      ><a name="1798"
+      >    </a
+      ><a name="1802" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1803"
+      >       </a
+      ><a name="1810" class="Symbol"
+      >=</a
+      ><a name="1811"
+      > </a
+      ><a name="1812" href="BasicIPC.Syntax.Hilbert.html#532" class="InductiveConstructor"
+      >tt</a
+      ><a name="1814"
+      >
+
+</a
+      ><a name="1816" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1816" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="1825"
+      > </a
+      ><a name="1826" class="Symbol"
+      >:</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" class="Symbol"
+      >&#8704;</a
+      ><a name="1829"
+      > </a
+      ><a name="1830" class="Symbol"
+      >{</a
+      ><a name="1831" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1831" class="Bound"
+      >&#928;</a
+      ><a name="1832"
+      > </a
+      ><a name="1833" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1833" class="Bound"
+      >&#915;</a
+      ><a name="1834" class="Symbol"
+      >}</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" class="Symbol"
+      >&#8594;</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1833" class="Bound"
+      >&#915;</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="BasicIPC.Syntax.Hilbert.html#560" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1842"
+      > </a
+      ><a name="1843" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1831" class="Bound"
+      >&#928;</a
+      ><a name="1844"
+      > </a
+      ><a name="1845" class="Symbol"
+      >&#8594;</a
+      ><a name="1846"
+      > </a
+      ><a name="1847" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1833" class="Bound"
+      >&#915;</a
+      ><a name="1848"
+      > </a
+      ><a name="1849" href="BasicIPC.Semantics.TarskiGluedGentzen.html#1321" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1851"
+      > </a
+      ><a name="1852" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1831" class="Bound"
+      >&#928;</a
+      ><a name="1853"
+      >
+</a
+      ><a name="1854" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1816" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="1863"
+      > </a
+      ><a name="1864" class="Symbol"
+      >{</a
+      ><a name="1865" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1866" class="Symbol"
+      >}</a
+      ><a name="1867"
+      >     </a
+      ><a name="1872" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1873"
+      >        </a
+      ><a name="1881" class="Symbol"
+      >=</a
+      ><a name="1882"
+      > </a
+      ><a name="1883" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1884"
+      >
+</a
+      ><a name="1885" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1816" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="1894"
+      > </a
+      ><a name="1895" class="Symbol"
+      >{</a
+      ><a name="1896" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1896" class="Bound"
+      >&#928;</a
+      ><a name="1897"
+      > </a
+      ><a name="1898" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1899"
+      > </a
+      ><a name="1900" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1900" class="Bound"
+      >A</a
+      ><a name="1901" class="Symbol"
+      >}</a
+      ><a name="1902"
+      > </a
+      ><a name="1903" class="Symbol"
+      >(</a
+      ><a name="1904" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1904" class="Bound"
+      >ts</a
+      ><a name="1906"
+      > </a
+      ><a name="1907" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1908"
+      > </a
+      ><a name="1909" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1909" class="Bound"
+      >t</a
+      ><a name="1910" class="Symbol"
+      >)</a
+      ><a name="1911"
+      > </a
+      ><a name="1912" class="Symbol"
+      >=</a
+      ><a name="1913"
+      > </a
+      ><a name="1914" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1816" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="1923"
+      > </a
+      ><a name="1924" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1904" class="Bound"
+      >ts</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1928"
+      > </a
+      ><a name="1929" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1346" class="Function"
+      >reflect&#7580;</a
+      ><a name="1937"
+      > </a
+      ><a name="1938" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1909" class="Bound"
+      >t</a
+      ><a name="1939"
+      >
+
+</a
+      ><a name="1941" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1941" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="1948"
+      > </a
+      ><a name="1949" class="Symbol"
+      >:</a
+      ><a name="1950"
+      > </a
+      ><a name="1951" class="Symbol"
+      >&#8704;</a
+      ><a name="1952"
+      > </a
+      ><a name="1953" class="Symbol"
+      >{</a
+      ><a name="1954" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1954" class="Bound"
+      >&#928;</a
+      ><a name="1955"
+      > </a
+      ><a name="1956" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1956" class="Bound"
+      >&#915;</a
+      ><a name="1957" class="Symbol"
+      >}</a
+      ><a name="1958"
+      > </a
+      ><a name="1959" class="Symbol"
+      >&#8594;</a
+      ><a name="1960"
+      > </a
+      ><a name="1961" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1956" class="Bound"
+      >&#915;</a
+      ><a name="1962"
+      > </a
+      ><a name="1963" href="BasicIPC.Semantics.TarskiGluedGentzen.html#1321" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1954" class="Bound"
+      >&#928;</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" class="Symbol"
+      >&#8594;</a
+      ><a name="1969"
+      > </a
+      ><a name="1970" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1956" class="Bound"
+      >&#915;</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" href="BasicIPC.Syntax.Hilbert.html#560" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1974"
+      > </a
+      ><a name="1975" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1954" class="Bound"
+      >&#928;</a
+      ><a name="1976"
+      >
+</a
+      ><a name="1977" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1941" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="1984"
+      > </a
+      ><a name="1985" class="Symbol"
+      >{</a
+      ><a name="1986" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1987" class="Symbol"
+      >}</a
+      ><a name="1988"
+      >     </a
+      ><a name="1993" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1994"
+      >        </a
+      ><a name="2002" class="Symbol"
+      >=</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2005"
+      >
+</a
+      ><a name="2006" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1941" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="2013"
+      > </a
+      ><a name="2014" class="Symbol"
+      >{</a
+      ><a name="2015" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2015" class="Bound"
+      >&#928;</a
+      ><a name="2016"
+      > </a
+      ><a name="2017" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2018"
+      > </a
+      ><a name="2019" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2019" class="Bound"
+      >A</a
+      ><a name="2020" class="Symbol"
+      >}</a
+      ><a name="2021"
+      > </a
+      ><a name="2022" class="Symbol"
+      >(</a
+      ><a name="2023" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2023" class="Bound"
+      >ts</a
+      ><a name="2025"
+      > </a
+      ><a name="2026" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2027"
+      > </a
+      ><a name="2028" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2028" class="Bound"
+      >t</a
+      ><a name="2029" class="Symbol"
+      >)</a
+      ><a name="2030"
+      > </a
+      ><a name="2031" class="Symbol"
+      >=</a
+      ><a name="2032"
+      > </a
+      ><a name="2033" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1941" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="2040"
+      > </a
+      ><a name="2041" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2023" class="Bound"
+      >ts</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2045"
+      > </a
+      ><a name="2046" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2028" class="Bound"
+      >t</a
+      ><a name="2054"
+      >
+
+
+</a
+      ><a name="2057" class="Comment"
+      >-- Reflexivity and transitivity.</a
+      ><a name="2089"
+      >
+
+</a
+      ><a name="2091" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2091" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="2097"
+      > </a
+      ><a name="2098" class="Symbol"
+      >:</a
+      ><a name="2099"
+      > </a
+      ><a name="2100" class="Symbol"
+      >&#8704;</a
+      ><a name="2101"
+      > </a
+      ><a name="2102" class="Symbol"
+      >{</a
+      ><a name="2103" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2103" class="Bound"
+      >&#915;</a
+      ><a name="2104" class="Symbol"
+      >}</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" class="Symbol"
+      >&#8594;</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2103" class="Bound"
+      >&#915;</a
+      ><a name="2109"
+      > </a
+      ><a name="2110" href="BasicIPC.Semantics.TarskiGluedGentzen.html#1321" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2112"
+      > </a
+      ><a name="2113" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2103" class="Bound"
+      >&#915;</a
+      ><a name="2114"
+      >
+</a
+      ><a name="2115" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2091" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="2121"
+      > </a
+      ><a name="2122" class="Symbol"
+      >=</a
+      ><a name="2123"
+      > </a
+      ><a name="2124" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1816" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="2133"
+      > </a
+      ><a name="2134" href="BasicIPC.Syntax.Hilbert.html#2394" class="Function"
+      >refl&#8866;&#8902;</a
+      ><a name="2140"
+      >
+
+</a
+      ><a name="2142" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2142" class="Function"
+      >trans&#8873;&#8902;</a
+      ><a name="2149"
+      > </a
+      ><a name="2150" class="Symbol"
+      >:</a
+      ><a name="2151"
+      > </a
+      ><a name="2152" class="Symbol"
+      >&#8704;</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" class="Symbol"
+      >{</a
+      ><a name="2155" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2155" class="Bound"
+      >&#915;</a
+      ><a name="2156"
+      > </a
+      ><a name="2157" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2157" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2160" class="Bound"
+      >&#915;&#8243;</a
+      ><a name="2162" class="Symbol"
+      >}</a
+      ><a name="2163"
+      > </a
+      ><a name="2164" class="Symbol"
+      >&#8594;</a
+      ><a name="2165"
+      > </a
+      ><a name="2166" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2155" class="Bound"
+      >&#915;</a
+      ><a name="2167"
+      > </a
+      ><a name="2168" href="BasicIPC.Semantics.TarskiGluedGentzen.html#1321" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2170"
+      > </a
+      ><a name="2171" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2157" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2173"
+      > </a
+      ><a name="2174" class="Symbol"
+      >&#8594;</a
+      ><a name="2175"
+      > </a
+      ><a name="2176" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2157" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2178"
+      > </a
+      ><a name="2179" href="BasicIPC.Semantics.TarskiGluedGentzen.html#1321" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2181"
+      > </a
+      ><a name="2182" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2160" class="Bound"
+      >&#915;&#8243;</a
+      ><a name="2184"
+      > </a
+      ><a name="2185" class="Symbol"
+      >&#8594;</a
+      ><a name="2186"
+      > </a
+      ><a name="2187" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2155" class="Bound"
+      >&#915;</a
+      ><a name="2188"
+      > </a
+      ><a name="2189" href="BasicIPC.Semantics.TarskiGluedGentzen.html#1321" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2191"
+      > </a
+      ><a name="2192" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2160" class="Bound"
+      >&#915;&#8243;</a
+      ><a name="2194"
+      >
+</a
+      ><a name="2195" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2142" class="Function"
+      >trans&#8873;&#8902;</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2203" class="Bound"
+      >ts</a
+      ><a name="2205"
+      > </a
+      ><a name="2206" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2206" class="Bound"
+      >us</a
+      ><a name="2208"
+      > </a
+      ><a name="2209" class="Symbol"
+      >=</a
+      ><a name="2210"
+      > </a
+      ><a name="2211" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1816" class="Function"
+      >reflect&#7580;&#8902;</a
+      ><a name="2220"
+      > </a
+      ><a name="2221" class="Symbol"
+      >(</a
+      ><a name="2222" href="BasicIPC.Syntax.Hilbert.html#2480" class="Function"
+      >trans&#8866;&#8902;</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" class="Symbol"
+      >(</a
+      ><a name="2231" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1941" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="2238"
+      > </a
+      ><a name="2239" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2203" class="Bound"
+      >ts</a
+      ><a name="2241" class="Symbol"
+      >)</a
+      ><a name="2242"
+      > </a
+      ><a name="2243" class="Symbol"
+      >(</a
+      ><a name="2244" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1941" class="Function"
+      >reify&#7580;&#8902;</a
+      ><a name="2251"
+      > </a
+      ><a name="2252" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2206" class="Bound"
+      >us</a
+      ><a name="2254" class="Symbol"
+      >))</a
+      ><a name="2256"
+      >
+
+
+</a
+      ><a name="2259" class="Comment"
+      >-- Completeness with respect to all models, or quotation.</a
+      ><a name="2316"
+      >
+
+</a
+      ><a name="2318" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2318" class="Function"
+      >quot</a
+      ><a name="2322"
+      > </a
+      ><a name="2323" class="Symbol"
+      >:</a
+      ><a name="2324"
+      > </a
+      ><a name="2325" class="Symbol"
+      >&#8704;</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" class="Symbol"
+      >{</a
+      ><a name="2328" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2328" class="Bound"
+      >A</a
+      ><a name="2329"
+      > </a
+      ><a name="2330" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2330" class="Bound"
+      >&#915;</a
+      ><a name="2331" class="Symbol"
+      >}</a
+      ><a name="2332"
+      > </a
+      ><a name="2333" class="Symbol"
+      >&#8594;</a
+      ><a name="2334"
+      > </a
+      ><a name="2335" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2330" class="Bound"
+      >&#915;</a
+      ><a name="2336"
+      > </a
+      ><a name="2337" href="BasicIPC.Semantics.TarskiGluedGentzen.html#4701" class="Function Operator"
+      >&#8872;</a
+      ><a name="2338"
+      > </a
+      ><a name="2339" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2328" class="Bound"
+      >A</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" class="Symbol"
+      >&#8594;</a
+      ><a name="2342"
+      > </a
+      ><a name="2343" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2330" class="Bound"
+      >&#915;</a
+      ><a name="2344"
+      > </a
+      ><a name="2345" href="BasicIPC.Syntax.Hilbert.html#177" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2328" class="Bound"
+      >A</a
+      ><a name="2348"
+      >
+</a
+      ><a name="2349" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2318" class="Function"
+      >quot</a
+      ><a name="2353"
+      > </a
+      ><a name="2354" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2354" class="Bound"
+      >s</a
+      ><a name="2355"
+      > </a
+      ><a name="2356" class="Symbol"
+      >=</a
+      ><a name="2357"
+      > </a
+      ><a name="2358" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#1618" class="Function"
+      >reify&#7580;</a
+      ><a name="2364"
+      > </a
+      ><a name="2365" class="Symbol"
+      >(</a
+      ><a name="2366" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2354" class="Bound"
+      >s</a
+      ><a name="2367"
+      > </a
+      ><a name="2368" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2091" class="Function"
+      >refl&#8873;&#8902;</a
+      ><a name="2374" class="Symbol"
+      >)</a
+      ><a name="2375"
+      >
+
+
+</a
+      ><a name="2378" class="Comment"
+      >-- Normalisation by evaluation.</a
+      ><a name="2409"
+      >
+
+</a
+      ><a name="2411" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2411" class="Function"
+      >norm</a
+      ><a name="2415"
+      > </a
+      ><a name="2416" class="Symbol"
+      >:</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" class="Symbol"
+      >&#8704;</a
+      ><a name="2419"
+      > </a
+      ><a name="2420" class="Symbol"
+      >{</a
+      ><a name="2421" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2421" class="Bound"
+      >A</a
+      ><a name="2422"
+      > </a
+      ><a name="2423" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2423" class="Bound"
+      >&#915;</a
+      ><a name="2424" class="Symbol"
+      >}</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" class="Symbol"
+      >&#8594;</a
+      ><a name="2427"
+      > </a
+      ><a name="2428" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2423" class="Bound"
+      >&#915;</a
+      ><a name="2429"
+      > </a
+      ><a name="2430" href="BasicIPC.Syntax.Hilbert.html#177" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2431"
+      > </a
+      ><a name="2432" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2421" class="Bound"
+      >A</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" class="Symbol"
+      >&#8594;</a
+      ><a name="2435"
+      > </a
+      ><a name="2436" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2423" class="Bound"
+      >&#915;</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" href="BasicIPC.Syntax.Hilbert.html#177" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2439"
+      > </a
+      ><a name="2440" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2421" class="Bound"
+      >A</a
+      ><a name="2441"
+      >
+</a
+      ><a name="2442" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2411" class="Function"
+      >norm</a
+      ><a name="2446"
+      > </a
+      ><a name="2447" class="Symbol"
+      >=</a
+      ><a name="2448"
+      > </a
+      ><a name="2449" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#2318" class="Function"
+      >quot</a
+      ><a name="2453"
+      > </a
+      ><a name="2454" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="2455"
+      > </a
+      ><a name="2456" href="BasicIPC.Metatheory.Hilbert-TarskiGluedGentzen.html#500" class="Function"
+      >eval</a
+      ><a name="2460"
+      >
+
+
+</a
+      ><a name="2463" class="Comment"
+      >-- TODO: Correctness of normalisation with respect to conversion.</a
+      ><a name="2528"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

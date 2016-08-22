@@ -1,0 +1,1529 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1" class="Module"
+      >BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit</a
+      ><a name="65"
+      > </a
+      ><a name="66" class="Keyword"
+      >where</a
+      ><a name="71"
+      >
+
+</a
+      ><a name="73" class="Keyword"
+      >open</a
+      ><a name="77"
+      > </a
+      ><a name="78" class="Keyword"
+      >import</a
+      ><a name="84"
+      > </a
+      ><a name="85" href="BasicIS4.Syntax.Gentzen.html#1" class="Module"
+      >BasicIS4.Syntax.Gentzen</a
+      ><a name="108"
+      > </a
+      ><a name="109" class="Keyword"
+      >public</a
+      ><a name="115"
+      >
+</a
+      ><a name="116" class="Keyword"
+      >open</a
+      ><a name="120"
+      > </a
+      ><a name="121" class="Keyword"
+      >import</a
+      ><a name="127"
+      > </a
+      ><a name="128" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#1" class="Module"
+      >BasicIS4.Semantics.TarskiClosedOvergluedImplicit</a
+      ><a name="176"
+      > </a
+      ><a name="177" class="Keyword"
+      >public</a
+      ><a name="183"
+      >
+
+</a
+      ><a name="185" class="Keyword"
+      >open</a
+      ><a name="189"
+      > </a
+      ><a name="190" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#379" class="Module"
+      >ImplicitSyntax</a
+      ><a name="204"
+      > </a
+      ><a name="205" class="Symbol"
+      >(</a
+      ><a name="206" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="207"
+      > </a
+      ><a name="208" href="BasicIS4.Syntax.Gentzen.html#195" class="Datatype Operator"
+      >&#8866;_</a
+      ><a name="210" class="Symbol"
+      >)</a
+      ><a name="211"
+      > </a
+      ><a name="212" class="Keyword"
+      >public</a
+      ><a name="218"
+      >
+
+
+</a
+      ><a name="221" class="Comment"
+      >-- Completeness with respect to a particular model.</a
+      ><a name="272"
+      >
+
+</a
+      ><a name="274" class="Keyword"
+      >module</a
+      ><a name="280"
+      > </a
+      ><a name="281" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#281" class="Module"
+      >_</a
+      ><a name="282"
+      > </a
+      ><a name="283" class="Symbol"
+      >{{</a
+      ><a name="285" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#285" class="Bound"
+      >_</a
+      ><a name="286"
+      > </a
+      ><a name="287" class="Symbol"
+      >:</a
+      ><a name="288"
+      > </a
+      ><a name="289" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#241" class="Record"
+      >Model</a
+      ><a name="294" class="Symbol"
+      >}}</a
+      ><a name="296"
+      > </a
+      ><a name="297" class="Keyword"
+      >where</a
+      ><a name="302"
+      >
+  </a
+      ><a name="305" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="310"
+      > </a
+      ><a name="311" class="Symbol"
+      >:</a
+      ><a name="312"
+      > </a
+      ><a name="313" class="Symbol"
+      >&#8704;</a
+      ><a name="314"
+      > </a
+      ><a name="315" class="Symbol"
+      >{</a
+      ><a name="316" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#316" class="Bound"
+      >A</a
+      ><a name="317" class="Symbol"
+      >}</a
+      ><a name="318"
+      > </a
+      ><a name="319" class="Symbol"
+      >&#8594;</a
+      ><a name="320"
+      > </a
+      ><a name="321" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#513" class="Function Operator"
+      >&#8873;</a
+      ><a name="322"
+      > </a
+      ><a name="323" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#316" class="Bound"
+      >A</a
+      ><a name="324"
+      > </a
+      ><a name="325" class="Symbol"
+      >&#8594;</a
+      ><a name="326"
+      > </a
+      ><a name="327" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="328"
+      > </a
+      ><a name="329" href="BasicIS4.Syntax.Gentzen.html#195" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="330"
+      > </a
+      ><a name="331" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#316" class="Bound"
+      >A</a
+      ><a name="332"
+      >
+  </a
+      ><a name="335" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="340"
+      > </a
+      ><a name="341" class="Symbol"
+      >{</a
+      ><a name="342" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="343"
+      > </a
+      ><a name="344" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#344" class="Bound"
+      >P</a
+      ><a name="345" class="Symbol"
+      >}</a
+      ><a name="346"
+      >   </a
+      ><a name="349" class="Symbol"
+      >(</a
+      ><a name="350" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#350" class="Bound"
+      >t</a
+      ><a name="351"
+      > </a
+      ><a name="352" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="353"
+      > </a
+      ><a name="354" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#354" class="Bound"
+      >s</a
+      ><a name="355" class="Symbol"
+      >)</a
+      ><a name="356"
+      > </a
+      ><a name="357" class="Symbol"
+      >=</a
+      ><a name="358"
+      > </a
+      ><a name="359" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#350" class="Bound"
+      >t</a
+      ><a name="360"
+      >
+  </a
+      ><a name="363" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="368"
+      > </a
+      ><a name="369" class="Symbol"
+      >{</a
+      ><a name="370" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#370" class="Bound"
+      >A</a
+      ><a name="371"
+      > </a
+      ><a name="372" href="BasicIS4.Syntax.Common.html#199" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="373"
+      > </a
+      ><a name="374" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#374" class="Bound"
+      >B</a
+      ><a name="375" class="Symbol"
+      >}</a
+      ><a name="376"
+      > </a
+      ><a name="377" class="Symbol"
+      >(</a
+      ><a name="378" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#378" class="Bound"
+      >t</a
+      ><a name="379"
+      > </a
+      ><a name="380" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="381"
+      > </a
+      ><a name="382" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#382" class="Bound"
+      >f</a
+      ><a name="383" class="Symbol"
+      >)</a
+      ><a name="384"
+      > </a
+      ><a name="385" class="Symbol"
+      >=</a
+      ><a name="386"
+      > </a
+      ><a name="387" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#378" class="Bound"
+      >t</a
+      ><a name="388"
+      >
+  </a
+      ><a name="391" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="396"
+      > </a
+      ><a name="397" class="Symbol"
+      >{</a
+      ><a name="398" href="BasicIS4.Syntax.Common.html#220" class="InductiveConstructor Operator"
+      >&#9633;</a
+      ><a name="399"
+      > </a
+      ><a name="400" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#400" class="Bound"
+      >A</a
+      ><a name="401" class="Symbol"
+      >}</a
+      ><a name="402"
+      >   </a
+      ><a name="405" class="Symbol"
+      >(</a
+      ><a name="406" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#406" class="Bound"
+      >t</a
+      ><a name="407"
+      > </a
+      ><a name="408" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="409"
+      > </a
+      ><a name="410" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#410" class="Bound"
+      >a</a
+      ><a name="411" class="Symbol"
+      >)</a
+      ><a name="412"
+      > </a
+      ><a name="413" class="Symbol"
+      >=</a
+      ><a name="414"
+      > </a
+      ><a name="415" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#406" class="Bound"
+      >t</a
+      ><a name="416"
+      >
+  </a
+      ><a name="419" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="424"
+      > </a
+      ><a name="425" class="Symbol"
+      >{</a
+      ><a name="426" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#426" class="Bound"
+      >A</a
+      ><a name="427"
+      > </a
+      ><a name="428" href="BasicIS4.Syntax.Common.html#236" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="429"
+      > </a
+      ><a name="430" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#430" class="Bound"
+      >B</a
+      ><a name="431" class="Symbol"
+      >}</a
+      ><a name="432"
+      > </a
+      ><a name="433" class="Symbol"
+      >(</a
+      ><a name="434" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#434" class="Bound"
+      >a</a
+      ><a name="435"
+      > </a
+      ><a name="436" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="437"
+      > </a
+      ><a name="438" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#438" class="Bound"
+      >b</a
+      ><a name="439" class="Symbol"
+      >)</a
+      ><a name="440"
+      > </a
+      ><a name="441" class="Symbol"
+      >=</a
+      ><a name="442"
+      > </a
+      ><a name="443" href="BasicIS4.Syntax.Gentzen.html#466" class="InductiveConstructor"
+      >pair</a
+      ><a name="447"
+      > </a
+      ><a name="448" class="Symbol"
+      >(</a
+      ><a name="449" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="454"
+      > </a
+      ><a name="455" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#434" class="Bound"
+      >a</a
+      ><a name="456" class="Symbol"
+      >)</a
+      ><a name="457"
+      > </a
+      ><a name="458" class="Symbol"
+      >(</a
+      ><a name="459" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="464"
+      > </a
+      ><a name="465" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#438" class="Bound"
+      >b</a
+      ><a name="466" class="Symbol"
+      >)</a
+      ><a name="467"
+      >
+  </a
+      ><a name="470" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="475"
+      > </a
+      ><a name="476" class="Symbol"
+      >{</a
+      ><a name="477" href="BasicIS4.Syntax.Common.html#257" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="478" class="Symbol"
+      >}</a
+      ><a name="479"
+      >    </a
+      ><a name="483" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="484"
+      >       </a
+      ><a name="491" class="Symbol"
+      >=</a
+      ><a name="492"
+      > </a
+      ><a name="493" href="BasicIS4.Syntax.Gentzen.html#603" class="InductiveConstructor"
+      >tt</a
+      ><a name="495"
+      >
+
+  </a
+      ><a name="499" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#499" class="Function"
+      >reify&#8902;</a
+      ><a name="505"
+      > </a
+      ><a name="506" class="Symbol"
+      >:</a
+      ><a name="507"
+      > </a
+      ><a name="508" class="Symbol"
+      >&#8704;</a
+      ><a name="509"
+      > </a
+      ><a name="510" class="Symbol"
+      >{</a
+      ><a name="511" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#511" class="Bound"
+      >&#928;</a
+      ><a name="512" class="Symbol"
+      >}</a
+      ><a name="513"
+      > </a
+      ><a name="514" class="Symbol"
+      >&#8594;</a
+      ><a name="515"
+      > </a
+      ><a name="516" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#688" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="518"
+      > </a
+      ><a name="519" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#511" class="Bound"
+      >&#928;</a
+      ><a name="520"
+      > </a
+      ><a name="521" class="Symbol"
+      >&#8594;</a
+      ><a name="522"
+      > </a
+      ><a name="523" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="BasicIS4.Syntax.Gentzen.html#638" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="527"
+      > </a
+      ><a name="528" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#511" class="Bound"
+      >&#928;</a
+      ><a name="529"
+      >
+  </a
+      ><a name="532" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#499" class="Function"
+      >reify&#8902;</a
+      ><a name="538"
+      > </a
+      ><a name="539" class="Symbol"
+      >{</a
+      ><a name="540" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="541" class="Symbol"
+      >}</a
+      ><a name="542"
+      >     </a
+      ><a name="547" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="548"
+      >        </a
+      ><a name="556" class="Symbol"
+      >=</a
+      ><a name="557"
+      > </a
+      ><a name="558" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="559"
+      >
+  </a
+      ><a name="562" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#499" class="Function"
+      >reify&#8902;</a
+      ><a name="568"
+      > </a
+      ><a name="569" class="Symbol"
+      >{</a
+      ><a name="570" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#570" class="Bound"
+      >&#928;</a
+      ><a name="571"
+      > </a
+      ><a name="572" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#574" class="Bound"
+      >A</a
+      ><a name="575" class="Symbol"
+      >}</a
+      ><a name="576"
+      > </a
+      ><a name="577" class="Symbol"
+      >(</a
+      ><a name="578" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#578" class="Bound"
+      >ts</a
+      ><a name="580"
+      > </a
+      ><a name="581" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="582"
+      > </a
+      ><a name="583" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#583" class="Bound"
+      >t</a
+      ><a name="584" class="Symbol"
+      >)</a
+      ><a name="585"
+      > </a
+      ><a name="586" class="Symbol"
+      >=</a
+      ><a name="587"
+      > </a
+      ><a name="588" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#499" class="Function"
+      >reify&#8902;</a
+      ><a name="594"
+      > </a
+      ><a name="595" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#578" class="Bound"
+      >ts</a
+      ><a name="597"
+      > </a
+      ><a name="598" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="599"
+      > </a
+      ><a name="600" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="605"
+      > </a
+      ><a name="606" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#583" class="Bound"
+      >t</a
+      ><a name="607"
+      >
+
+
+</a
+      ><a name="610" class="Comment"
+      >-- Soundness with respect to all models, or evaluation.</a
+      ><a name="665"
+      >
+
+</a
+      ><a name="667" class="Keyword"
+      >mutual</a
+      ><a name="673"
+      >
+  </a
+      ><a name="676" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="680"
+      > </a
+      ><a name="681" class="Symbol"
+      >:</a
+      ><a name="682"
+      > </a
+      ><a name="683" class="Symbol"
+      >&#8704;</a
+      ><a name="684"
+      > </a
+      ><a name="685" class="Symbol"
+      >{</a
+      ><a name="686" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#686" class="Bound"
+      >A</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#688" class="Bound"
+      >&#915;</a
+      ><a name="689" class="Symbol"
+      >}</a
+      ><a name="690"
+      > </a
+      ><a name="691" class="Symbol"
+      >&#8594;</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#688" class="Bound"
+      >&#915;</a
+      ><a name="694"
+      > </a
+      ><a name="695" href="BasicIS4.Syntax.Gentzen.html#195" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#686" class="Bound"
+      >A</a
+      ><a name="698"
+      > </a
+      ><a name="699" class="Symbol"
+      >&#8594;</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#688" class="Bound"
+      >&#915;</a
+      ><a name="702"
+      > </a
+      ><a name="703" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#1462" class="Function Operator"
+      >&#8872;</a
+      ><a name="704"
+      > </a
+      ><a name="705" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#686" class="Bound"
+      >A</a
+      ><a name="706"
+      >
+  </a
+      ><a name="709" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="713"
+      > </a
+      ><a name="714" class="Symbol"
+      >(</a
+      ><a name="715" href="BasicIS4.Syntax.Gentzen.html#232" class="InductiveConstructor"
+      >var</a
+      ><a name="718"
+      > </a
+      ><a name="719" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#719" class="Bound"
+      >i</a
+      ><a name="720" class="Symbol"
+      >)</a
+      ><a name="721"
+      >         </a
+      ><a name="730" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#730" class="Bound"
+      >&#947;</a
+      ><a name="731"
+      > </a
+      ><a name="732" class="Symbol"
+      >=</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#1692" class="Function"
+      >lookup</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#719" class="Bound"
+      >i</a
+      ><a name="742"
+      > </a
+      ><a name="743" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#730" class="Bound"
+      >&#947;</a
+      ><a name="744"
+      >
+  </a
+      ><a name="747" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="751"
+      > </a
+      ><a name="752" class="Symbol"
+      >(</a
+      ><a name="753" href="BasicIS4.Syntax.Gentzen.html#271" class="InductiveConstructor"
+      >lam</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#757" class="Bound"
+      >t</a
+      ><a name="758" class="Symbol"
+      >)</a
+      ><a name="759"
+      >         </a
+      ><a name="768" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#768" class="Bound"
+      >&#947;</a
+      ><a name="769"
+      > </a
+      ><a name="770" class="Symbol"
+      >=</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="BasicIS4.Syntax.Gentzen.html#2128" class="Function"
+      >multicut</a
+      ><a name="780"
+      > </a
+      ><a name="781" class="Symbol"
+      >(</a
+      ><a name="782" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#499" class="Function"
+      >reify&#8902;</a
+      ><a name="788"
+      > </a
+      ><a name="789" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#768" class="Bound"
+      >&#947;</a
+      ><a name="790" class="Symbol"
+      >)</a
+      ><a name="791"
+      > </a
+      ><a name="792" class="Symbol"
+      >(</a
+      ><a name="793" href="BasicIS4.Syntax.Gentzen.html#271" class="InductiveConstructor"
+      >lam</a
+      ><a name="796"
+      > </a
+      ><a name="797" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#757" class="Bound"
+      >t</a
+      ><a name="798" class="Symbol"
+      >)</a
+      ><a name="799"
+      > </a
+      ><a name="800" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="801"
+      > </a
+      ><a name="802" class="Symbol"
+      >&#955;</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#804" class="Bound"
+      >a</a
+      ><a name="805"
+      > </a
+      ><a name="806" class="Symbol"
+      >&#8594;</a
+      ><a name="807"
+      >
+                             </a
+      ><a name="837" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="841"
+      > </a
+      ><a name="842" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#757" class="Bound"
+      >t</a
+      ><a name="843"
+      > </a
+      ><a name="844" class="Symbol"
+      >(</a
+      ><a name="845" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#768" class="Bound"
+      >&#947;</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#804" class="Bound"
+      >a</a
+      ><a name="850" class="Symbol"
+      >)</a
+      ><a name="851"
+      >
+  </a
+      ><a name="854" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="858"
+      > </a
+      ><a name="859" class="Symbol"
+      >(</a
+      ><a name="860" href="BasicIS4.Syntax.Gentzen.html#318" class="InductiveConstructor"
+      >app</a
+      ><a name="863"
+      > </a
+      ><a name="864" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#864" class="Bound"
+      >t</a
+      ><a name="865"
+      > </a
+      ><a name="866" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#866" class="Bound"
+      >u</a
+      ><a name="867" class="Symbol"
+      >)</a
+      ><a name="868"
+      >       </a
+      ><a name="875" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#875" class="Bound"
+      >&#947;</a
+      ><a name="876"
+      > </a
+      ><a name="877" class="Symbol"
+      >=</a
+      ><a name="878"
+      > </a
+      ><a name="879" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#864" class="Bound"
+      >t</a
+      ><a name="885"
+      > </a
+      ><a name="886" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#875" class="Bound"
+      >&#947;</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#927" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="896"
+      > </a
+      ><a name="897" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#866" class="Bound"
+      >u</a
+      ><a name="898"
+      > </a
+      ><a name="899" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#875" class="Bound"
+      >&#947;</a
+      ><a name="900"
+      >
+  </a
+      ><a name="903" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="907"
+      > </a
+      ><a name="908" class="Symbol"
+      >(</a
+      ><a name="909" href="BasicIS4.Syntax.Gentzen.html#369" class="InductiveConstructor"
+      >multibox</a
+      ><a name="917"
+      > </a
+      ><a name="918" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#918" class="Bound"
+      >ts</a
+      ><a name="920"
+      > </a
+      ><a name="921" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#921" class="Bound"
+      >u</a
+      ><a name="922" class="Symbol"
+      >)</a
+      ><a name="923"
+      > </a
+      ><a name="924" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#924" class="Bound"
+      >&#947;</a
+      ><a name="925"
+      > </a
+      ><a name="926" class="Symbol"
+      >=</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="BasicIS4.Syntax.Gentzen.html#2128" class="Function"
+      >multicut</a
+      ><a name="936"
+      > </a
+      ><a name="937" class="Symbol"
+      >(</a
+      ><a name="938" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#499" class="Function"
+      >reify&#8902;</a
+      ><a name="944"
+      > </a
+      ><a name="945" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#924" class="Bound"
+      >&#947;</a
+      ><a name="946" class="Symbol"
+      >)</a
+      ><a name="947"
+      > </a
+      ><a name="948" class="Symbol"
+      >(</a
+      ><a name="949" href="BasicIS4.Syntax.Gentzen.html#369" class="InductiveConstructor"
+      >multibox</a
+      ><a name="957"
+      > </a
+      ><a name="958" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#918" class="Bound"
+      >ts</a
+      ><a name="960"
+      > </a
+      ><a name="961" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#921" class="Bound"
+      >u</a
+      ><a name="962" class="Symbol"
+      >)</a
+      ><a name="963"
+      > </a
+      ><a name="964" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="965"
+      >
+                             </a
+      ><a name="995" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="999"
+      > </a
+      ><a name="1000" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#921" class="Bound"
+      >u</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" class="Symbol"
+      >(</a
+      ><a name="1003" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1218" class="Function"
+      >eval&#8902;</a
+      ><a name="1008"
+      > </a
+      ><a name="1009" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#918" class="Bound"
+      >ts</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#924" class="Bound"
+      >&#947;</a
+      ><a name="1013" class="Symbol"
+      >)</a
+      ><a name="1014"
+      >
+  </a
+      ><a name="1017" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" class="Symbol"
+      >(</a
+      ><a name="1023" href="BasicIS4.Syntax.Gentzen.html#425" class="InductiveConstructor"
+      >down</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1028" class="Bound"
+      >t</a
+      ><a name="1029" class="Symbol"
+      >)</a
+      ><a name="1030"
+      >        </a
+      ><a name="1038" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1038" class="Bound"
+      >&#947;</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" class="Symbol"
+      >=</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#1108" class="Function"
+      >&#10218;&#8595;&#10219;</a
+      ><a name="1045"
+      > </a
+      ><a name="1046" class="Symbol"
+      >(</a
+      ><a name="1047" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1028" class="Bound"
+      >t</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1038" class="Bound"
+      >&#947;</a
+      ><a name="1055" class="Symbol"
+      >)</a
+      ><a name="1056"
+      >
+  </a
+      ><a name="1059" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1063"
+      > </a
+      ><a name="1064" class="Symbol"
+      >(</a
+      ><a name="1065" href="BasicIS4.Syntax.Gentzen.html#466" class="InductiveConstructor"
+      >pair</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1070" class="Bound"
+      >t</a
+      ><a name="1071"
+      > </a
+      ><a name="1072" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1072" class="Bound"
+      >u</a
+      ><a name="1073" class="Symbol"
+      >)</a
+      ><a name="1074"
+      >      </a
+      ><a name="1080" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1080" class="Bound"
+      >&#947;</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" class="Symbol"
+      >=</a
+      ><a name="1083"
+      > </a
+      ><a name="1084" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1070" class="Bound"
+      >t</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1080" class="Bound"
+      >&#947;</a
+      ><a name="1092"
+      > </a
+      ><a name="1093" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1094"
+      > </a
+      ><a name="1095" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1072" class="Bound"
+      >u</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1080" class="Bound"
+      >&#947;</a
+      ><a name="1103"
+      >
+  </a
+      ><a name="1106" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" class="Symbol"
+      >(</a
+      ><a name="1112" href="BasicIS4.Syntax.Gentzen.html#517" class="InductiveConstructor"
+      >fst</a
+      ><a name="1115"
+      > </a
+      ><a name="1116" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1116" class="Bound"
+      >t</a
+      ><a name="1117" class="Symbol"
+      >)</a
+      ><a name="1118"
+      >         </a
+      ><a name="1127" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1127" class="Bound"
+      >&#947;</a
+      ><a name="1128"
+      > </a
+      ><a name="1129" class="Symbol"
+      >=</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" href="Data.Product.html#525" class="Field"
+      >&#960;&#8321;</a
+      ><a name="1133"
+      > </a
+      ><a name="1134" class="Symbol"
+      >(</a
+      ><a name="1135" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1116" class="Bound"
+      >t</a
+      ><a name="1141"
+      > </a
+      ><a name="1142" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1127" class="Bound"
+      >&#947;</a
+      ><a name="1143" class="Symbol"
+      >)</a
+      ><a name="1144"
+      >
+  </a
+      ><a name="1147" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" class="Symbol"
+      >(</a
+      ><a name="1153" href="BasicIS4.Syntax.Gentzen.html#560" class="InductiveConstructor"
+      >snd</a
+      ><a name="1156"
+      > </a
+      ><a name="1157" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1157" class="Bound"
+      >t</a
+      ><a name="1158" class="Symbol"
+      >)</a
+      ><a name="1159"
+      >         </a
+      ><a name="1168" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1168" class="Bound"
+      >&#947;</a
+      ><a name="1169"
+      > </a
+      ><a name="1170" class="Symbol"
+      >=</a
+      ><a name="1171"
+      > </a
+      ><a name="1172" href="Data.Product.html#539" class="Field"
+      >&#960;&#8322;</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" class="Symbol"
+      >(</a
+      ><a name="1176" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1157" class="Bound"
+      >t</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1168" class="Bound"
+      >&#947;</a
+      ><a name="1184" class="Symbol"
+      >)</a
+      ><a name="1185"
+      >
+  </a
+      ><a name="1188" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1192"
+      > </a
+      ><a name="1193" href="BasicIS4.Syntax.Gentzen.html#603" class="InductiveConstructor"
+      >tt</a
+      ><a name="1195"
+      >              </a
+      ><a name="1209" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1209" class="Bound"
+      >&#947;</a
+      ><a name="1210"
+      > </a
+      ><a name="1211" class="Symbol"
+      >=</a
+      ><a name="1212"
+      > </a
+      ><a name="1213" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1214"
+      >
+
+  </a
+      ><a name="1218" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1218" class="Function"
+      >eval&#8902;</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" class="Symbol"
+      >:</a
+      ><a name="1225"
+      > </a
+      ><a name="1226" class="Symbol"
+      >&#8704;</a
+      ><a name="1227"
+      > </a
+      ><a name="1228" class="Symbol"
+      >{</a
+      ><a name="1229" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1229" class="Bound"
+      >&#928;</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1231" class="Bound"
+      >&#915;</a
+      ><a name="1232" class="Symbol"
+      >}</a
+      ><a name="1233"
+      > </a
+      ><a name="1234" class="Symbol"
+      >&#8594;</a
+      ><a name="1235"
+      > </a
+      ><a name="1236" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1231" class="Bound"
+      >&#915;</a
+      ><a name="1237"
+      > </a
+      ><a name="1238" href="BasicIS4.Syntax.Gentzen.html#638" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1240"
+      > </a
+      ><a name="1241" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1229" class="Bound"
+      >&#928;</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" class="Symbol"
+      >&#8594;</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1231" class="Bound"
+      >&#915;</a
+      ><a name="1246"
+      > </a
+      ><a name="1247" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#1540" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1229" class="Bound"
+      >&#928;</a
+      ><a name="1251"
+      >
+  </a
+      ><a name="1254" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1218" class="Function"
+      >eval&#8902;</a
+      ><a name="1259"
+      > </a
+      ><a name="1260" class="Symbol"
+      >{</a
+      ><a name="1261" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1262" class="Symbol"
+      >}</a
+      ><a name="1263"
+      >     </a
+      ><a name="1268" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1269"
+      >        </a
+      ><a name="1277" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1277" class="Bound"
+      >&#947;</a
+      ><a name="1278"
+      > </a
+      ><a name="1279" class="Symbol"
+      >=</a
+      ><a name="1280"
+      > </a
+      ><a name="1281" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1282"
+      >
+  </a
+      ><a name="1285" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1218" class="Function"
+      >eval&#8902;</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" class="Symbol"
+      >{</a
+      ><a name="1292" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1292" class="Bound"
+      >&#928;</a
+      ><a name="1293"
+      > </a
+      ><a name="1294" href="Common.Context.html#130" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1295"
+      > </a
+      ><a name="1296" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1296" class="Bound"
+      >A</a
+      ><a name="1297" class="Symbol"
+      >}</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" class="Symbol"
+      >(</a
+      ><a name="1300" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1300" class="Bound"
+      >ts</a
+      ><a name="1302"
+      > </a
+      ><a name="1303" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1304"
+      > </a
+      ><a name="1305" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1305" class="Bound"
+      >t</a
+      ><a name="1306" class="Symbol"
+      >)</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1308" class="Bound"
+      >&#947;</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" class="Symbol"
+      >=</a
+      ><a name="1311"
+      > </a
+      ><a name="1312" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1218" class="Function"
+      >eval&#8902;</a
+      ><a name="1317"
+      > </a
+      ><a name="1318" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1300" class="Bound"
+      >ts</a
+      ><a name="1320"
+      > </a
+      ><a name="1321" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1308" class="Bound"
+      >&#947;</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="Data.Product.html#509" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1324"
+      > </a
+      ><a name="1325" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1329"
+      > </a
+      ><a name="1330" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1305" class="Bound"
+      >t</a
+      ><a name="1331"
+      > </a
+      ><a name="1332" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1308" class="Bound"
+      >&#947;</a
+      ><a name="1333"
+      >
+
+
+</a
+      ><a name="1336" class="Comment"
+      >-- TODO: Correctness of evaluation with respect to conversion.</a
+      ><a name="1398"
+      >
+
+
+</a
+      ><a name="1401" class="Comment"
+      >-- The canonical model.</a
+      ><a name="1424"
+      >
+
+</a
+      ><a name="1426" class="Keyword"
+      >private</a
+      ><a name="1433"
+      >
+  </a
+      ><a name="1436" class="Keyword"
+      >instance</a
+      ><a name="1444"
+      >
+    </a
+      ><a name="1449" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1449" class="Function"
+      >canon</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" class="Symbol"
+      >:</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#241" class="Record"
+      >Model</a
+      ><a name="1462"
+      >
+    </a
+      ><a name="1467" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1449" class="Function"
+      >canon</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" class="Symbol"
+      >=</a
+      ><a name="1474"
+      > </a
+      ><a name="1475" class="Keyword"
+      >record</a
+      ><a name="1481"
+      >
+      </a
+      ><a name="1488" class="Symbol"
+      >{</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" class="Field Operator"
+      >&#8873;&#7493;_</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" class="Symbol"
+      >=</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" class="Symbol"
+      >&#955;</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1498" class="Bound"
+      >P</a
+      ><a name="1499"
+      > </a
+      ><a name="1500" class="Symbol"
+      >&#8594;</a
+      ><a name="1501"
+      > </a
+      ><a name="1502" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1503"
+      > </a
+      ><a name="1504" href="BasicIS4.Syntax.Gentzen.html#195" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="BasicIS4.Syntax.Common.html#181" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1498" class="Bound"
+      >P</a
+      ><a name="1509"
+      >
+      </a
+      ><a name="1516" class="Symbol"
+      >}</a
+      ><a name="1517"
+      >
+
+
+</a
+      ><a name="1520" class="Comment"
+      >-- Completeness with respect to all models, or quotation, for closed terms only.</a
+      ><a name="1600"
+      >
+
+</a
+      ><a name="1602" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1602" class="Function"
+      >quot&#8320;</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" class="Symbol"
+      >:</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" class="Symbol"
+      >&#8704;</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" class="Symbol"
+      >{</a
+      ><a name="1613" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1613" class="Bound"
+      >A</a
+      ><a name="1614" class="Symbol"
+      >}</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" class="Symbol"
+      >&#8594;</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" href="BasicIS4.Semantics.TarskiClosedOvergluedImplicit.html#1462" class="Function Operator"
+      >&#8872;</a
+      ><a name="1621"
+      > </a
+      ><a name="1622" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1613" class="Bound"
+      >A</a
+      ><a name="1623"
+      > </a
+      ><a name="1624" class="Symbol"
+      >&#8594;</a
+      ><a name="1625"
+      > </a
+      ><a name="1626" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" href="BasicIS4.Syntax.Gentzen.html#195" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1613" class="Bound"
+      >A</a
+      ><a name="1631"
+      >
+</a
+      ><a name="1632" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1602" class="Function"
+      >quot&#8320;</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1638" class="Bound"
+      >t</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" class="Symbol"
+      >=</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#305" class="Function"
+      >reify</a
+      ><a name="1647"
+      > </a
+      ><a name="1648" class="Symbol"
+      >(</a
+      ><a name="1649" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1638" class="Bound"
+      >t</a
+      ><a name="1650"
+      > </a
+      ><a name="1651" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1652" class="Symbol"
+      >)</a
+      ><a name="1653"
+      >
+
+
+</a
+      ><a name="1656" class="Comment"
+      >-- Normalisation by evaluation, for closed terms only.</a
+      ><a name="1710"
+      >
+
+</a
+      ><a name="1712" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1712" class="Function"
+      >norm&#8320;</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" class="Symbol"
+      >:</a
+      ><a name="1719"
+      > </a
+      ><a name="1720" class="Symbol"
+      >&#8704;</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" class="Symbol"
+      >{</a
+      ><a name="1723" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1723" class="Bound"
+      >A</a
+      ><a name="1724" class="Symbol"
+      >}</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" class="Symbol"
+      >&#8594;</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="BasicIS4.Syntax.Gentzen.html#195" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1723" class="Bound"
+      >A</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" class="Symbol"
+      >&#8594;</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="Common.Context.html#117" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" href="BasicIS4.Syntax.Gentzen.html#195" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1723" class="Bound"
+      >A</a
+      ><a name="1741"
+      >
+</a
+      ><a name="1742" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1712" class="Function"
+      >norm&#8320;</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" class="Symbol"
+      >=</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#1602" class="Function"
+      >quot&#8320;</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" href="Function.html#713" class="Function Operator"
+      >&#8728;</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="BasicIS4.Metatheory.Gentzen-TarskiClosedOvergluedImplicit.html#676" class="Function"
+      >eval</a
+      ><a name="1762"
+      >
+
+
+</a
+      ><a name="1765" class="Comment"
+      >-- TODO: Correctness of normalisation with respect to conversion.</a
+      ><a name="1830"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
