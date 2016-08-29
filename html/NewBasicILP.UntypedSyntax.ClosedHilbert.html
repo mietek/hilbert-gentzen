@@ -1,0 +1,3671 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >NewBasicILP.UntypedSyntax.ClosedHilbert</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Hilbert-style formalisation of closed syntax.</a
+      ><a name="49"
+      >
+</a
+      ><a name="50" class="Comment"
+      >-- Nested terms.</a
+      ><a name="66"
+      >
+
+</a
+      ><a name="68" class="Keyword"
+      >module</a
+      ><a name="74"
+      > </a
+      ><a name="75" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1" class="Module"
+      >NewBasicILP.UntypedSyntax.ClosedHilbert</a
+      ><a name="114"
+      > </a
+      ><a name="115" class="Keyword"
+      >where</a
+      ><a name="120"
+      >
+
+</a
+      ><a name="122" class="Keyword"
+      >open</a
+      ><a name="126"
+      > </a
+      ><a name="127" class="Keyword"
+      >import</a
+      ><a name="133"
+      > </a
+      ><a name="134" href="NewBasicILP.UntypedSyntax.Common.html#1" class="Module"
+      >NewBasicILP.UntypedSyntax.Common</a
+      ><a name="166"
+      > </a
+      ><a name="167" class="Keyword"
+      >public</a
+      ><a name="173"
+      >
+
+
+</a
+      ><a name="176" class="Comment"
+      >-- Closed, untyped representations.</a
+      ><a name="211"
+      >
+
+</a
+      ><a name="213" class="Keyword"
+      >data</a
+      ><a name="217"
+      > </a
+      ><a name="218" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="221"
+      > </a
+      ><a name="222" class="Symbol"
+      >:</a
+      ><a name="223"
+      > </a
+      ><a name="224" class="PrimitiveType"
+      >Set</a
+      ><a name="227"
+      > </a
+      ><a name="228" class="Keyword"
+      >where</a
+      ><a name="233"
+      >
+  </a
+      ><a name="236" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#236" class="InductiveConstructor"
+      >APP</a
+      ><a name="239"
+      >   </a
+      ><a name="242" class="Symbol"
+      >:</a
+      ><a name="243"
+      > </a
+      ><a name="244" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="247"
+      > </a
+      ><a name="248" class="Symbol"
+      >&#8594;</a
+      ><a name="249"
+      > </a
+      ><a name="250" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="253"
+      > </a
+      ><a name="254" class="Symbol"
+      >&#8594;</a
+      ><a name="255"
+      > </a
+      ><a name="256" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="259"
+      >
+  </a
+      ><a name="262" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#262" class="InductiveConstructor"
+      >CI</a
+      ><a name="264"
+      >    </a
+      ><a name="268" class="Symbol"
+      >:</a
+      ><a name="269"
+      > </a
+      ><a name="270" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="273"
+      >
+  </a
+      ><a name="276" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#276" class="InductiveConstructor"
+      >CK</a
+      ><a name="278"
+      >    </a
+      ><a name="282" class="Symbol"
+      >:</a
+      ><a name="283"
+      > </a
+      ><a name="284" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="287"
+      >
+  </a
+      ><a name="290" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#290" class="InductiveConstructor"
+      >CS</a
+      ><a name="292"
+      >    </a
+      ><a name="296" class="Symbol"
+      >:</a
+      ><a name="297"
+      > </a
+      ><a name="298" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="301"
+      >
+  </a
+      ><a name="304" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#304" class="InductiveConstructor"
+      >BOX</a
+      ><a name="307"
+      >   </a
+      ><a name="310" class="Symbol"
+      >:</a
+      ><a name="311"
+      > </a
+      ><a name="312" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="315"
+      > </a
+      ><a name="316" class="Symbol"
+      >&#8594;</a
+      ><a name="317"
+      > </a
+      ><a name="318" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="321"
+      >
+  </a
+      ><a name="324" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#324" class="InductiveConstructor"
+      >CDIST</a
+      ><a name="329"
+      > </a
+      ><a name="330" class="Symbol"
+      >:</a
+      ><a name="331"
+      > </a
+      ><a name="332" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="335"
+      >
+  </a
+      ><a name="338" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#338" class="InductiveConstructor"
+      >CUP</a
+      ><a name="341"
+      >   </a
+      ><a name="344" class="Symbol"
+      >:</a
+      ><a name="345"
+      > </a
+      ><a name="346" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="349"
+      >
+  </a
+      ><a name="352" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#352" class="InductiveConstructor"
+      >CDOWN</a
+      ><a name="357"
+      > </a
+      ><a name="358" class="Symbol"
+      >:</a
+      ><a name="359"
+      > </a
+      ><a name="360" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="363"
+      >
+  </a
+      ><a name="366" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#366" class="InductiveConstructor"
+      >CPAIR</a
+      ><a name="371"
+      > </a
+      ><a name="372" class="Symbol"
+      >:</a
+      ><a name="373"
+      > </a
+      ><a name="374" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="377"
+      >
+  </a
+      ><a name="380" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#380" class="InductiveConstructor"
+      >CFST</a
+      ><a name="384"
+      >  </a
+      ><a name="386" class="Symbol"
+      >:</a
+      ><a name="387"
+      > </a
+      ><a name="388" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="391"
+      >
+  </a
+      ><a name="394" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#394" class="InductiveConstructor"
+      >CSND</a
+      ><a name="398"
+      >  </a
+      ><a name="400" class="Symbol"
+      >:</a
+      ><a name="401"
+      > </a
+      ><a name="402" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="405"
+      >
+  </a
+      ><a name="408" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#408" class="InductiveConstructor"
+      >TT</a
+      ><a name="410"
+      >    </a
+      ><a name="414" class="Symbol"
+      >:</a
+      ><a name="415"
+      > </a
+      ><a name="416" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="419"
+      >
+
+
+</a
+      ><a name="422" class="Comment"
+      >-- Anti-bug wrappers.</a
+      ><a name="443"
+      >
+
+</a
+      ><a name="445" class="Keyword"
+      >record</a
+      ><a name="451"
+      > </a
+      ><a name="452" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#452" class="Record"
+      >Proof</a
+      ><a name="457"
+      > </a
+      ><a name="458" class="Symbol"
+      >:</a
+      ><a name="459"
+      > </a
+      ><a name="460" class="PrimitiveType"
+      >Set</a
+      ><a name="463"
+      > </a
+      ><a name="464" class="Keyword"
+      >where</a
+      ><a name="469"
+      >
+  </a
+      ><a name="472" class="Keyword"
+      >constructor</a
+      ><a name="483"
+      > </a
+      ><a name="484" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[_]</a
+      ><a name="487"
+      >
+  </a
+      ><a name="490" class="Keyword"
+      >field</a
+      ><a name="495"
+      >
+    </a
+      ><a name="500" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#500" class="Field"
+      >rep</a
+      ><a name="503"
+      > </a
+      ><a name="504" class="Symbol"
+      >:</a
+      ><a name="505"
+      > </a
+      ><a name="506" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="509"
+      >
+
+</a
+      ><a name="511" class="Keyword"
+      >open</a
+      ><a name="515"
+      > </a
+      ><a name="516" href="NewBasicILP.UntypedSyntax.Common.html#157" class="Module"
+      >ClosedSyntax</a
+      ><a name="528"
+      > </a
+      ><a name="529" class="Symbol"
+      >(</a
+      ><a name="530" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#452" class="Record"
+      >Proof</a
+      ><a name="535" class="Symbol"
+      >)</a
+      ><a name="536"
+      > </a
+      ><a name="537" class="Keyword"
+      >public</a
+      ><a name="543"
+      >
+
+
+</a
+      ><a name="546" class="Comment"
+      >-- Derivations using representations in types.</a
+      ><a name="592"
+      >
+
+</a
+      ><a name="594" class="Keyword"
+      >mutual</a
+      ><a name="600"
+      >
+  </a
+      ><a name="603" class="Keyword"
+      >infix</a
+      ><a name="608"
+      > </a
+      ><a name="609" class="Number"
+      >3</a
+      ><a name="610"
+      > &#8866;_
+  </a
+      ><a name="616" class="Keyword"
+      >data</a
+      ><a name="620"
+      > </a
+      ><a name="621" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;_</a
+      ><a name="623"
+      > </a
+      ><a name="624" class="Symbol"
+      >:</a
+      ><a name="625"
+      > </a
+      ><a name="626" href="NewBasicILP.UntypedSyntax.Common.html#249" class="Datatype"
+      >Ty</a
+      ><a name="628"
+      > </a
+      ><a name="629" class="Symbol"
+      >&#8594;</a
+      ><a name="630"
+      > </a
+      ><a name="631" class="PrimitiveType"
+      >Set</a
+      ><a name="634"
+      > </a
+      ><a name="635" class="Keyword"
+      >where</a
+      ><a name="640"
+      >
+    </a
+      ><a name="645" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="648"
+      >   </a
+      ><a name="651" class="Symbol"
+      >:</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="Symbol"
+      >&#8704;</a
+      ><a name="654"
+      > </a
+      ><a name="655" class="Symbol"
+      >{</a
+      ><a name="656" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#656" class="Bound"
+      >A</a
+      ><a name="657"
+      > </a
+      ><a name="658" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#658" class="Bound"
+      >B</a
+      ><a name="659" class="Symbol"
+      >}</a
+      ><a name="660"
+      >   </a
+      ><a name="663" class="Symbol"
+      >&#8594;</a
+      ><a name="664"
+      > </a
+      ><a name="665" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="666"
+      > </a
+      ><a name="667" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#656" class="Bound"
+      >A</a
+      ><a name="668"
+      > </a
+      ><a name="669" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="670"
+      > </a
+      ><a name="671" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#658" class="Bound"
+      >B</a
+      ><a name="672"
+      > </a
+      ><a name="673" class="Symbol"
+      >&#8594;</a
+      ><a name="674"
+      > </a
+      ><a name="675" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="676"
+      > </a
+      ><a name="677" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#656" class="Bound"
+      >A</a
+      ><a name="678"
+      > </a
+      ><a name="679" class="Symbol"
+      >&#8594;</a
+      ><a name="680"
+      > </a
+      ><a name="681" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="682"
+      > </a
+      ><a name="683" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#658" class="Bound"
+      >B</a
+      ><a name="684"
+      >
+    </a
+      ><a name="689" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#689" class="InductiveConstructor"
+      >ci</a
+      ><a name="691"
+      >    </a
+      ><a name="695" class="Symbol"
+      >:</a
+      ><a name="696"
+      > </a
+      ><a name="697" class="Symbol"
+      >&#8704;</a
+      ><a name="698"
+      > </a
+      ><a name="699" class="Symbol"
+      >{</a
+      ><a name="700" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#700" class="Bound"
+      >A</a
+      ><a name="701" class="Symbol"
+      >}</a
+      ><a name="702"
+      >     </a
+      ><a name="707" class="Symbol"
+      >&#8594;</a
+      ><a name="708"
+      > </a
+      ><a name="709" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="710"
+      > </a
+      ><a name="711" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#700" class="Bound"
+      >A</a
+      ><a name="712"
+      > </a
+      ><a name="713" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="714"
+      > </a
+      ><a name="715" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#700" class="Bound"
+      >A</a
+      ><a name="716"
+      >
+    </a
+      ><a name="721" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="723"
+      >    </a
+      ><a name="727" class="Symbol"
+      >:</a
+      ><a name="728"
+      > </a
+      ><a name="729" class="Symbol"
+      >&#8704;</a
+      ><a name="730"
+      > </a
+      ><a name="731" class="Symbol"
+      >{</a
+      ><a name="732" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#732" class="Bound"
+      >A</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#734" class="Bound"
+      >B</a
+      ><a name="735" class="Symbol"
+      >}</a
+      ><a name="736"
+      >   </a
+      ><a name="739" class="Symbol"
+      >&#8594;</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="742"
+      > </a
+      ><a name="743" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#732" class="Bound"
+      >A</a
+      ><a name="744"
+      > </a
+      ><a name="745" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="746"
+      > </a
+      ><a name="747" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#734" class="Bound"
+      >B</a
+      ><a name="748"
+      > </a
+      ><a name="749" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#732" class="Bound"
+      >A</a
+      ><a name="752"
+      >
+    </a
+      ><a name="757" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="759"
+      >    </a
+      ><a name="763" class="Symbol"
+      >:</a
+      ><a name="764"
+      > </a
+      ><a name="765" class="Symbol"
+      >&#8704;</a
+      ><a name="766"
+      > </a
+      ><a name="767" class="Symbol"
+      >{</a
+      ><a name="768" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#768" class="Bound"
+      >A</a
+      ><a name="769"
+      > </a
+      ><a name="770" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#770" class="Bound"
+      >B</a
+      ><a name="771"
+      > </a
+      ><a name="772" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#772" class="Bound"
+      >C</a
+      ><a name="773" class="Symbol"
+      >}</a
+      ><a name="774"
+      > </a
+      ><a name="775" class="Symbol"
+      >&#8594;</a
+      ><a name="776"
+      > </a
+      ><a name="777" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="778"
+      > </a
+      ><a name="779" class="Symbol"
+      >(</a
+      ><a name="780" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#768" class="Bound"
+      >A</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="783"
+      > </a
+      ><a name="784" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#770" class="Bound"
+      >B</a
+      ><a name="785"
+      > </a
+      ><a name="786" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="787"
+      > </a
+      ><a name="788" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#772" class="Bound"
+      >C</a
+      ><a name="789" class="Symbol"
+      >)</a
+      ><a name="790"
+      > </a
+      ><a name="791" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="792"
+      > </a
+      ><a name="793" class="Symbol"
+      >(</a
+      ><a name="794" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#768" class="Bound"
+      >A</a
+      ><a name="795"
+      > </a
+      ><a name="796" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="797"
+      > </a
+      ><a name="798" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#770" class="Bound"
+      >B</a
+      ><a name="799" class="Symbol"
+      >)</a
+      ><a name="800"
+      > </a
+      ><a name="801" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="802"
+      > </a
+      ><a name="803" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#768" class="Bound"
+      >A</a
+      ><a name="804"
+      > </a
+      ><a name="805" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="806"
+      > </a
+      ><a name="807" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#772" class="Bound"
+      >C</a
+      ><a name="808"
+      >
+
+    </a
+      ><a name="814" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#814" class="InductiveConstructor"
+      >box</a
+      ><a name="817"
+      >   </a
+      ><a name="820" class="Symbol"
+      >:</a
+      ><a name="821"
+      > </a
+      ><a name="822" class="Symbol"
+      >&#8704;</a
+      ><a name="823"
+      > </a
+      ><a name="824" class="Symbol"
+      >{</a
+      ><a name="825" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#825" class="Bound"
+      >A</a
+      ><a name="826" class="Symbol"
+      >}</a
+      ><a name="827"
+      >     </a
+      ><a name="832" class="Symbol"
+      >&#8594;</a
+      ><a name="833"
+      > </a
+      ><a name="834" class="Symbol"
+      >(</a
+      ><a name="835" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#835" class="Bound"
+      >d</a
+      ><a name="836"
+      > </a
+      ><a name="837" class="Symbol"
+      >:</a
+      ><a name="838"
+      > </a
+      ><a name="839" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="840"
+      > </a
+      ><a name="841" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#825" class="Bound"
+      >A</a
+      ><a name="842" class="Symbol"
+      >)</a
+      ><a name="843"
+      >
+                      </a
+      ><a name="866" class="Symbol"
+      >&#8594;</a
+      ><a name="867"
+      > </a
+      ><a name="868" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="869"
+      > </a
+      ><a name="870" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="871"
+      > </a
+      ><a name="872" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="874"
+      > </a
+      ><a name="875" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#835" class="Bound"
+      >d</a
+      ><a name="876"
+      > </a
+      ><a name="877" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="878"
+      > </a
+      ><a name="879" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="880"
+      > </a
+      ><a name="881" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="882"
+      > </a
+      ><a name="883" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#825" class="Bound"
+      >A</a
+      ><a name="884"
+      >
+
+    </a
+      ><a name="890" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#890" class="InductiveConstructor"
+      >cdist</a
+      ><a name="895"
+      > </a
+      ><a name="896" class="Symbol"
+      >:</a
+      ><a name="897"
+      > </a
+      ><a name="898" class="Symbol"
+      >&#8704;</a
+      ><a name="899"
+      > </a
+      ><a name="900" class="Symbol"
+      >{</a
+      ><a name="901" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#901" class="Bound"
+      >A</a
+      ><a name="902"
+      > </a
+      ><a name="903" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#903" class="Bound"
+      >B</a
+      ><a name="904" class="Symbol"
+      >}</a
+      ><a name="905"
+      >   </a
+      ><a name="908" class="Symbol"
+      >&#8594;</a
+      ><a name="909"
+      > </a
+      ><a name="910" class="Symbol"
+      >{</a
+      ><a name="911" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#911" class="Bound"
+      >r&#8321;</a
+      ><a name="913"
+      > </a
+      ><a name="914" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#914" class="Bound"
+      >r&#8322;</a
+      ><a name="916"
+      > </a
+      ><a name="917" class="Symbol"
+      >:</a
+      ><a name="918"
+      > </a
+      ><a name="919" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="922" class="Symbol"
+      >}</a
+      ><a name="923"
+      >
+                      </a
+      ><a name="946" class="Symbol"
+      >&#8594;</a
+      ><a name="947"
+      > </a
+      ><a name="948" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="949"
+      > </a
+      ><a name="950" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="951"
+      > </a
+      ><a name="952" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#911" class="Bound"
+      >r&#8321;</a
+      ><a name="954"
+      > </a
+      ><a name="955" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="956"
+      > </a
+      ><a name="957" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="958"
+      > </a
+      ><a name="959" class="Symbol"
+      >(</a
+      ><a name="960" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#901" class="Bound"
+      >A</a
+      ><a name="961"
+      > </a
+      ><a name="962" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="963"
+      > </a
+      ><a name="964" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#903" class="Bound"
+      >B</a
+      ><a name="965" class="Symbol"
+      >)</a
+      ><a name="966"
+      > </a
+      ><a name="967" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="968"
+      > </a
+      ><a name="969" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="970"
+      > </a
+      ><a name="971" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#914" class="Bound"
+      >r&#8322;</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="975"
+      > </a
+      ><a name="976" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="977"
+      > </a
+      ><a name="978" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#901" class="Bound"
+      >A</a
+      ><a name="979"
+      > </a
+      ><a name="980" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="981"
+      > </a
+      ><a name="982" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="983"
+      > </a
+      ><a name="984" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#236" class="InductiveConstructor"
+      >APP</a
+      ><a name="987"
+      > </a
+      ><a name="988" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#911" class="Bound"
+      >r&#8321;</a
+      ><a name="990"
+      > </a
+      ><a name="991" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#914" class="Bound"
+      >r&#8322;</a
+      ><a name="993"
+      > </a
+      ><a name="994" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="995"
+      > </a
+      ><a name="996" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="997"
+      > </a
+      ><a name="998" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#903" class="Bound"
+      >B</a
+      ><a name="999"
+      >
+
+    </a
+      ><a name="1005" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1005" class="InductiveConstructor"
+      >cup</a
+      ><a name="1008"
+      >   </a
+      ><a name="1011" class="Symbol"
+      >:</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" class="Symbol"
+      >&#8704;</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" class="Symbol"
+      >{</a
+      ><a name="1016" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1016" class="Bound"
+      >A</a
+      ><a name="1017" class="Symbol"
+      >}</a
+      ><a name="1018"
+      >     </a
+      ><a name="1023" class="Symbol"
+      >&#8594;</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" class="Symbol"
+      >{</a
+      ><a name="1026" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1026" class="Bound"
+      >r</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" class="Symbol"
+      >:</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="1033" class="Symbol"
+      >}</a
+      ><a name="1034"
+      >
+                      </a
+      ><a name="1057" class="Symbol"
+      >&#8594;</a
+      ><a name="1058"
+      > </a
+      ><a name="1059" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1060"
+      > </a
+      ><a name="1061" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1062"
+      > </a
+      ><a name="1063" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1026" class="Bound"
+      >r</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1016" class="Bound"
+      >A</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1072"
+      > </a
+      ><a name="1073" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#304" class="InductiveConstructor"
+      >BOX</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1026" class="Bound"
+      >r</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1026" class="Bound"
+      >r</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="1092"
+      > </a
+      ><a name="1093" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1016" class="Bound"
+      >A</a
+      ><a name="1094"
+      >
+
+    </a
+      ><a name="1100" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1100" class="InductiveConstructor"
+      >cdown</a
+      ><a name="1105"
+      > </a
+      ><a name="1106" class="Symbol"
+      >:</a
+      ><a name="1107"
+      > </a
+      ><a name="1108" class="Symbol"
+      >&#8704;</a
+      ><a name="1109"
+      > </a
+      ><a name="1110" class="Symbol"
+      >{</a
+      ><a name="1111" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1111" class="Bound"
+      >A</a
+      ><a name="1112" class="Symbol"
+      >}</a
+      ><a name="1113"
+      >     </a
+      ><a name="1118" class="Symbol"
+      >&#8594;</a
+      ><a name="1119"
+      > </a
+      ><a name="1120" class="Symbol"
+      >{</a
+      ><a name="1121" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1121" class="Bound"
+      >r</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" class="Symbol"
+      >:</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="1128" class="Symbol"
+      >}</a
+      ><a name="1129"
+      >
+                      </a
+      ><a name="1152" class="Symbol"
+      >&#8594;</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1121" class="Bound"
+      >r</a
+      ><a name="1159"
+      > </a
+      ><a name="1160" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1161"
+      > </a
+      ><a name="1162" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="1163"
+      > </a
+      ><a name="1164" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1111" class="Bound"
+      >A</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1167"
+      > </a
+      ><a name="1168" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1111" class="Bound"
+      >A</a
+      ><a name="1169"
+      >
+
+    </a
+      ><a name="1175" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1175" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" class="Symbol"
+      >:</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" class="Symbol"
+      >&#8704;</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" class="Symbol"
+      >{</a
+      ><a name="1186" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1186" class="Bound"
+      >A</a
+      ><a name="1187"
+      > </a
+      ><a name="1188" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1188" class="Bound"
+      >B</a
+      ><a name="1189" class="Symbol"
+      >}</a
+      ><a name="1190"
+      >   </a
+      ><a name="1193" class="Symbol"
+      >&#8594;</a
+      ><a name="1194"
+      > </a
+      ><a name="1195" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1186" class="Bound"
+      >A</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1188" class="Bound"
+      >B</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1204"
+      > </a
+      ><a name="1205" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1186" class="Bound"
+      >A</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" href="NewBasicILP.UntypedSyntax.Common.html#337" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1208"
+      > </a
+      ><a name="1209" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1188" class="Bound"
+      >B</a
+      ><a name="1210"
+      >
+    </a
+      ><a name="1215" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1215" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1219"
+      >  </a
+      ><a name="1221" class="Symbol"
+      >:</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" class="Symbol"
+      >&#8704;</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" class="Symbol"
+      >{</a
+      ><a name="1226" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1226" class="Bound"
+      >A</a
+      ><a name="1227"
+      > </a
+      ><a name="1228" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1228" class="Bound"
+      >B</a
+      ><a name="1229" class="Symbol"
+      >}</a
+      ><a name="1230"
+      >   </a
+      ><a name="1233" class="Symbol"
+      >&#8594;</a
+      ><a name="1234"
+      > </a
+      ><a name="1235" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1236"
+      > </a
+      ><a name="1237" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1226" class="Bound"
+      >A</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" href="NewBasicILP.UntypedSyntax.Common.html#337" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1240"
+      > </a
+      ><a name="1241" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1228" class="Bound"
+      >B</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1226" class="Bound"
+      >A</a
+      ><a name="1246"
+      >
+    </a
+      ><a name="1251" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1251" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1255"
+      >  </a
+      ><a name="1257" class="Symbol"
+      >:</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" class="Symbol"
+      >&#8704;</a
+      ><a name="1260"
+      > </a
+      ><a name="1261" class="Symbol"
+      >{</a
+      ><a name="1262" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1262" class="Bound"
+      >A</a
+      ><a name="1263"
+      > </a
+      ><a name="1264" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1264" class="Bound"
+      >B</a
+      ><a name="1265" class="Symbol"
+      >}</a
+      ><a name="1266"
+      >   </a
+      ><a name="1269" class="Symbol"
+      >&#8594;</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1272"
+      > </a
+      ><a name="1273" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1262" class="Bound"
+      >A</a
+      ><a name="1274"
+      > </a
+      ><a name="1275" href="NewBasicILP.UntypedSyntax.Common.html#337" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1276"
+      > </a
+      ><a name="1277" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1264" class="Bound"
+      >B</a
+      ><a name="1278"
+      > </a
+      ><a name="1279" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1280"
+      > </a
+      ><a name="1281" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1264" class="Bound"
+      >B</a
+      ><a name="1282"
+      >
+    </a
+      ><a name="1287" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1287" class="InductiveConstructor"
+      >tt</a
+      ><a name="1289"
+      >    </a
+      ><a name="1293" class="Symbol"
+      >:</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" href="NewBasicILP.UntypedSyntax.Common.html#360" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1298"
+      >
+
+
+  </a
+      ><a name="1303" class="Comment"
+      >-- Projection from derivations to representations.</a
+      ><a name="1353"
+      >
+
+  </a
+      ><a name="1357" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;_&#8971;</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" class="Symbol"
+      >:</a
+      ><a name="1363"
+      > </a
+      ><a name="1364" class="Symbol"
+      >&#8704;</a
+      ><a name="1365"
+      > </a
+      ><a name="1366" class="Symbol"
+      >{</a
+      ><a name="1367" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1367" class="Bound"
+      >A</a
+      ><a name="1368" class="Symbol"
+      >}</a
+      ><a name="1369"
+      > </a
+      ><a name="1370" class="Symbol"
+      >&#8594;</a
+      ><a name="1371"
+      > </a
+      ><a name="1372" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1367" class="Bound"
+      >A</a
+      ><a name="1375"
+      > </a
+      ><a name="1376" class="Symbol"
+      >&#8594;</a
+      ><a name="1377"
+      > </a
+      ><a name="1378" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#218" class="Datatype"
+      >Rep</a
+      ><a name="1381"
+      >
+  </a
+      ><a name="1384" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1386"
+      > </a
+      ><a name="1387" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1391" class="Bound"
+      >d&#8321;</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1394" class="Bound"
+      >d&#8322;</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1398"
+      > </a
+      ><a name="1399" class="Symbol"
+      >=</a
+      ><a name="1400"
+      > </a
+      ><a name="1401" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#236" class="InductiveConstructor"
+      >APP</a
+      ><a name="1404"
+      > </a
+      ><a name="1405" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1391" class="Bound"
+      >d&#8321;</a
+      ><a name="1410"
+      > </a
+      ><a name="1411" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1412"
+      > </a
+      ><a name="1413" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1415"
+      > </a
+      ><a name="1416" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1394" class="Bound"
+      >d&#8322;</a
+      ><a name="1418"
+      > </a
+      ><a name="1419" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1420"
+      >
+  </a
+      ><a name="1423" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1425"
+      > </a
+      ><a name="1426" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#689" class="InductiveConstructor"
+      >ci</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1430"
+      >        </a
+      ><a name="1438" class="Symbol"
+      >=</a
+      ><a name="1439"
+      > </a
+      ><a name="1440" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#262" class="InductiveConstructor"
+      >CI</a
+      ><a name="1442"
+      >
+  </a
+      ><a name="1445" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="1450"
+      > </a
+      ><a name="1451" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1452"
+      >        </a
+      ><a name="1460" class="Symbol"
+      >=</a
+      ><a name="1461"
+      > </a
+      ><a name="1462" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#276" class="InductiveConstructor"
+      >CK</a
+      ><a name="1464"
+      >
+  </a
+      ><a name="1467" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1469"
+      > </a
+      ><a name="1470" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1474"
+      >        </a
+      ><a name="1482" class="Symbol"
+      >=</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#290" class="InductiveConstructor"
+      >CS</a
+      ><a name="1486"
+      >
+  </a
+      ><a name="1489" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#814" class="InductiveConstructor"
+      >box</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1496" class="Bound"
+      >d</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1499"
+      >     </a
+      ><a name="1504" class="Symbol"
+      >=</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#304" class="InductiveConstructor"
+      >BOX</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1496" class="Bound"
+      >d</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1516"
+      >
+  </a
+      ><a name="1519" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1521"
+      > </a
+      ><a name="1522" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#890" class="InductiveConstructor"
+      >cdist</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1529"
+      >     </a
+      ><a name="1534" class="Symbol"
+      >=</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#324" class="InductiveConstructor"
+      >CDIST</a
+      ><a name="1541"
+      >
+  </a
+      ><a name="1544" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1546"
+      > </a
+      ><a name="1547" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1005" class="InductiveConstructor"
+      >cup</a
+      ><a name="1550"
+      > </a
+      ><a name="1551" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1552"
+      >       </a
+      ><a name="1559" class="Symbol"
+      >=</a
+      ><a name="1560"
+      > </a
+      ><a name="1561" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#338" class="InductiveConstructor"
+      >CUP</a
+      ><a name="1564"
+      >
+  </a
+      ><a name="1567" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1569"
+      > </a
+      ><a name="1570" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1100" class="InductiveConstructor"
+      >cdown</a
+      ><a name="1575"
+      > </a
+      ><a name="1576" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1577"
+      >     </a
+      ><a name="1582" class="Symbol"
+      >=</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#352" class="InductiveConstructor"
+      >CDOWN</a
+      ><a name="1589"
+      >
+  </a
+      ><a name="1592" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1175" class="InductiveConstructor"
+      >cpair</a
+      ><a name="1600"
+      > </a
+      ><a name="1601" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1602"
+      >     </a
+      ><a name="1607" class="Symbol"
+      >=</a
+      ><a name="1608"
+      > </a
+      ><a name="1609" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#366" class="InductiveConstructor"
+      >CPAIR</a
+      ><a name="1614"
+      >
+  </a
+      ><a name="1617" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1619"
+      > </a
+      ><a name="1620" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1215" class="InductiveConstructor"
+      >cfst</a
+      ><a name="1624"
+      > </a
+      ><a name="1625" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1626"
+      >      </a
+      ><a name="1632" class="Symbol"
+      >=</a
+      ><a name="1633"
+      > </a
+      ><a name="1634" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#380" class="InductiveConstructor"
+      >CFST</a
+      ><a name="1638"
+      >
+  </a
+      ><a name="1641" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1251" class="InductiveConstructor"
+      >csnd</a
+      ><a name="1648"
+      > </a
+      ><a name="1649" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1650"
+      >      </a
+      ><a name="1656" class="Symbol"
+      >=</a
+      ><a name="1657"
+      > </a
+      ><a name="1658" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#394" class="InductiveConstructor"
+      >CSND</a
+      ><a name="1662"
+      >
+  </a
+      ><a name="1665" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#7487;&#8970;</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1287" class="InductiveConstructor"
+      >tt</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1357" class="Function Operator"
+      >&#8971;</a
+      ><a name="1672"
+      >        </a
+      ><a name="1680" class="Symbol"
+      >=</a
+      ><a name="1681"
+      > </a
+      ><a name="1682" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#408" class="InductiveConstructor"
+      >TT</a
+      ><a name="1684"
+      >
+
+</a
+      ><a name="1686" class="Keyword"
+      >infix</a
+      ><a name="1691"
+      > </a
+      ><a name="1692" class="Number"
+      >3</a
+      ><a name="1693"
+      > &#8866;&#8902;_
+</a
+      ><a name="1698" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1698" class="Function Operator"
+      >&#8866;&#8902;_</a
+      ><a name="1701"
+      > </a
+      ><a name="1702" class="Symbol"
+      >:</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="NewBasicILP.UntypedSyntax.Common.html#249" class="Datatype"
+      >Ty</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" class="Symbol"
+      >&#8594;</a
+      ><a name="1711"
+      > </a
+      ><a name="1712" class="PrimitiveType"
+      >Set</a
+      ><a name="1715"
+      >
+</a
+      ><a name="1716" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1698" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1718"
+      > </a
+      ><a name="1719" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1720"
+      >     </a
+      ><a name="1725" class="Symbol"
+      >=</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1728"
+      >
+</a
+      ><a name="1729" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1698" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1732" class="Bound"
+      >&#926;</a
+      ><a name="1733"
+      > </a
+      ><a name="1734" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1736" class="Bound"
+      >A</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" class="Symbol"
+      >=</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1698" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1732" class="Bound"
+      >&#926;</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" href="Common.html#1523" class="Function Operator"
+      >&#215;</a
+      ><a name="1746"
+      > </a
+      ><a name="1747" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1736" class="Bound"
+      >A</a
+      ><a name="1750"
+      >
+
+
+</a
+      ><a name="1753" class="Comment"
+      >-- Cut and multicut.</a
+      ><a name="1773"
+      >
+
+</a
+      ><a name="1775" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1775" class="Function"
+      >cut</a
+      ><a name="1778"
+      > </a
+      ><a name="1779" class="Symbol"
+      >:</a
+      ><a name="1780"
+      > </a
+      ><a name="1781" class="Symbol"
+      >&#8704;</a
+      ><a name="1782"
+      > </a
+      ><a name="1783" class="Symbol"
+      >{</a
+      ><a name="1784" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1784" class="Bound"
+      >A</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1786" class="Bound"
+      >B</a
+      ><a name="1787" class="Symbol"
+      >}</a
+      ><a name="1788"
+      > </a
+      ><a name="1789" class="Symbol"
+      >&#8594;</a
+      ><a name="1790"
+      > </a
+      ><a name="1791" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1792"
+      > </a
+      ><a name="1793" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1784" class="Bound"
+      >A</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" class="Symbol"
+      >&#8594;</a
+      ><a name="1796"
+      > </a
+      ><a name="1797" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1798"
+      > </a
+      ><a name="1799" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1784" class="Bound"
+      >A</a
+      ><a name="1800"
+      > </a
+      ><a name="1801" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1802"
+      > </a
+      ><a name="1803" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1786" class="Bound"
+      >B</a
+      ><a name="1804"
+      > </a
+      ><a name="1805" class="Symbol"
+      >&#8594;</a
+      ><a name="1806"
+      > </a
+      ><a name="1807" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1808"
+      > </a
+      ><a name="1809" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1786" class="Bound"
+      >B</a
+      ><a name="1810"
+      >
+</a
+      ><a name="1811" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1775" class="Function"
+      >cut</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1815" class="Bound"
+      >d&#8321;</a
+      ><a name="1817"
+      > </a
+      ><a name="1818" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1818" class="Bound"
+      >d&#8322;</a
+      ><a name="1820"
+      > </a
+      ><a name="1821" class="Symbol"
+      >=</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="1826"
+      > </a
+      ><a name="1827" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1818" class="Bound"
+      >d&#8322;</a
+      ><a name="1829"
+      > </a
+      ><a name="1830" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1815" class="Bound"
+      >d&#8321;</a
+      ><a name="1832"
+      >
+
+</a
+      ><a name="1834" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1834" class="Function"
+      >multicut</a
+      ><a name="1842"
+      > </a
+      ><a name="1843" class="Symbol"
+      >:</a
+      ><a name="1844"
+      > </a
+      ><a name="1845" class="Symbol"
+      >&#8704;</a
+      ><a name="1846"
+      > </a
+      ><a name="1847" class="Symbol"
+      >{</a
+      ><a name="1848" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1848" class="Bound"
+      >&#926;</a
+      ><a name="1849"
+      > </a
+      ><a name="1850" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1850" class="Bound"
+      >A</a
+      ><a name="1851" class="Symbol"
+      >}</a
+      ><a name="1852"
+      > </a
+      ><a name="1853" class="Symbol"
+      >&#8594;</a
+      ><a name="1854"
+      > </a
+      ><a name="1855" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1698" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1848" class="Bound"
+      >&#926;</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" class="Symbol"
+      >&#8594;</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1863"
+      > </a
+      ><a name="1864" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1848" class="Bound"
+      >&#926;</a
+      ><a name="1865"
+      > </a
+      ><a name="1866" href="NewBasicILP.UntypedSyntax.Common.html#420" class="Function Operator"
+      >&#9659;&#8943;&#9659;</a
+      ><a name="1869"
+      > </a
+      ><a name="1870" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1850" class="Bound"
+      >A</a
+      ><a name="1871"
+      > </a
+      ><a name="1872" class="Symbol"
+      >&#8594;</a
+      ><a name="1873"
+      > </a
+      ><a name="1874" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1850" class="Bound"
+      >A</a
+      ><a name="1877"
+      >
+</a
+      ><a name="1878" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1834" class="Function"
+      >multicut</a
+      ><a name="1886"
+      > </a
+      ><a name="1887" class="Symbol"
+      >{</a
+      ><a name="1888" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8960;</a
+      ><a name="1889" class="Symbol"
+      >}</a
+      ><a name="1890"
+      >     </a
+      ><a name="1895" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1896"
+      >         </a
+      ><a name="1905" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1905" class="Bound"
+      >d&#8322;</a
+      ><a name="1907"
+      > </a
+      ><a name="1908" class="Symbol"
+      >=</a
+      ><a name="1909"
+      > </a
+      ><a name="1910" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1905" class="Bound"
+      >d&#8322;</a
+      ><a name="1912"
+      >
+</a
+      ><a name="1913" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1834" class="Function"
+      >multicut</a
+      ><a name="1921"
+      > </a
+      ><a name="1922" class="Symbol"
+      >{</a
+      ><a name="1923" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1923" class="Bound"
+      >&#926;</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1927" class="Bound"
+      >B</a
+      ><a name="1928" class="Symbol"
+      >}</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" class="Symbol"
+      >(</a
+      ><a name="1931" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1931" class="Bound"
+      >ds</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1935"
+      > </a
+      ><a name="1936" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1936" class="Bound"
+      >d&#8321;</a
+      ><a name="1938" class="Symbol"
+      >)</a
+      ><a name="1939"
+      > </a
+      ><a name="1940" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1940" class="Bound"
+      >d&#8322;</a
+      ><a name="1942"
+      > </a
+      ><a name="1943" class="Symbol"
+      >=</a
+      ><a name="1944"
+      > </a
+      ><a name="1945" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="1948"
+      > </a
+      ><a name="1949" class="Symbol"
+      >(</a
+      ><a name="1950" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1834" class="Function"
+      >multicut</a
+      ><a name="1958"
+      > </a
+      ><a name="1959" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1931" class="Bound"
+      >ds</a
+      ><a name="1961"
+      > </a
+      ><a name="1962" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1940" class="Bound"
+      >d&#8322;</a
+      ><a name="1964" class="Symbol"
+      >)</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1936" class="Bound"
+      >d&#8321;</a
+      ><a name="1968"
+      >
+
+
+</a
+      ><a name="1971" class="Comment"
+      >-- Contraction.</a
+      ><a name="1986"
+      >
+
+</a
+      ><a name="1988" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1988" class="Function"
+      >ccont</a
+      ><a name="1993"
+      > </a
+      ><a name="1994" class="Symbol"
+      >:</a
+      ><a name="1995"
+      > </a
+      ><a name="1996" class="Symbol"
+      >&#8704;</a
+      ><a name="1997"
+      > </a
+      ><a name="1998" class="Symbol"
+      >{</a
+      ><a name="1999" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1999" class="Bound"
+      >A</a
+      ><a name="2000"
+      > </a
+      ><a name="2001" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2001" class="Bound"
+      >B</a
+      ><a name="2002" class="Symbol"
+      >}</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" class="Symbol"
+      >&#8594;</a
+      ><a name="2005"
+      > </a
+      ><a name="2006" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2007"
+      > </a
+      ><a name="2008" class="Symbol"
+      >(</a
+      ><a name="2009" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1999" class="Bound"
+      >A</a
+      ><a name="2010"
+      > </a
+      ><a name="2011" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2012"
+      > </a
+      ><a name="2013" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1999" class="Bound"
+      >A</a
+      ><a name="2014"
+      > </a
+      ><a name="2015" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2016"
+      > </a
+      ><a name="2017" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2001" class="Bound"
+      >B</a
+      ><a name="2018" class="Symbol"
+      >)</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2021"
+      > </a
+      ><a name="2022" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1999" class="Bound"
+      >A</a
+      ><a name="2023"
+      > </a
+      ><a name="2024" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2025"
+      > </a
+      ><a name="2026" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2001" class="Bound"
+      >B</a
+      ><a name="2027"
+      >
+</a
+      ><a name="2028" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1988" class="Function"
+      >ccont</a
+      ><a name="2033"
+      > </a
+      ><a name="2034" class="Symbol"
+      >=</a
+      ><a name="2035"
+      > </a
+      ><a name="2036" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2039"
+      > </a
+      ><a name="2040" class="Symbol"
+      >(</a
+      ><a name="2041" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2044"
+      > </a
+      ><a name="2045" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="2050" class="Symbol"
+      >)</a
+      ><a name="2051"
+      > </a
+      ><a name="2052" class="Symbol"
+      >(</a
+      ><a name="2053" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2056"
+      > </a
+      ><a name="2057" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#689" class="InductiveConstructor"
+      >ci</a
+      ><a name="2062" class="Symbol"
+      >)</a
+      ><a name="2063"
+      >
+
+</a
+      ><a name="2065" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2065" class="Function"
+      >cont</a
+      ><a name="2069"
+      > </a
+      ><a name="2070" class="Symbol"
+      >:</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" class="Symbol"
+      >&#8704;</a
+      ><a name="2073"
+      > </a
+      ><a name="2074" class="Symbol"
+      >{</a
+      ><a name="2075" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2075" class="Bound"
+      >A</a
+      ><a name="2076"
+      > </a
+      ><a name="2077" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2077" class="Bound"
+      >B</a
+      ><a name="2078" class="Symbol"
+      >}</a
+      ><a name="2079"
+      > </a
+      ><a name="2080" class="Symbol"
+      >&#8594;</a
+      ><a name="2081"
+      > </a
+      ><a name="2082" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2083"
+      > </a
+      ><a name="2084" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2075" class="Bound"
+      >A</a
+      ><a name="2085"
+      > </a
+      ><a name="2086" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2087"
+      > </a
+      ><a name="2088" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2075" class="Bound"
+      >A</a
+      ><a name="2089"
+      > </a
+      ><a name="2090" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2091"
+      > </a
+      ><a name="2092" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2077" class="Bound"
+      >B</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" class="Symbol"
+      >&#8594;</a
+      ><a name="2095"
+      > </a
+      ><a name="2096" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2097"
+      > </a
+      ><a name="2098" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2075" class="Bound"
+      >A</a
+      ><a name="2099"
+      > </a
+      ><a name="2100" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2101"
+      > </a
+      ><a name="2102" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2077" class="Bound"
+      >B</a
+      ><a name="2103"
+      >
+</a
+      ><a name="2104" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2065" class="Function"
+      >cont</a
+      ><a name="2108"
+      > </a
+      ><a name="2109" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2109" class="Bound"
+      >d</a
+      ><a name="2110"
+      > </a
+      ><a name="2111" class="Symbol"
+      >=</a
+      ><a name="2112"
+      > </a
+      ><a name="2113" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2116"
+      > </a
+      ><a name="2117" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1988" class="Function"
+      >ccont</a
+      ><a name="2122"
+      > </a
+      ><a name="2123" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2109" class="Bound"
+      >d</a
+      ><a name="2124"
+      >
+
+
+</a
+      ><a name="2127" class="Comment"
+      >-- Exchange, or Sch&#246;nfinkel&#8217;s C combinator.</a
+      ><a name="2170"
+      >
+
+</a
+      ><a name="2172" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2172" class="Function"
+      >cexch</a
+      ><a name="2177"
+      > </a
+      ><a name="2178" class="Symbol"
+      >:</a
+      ><a name="2179"
+      > </a
+      ><a name="2180" class="Symbol"
+      >&#8704;</a
+      ><a name="2181"
+      > </a
+      ><a name="2182" class="Symbol"
+      >{</a
+      ><a name="2183" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2183" class="Bound"
+      >A</a
+      ><a name="2184"
+      > </a
+      ><a name="2185" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2185" class="Bound"
+      >B</a
+      ><a name="2186"
+      > </a
+      ><a name="2187" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2187" class="Bound"
+      >C</a
+      ><a name="2188" class="Symbol"
+      >}</a
+      ><a name="2189"
+      > </a
+      ><a name="2190" class="Symbol"
+      >&#8594;</a
+      ><a name="2191"
+      > </a
+      ><a name="2192" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2193"
+      > </a
+      ><a name="2194" class="Symbol"
+      >(</a
+      ><a name="2195" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2183" class="Bound"
+      >A</a
+      ><a name="2196"
+      > </a
+      ><a name="2197" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2198"
+      > </a
+      ><a name="2199" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2185" class="Bound"
+      >B</a
+      ><a name="2200"
+      > </a
+      ><a name="2201" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2187" class="Bound"
+      >C</a
+      ><a name="2204" class="Symbol"
+      >)</a
+      ><a name="2205"
+      > </a
+      ><a name="2206" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2207"
+      > </a
+      ><a name="2208" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2185" class="Bound"
+      >B</a
+      ><a name="2209"
+      > </a
+      ><a name="2210" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2211"
+      > </a
+      ><a name="2212" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2183" class="Bound"
+      >A</a
+      ><a name="2213"
+      > </a
+      ><a name="2214" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2215"
+      > </a
+      ><a name="2216" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2187" class="Bound"
+      >C</a
+      ><a name="2217"
+      >
+</a
+      ><a name="2218" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2172" class="Function"
+      >cexch</a
+      ><a name="2223"
+      > </a
+      ><a name="2224" class="Symbol"
+      >=</a
+      ><a name="2225"
+      > </a
+      ><a name="2226" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" class="Symbol"
+      >(</a
+      ><a name="2231" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="2237"
+      > </a
+      ><a name="2238" class="Symbol"
+      >(</a
+      ><a name="2239" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2242"
+      > </a
+      ><a name="2243" class="Symbol"
+      >(</a
+      ><a name="2244" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2247"
+      > </a
+      ><a name="2248" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="2250"
+      > </a
+      ><a name="2251" class="Symbol"
+      >(</a
+      ><a name="2252" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2255"
+      > </a
+      ><a name="2256" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="2258"
+      > </a
+      ><a name="2259" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="2261" class="Symbol"
+      >))</a
+      ><a name="2263"
+      >
+                         </a
+      ><a name="2289" class="Symbol"
+      >(</a
+      ><a name="2290" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2293"
+      > </a
+      ><a name="2294" class="Symbol"
+      >(</a
+      ><a name="2295" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2298"
+      > </a
+      ><a name="2299" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="2301"
+      > </a
+      ><a name="2302" class="Symbol"
+      >(</a
+      ><a name="2303" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2306"
+      > </a
+      ><a name="2307" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="2309"
+      > </a
+      ><a name="2310" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="2312" class="Symbol"
+      >))</a
+      ><a name="2314"
+      > </a
+      ><a name="2315" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="2317" class="Symbol"
+      >)))</a
+      ><a name="2320"
+      >
+            </a
+      ><a name="2333" class="Symbol"
+      >(</a
+      ><a name="2334" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2337"
+      > </a
+      ><a name="2338" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="2343" class="Symbol"
+      >)</a
+      ><a name="2344"
+      >
+
+</a
+      ><a name="2346" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2346" class="Function"
+      >exch</a
+      ><a name="2350"
+      > </a
+      ><a name="2351" class="Symbol"
+      >:</a
+      ><a name="2352"
+      > </a
+      ><a name="2353" class="Symbol"
+      >&#8704;</a
+      ><a name="2354"
+      > </a
+      ><a name="2355" class="Symbol"
+      >{</a
+      ><a name="2356" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2356" class="Bound"
+      >A</a
+      ><a name="2357"
+      > </a
+      ><a name="2358" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2358" class="Bound"
+      >B</a
+      ><a name="2359"
+      > </a
+      ><a name="2360" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2360" class="Bound"
+      >C</a
+      ><a name="2361" class="Symbol"
+      >}</a
+      ><a name="2362"
+      > </a
+      ><a name="2363" class="Symbol"
+      >&#8594;</a
+      ><a name="2364"
+      > </a
+      ><a name="2365" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2366"
+      > </a
+      ><a name="2367" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2356" class="Bound"
+      >A</a
+      ><a name="2368"
+      > </a
+      ><a name="2369" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2370"
+      > </a
+      ><a name="2371" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2358" class="Bound"
+      >B</a
+      ><a name="2372"
+      > </a
+      ><a name="2373" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2374"
+      > </a
+      ><a name="2375" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2360" class="Bound"
+      >C</a
+      ><a name="2376"
+      > </a
+      ><a name="2377" class="Symbol"
+      >&#8594;</a
+      ><a name="2378"
+      > </a
+      ><a name="2379" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2380"
+      > </a
+      ><a name="2381" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2358" class="Bound"
+      >B</a
+      ><a name="2382"
+      > </a
+      ><a name="2383" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2384"
+      > </a
+      ><a name="2385" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2356" class="Bound"
+      >A</a
+      ><a name="2386"
+      > </a
+      ><a name="2387" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2388"
+      > </a
+      ><a name="2389" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2360" class="Bound"
+      >C</a
+      ><a name="2390"
+      >
+</a
+      ><a name="2391" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2346" class="Function"
+      >exch</a
+      ><a name="2395"
+      > </a
+      ><a name="2396" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2396" class="Bound"
+      >d</a
+      ><a name="2397"
+      > </a
+      ><a name="2398" class="Symbol"
+      >=</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2172" class="Function"
+      >cexch</a
+      ><a name="2409"
+      > </a
+      ><a name="2410" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2396" class="Bound"
+      >d</a
+      ><a name="2411"
+      >
+
+
+</a
+      ><a name="2414" class="Comment"
+      >-- Composition, or Sch&#246;nfinkel&#8217;s B combinator.</a
+      ><a name="2460"
+      >
+
+</a
+      ><a name="2462" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2462" class="Function"
+      >ccomp</a
+      ><a name="2467"
+      > </a
+      ><a name="2468" class="Symbol"
+      >:</a
+      ><a name="2469"
+      > </a
+      ><a name="2470" class="Symbol"
+      >&#8704;</a
+      ><a name="2471"
+      > </a
+      ><a name="2472" class="Symbol"
+      >{</a
+      ><a name="2473" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2473" class="Bound"
+      >A</a
+      ><a name="2474"
+      > </a
+      ><a name="2475" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2475" class="Bound"
+      >B</a
+      ><a name="2476"
+      > </a
+      ><a name="2477" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2477" class="Bound"
+      >C</a
+      ><a name="2478" class="Symbol"
+      >}</a
+      ><a name="2479"
+      > </a
+      ><a name="2480" class="Symbol"
+      >&#8594;</a
+      ><a name="2481"
+      > </a
+      ><a name="2482" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" class="Symbol"
+      >(</a
+      ><a name="2485" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2475" class="Bound"
+      >B</a
+      ><a name="2486"
+      > </a
+      ><a name="2487" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2488"
+      > </a
+      ><a name="2489" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2477" class="Bound"
+      >C</a
+      ><a name="2490" class="Symbol"
+      >)</a
+      ><a name="2491"
+      > </a
+      ><a name="2492" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2493"
+      > </a
+      ><a name="2494" class="Symbol"
+      >(</a
+      ><a name="2495" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2473" class="Bound"
+      >A</a
+      ><a name="2496"
+      > </a
+      ><a name="2497" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2498"
+      > </a
+      ><a name="2499" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2475" class="Bound"
+      >B</a
+      ><a name="2500" class="Symbol"
+      >)</a
+      ><a name="2501"
+      > </a
+      ><a name="2502" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2503"
+      > </a
+      ><a name="2504" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2473" class="Bound"
+      >A</a
+      ><a name="2505"
+      > </a
+      ><a name="2506" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2507"
+      > </a
+      ><a name="2508" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2477" class="Bound"
+      >C</a
+      ><a name="2509"
+      >
+</a
+      ><a name="2510" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2462" class="Function"
+      >ccomp</a
+      ><a name="2515"
+      > </a
+      ><a name="2516" class="Symbol"
+      >=</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2521"
+      > </a
+      ><a name="2522" class="Symbol"
+      >(</a
+      ><a name="2523" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2526"
+      > </a
+      ><a name="2527" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="2529"
+      > </a
+      ><a name="2530" class="Symbol"
+      >(</a
+      ><a name="2531" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2534"
+      > </a
+      ><a name="2535" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="2537"
+      > </a
+      ><a name="2538" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#757" class="InductiveConstructor"
+      >cs</a
+      ><a name="2540" class="Symbol"
+      >))</a
+      ><a name="2542"
+      > </a
+      ><a name="2543" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#721" class="InductiveConstructor"
+      >ck</a
+      ><a name="2545"
+      >
+
+</a
+      ><a name="2547" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2547" class="Function"
+      >comp</a
+      ><a name="2551"
+      > </a
+      ><a name="2552" class="Symbol"
+      >:</a
+      ><a name="2553"
+      > </a
+      ><a name="2554" class="Symbol"
+      >&#8704;</a
+      ><a name="2555"
+      > </a
+      ><a name="2556" class="Symbol"
+      >{</a
+      ><a name="2557" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2557" class="Bound"
+      >A</a
+      ><a name="2558"
+      > </a
+      ><a name="2559" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2559" class="Bound"
+      >B</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2561" class="Bound"
+      >C</a
+      ><a name="2562" class="Symbol"
+      >}</a
+      ><a name="2563"
+      > </a
+      ><a name="2564" class="Symbol"
+      >&#8594;</a
+      ><a name="2565"
+      > </a
+      ><a name="2566" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2567"
+      > </a
+      ><a name="2568" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2559" class="Bound"
+      >B</a
+      ><a name="2569"
+      > </a
+      ><a name="2570" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2571"
+      > </a
+      ><a name="2572" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2561" class="Bound"
+      >C</a
+      ><a name="2573"
+      > </a
+      ><a name="2574" class="Symbol"
+      >&#8594;</a
+      ><a name="2575"
+      > </a
+      ><a name="2576" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2577"
+      > </a
+      ><a name="2578" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2557" class="Bound"
+      >A</a
+      ><a name="2579"
+      > </a
+      ><a name="2580" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2581"
+      > </a
+      ><a name="2582" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2559" class="Bound"
+      >B</a
+      ><a name="2583"
+      > </a
+      ><a name="2584" class="Symbol"
+      >&#8594;</a
+      ><a name="2585"
+      > </a
+      ><a name="2586" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2587"
+      > </a
+      ><a name="2588" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2557" class="Bound"
+      >A</a
+      ><a name="2589"
+      > </a
+      ><a name="2590" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2591"
+      > </a
+      ><a name="2592" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2561" class="Bound"
+      >C</a
+      ><a name="2593"
+      >
+</a
+      ><a name="2594" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2547" class="Function"
+      >comp</a
+      ><a name="2598"
+      > </a
+      ><a name="2599" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2599" class="Bound"
+      >d&#8321;</a
+      ><a name="2601"
+      > </a
+      ><a name="2602" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2602" class="Bound"
+      >d&#8322;</a
+      ><a name="2604"
+      > </a
+      ><a name="2605" class="Symbol"
+      >=</a
+      ><a name="2606"
+      > </a
+      ><a name="2607" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2610"
+      > </a
+      ><a name="2611" class="Symbol"
+      >(</a
+      ><a name="2612" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2615"
+      > </a
+      ><a name="2616" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2462" class="Function"
+      >ccomp</a
+      ><a name="2621"
+      > </a
+      ><a name="2622" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2599" class="Bound"
+      >d&#8321;</a
+      ><a name="2624" class="Symbol"
+      >)</a
+      ><a name="2625"
+      > </a
+      ><a name="2626" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2602" class="Bound"
+      >d&#8322;</a
+      ><a name="2628"
+      >
+
+
+</a
+      ><a name="2631" class="Comment"
+      >-- Useful theorems in functional form.</a
+      ><a name="2669"
+      >
+
+</a
+      ><a name="2671" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2671" class="Function"
+      >dist</a
+      ><a name="2675"
+      > </a
+      ><a name="2676" class="Symbol"
+      >:</a
+      ><a name="2677"
+      > </a
+      ><a name="2678" class="Symbol"
+      >&#8704;</a
+      ><a name="2679"
+      > </a
+      ><a name="2680" class="Symbol"
+      >{</a
+      ><a name="2681" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2681" class="Bound"
+      >A</a
+      ><a name="2682"
+      > </a
+      ><a name="2683" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2683" class="Bound"
+      >B</a
+      ><a name="2684"
+      > </a
+      ><a name="2685" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2685" class="Bound"
+      >r&#8321;</a
+      ><a name="2687"
+      > </a
+      ><a name="2688" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2688" class="Bound"
+      >r&#8322;</a
+      ><a name="2690" class="Symbol"
+      >}</a
+      ><a name="2691"
+      > </a
+      ><a name="2692" class="Symbol"
+      >&#8594;</a
+      ><a name="2693"
+      > </a
+      ><a name="2694" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2695"
+      > </a
+      ><a name="2696" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2697"
+      > </a
+      ><a name="2698" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2685" class="Bound"
+      >r&#8321;</a
+      ><a name="2700"
+      > </a
+      ><a name="2701" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2702"
+      > </a
+      ><a name="2703" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2704"
+      > </a
+      ><a name="2705" class="Symbol"
+      >(</a
+      ><a name="2706" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2681" class="Bound"
+      >A</a
+      ><a name="2707"
+      > </a
+      ><a name="2708" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2709"
+      > </a
+      ><a name="2710" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2683" class="Bound"
+      >B</a
+      ><a name="2711" class="Symbol"
+      >)</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" class="Symbol"
+      >&#8594;</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2716"
+      > </a
+      ><a name="2717" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2718"
+      > </a
+      ><a name="2719" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2688" class="Bound"
+      >r&#8322;</a
+      ><a name="2721"
+      > </a
+      ><a name="2722" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2723"
+      > </a
+      ><a name="2724" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2725"
+      > </a
+      ><a name="2726" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2681" class="Bound"
+      >A</a
+      ><a name="2727"
+      > </a
+      ><a name="2728" class="Symbol"
+      >&#8594;</a
+      ><a name="2729"
+      > </a
+      ><a name="2730" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2731"
+      > </a
+      ><a name="2732" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#236" class="InductiveConstructor"
+      >APP</a
+      ><a name="2737"
+      > </a
+      ><a name="2738" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2685" class="Bound"
+      >r&#8321;</a
+      ><a name="2740"
+      > </a
+      ><a name="2741" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2688" class="Bound"
+      >r&#8322;</a
+      ><a name="2743"
+      > </a
+      ><a name="2744" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2745"
+      > </a
+      ><a name="2746" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2747"
+      > </a
+      ><a name="2748" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2683" class="Bound"
+      >B</a
+      ><a name="2749"
+      >
+</a
+      ><a name="2750" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2671" class="Function"
+      >dist</a
+      ><a name="2754"
+      > </a
+      ><a name="2755" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2755" class="Bound"
+      >d&#8321;</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2758" class="Bound"
+      >d&#8322;</a
+      ><a name="2760"
+      > </a
+      ><a name="2761" class="Symbol"
+      >=</a
+      ><a name="2762"
+      > </a
+      ><a name="2763" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2766"
+      > </a
+      ><a name="2767" class="Symbol"
+      >(</a
+      ><a name="2768" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2771"
+      > </a
+      ><a name="2772" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#890" class="InductiveConstructor"
+      >cdist</a
+      ><a name="2777"
+      > </a
+      ><a name="2778" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2755" class="Bound"
+      >d&#8321;</a
+      ><a name="2780" class="Symbol"
+      >)</a
+      ><a name="2781"
+      > </a
+      ><a name="2782" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2758" class="Bound"
+      >d&#8322;</a
+      ><a name="2784"
+      >
+
+</a
+      ><a name="2786" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2786" class="Function"
+      >up</a
+      ><a name="2788"
+      > </a
+      ><a name="2789" class="Symbol"
+      >:</a
+      ><a name="2790"
+      > </a
+      ><a name="2791" class="Symbol"
+      >&#8704;</a
+      ><a name="2792"
+      > </a
+      ><a name="2793" class="Symbol"
+      >{</a
+      ><a name="2794" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2794" class="Bound"
+      >A</a
+      ><a name="2795"
+      > </a
+      ><a name="2796" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2796" class="Bound"
+      >r</a
+      ><a name="2797" class="Symbol"
+      >}</a
+      ><a name="2798"
+      > </a
+      ><a name="2799" class="Symbol"
+      >&#8594;</a
+      ><a name="2800"
+      > </a
+      ><a name="2801" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2802"
+      > </a
+      ><a name="2803" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2804"
+      > </a
+      ><a name="2805" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2796" class="Bound"
+      >r</a
+      ><a name="2806"
+      > </a
+      ><a name="2807" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2808"
+      > </a
+      ><a name="2809" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2810"
+      > </a
+      ><a name="2811" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2794" class="Bound"
+      >A</a
+      ><a name="2812"
+      > </a
+      ><a name="2813" class="Symbol"
+      >&#8594;</a
+      ><a name="2814"
+      > </a
+      ><a name="2815" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2816"
+      > </a
+      ><a name="2817" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2818"
+      > </a
+      ><a name="2819" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#304" class="InductiveConstructor"
+      >BOX</a
+      ><a name="2822"
+      > </a
+      ><a name="2823" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2796" class="Bound"
+      >r</a
+      ><a name="2824"
+      > </a
+      ><a name="2825" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2826"
+      > </a
+      ><a name="2827" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2828"
+      > </a
+      ><a name="2829" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2830"
+      > </a
+      ><a name="2831" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2796" class="Bound"
+      >r</a
+      ><a name="2832"
+      > </a
+      ><a name="2833" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2834"
+      > </a
+      ><a name="2835" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2836"
+      > </a
+      ><a name="2837" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2794" class="Bound"
+      >A</a
+      ><a name="2838"
+      >
+</a
+      ><a name="2839" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2786" class="Function"
+      >up</a
+      ><a name="2841"
+      > </a
+      ><a name="2842" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2842" class="Bound"
+      >d</a
+      ><a name="2843"
+      > </a
+      ><a name="2844" class="Symbol"
+      >=</a
+      ><a name="2845"
+      > </a
+      ><a name="2846" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2849"
+      > </a
+      ><a name="2850" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1005" class="InductiveConstructor"
+      >cup</a
+      ><a name="2853"
+      > </a
+      ><a name="2854" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2842" class="Bound"
+      >d</a
+      ><a name="2855"
+      >
+
+</a
+      ><a name="2857" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2857" class="Function"
+      >down</a
+      ><a name="2861"
+      > </a
+      ><a name="2862" class="Symbol"
+      >:</a
+      ><a name="2863"
+      > </a
+      ><a name="2864" class="Symbol"
+      >&#8704;</a
+      ><a name="2865"
+      > </a
+      ><a name="2866" class="Symbol"
+      >{</a
+      ><a name="2867" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2867" class="Bound"
+      >A</a
+      ><a name="2868"
+      > </a
+      ><a name="2869" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2869" class="Bound"
+      >r</a
+      ><a name="2870" class="Symbol"
+      >}</a
+      ><a name="2871"
+      > </a
+      ><a name="2872" class="Symbol"
+      >&#8594;</a
+      ><a name="2873"
+      > </a
+      ><a name="2874" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2875"
+      > </a
+      ><a name="2876" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2877"
+      > </a
+      ><a name="2878" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2869" class="Bound"
+      >r</a
+      ><a name="2879"
+      > </a
+      ><a name="2880" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2881"
+      > </a
+      ><a name="2882" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2883"
+      > </a
+      ><a name="2884" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2867" class="Bound"
+      >A</a
+      ><a name="2885"
+      > </a
+      ><a name="2886" class="Symbol"
+      >&#8594;</a
+      ><a name="2887"
+      > </a
+      ><a name="2888" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2889"
+      > </a
+      ><a name="2890" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2867" class="Bound"
+      >A</a
+      ><a name="2891"
+      >
+</a
+      ><a name="2892" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2857" class="Function"
+      >down</a
+      ><a name="2896"
+      > </a
+      ><a name="2897" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2897" class="Bound"
+      >d</a
+      ><a name="2898"
+      > </a
+      ><a name="2899" class="Symbol"
+      >=</a
+      ><a name="2900"
+      > </a
+      ><a name="2901" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1100" class="InductiveConstructor"
+      >cdown</a
+      ><a name="2910"
+      > </a
+      ><a name="2911" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2897" class="Bound"
+      >d</a
+      ><a name="2912"
+      >
+
+</a
+      ><a name="2914" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2914" class="Function"
+      >distup</a
+      ><a name="2920"
+      > </a
+      ><a name="2921" class="Symbol"
+      >:</a
+      ><a name="2922"
+      > </a
+      ><a name="2923" class="Symbol"
+      >&#8704;</a
+      ><a name="2924"
+      > </a
+      ><a name="2925" class="Symbol"
+      >{</a
+      ><a name="2926" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2926" class="Bound"
+      >A</a
+      ><a name="2927"
+      > </a
+      ><a name="2928" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2928" class="Bound"
+      >B</a
+      ><a name="2929"
+      > </a
+      ><a name="2930" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2930" class="Bound"
+      >r&#8320;</a
+      ><a name="2932"
+      > </a
+      ><a name="2933" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2933" class="Bound"
+      >r&#8321;</a
+      ><a name="2935" class="Symbol"
+      >}</a
+      ><a name="2936"
+      > </a
+      ><a name="2937" class="Symbol"
+      >&#8594;</a
+      ><a name="2938"
+      > </a
+      ><a name="2939" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2940"
+      > </a
+      ><a name="2941" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2942"
+      > </a
+      ><a name="2943" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2933" class="Bound"
+      >r&#8321;</a
+      ><a name="2945"
+      > </a
+      ><a name="2946" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2947"
+      > </a
+      ><a name="2948" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2949"
+      > </a
+      ><a name="2950" class="Symbol"
+      >(</a
+      ><a name="2951" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2952"
+      > </a
+      ><a name="2953" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2930" class="Bound"
+      >r&#8320;</a
+      ><a name="2955"
+      > </a
+      ><a name="2956" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2957"
+      > </a
+      ><a name="2958" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2959"
+      > </a
+      ><a name="2960" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2926" class="Bound"
+      >A</a
+      ><a name="2961"
+      > </a
+      ><a name="2962" href="NewBasicILP.UntypedSyntax.Common.html#288" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2963"
+      > </a
+      ><a name="2964" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2928" class="Bound"
+      >B</a
+      ><a name="2965" class="Symbol"
+      >)</a
+      ><a name="2966"
+      > </a
+      ><a name="2967" class="Symbol"
+      >&#8594;</a
+      ><a name="2968"
+      > </a
+      ><a name="2969" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2970"
+      > </a
+      ><a name="2971" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2972"
+      > </a
+      ><a name="2973" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2930" class="Bound"
+      >r&#8320;</a
+      ><a name="2975"
+      > </a
+      ><a name="2976" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="2977"
+      > </a
+      ><a name="2978" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="2979"
+      > </a
+      ><a name="2980" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2926" class="Bound"
+      >A</a
+      ><a name="2981"
+      > </a
+      ><a name="2982" class="Symbol"
+      >&#8594;</a
+      ><a name="2983"
+      > </a
+      ><a name="2984" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2985"
+      > </a
+      ><a name="2986" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#236" class="InductiveConstructor"
+      >APP</a
+      ><a name="2991"
+      > </a
+      ><a name="2992" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2933" class="Bound"
+      >r&#8321;</a
+      ><a name="2994"
+      > </a
+      ><a name="2995" class="Symbol"
+      >(</a
+      ><a name="2996" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#304" class="InductiveConstructor"
+      >BOX</a
+      ><a name="2999"
+      > </a
+      ><a name="3000" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2930" class="Bound"
+      >r&#8320;</a
+      ><a name="3002" class="Symbol"
+      >)</a
+      ><a name="3003"
+      > </a
+      ><a name="3004" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#484" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="3005"
+      > </a
+      ><a name="3006" href="NewBasicILP.UntypedSyntax.Common.html#311" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="3007"
+      > </a
+      ><a name="3008" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2928" class="Bound"
+      >B</a
+      ><a name="3009"
+      >
+</a
+      ><a name="3010" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2914" class="Function"
+      >distup</a
+      ><a name="3016"
+      > </a
+      ><a name="3017" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3017" class="Bound"
+      >d&#8321;</a
+      ><a name="3019"
+      > </a
+      ><a name="3020" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3020" class="Bound"
+      >d&#8322;</a
+      ><a name="3022"
+      > </a
+      ><a name="3023" class="Symbol"
+      >=</a
+      ><a name="3024"
+      > </a
+      ><a name="3025" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2671" class="Function"
+      >dist</a
+      ><a name="3029"
+      > </a
+      ><a name="3030" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3017" class="Bound"
+      >d&#8321;</a
+      ><a name="3032"
+      > </a
+      ><a name="3033" class="Symbol"
+      >(</a
+      ><a name="3034" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#2786" class="Function"
+      >up</a
+      ><a name="3036"
+      > </a
+      ><a name="3037" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3020" class="Bound"
+      >d&#8322;</a
+      ><a name="3039" class="Symbol"
+      >)</a
+      ><a name="3040"
+      >
+
+</a
+      ><a name="3042" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3042" class="Function"
+      >pair</a
+      ><a name="3046"
+      > </a
+      ><a name="3047" class="Symbol"
+      >:</a
+      ><a name="3048"
+      > </a
+      ><a name="3049" class="Symbol"
+      >&#8704;</a
+      ><a name="3050"
+      > </a
+      ><a name="3051" class="Symbol"
+      >{</a
+      ><a name="3052" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3052" class="Bound"
+      >A</a
+      ><a name="3053"
+      > </a
+      ><a name="3054" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3054" class="Bound"
+      >B</a
+      ><a name="3055" class="Symbol"
+      >}</a
+      ><a name="3056"
+      > </a
+      ><a name="3057" class="Symbol"
+      >&#8594;</a
+      ><a name="3058"
+      > </a
+      ><a name="3059" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3060"
+      > </a
+      ><a name="3061" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3052" class="Bound"
+      >A</a
+      ><a name="3062"
+      > </a
+      ><a name="3063" class="Symbol"
+      >&#8594;</a
+      ><a name="3064"
+      > </a
+      ><a name="3065" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3066"
+      > </a
+      ><a name="3067" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3054" class="Bound"
+      >B</a
+      ><a name="3068"
+      > </a
+      ><a name="3069" class="Symbol"
+      >&#8594;</a
+      ><a name="3070"
+      > </a
+      ><a name="3071" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3072"
+      > </a
+      ><a name="3073" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3052" class="Bound"
+      >A</a
+      ><a name="3074"
+      > </a
+      ><a name="3075" href="NewBasicILP.UntypedSyntax.Common.html#337" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3076"
+      > </a
+      ><a name="3077" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3054" class="Bound"
+      >B</a
+      ><a name="3078"
+      >
+</a
+      ><a name="3079" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3042" class="Function"
+      >pair</a
+      ><a name="3083"
+      > </a
+      ><a name="3084" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3084" class="Bound"
+      >d&#8321;</a
+      ><a name="3086"
+      > </a
+      ><a name="3087" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3087" class="Bound"
+      >d&#8322;</a
+      ><a name="3089"
+      > </a
+      ><a name="3090" class="Symbol"
+      >=</a
+      ><a name="3091"
+      > </a
+      ><a name="3092" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="3095"
+      > </a
+      ><a name="3096" class="Symbol"
+      >(</a
+      ><a name="3097" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="3100"
+      > </a
+      ><a name="3101" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1175" class="InductiveConstructor"
+      >cpair</a
+      ><a name="3106"
+      > </a
+      ><a name="3107" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3084" class="Bound"
+      >d&#8321;</a
+      ><a name="3109" class="Symbol"
+      >)</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3087" class="Bound"
+      >d&#8322;</a
+      ><a name="3113"
+      >
+
+</a
+      ><a name="3115" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3115" class="Function"
+      >fst</a
+      ><a name="3118"
+      > </a
+      ><a name="3119" class="Symbol"
+      >:</a
+      ><a name="3120"
+      > </a
+      ><a name="3121" class="Symbol"
+      >&#8704;</a
+      ><a name="3122"
+      > </a
+      ><a name="3123" class="Symbol"
+      >{</a
+      ><a name="3124" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3124" class="Bound"
+      >A</a
+      ><a name="3125"
+      > </a
+      ><a name="3126" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3126" class="Bound"
+      >B</a
+      ><a name="3127" class="Symbol"
+      >}</a
+      ><a name="3128"
+      > </a
+      ><a name="3129" class="Symbol"
+      >&#8594;</a
+      ><a name="3130"
+      > </a
+      ><a name="3131" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3132"
+      > </a
+      ><a name="3133" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3124" class="Bound"
+      >A</a
+      ><a name="3134"
+      > </a
+      ><a name="3135" href="NewBasicILP.UntypedSyntax.Common.html#337" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3136"
+      > </a
+      ><a name="3137" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3126" class="Bound"
+      >B</a
+      ><a name="3138"
+      > </a
+      ><a name="3139" class="Symbol"
+      >&#8594;</a
+      ><a name="3140"
+      > </a
+      ><a name="3141" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3142"
+      > </a
+      ><a name="3143" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3124" class="Bound"
+      >A</a
+      ><a name="3144"
+      >
+</a
+      ><a name="3145" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3115" class="Function"
+      >fst</a
+      ><a name="3148"
+      > </a
+      ><a name="3149" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3149" class="Bound"
+      >d</a
+      ><a name="3150"
+      > </a
+      ><a name="3151" class="Symbol"
+      >=</a
+      ><a name="3152"
+      > </a
+      ><a name="3153" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="3156"
+      > </a
+      ><a name="3157" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1215" class="InductiveConstructor"
+      >cfst</a
+      ><a name="3161"
+      > </a
+      ><a name="3162" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3149" class="Bound"
+      >d</a
+      ><a name="3163"
+      >
+
+</a
+      ><a name="3165" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3165" class="Function"
+      >snd</a
+      ><a name="3168"
+      > </a
+      ><a name="3169" class="Symbol"
+      >:</a
+      ><a name="3170"
+      > </a
+      ><a name="3171" class="Symbol"
+      >&#8704;</a
+      ><a name="3172"
+      > </a
+      ><a name="3173" class="Symbol"
+      >{</a
+      ><a name="3174" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3174" class="Bound"
+      >A</a
+      ><a name="3175"
+      > </a
+      ><a name="3176" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3176" class="Bound"
+      >B</a
+      ><a name="3177" class="Symbol"
+      >}</a
+      ><a name="3178"
+      > </a
+      ><a name="3179" class="Symbol"
+      >&#8594;</a
+      ><a name="3180"
+      > </a
+      ><a name="3181" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3182"
+      > </a
+      ><a name="3183" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3174" class="Bound"
+      >A</a
+      ><a name="3184"
+      > </a
+      ><a name="3185" href="NewBasicILP.UntypedSyntax.Common.html#337" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3186"
+      > </a
+      ><a name="3187" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3176" class="Bound"
+      >B</a
+      ><a name="3188"
+      > </a
+      ><a name="3189" class="Symbol"
+      >&#8594;</a
+      ><a name="3190"
+      > </a
+      ><a name="3191" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#621" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3192"
+      > </a
+      ><a name="3193" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3176" class="Bound"
+      >B</a
+      ><a name="3194"
+      >
+</a
+      ><a name="3195" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3165" class="Function"
+      >snd</a
+      ><a name="3198"
+      > </a
+      ><a name="3199" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3199" class="Bound"
+      >d</a
+      ><a name="3200"
+      > </a
+      ><a name="3201" class="Symbol"
+      >=</a
+      ><a name="3202"
+      > </a
+      ><a name="3203" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#645" class="InductiveConstructor"
+      >app</a
+      ><a name="3206"
+      > </a
+      ><a name="3207" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#1251" class="InductiveConstructor"
+      >csnd</a
+      ><a name="3211"
+      > </a
+      ><a name="3212" href="NewBasicILP.UntypedSyntax.ClosedHilbert.html#3199" class="Bound"
+      >d</a
+      ><a name="3213"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
