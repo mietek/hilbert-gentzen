@@ -1,0 +1,6365 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >OlderBasicILP.Direct.Gentzen</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Keyword"
+      >module</a
+      ><a name="7"
+      > </a
+      ><a name="8" href="OlderBasicILP.Direct.Gentzen.html#1" class="Module"
+      >OlderBasicILP.Direct.Gentzen</a
+      ><a name="36"
+      > </a
+      ><a name="37" class="Keyword"
+      >where</a
+      ><a name="42"
+      >
+
+</a
+      ><a name="44" class="Keyword"
+      >open</a
+      ><a name="48"
+      > </a
+      ><a name="49" class="Keyword"
+      >import</a
+      ><a name="55"
+      > </a
+      ><a name="56" href="Common.Context.html#1" class="Module"
+      >Common.Context</a
+      ><a name="70"
+      > </a
+      ><a name="71" class="Keyword"
+      >public</a
+      ><a name="77"
+      >
+
+
+</a
+      ><a name="80" class="Comment"
+      >-- Propositions of intuitionistic logic of proofs, without &#8744;, &#8869;, or +.</a
+      ><a name="150"
+      >
+
+</a
+      ><a name="152" class="Keyword"
+      >mutual</a
+      ><a name="158"
+      >
+  </a
+      ><a name="161" class="Keyword"
+      >infixr</a
+      ><a name="167"
+      > </a
+      ><a name="168" class="Number"
+      >10</a
+      ><a name="170"
+      > _&#10626;_
+  </a
+      ><a name="177" class="Keyword"
+      >infixl</a
+      ><a name="183"
+      > </a
+      ><a name="184" class="Number"
+      >9</a
+      ><a name="185"
+      > _&#8743;_
+  </a
+      ><a name="192" class="Keyword"
+      >infixr</a
+      ><a name="198"
+      > </a
+      ><a name="199" class="Number"
+      >7</a
+      ><a name="200"
+      > _&#9659;_
+  </a
+      ><a name="207" class="Keyword"
+      >data</a
+      ><a name="211"
+      > </a
+      ><a name="212" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="214"
+      > </a
+      ><a name="215" class="Symbol"
+      >:</a
+      ><a name="216"
+      > </a
+      ><a name="217" class="PrimitiveType"
+      >Set</a
+      ><a name="220"
+      > </a
+      ><a name="221" class="Keyword"
+      >where</a
+      ><a name="226"
+      >
+    </a
+      ><a name="231" href="OlderBasicILP.Direct.Gentzen.html#231" class="InductiveConstructor Operator"
+      >&#945;_</a
+      ><a name="233"
+      >  </a
+      ><a name="235" class="Symbol"
+      >:</a
+      ><a name="236"
+      > </a
+      ><a name="237" href="Common.html#1192" class="Function"
+      >Atom</a
+      ><a name="241"
+      > </a
+      ><a name="242" class="Symbol"
+      >&#8594;</a
+      ><a name="243"
+      > </a
+      ><a name="244" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="246"
+      >
+    </a
+      ><a name="251" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >_&#9659;_</a
+      ><a name="254"
+      > </a
+      ><a name="255" class="Symbol"
+      >:</a
+      ><a name="256"
+      > </a
+      ><a name="257" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="259"
+      > </a
+      ><a name="260" class="Symbol"
+      >&#8594;</a
+      ><a name="261"
+      > </a
+      ><a name="262" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="264"
+      > </a
+      ><a name="265" class="Symbol"
+      >&#8594;</a
+      ><a name="266"
+      > </a
+      ><a name="267" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="269"
+      >
+    </a
+      ><a name="274" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >_&#10626;_</a
+      ><a name="277"
+      > </a
+      ><a name="278" class="Symbol"
+      >:</a
+      ><a name="279"
+      > </a
+      ><a name="280" href="OlderBasicILP.Direct.Gentzen.html#339" class="Record"
+      >Box</a
+      ><a name="283"
+      > </a
+      ><a name="284" class="Symbol"
+      >&#8594;</a
+      ><a name="285"
+      > </a
+      ><a name="286" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="288"
+      > </a
+      ><a name="289" class="Symbol"
+      >&#8594;</a
+      ><a name="290"
+      > </a
+      ><a name="291" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="293"
+      >
+    </a
+      ><a name="298" href="OlderBasicILP.Direct.Gentzen.html#298" class="InductiveConstructor Operator"
+      >_&#8743;_</a
+      ><a name="301"
+      > </a
+      ><a name="302" class="Symbol"
+      >:</a
+      ><a name="303"
+      > </a
+      ><a name="304" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="306"
+      > </a
+      ><a name="307" class="Symbol"
+      >&#8594;</a
+      ><a name="308"
+      > </a
+      ><a name="309" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="311"
+      > </a
+      ><a name="312" class="Symbol"
+      >&#8594;</a
+      ><a name="313"
+      > </a
+      ><a name="314" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="316"
+      >
+    </a
+      ><a name="321" href="OlderBasicILP.Direct.Gentzen.html#321" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="322"
+      >  </a
+      ><a name="324" class="Symbol"
+      >:</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="328"
+      >
+
+  </a
+      ><a name="332" class="Keyword"
+      >record</a
+      ><a name="338"
+      > </a
+      ><a name="339" href="OlderBasicILP.Direct.Gentzen.html#339" class="Record"
+      >Box</a
+      ><a name="342"
+      > </a
+      ><a name="343" class="Symbol"
+      >:</a
+      ><a name="344"
+      > </a
+      ><a name="345" class="PrimitiveType"
+      >Set</a
+      ><a name="348"
+      > </a
+      ><a name="349" class="Keyword"
+      >where</a
+      ><a name="354"
+      >
+    </a
+      ><a name="359" class="Keyword"
+      >inductive</a
+      ><a name="368"
+      >
+    </a
+      ><a name="373" class="Keyword"
+      >constructor</a
+      ><a name="384"
+      > </a
+      ><a name="385" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >[_]</a
+      ><a name="388"
+      >
+    </a
+      ><a name="393" class="Keyword"
+      >field</a
+      ><a name="398"
+      >
+      </a
+      ><a name="405" class="Symbol"
+      >{</a
+      ><a name="406" href="OlderBasicILP.Direct.Gentzen.html#406" class="Field"
+      >/A</a
+      ><a name="408" class="Symbol"
+      >}</a
+      ><a name="409"
+      > </a
+      ><a name="410" class="Symbol"
+      >:</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="414"
+      >
+      </a
+      ><a name="421" href="OlderBasicILP.Direct.Gentzen.html#421" class="Field"
+      >t</a
+      ><a name="422"
+      >    </a
+      ><a name="426" class="Symbol"
+      >:</a
+      ><a name="427"
+      > </a
+      ><a name="428" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="429"
+      > </a
+      ><a name="430" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="431"
+      > </a
+      ><a name="432" href="OlderBasicILP.Direct.Gentzen.html#406" class="Field"
+      >/A</a
+      ><a name="434"
+      >
+
+  </a
+      ><a name="438" href="OlderBasicILP.Direct.Gentzen.html#438" class="Function Operator"
+      >_&#10626;&#8902;_</a
+      ><a name="442"
+      > </a
+      ><a name="443" class="Symbol"
+      >:</a
+      ><a name="444"
+      > </a
+      ><a name="445" class="Symbol"
+      >&#8704;</a
+      ><a name="446"
+      > </a
+      ><a name="447" class="Symbol"
+      >{</a
+      ><a name="448" href="OlderBasicILP.Direct.Gentzen.html#448" class="Bound"
+      >n</a
+      ><a name="449" class="Symbol"
+      >}</a
+      ><a name="450"
+      > </a
+      ><a name="451" class="Symbol"
+      >&#8594;</a
+      ><a name="452"
+      > </a
+      ><a name="453" href="Common.Context.html#167" class="Datatype"
+      >VCx</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="OlderBasicILP.Direct.Gentzen.html#339" class="Record"
+      >Box</a
+      ><a name="460"
+      > </a
+      ><a name="461" href="OlderBasicILP.Direct.Gentzen.html#448" class="Bound"
+      >n</a
+      ><a name="462"
+      > </a
+      ><a name="463" class="Symbol"
+      >&#8594;</a
+      ><a name="464"
+      > </a
+      ><a name="465" href="Common.Context.html#167" class="Datatype"
+      >VCx</a
+      ><a name="468"
+      > </a
+      ><a name="469" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="471"
+      > </a
+      ><a name="472" href="OlderBasicILP.Direct.Gentzen.html#448" class="Bound"
+      >n</a
+      ><a name="473"
+      > </a
+      ><a name="474" class="Symbol"
+      >&#8594;</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="478"
+      > </a
+      ><a name="479" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="481"
+      >
+  </a
+      ><a name="484" href="Common.Context.html#199" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="485"
+      >        </a
+      ><a name="493" href="OlderBasicILP.Direct.Gentzen.html#438" class="Function Operator"
+      >&#10626;&#8902;</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="Common.Context.html#199" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="497"
+      >       </a
+      ><a name="504" class="Symbol"
+      >=</a
+      ><a name="505"
+      > </a
+      ><a name="506" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="507"
+      >
+  </a
+      ><a name="510" class="Symbol"
+      >(</a
+      ><a name="511" href="OlderBasicILP.Direct.Gentzen.html#511" class="Bound"
+      >ts</a
+      ><a name="513"
+      > </a
+      ><a name="514" href="Common.Context.html#218" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="515"
+      > </a
+      ><a name="516" href="OlderBasicILP.Direct.Gentzen.html#516" class="Bound"
+      >t</a
+      ><a name="517" class="Symbol"
+      >)</a
+      ><a name="518"
+      > </a
+      ><a name="519" href="OlderBasicILP.Direct.Gentzen.html#438" class="Function Operator"
+      >&#10626;&#8902;</a
+      ><a name="521"
+      > </a
+      ><a name="522" class="Symbol"
+      >(</a
+      ><a name="523" href="OlderBasicILP.Direct.Gentzen.html#523" class="Bound"
+      >&#926;</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="Common.Context.html#218" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="526"
+      > </a
+      ><a name="527" href="OlderBasicILP.Direct.Gentzen.html#527" class="Bound"
+      >A</a
+      ><a name="528" class="Symbol"
+      >)</a
+      ><a name="529"
+      > </a
+      ><a name="530" class="Symbol"
+      >=</a
+      ><a name="531"
+      > </a
+      ><a name="532" class="Symbol"
+      >(</a
+      ><a name="533" href="OlderBasicILP.Direct.Gentzen.html#511" class="Bound"
+      >ts</a
+      ><a name="535"
+      > </a
+      ><a name="536" href="OlderBasicILP.Direct.Gentzen.html#438" class="Function Operator"
+      >&#10626;&#8902;</a
+      ><a name="538"
+      > </a
+      ><a name="539" href="OlderBasicILP.Direct.Gentzen.html#523" class="Bound"
+      >&#926;</a
+      ><a name="540" class="Symbol"
+      >)</a
+      ><a name="541"
+      > </a
+      ><a name="542" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="543"
+      > </a
+      ><a name="544" class="Symbol"
+      >(</a
+      ><a name="545" href="OlderBasicILP.Direct.Gentzen.html#516" class="Bound"
+      >t</a
+      ><a name="546"
+      > </a
+      ><a name="547" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="548"
+      > </a
+      ><a name="549" href="OlderBasicILP.Direct.Gentzen.html#527" class="Bound"
+      >A</a
+      ><a name="550" class="Symbol"
+      >)</a
+      ><a name="551"
+      >
+
+
+  </a
+      ><a name="556" class="Comment"
+      >-- Derivations, as Gentzen-style natural deduction trees.</a
+      ><a name="613"
+      >
+
+  </a
+      ><a name="617" class="Keyword"
+      >infix</a
+      ><a name="622"
+      > </a
+      ><a name="623" class="Number"
+      >3</a
+      ><a name="624"
+      > _&#8866;_
+  </a
+      ><a name="631" class="Keyword"
+      >data</a
+      ><a name="635"
+      > </a
+      ><a name="636" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >_&#8866;_</a
+      ><a name="639"
+      > </a
+      ><a name="640" class="Symbol"
+      >(</a
+      ><a name="641" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="642"
+      > </a
+      ><a name="643" class="Symbol"
+      >:</a
+      ><a name="644"
+      > </a
+      ><a name="645" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="647"
+      > </a
+      ><a name="648" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="650" class="Symbol"
+      >)</a
+      ><a name="651"
+      > </a
+      ><a name="652" class="Symbol"
+      >:</a
+      ><a name="653"
+      > </a
+      ><a name="654" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="656"
+      > </a
+      ><a name="657" class="Symbol"
+      >&#8594;</a
+      ><a name="658"
+      > </a
+      ><a name="659" class="PrimitiveType"
+      >Set</a
+      ><a name="662"
+      > </a
+      ><a name="663" class="Keyword"
+      >where</a
+      ><a name="668"
+      >
+    </a
+      ><a name="673" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="676"
+      >      </a
+      ><a name="682" class="Symbol"
+      >:</a
+      ><a name="683"
+      > </a
+      ><a name="684" class="Symbol"
+      >&#8704;</a
+      ><a name="685"
+      > </a
+      ><a name="686" class="Symbol"
+      >{</a
+      ><a name="687" href="OlderBasicILP.Direct.Gentzen.html#687" class="Bound"
+      >A</a
+      ><a name="688" class="Symbol"
+      >}</a
+      ><a name="689"
+      >              </a
+      ><a name="703" class="Symbol"
+      >&#8594;</a
+      ><a name="704"
+      > </a
+      ><a name="705" href="OlderBasicILP.Direct.Gentzen.html#687" class="Bound"
+      >A</a
+      ><a name="706"
+      > </a
+      ><a name="707" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="708"
+      > </a
+      ><a name="709" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="710"
+      > </a
+      ><a name="711" class="Symbol"
+      >&#8594;</a
+      ><a name="712"
+      > </a
+      ><a name="713" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="714"
+      > </a
+      ><a name="715" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="716"
+      > </a
+      ><a name="717" href="OlderBasicILP.Direct.Gentzen.html#687" class="Bound"
+      >A</a
+      ><a name="718"
+      >
+    </a
+      ><a name="723" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="726"
+      >      </a
+      ><a name="732" class="Symbol"
+      >:</a
+      ><a name="733"
+      > </a
+      ><a name="734" class="Symbol"
+      >&#8704;</a
+      ><a name="735"
+      > </a
+      ><a name="736" class="Symbol"
+      >{</a
+      ><a name="737" href="OlderBasicILP.Direct.Gentzen.html#737" class="Bound"
+      >A</a
+      ><a name="738"
+      > </a
+      ><a name="739" href="OlderBasicILP.Direct.Gentzen.html#739" class="Bound"
+      >B</a
+      ><a name="740" class="Symbol"
+      >}</a
+      ><a name="741"
+      >            </a
+      ><a name="753" class="Symbol"
+      >&#8594;</a
+      ><a name="754"
+      > </a
+      ><a name="755" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="758"
+      > </a
+      ><a name="759" href="OlderBasicILP.Direct.Gentzen.html#737" class="Bound"
+      >A</a
+      ><a name="760"
+      > </a
+      ><a name="761" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="762"
+      > </a
+      ><a name="763" href="OlderBasicILP.Direct.Gentzen.html#739" class="Bound"
+      >B</a
+      ><a name="764"
+      > </a
+      ><a name="765" class="Symbol"
+      >&#8594;</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="768"
+      > </a
+      ><a name="769" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="770"
+      > </a
+      ><a name="771" href="OlderBasicILP.Direct.Gentzen.html#737" class="Bound"
+      >A</a
+      ><a name="772"
+      > </a
+      ><a name="773" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="774"
+      > </a
+      ><a name="775" href="OlderBasicILP.Direct.Gentzen.html#739" class="Bound"
+      >B</a
+      ><a name="776"
+      >
+    </a
+      ><a name="781" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="784"
+      >      </a
+      ><a name="790" class="Symbol"
+      >:</a
+      ><a name="791"
+      > </a
+      ><a name="792" class="Symbol"
+      >&#8704;</a
+      ><a name="793"
+      > </a
+      ><a name="794" class="Symbol"
+      >{</a
+      ><a name="795" href="OlderBasicILP.Direct.Gentzen.html#795" class="Bound"
+      >A</a
+      ><a name="796"
+      > </a
+      ><a name="797" href="OlderBasicILP.Direct.Gentzen.html#797" class="Bound"
+      >B</a
+      ><a name="798" class="Symbol"
+      >}</a
+      ><a name="799"
+      >            </a
+      ><a name="811" class="Symbol"
+      >&#8594;</a
+      ><a name="812"
+      > </a
+      ><a name="813" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="814"
+      > </a
+      ><a name="815" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="816"
+      > </a
+      ><a name="817" href="OlderBasicILP.Direct.Gentzen.html#795" class="Bound"
+      >A</a
+      ><a name="818"
+      > </a
+      ><a name="819" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="820"
+      > </a
+      ><a name="821" href="OlderBasicILP.Direct.Gentzen.html#797" class="Bound"
+      >B</a
+      ><a name="822"
+      > </a
+      ><a name="823" class="Symbol"
+      >&#8594;</a
+      ><a name="824"
+      > </a
+      ><a name="825" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="OlderBasicILP.Direct.Gentzen.html#795" class="Bound"
+      >A</a
+      ><a name="830"
+      > </a
+      ><a name="831" class="Symbol"
+      >&#8594;</a
+      ><a name="832"
+      > </a
+      ><a name="833" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="834"
+      > </a
+      ><a name="835" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="836"
+      > </a
+      ><a name="837" href="OlderBasicILP.Direct.Gentzen.html#797" class="Bound"
+      >B</a
+      ><a name="838"
+      >
+</a
+      ><a name="839" class="Comment"
+      >--    multibox : &#8704; {n A} {[ss] : VCx Box n} {&#926; : VCx Ty n}</a
+      ><a name="897"
+      >
+</a
+      ><a name="898" class="Comment"
+      >--               &#8594; &#915; &#8866;&#8902; [ss] &#10626;&#8902; &#926; &#8594; (u : [ss] &#10626;&#8902; &#926; &#8866; A)</a
+      ><a name="953"
+      >
+</a
+      ><a name="954" class="Comment"
+      >--               &#8594; &#915; &#8866; [ u ] &#10626; A</a
+      ><a name="986"
+      >
+    </a
+      ><a name="991" href="OlderBasicILP.Direct.Gentzen.html#991" class="InductiveConstructor"
+      >down</a
+      ><a name="995"
+      >     </a
+      ><a name="1000" class="Symbol"
+      >:</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" class="Symbol"
+      >&#8704;</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" class="Symbol"
+      >{</a
+      ><a name="1005" href="OlderBasicILP.Direct.Gentzen.html#1005" class="Bound"
+      >A</a
+      ><a name="1006" class="Symbol"
+      >}</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" class="Symbol"
+      >{</a
+      ><a name="1009" href="OlderBasicILP.Direct.Gentzen.html#1009" class="Bound"
+      >t</a
+      ><a name="1010"
+      > </a
+      ><a name="1011" class="Symbol"
+      >:</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1014"
+      > </a
+      ><a name="1015" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1016"
+      > </a
+      ><a name="1017" href="OlderBasicILP.Direct.Gentzen.html#1005" class="Bound"
+      >A</a
+      ><a name="1018" class="Symbol"
+      >}</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" class="Symbol"
+      >&#8594;</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="OlderBasicILP.Direct.Gentzen.html#1009" class="Bound"
+      >t</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" href="OlderBasicILP.Direct.Gentzen.html#1005" class="Bound"
+      >A</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" class="Symbol"
+      >&#8594;</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1041"
+      > </a
+      ><a name="1042" href="OlderBasicILP.Direct.Gentzen.html#1005" class="Bound"
+      >A</a
+      ><a name="1043"
+      >
+    </a
+      ><a name="1048" href="OlderBasicILP.Direct.Gentzen.html#1048" class="InductiveConstructor"
+      >pair</a
+      ><a name="1052"
+      >     </a
+      ><a name="1057" class="Symbol"
+      >:</a
+      ><a name="1058"
+      > </a
+      ><a name="1059" class="Symbol"
+      >&#8704;</a
+      ><a name="1060"
+      > </a
+      ><a name="1061" class="Symbol"
+      >{</a
+      ><a name="1062" href="OlderBasicILP.Direct.Gentzen.html#1062" class="Bound"
+      >A</a
+      ><a name="1063"
+      > </a
+      ><a name="1064" href="OlderBasicILP.Direct.Gentzen.html#1064" class="Bound"
+      >B</a
+      ><a name="1065" class="Symbol"
+      >}</a
+      ><a name="1066"
+      >            </a
+      ><a name="1078" class="Symbol"
+      >&#8594;</a
+      ><a name="1079"
+      > </a
+      ><a name="1080" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1083"
+      > </a
+      ><a name="1084" href="OlderBasicILP.Direct.Gentzen.html#1062" class="Bound"
+      >A</a
+      ><a name="1085"
+      > </a
+      ><a name="1086" class="Symbol"
+      >&#8594;</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1091"
+      > </a
+      ><a name="1092" href="OlderBasicILP.Direct.Gentzen.html#1064" class="Bound"
+      >B</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" class="Symbol"
+      >&#8594;</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1097"
+      > </a
+      ><a name="1098" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1099"
+      > </a
+      ><a name="1100" href="OlderBasicILP.Direct.Gentzen.html#1062" class="Bound"
+      >A</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="OlderBasicILP.Direct.Gentzen.html#298" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1103"
+      > </a
+      ><a name="1104" href="OlderBasicILP.Direct.Gentzen.html#1064" class="Bound"
+      >B</a
+      ><a name="1105"
+      >
+    </a
+      ><a name="1110" href="OlderBasicILP.Direct.Gentzen.html#1110" class="InductiveConstructor"
+      >fst</a
+      ><a name="1113"
+      >      </a
+      ><a name="1119" class="Symbol"
+      >:</a
+      ><a name="1120"
+      > </a
+      ><a name="1121" class="Symbol"
+      >&#8704;</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" class="Symbol"
+      >{</a
+      ><a name="1124" href="OlderBasicILP.Direct.Gentzen.html#1124" class="Bound"
+      >A</a
+      ><a name="1125"
+      > </a
+      ><a name="1126" href="OlderBasicILP.Direct.Gentzen.html#1126" class="Bound"
+      >B</a
+      ><a name="1127" class="Symbol"
+      >}</a
+      ><a name="1128"
+      >            </a
+      ><a name="1140" class="Symbol"
+      >&#8594;</a
+      ><a name="1141"
+      > </a
+      ><a name="1142" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1143"
+      > </a
+      ><a name="1144" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" href="OlderBasicILP.Direct.Gentzen.html#1124" class="Bound"
+      >A</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" href="OlderBasicILP.Direct.Gentzen.html#298" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" href="OlderBasicILP.Direct.Gentzen.html#1126" class="Bound"
+      >B</a
+      ><a name="1151"
+      > </a
+      ><a name="1152" class="Symbol"
+      >&#8594;</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="OlderBasicILP.Direct.Gentzen.html#1124" class="Bound"
+      >A</a
+      ><a name="1159"
+      >
+    </a
+      ><a name="1164" href="OlderBasicILP.Direct.Gentzen.html#1164" class="InductiveConstructor"
+      >snd</a
+      ><a name="1167"
+      >      </a
+      ><a name="1173" class="Symbol"
+      >:</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" class="Symbol"
+      >&#8704;</a
+      ><a name="1176"
+      > </a
+      ><a name="1177" class="Symbol"
+      >{</a
+      ><a name="1178" href="OlderBasicILP.Direct.Gentzen.html#1178" class="Bound"
+      >A</a
+      ><a name="1179"
+      > </a
+      ><a name="1180" href="OlderBasicILP.Direct.Gentzen.html#1180" class="Bound"
+      >B</a
+      ><a name="1181" class="Symbol"
+      >}</a
+      ><a name="1182"
+      >            </a
+      ><a name="1194" class="Symbol"
+      >&#8594;</a
+      ><a name="1195"
+      > </a
+      ><a name="1196" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" href="OlderBasicILP.Direct.Gentzen.html#1178" class="Bound"
+      >A</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" href="OlderBasicILP.Direct.Gentzen.html#298" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1203"
+      > </a
+      ><a name="1204" href="OlderBasicILP.Direct.Gentzen.html#1180" class="Bound"
+      >B</a
+      ><a name="1205"
+      > </a
+      ><a name="1206" class="Symbol"
+      >&#8594;</a
+      ><a name="1207"
+      > </a
+      ><a name="1208" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="OlderBasicILP.Direct.Gentzen.html#1180" class="Bound"
+      >B</a
+      ><a name="1213"
+      >
+    </a
+      ><a name="1218" href="OlderBasicILP.Direct.Gentzen.html#1218" class="InductiveConstructor"
+      >tt</a
+      ><a name="1220"
+      >       </a
+      ><a name="1227" class="Symbol"
+      >:</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" href="OlderBasicILP.Direct.Gentzen.html#641" class="Bound"
+      >&#915;</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1232"
+      > </a
+      ><a name="1233" href="OlderBasicILP.Direct.Gentzen.html#321" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1234"
+      >
+
+  </a
+      ><a name="1238" class="Keyword"
+      >infix</a
+      ><a name="1243"
+      > </a
+      ><a name="1244" class="Number"
+      >3</a
+      ><a name="1245"
+      > _&#8866;&#8902;_
+  </a
+      ><a name="1253" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >_&#8866;&#8902;_</a
+      ><a name="1257"
+      > </a
+      ><a name="1258" class="Symbol"
+      >:</a
+      ><a name="1259"
+      > </a
+      ><a name="1260" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1262"
+      > </a
+      ><a name="1263" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" class="Symbol"
+      >&#8594;</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="1273"
+      > </a
+      ><a name="1274" class="Symbol"
+      >&#8594;</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" class="PrimitiveType"
+      >Set</a
+      ><a name="1279"
+      >
+  </a
+      ><a name="1282" href="OlderBasicILP.Direct.Gentzen.html#1282" class="Bound"
+      >&#915;</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1286"
+      > </a
+      ><a name="1287" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1288"
+      >     </a
+      ><a name="1293" class="Symbol"
+      >=</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1296"
+      >
+  </a
+      ><a name="1299" href="OlderBasicILP.Direct.Gentzen.html#1299" class="Bound"
+      >&#915;</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1303"
+      > </a
+      ><a name="1304" href="OlderBasicILP.Direct.Gentzen.html#1304" class="Bound"
+      >&#926;</a
+      ><a name="1305"
+      > </a
+      ><a name="1306" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" href="OlderBasicILP.Direct.Gentzen.html#1308" class="Bound"
+      >A</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" class="Symbol"
+      >=</a
+      ><a name="1311"
+      > </a
+      ><a name="1312" href="OlderBasicILP.Direct.Gentzen.html#1299" class="Bound"
+      >&#915;</a
+      ><a name="1313"
+      > </a
+      ><a name="1314" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="OlderBasicILP.Direct.Gentzen.html#1304" class="Bound"
+      >&#926;</a
+      ><a name="1318"
+      > </a
+      ><a name="1319" href="Common.html#1523" class="Function Operator"
+      >&#215;</a
+      ><a name="1320"
+      > </a
+      ><a name="1321" href="OlderBasicILP.Direct.Gentzen.html#1299" class="Bound"
+      >&#915;</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1324"
+      > </a
+      ><a name="1325" href="OlderBasicILP.Direct.Gentzen.html#1308" class="Bound"
+      >A</a
+      ><a name="1326"
+      >
+
+</a
+      ><a name="1328" class="Keyword"
+      >infix</a
+      ><a name="1333"
+      > </a
+      ><a name="1334" class="Number"
+      >7</a
+      ><a name="1335"
+      > _&#9659;&#9669;_
+</a
+      ><a name="1341" href="OlderBasicILP.Direct.Gentzen.html#1341" class="Function Operator"
+      >_&#9659;&#9669;_</a
+      ><a name="1345"
+      > </a
+      ><a name="1346" class="Symbol"
+      >:</a
+      ><a name="1347"
+      > </a
+      ><a name="1348" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" class="Symbol"
+      >&#8594;</a
+      ><a name="1352"
+      > </a
+      ><a name="1353" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" class="Symbol"
+      >&#8594;</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" href="OlderBasicILP.Direct.Gentzen.html#212" class="Datatype"
+      >Ty</a
+      ><a name="1360"
+      >
+</a
+      ><a name="1361" href="OlderBasicILP.Direct.Gentzen.html#1361" class="Bound"
+      >A</a
+      ><a name="1362"
+      > </a
+      ><a name="1363" href="OlderBasicILP.Direct.Gentzen.html#1341" class="Function Operator"
+      >&#9659;&#9669;</a
+      ><a name="1365"
+      > </a
+      ><a name="1366" href="OlderBasicILP.Direct.Gentzen.html#1366" class="Bound"
+      >B</a
+      ><a name="1367"
+      > </a
+      ><a name="1368" class="Symbol"
+      >=</a
+      ><a name="1369"
+      > </a
+      ><a name="1370" class="Symbol"
+      >(</a
+      ><a name="1371" href="OlderBasicILP.Direct.Gentzen.html#1361" class="Bound"
+      >A</a
+      ><a name="1372"
+      > </a
+      ><a name="1373" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" href="OlderBasicILP.Direct.Gentzen.html#1366" class="Bound"
+      >B</a
+      ><a name="1376" class="Symbol"
+      >)</a
+      ><a name="1377"
+      > </a
+      ><a name="1378" href="OlderBasicILP.Direct.Gentzen.html#298" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1379"
+      > </a
+      ><a name="1380" class="Symbol"
+      >(</a
+      ><a name="1381" href="OlderBasicILP.Direct.Gentzen.html#1366" class="Bound"
+      >B</a
+      ><a name="1382"
+      > </a
+      ><a name="1383" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1384"
+      > </a
+      ><a name="1385" href="OlderBasicILP.Direct.Gentzen.html#1361" class="Bound"
+      >A</a
+      ><a name="1386" class="Symbol"
+      >)</a
+      ><a name="1387"
+      >
+
+
+</a
+      ><a name="1390" class="Comment"
+      >-- Monotonicity with respect to context inclusion.</a
+      ><a name="1440"
+      >
+
+</a
+      ><a name="1442" class="Keyword"
+      >mutual</a
+      ><a name="1448"
+      >
+  </a
+      ><a name="1451" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" class="Symbol"
+      >:</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" class="Symbol"
+      >&#8704;</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" class="Symbol"
+      >{</a
+      ><a name="1462" href="OlderBasicILP.Direct.Gentzen.html#1462" class="Bound"
+      >A</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" href="OlderBasicILP.Direct.Gentzen.html#1464" class="Bound"
+      >&#915;</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" href="OlderBasicILP.Direct.Gentzen.html#1466" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1468" class="Symbol"
+      >}</a
+      ><a name="1469"
+      > </a
+      ><a name="1470" class="Symbol"
+      >&#8594;</a
+      ><a name="1471"
+      > </a
+      ><a name="1472" href="OlderBasicILP.Direct.Gentzen.html#1464" class="Bound"
+      >&#915;</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="Common.Context.html#1543" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="OlderBasicILP.Direct.Gentzen.html#1466" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" class="Symbol"
+      >&#8594;</a
+      ><a name="1480"
+      > </a
+      ><a name="1481" href="OlderBasicILP.Direct.Gentzen.html#1464" class="Bound"
+      >&#915;</a
+      ><a name="1482"
+      > </a
+      ><a name="1483" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1484"
+      > </a
+      ><a name="1485" href="OlderBasicILP.Direct.Gentzen.html#1462" class="Bound"
+      >A</a
+      ><a name="1486"
+      > </a
+      ><a name="1487" class="Symbol"
+      >&#8594;</a
+      ><a name="1488"
+      > </a
+      ><a name="1489" href="OlderBasicILP.Direct.Gentzen.html#1466" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" href="OlderBasicILP.Direct.Gentzen.html#1462" class="Bound"
+      >A</a
+      ><a name="1495"
+      >
+  </a
+      ><a name="1498" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1503"
+      > </a
+      ><a name="1504" href="OlderBasicILP.Direct.Gentzen.html#1504" class="Bound"
+      >&#951;</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" class="Symbol"
+      >(</a
+      ><a name="1507" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="1510"
+      > </a
+      ><a name="1511" href="OlderBasicILP.Direct.Gentzen.html#1511" class="Bound"
+      >i</a
+      ><a name="1512" class="Symbol"
+      >)</a
+      ><a name="1513"
+      >         </a
+      ><a name="1522" class="Symbol"
+      >=</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="1527"
+      > </a
+      ><a name="1528" class="Symbol"
+      >(</a
+      ><a name="1529" href="Common.Context.html#2597" class="Function"
+      >mono&#8712;</a
+      ><a name="1534"
+      > </a
+      ><a name="1535" href="OlderBasicILP.Direct.Gentzen.html#1504" class="Bound"
+      >&#951;</a
+      ><a name="1536"
+      > </a
+      ><a name="1537" href="OlderBasicILP.Direct.Gentzen.html#1511" class="Bound"
+      >i</a
+      ><a name="1538" class="Symbol"
+      >)</a
+      ><a name="1539"
+      >
+  </a
+      ><a name="1542" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" href="OlderBasicILP.Direct.Gentzen.html#1548" class="Bound"
+      >&#951;</a
+      ><a name="1549"
+      > </a
+      ><a name="1550" class="Symbol"
+      >(</a
+      ><a name="1551" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="OlderBasicILP.Direct.Gentzen.html#1555" class="Bound"
+      >t</a
+      ><a name="1556" class="Symbol"
+      >)</a
+      ><a name="1557"
+      >         </a
+      ><a name="1566" class="Symbol"
+      >=</a
+      ><a name="1567"
+      > </a
+      ><a name="1568" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="1571"
+      > </a
+      ><a name="1572" class="Symbol"
+      >(</a
+      ><a name="1573" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1578"
+      > </a
+      ><a name="1579" class="Symbol"
+      >(</a
+      ><a name="1580" href="Common.Context.html#1657" class="InductiveConstructor"
+      >keep</a
+      ><a name="1584"
+      > </a
+      ><a name="1585" href="OlderBasicILP.Direct.Gentzen.html#1548" class="Bound"
+      >&#951;</a
+      ><a name="1586" class="Symbol"
+      >)</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" href="OlderBasicILP.Direct.Gentzen.html#1555" class="Bound"
+      >t</a
+      ><a name="1589" class="Symbol"
+      >)</a
+      ><a name="1590"
+      >
+  </a
+      ><a name="1593" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" href="OlderBasicILP.Direct.Gentzen.html#1599" class="Bound"
+      >&#951;</a
+      ><a name="1600"
+      > </a
+      ><a name="1601" class="Symbol"
+      >(</a
+      ><a name="1602" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" href="OlderBasicILP.Direct.Gentzen.html#1606" class="Bound"
+      >t</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" href="OlderBasicILP.Direct.Gentzen.html#1608" class="Bound"
+      >u</a
+      ><a name="1609" class="Symbol"
+      >)</a
+      ><a name="1610"
+      >       </a
+      ><a name="1617" class="Symbol"
+      >=</a
+      ><a name="1618"
+      > </a
+      ><a name="1619" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="1622"
+      > </a
+      ><a name="1623" class="Symbol"
+      >(</a
+      ><a name="1624" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" href="OlderBasicILP.Direct.Gentzen.html#1599" class="Bound"
+      >&#951;</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" href="OlderBasicILP.Direct.Gentzen.html#1606" class="Bound"
+      >t</a
+      ><a name="1633" class="Symbol"
+      >)</a
+      ><a name="1634"
+      > </a
+      ><a name="1635" class="Symbol"
+      >(</a
+      ><a name="1636" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="OlderBasicILP.Direct.Gentzen.html#1599" class="Bound"
+      >&#951;</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" href="OlderBasicILP.Direct.Gentzen.html#1608" class="Bound"
+      >u</a
+      ><a name="1645" class="Symbol"
+      >)</a
+      ><a name="1646"
+      >
+</a
+      ><a name="1647" class="Comment"
+      >--  mono&#8866; &#951; (multibox ts u) = multibox (mono&#8866;&#8902; &#951; ts) u</a
+      ><a name="1701"
+      >
+  </a
+      ><a name="1704" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" href="OlderBasicILP.Direct.Gentzen.html#1710" class="Bound"
+      >&#951;</a
+      ><a name="1711"
+      > </a
+      ><a name="1712" class="Symbol"
+      >(</a
+      ><a name="1713" href="OlderBasicILP.Direct.Gentzen.html#991" class="InductiveConstructor"
+      >down</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" href="OlderBasicILP.Direct.Gentzen.html#1718" class="Bound"
+      >t</a
+      ><a name="1719" class="Symbol"
+      >)</a
+      ><a name="1720"
+      >        </a
+      ><a name="1728" class="Symbol"
+      >=</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="OlderBasicILP.Direct.Gentzen.html#991" class="InductiveConstructor"
+      >down</a
+      ><a name="1734"
+      > </a
+      ><a name="1735" class="Symbol"
+      >(</a
+      ><a name="1736" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1741"
+      > </a
+      ><a name="1742" href="OlderBasicILP.Direct.Gentzen.html#1710" class="Bound"
+      >&#951;</a
+      ><a name="1743"
+      > </a
+      ><a name="1744" href="OlderBasicILP.Direct.Gentzen.html#1718" class="Bound"
+      >t</a
+      ><a name="1745" class="Symbol"
+      >)</a
+      ><a name="1746"
+      >
+  </a
+      ><a name="1749" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1754"
+      > </a
+      ><a name="1755" href="OlderBasicILP.Direct.Gentzen.html#1755" class="Bound"
+      >&#951;</a
+      ><a name="1756"
+      > </a
+      ><a name="1757" class="Symbol"
+      >(</a
+      ><a name="1758" href="OlderBasicILP.Direct.Gentzen.html#1048" class="InductiveConstructor"
+      >pair</a
+      ><a name="1762"
+      > </a
+      ><a name="1763" href="OlderBasicILP.Direct.Gentzen.html#1763" class="Bound"
+      >t</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="OlderBasicILP.Direct.Gentzen.html#1765" class="Bound"
+      >u</a
+      ><a name="1766" class="Symbol"
+      >)</a
+      ><a name="1767"
+      >      </a
+      ><a name="1773" class="Symbol"
+      >=</a
+      ><a name="1774"
+      > </a
+      ><a name="1775" href="OlderBasicILP.Direct.Gentzen.html#1048" class="InductiveConstructor"
+      >pair</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" class="Symbol"
+      >(</a
+      ><a name="1781" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1786"
+      > </a
+      ><a name="1787" href="OlderBasicILP.Direct.Gentzen.html#1755" class="Bound"
+      >&#951;</a
+      ><a name="1788"
+      > </a
+      ><a name="1789" href="OlderBasicILP.Direct.Gentzen.html#1763" class="Bound"
+      >t</a
+      ><a name="1790" class="Symbol"
+      >)</a
+      ><a name="1791"
+      > </a
+      ><a name="1792" class="Symbol"
+      >(</a
+      ><a name="1793" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1798"
+      > </a
+      ><a name="1799" href="OlderBasicILP.Direct.Gentzen.html#1755" class="Bound"
+      >&#951;</a
+      ><a name="1800"
+      > </a
+      ><a name="1801" href="OlderBasicILP.Direct.Gentzen.html#1765" class="Bound"
+      >u</a
+      ><a name="1802" class="Symbol"
+      >)</a
+      ><a name="1803"
+      >
+  </a
+      ><a name="1806" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1811"
+      > </a
+      ><a name="1812" href="OlderBasicILP.Direct.Gentzen.html#1812" class="Bound"
+      >&#951;</a
+      ><a name="1813"
+      > </a
+      ><a name="1814" class="Symbol"
+      >(</a
+      ><a name="1815" href="OlderBasicILP.Direct.Gentzen.html#1110" class="InductiveConstructor"
+      >fst</a
+      ><a name="1818"
+      > </a
+      ><a name="1819" href="OlderBasicILP.Direct.Gentzen.html#1819" class="Bound"
+      >t</a
+      ><a name="1820" class="Symbol"
+      >)</a
+      ><a name="1821"
+      >         </a
+      ><a name="1830" class="Symbol"
+      >=</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" href="OlderBasicILP.Direct.Gentzen.html#1110" class="InductiveConstructor"
+      >fst</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" class="Symbol"
+      >(</a
+      ><a name="1837" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1842"
+      > </a
+      ><a name="1843" href="OlderBasicILP.Direct.Gentzen.html#1812" class="Bound"
+      >&#951;</a
+      ><a name="1844"
+      > </a
+      ><a name="1845" href="OlderBasicILP.Direct.Gentzen.html#1819" class="Bound"
+      >t</a
+      ><a name="1846" class="Symbol"
+      >)</a
+      ><a name="1847"
+      >
+  </a
+      ><a name="1850" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1855"
+      > </a
+      ><a name="1856" href="OlderBasicILP.Direct.Gentzen.html#1856" class="Bound"
+      >&#951;</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" class="Symbol"
+      >(</a
+      ><a name="1859" href="OlderBasicILP.Direct.Gentzen.html#1164" class="InductiveConstructor"
+      >snd</a
+      ><a name="1862"
+      > </a
+      ><a name="1863" href="OlderBasicILP.Direct.Gentzen.html#1863" class="Bound"
+      >t</a
+      ><a name="1864" class="Symbol"
+      >)</a
+      ><a name="1865"
+      >         </a
+      ><a name="1874" class="Symbol"
+      >=</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" href="OlderBasicILP.Direct.Gentzen.html#1164" class="InductiveConstructor"
+      >snd</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" class="Symbol"
+      >(</a
+      ><a name="1881" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1886"
+      > </a
+      ><a name="1887" href="OlderBasicILP.Direct.Gentzen.html#1856" class="Bound"
+      >&#951;</a
+      ><a name="1888"
+      > </a
+      ><a name="1889" href="OlderBasicILP.Direct.Gentzen.html#1863" class="Bound"
+      >t</a
+      ><a name="1890" class="Symbol"
+      >)</a
+      ><a name="1891"
+      >
+  </a
+      ><a name="1894" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="1899"
+      > </a
+      ><a name="1900" href="OlderBasicILP.Direct.Gentzen.html#1900" class="Bound"
+      >&#951;</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" href="OlderBasicILP.Direct.Gentzen.html#1218" class="InductiveConstructor"
+      >tt</a
+      ><a name="1904"
+      >              </a
+      ><a name="1918" class="Symbol"
+      >=</a
+      ><a name="1919"
+      > </a
+      ><a name="1920" href="OlderBasicILP.Direct.Gentzen.html#1218" class="InductiveConstructor"
+      >tt</a
+      ><a name="1922"
+      >
+
+  </a
+      ><a name="1926" href="OlderBasicILP.Direct.Gentzen.html#1926" class="Function"
+      >mono&#8866;&#8902;</a
+      ><a name="1932"
+      > </a
+      ><a name="1933" class="Symbol"
+      >:</a
+      ><a name="1934"
+      > </a
+      ><a name="1935" class="Symbol"
+      >&#8704;</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" class="Symbol"
+      >{</a
+      ><a name="1938" href="OlderBasicILP.Direct.Gentzen.html#1938" class="Bound"
+      >&#926;</a
+      ><a name="1939"
+      > </a
+      ><a name="1940" href="OlderBasicILP.Direct.Gentzen.html#1940" class="Bound"
+      >&#915;</a
+      ><a name="1941"
+      > </a
+      ><a name="1942" href="OlderBasicILP.Direct.Gentzen.html#1942" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1944" class="Symbol"
+      >}</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" class="Symbol"
+      >&#8594;</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" href="OlderBasicILP.Direct.Gentzen.html#1940" class="Bound"
+      >&#915;</a
+      ><a name="1949"
+      > </a
+      ><a name="1950" href="Common.Context.html#1543" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="1951"
+      > </a
+      ><a name="1952" href="OlderBasicILP.Direct.Gentzen.html#1942" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1954"
+      > </a
+      ><a name="1955" class="Symbol"
+      >&#8594;</a
+      ><a name="1956"
+      > </a
+      ><a name="1957" href="OlderBasicILP.Direct.Gentzen.html#1940" class="Bound"
+      >&#915;</a
+      ><a name="1958"
+      > </a
+      ><a name="1959" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1961"
+      > </a
+      ><a name="1962" href="OlderBasicILP.Direct.Gentzen.html#1938" class="Bound"
+      >&#926;</a
+      ><a name="1963"
+      > </a
+      ><a name="1964" class="Symbol"
+      >&#8594;</a
+      ><a name="1965"
+      > </a
+      ><a name="1966" href="OlderBasicILP.Direct.Gentzen.html#1942" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="1968"
+      > </a
+      ><a name="1969" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" href="OlderBasicILP.Direct.Gentzen.html#1938" class="Bound"
+      >&#926;</a
+      ><a name="1973"
+      >
+  </a
+      ><a name="1976" href="OlderBasicILP.Direct.Gentzen.html#1926" class="Function"
+      >mono&#8866;&#8902;</a
+      ><a name="1982"
+      > </a
+      ><a name="1983" class="Symbol"
+      >{</a
+      ><a name="1984" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1985" class="Symbol"
+      >}</a
+      ><a name="1986"
+      >     </a
+      ><a name="1991" href="OlderBasicILP.Direct.Gentzen.html#1991" class="Bound"
+      >&#951;</a
+      ><a name="1992"
+      > </a
+      ><a name="1993" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1994"
+      >        </a
+      ><a name="2002" class="Symbol"
+      >=</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2005"
+      >
+  </a
+      ><a name="2008" href="OlderBasicILP.Direct.Gentzen.html#1926" class="Function"
+      >mono&#8866;&#8902;</a
+      ><a name="2014"
+      > </a
+      ><a name="2015" class="Symbol"
+      >{</a
+      ><a name="2016" href="OlderBasicILP.Direct.Gentzen.html#2016" class="Bound"
+      >&#926;</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2019"
+      > </a
+      ><a name="2020" href="OlderBasicILP.Direct.Gentzen.html#2020" class="Bound"
+      >A</a
+      ><a name="2021" class="Symbol"
+      >}</a
+      ><a name="2022"
+      > </a
+      ><a name="2023" href="OlderBasicILP.Direct.Gentzen.html#2023" class="Bound"
+      >&#951;</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" class="Symbol"
+      >(</a
+      ><a name="2026" href="OlderBasicILP.Direct.Gentzen.html#2026" class="Bound"
+      >ts</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2030"
+      > </a
+      ><a name="2031" href="OlderBasicILP.Direct.Gentzen.html#2031" class="Bound"
+      >t</a
+      ><a name="2032" class="Symbol"
+      >)</a
+      ><a name="2033"
+      > </a
+      ><a name="2034" class="Symbol"
+      >=</a
+      ><a name="2035"
+      > </a
+      ><a name="2036" href="OlderBasicILP.Direct.Gentzen.html#1926" class="Function"
+      >mono&#8866;&#8902;</a
+      ><a name="2042"
+      > </a
+      ><a name="2043" href="OlderBasicILP.Direct.Gentzen.html#2023" class="Bound"
+      >&#951;</a
+      ><a name="2044"
+      > </a
+      ><a name="2045" href="OlderBasicILP.Direct.Gentzen.html#2026" class="Bound"
+      >ts</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2049"
+      > </a
+      ><a name="2050" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="2055"
+      > </a
+      ><a name="2056" href="OlderBasicILP.Direct.Gentzen.html#2023" class="Bound"
+      >&#951;</a
+      ><a name="2057"
+      > </a
+      ><a name="2058" href="OlderBasicILP.Direct.Gentzen.html#2031" class="Bound"
+      >t</a
+      ><a name="2059"
+      >
+
+
+</a
+      ><a name="2062" class="Comment"
+      >-- Shorthand for variables.</a
+      ><a name="2089"
+      >
+
+</a
+      ><a name="2091" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" class="Symbol"
+      >:</a
+      ><a name="2095"
+      > </a
+      ><a name="2096" class="Symbol"
+      >&#8704;</a
+      ><a name="2097"
+      > </a
+      ><a name="2098" class="Symbol"
+      >{</a
+      ><a name="2099" href="OlderBasicILP.Direct.Gentzen.html#2099" class="Bound"
+      >A</a
+      ><a name="2100"
+      > </a
+      ><a name="2101" href="OlderBasicILP.Direct.Gentzen.html#2101" class="Bound"
+      >&#915;</a
+      ><a name="2102" class="Symbol"
+      >}</a
+      ><a name="2103"
+      > </a
+      ><a name="2104" class="Symbol"
+      >&#8594;</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" href="OlderBasicILP.Direct.Gentzen.html#2101" class="Bound"
+      >&#915;</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2109"
+      > </a
+      ><a name="2110" href="OlderBasicILP.Direct.Gentzen.html#2099" class="Bound"
+      >A</a
+      ><a name="2111"
+      > </a
+      ><a name="2112" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2113"
+      > </a
+      ><a name="2114" href="OlderBasicILP.Direct.Gentzen.html#2099" class="Bound"
+      >A</a
+      ><a name="2115"
+      >
+</a
+      ><a name="2116" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="2118"
+      > </a
+      ><a name="2119" class="Symbol"
+      >=</a
+      ><a name="2120"
+      > </a
+      ><a name="2121" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" href="Common.Context.html#1303" class="Function"
+      >i&#8320;</a
+      ><a name="2127"
+      >
+
+</a
+      ><a name="2129" href="OlderBasicILP.Direct.Gentzen.html#2129" class="Function"
+      >v&#8321;</a
+      ><a name="2131"
+      > </a
+      ><a name="2132" class="Symbol"
+      >:</a
+      ><a name="2133"
+      > </a
+      ><a name="2134" class="Symbol"
+      >&#8704;</a
+      ><a name="2135"
+      > </a
+      ><a name="2136" class="Symbol"
+      >{</a
+      ><a name="2137" href="OlderBasicILP.Direct.Gentzen.html#2137" class="Bound"
+      >A</a
+      ><a name="2138"
+      > </a
+      ><a name="2139" href="OlderBasicILP.Direct.Gentzen.html#2139" class="Bound"
+      >B</a
+      ><a name="2140"
+      > </a
+      ><a name="2141" href="OlderBasicILP.Direct.Gentzen.html#2141" class="Bound"
+      >&#915;</a
+      ><a name="2142" class="Symbol"
+      >}</a
+      ><a name="2143"
+      > </a
+      ><a name="2144" class="Symbol"
+      >&#8594;</a
+      ><a name="2145"
+      > </a
+      ><a name="2146" class="Symbol"
+      >(</a
+      ><a name="2147" href="OlderBasicILP.Direct.Gentzen.html#2141" class="Bound"
+      >&#915;</a
+      ><a name="2148"
+      > </a
+      ><a name="2149" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2150"
+      > </a
+      ><a name="2151" href="OlderBasicILP.Direct.Gentzen.html#2137" class="Bound"
+      >A</a
+      ><a name="2152" class="Symbol"
+      >)</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2155"
+      > </a
+      ><a name="2156" href="OlderBasicILP.Direct.Gentzen.html#2139" class="Bound"
+      >B</a
+      ><a name="2157"
+      > </a
+      ><a name="2158" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" href="OlderBasicILP.Direct.Gentzen.html#2137" class="Bound"
+      >A</a
+      ><a name="2161"
+      >
+</a
+      ><a name="2162" href="OlderBasicILP.Direct.Gentzen.html#2129" class="Function"
+      >v&#8321;</a
+      ><a name="2164"
+      > </a
+      ><a name="2165" class="Symbol"
+      >=</a
+      ><a name="2166"
+      > </a
+      ><a name="2167" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="2170"
+      > </a
+      ><a name="2171" href="Common.Context.html#1342" class="Function"
+      >i&#8321;</a
+      ><a name="2173"
+      >
+
+</a
+      ><a name="2175" href="OlderBasicILP.Direct.Gentzen.html#2175" class="Function"
+      >v&#8322;</a
+      ><a name="2177"
+      > </a
+      ><a name="2178" class="Symbol"
+      >:</a
+      ><a name="2179"
+      > </a
+      ><a name="2180" class="Symbol"
+      >&#8704;</a
+      ><a name="2181"
+      > </a
+      ><a name="2182" class="Symbol"
+      >{</a
+      ><a name="2183" href="OlderBasicILP.Direct.Gentzen.html#2183" class="Bound"
+      >A</a
+      ><a name="2184"
+      > </a
+      ><a name="2185" href="OlderBasicILP.Direct.Gentzen.html#2185" class="Bound"
+      >B</a
+      ><a name="2186"
+      > </a
+      ><a name="2187" href="OlderBasicILP.Direct.Gentzen.html#2187" class="Bound"
+      >C</a
+      ><a name="2188"
+      > </a
+      ><a name="2189" href="OlderBasicILP.Direct.Gentzen.html#2189" class="Bound"
+      >&#915;</a
+      ><a name="2190" class="Symbol"
+      >}</a
+      ><a name="2191"
+      > </a
+      ><a name="2192" class="Symbol"
+      >&#8594;</a
+      ><a name="2193"
+      > </a
+      ><a name="2194" class="Symbol"
+      >((</a
+      ><a name="2196" href="OlderBasicILP.Direct.Gentzen.html#2189" class="Bound"
+      >&#915;</a
+      ><a name="2197"
+      > </a
+      ><a name="2198" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2199"
+      > </a
+      ><a name="2200" href="OlderBasicILP.Direct.Gentzen.html#2183" class="Bound"
+      >A</a
+      ><a name="2201" class="Symbol"
+      >)</a
+      ><a name="2202"
+      > </a
+      ><a name="2203" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2204"
+      > </a
+      ><a name="2205" href="OlderBasicILP.Direct.Gentzen.html#2185" class="Bound"
+      >B</a
+      ><a name="2206" class="Symbol"
+      >)</a
+      ><a name="2207"
+      > </a
+      ><a name="2208" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2209"
+      > </a
+      ><a name="2210" href="OlderBasicILP.Direct.Gentzen.html#2187" class="Bound"
+      >C</a
+      ><a name="2211"
+      > </a
+      ><a name="2212" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2213"
+      > </a
+      ><a name="2214" href="OlderBasicILP.Direct.Gentzen.html#2183" class="Bound"
+      >A</a
+      ><a name="2215"
+      >
+</a
+      ><a name="2216" href="OlderBasicILP.Direct.Gentzen.html#2175" class="Function"
+      >v&#8322;</a
+      ><a name="2218"
+      > </a
+      ><a name="2219" class="Symbol"
+      >=</a
+      ><a name="2220"
+      > </a
+      ><a name="2221" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="2224"
+      > </a
+      ><a name="2225" href="Common.Context.html#1390" class="Function"
+      >i&#8322;</a
+      ><a name="2227"
+      >
+
+
+</a
+      ><a name="2230" class="Comment"
+      >-- Reflexivity.</a
+      ><a name="2245"
+      >
+
+</a
+      ><a name="2247" href="OlderBasicILP.Direct.Gentzen.html#2247" class="Function"
+      >refl&#8866;&#8902;</a
+      ><a name="2253"
+      > </a
+      ><a name="2254" class="Symbol"
+      >:</a
+      ><a name="2255"
+      > </a
+      ><a name="2256" class="Symbol"
+      >&#8704;</a
+      ><a name="2257"
+      > </a
+      ><a name="2258" class="Symbol"
+      >{</a
+      ><a name="2259" href="OlderBasicILP.Direct.Gentzen.html#2259" class="Bound"
+      >&#915;</a
+      ><a name="2260" class="Symbol"
+      >}</a
+      ><a name="2261"
+      > </a
+      ><a name="2262" class="Symbol"
+      >&#8594;</a
+      ><a name="2263"
+      > </a
+      ><a name="2264" href="OlderBasicILP.Direct.Gentzen.html#2259" class="Bound"
+      >&#915;</a
+      ><a name="2265"
+      > </a
+      ><a name="2266" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="2268"
+      > </a
+      ><a name="2269" href="OlderBasicILP.Direct.Gentzen.html#2259" class="Bound"
+      >&#915;</a
+      ><a name="2270"
+      >
+</a
+      ><a name="2271" href="OlderBasicILP.Direct.Gentzen.html#2247" class="Function"
+      >refl&#8866;&#8902;</a
+      ><a name="2277"
+      > </a
+      ><a name="2278" class="Symbol"
+      >{</a
+      ><a name="2279" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="2280" class="Symbol"
+      >}</a
+      ><a name="2281"
+      >     </a
+      ><a name="2286" class="Symbol"
+      >=</a
+      ><a name="2287"
+      > </a
+      ><a name="2288" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2289"
+      >
+</a
+      ><a name="2290" href="OlderBasicILP.Direct.Gentzen.html#2247" class="Function"
+      >refl&#8866;&#8902;</a
+      ><a name="2296"
+      > </a
+      ><a name="2297" class="Symbol"
+      >{</a
+      ><a name="2298" href="OlderBasicILP.Direct.Gentzen.html#2298" class="Bound"
+      >&#915;</a
+      ><a name="2299"
+      > </a
+      ><a name="2300" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2301"
+      > </a
+      ><a name="2302" href="OlderBasicILP.Direct.Gentzen.html#2302" class="Bound"
+      >A</a
+      ><a name="2303" class="Symbol"
+      >}</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" class="Symbol"
+      >=</a
+      ><a name="2306"
+      > </a
+      ><a name="2307" href="OlderBasicILP.Direct.Gentzen.html#1926" class="Function"
+      >mono&#8866;&#8902;</a
+      ><a name="2313"
+      > </a
+      ><a name="2314" href="Common.Context.html#2245" class="Function"
+      >weak&#8838;</a
+      ><a name="2319"
+      > </a
+      ><a name="2320" href="OlderBasicILP.Direct.Gentzen.html#2247" class="Function"
+      >refl&#8866;&#8902;</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2328"
+      > </a
+      ><a name="2329" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="2331"
+      >
+
+
+</a
+      ><a name="2334" class="Comment"
+      >-- Deduction theorem is built-in.</a
+      ><a name="2367"
+      >
+
+</a
+      ><a name="2369" class="Comment"
+      >-- Detachment theorem.</a
+      ><a name="2391"
+      >
+
+</a
+      ><a name="2393" href="OlderBasicILP.Direct.Gentzen.html#2393" class="Function"
+      >det</a
+      ><a name="2396"
+      > </a
+      ><a name="2397" class="Symbol"
+      >:</a
+      ><a name="2398"
+      > </a
+      ><a name="2399" class="Symbol"
+      >&#8704;</a
+      ><a name="2400"
+      > </a
+      ><a name="2401" class="Symbol"
+      >{</a
+      ><a name="2402" href="OlderBasicILP.Direct.Gentzen.html#2402" class="Bound"
+      >A</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="OlderBasicILP.Direct.Gentzen.html#2404" class="Bound"
+      >B</a
+      ><a name="2405"
+      > </a
+      ><a name="2406" href="OlderBasicILP.Direct.Gentzen.html#2406" class="Bound"
+      >&#915;</a
+      ><a name="2407" class="Symbol"
+      >}</a
+      ><a name="2408"
+      > </a
+      ><a name="2409" class="Symbol"
+      >&#8594;</a
+      ><a name="2410"
+      > </a
+      ><a name="2411" href="OlderBasicILP.Direct.Gentzen.html#2406" class="Bound"
+      >&#915;</a
+      ><a name="2412"
+      > </a
+      ><a name="2413" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2414"
+      > </a
+      ><a name="2415" href="OlderBasicILP.Direct.Gentzen.html#2402" class="Bound"
+      >A</a
+      ><a name="2416"
+      > </a
+      ><a name="2417" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2418"
+      > </a
+      ><a name="2419" href="OlderBasicILP.Direct.Gentzen.html#2404" class="Bound"
+      >B</a
+      ><a name="2420"
+      > </a
+      ><a name="2421" class="Symbol"
+      >&#8594;</a
+      ><a name="2422"
+      > </a
+      ><a name="2423" href="OlderBasicILP.Direct.Gentzen.html#2406" class="Bound"
+      >&#915;</a
+      ><a name="2424"
+      > </a
+      ><a name="2425" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2426"
+      > </a
+      ><a name="2427" href="OlderBasicILP.Direct.Gentzen.html#2402" class="Bound"
+      >A</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" href="OlderBasicILP.Direct.Gentzen.html#2404" class="Bound"
+      >B</a
+      ><a name="2432"
+      >
+</a
+      ><a name="2433" href="OlderBasicILP.Direct.Gentzen.html#2393" class="Function"
+      >det</a
+      ><a name="2436"
+      > </a
+      ><a name="2437" href="OlderBasicILP.Direct.Gentzen.html#2437" class="Bound"
+      >t</a
+      ><a name="2438"
+      > </a
+      ><a name="2439" class="Symbol"
+      >=</a
+      ><a name="2440"
+      > </a
+      ><a name="2441" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="2444"
+      > </a
+      ><a name="2445" class="Symbol"
+      >(</a
+      ><a name="2446" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" href="Common.Context.html#2245" class="Function"
+      >weak&#8838;</a
+      ><a name="2457"
+      > </a
+      ><a name="2458" href="OlderBasicILP.Direct.Gentzen.html#2437" class="Bound"
+      >t</a
+      ><a name="2459" class="Symbol"
+      >)</a
+      ><a name="2460"
+      > </a
+      ><a name="2461" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="2463"
+      >
+
+
+</a
+      ><a name="2466" class="Comment"
+      >-- Cut and multicut.</a
+      ><a name="2486"
+      >
+
+</a
+      ><a name="2488" href="OlderBasicILP.Direct.Gentzen.html#2488" class="Function"
+      >cut</a
+      ><a name="2491"
+      > </a
+      ><a name="2492" class="Symbol"
+      >:</a
+      ><a name="2493"
+      > </a
+      ><a name="2494" class="Symbol"
+      >&#8704;</a
+      ><a name="2495"
+      > </a
+      ><a name="2496" class="Symbol"
+      >{</a
+      ><a name="2497" href="OlderBasicILP.Direct.Gentzen.html#2497" class="Bound"
+      >A</a
+      ><a name="2498"
+      > </a
+      ><a name="2499" href="OlderBasicILP.Direct.Gentzen.html#2499" class="Bound"
+      >B</a
+      ><a name="2500"
+      > </a
+      ><a name="2501" href="OlderBasicILP.Direct.Gentzen.html#2501" class="Bound"
+      >&#915;</a
+      ><a name="2502" class="Symbol"
+      >}</a
+      ><a name="2503"
+      > </a
+      ><a name="2504" class="Symbol"
+      >&#8594;</a
+      ><a name="2505"
+      > </a
+      ><a name="2506" href="OlderBasicILP.Direct.Gentzen.html#2501" class="Bound"
+      >&#915;</a
+      ><a name="2507"
+      > </a
+      ><a name="2508" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2509"
+      > </a
+      ><a name="2510" href="OlderBasicILP.Direct.Gentzen.html#2497" class="Bound"
+      >A</a
+      ><a name="2511"
+      > </a
+      ><a name="2512" class="Symbol"
+      >&#8594;</a
+      ><a name="2513"
+      > </a
+      ><a name="2514" href="OlderBasicILP.Direct.Gentzen.html#2501" class="Bound"
+      >&#915;</a
+      ><a name="2515"
+      > </a
+      ><a name="2516" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="OlderBasicILP.Direct.Gentzen.html#2497" class="Bound"
+      >A</a
+      ><a name="2519"
+      > </a
+      ><a name="2520" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2521"
+      > </a
+      ><a name="2522" href="OlderBasicILP.Direct.Gentzen.html#2499" class="Bound"
+      >B</a
+      ><a name="2523"
+      > </a
+      ><a name="2524" class="Symbol"
+      >&#8594;</a
+      ><a name="2525"
+      > </a
+      ><a name="2526" href="OlderBasicILP.Direct.Gentzen.html#2501" class="Bound"
+      >&#915;</a
+      ><a name="2527"
+      > </a
+      ><a name="2528" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2529"
+      > </a
+      ><a name="2530" href="OlderBasicILP.Direct.Gentzen.html#2499" class="Bound"
+      >B</a
+      ><a name="2531"
+      >
+</a
+      ><a name="2532" href="OlderBasicILP.Direct.Gentzen.html#2488" class="Function"
+      >cut</a
+      ><a name="2535"
+      > </a
+      ><a name="2536" href="OlderBasicILP.Direct.Gentzen.html#2536" class="Bound"
+      >t</a
+      ><a name="2537"
+      > </a
+      ><a name="2538" href="OlderBasicILP.Direct.Gentzen.html#2538" class="Bound"
+      >u</a
+      ><a name="2539"
+      > </a
+      ><a name="2540" class="Symbol"
+      >=</a
+      ><a name="2541"
+      > </a
+      ><a name="2542" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="2545"
+      > </a
+      ><a name="2546" class="Symbol"
+      >(</a
+      ><a name="2547" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="2550"
+      > </a
+      ><a name="2551" href="OlderBasicILP.Direct.Gentzen.html#2538" class="Bound"
+      >u</a
+      ><a name="2552" class="Symbol"
+      >)</a
+      ><a name="2553"
+      > </a
+      ><a name="2554" href="OlderBasicILP.Direct.Gentzen.html#2536" class="Bound"
+      >t</a
+      ><a name="2555"
+      >
+
+</a
+      ><a name="2557" href="OlderBasicILP.Direct.Gentzen.html#2557" class="Function"
+      >multicut</a
+      ><a name="2565"
+      > </a
+      ><a name="2566" class="Symbol"
+      >:</a
+      ><a name="2567"
+      > </a
+      ><a name="2568" class="Symbol"
+      >&#8704;</a
+      ><a name="2569"
+      > </a
+      ><a name="2570" class="Symbol"
+      >{</a
+      ><a name="2571" href="OlderBasicILP.Direct.Gentzen.html#2571" class="Bound"
+      >&#926;</a
+      ><a name="2572"
+      > </a
+      ><a name="2573" href="OlderBasicILP.Direct.Gentzen.html#2573" class="Bound"
+      >A</a
+      ><a name="2574"
+      > </a
+      ><a name="2575" href="OlderBasicILP.Direct.Gentzen.html#2575" class="Bound"
+      >&#915;</a
+      ><a name="2576" class="Symbol"
+      >}</a
+      ><a name="2577"
+      > </a
+      ><a name="2578" class="Symbol"
+      >&#8594;</a
+      ><a name="2579"
+      > </a
+      ><a name="2580" href="OlderBasicILP.Direct.Gentzen.html#2575" class="Bound"
+      >&#915;</a
+      ><a name="2581"
+      > </a
+      ><a name="2582" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="2584"
+      > </a
+      ><a name="2585" href="OlderBasicILP.Direct.Gentzen.html#2571" class="Bound"
+      >&#926;</a
+      ><a name="2586"
+      > </a
+      ><a name="2587" class="Symbol"
+      >&#8594;</a
+      ><a name="2588"
+      > </a
+      ><a name="2589" href="OlderBasicILP.Direct.Gentzen.html#2571" class="Bound"
+      >&#926;</a
+      ><a name="2590"
+      > </a
+      ><a name="2591" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2592"
+      > </a
+      ><a name="2593" href="OlderBasicILP.Direct.Gentzen.html#2573" class="Bound"
+      >A</a
+      ><a name="2594"
+      > </a
+      ><a name="2595" class="Symbol"
+      >&#8594;</a
+      ><a name="2596"
+      > </a
+      ><a name="2597" href="OlderBasicILP.Direct.Gentzen.html#2575" class="Bound"
+      >&#915;</a
+      ><a name="2598"
+      > </a
+      ><a name="2599" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2600"
+      > </a
+      ><a name="2601" href="OlderBasicILP.Direct.Gentzen.html#2573" class="Bound"
+      >A</a
+      ><a name="2602"
+      >
+</a
+      ><a name="2603" href="OlderBasicILP.Direct.Gentzen.html#2557" class="Function"
+      >multicut</a
+      ><a name="2611"
+      > </a
+      ><a name="2612" class="Symbol"
+      >{</a
+      ><a name="2613" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="2614" class="Symbol"
+      >}</a
+      ><a name="2615"
+      >     </a
+      ><a name="2620" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2621"
+      >        </a
+      ><a name="2629" href="OlderBasicILP.Direct.Gentzen.html#2629" class="Bound"
+      >u</a
+      ><a name="2630"
+      > </a
+      ><a name="2631" class="Symbol"
+      >=</a
+      ><a name="2632"
+      > </a
+      ><a name="2633" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="2638"
+      > </a
+      ><a name="2639" href="Common.Context.html#2424" class="Function"
+      >bot&#8838;</a
+      ><a name="2643"
+      > </a
+      ><a name="2644" href="OlderBasicILP.Direct.Gentzen.html#2629" class="Bound"
+      >u</a
+      ><a name="2645"
+      >
+</a
+      ><a name="2646" href="OlderBasicILP.Direct.Gentzen.html#2557" class="Function"
+      >multicut</a
+      ><a name="2654"
+      > </a
+      ><a name="2655" class="Symbol"
+      >{</a
+      ><a name="2656" href="OlderBasicILP.Direct.Gentzen.html#2656" class="Bound"
+      >&#926;</a
+      ><a name="2657"
+      > </a
+      ><a name="2658" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2659"
+      > </a
+      ><a name="2660" href="OlderBasicILP.Direct.Gentzen.html#2660" class="Bound"
+      >B</a
+      ><a name="2661" class="Symbol"
+      >}</a
+      ><a name="2662"
+      > </a
+      ><a name="2663" class="Symbol"
+      >(</a
+      ><a name="2664" href="OlderBasicILP.Direct.Gentzen.html#2664" class="Bound"
+      >ts</a
+      ><a name="2666"
+      > </a
+      ><a name="2667" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2668"
+      > </a
+      ><a name="2669" href="OlderBasicILP.Direct.Gentzen.html#2669" class="Bound"
+      >t</a
+      ><a name="2670" class="Symbol"
+      >)</a
+      ><a name="2671"
+      > </a
+      ><a name="2672" href="OlderBasicILP.Direct.Gentzen.html#2672" class="Bound"
+      >u</a
+      ><a name="2673"
+      > </a
+      ><a name="2674" class="Symbol"
+      >=</a
+      ><a name="2675"
+      > </a
+      ><a name="2676" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="2679"
+      > </a
+      ><a name="2680" class="Symbol"
+      >(</a
+      ><a name="2681" href="OlderBasicILP.Direct.Gentzen.html#2557" class="Function"
+      >multicut</a
+      ><a name="2689"
+      > </a
+      ><a name="2690" href="OlderBasicILP.Direct.Gentzen.html#2664" class="Bound"
+      >ts</a
+      ><a name="2692"
+      > </a
+      ><a name="2693" class="Symbol"
+      >(</a
+      ><a name="2694" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="2697"
+      > </a
+      ><a name="2698" href="OlderBasicILP.Direct.Gentzen.html#2672" class="Bound"
+      >u</a
+      ><a name="2699" class="Symbol"
+      >))</a
+      ><a name="2701"
+      > </a
+      ><a name="2702" href="OlderBasicILP.Direct.Gentzen.html#2669" class="Bound"
+      >t</a
+      ><a name="2703"
+      >
+
+
+</a
+      ><a name="2706" class="Comment"
+      >-- Transitivity.</a
+      ><a name="2722"
+      >
+
+</a
+      ><a name="2724" href="OlderBasicILP.Direct.Gentzen.html#2724" class="Function"
+      >trans&#8866;&#8902;</a
+      ><a name="2731"
+      > </a
+      ><a name="2732" class="Symbol"
+      >:</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" class="Symbol"
+      >&#8704;</a
+      ><a name="2735"
+      > </a
+      ><a name="2736" class="Symbol"
+      >{</a
+      ><a name="2737" href="OlderBasicILP.Direct.Gentzen.html#2737" class="Bound"
+      >&#915;&#8243;</a
+      ><a name="2739"
+      > </a
+      ><a name="2740" href="OlderBasicILP.Direct.Gentzen.html#2740" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2742"
+      > </a
+      ><a name="2743" href="OlderBasicILP.Direct.Gentzen.html#2743" class="Bound"
+      >&#915;</a
+      ><a name="2744" class="Symbol"
+      >}</a
+      ><a name="2745"
+      > </a
+      ><a name="2746" class="Symbol"
+      >&#8594;</a
+      ><a name="2747"
+      > </a
+      ><a name="2748" href="OlderBasicILP.Direct.Gentzen.html#2743" class="Bound"
+      >&#915;</a
+      ><a name="2749"
+      > </a
+      ><a name="2750" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="2752"
+      > </a
+      ><a name="2753" href="OlderBasicILP.Direct.Gentzen.html#2740" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2755"
+      > </a
+      ><a name="2756" class="Symbol"
+      >&#8594;</a
+      ><a name="2757"
+      > </a
+      ><a name="2758" href="OlderBasicILP.Direct.Gentzen.html#2740" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2760"
+      > </a
+      ><a name="2761" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="2763"
+      > </a
+      ><a name="2764" href="OlderBasicILP.Direct.Gentzen.html#2737" class="Bound"
+      >&#915;&#8243;</a
+      ><a name="2766"
+      > </a
+      ><a name="2767" class="Symbol"
+      >&#8594;</a
+      ><a name="2768"
+      > </a
+      ><a name="2769" href="OlderBasicILP.Direct.Gentzen.html#2743" class="Bound"
+      >&#915;</a
+      ><a name="2770"
+      > </a
+      ><a name="2771" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="2773"
+      > </a
+      ><a name="2774" href="OlderBasicILP.Direct.Gentzen.html#2737" class="Bound"
+      >&#915;&#8243;</a
+      ><a name="2776"
+      >
+</a
+      ><a name="2777" href="OlderBasicILP.Direct.Gentzen.html#2724" class="Function"
+      >trans&#8866;&#8902;</a
+      ><a name="2784"
+      > </a
+      ><a name="2785" class="Symbol"
+      >{</a
+      ><a name="2786" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="2787" class="Symbol"
+      >}</a
+      ><a name="2788"
+      >      </a
+      ><a name="2794" href="OlderBasicILP.Direct.Gentzen.html#2794" class="Bound"
+      >ts</a
+      ><a name="2796"
+      > </a
+      ><a name="2797" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2798"
+      >        </a
+      ><a name="2806" class="Symbol"
+      >=</a
+      ><a name="2807"
+      > </a
+      ><a name="2808" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2809"
+      >
+</a
+      ><a name="2810" href="OlderBasicILP.Direct.Gentzen.html#2724" class="Function"
+      >trans&#8866;&#8902;</a
+      ><a name="2817"
+      > </a
+      ><a name="2818" class="Symbol"
+      >{</a
+      ><a name="2819" href="OlderBasicILP.Direct.Gentzen.html#2819" class="Bound"
+      >&#915;&#8243;</a
+      ><a name="2821"
+      > </a
+      ><a name="2822" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2823"
+      > </a
+      ><a name="2824" href="OlderBasicILP.Direct.Gentzen.html#2824" class="Bound"
+      >A</a
+      ><a name="2825" class="Symbol"
+      >}</a
+      ><a name="2826"
+      > </a
+      ><a name="2827" href="OlderBasicILP.Direct.Gentzen.html#2827" class="Bound"
+      >ts</a
+      ><a name="2829"
+      > </a
+      ><a name="2830" class="Symbol"
+      >(</a
+      ><a name="2831" href="OlderBasicILP.Direct.Gentzen.html#2831" class="Bound"
+      >us</a
+      ><a name="2833"
+      > </a
+      ><a name="2834" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2835"
+      > </a
+      ><a name="2836" href="OlderBasicILP.Direct.Gentzen.html#2836" class="Bound"
+      >u</a
+      ><a name="2837" class="Symbol"
+      >)</a
+      ><a name="2838"
+      > </a
+      ><a name="2839" class="Symbol"
+      >=</a
+      ><a name="2840"
+      > </a
+      ><a name="2841" href="OlderBasicILP.Direct.Gentzen.html#2724" class="Function"
+      >trans&#8866;&#8902;</a
+      ><a name="2848"
+      > </a
+      ><a name="2849" href="OlderBasicILP.Direct.Gentzen.html#2827" class="Bound"
+      >ts</a
+      ><a name="2851"
+      > </a
+      ><a name="2852" href="OlderBasicILP.Direct.Gentzen.html#2831" class="Bound"
+      >us</a
+      ><a name="2854"
+      > </a
+      ><a name="2855" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2856"
+      > </a
+      ><a name="2857" href="OlderBasicILP.Direct.Gentzen.html#2557" class="Function"
+      >multicut</a
+      ><a name="2865"
+      > </a
+      ><a name="2866" href="OlderBasicILP.Direct.Gentzen.html#2827" class="Bound"
+      >ts</a
+      ><a name="2868"
+      > </a
+      ><a name="2869" href="OlderBasicILP.Direct.Gentzen.html#2836" class="Bound"
+      >u</a
+      ><a name="2870"
+      >
+
+
+</a
+      ><a name="2873" class="Comment"
+      >-- Contraction.</a
+      ><a name="2888"
+      >
+
+</a
+      ><a name="2890" href="OlderBasicILP.Direct.Gentzen.html#2890" class="Function"
+      >ccont</a
+      ><a name="2895"
+      > </a
+      ><a name="2896" class="Symbol"
+      >:</a
+      ><a name="2897"
+      > </a
+      ><a name="2898" class="Symbol"
+      >&#8704;</a
+      ><a name="2899"
+      > </a
+      ><a name="2900" class="Symbol"
+      >{</a
+      ><a name="2901" href="OlderBasicILP.Direct.Gentzen.html#2901" class="Bound"
+      >A</a
+      ><a name="2902"
+      > </a
+      ><a name="2903" href="OlderBasicILP.Direct.Gentzen.html#2903" class="Bound"
+      >B</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" href="OlderBasicILP.Direct.Gentzen.html#2905" class="Bound"
+      >&#915;</a
+      ><a name="2906" class="Symbol"
+      >}</a
+      ><a name="2907"
+      > </a
+      ><a name="2908" class="Symbol"
+      >&#8594;</a
+      ><a name="2909"
+      > </a
+      ><a name="2910" href="OlderBasicILP.Direct.Gentzen.html#2905" class="Bound"
+      >&#915;</a
+      ><a name="2911"
+      > </a
+      ><a name="2912" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2913"
+      > </a
+      ><a name="2914" class="Symbol"
+      >(</a
+      ><a name="2915" href="OlderBasicILP.Direct.Gentzen.html#2901" class="Bound"
+      >A</a
+      ><a name="2916"
+      > </a
+      ><a name="2917" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2918"
+      > </a
+      ><a name="2919" href="OlderBasicILP.Direct.Gentzen.html#2901" class="Bound"
+      >A</a
+      ><a name="2920"
+      > </a
+      ><a name="2921" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2922"
+      > </a
+      ><a name="2923" href="OlderBasicILP.Direct.Gentzen.html#2903" class="Bound"
+      >B</a
+      ><a name="2924" class="Symbol"
+      >)</a
+      ><a name="2925"
+      > </a
+      ><a name="2926" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2927"
+      > </a
+      ><a name="2928" href="OlderBasicILP.Direct.Gentzen.html#2901" class="Bound"
+      >A</a
+      ><a name="2929"
+      > </a
+      ><a name="2930" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2931"
+      > </a
+      ><a name="2932" href="OlderBasicILP.Direct.Gentzen.html#2903" class="Bound"
+      >B</a
+      ><a name="2933"
+      >
+</a
+      ><a name="2934" href="OlderBasicILP.Direct.Gentzen.html#2890" class="Function"
+      >ccont</a
+      ><a name="2939"
+      > </a
+      ><a name="2940" class="Symbol"
+      >=</a
+      ><a name="2941"
+      > </a
+      ><a name="2942" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="2945"
+      > </a
+      ><a name="2946" class="Symbol"
+      >(</a
+      ><a name="2947" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="2950"
+      > </a
+      ><a name="2951" class="Symbol"
+      >(</a
+      ><a name="2952" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="2955"
+      > </a
+      ><a name="2956" class="Symbol"
+      >(</a
+      ><a name="2957" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="2960"
+      > </a
+      ><a name="2961" href="OlderBasicILP.Direct.Gentzen.html#2129" class="Function"
+      >v&#8321;</a
+      ><a name="2963"
+      > </a
+      ><a name="2964" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="2966" class="Symbol"
+      >)</a
+      ><a name="2967"
+      > </a
+      ><a name="2968" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="2970" class="Symbol"
+      >))</a
+      ><a name="2972"
+      >
+
+</a
+      ><a name="2974" href="OlderBasicILP.Direct.Gentzen.html#2974" class="Function"
+      >cont</a
+      ><a name="2978"
+      > </a
+      ><a name="2979" class="Symbol"
+      >:</a
+      ><a name="2980"
+      > </a
+      ><a name="2981" class="Symbol"
+      >&#8704;</a
+      ><a name="2982"
+      > </a
+      ><a name="2983" class="Symbol"
+      >{</a
+      ><a name="2984" href="OlderBasicILP.Direct.Gentzen.html#2984" class="Bound"
+      >A</a
+      ><a name="2985"
+      > </a
+      ><a name="2986" href="OlderBasicILP.Direct.Gentzen.html#2986" class="Bound"
+      >B</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" href="OlderBasicILP.Direct.Gentzen.html#2988" class="Bound"
+      >&#915;</a
+      ><a name="2989" class="Symbol"
+      >}</a
+      ><a name="2990"
+      > </a
+      ><a name="2991" class="Symbol"
+      >&#8594;</a
+      ><a name="2992"
+      > </a
+      ><a name="2993" href="OlderBasicILP.Direct.Gentzen.html#2988" class="Bound"
+      >&#915;</a
+      ><a name="2994"
+      > </a
+      ><a name="2995" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2996"
+      > </a
+      ><a name="2997" href="OlderBasicILP.Direct.Gentzen.html#2984" class="Bound"
+      >A</a
+      ><a name="2998"
+      > </a
+      ><a name="2999" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3000"
+      > </a
+      ><a name="3001" href="OlderBasicILP.Direct.Gentzen.html#2984" class="Bound"
+      >A</a
+      ><a name="3002"
+      > </a
+      ><a name="3003" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" href="OlderBasicILP.Direct.Gentzen.html#2986" class="Bound"
+      >B</a
+      ><a name="3006"
+      > </a
+      ><a name="3007" class="Symbol"
+      >&#8594;</a
+      ><a name="3008"
+      > </a
+      ><a name="3009" href="OlderBasicILP.Direct.Gentzen.html#2988" class="Bound"
+      >&#915;</a
+      ><a name="3010"
+      > </a
+      ><a name="3011" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3012"
+      > </a
+      ><a name="3013" href="OlderBasicILP.Direct.Gentzen.html#2984" class="Bound"
+      >A</a
+      ><a name="3014"
+      > </a
+      ><a name="3015" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3016"
+      > </a
+      ><a name="3017" href="OlderBasicILP.Direct.Gentzen.html#2986" class="Bound"
+      >B</a
+      ><a name="3018"
+      >
+</a
+      ><a name="3019" href="OlderBasicILP.Direct.Gentzen.html#2974" class="Function"
+      >cont</a
+      ><a name="3023"
+      > </a
+      ><a name="3024" href="OlderBasicILP.Direct.Gentzen.html#3024" class="Bound"
+      >t</a
+      ><a name="3025"
+      > </a
+      ><a name="3026" class="Symbol"
+      >=</a
+      ><a name="3027"
+      > </a
+      ><a name="3028" href="OlderBasicILP.Direct.Gentzen.html#2393" class="Function"
+      >det</a
+      ><a name="3031"
+      > </a
+      ><a name="3032" class="Symbol"
+      >(</a
+      ><a name="3033" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="3036"
+      > </a
+      ><a name="3037" href="OlderBasicILP.Direct.Gentzen.html#2890" class="Function"
+      >ccont</a
+      ><a name="3042"
+      > </a
+      ><a name="3043" class="Symbol"
+      >(</a
+      ><a name="3044" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3047"
+      > </a
+      ><a name="3048" class="Symbol"
+      >(</a
+      ><a name="3049" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3052"
+      > </a
+      ><a name="3053" href="OlderBasicILP.Direct.Gentzen.html#3024" class="Bound"
+      >t</a
+      ><a name="3054" class="Symbol"
+      >)))</a
+      ><a name="3057"
+      >
+
+
+</a
+      ><a name="3060" class="Comment"
+      >-- Exchange, or Sch&#246;nfinkel&#8217;s C combinator.</a
+      ><a name="3103"
+      >
+
+</a
+      ><a name="3105" href="OlderBasicILP.Direct.Gentzen.html#3105" class="Function"
+      >cexch</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" class="Symbol"
+      >:</a
+      ><a name="3112"
+      > </a
+      ><a name="3113" class="Symbol"
+      >&#8704;</a
+      ><a name="3114"
+      > </a
+      ><a name="3115" class="Symbol"
+      >{</a
+      ><a name="3116" href="OlderBasicILP.Direct.Gentzen.html#3116" class="Bound"
+      >A</a
+      ><a name="3117"
+      > </a
+      ><a name="3118" href="OlderBasicILP.Direct.Gentzen.html#3118" class="Bound"
+      >B</a
+      ><a name="3119"
+      > </a
+      ><a name="3120" href="OlderBasicILP.Direct.Gentzen.html#3120" class="Bound"
+      >C</a
+      ><a name="3121"
+      > </a
+      ><a name="3122" href="OlderBasicILP.Direct.Gentzen.html#3122" class="Bound"
+      >&#915;</a
+      ><a name="3123" class="Symbol"
+      >}</a
+      ><a name="3124"
+      > </a
+      ><a name="3125" class="Symbol"
+      >&#8594;</a
+      ><a name="3126"
+      > </a
+      ><a name="3127" href="OlderBasicILP.Direct.Gentzen.html#3122" class="Bound"
+      >&#915;</a
+      ><a name="3128"
+      > </a
+      ><a name="3129" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3130"
+      > </a
+      ><a name="3131" class="Symbol"
+      >(</a
+      ><a name="3132" href="OlderBasicILP.Direct.Gentzen.html#3116" class="Bound"
+      >A</a
+      ><a name="3133"
+      > </a
+      ><a name="3134" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3135"
+      > </a
+      ><a name="3136" href="OlderBasicILP.Direct.Gentzen.html#3118" class="Bound"
+      >B</a
+      ><a name="3137"
+      > </a
+      ><a name="3138" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3139"
+      > </a
+      ><a name="3140" href="OlderBasicILP.Direct.Gentzen.html#3120" class="Bound"
+      >C</a
+      ><a name="3141" class="Symbol"
+      >)</a
+      ><a name="3142"
+      > </a
+      ><a name="3143" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3144"
+      > </a
+      ><a name="3145" href="OlderBasicILP.Direct.Gentzen.html#3118" class="Bound"
+      >B</a
+      ><a name="3146"
+      > </a
+      ><a name="3147" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3148"
+      > </a
+      ><a name="3149" href="OlderBasicILP.Direct.Gentzen.html#3116" class="Bound"
+      >A</a
+      ><a name="3150"
+      > </a
+      ><a name="3151" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3152"
+      > </a
+      ><a name="3153" href="OlderBasicILP.Direct.Gentzen.html#3120" class="Bound"
+      >C</a
+      ><a name="3154"
+      >
+</a
+      ><a name="3155" href="OlderBasicILP.Direct.Gentzen.html#3105" class="Function"
+      >cexch</a
+      ><a name="3160"
+      > </a
+      ><a name="3161" class="Symbol"
+      >=</a
+      ><a name="3162"
+      > </a
+      ><a name="3163" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3166"
+      > </a
+      ><a name="3167" class="Symbol"
+      >(</a
+      ><a name="3168" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3171"
+      > </a
+      ><a name="3172" class="Symbol"
+      >(</a
+      ><a name="3173" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3176"
+      > </a
+      ><a name="3177" class="Symbol"
+      >(</a
+      ><a name="3178" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="3181"
+      > </a
+      ><a name="3182" class="Symbol"
+      >(</a
+      ><a name="3183" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="3186"
+      > </a
+      ><a name="3187" href="OlderBasicILP.Direct.Gentzen.html#2175" class="Function"
+      >v&#8322;</a
+      ><a name="3189"
+      > </a
+      ><a name="3190" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="3192" class="Symbol"
+      >)</a
+      ><a name="3193"
+      > </a
+      ><a name="3194" href="OlderBasicILP.Direct.Gentzen.html#2129" class="Function"
+      >v&#8321;</a
+      ><a name="3196" class="Symbol"
+      >)))</a
+      ><a name="3199"
+      >
+
+</a
+      ><a name="3201" href="OlderBasicILP.Direct.Gentzen.html#3201" class="Function"
+      >exch</a
+      ><a name="3205"
+      > </a
+      ><a name="3206" class="Symbol"
+      >:</a
+      ><a name="3207"
+      > </a
+      ><a name="3208" class="Symbol"
+      >&#8704;</a
+      ><a name="3209"
+      > </a
+      ><a name="3210" class="Symbol"
+      >{</a
+      ><a name="3211" href="OlderBasicILP.Direct.Gentzen.html#3211" class="Bound"
+      >A</a
+      ><a name="3212"
+      > </a
+      ><a name="3213" href="OlderBasicILP.Direct.Gentzen.html#3213" class="Bound"
+      >B</a
+      ><a name="3214"
+      > </a
+      ><a name="3215" href="OlderBasicILP.Direct.Gentzen.html#3215" class="Bound"
+      >C</a
+      ><a name="3216"
+      > </a
+      ><a name="3217" href="OlderBasicILP.Direct.Gentzen.html#3217" class="Bound"
+      >&#915;</a
+      ><a name="3218" class="Symbol"
+      >}</a
+      ><a name="3219"
+      > </a
+      ><a name="3220" class="Symbol"
+      >&#8594;</a
+      ><a name="3221"
+      > </a
+      ><a name="3222" href="OlderBasicILP.Direct.Gentzen.html#3217" class="Bound"
+      >&#915;</a
+      ><a name="3223"
+      > </a
+      ><a name="3224" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3225"
+      > </a
+      ><a name="3226" href="OlderBasicILP.Direct.Gentzen.html#3211" class="Bound"
+      >A</a
+      ><a name="3227"
+      > </a
+      ><a name="3228" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3229"
+      > </a
+      ><a name="3230" href="OlderBasicILP.Direct.Gentzen.html#3213" class="Bound"
+      >B</a
+      ><a name="3231"
+      > </a
+      ><a name="3232" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3233"
+      > </a
+      ><a name="3234" href="OlderBasicILP.Direct.Gentzen.html#3215" class="Bound"
+      >C</a
+      ><a name="3235"
+      > </a
+      ><a name="3236" class="Symbol"
+      >&#8594;</a
+      ><a name="3237"
+      > </a
+      ><a name="3238" href="OlderBasicILP.Direct.Gentzen.html#3217" class="Bound"
+      >&#915;</a
+      ><a name="3239"
+      > </a
+      ><a name="3240" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3241"
+      > </a
+      ><a name="3242" href="OlderBasicILP.Direct.Gentzen.html#3213" class="Bound"
+      >B</a
+      ><a name="3243"
+      > </a
+      ><a name="3244" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3245"
+      > </a
+      ><a name="3246" href="OlderBasicILP.Direct.Gentzen.html#3211" class="Bound"
+      >A</a
+      ><a name="3247"
+      > </a
+      ><a name="3248" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3249"
+      > </a
+      ><a name="3250" href="OlderBasicILP.Direct.Gentzen.html#3215" class="Bound"
+      >C</a
+      ><a name="3251"
+      >
+</a
+      ><a name="3252" href="OlderBasicILP.Direct.Gentzen.html#3201" class="Function"
+      >exch</a
+      ><a name="3256"
+      > </a
+      ><a name="3257" href="OlderBasicILP.Direct.Gentzen.html#3257" class="Bound"
+      >t</a
+      ><a name="3258"
+      > </a
+      ><a name="3259" class="Symbol"
+      >=</a
+      ><a name="3260"
+      > </a
+      ><a name="3261" href="OlderBasicILP.Direct.Gentzen.html#2393" class="Function"
+      >det</a
+      ><a name="3264"
+      > </a
+      ><a name="3265" class="Symbol"
+      >(</a
+      ><a name="3266" href="OlderBasicILP.Direct.Gentzen.html#2393" class="Function"
+      >det</a
+      ><a name="3269"
+      > </a
+      ><a name="3270" class="Symbol"
+      >(</a
+      ><a name="3271" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="3274"
+      > </a
+      ><a name="3275" href="OlderBasicILP.Direct.Gentzen.html#3105" class="Function"
+      >cexch</a
+      ><a name="3280"
+      > </a
+      ><a name="3281" class="Symbol"
+      >(</a
+      ><a name="3282" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3285"
+      > </a
+      ><a name="3286" class="Symbol"
+      >(</a
+      ><a name="3287" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3290"
+      > </a
+      ><a name="3291" href="OlderBasicILP.Direct.Gentzen.html#3257" class="Bound"
+      >t</a
+      ><a name="3292" class="Symbol"
+      >))))</a
+      ><a name="3296"
+      >
+
+
+</a
+      ><a name="3299" class="Comment"
+      >-- Composition, or Sch&#246;nfinkel&#8217;s B combinator.</a
+      ><a name="3345"
+      >
+
+</a
+      ><a name="3347" href="OlderBasicILP.Direct.Gentzen.html#3347" class="Function"
+      >ccomp</a
+      ><a name="3352"
+      > </a
+      ><a name="3353" class="Symbol"
+      >:</a
+      ><a name="3354"
+      > </a
+      ><a name="3355" class="Symbol"
+      >&#8704;</a
+      ><a name="3356"
+      > </a
+      ><a name="3357" class="Symbol"
+      >{</a
+      ><a name="3358" href="OlderBasicILP.Direct.Gentzen.html#3358" class="Bound"
+      >A</a
+      ><a name="3359"
+      > </a
+      ><a name="3360" href="OlderBasicILP.Direct.Gentzen.html#3360" class="Bound"
+      >B</a
+      ><a name="3361"
+      > </a
+      ><a name="3362" href="OlderBasicILP.Direct.Gentzen.html#3362" class="Bound"
+      >C</a
+      ><a name="3363"
+      > </a
+      ><a name="3364" href="OlderBasicILP.Direct.Gentzen.html#3364" class="Bound"
+      >&#915;</a
+      ><a name="3365" class="Symbol"
+      >}</a
+      ><a name="3366"
+      > </a
+      ><a name="3367" class="Symbol"
+      >&#8594;</a
+      ><a name="3368"
+      > </a
+      ><a name="3369" href="OlderBasicILP.Direct.Gentzen.html#3364" class="Bound"
+      >&#915;</a
+      ><a name="3370"
+      > </a
+      ><a name="3371" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3372"
+      > </a
+      ><a name="3373" class="Symbol"
+      >(</a
+      ><a name="3374" href="OlderBasicILP.Direct.Gentzen.html#3360" class="Bound"
+      >B</a
+      ><a name="3375"
+      > </a
+      ><a name="3376" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3377"
+      > </a
+      ><a name="3378" href="OlderBasicILP.Direct.Gentzen.html#3362" class="Bound"
+      >C</a
+      ><a name="3379" class="Symbol"
+      >)</a
+      ><a name="3380"
+      > </a
+      ><a name="3381" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3382"
+      > </a
+      ><a name="3383" class="Symbol"
+      >(</a
+      ><a name="3384" href="OlderBasicILP.Direct.Gentzen.html#3358" class="Bound"
+      >A</a
+      ><a name="3385"
+      > </a
+      ><a name="3386" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3387"
+      > </a
+      ><a name="3388" href="OlderBasicILP.Direct.Gentzen.html#3360" class="Bound"
+      >B</a
+      ><a name="3389" class="Symbol"
+      >)</a
+      ><a name="3390"
+      > </a
+      ><a name="3391" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3392"
+      > </a
+      ><a name="3393" href="OlderBasicILP.Direct.Gentzen.html#3358" class="Bound"
+      >A</a
+      ><a name="3394"
+      > </a
+      ><a name="3395" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3396"
+      > </a
+      ><a name="3397" href="OlderBasicILP.Direct.Gentzen.html#3362" class="Bound"
+      >C</a
+      ><a name="3398"
+      >
+</a
+      ><a name="3399" href="OlderBasicILP.Direct.Gentzen.html#3347" class="Function"
+      >ccomp</a
+      ><a name="3404"
+      > </a
+      ><a name="3405" class="Symbol"
+      >=</a
+      ><a name="3406"
+      > </a
+      ><a name="3407" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3410"
+      > </a
+      ><a name="3411" class="Symbol"
+      >(</a
+      ><a name="3412" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3415"
+      > </a
+      ><a name="3416" class="Symbol"
+      >(</a
+      ><a name="3417" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3420"
+      > </a
+      ><a name="3421" class="Symbol"
+      >(</a
+      ><a name="3422" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="3425"
+      > </a
+      ><a name="3426" href="OlderBasicILP.Direct.Gentzen.html#2175" class="Function"
+      >v&#8322;</a
+      ><a name="3428"
+      > </a
+      ><a name="3429" class="Symbol"
+      >(</a
+      ><a name="3430" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="3433"
+      > </a
+      ><a name="3434" href="OlderBasicILP.Direct.Gentzen.html#2129" class="Function"
+      >v&#8321;</a
+      ><a name="3436"
+      > </a
+      ><a name="3437" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="3439" class="Symbol"
+      >))))</a
+      ><a name="3443"
+      >
+
+</a
+      ><a name="3445" href="OlderBasicILP.Direct.Gentzen.html#3445" class="Function"
+      >comp</a
+      ><a name="3449"
+      > </a
+      ><a name="3450" class="Symbol"
+      >:</a
+      ><a name="3451"
+      > </a
+      ><a name="3452" class="Symbol"
+      >&#8704;</a
+      ><a name="3453"
+      > </a
+      ><a name="3454" class="Symbol"
+      >{</a
+      ><a name="3455" href="OlderBasicILP.Direct.Gentzen.html#3455" class="Bound"
+      >A</a
+      ><a name="3456"
+      > </a
+      ><a name="3457" href="OlderBasicILP.Direct.Gentzen.html#3457" class="Bound"
+      >B</a
+      ><a name="3458"
+      > </a
+      ><a name="3459" href="OlderBasicILP.Direct.Gentzen.html#3459" class="Bound"
+      >C</a
+      ><a name="3460"
+      > </a
+      ><a name="3461" href="OlderBasicILP.Direct.Gentzen.html#3461" class="Bound"
+      >&#915;</a
+      ><a name="3462" class="Symbol"
+      >}</a
+      ><a name="3463"
+      > </a
+      ><a name="3464" class="Symbol"
+      >&#8594;</a
+      ><a name="3465"
+      > </a
+      ><a name="3466" href="OlderBasicILP.Direct.Gentzen.html#3461" class="Bound"
+      >&#915;</a
+      ><a name="3467"
+      > </a
+      ><a name="3468" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3469"
+      > </a
+      ><a name="3470" href="OlderBasicILP.Direct.Gentzen.html#3457" class="Bound"
+      >B</a
+      ><a name="3471"
+      > </a
+      ><a name="3472" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3473"
+      > </a
+      ><a name="3474" href="OlderBasicILP.Direct.Gentzen.html#3459" class="Bound"
+      >C</a
+      ><a name="3475"
+      > </a
+      ><a name="3476" class="Symbol"
+      >&#8594;</a
+      ><a name="3477"
+      > </a
+      ><a name="3478" href="OlderBasicILP.Direct.Gentzen.html#3461" class="Bound"
+      >&#915;</a
+      ><a name="3479"
+      > </a
+      ><a name="3480" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3481"
+      > </a
+      ><a name="3482" href="OlderBasicILP.Direct.Gentzen.html#3455" class="Bound"
+      >A</a
+      ><a name="3483"
+      > </a
+      ><a name="3484" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3485"
+      > </a
+      ><a name="3486" href="OlderBasicILP.Direct.Gentzen.html#3457" class="Bound"
+      >B</a
+      ><a name="3487"
+      > </a
+      ><a name="3488" class="Symbol"
+      >&#8594;</a
+      ><a name="3489"
+      > </a
+      ><a name="3490" href="OlderBasicILP.Direct.Gentzen.html#3461" class="Bound"
+      >&#915;</a
+      ><a name="3491"
+      > </a
+      ><a name="3492" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3493"
+      > </a
+      ><a name="3494" href="OlderBasicILP.Direct.Gentzen.html#3455" class="Bound"
+      >A</a
+      ><a name="3495"
+      > </a
+      ><a name="3496" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="3497"
+      > </a
+      ><a name="3498" href="OlderBasicILP.Direct.Gentzen.html#3459" class="Bound"
+      >C</a
+      ><a name="3499"
+      >
+</a
+      ><a name="3500" href="OlderBasicILP.Direct.Gentzen.html#3445" class="Function"
+      >comp</a
+      ><a name="3504"
+      > </a
+      ><a name="3505" href="OlderBasicILP.Direct.Gentzen.html#3505" class="Bound"
+      >t</a
+      ><a name="3506"
+      > </a
+      ><a name="3507" href="OlderBasicILP.Direct.Gentzen.html#3507" class="Bound"
+      >u</a
+      ><a name="3508"
+      > </a
+      ><a name="3509" class="Symbol"
+      >=</a
+      ><a name="3510"
+      > </a
+      ><a name="3511" href="OlderBasicILP.Direct.Gentzen.html#2393" class="Function"
+      >det</a
+      ><a name="3514"
+      > </a
+      ><a name="3515" class="Symbol"
+      >(</a
+      ><a name="3516" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="3519"
+      > </a
+      ><a name="3520" class="Symbol"
+      >(</a
+      ><a name="3521" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="3524"
+      > </a
+      ><a name="3525" href="OlderBasicILP.Direct.Gentzen.html#3347" class="Function"
+      >ccomp</a
+      ><a name="3530"
+      > </a
+      ><a name="3531" class="Symbol"
+      >(</a
+      ><a name="3532" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3535"
+      > </a
+      ><a name="3536" href="OlderBasicILP.Direct.Gentzen.html#3505" class="Bound"
+      >t</a
+      ><a name="3537" class="Symbol"
+      >))</a
+      ><a name="3539"
+      > </a
+      ><a name="3540" class="Symbol"
+      >(</a
+      ><a name="3541" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="3544"
+      > </a
+      ><a name="3545" href="OlderBasicILP.Direct.Gentzen.html#3507" class="Bound"
+      >u</a
+      ><a name="3546" class="Symbol"
+      >))</a
+      ><a name="3548"
+      >
+
+
+</a
+      ><a name="3551" class="Comment"
+      >-- Useful theorems in functional form.</a
+      ><a name="3589"
+      >
+
+</a
+      ><a name="3591" class="Comment"
+      >-- dist : &#8704; {A B &#936; &#915;} {t : &#936; &#8866; A &#9659; B} {u : &#936; &#8866; A}</a
+      ><a name="3640"
+      >
+</a
+      ><a name="3641" class="Comment"
+      >--        &#8594; &#915; &#8866; [ t ] &#10626; (A &#9659; B) &#8594; &#915; &#8866; [ u ] &#10626; A</a
+      ><a name="3688"
+      >
+</a
+      ><a name="3689" class="Comment"
+      >--        &#8594; &#915; &#8866; [ app (down v&#8321;) (down v&#8320;) ] &#10626; B</a
+      ><a name="3736"
+      >
+</a
+      ><a name="3737" class="Comment"
+      >-- dist t u = multibox ((&#8729; , t) , u) (app (down v&#8321;) (down v&#8320;))</a
+      ><a name="3799"
+      >
+</a
+      ><a name="3800" class="Comment"
+      >--</a
+      ><a name="3802"
+      >
+</a
+      ><a name="3803" class="Comment"
+      >-- up : &#8704; {A &#936; &#915;} {t : &#936; &#8866; A}</a
+      ><a name="3832"
+      >
+</a
+      ><a name="3833" class="Comment"
+      >--      &#8594; &#915; &#8866; [ t ] &#10626; A</a
+      ><a name="3856"
+      >
+</a
+      ><a name="3857" class="Comment"
+      >--      &#8594; &#915; &#8866; [ v&#8320; ] &#10626; [ t ] &#10626; A</a
+      ><a name="3889"
+      >
+</a
+      ><a name="3890" class="Comment"
+      >-- up t = multibox (&#8729; , t) v&#8320;</a
+      ><a name="3919"
+      >
+</a
+      ><a name="3920" class="Comment"
+      >--</a
+      ><a name="3922"
+      >
+</a
+      ><a name="3923" class="Comment"
+      >-- distup : &#8704; {A B &#936; &#915;} {u : &#936; &#8866; A} {t : &#8709; , [ u ] &#10626; A &#8866; [ u ] &#10626; A &#9659; B}</a
+      ><a name="3994"
+      >
+</a
+      ><a name="3995" class="Comment"
+      >--          &#8594; &#915; &#8866; [ t ] &#10626; ([ u ] &#10626; A &#9659; B) &#8594; &#915; &#8866; [ u ] &#10626; A</a
+      ><a name="4052"
+      >
+</a
+      ><a name="4053" class="Comment"
+      >--          &#8594; &#915; &#8866; [ app (down v&#8321;) (down v&#8320;) ] &#10626; B</a
+      ><a name="4102"
+      >
+</a
+      ><a name="4103" class="Comment"
+      >-- distup t u = dist t (up u)</a
+      ><a name="4132"
+      >
+</a
+      ><a name="4133" class="Comment"
+      >--</a
+      ><a name="4135"
+      >
+</a
+      ><a name="4136" class="Comment"
+      >-- box : &#8704; {A &#915;}</a
+      ><a name="4152"
+      >
+</a
+      ><a name="4153" class="Comment"
+      >--       &#8594; (t : &#8709; &#8866; A)</a
+      ><a name="4175"
+      >
+</a
+      ><a name="4176" class="Comment"
+      >--       &#8594; &#915; &#8866; [ t ] &#10626; A</a
+      ><a name="4200"
+      >
+</a
+      ><a name="4201" class="Comment"
+      >-- box t = multibox &#8729; t</a
+      ><a name="4224"
+      >
+
+</a
+      ><a name="4226" href="OlderBasicILP.Direct.Gentzen.html#4226" class="Function"
+      >unbox</a
+      ><a name="4231"
+      > </a
+      ><a name="4232" class="Symbol"
+      >:</a
+      ><a name="4233"
+      > </a
+      ><a name="4234" class="Symbol"
+      >&#8704;</a
+      ><a name="4235"
+      > </a
+      ><a name="4236" class="Symbol"
+      >{</a
+      ><a name="4237" href="OlderBasicILP.Direct.Gentzen.html#4237" class="Bound"
+      >A</a
+      ><a name="4238"
+      > </a
+      ><a name="4239" href="OlderBasicILP.Direct.Gentzen.html#4239" class="Bound"
+      >C</a
+      ><a name="4240"
+      > </a
+      ><a name="4241" href="OlderBasicILP.Direct.Gentzen.html#4241" class="Bound"
+      >&#915;</a
+      ><a name="4242" class="Symbol"
+      >}</a
+      ><a name="4243"
+      > </a
+      ><a name="4244" class="Symbol"
+      >{</a
+      ><a name="4245" href="OlderBasicILP.Direct.Gentzen.html#4245" class="Bound"
+      >t</a
+      ><a name="4246"
+      > </a
+      ><a name="4247" class="Symbol"
+      >:</a
+      ><a name="4248"
+      > </a
+      ><a name="4249" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="4250"
+      > </a
+      ><a name="4251" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4252"
+      > </a
+      ><a name="4253" href="OlderBasicILP.Direct.Gentzen.html#4237" class="Bound"
+      >A</a
+      ><a name="4254" class="Symbol"
+      >}</a
+      ><a name="4255"
+      > </a
+      ><a name="4256" class="Symbol"
+      >{</a
+      ><a name="4257" href="OlderBasicILP.Direct.Gentzen.html#4257" class="Bound"
+      >u</a
+      ><a name="4258"
+      > </a
+      ><a name="4259" class="Symbol"
+      >:</a
+      ><a name="4260"
+      > </a
+      ><a name="4261" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="4262"
+      > </a
+      ><a name="4263" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4264"
+      > </a
+      ><a name="4265" href="OlderBasicILP.Direct.Gentzen.html#4239" class="Bound"
+      >C</a
+      ><a name="4266" class="Symbol"
+      >}</a
+      ><a name="4267"
+      >
+        </a
+      ><a name="4276" class="Symbol"
+      >&#8594;</a
+      ><a name="4277"
+      > </a
+      ><a name="4278" href="OlderBasicILP.Direct.Gentzen.html#4241" class="Bound"
+      >&#915;</a
+      ><a name="4279"
+      > </a
+      ><a name="4280" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4281"
+      > </a
+      ><a name="4282" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="4283"
+      > </a
+      ><a name="4284" href="OlderBasicILP.Direct.Gentzen.html#4245" class="Bound"
+      >t</a
+      ><a name="4285"
+      > </a
+      ><a name="4286" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="4287"
+      > </a
+      ><a name="4288" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="4289"
+      > </a
+      ><a name="4290" href="OlderBasicILP.Direct.Gentzen.html#4237" class="Bound"
+      >A</a
+      ><a name="4291"
+      > </a
+      ><a name="4292" class="Symbol"
+      >&#8594;</a
+      ><a name="4293"
+      > </a
+      ><a name="4294" href="OlderBasicILP.Direct.Gentzen.html#4241" class="Bound"
+      >&#915;</a
+      ><a name="4295"
+      > </a
+      ><a name="4296" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="4297"
+      > </a
+      ><a name="4298" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="4299"
+      > </a
+      ><a name="4300" href="OlderBasicILP.Direct.Gentzen.html#4245" class="Bound"
+      >t</a
+      ><a name="4301"
+      > </a
+      ><a name="4302" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="4303"
+      > </a
+      ><a name="4304" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="4305"
+      > </a
+      ><a name="4306" href="OlderBasicILP.Direct.Gentzen.html#4237" class="Bound"
+      >A</a
+      ><a name="4307"
+      > </a
+      ><a name="4308" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4309"
+      > </a
+      ><a name="4310" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="4311"
+      > </a
+      ><a name="4312" href="OlderBasicILP.Direct.Gentzen.html#4257" class="Bound"
+      >u</a
+      ><a name="4313"
+      > </a
+      ><a name="4314" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="4315"
+      > </a
+      ><a name="4316" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="4317"
+      > </a
+      ><a name="4318" href="OlderBasicILP.Direct.Gentzen.html#4239" class="Bound"
+      >C</a
+      ><a name="4319"
+      >
+        </a
+      ><a name="4328" class="Symbol"
+      >&#8594;</a
+      ><a name="4329"
+      > </a
+      ><a name="4330" href="OlderBasicILP.Direct.Gentzen.html#4241" class="Bound"
+      >&#915;</a
+      ><a name="4331"
+      > </a
+      ><a name="4332" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4333"
+      > </a
+      ><a name="4334" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="4335"
+      > </a
+      ><a name="4336" href="OlderBasicILP.Direct.Gentzen.html#4257" class="Bound"
+      >u</a
+      ><a name="4337"
+      > </a
+      ><a name="4338" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="4339"
+      > </a
+      ><a name="4340" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="4341"
+      > </a
+      ><a name="4342" href="OlderBasicILP.Direct.Gentzen.html#4239" class="Bound"
+      >C</a
+      ><a name="4343"
+      >
+</a
+      ><a name="4344" href="OlderBasicILP.Direct.Gentzen.html#4226" class="Function"
+      >unbox</a
+      ><a name="4349"
+      > </a
+      ><a name="4350" href="OlderBasicILP.Direct.Gentzen.html#4350" class="Bound"
+      >t</a
+      ><a name="4351"
+      > </a
+      ><a name="4352" href="OlderBasicILP.Direct.Gentzen.html#4352" class="Bound"
+      >u</a
+      ><a name="4353"
+      > </a
+      ><a name="4354" class="Symbol"
+      >=</a
+      ><a name="4355"
+      > </a
+      ><a name="4356" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="4359"
+      > </a
+      ><a name="4360" class="Symbol"
+      >(</a
+      ><a name="4361" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="4364"
+      > </a
+      ><a name="4365" href="OlderBasicILP.Direct.Gentzen.html#4352" class="Bound"
+      >u</a
+      ><a name="4366" class="Symbol"
+      >)</a
+      ><a name="4367"
+      > </a
+      ><a name="4368" href="OlderBasicILP.Direct.Gentzen.html#4350" class="Bound"
+      >t</a
+      ><a name="4369"
+      >
+
+
+</a
+      ><a name="4372" class="Comment"
+      >-- Useful theorems in combinatory form.</a
+      ><a name="4411"
+      >
+
+</a
+      ><a name="4413" href="OlderBasicILP.Direct.Gentzen.html#4413" class="Function"
+      >ci</a
+      ><a name="4415"
+      > </a
+      ><a name="4416" class="Symbol"
+      >:</a
+      ><a name="4417"
+      > </a
+      ><a name="4418" class="Symbol"
+      >&#8704;</a
+      ><a name="4419"
+      > </a
+      ><a name="4420" class="Symbol"
+      >{</a
+      ><a name="4421" href="OlderBasicILP.Direct.Gentzen.html#4421" class="Bound"
+      >A</a
+      ><a name="4422"
+      > </a
+      ><a name="4423" href="OlderBasicILP.Direct.Gentzen.html#4423" class="Bound"
+      >&#915;</a
+      ><a name="4424" class="Symbol"
+      >}</a
+      ><a name="4425"
+      > </a
+      ><a name="4426" class="Symbol"
+      >&#8594;</a
+      ><a name="4427"
+      > </a
+      ><a name="4428" href="OlderBasicILP.Direct.Gentzen.html#4423" class="Bound"
+      >&#915;</a
+      ><a name="4429"
+      > </a
+      ><a name="4430" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4431"
+      > </a
+      ><a name="4432" href="OlderBasicILP.Direct.Gentzen.html#4421" class="Bound"
+      >A</a
+      ><a name="4433"
+      > </a
+      ><a name="4434" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4435"
+      > </a
+      ><a name="4436" href="OlderBasicILP.Direct.Gentzen.html#4421" class="Bound"
+      >A</a
+      ><a name="4437"
+      >
+</a
+      ><a name="4438" href="OlderBasicILP.Direct.Gentzen.html#4413" class="Function"
+      >ci</a
+      ><a name="4440"
+      > </a
+      ><a name="4441" class="Symbol"
+      >=</a
+      ><a name="4442"
+      > </a
+      ><a name="4443" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="4446"
+      > </a
+      ><a name="4447" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="4449"
+      >
+
+</a
+      ><a name="4451" href="OlderBasicILP.Direct.Gentzen.html#4451" class="Function"
+      >ck</a
+      ><a name="4453"
+      > </a
+      ><a name="4454" class="Symbol"
+      >:</a
+      ><a name="4455"
+      > </a
+      ><a name="4456" class="Symbol"
+      >&#8704;</a
+      ><a name="4457"
+      > </a
+      ><a name="4458" class="Symbol"
+      >{</a
+      ><a name="4459" href="OlderBasicILP.Direct.Gentzen.html#4459" class="Bound"
+      >A</a
+      ><a name="4460"
+      > </a
+      ><a name="4461" href="OlderBasicILP.Direct.Gentzen.html#4461" class="Bound"
+      >B</a
+      ><a name="4462"
+      > </a
+      ><a name="4463" href="OlderBasicILP.Direct.Gentzen.html#4463" class="Bound"
+      >&#915;</a
+      ><a name="4464" class="Symbol"
+      >}</a
+      ><a name="4465"
+      > </a
+      ><a name="4466" class="Symbol"
+      >&#8594;</a
+      ><a name="4467"
+      > </a
+      ><a name="4468" href="OlderBasicILP.Direct.Gentzen.html#4463" class="Bound"
+      >&#915;</a
+      ><a name="4469"
+      > </a
+      ><a name="4470" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4471"
+      > </a
+      ><a name="4472" href="OlderBasicILP.Direct.Gentzen.html#4459" class="Bound"
+      >A</a
+      ><a name="4473"
+      > </a
+      ><a name="4474" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4475"
+      > </a
+      ><a name="4476" href="OlderBasicILP.Direct.Gentzen.html#4461" class="Bound"
+      >B</a
+      ><a name="4477"
+      > </a
+      ><a name="4478" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4479"
+      > </a
+      ><a name="4480" href="OlderBasicILP.Direct.Gentzen.html#4459" class="Bound"
+      >A</a
+      ><a name="4481"
+      >
+</a
+      ><a name="4482" href="OlderBasicILP.Direct.Gentzen.html#4451" class="Function"
+      >ck</a
+      ><a name="4484"
+      > </a
+      ><a name="4485" class="Symbol"
+      >=</a
+      ><a name="4486"
+      > </a
+      ><a name="4487" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="4490"
+      > </a
+      ><a name="4491" class="Symbol"
+      >(</a
+      ><a name="4492" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="4495"
+      > </a
+      ><a name="4496" href="OlderBasicILP.Direct.Gentzen.html#2129" class="Function"
+      >v&#8321;</a
+      ><a name="4498" class="Symbol"
+      >)</a
+      ><a name="4499"
+      >
+
+</a
+      ><a name="4501" href="OlderBasicILP.Direct.Gentzen.html#4501" class="Function"
+      >cs</a
+      ><a name="4503"
+      > </a
+      ><a name="4504" class="Symbol"
+      >:</a
+      ><a name="4505"
+      > </a
+      ><a name="4506" class="Symbol"
+      >&#8704;</a
+      ><a name="4507"
+      > </a
+      ><a name="4508" class="Symbol"
+      >{</a
+      ><a name="4509" href="OlderBasicILP.Direct.Gentzen.html#4509" class="Bound"
+      >A</a
+      ><a name="4510"
+      > </a
+      ><a name="4511" href="OlderBasicILP.Direct.Gentzen.html#4511" class="Bound"
+      >B</a
+      ><a name="4512"
+      > </a
+      ><a name="4513" href="OlderBasicILP.Direct.Gentzen.html#4513" class="Bound"
+      >C</a
+      ><a name="4514"
+      > </a
+      ><a name="4515" href="OlderBasicILP.Direct.Gentzen.html#4515" class="Bound"
+      >&#915;</a
+      ><a name="4516" class="Symbol"
+      >}</a
+      ><a name="4517"
+      > </a
+      ><a name="4518" class="Symbol"
+      >&#8594;</a
+      ><a name="4519"
+      > </a
+      ><a name="4520" href="OlderBasicILP.Direct.Gentzen.html#4515" class="Bound"
+      >&#915;</a
+      ><a name="4521"
+      > </a
+      ><a name="4522" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4523"
+      > </a
+      ><a name="4524" class="Symbol"
+      >(</a
+      ><a name="4525" href="OlderBasicILP.Direct.Gentzen.html#4509" class="Bound"
+      >A</a
+      ><a name="4526"
+      > </a
+      ><a name="4527" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4528"
+      > </a
+      ><a name="4529" href="OlderBasicILP.Direct.Gentzen.html#4511" class="Bound"
+      >B</a
+      ><a name="4530"
+      > </a
+      ><a name="4531" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4532"
+      > </a
+      ><a name="4533" href="OlderBasicILP.Direct.Gentzen.html#4513" class="Bound"
+      >C</a
+      ><a name="4534" class="Symbol"
+      >)</a
+      ><a name="4535"
+      > </a
+      ><a name="4536" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4537"
+      > </a
+      ><a name="4538" class="Symbol"
+      >(</a
+      ><a name="4539" href="OlderBasicILP.Direct.Gentzen.html#4509" class="Bound"
+      >A</a
+      ><a name="4540"
+      > </a
+      ><a name="4541" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4542"
+      > </a
+      ><a name="4543" href="OlderBasicILP.Direct.Gentzen.html#4511" class="Bound"
+      >B</a
+      ><a name="4544" class="Symbol"
+      >)</a
+      ><a name="4545"
+      > </a
+      ><a name="4546" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4547"
+      > </a
+      ><a name="4548" href="OlderBasicILP.Direct.Gentzen.html#4509" class="Bound"
+      >A</a
+      ><a name="4549"
+      > </a
+      ><a name="4550" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4551"
+      > </a
+      ><a name="4552" href="OlderBasicILP.Direct.Gentzen.html#4513" class="Bound"
+      >C</a
+      ><a name="4553"
+      >
+</a
+      ><a name="4554" href="OlderBasicILP.Direct.Gentzen.html#4501" class="Function"
+      >cs</a
+      ><a name="4556"
+      > </a
+      ><a name="4557" class="Symbol"
+      >=</a
+      ><a name="4558"
+      > </a
+      ><a name="4559" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="4562"
+      > </a
+      ><a name="4563" class="Symbol"
+      >(</a
+      ><a name="4564" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="4567"
+      > </a
+      ><a name="4568" class="Symbol"
+      >(</a
+      ><a name="4569" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="4572"
+      > </a
+      ><a name="4573" class="Symbol"
+      >(</a
+      ><a name="4574" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="4577"
+      > </a
+      ><a name="4578" class="Symbol"
+      >(</a
+      ><a name="4579" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="4582"
+      > </a
+      ><a name="4583" href="OlderBasicILP.Direct.Gentzen.html#2175" class="Function"
+      >v&#8322;</a
+      ><a name="4585"
+      > </a
+      ><a name="4586" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="4588" class="Symbol"
+      >)</a
+      ><a name="4589"
+      > </a
+      ><a name="4590" class="Symbol"
+      >(</a
+      ><a name="4591" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="4594"
+      > </a
+      ><a name="4595" href="OlderBasicILP.Direct.Gentzen.html#2129" class="Function"
+      >v&#8321;</a
+      ><a name="4597"
+      > </a
+      ><a name="4598" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="4600" class="Symbol"
+      >))))</a
+      ><a name="4604"
+      >
+
+</a
+      ><a name="4606" class="Comment"
+      >-- cdist : &#8704; {A B &#936; &#915;} {t : &#936; &#8866; A &#9659; B} {u : &#936; &#8866; A}</a
+      ><a name="4656"
+      >
+</a
+      ><a name="4657" class="Comment"
+      >--         &#8594; &#915; &#8866; [ t ] &#10626; (A &#9659; B) &#9659; [ u ] &#10626; A &#9659; [ app (down v&#8321;) (down v&#8320;) ] &#10626; B</a
+      ><a name="4735"
+      >
+</a
+      ><a name="4736" class="Comment"
+      >-- cdist = lam (lam (dist v&#8321; v&#8320;))</a
+      ><a name="4769"
+      >
+</a
+      ><a name="4770" class="Comment"
+      >--</a
+      ><a name="4772"
+      >
+</a
+      ><a name="4773" class="Comment"
+      >-- cup : &#8704; {A &#936; &#915;} {t : &#936; &#8866; A} &#8594; &#915; &#8866; [ t ] &#10626; A &#9659; [ v&#8320; ] &#10626; [ t ] &#10626; A</a
+      ><a name="4840"
+      >
+</a
+      ><a name="4841" class="Comment"
+      >-- cup = lam (up v&#8320;)</a
+      ><a name="4861"
+      >
+
+</a
+      ><a name="4863" href="OlderBasicILP.Direct.Gentzen.html#4863" class="Function"
+      >cdown</a
+      ><a name="4868"
+      > </a
+      ><a name="4869" class="Symbol"
+      >:</a
+      ><a name="4870"
+      > </a
+      ><a name="4871" class="Symbol"
+      >&#8704;</a
+      ><a name="4872"
+      > </a
+      ><a name="4873" class="Symbol"
+      >{</a
+      ><a name="4874" href="OlderBasicILP.Direct.Gentzen.html#4874" class="Bound"
+      >A</a
+      ><a name="4875"
+      > </a
+      ><a name="4876" href="OlderBasicILP.Direct.Gentzen.html#4876" class="Bound"
+      >&#915;</a
+      ><a name="4877" class="Symbol"
+      >}</a
+      ><a name="4878"
+      > </a
+      ><a name="4879" class="Symbol"
+      >{</a
+      ><a name="4880" href="OlderBasicILP.Direct.Gentzen.html#4880" class="Bound"
+      >t</a
+      ><a name="4881"
+      > </a
+      ><a name="4882" class="Symbol"
+      >:</a
+      ><a name="4883"
+      > </a
+      ><a name="4884" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="4885"
+      > </a
+      ><a name="4886" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4887"
+      > </a
+      ><a name="4888" href="OlderBasicILP.Direct.Gentzen.html#4874" class="Bound"
+      >A</a
+      ><a name="4889" class="Symbol"
+      >}</a
+      ><a name="4890"
+      > </a
+      ><a name="4891" class="Symbol"
+      >&#8594;</a
+      ><a name="4892"
+      > </a
+      ><a name="4893" href="OlderBasicILP.Direct.Gentzen.html#4876" class="Bound"
+      >&#915;</a
+      ><a name="4894"
+      > </a
+      ><a name="4895" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="4896"
+      > </a
+      ><a name="4897" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="4898"
+      > </a
+      ><a name="4899" href="OlderBasicILP.Direct.Gentzen.html#4880" class="Bound"
+      >t</a
+      ><a name="4900"
+      > </a
+      ><a name="4901" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="4902"
+      > </a
+      ><a name="4903" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="4904"
+      > </a
+      ><a name="4905" href="OlderBasicILP.Direct.Gentzen.html#4874" class="Bound"
+      >A</a
+      ><a name="4906"
+      > </a
+      ><a name="4907" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4908"
+      > </a
+      ><a name="4909" href="OlderBasicILP.Direct.Gentzen.html#4874" class="Bound"
+      >A</a
+      ><a name="4910"
+      >
+</a
+      ><a name="4911" href="OlderBasicILP.Direct.Gentzen.html#4863" class="Function"
+      >cdown</a
+      ><a name="4916"
+      > </a
+      ><a name="4917" class="Symbol"
+      >=</a
+      ><a name="4918"
+      > </a
+      ><a name="4919" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="4922"
+      > </a
+      ><a name="4923" class="Symbol"
+      >(</a
+      ><a name="4924" href="OlderBasicILP.Direct.Gentzen.html#991" class="InductiveConstructor"
+      >down</a
+      ><a name="4928"
+      > </a
+      ><a name="4929" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="4931" class="Symbol"
+      >)</a
+      ><a name="4932"
+      >
+
+</a
+      ><a name="4934" class="Comment"
+      >-- cdistup : &#8704; {A B &#936; &#915;} {u : &#936; &#8866; A} {t : &#8709; , [ u ] &#10626; A &#8866; [ u ] &#10626; A &#9659; B}</a
+      ><a name="5006"
+      >
+</a
+      ><a name="5007" class="Comment"
+      >--           &#8594; &#915; &#8866; [ t ] &#10626; ([ u ] &#10626; A &#9659; B) &#9659; [ u ] &#10626; A &#9659; [ app (down v&#8321;) (down v&#8320;) ] &#10626; B</a
+      ><a name="5095"
+      >
+</a
+      ><a name="5096" class="Comment"
+      >-- cdistup = lam (lam (dist v&#8321; (up v&#8320;)))</a
+      ><a name="5136"
+      >
+
+</a
+      ><a name="5138" href="OlderBasicILP.Direct.Gentzen.html#5138" class="Function"
+      >cunbox</a
+      ><a name="5144"
+      > </a
+      ><a name="5145" class="Symbol"
+      >:</a
+      ><a name="5146"
+      > </a
+      ><a name="5147" class="Symbol"
+      >&#8704;</a
+      ><a name="5148"
+      > </a
+      ><a name="5149" class="Symbol"
+      >{</a
+      ><a name="5150" href="OlderBasicILP.Direct.Gentzen.html#5150" class="Bound"
+      >A</a
+      ><a name="5151"
+      > </a
+      ><a name="5152" href="OlderBasicILP.Direct.Gentzen.html#5152" class="Bound"
+      >C</a
+      ><a name="5153"
+      > </a
+      ><a name="5154" href="OlderBasicILP.Direct.Gentzen.html#5154" class="Bound"
+      >&#915;</a
+      ><a name="5155" class="Symbol"
+      >}</a
+      ><a name="5156"
+      > </a
+      ><a name="5157" class="Symbol"
+      >{</a
+      ><a name="5158" href="OlderBasicILP.Direct.Gentzen.html#5158" class="Bound"
+      >t</a
+      ><a name="5159"
+      > </a
+      ><a name="5160" class="Symbol"
+      >:</a
+      ><a name="5161"
+      > </a
+      ><a name="5162" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="5163"
+      > </a
+      ><a name="5164" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5165"
+      > </a
+      ><a name="5166" href="OlderBasicILP.Direct.Gentzen.html#5150" class="Bound"
+      >A</a
+      ><a name="5167" class="Symbol"
+      >}</a
+      ><a name="5168"
+      > </a
+      ><a name="5169" class="Symbol"
+      >{</a
+      ><a name="5170" href="OlderBasicILP.Direct.Gentzen.html#5170" class="Bound"
+      >u</a
+      ><a name="5171"
+      > </a
+      ><a name="5172" class="Symbol"
+      >:</a
+      ><a name="5173"
+      > </a
+      ><a name="5174" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="5175"
+      > </a
+      ><a name="5176" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5177"
+      > </a
+      ><a name="5178" href="OlderBasicILP.Direct.Gentzen.html#5152" class="Bound"
+      >C</a
+      ><a name="5179" class="Symbol"
+      >}</a
+      ><a name="5180"
+      >
+         </a
+      ><a name="5190" class="Symbol"
+      >&#8594;</a
+      ><a name="5191"
+      > </a
+      ><a name="5192" href="OlderBasicILP.Direct.Gentzen.html#5154" class="Bound"
+      >&#915;</a
+      ><a name="5193"
+      > </a
+      ><a name="5194" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5195"
+      > </a
+      ><a name="5196" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="5197"
+      > </a
+      ><a name="5198" href="OlderBasicILP.Direct.Gentzen.html#5158" class="Bound"
+      >t</a
+      ><a name="5199"
+      > </a
+      ><a name="5200" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="5201"
+      > </a
+      ><a name="5202" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="5203"
+      > </a
+      ><a name="5204" href="OlderBasicILP.Direct.Gentzen.html#5150" class="Bound"
+      >A</a
+      ><a name="5205"
+      > </a
+      ><a name="5206" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="5207"
+      > </a
+      ><a name="5208" class="Symbol"
+      >(</a
+      ><a name="5209" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >[</a
+      ><a name="5210"
+      > </a
+      ><a name="5211" href="OlderBasicILP.Direct.Gentzen.html#5158" class="Bound"
+      >t</a
+      ><a name="5212"
+      > </a
+      ><a name="5213" href="OlderBasicILP.Direct.Gentzen.html#385" class="InductiveConstructor Operator"
+      >]</a
+      ><a name="5214"
+      > </a
+      ><a name="5215" href="OlderBasicILP.Direct.Gentzen.html#274" class="InductiveConstructor Operator"
+      >&#10626;</a
+      ><a name="5216"
+      > </a
+      ><a name="5217" href="OlderBasicILP.Direct.Gentzen.html#5150" class="Bound"
+      >A</a
+      ><a name="5218"
+      > </a
+      ><a name="5219" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="5220"
+      > </a
+      ><a name="5221" href="OlderBasicILP.Direct.Gentzen.html#5152" class="Bound"
+      >C</a
+      ><a name="5222" class="Symbol"
+      >)</a
+      ><a name="5223"
+      > </a
+      ><a name="5224" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="5225"
+      > </a
+      ><a name="5226" href="OlderBasicILP.Direct.Gentzen.html#5152" class="Bound"
+      >C</a
+      ><a name="5227"
+      >
+</a
+      ><a name="5228" href="OlderBasicILP.Direct.Gentzen.html#5138" class="Function"
+      >cunbox</a
+      ><a name="5234"
+      > </a
+      ><a name="5235" class="Symbol"
+      >=</a
+      ><a name="5236"
+      > </a
+      ><a name="5237" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="5240"
+      > </a
+      ><a name="5241" class="Symbol"
+      >(</a
+      ><a name="5242" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="5245"
+      > </a
+      ><a name="5246" class="Symbol"
+      >(</a
+      ><a name="5247" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="5250"
+      > </a
+      ><a name="5251" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="5253"
+      > </a
+      ><a name="5254" href="OlderBasicILP.Direct.Gentzen.html#2129" class="Function"
+      >v&#8321;</a
+      ><a name="5256" class="Symbol"
+      >))</a
+      ><a name="5258"
+      >
+
+</a
+      ><a name="5260" href="OlderBasicILP.Direct.Gentzen.html#5260" class="Function"
+      >cpair</a
+      ><a name="5265"
+      > </a
+      ><a name="5266" class="Symbol"
+      >:</a
+      ><a name="5267"
+      > </a
+      ><a name="5268" class="Symbol"
+      >&#8704;</a
+      ><a name="5269"
+      > </a
+      ><a name="5270" class="Symbol"
+      >{</a
+      ><a name="5271" href="OlderBasicILP.Direct.Gentzen.html#5271" class="Bound"
+      >A</a
+      ><a name="5272"
+      > </a
+      ><a name="5273" href="OlderBasicILP.Direct.Gentzen.html#5273" class="Bound"
+      >B</a
+      ><a name="5274"
+      > </a
+      ><a name="5275" href="OlderBasicILP.Direct.Gentzen.html#5275" class="Bound"
+      >&#915;</a
+      ><a name="5276" class="Symbol"
+      >}</a
+      ><a name="5277"
+      > </a
+      ><a name="5278" class="Symbol"
+      >&#8594;</a
+      ><a name="5279"
+      > </a
+      ><a name="5280" href="OlderBasicILP.Direct.Gentzen.html#5275" class="Bound"
+      >&#915;</a
+      ><a name="5281"
+      > </a
+      ><a name="5282" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5283"
+      > </a
+      ><a name="5284" href="OlderBasicILP.Direct.Gentzen.html#5271" class="Bound"
+      >A</a
+      ><a name="5285"
+      > </a
+      ><a name="5286" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="5287"
+      > </a
+      ><a name="5288" href="OlderBasicILP.Direct.Gentzen.html#5273" class="Bound"
+      >B</a
+      ><a name="5289"
+      > </a
+      ><a name="5290" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="5291"
+      > </a
+      ><a name="5292" href="OlderBasicILP.Direct.Gentzen.html#5271" class="Bound"
+      >A</a
+      ><a name="5293"
+      > </a
+      ><a name="5294" href="OlderBasicILP.Direct.Gentzen.html#298" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="5295"
+      > </a
+      ><a name="5296" href="OlderBasicILP.Direct.Gentzen.html#5273" class="Bound"
+      >B</a
+      ><a name="5297"
+      >
+</a
+      ><a name="5298" href="OlderBasicILP.Direct.Gentzen.html#5260" class="Function"
+      >cpair</a
+      ><a name="5303"
+      > </a
+      ><a name="5304" class="Symbol"
+      >=</a
+      ><a name="5305"
+      > </a
+      ><a name="5306" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="5309"
+      > </a
+      ><a name="5310" class="Symbol"
+      >(</a
+      ><a name="5311" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="5314"
+      > </a
+      ><a name="5315" class="Symbol"
+      >(</a
+      ><a name="5316" href="OlderBasicILP.Direct.Gentzen.html#1048" class="InductiveConstructor"
+      >pair</a
+      ><a name="5320"
+      > </a
+      ><a name="5321" href="OlderBasicILP.Direct.Gentzen.html#2129" class="Function"
+      >v&#8321;</a
+      ><a name="5323"
+      > </a
+      ><a name="5324" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="5326" class="Symbol"
+      >))</a
+      ><a name="5328"
+      >
+
+</a
+      ><a name="5330" href="OlderBasicILP.Direct.Gentzen.html#5330" class="Function"
+      >cfst</a
+      ><a name="5334"
+      > </a
+      ><a name="5335" class="Symbol"
+      >:</a
+      ><a name="5336"
+      > </a
+      ><a name="5337" class="Symbol"
+      >&#8704;</a
+      ><a name="5338"
+      > </a
+      ><a name="5339" class="Symbol"
+      >{</a
+      ><a name="5340" href="OlderBasicILP.Direct.Gentzen.html#5340" class="Bound"
+      >A</a
+      ><a name="5341"
+      > </a
+      ><a name="5342" href="OlderBasicILP.Direct.Gentzen.html#5342" class="Bound"
+      >B</a
+      ><a name="5343"
+      > </a
+      ><a name="5344" href="OlderBasicILP.Direct.Gentzen.html#5344" class="Bound"
+      >&#915;</a
+      ><a name="5345" class="Symbol"
+      >}</a
+      ><a name="5346"
+      > </a
+      ><a name="5347" class="Symbol"
+      >&#8594;</a
+      ><a name="5348"
+      > </a
+      ><a name="5349" href="OlderBasicILP.Direct.Gentzen.html#5344" class="Bound"
+      >&#915;</a
+      ><a name="5350"
+      > </a
+      ><a name="5351" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5352"
+      > </a
+      ><a name="5353" href="OlderBasicILP.Direct.Gentzen.html#5340" class="Bound"
+      >A</a
+      ><a name="5354"
+      > </a
+      ><a name="5355" href="OlderBasicILP.Direct.Gentzen.html#298" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="5356"
+      > </a
+      ><a name="5357" href="OlderBasicILP.Direct.Gentzen.html#5342" class="Bound"
+      >B</a
+      ><a name="5358"
+      > </a
+      ><a name="5359" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="5360"
+      > </a
+      ><a name="5361" href="OlderBasicILP.Direct.Gentzen.html#5340" class="Bound"
+      >A</a
+      ><a name="5362"
+      >
+</a
+      ><a name="5363" href="OlderBasicILP.Direct.Gentzen.html#5330" class="Function"
+      >cfst</a
+      ><a name="5367"
+      > </a
+      ><a name="5368" class="Symbol"
+      >=</a
+      ><a name="5369"
+      > </a
+      ><a name="5370" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="5373"
+      > </a
+      ><a name="5374" class="Symbol"
+      >(</a
+      ><a name="5375" href="OlderBasicILP.Direct.Gentzen.html#1110" class="InductiveConstructor"
+      >fst</a
+      ><a name="5378"
+      > </a
+      ><a name="5379" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="5381" class="Symbol"
+      >)</a
+      ><a name="5382"
+      >
+
+</a
+      ><a name="5384" href="OlderBasicILP.Direct.Gentzen.html#5384" class="Function"
+      >csnd</a
+      ><a name="5388"
+      > </a
+      ><a name="5389" class="Symbol"
+      >:</a
+      ><a name="5390"
+      > </a
+      ><a name="5391" class="Symbol"
+      >&#8704;</a
+      ><a name="5392"
+      > </a
+      ><a name="5393" class="Symbol"
+      >{</a
+      ><a name="5394" href="OlderBasicILP.Direct.Gentzen.html#5394" class="Bound"
+      >A</a
+      ><a name="5395"
+      > </a
+      ><a name="5396" href="OlderBasicILP.Direct.Gentzen.html#5396" class="Bound"
+      >B</a
+      ><a name="5397"
+      > </a
+      ><a name="5398" href="OlderBasicILP.Direct.Gentzen.html#5398" class="Bound"
+      >&#915;</a
+      ><a name="5399" class="Symbol"
+      >}</a
+      ><a name="5400"
+      > </a
+      ><a name="5401" class="Symbol"
+      >&#8594;</a
+      ><a name="5402"
+      > </a
+      ><a name="5403" href="OlderBasicILP.Direct.Gentzen.html#5398" class="Bound"
+      >&#915;</a
+      ><a name="5404"
+      > </a
+      ><a name="5405" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5406"
+      > </a
+      ><a name="5407" href="OlderBasicILP.Direct.Gentzen.html#5394" class="Bound"
+      >A</a
+      ><a name="5408"
+      > </a
+      ><a name="5409" href="OlderBasicILP.Direct.Gentzen.html#298" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="5410"
+      > </a
+      ><a name="5411" href="OlderBasicILP.Direct.Gentzen.html#5396" class="Bound"
+      >B</a
+      ><a name="5412"
+      > </a
+      ><a name="5413" href="OlderBasicILP.Direct.Gentzen.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="5414"
+      > </a
+      ><a name="5415" href="OlderBasicILP.Direct.Gentzen.html#5396" class="Bound"
+      >B</a
+      ><a name="5416"
+      >
+</a
+      ><a name="5417" href="OlderBasicILP.Direct.Gentzen.html#5384" class="Function"
+      >csnd</a
+      ><a name="5421"
+      > </a
+      ><a name="5422" class="Symbol"
+      >=</a
+      ><a name="5423"
+      > </a
+      ><a name="5424" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="5427"
+      > </a
+      ><a name="5428" class="Symbol"
+      >(</a
+      ><a name="5429" href="OlderBasicILP.Direct.Gentzen.html#1164" class="InductiveConstructor"
+      >snd</a
+      ><a name="5432"
+      > </a
+      ><a name="5433" href="OlderBasicILP.Direct.Gentzen.html#2091" class="Function"
+      >v&#8320;</a
+      ><a name="5435" class="Symbol"
+      >)</a
+      ><a name="5436"
+      >
+
+
+</a
+      ><a name="5439" class="Comment"
+      >-- Closure under context concatenation.</a
+      ><a name="5478"
+      >
+
+</a
+      ><a name="5480" href="OlderBasicILP.Direct.Gentzen.html#5480" class="Function"
+      >concat</a
+      ><a name="5486"
+      > </a
+      ><a name="5487" class="Symbol"
+      >:</a
+      ><a name="5488"
+      > </a
+      ><a name="5489" class="Symbol"
+      >&#8704;</a
+      ><a name="5490"
+      > </a
+      ><a name="5491" class="Symbol"
+      >{</a
+      ><a name="5492" href="OlderBasicILP.Direct.Gentzen.html#5492" class="Bound"
+      >A</a
+      ><a name="5493"
+      > </a
+      ><a name="5494" href="OlderBasicILP.Direct.Gentzen.html#5494" class="Bound"
+      >B</a
+      ><a name="5495"
+      > </a
+      ><a name="5496" href="OlderBasicILP.Direct.Gentzen.html#5496" class="Bound"
+      >&#915;</a
+      ><a name="5497" class="Symbol"
+      >}</a
+      ><a name="5498"
+      > </a
+      ><a name="5499" href="OlderBasicILP.Direct.Gentzen.html#5499" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="5501"
+      > </a
+      ><a name="5502" class="Symbol"
+      >&#8594;</a
+      ><a name="5503"
+      > </a
+      ><a name="5504" href="OlderBasicILP.Direct.Gentzen.html#5496" class="Bound"
+      >&#915;</a
+      ><a name="5505"
+      > </a
+      ><a name="5506" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="5507"
+      > </a
+      ><a name="5508" href="OlderBasicILP.Direct.Gentzen.html#5492" class="Bound"
+      >A</a
+      ><a name="5509"
+      > </a
+      ><a name="5510" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5511"
+      > </a
+      ><a name="5512" href="OlderBasicILP.Direct.Gentzen.html#5494" class="Bound"
+      >B</a
+      ><a name="5513"
+      > </a
+      ><a name="5514" class="Symbol"
+      >&#8594;</a
+      ><a name="5515"
+      > </a
+      ><a name="5516" href="OlderBasicILP.Direct.Gentzen.html#5499" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="5518"
+      > </a
+      ><a name="5519" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5520"
+      > </a
+      ><a name="5521" href="OlderBasicILP.Direct.Gentzen.html#5492" class="Bound"
+      >A</a
+      ><a name="5522"
+      > </a
+      ><a name="5523" class="Symbol"
+      >&#8594;</a
+      ><a name="5524"
+      > </a
+      ><a name="5525" href="OlderBasicILP.Direct.Gentzen.html#5496" class="Bound"
+      >&#915;</a
+      ><a name="5526"
+      > </a
+      ><a name="5527" href="Common.Context.html#3403" class="Function Operator"
+      >&#10746;</a
+      ><a name="5528"
+      > </a
+      ><a name="5529" href="OlderBasicILP.Direct.Gentzen.html#5499" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="5531"
+      > </a
+      ><a name="5532" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5533"
+      > </a
+      ><a name="5534" href="OlderBasicILP.Direct.Gentzen.html#5494" class="Bound"
+      >B</a
+      ><a name="5535"
+      >
+</a
+      ><a name="5536" href="OlderBasicILP.Direct.Gentzen.html#5480" class="Function"
+      >concat</a
+      ><a name="5542"
+      > </a
+      ><a name="5543" href="OlderBasicILP.Direct.Gentzen.html#5543" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="5545"
+      > </a
+      ><a name="5546" href="OlderBasicILP.Direct.Gentzen.html#5546" class="Bound"
+      >t</a
+      ><a name="5547"
+      > </a
+      ><a name="5548" href="OlderBasicILP.Direct.Gentzen.html#5548" class="Bound"
+      >u</a
+      ><a name="5549"
+      > </a
+      ><a name="5550" class="Symbol"
+      >=</a
+      ><a name="5551"
+      > </a
+      ><a name="5552" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="5555"
+      > </a
+      ><a name="5556" class="Symbol"
+      >(</a
+      ><a name="5557" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="5562"
+      > </a
+      ><a name="5563" class="Symbol"
+      >(</a
+      ><a name="5564" href="Common.Context.html#3609" class="Function"
+      >weak&#8838;&#10746;&#8321;</a
+      ><a name="5571"
+      > </a
+      ><a name="5572" href="OlderBasicILP.Direct.Gentzen.html#5543" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="5574" class="Symbol"
+      >)</a
+      ><a name="5575"
+      > </a
+      ><a name="5576" class="Symbol"
+      >(</a
+      ><a name="5577" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="5580"
+      > </a
+      ><a name="5581" href="OlderBasicILP.Direct.Gentzen.html#5546" class="Bound"
+      >t</a
+      ><a name="5582" class="Symbol"
+      >))</a
+      ><a name="5584"
+      > </a
+      ><a name="5585" class="Symbol"
+      >(</a
+      ><a name="5586" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="5591"
+      > </a
+      ><a name="5592" href="Common.Context.html#3710" class="Function"
+      >weak&#8838;&#10746;&#8322;</a
+      ><a name="5599"
+      > </a
+      ><a name="5600" href="OlderBasicILP.Direct.Gentzen.html#5548" class="Bound"
+      >u</a
+      ><a name="5601" class="Symbol"
+      >)</a
+      ><a name="5602"
+      >
+
+
+</a
+      ><a name="5605" class="Comment"
+      >-- Substitution.</a
+      ><a name="5621"
+      >
+
+</a
+      ><a name="5623" class="Keyword"
+      >mutual</a
+      ><a name="5629"
+      >
+  </a
+      ><a name="5632" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[_&#8788;_]_</a
+      ><a name="5638"
+      > </a
+      ><a name="5639" class="Symbol"
+      >:</a
+      ><a name="5640"
+      > </a
+      ><a name="5641" class="Symbol"
+      >&#8704;</a
+      ><a name="5642"
+      > </a
+      ><a name="5643" class="Symbol"
+      >{</a
+      ><a name="5644" href="OlderBasicILP.Direct.Gentzen.html#5644" class="Bound"
+      >A</a
+      ><a name="5645"
+      > </a
+      ><a name="5646" href="OlderBasicILP.Direct.Gentzen.html#5646" class="Bound"
+      >B</a
+      ><a name="5647"
+      > </a
+      ><a name="5648" href="OlderBasicILP.Direct.Gentzen.html#5648" class="Bound"
+      >&#915;</a
+      ><a name="5649" class="Symbol"
+      >}</a
+      ><a name="5650"
+      > </a
+      ><a name="5651" class="Symbol"
+      >&#8594;</a
+      ><a name="5652"
+      > </a
+      ><a name="5653" class="Symbol"
+      >(</a
+      ><a name="5654" href="OlderBasicILP.Direct.Gentzen.html#5654" class="Bound"
+      >i</a
+      ><a name="5655"
+      > </a
+      ><a name="5656" class="Symbol"
+      >:</a
+      ><a name="5657"
+      > </a
+      ><a name="5658" href="OlderBasicILP.Direct.Gentzen.html#5644" class="Bound"
+      >A</a
+      ><a name="5659"
+      > </a
+      ><a name="5660" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="5661"
+      > </a
+      ><a name="5662" href="OlderBasicILP.Direct.Gentzen.html#5648" class="Bound"
+      >&#915;</a
+      ><a name="5663" class="Symbol"
+      >)</a
+      ><a name="5664"
+      > </a
+      ><a name="5665" class="Symbol"
+      >&#8594;</a
+      ><a name="5666"
+      > </a
+      ><a name="5667" href="OlderBasicILP.Direct.Gentzen.html#5648" class="Bound"
+      >&#915;</a
+      ><a name="5668"
+      > </a
+      ><a name="5669" href="Common.Context.html#3866" class="Function Operator"
+      >&#8726;</a
+      ><a name="5670"
+      > </a
+      ><a name="5671" href="OlderBasicILP.Direct.Gentzen.html#5654" class="Bound"
+      >i</a
+      ><a name="5672"
+      > </a
+      ><a name="5673" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5674"
+      > </a
+      ><a name="5675" href="OlderBasicILP.Direct.Gentzen.html#5644" class="Bound"
+      >A</a
+      ><a name="5676"
+      > </a
+      ><a name="5677" class="Symbol"
+      >&#8594;</a
+      ><a name="5678"
+      > </a
+      ><a name="5679" href="OlderBasicILP.Direct.Gentzen.html#5648" class="Bound"
+      >&#915;</a
+      ><a name="5680"
+      > </a
+      ><a name="5681" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5682"
+      > </a
+      ><a name="5683" href="OlderBasicILP.Direct.Gentzen.html#5646" class="Bound"
+      >B</a
+      ><a name="5684"
+      > </a
+      ><a name="5685" class="Symbol"
+      >&#8594;</a
+      ><a name="5686"
+      > </a
+      ><a name="5687" href="OlderBasicILP.Direct.Gentzen.html#5648" class="Bound"
+      >&#915;</a
+      ><a name="5688"
+      > </a
+      ><a name="5689" href="Common.Context.html#3866" class="Function Operator"
+      >&#8726;</a
+      ><a name="5690"
+      > </a
+      ><a name="5691" href="OlderBasicILP.Direct.Gentzen.html#5654" class="Bound"
+      >i</a
+      ><a name="5692"
+      > </a
+      ><a name="5693" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="5694"
+      > </a
+      ><a name="5695" href="OlderBasicILP.Direct.Gentzen.html#5646" class="Bound"
+      >B</a
+      ><a name="5696"
+      >
+  </a
+      ><a name="5699" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="5700"
+      > </a
+      ><a name="5701" href="OlderBasicILP.Direct.Gentzen.html#5701" class="Bound"
+      >i</a
+      ><a name="5702"
+      > </a
+      ><a name="5703" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="5704"
+      > </a
+      ><a name="5705" href="OlderBasicILP.Direct.Gentzen.html#5705" class="Bound"
+      >s</a
+      ><a name="5706"
+      > </a
+      ><a name="5707" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="5708"
+      > </a
+      ><a name="5709" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="5712"
+      > </a
+      ><a name="5713" href="OlderBasicILP.Direct.Gentzen.html#5713" class="Bound"
+      >j</a
+      ><a name="5714"
+      >         </a
+      ><a name="5723" class="Keyword"
+      >with</a
+      ><a name="5727"
+      > </a
+      ><a name="5728" href="OlderBasicILP.Direct.Gentzen.html#5701" class="Bound"
+      >i</a
+      ><a name="5729"
+      > </a
+      ><a name="5730" href="Common.Context.html#4295" class="Function Operator"
+      >&#8799;&#8712;</a
+      ><a name="5732"
+      > </a
+      ><a name="5733" href="OlderBasicILP.Direct.Gentzen.html#5713" class="Bound"
+      >j</a
+      ><a name="5734"
+      >
+  </a
+      ><a name="5737" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="5738"
+      > </a
+      ><a name="5739" href="OlderBasicILP.Direct.Gentzen.html#5739" class="Bound"
+      >i</a
+      ><a name="5740"
+      > </a
+      ><a name="5741" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="5742"
+      > </a
+      ><a name="5743" href="OlderBasicILP.Direct.Gentzen.html#5743" class="Bound"
+      >s</a
+      ><a name="5744"
+      > </a
+      ><a name="5745" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="5746"
+      > </a
+      ><a name="5747" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="5750"
+      > </a
+      ><a name="5751" class="DottedPattern Symbol"
+      >.</a
+      ><a name="5752" href="OlderBasicILP.Direct.Gentzen.html#5739" class="DottedPattern Bound"
+      >i</a
+      ><a name="5753"
+      >        </a
+      ><a name="5761" class="Symbol"
+      >|</a
+      ><a name="5762"
+      > </a
+      ><a name="5763" href="Common.Context.html#4218" class="InductiveConstructor"
+      >same</a
+      ><a name="5767"
+      >   </a
+      ><a name="5770" class="Symbol"
+      >=</a
+      ><a name="5771"
+      > </a
+      ><a name="5772" href="OlderBasicILP.Direct.Gentzen.html#5743" class="Bound"
+      >s</a
+      ><a name="5773"
+      >
+  </a
+      ><a name="5776" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="5777"
+      > </a
+      ><a name="5778" href="OlderBasicILP.Direct.Gentzen.html#5778" class="Bound"
+      >i</a
+      ><a name="5779"
+      > </a
+      ><a name="5780" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="5781"
+      > </a
+      ><a name="5782" href="OlderBasicILP.Direct.Gentzen.html#5782" class="Bound"
+      >s</a
+      ><a name="5783"
+      > </a
+      ><a name="5784" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="5785"
+      > </a
+      ><a name="5786" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="5789"
+      > </a
+      ><a name="5790" class="DottedPattern Symbol"
+      >._</a
+      ><a name="5792"
+      >        </a
+      ><a name="5800" class="Symbol"
+      >|</a
+      ><a name="5801"
+      > </a
+      ><a name="5802" href="Common.Context.html#4236" class="InductiveConstructor"
+      >diff</a
+      ><a name="5806"
+      > </a
+      ><a name="5807" href="OlderBasicILP.Direct.Gentzen.html#5807" class="Bound"
+      >j</a
+      ><a name="5808"
+      > </a
+      ><a name="5809" class="Symbol"
+      >=</a
+      ><a name="5810"
+      > </a
+      ><a name="5811" href="OlderBasicILP.Direct.Gentzen.html#673" class="InductiveConstructor"
+      >var</a
+      ><a name="5814"
+      > </a
+      ><a name="5815" href="OlderBasicILP.Direct.Gentzen.html#5807" class="Bound"
+      >j</a
+      ><a name="5816"
+      >
+  </a
+      ><a name="5819" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="5820"
+      > </a
+      ><a name="5821" href="OlderBasicILP.Direct.Gentzen.html#5821" class="Bound"
+      >i</a
+      ><a name="5822"
+      > </a
+      ><a name="5823" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="5824"
+      > </a
+      ><a name="5825" href="OlderBasicILP.Direct.Gentzen.html#5825" class="Bound"
+      >s</a
+      ><a name="5826"
+      > </a
+      ><a name="5827" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="5828"
+      > </a
+      ><a name="5829" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="5832"
+      > </a
+      ><a name="5833" href="OlderBasicILP.Direct.Gentzen.html#5833" class="Bound"
+      >t</a
+      ><a name="5834"
+      >         </a
+      ><a name="5843" class="Symbol"
+      >=</a
+      ><a name="5844"
+      > </a
+      ><a name="5845" href="OlderBasicILP.Direct.Gentzen.html#723" class="InductiveConstructor"
+      >lam</a
+      ><a name="5848"
+      > </a
+      ><a name="5849" class="Symbol"
+      >(</a
+      ><a name="5850" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="5851"
+      > </a
+      ><a name="5852" href="Common.Context.html#1190" class="InductiveConstructor"
+      >pop</a
+      ><a name="5855"
+      > </a
+      ><a name="5856" href="OlderBasicILP.Direct.Gentzen.html#5821" class="Bound"
+      >i</a
+      ><a name="5857"
+      > </a
+      ><a name="5858" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="5859"
+      > </a
+      ><a name="5860" href="OlderBasicILP.Direct.Gentzen.html#1451" class="Function"
+      >mono&#8866;</a
+      ><a name="5865"
+      > </a
+      ><a name="5866" href="Common.Context.html#2245" class="Function"
+      >weak&#8838;</a
+      ><a name="5871"
+      > </a
+      ><a name="5872" href="OlderBasicILP.Direct.Gentzen.html#5825" class="Bound"
+      >s</a
+      ><a name="5873"
+      > </a
+      ><a name="5874" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="5875"
+      > </a
+      ><a name="5876" href="OlderBasicILP.Direct.Gentzen.html#5833" class="Bound"
+      >t</a
+      ><a name="5877" class="Symbol"
+      >)</a
+      ><a name="5878"
+      >
+  </a
+      ><a name="5881" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="5882"
+      > </a
+      ><a name="5883" href="OlderBasicILP.Direct.Gentzen.html#5883" class="Bound"
+      >i</a
+      ><a name="5884"
+      > </a
+      ><a name="5885" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="5886"
+      > </a
+      ><a name="5887" href="OlderBasicILP.Direct.Gentzen.html#5887" class="Bound"
+      >s</a
+      ><a name="5888"
+      > </a
+      ><a name="5889" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="5890"
+      > </a
+      ><a name="5891" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="5894"
+      > </a
+      ><a name="5895" href="OlderBasicILP.Direct.Gentzen.html#5895" class="Bound"
+      >t</a
+      ><a name="5896"
+      > </a
+      ><a name="5897" href="OlderBasicILP.Direct.Gentzen.html#5897" class="Bound"
+      >u</a
+      ><a name="5898"
+      >       </a
+      ><a name="5905" class="Symbol"
+      >=</a
+      ><a name="5906"
+      > </a
+      ><a name="5907" href="OlderBasicILP.Direct.Gentzen.html#781" class="InductiveConstructor"
+      >app</a
+      ><a name="5910"
+      > </a
+      ><a name="5911" class="Symbol"
+      >(</a
+      ><a name="5912" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="5913"
+      > </a
+      ><a name="5914" href="OlderBasicILP.Direct.Gentzen.html#5883" class="Bound"
+      >i</a
+      ><a name="5915"
+      > </a
+      ><a name="5916" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="5917"
+      > </a
+      ><a name="5918" href="OlderBasicILP.Direct.Gentzen.html#5887" class="Bound"
+      >s</a
+      ><a name="5919"
+      > </a
+      ><a name="5920" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="5921"
+      > </a
+      ><a name="5922" href="OlderBasicILP.Direct.Gentzen.html#5895" class="Bound"
+      >t</a
+      ><a name="5923" class="Symbol"
+      >)</a
+      ><a name="5924"
+      > </a
+      ><a name="5925" class="Symbol"
+      >(</a
+      ><a name="5926" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="5927"
+      > </a
+      ><a name="5928" href="OlderBasicILP.Direct.Gentzen.html#5883" class="Bound"
+      >i</a
+      ><a name="5929"
+      > </a
+      ><a name="5930" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="5931"
+      > </a
+      ><a name="5932" href="OlderBasicILP.Direct.Gentzen.html#5887" class="Bound"
+      >s</a
+      ><a name="5933"
+      > </a
+      ><a name="5934" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="5935"
+      > </a
+      ><a name="5936" href="OlderBasicILP.Direct.Gentzen.html#5897" class="Bound"
+      >u</a
+      ><a name="5937" class="Symbol"
+      >)</a
+      ><a name="5938"
+      >
+</a
+      ><a name="5939" class="Comment"
+      >--  [ i &#8788; s ] multibox ts u = multibox ([ i &#8788; s ]&#8902; ts) u</a
+      ><a name="5995"
+      >
+  </a
+      ><a name="5998" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="5999"
+      > </a
+      ><a name="6000" href="OlderBasicILP.Direct.Gentzen.html#6000" class="Bound"
+      >i</a
+      ><a name="6001"
+      > </a
+      ><a name="6002" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6003"
+      > </a
+      ><a name="6004" href="OlderBasicILP.Direct.Gentzen.html#6004" class="Bound"
+      >s</a
+      ><a name="6005"
+      > </a
+      ><a name="6006" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6007"
+      > </a
+      ><a name="6008" href="OlderBasicILP.Direct.Gentzen.html#991" class="InductiveConstructor"
+      >down</a
+      ><a name="6012"
+      > </a
+      ><a name="6013" href="OlderBasicILP.Direct.Gentzen.html#6013" class="Bound"
+      >t</a
+      ><a name="6014"
+      >        </a
+      ><a name="6022" class="Symbol"
+      >=</a
+      ><a name="6023"
+      > </a
+      ><a name="6024" href="OlderBasicILP.Direct.Gentzen.html#991" class="InductiveConstructor"
+      >down</a
+      ><a name="6028"
+      > </a
+      ><a name="6029" class="Symbol"
+      >(</a
+      ><a name="6030" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6031"
+      > </a
+      ><a name="6032" href="OlderBasicILP.Direct.Gentzen.html#6000" class="Bound"
+      >i</a
+      ><a name="6033"
+      > </a
+      ><a name="6034" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6035"
+      > </a
+      ><a name="6036" href="OlderBasicILP.Direct.Gentzen.html#6004" class="Bound"
+      >s</a
+      ><a name="6037"
+      > </a
+      ><a name="6038" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6039"
+      > </a
+      ><a name="6040" href="OlderBasicILP.Direct.Gentzen.html#6013" class="Bound"
+      >t</a
+      ><a name="6041" class="Symbol"
+      >)</a
+      ><a name="6042"
+      >
+  </a
+      ><a name="6045" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6046"
+      > </a
+      ><a name="6047" href="OlderBasicILP.Direct.Gentzen.html#6047" class="Bound"
+      >i</a
+      ><a name="6048"
+      > </a
+      ><a name="6049" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6050"
+      > </a
+      ><a name="6051" href="OlderBasicILP.Direct.Gentzen.html#6051" class="Bound"
+      >s</a
+      ><a name="6052"
+      > </a
+      ><a name="6053" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6054"
+      > </a
+      ><a name="6055" href="OlderBasicILP.Direct.Gentzen.html#1048" class="InductiveConstructor"
+      >pair</a
+      ><a name="6059"
+      > </a
+      ><a name="6060" href="OlderBasicILP.Direct.Gentzen.html#6060" class="Bound"
+      >t</a
+      ><a name="6061"
+      > </a
+      ><a name="6062" href="OlderBasicILP.Direct.Gentzen.html#6062" class="Bound"
+      >u</a
+      ><a name="6063"
+      >      </a
+      ><a name="6069" class="Symbol"
+      >=</a
+      ><a name="6070"
+      > </a
+      ><a name="6071" href="OlderBasicILP.Direct.Gentzen.html#1048" class="InductiveConstructor"
+      >pair</a
+      ><a name="6075"
+      > </a
+      ><a name="6076" class="Symbol"
+      >(</a
+      ><a name="6077" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6078"
+      > </a
+      ><a name="6079" href="OlderBasicILP.Direct.Gentzen.html#6047" class="Bound"
+      >i</a
+      ><a name="6080"
+      > </a
+      ><a name="6081" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6082"
+      > </a
+      ><a name="6083" href="OlderBasicILP.Direct.Gentzen.html#6051" class="Bound"
+      >s</a
+      ><a name="6084"
+      > </a
+      ><a name="6085" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6086"
+      > </a
+      ><a name="6087" href="OlderBasicILP.Direct.Gentzen.html#6060" class="Bound"
+      >t</a
+      ><a name="6088" class="Symbol"
+      >)</a
+      ><a name="6089"
+      > </a
+      ><a name="6090" class="Symbol"
+      >(</a
+      ><a name="6091" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6092"
+      > </a
+      ><a name="6093" href="OlderBasicILP.Direct.Gentzen.html#6047" class="Bound"
+      >i</a
+      ><a name="6094"
+      > </a
+      ><a name="6095" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6096"
+      > </a
+      ><a name="6097" href="OlderBasicILP.Direct.Gentzen.html#6051" class="Bound"
+      >s</a
+      ><a name="6098"
+      > </a
+      ><a name="6099" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6100"
+      > </a
+      ><a name="6101" href="OlderBasicILP.Direct.Gentzen.html#6062" class="Bound"
+      >u</a
+      ><a name="6102" class="Symbol"
+      >)</a
+      ><a name="6103"
+      >
+  </a
+      ><a name="6106" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6107"
+      > </a
+      ><a name="6108" href="OlderBasicILP.Direct.Gentzen.html#6108" class="Bound"
+      >i</a
+      ><a name="6109"
+      > </a
+      ><a name="6110" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6111"
+      > </a
+      ><a name="6112" href="OlderBasicILP.Direct.Gentzen.html#6112" class="Bound"
+      >s</a
+      ><a name="6113"
+      > </a
+      ><a name="6114" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6115"
+      > </a
+      ><a name="6116" href="OlderBasicILP.Direct.Gentzen.html#1110" class="InductiveConstructor"
+      >fst</a
+      ><a name="6119"
+      > </a
+      ><a name="6120" href="OlderBasicILP.Direct.Gentzen.html#6120" class="Bound"
+      >t</a
+      ><a name="6121"
+      >         </a
+      ><a name="6130" class="Symbol"
+      >=</a
+      ><a name="6131"
+      > </a
+      ><a name="6132" href="OlderBasicILP.Direct.Gentzen.html#1110" class="InductiveConstructor"
+      >fst</a
+      ><a name="6135"
+      > </a
+      ><a name="6136" class="Symbol"
+      >(</a
+      ><a name="6137" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6138"
+      > </a
+      ><a name="6139" href="OlderBasicILP.Direct.Gentzen.html#6108" class="Bound"
+      >i</a
+      ><a name="6140"
+      > </a
+      ><a name="6141" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6142"
+      > </a
+      ><a name="6143" href="OlderBasicILP.Direct.Gentzen.html#6112" class="Bound"
+      >s</a
+      ><a name="6144"
+      > </a
+      ><a name="6145" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6146"
+      > </a
+      ><a name="6147" href="OlderBasicILP.Direct.Gentzen.html#6120" class="Bound"
+      >t</a
+      ><a name="6148" class="Symbol"
+      >)</a
+      ><a name="6149"
+      >
+  </a
+      ><a name="6152" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6153"
+      > </a
+      ><a name="6154" href="OlderBasicILP.Direct.Gentzen.html#6154" class="Bound"
+      >i</a
+      ><a name="6155"
+      > </a
+      ><a name="6156" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6157"
+      > </a
+      ><a name="6158" href="OlderBasicILP.Direct.Gentzen.html#6158" class="Bound"
+      >s</a
+      ><a name="6159"
+      > </a
+      ><a name="6160" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6161"
+      > </a
+      ><a name="6162" href="OlderBasicILP.Direct.Gentzen.html#1164" class="InductiveConstructor"
+      >snd</a
+      ><a name="6165"
+      > </a
+      ><a name="6166" href="OlderBasicILP.Direct.Gentzen.html#6166" class="Bound"
+      >t</a
+      ><a name="6167"
+      >         </a
+      ><a name="6176" class="Symbol"
+      >=</a
+      ><a name="6177"
+      > </a
+      ><a name="6178" href="OlderBasicILP.Direct.Gentzen.html#1164" class="InductiveConstructor"
+      >snd</a
+      ><a name="6181"
+      > </a
+      ><a name="6182" class="Symbol"
+      >(</a
+      ><a name="6183" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6184"
+      > </a
+      ><a name="6185" href="OlderBasicILP.Direct.Gentzen.html#6154" class="Bound"
+      >i</a
+      ><a name="6186"
+      > </a
+      ><a name="6187" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6188"
+      > </a
+      ><a name="6189" href="OlderBasicILP.Direct.Gentzen.html#6158" class="Bound"
+      >s</a
+      ><a name="6190"
+      > </a
+      ><a name="6191" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6192"
+      > </a
+      ><a name="6193" href="OlderBasicILP.Direct.Gentzen.html#6166" class="Bound"
+      >t</a
+      ><a name="6194" class="Symbol"
+      >)</a
+      ><a name="6195"
+      >
+  </a
+      ><a name="6198" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6199"
+      > </a
+      ><a name="6200" href="OlderBasicILP.Direct.Gentzen.html#6200" class="Bound"
+      >i</a
+      ><a name="6201"
+      > </a
+      ><a name="6202" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6203"
+      > </a
+      ><a name="6204" href="OlderBasicILP.Direct.Gentzen.html#6204" class="Bound"
+      >s</a
+      ><a name="6205"
+      > </a
+      ><a name="6206" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6207"
+      > </a
+      ><a name="6208" href="OlderBasicILP.Direct.Gentzen.html#1218" class="InductiveConstructor"
+      >tt</a
+      ><a name="6210"
+      >            </a
+      ><a name="6222" class="Symbol"
+      >=</a
+      ><a name="6223"
+      > </a
+      ><a name="6224" href="OlderBasicILP.Direct.Gentzen.html#1218" class="InductiveConstructor"
+      >tt</a
+      ><a name="6226"
+      >
+
+  </a
+      ><a name="6230" href="OlderBasicILP.Direct.Gentzen.html#6230" class="Function Operator"
+      >[_&#8788;_]&#8902;_</a
+      ><a name="6237"
+      > </a
+      ><a name="6238" class="Symbol"
+      >:</a
+      ><a name="6239"
+      > </a
+      ><a name="6240" class="Symbol"
+      >&#8704;</a
+      ><a name="6241"
+      > </a
+      ><a name="6242" class="Symbol"
+      >{</a
+      ><a name="6243" href="OlderBasicILP.Direct.Gentzen.html#6243" class="Bound"
+      >&#926;</a
+      ><a name="6244"
+      > </a
+      ><a name="6245" href="OlderBasicILP.Direct.Gentzen.html#6245" class="Bound"
+      >A</a
+      ><a name="6246"
+      > </a
+      ><a name="6247" href="OlderBasicILP.Direct.Gentzen.html#6247" class="Bound"
+      >&#915;</a
+      ><a name="6248" class="Symbol"
+      >}</a
+      ><a name="6249"
+      > </a
+      ><a name="6250" class="Symbol"
+      >&#8594;</a
+      ><a name="6251"
+      > </a
+      ><a name="6252" class="Symbol"
+      >(</a
+      ><a name="6253" href="OlderBasicILP.Direct.Gentzen.html#6253" class="Bound"
+      >i</a
+      ><a name="6254"
+      > </a
+      ><a name="6255" class="Symbol"
+      >:</a
+      ><a name="6256"
+      > </a
+      ><a name="6257" href="OlderBasicILP.Direct.Gentzen.html#6245" class="Bound"
+      >A</a
+      ><a name="6258"
+      > </a
+      ><a name="6259" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="6260"
+      > </a
+      ><a name="6261" href="OlderBasicILP.Direct.Gentzen.html#6247" class="Bound"
+      >&#915;</a
+      ><a name="6262" class="Symbol"
+      >)</a
+      ><a name="6263"
+      > </a
+      ><a name="6264" class="Symbol"
+      >&#8594;</a
+      ><a name="6265"
+      > </a
+      ><a name="6266" href="OlderBasicILP.Direct.Gentzen.html#6247" class="Bound"
+      >&#915;</a
+      ><a name="6267"
+      > </a
+      ><a name="6268" href="Common.Context.html#3866" class="Function Operator"
+      >&#8726;</a
+      ><a name="6269"
+      > </a
+      ><a name="6270" href="OlderBasicILP.Direct.Gentzen.html#6253" class="Bound"
+      >i</a
+      ><a name="6271"
+      > </a
+      ><a name="6272" href="OlderBasicILP.Direct.Gentzen.html#636" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="6273"
+      > </a
+      ><a name="6274" href="OlderBasicILP.Direct.Gentzen.html#6245" class="Bound"
+      >A</a
+      ><a name="6275"
+      > </a
+      ><a name="6276" class="Symbol"
+      >&#8594;</a
+      ><a name="6277"
+      > </a
+      ><a name="6278" href="OlderBasicILP.Direct.Gentzen.html#6247" class="Bound"
+      >&#915;</a
+      ><a name="6279"
+      > </a
+      ><a name="6280" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="6282"
+      > </a
+      ><a name="6283" href="OlderBasicILP.Direct.Gentzen.html#6243" class="Bound"
+      >&#926;</a
+      ><a name="6284"
+      > </a
+      ><a name="6285" class="Symbol"
+      >&#8594;</a
+      ><a name="6286"
+      > </a
+      ><a name="6287" href="OlderBasicILP.Direct.Gentzen.html#6247" class="Bound"
+      >&#915;</a
+      ><a name="6288"
+      > </a
+      ><a name="6289" href="Common.Context.html#3866" class="Function Operator"
+      >&#8726;</a
+      ><a name="6290"
+      > </a
+      ><a name="6291" href="OlderBasicILP.Direct.Gentzen.html#6253" class="Bound"
+      >i</a
+      ><a name="6292"
+      > </a
+      ><a name="6293" href="OlderBasicILP.Direct.Gentzen.html#1253" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="6295"
+      > </a
+      ><a name="6296" href="OlderBasicILP.Direct.Gentzen.html#6243" class="Bound"
+      >&#926;</a
+      ><a name="6297"
+      >
+  </a
+      ><a name="6300" href="OlderBasicILP.Direct.Gentzen.html#6230" class="Function Operator"
+      >[_&#8788;_]&#8902;_</a
+      ><a name="6307"
+      > </a
+      ><a name="6308" class="Symbol"
+      >{</a
+      ><a name="6309" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="6310" class="Symbol"
+      >}</a
+      ><a name="6311"
+      >     </a
+      ><a name="6316" href="OlderBasicILP.Direct.Gentzen.html#6316" class="Bound"
+      >i</a
+      ><a name="6317"
+      > </a
+      ><a name="6318" href="OlderBasicILP.Direct.Gentzen.html#6318" class="Bound"
+      >s</a
+      ><a name="6319"
+      > </a
+      ><a name="6320" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="6321"
+      >        </a
+      ><a name="6329" class="Symbol"
+      >=</a
+      ><a name="6330"
+      > </a
+      ><a name="6331" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="6332"
+      >
+  </a
+      ><a name="6335" href="OlderBasicILP.Direct.Gentzen.html#6230" class="Function Operator"
+      >[_&#8788;_]&#8902;_</a
+      ><a name="6342"
+      > </a
+      ><a name="6343" class="Symbol"
+      >{</a
+      ><a name="6344" href="OlderBasicILP.Direct.Gentzen.html#6344" class="Bound"
+      >&#926;</a
+      ><a name="6345"
+      > </a
+      ><a name="6346" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="6347"
+      > </a
+      ><a name="6348" href="OlderBasicILP.Direct.Gentzen.html#6348" class="Bound"
+      >B</a
+      ><a name="6349" class="Symbol"
+      >}</a
+      ><a name="6350"
+      > </a
+      ><a name="6351" href="OlderBasicILP.Direct.Gentzen.html#6351" class="Bound"
+      >i</a
+      ><a name="6352"
+      > </a
+      ><a name="6353" href="OlderBasicILP.Direct.Gentzen.html#6353" class="Bound"
+      >s</a
+      ><a name="6354"
+      > </a
+      ><a name="6355" class="Symbol"
+      >(</a
+      ><a name="6356" href="OlderBasicILP.Direct.Gentzen.html#6356" class="Bound"
+      >ts</a
+      ><a name="6358"
+      > </a
+      ><a name="6359" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="6360"
+      > </a
+      ><a name="6361" href="OlderBasicILP.Direct.Gentzen.html#6361" class="Bound"
+      >t</a
+      ><a name="6362" class="Symbol"
+      >)</a
+      ><a name="6363"
+      > </a
+      ><a name="6364" class="Symbol"
+      >=</a
+      ><a name="6365"
+      > </a
+      ><a name="6366" href="OlderBasicILP.Direct.Gentzen.html#6230" class="Function Operator"
+      >[</a
+      ><a name="6367"
+      > </a
+      ><a name="6368" href="OlderBasicILP.Direct.Gentzen.html#6351" class="Bound"
+      >i</a
+      ><a name="6369"
+      > </a
+      ><a name="6370" href="OlderBasicILP.Direct.Gentzen.html#6230" class="Function Operator"
+      >&#8788;</a
+      ><a name="6371"
+      > </a
+      ><a name="6372" href="OlderBasicILP.Direct.Gentzen.html#6353" class="Bound"
+      >s</a
+      ><a name="6373"
+      > </a
+      ><a name="6374" href="OlderBasicILP.Direct.Gentzen.html#6230" class="Function Operator"
+      >]&#8902;</a
+      ><a name="6376"
+      > </a
+      ><a name="6377" href="OlderBasicILP.Direct.Gentzen.html#6356" class="Bound"
+      >ts</a
+      ><a name="6379"
+      > </a
+      ><a name="6380" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="6381"
+      > </a
+      ><a name="6382" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >[</a
+      ><a name="6383"
+      > </a
+      ><a name="6384" href="OlderBasicILP.Direct.Gentzen.html#6351" class="Bound"
+      >i</a
+      ><a name="6385"
+      > </a
+      ><a name="6386" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >&#8788;</a
+      ><a name="6387"
+      > </a
+      ><a name="6388" href="OlderBasicILP.Direct.Gentzen.html#6353" class="Bound"
+      >s</a
+      ><a name="6389"
+      > </a
+      ><a name="6390" href="OlderBasicILP.Direct.Gentzen.html#5632" class="Function Operator"
+      >]</a
+      ><a name="6391"
+      > </a
+      ><a name="6392" href="OlderBasicILP.Direct.Gentzen.html#6361" class="Bound"
+      >t</a
+      ><a name="6393"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
