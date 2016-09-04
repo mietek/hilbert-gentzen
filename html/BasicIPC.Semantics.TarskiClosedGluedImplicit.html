@@ -10,2390 +10,2395 @@
   ><body
   ><pre
     ><a name="1" class="Comment"
+      >-- Basic intuitionistic propositional calculus, without &#8744; or &#8869;.</a
+      ><a name="64"
+      >
+</a
+      ><a name="65" class="Comment"
       >-- Tarski-style semantics with glueing for &#945; and &#9659;, after Coquand-Dybjer.</a
-      ><a name="74"
+      ><a name="138"
       >
 </a
-      ><a name="75" class="Comment"
+      ><a name="139" class="Comment"
       >-- Implicit closed syntax.</a
-      ><a name="101"
+      ><a name="165"
       >
 
 </a
-      ><a name="103" class="Keyword"
-      >module</a
-      ><a name="109"
-      > </a
-      ><a name="110" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1" class="Module"
-      >BasicIPC.Semantics.TarskiClosedGluedImplicit</a
-      ><a name="154"
-      > </a
-      ><a name="155" class="Keyword"
-      >where</a
-      ><a name="160"
-      >
-
-</a
-      ><a name="162" class="Keyword"
-      >open</a
-      ><a name="166"
-      > </a
       ><a name="167" class="Keyword"
-      >import</a
+      >module</a
       ><a name="173"
       > </a
-      ><a name="174" href="BasicIPC.Syntax.Common.html#1" class="Module"
-      >BasicIPC.Syntax.Common</a
-      ><a name="196"
+      ><a name="174" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1" class="Module"
+      >BasicIPC.Semantics.TarskiClosedGluedImplicit</a
+      ><a name="218"
       > </a
-      ><a name="197" class="Keyword"
-      >public</a
-      ><a name="203"
-      >
-</a
-      ><a name="204" class="Keyword"
-      >open</a
-      ><a name="208"
-      > </a
-      ><a name="209" class="Keyword"
-      >import</a
-      ><a name="215"
-      > </a
-      ><a name="216" href="Common.Semantics.html#1" class="Module"
-      >Common.Semantics</a
-      ><a name="232"
-      > </a
-      ><a name="233" class="Keyword"
-      >public</a
-      ><a name="239"
-      >
-
-
-</a
-      ><a name="242" class="Comment"
-      >-- Tarski models.</a
-      ><a name="259"
-      >
-
-</a
-      ><a name="261" class="Keyword"
-      >record</a
-      ><a name="267"
-      > </a
-      ><a name="268" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#268" class="Record"
-      >Model</a
-      ><a name="273"
-      > </a
-      ><a name="274" class="Symbol"
-      >:</a
-      ><a name="275"
-      > </a
-      ><a name="276" class="PrimitiveType"
-      >Set&#8321;</a
-      ><a name="280"
-      > </a
-      ><a name="281" class="Keyword"
+      ><a name="219" class="Keyword"
       >where</a
-      ><a name="286"
+      ><a name="224"
       >
-  </a
-      ><a name="289" class="Keyword"
-      >infix</a
-      ><a name="294"
+
+</a
+      ><a name="226" class="Keyword"
+      >open</a
+      ><a name="230"
       > </a
-      ><a name="295" class="Number"
-      >3</a
+      ><a name="231" class="Keyword"
+      >import</a
+      ><a name="237"
+      > </a
+      ><a name="238" href="BasicIPC.Syntax.Common.html#1" class="Module"
+      >BasicIPC.Syntax.Common</a
+      ><a name="260"
+      > </a
+      ><a name="261" class="Keyword"
+      >public</a
+      ><a name="267"
+      >
+</a
+      ><a name="268" class="Keyword"
+      >open</a
+      ><a name="272"
+      > </a
+      ><a name="273" class="Keyword"
+      >import</a
+      ><a name="279"
+      > </a
+      ><a name="280" href="Common.Semantics.html#1" class="Module"
+      >Common.Semantics</a
       ><a name="296"
-      > &#8873;&#7493;_
-  </a
-      ><a name="303" class="Keyword"
-      >field</a
-      ><a name="308"
-      >
-    </a
-      ><a name="313" class="Comment"
-      >-- Forcing for atomic propositions.</a
-      ><a name="348"
-      >
-    </a
-      ><a name="353" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#353" class="Field Operator"
-      >&#8873;&#7493;_</a
-      ><a name="356"
       > </a
-      ><a name="357" class="Symbol"
+      ><a name="297" class="Keyword"
+      >public</a
+      ><a name="303"
+      >
+
+
+</a
+      ><a name="306" class="Comment"
+      >-- Tarski models.</a
+      ><a name="323"
+      >
+
+</a
+      ><a name="325" class="Keyword"
+      >record</a
+      ><a name="331"
+      > </a
+      ><a name="332" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#332" class="Record"
+      >Model</a
+      ><a name="337"
+      > </a
+      ><a name="338" class="Symbol"
       >:</a
+      ><a name="339"
+      > </a
+      ><a name="340" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="344"
+      > </a
+      ><a name="345" class="Keyword"
+      >where</a
+      ><a name="350"
+      >
+  </a
+      ><a name="353" class="Keyword"
+      >infix</a
       ><a name="358"
       > </a
-      ><a name="359" href="Common.html#1192" class="Function"
-      >Atom</a
-      ><a name="363"
-      > </a
-      ><a name="364" class="Symbol"
-      >&#8594;</a
-      ><a name="365"
-      > </a
-      ><a name="366" class="PrimitiveType"
-      >Set</a
-      ><a name="369"
-      >
-
-</a
-      ><a name="371" class="Keyword"
-      >open</a
-      ><a name="375"
-      > </a
-      ><a name="376" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#268" class="Module"
-      >Model</a
-      ><a name="381"
-      > </a
-      ><a name="382" class="Symbol"
-      >{{&#8230;}}</a
-      ><a name="387"
-      > </a
-      ><a name="388" class="Keyword"
-      >public</a
-      ><a name="394"
-      >
-
-
-
-
-</a
-      ><a name="399" class="Keyword"
-      >module</a
-      ><a name="405"
-      > </a
-      ><a name="406" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#406" class="Module"
-      >ImplicitSyntax</a
-      ><a name="420"
-      >
-    </a
-      ><a name="425" class="Symbol"
-      >(</a
-      ><a name="426" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#426" class="Bound Operator"
-      >[&#8866;]_</a
-      ><a name="430"
-      > </a
-      ><a name="431" class="Symbol"
-      >:</a
-      ><a name="432"
-      > </a
-      ><a name="433" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="435"
-      > </a
-      ><a name="436" class="Symbol"
-      >&#8594;</a
-      ><a name="437"
-      > </a
-      ><a name="438" class="PrimitiveType"
-      >Set</a
-      ><a name="441" class="Symbol"
-      >)</a
-      ><a name="442"
-      >
-  </a
-      ><a name="445" class="Keyword"
-      >where</a
-      ><a name="450"
-      >
-
-
-  </a
-      ><a name="455" class="Comment"
-      >-- Forcing in a particular model.</a
-      ><a name="488"
-      >
-
-  </a
-      ><a name="492" class="Keyword"
-      >module</a
-      ><a name="498"
-      > </a
-      ><a name="499" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#499" class="Module"
-      >_</a
-      ><a name="500"
-      > </a
-      ><a name="501" class="Symbol"
-      >{{</a
-      ><a name="503" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#503" class="Bound"
-      >_</a
-      ><a name="504"
-      > </a
-      ><a name="505" class="Symbol"
-      >:</a
-      ><a name="506"
-      > </a
-      ><a name="507" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#268" class="Record"
-      >Model</a
-      ><a name="512" class="Symbol"
-      >}}</a
-      ><a name="514"
-      > </a
-      ><a name="515" class="Keyword"
-      >where</a
-      ><a name="520"
-      >
-    </a
-      ><a name="525" class="Keyword"
-      >infix</a
-      ><a name="530"
-      > </a
-      ><a name="531" class="Number"
+      ><a name="359" class="Number"
       >3</a
-      ><a name="532"
+      ><a name="360"
+      > &#8873;&#7493;_
+  </a
+      ><a name="367" class="Keyword"
+      >field</a
+      ><a name="372"
+      >
+    </a
+      ><a name="377" class="Comment"
+      >-- Forcing for atomic propositions.</a
+      ><a name="412"
+      >
+    </a
+      ><a name="417" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#417" class="Field Operator"
+      >&#8873;&#7493;_</a
+      ><a name="420"
+      > </a
+      ><a name="421" class="Symbol"
+      >:</a
+      ><a name="422"
+      > </a
+      ><a name="423" href="Common.html#1192" class="Function"
+      >Atom</a
+      ><a name="427"
+      > </a
+      ><a name="428" class="Symbol"
+      >&#8594;</a
+      ><a name="429"
+      > </a
+      ><a name="430" class="PrimitiveType"
+      >Set</a
+      ><a name="433"
+      >
+
+</a
+      ><a name="435" class="Keyword"
+      >open</a
+      ><a name="439"
+      > </a
+      ><a name="440" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#332" class="Module"
+      >Model</a
+      ><a name="445"
+      > </a
+      ><a name="446" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="451"
+      > </a
+      ><a name="452" class="Keyword"
+      >public</a
+      ><a name="458"
+      >
+
+
+
+
+</a
+      ><a name="463" class="Keyword"
+      >module</a
+      ><a name="469"
+      > </a
+      ><a name="470" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#470" class="Module"
+      >ImplicitSyntax</a
+      ><a name="484"
+      >
+    </a
+      ><a name="489" class="Symbol"
+      >(</a
+      ><a name="490" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#490" class="Bound Operator"
+      >[&#8866;]_</a
+      ><a name="494"
+      > </a
+      ><a name="495" class="Symbol"
+      >:</a
+      ><a name="496"
+      > </a
+      ><a name="497" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="499"
+      > </a
+      ><a name="500" class="Symbol"
+      >&#8594;</a
+      ><a name="501"
+      > </a
+      ><a name="502" class="PrimitiveType"
+      >Set</a
+      ><a name="505" class="Symbol"
+      >)</a
+      ><a name="506"
+      >
+  </a
+      ><a name="509" class="Keyword"
+      >where</a
+      ><a name="514"
+      >
+
+
+  </a
+      ><a name="519" class="Comment"
+      >-- Forcing in a particular model.</a
+      ><a name="552"
+      >
+
+  </a
+      ><a name="556" class="Keyword"
+      >module</a
+      ><a name="562"
+      > </a
+      ><a name="563" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#563" class="Module"
+      >_</a
+      ><a name="564"
+      > </a
+      ><a name="565" class="Symbol"
+      >{{</a
+      ><a name="567" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#567" class="Bound"
+      >_</a
+      ><a name="568"
+      > </a
+      ><a name="569" class="Symbol"
+      >:</a
+      ><a name="570"
+      > </a
+      ><a name="571" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#332" class="Record"
+      >Model</a
+      ><a name="576" class="Symbol"
+      >}}</a
+      ><a name="578"
+      > </a
+      ><a name="579" class="Keyword"
+      >where</a
+      ><a name="584"
+      >
+    </a
+      ><a name="589" class="Keyword"
+      >infix</a
+      ><a name="594"
+      > </a
+      ><a name="595" class="Number"
+      >3</a
+      ><a name="596"
       > &#8873;_
     </a
-      ><a name="540" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
+      ><a name="604" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
       >&#8873;_</a
-      ><a name="542"
+      ><a name="606"
       > </a
-      ><a name="543" class="Symbol"
+      ><a name="607" class="Symbol"
       >:</a
-      ><a name="544"
+      ><a name="608"
       > </a
-      ><a name="545" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      ><a name="609" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
       >Ty</a
-      ><a name="547"
+      ><a name="611"
       > </a
-      ><a name="548" class="Symbol"
+      ><a name="612" class="Symbol"
       >&#8594;</a
-      ><a name="549"
+      ><a name="613"
       > </a
-      ><a name="550" class="PrimitiveType"
+      ><a name="614" class="PrimitiveType"
       >Set</a
-      ><a name="553"
+      ><a name="617"
       >
     </a
-      ><a name="558" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
+      ><a name="622" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
       >&#8873;</a
-      ><a name="559"
+      ><a name="623"
       > </a
-      ><a name="560" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
+      ><a name="624" href="BasicIPC.Syntax.Common.html#233" class="InductiveConstructor Operator"
       >&#945;</a
-      ><a name="561"
+      ><a name="625"
       > </a
-      ><a name="562" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#562" class="Bound"
+      ><a name="626" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#626" class="Bound"
       >P</a
-      ><a name="563"
-      >   </a
-      ><a name="566" class="Symbol"
-      >=</a
-      ><a name="567"
-      > </a
-      ><a name="568" href="Common.Semantics.html#113" class="Record"
-      >Glue</a
-      ><a name="572"
-      > </a
-      ><a name="573" class="Symbol"
-      >(</a
-      ><a name="574" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#426" class="Bound Operator"
-      >[&#8866;]</a
-      ><a name="577"
-      > </a
-      ><a name="578" class="Symbol"
-      >(</a
-      ><a name="579" href="BasicIPC.Syntax.Common.html#169" class="InductiveConstructor Operator"
-      >&#945;</a
-      ><a name="580"
-      > </a
-      ><a name="581" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#562" class="Bound"
-      >P</a
-      ><a name="582" class="Symbol"
-      >))</a
-      ><a name="584"
-      > </a
-      ><a name="585" class="Symbol"
-      >(</a
-      ><a name="586" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#353" class="Field Operator"
-      >&#8873;&#7493;</a
-      ><a name="588"
-      > </a
-      ><a name="589" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#562" class="Bound"
-      >P</a
-      ><a name="590" class="Symbol"
-      >)</a
-      ><a name="591"
-      >
-    </a
-      ><a name="596" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="597"
-      > </a
-      ><a name="598" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#598" class="Bound"
-      >A</a
-      ><a name="599"
-      > </a
-      ><a name="600" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="601"
-      > </a
-      ><a name="602" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#602" class="Bound"
-      >B</a
-      ><a name="603"
-      > </a
-      ><a name="604" class="Symbol"
-      >=</a
-      ><a name="605"
-      > </a
-      ><a name="606" href="Common.Semantics.html#113" class="Record"
-      >Glue</a
-      ><a name="610"
-      > </a
-      ><a name="611" class="Symbol"
-      >(</a
-      ><a name="612" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#426" class="Bound Operator"
-      >[&#8866;]</a
-      ><a name="615"
-      > </a
-      ><a name="616" class="Symbol"
-      >(</a
-      ><a name="617" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#598" class="Bound"
-      >A</a
-      ><a name="618"
-      > </a
-      ><a name="619" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="620"
-      > </a
-      ><a name="621" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#602" class="Bound"
-      >B</a
-      ><a name="622" class="Symbol"
-      >))</a
-      ><a name="624"
-      > </a
-      ><a name="625" class="Symbol"
-      >(</a
-      ><a name="626" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
       ><a name="627"
-      > </a
-      ><a name="628" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#598" class="Bound"
-      >A</a
-      ><a name="629"
-      > </a
+      >   </a
       ><a name="630" class="Symbol"
-      >&#8594;</a
+      >=</a
       ><a name="631"
       > </a
-      ><a name="632" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="633"
-      > </a
-      ><a name="634" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#602" class="Bound"
-      >B</a
-      ><a name="635" class="Symbol"
-      >)</a
+      ><a name="632" href="Common.Semantics.html#113" class="Record"
+      >Glue</a
       ><a name="636"
-      >
-    </a
-      ><a name="641" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="642"
       > </a
-      ><a name="643" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#643" class="Bound"
-      >A</a
+      ><a name="637" class="Symbol"
+      >(</a
+      ><a name="638" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#490" class="Bound Operator"
+      >[&#8866;]</a
+      ><a name="641"
+      > </a
+      ><a name="642" class="Symbol"
+      >(</a
+      ><a name="643" href="BasicIPC.Syntax.Common.html#233" class="InductiveConstructor Operator"
+      >&#945;</a
       ><a name="644"
       > </a
-      ><a name="645" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
-      >&#8743;</a
-      ><a name="646"
-      > </a
-      ><a name="647" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#647" class="Bound"
-      >B</a
+      ><a name="645" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#626" class="Bound"
+      >P</a
+      ><a name="646" class="Symbol"
+      >))</a
       ><a name="648"
       > </a
       ><a name="649" class="Symbol"
-      >=</a
-      ><a name="650"
-      > </a
-      ><a name="651" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
+      >(</a
+      ><a name="650" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#417" class="Field Operator"
+      >&#8873;&#7493;</a
       ><a name="652"
       > </a
-      ><a name="653" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#643" class="Bound"
+      ><a name="653" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#626" class="Bound"
+      >P</a
+      ><a name="654" class="Symbol"
+      >)</a
+      ><a name="655"
+      >
+    </a
+      ><a name="660" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="661"
+      > </a
+      ><a name="662" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#662" class="Bound"
       >A</a
-      ><a name="654"
+      ><a name="663"
       > </a
-      ><a name="655" href="Common.html#1523" class="Function Operator"
-      >&#215;</a
-      ><a name="656"
+      ><a name="664" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="665"
       > </a
-      ><a name="657" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="658"
-      > </a
-      ><a name="659" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#647" class="Bound"
+      ><a name="666" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#666" class="Bound"
       >B</a
-      ><a name="660"
-      >
-    </a
-      ><a name="665" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="666"
+      ><a name="667"
       > </a
-      ><a name="667" href="BasicIPC.Syntax.Common.html#229" class="InductiveConstructor"
-      >&#8868;</a
-      ><a name="668"
-      >    </a
-      ><a name="672" class="Symbol"
+      ><a name="668" class="Symbol"
       >=</a
-      ><a name="673"
+      ><a name="669"
       > </a
-      ><a name="674" href="Agda.Builtin.Unit.html#41" class="Record"
-      >&#120793;</a
-      ><a name="675"
-      >
-
-    </a
-      ><a name="681" class="Keyword"
-      >infix</a
-      ><a name="686"
+      ><a name="670" href="Common.Semantics.html#113" class="Record"
+      >Glue</a
+      ><a name="674"
       > </a
-      ><a name="687" class="Number"
-      >3</a
+      ><a name="675" class="Symbol"
+      >(</a
+      ><a name="676" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#490" class="Bound Operator"
+      >[&#8866;]</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >(</a
+      ><a name="681" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#662" class="Bound"
+      >A</a
+      ><a name="682"
+      > </a
+      ><a name="683" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="684"
+      > </a
+      ><a name="685" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#666" class="Bound"
+      >B</a
+      ><a name="686" class="Symbol"
+      >))</a
       ><a name="688"
-      > &#8873;&#8902;_
-    </a
-      ><a name="697" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#697" class="Function Operator"
-      >&#8873;&#8902;_</a
+      > </a
+      ><a name="689" class="Symbol"
+      >(</a
+      ><a name="690" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="691"
+      > </a
+      ><a name="692" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#662" class="Bound"
+      >A</a
+      ><a name="693"
+      > </a
+      ><a name="694" class="Symbol"
+      >&#8594;</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#666" class="Bound"
+      >B</a
+      ><a name="699" class="Symbol"
+      >)</a
       ><a name="700"
+      >
+    </a
+      ><a name="705" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="706"
       > </a
-      ><a name="701" class="Symbol"
-      >:</a
-      ><a name="702"
-      > </a
-      ><a name="703" href="Common.Context.html#77" class="Datatype"
-      >Cx</a
-      ><a name="705"
-      > </a
-      ><a name="706" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
+      ><a name="707" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#707" class="Bound"
+      >A</a
       ><a name="708"
       > </a
-      ><a name="709" class="Symbol"
-      >&#8594;</a
+      ><a name="709" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
       ><a name="710"
       > </a
-      ><a name="711" class="PrimitiveType"
-      >Set</a
+      ><a name="711" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#711" class="Bound"
+      >B</a
+      ><a name="712"
+      > </a
+      ><a name="713" class="Symbol"
+      >=</a
       ><a name="714"
-      >
-    </a
-      ><a name="719" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#697" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="721"
       > </a
-      ><a name="722" href="Common.Context.html#104" class="InductiveConstructor"
-      >&#8709;</a
-      ><a name="723"
-      >     </a
-      ><a name="728" class="Symbol"
-      >=</a
-      ><a name="729"
-      > </a
-      ><a name="730" href="Agda.Builtin.Unit.html#41" class="Record"
-      >&#120793;</a
-      ><a name="731"
-      >
-    </a
-      ><a name="736" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#697" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="738"
-      > </a
-      ><a name="739" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#739" class="Bound"
-      >&#926;</a
-      ><a name="740"
-      > </a
-      ><a name="741" href="Common.Context.html#117" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="742"
-      > </a
-      ><a name="743" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#743" class="Bound"
-      >A</a
-      ><a name="744"
-      > </a
-      ><a name="745" class="Symbol"
-      >=</a
-      ><a name="746"
-      > </a
-      ><a name="747" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#697" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="749"
-      > </a
-      ><a name="750" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#739" class="Bound"
-      >&#926;</a
-      ><a name="751"
-      > </a
-      ><a name="752" href="Common.html#1523" class="Function Operator"
-      >&#215;</a
-      ><a name="753"
-      > </a
-      ><a name="754" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
+      ><a name="715" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
       >&#8873;</a
-      ><a name="755"
+      ><a name="716"
       > </a
-      ><a name="756" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#743" class="Bound"
+      ><a name="717" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#707" class="Bound"
       >A</a
-      ><a name="757"
-      >
-
-
-  </a
-      ><a name="762" class="Comment"
-      >-- Entailment, or forcing in all models.</a
-      ><a name="802"
-      >
-
-  </a
-      ><a name="806" class="Keyword"
-      >infix</a
-      ><a name="811"
+      ><a name="718"
       > </a
-      ><a name="812" class="Number"
+      ><a name="719" href="Common.html#1523" class="Function Operator"
+      >&#215;</a
+      ><a name="720"
+      > </a
+      ><a name="721" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="722"
+      > </a
+      ><a name="723" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#711" class="Bound"
+      >B</a
+      ><a name="724"
+      >
+    </a
+      ><a name="729" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="BasicIPC.Syntax.Common.html#293" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="732"
+      >    </a
+      ><a name="736" class="Symbol"
+      >=</a
+      ><a name="737"
+      > </a
+      ><a name="738" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="739"
+      >
+
+    </a
+      ><a name="745" class="Keyword"
+      >infix</a
+      ><a name="750"
+      > </a
+      ><a name="751" class="Number"
       >3</a
+      ><a name="752"
+      > &#8873;&#8902;_
+    </a
+      ><a name="761" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#761" class="Function Operator"
+      >&#8873;&#8902;_</a
+      ><a name="764"
+      > </a
+      ><a name="765" class="Symbol"
+      >:</a
+      ><a name="766"
+      > </a
+      ><a name="767" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="769"
+      > </a
+      ><a name="770" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="772"
+      > </a
+      ><a name="773" class="Symbol"
+      >&#8594;</a
+      ><a name="774"
+      > </a
+      ><a name="775" class="PrimitiveType"
+      >Set</a
+      ><a name="778"
+      >
+    </a
+      ><a name="783" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#761" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="785"
+      > </a
+      ><a name="786" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="787"
+      >     </a
+      ><a name="792" class="Symbol"
+      >=</a
+      ><a name="793"
+      > </a
+      ><a name="794" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="795"
+      >
+    </a
+      ><a name="800" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#761" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="802"
+      > </a
+      ><a name="803" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#803" class="Bound"
+      >&#926;</a
+      ><a name="804"
+      > </a
+      ><a name="805" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="806"
+      > </a
+      ><a name="807" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#807" class="Bound"
+      >A</a
+      ><a name="808"
+      > </a
+      ><a name="809" class="Symbol"
+      >=</a
+      ><a name="810"
+      > </a
+      ><a name="811" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#761" class="Function Operator"
+      >&#8873;&#8902;</a
       ><a name="813"
+      > </a
+      ><a name="814" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#803" class="Bound"
+      >&#926;</a
+      ><a name="815"
+      > </a
+      ><a name="816" href="Common.html#1523" class="Function Operator"
+      >&#215;</a
+      ><a name="817"
+      > </a
+      ><a name="818" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="819"
+      > </a
+      ><a name="820" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#807" class="Bound"
+      >A</a
+      ><a name="821"
+      >
+
+
+  </a
+      ><a name="826" class="Comment"
+      >-- Entailment, or forcing in all models.</a
+      ><a name="866"
+      >
+
+  </a
+      ><a name="870" class="Keyword"
+      >infix</a
+      ><a name="875"
+      > </a
+      ><a name="876" class="Number"
+      >3</a
+      ><a name="877"
       > &#8872;_
   </a
-      ><a name="819" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#819" class="Function Operator"
+      ><a name="883" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#883" class="Function Operator"
       >&#8872;_</a
-      ><a name="821"
+      ><a name="885"
       > </a
-      ><a name="822" class="Symbol"
+      ><a name="886" class="Symbol"
       >:</a
-      ><a name="823"
+      ><a name="887"
       > </a
-      ><a name="824" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      ><a name="888" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
       >Ty</a
-      ><a name="826"
+      ><a name="890"
       > </a
-      ><a name="827" class="Symbol"
+      ><a name="891" class="Symbol"
       >&#8594;</a
-      ><a name="828"
+      ><a name="892"
       > </a
-      ><a name="829" class="PrimitiveType"
+      ><a name="893" class="PrimitiveType"
       >Set&#8321;</a
-      ><a name="833"
+      ><a name="897"
       >
   </a
-      ><a name="836" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#819" class="Function Operator"
+      ><a name="900" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#883" class="Function Operator"
       >&#8872;</a
-      ><a name="837"
+      ><a name="901"
       > </a
-      ><a name="838" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#838" class="Bound"
+      ><a name="902" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#902" class="Bound"
       >A</a
-      ><a name="839"
+      ><a name="903"
       > </a
-      ><a name="840" class="Symbol"
+      ><a name="904" class="Symbol"
       >=</a
-      ><a name="841"
+      ><a name="905"
       > </a
-      ><a name="842" class="Symbol"
+      ><a name="906" class="Symbol"
       >&#8704;</a
-      ><a name="843"
+      ><a name="907"
       > </a
-      ><a name="844" class="Symbol"
+      ><a name="908" class="Symbol"
       >{{</a
-      ><a name="846" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#846" class="Bound"
-      >_</a
-      ><a name="847"
-      > </a
-      ><a name="848" class="Symbol"
-      >:</a
-      ><a name="849"
-      > </a
-      ><a name="850" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#268" class="Record"
-      >Model</a
-      ><a name="855" class="Symbol"
-      >}}</a
-      ><a name="857"
-      > </a
-      ><a name="858" class="Symbol"
-      >&#8594;</a
-      ><a name="859"
-      > </a
-      ><a name="860" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="861"
-      > </a
-      ><a name="862" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#838" class="Bound"
-      >A</a
-      ><a name="863"
-      >
-
-
-  </a
-      ><a name="868" class="Comment"
-      >-- Additional useful equipment.</a
-      ><a name="899"
-      >
-
-  </a
-      ><a name="903" class="Keyword"
-      >module</a
-      ><a name="909"
-      > </a
-      ><a name="910" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#910" class="Module"
+      ><a name="910" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#910" class="Bound"
       >_</a
       ><a name="911"
       > </a
       ><a name="912" class="Symbol"
-      >{{</a
-      ><a name="914" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#914" class="Bound"
-      >_</a
-      ><a name="915"
-      > </a
-      ><a name="916" class="Symbol"
       >:</a
-      ><a name="917"
+      ><a name="913"
       > </a
-      ><a name="918" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#268" class="Record"
+      ><a name="914" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#332" class="Record"
       >Model</a
-      ><a name="923" class="Symbol"
+      ><a name="919" class="Symbol"
       >}}</a
+      ><a name="921"
+      > </a
+      ><a name="922" class="Symbol"
+      >&#8594;</a
+      ><a name="923"
+      > </a
+      ><a name="924" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
       ><a name="925"
       > </a
-      ><a name="926" class="Keyword"
-      >where</a
-      ><a name="931"
+      ><a name="926" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#902" class="Bound"
+      >A</a
+      ><a name="927"
       >
-    </a
-      ><a name="936" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#936" class="Function Operator"
-      >_&#10218;$&#10219;_</a
-      ><a name="941"
-      > </a
-      ><a name="942" class="Symbol"
-      >:</a
-      ><a name="943"
-      > </a
-      ><a name="944" class="Symbol"
-      >&#8704;</a
-      ><a name="945"
-      > </a
-      ><a name="946" class="Symbol"
-      >{</a
-      ><a name="947" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#947" class="Bound"
-      >A</a
-      ><a name="948"
-      > </a
-      ><a name="949" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#949" class="Bound"
-      >B</a
-      ><a name="950" class="Symbol"
-      >}</a
-      ><a name="951"
-      > </a
-      ><a name="952" class="Symbol"
-      >&#8594;</a
-      ><a name="953"
-      > </a
-      ><a name="954" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="955"
-      > </a
-      ><a name="956" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#947" class="Bound"
-      >A</a
-      ><a name="957"
-      > </a
-      ><a name="958" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="959"
-      > </a
-      ><a name="960" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#949" class="Bound"
-      >B</a
-      ><a name="961"
-      > </a
-      ><a name="962" class="Symbol"
-      >&#8594;</a
+
+
+  </a
+      ><a name="932" class="Comment"
+      >-- Additional useful equipment.</a
       ><a name="963"
-      > </a
-      ><a name="964" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="965"
-      > </a
-      ><a name="966" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#947" class="Bound"
-      >A</a
-      ><a name="967"
-      > </a
-      ><a name="968" class="Symbol"
-      >&#8594;</a
-      ><a name="969"
-      > </a
-      ><a name="970" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="971"
-      > </a
-      ><a name="972" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#949" class="Bound"
-      >B</a
-      ><a name="973"
       >
-    </a
+
+  </a
+      ><a name="967" class="Keyword"
+      >module</a
+      ><a name="973"
+      > </a
+      ><a name="974" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#974" class="Module"
+      >_</a
+      ><a name="975"
+      > </a
+      ><a name="976" class="Symbol"
+      >{{</a
       ><a name="978" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#978" class="Bound"
-      >s</a
+      >_</a
       ><a name="979"
       > </a
-      ><a name="980" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#936" class="Function Operator"
-      >&#10218;$&#10219;</a
-      ><a name="983"
+      ><a name="980" class="Symbol"
+      >:</a
+      ><a name="981"
       > </a
-      ><a name="984" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#984" class="Bound"
-      >a</a
-      ><a name="985"
+      ><a name="982" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#332" class="Record"
+      >Model</a
+      ><a name="987" class="Symbol"
+      >}}</a
+      ><a name="989"
       > </a
-      ><a name="986" class="Symbol"
-      >=</a
-      ><a name="987"
-      > </a
-      ><a name="988" href="Common.Semantics.html#198" class="Field"
-      >sem</a
-      ><a name="991"
-      > </a
-      ><a name="992" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#978" class="Bound"
-      >s</a
-      ><a name="993"
-      > </a
-      ><a name="994" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#984" class="Bound"
-      >a</a
+      ><a name="990" class="Keyword"
+      >where</a
       ><a name="995"
+      >
+    </a
+      ><a name="1000" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1000" class="Function Operator"
+      >_&#10218;$&#10219;_</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" class="Symbol"
+      >:</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" class="Symbol"
+      >&#8704;</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" class="Symbol"
+      >{</a
+      ><a name="1011" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1011" class="Bound"
+      >A</a
+      ><a name="1012"
+      > </a
+      ><a name="1013" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1013" class="Bound"
+      >B</a
+      ><a name="1014" class="Symbol"
+      >}</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" class="Symbol"
+      >&#8594;</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1011" class="Bound"
+      >A</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1013" class="Bound"
+      >B</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" class="Symbol"
+      >&#8594;</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1011" class="Bound"
+      >A</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" class="Symbol"
+      >&#8594;</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1013" class="Bound"
+      >B</a
+      ><a name="1037"
+      >
+    </a
+      ><a name="1042" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1042" class="Bound"
+      >s</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1000" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1048" class="Bound"
+      >a</a
+      ><a name="1049"
+      > </a
+      ><a name="1050" class="Symbol"
+      >=</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" href="Common.Semantics.html#198" class="Field"
+      >sem</a
+      ><a name="1055"
+      > </a
+      ><a name="1056" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1042" class="Bound"
+      >s</a
+      ><a name="1057"
+      > </a
+      ><a name="1058" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1048" class="Bound"
+      >a</a
+      ><a name="1059"
       >
 
     </a
-      ><a name="1001" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1001" class="Function"
+      ><a name="1065" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1065" class="Function"
       >&#10218;S&#10219;</a
-      ><a name="1004"
-      > </a
-      ><a name="1005" class="Symbol"
-      >:</a
-      ><a name="1006"
-      > </a
-      ><a name="1007" class="Symbol"
-      >&#8704;</a
-      ><a name="1008"
-      > </a
-      ><a name="1009" class="Symbol"
-      >{</a
-      ><a name="1010" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1010" class="Bound"
-      >A</a
-      ><a name="1011"
-      > </a
-      ><a name="1012" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1012" class="Bound"
-      >B</a
-      ><a name="1013"
-      > </a
-      ><a name="1014" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1014" class="Bound"
-      >C</a
-      ><a name="1015" class="Symbol"
-      >}</a
-      ><a name="1016"
-      > </a
-      ><a name="1017" class="Symbol"
-      >&#8594;</a
-      ><a name="1018"
-      > </a
-      ><a name="1019" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="1020"
-      > </a
-      ><a name="1021" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1010" class="Bound"
-      >A</a
-      ><a name="1022"
-      > </a
-      ><a name="1023" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1024"
-      > </a
-      ><a name="1025" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1012" class="Bound"
-      >B</a
-      ><a name="1026"
-      > </a
-      ><a name="1027" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1028"
-      > </a
-      ><a name="1029" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1014" class="Bound"
-      >C</a
-      ><a name="1030"
-      > </a
-      ><a name="1031" class="Symbol"
-      >&#8594;</a
-      ><a name="1032"
-      > </a
-      ><a name="1033" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="1034"
-      > </a
-      ><a name="1035" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1010" class="Bound"
-      >A</a
-      ><a name="1036"
-      > </a
-      ><a name="1037" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1038"
-      > </a
-      ><a name="1039" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1012" class="Bound"
-      >B</a
-      ><a name="1040"
-      > </a
-      ><a name="1041" class="Symbol"
-      >&#8594;</a
-      ><a name="1042"
-      > </a
-      ><a name="1043" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="1044"
-      > </a
-      ><a name="1045" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1010" class="Bound"
-      >A</a
-      ><a name="1046"
-      > </a
-      ><a name="1047" class="Symbol"
-      >&#8594;</a
-      ><a name="1048"
-      > </a
-      ><a name="1049" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="1050"
-      > </a
-      ><a name="1051" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1014" class="Bound"
-      >C</a
-      ><a name="1052"
-      >
-    </a
-      ><a name="1057" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1001" class="Function"
-      >&#10218;S&#10219;</a
-      ><a name="1060"
-      > </a
-      ><a name="1061" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1061" class="Bound"
-      >s&#8321;</a
-      ><a name="1063"
-      > </a
-      ><a name="1064" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1064" class="Bound"
-      >s&#8322;</a
-      ><a name="1066"
-      > </a
-      ><a name="1067" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1067" class="Bound"
-      >a</a
       ><a name="1068"
       > </a
       ><a name="1069" class="Symbol"
-      >=</a
+      >:</a
       ><a name="1070"
       > </a
       ><a name="1071" class="Symbol"
-      >(</a
-      ><a name="1072" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1061" class="Bound"
-      >s&#8321;</a
-      ><a name="1074"
+      >&#8704;</a
+      ><a name="1072"
       > </a
-      ><a name="1075" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#936" class="Function Operator"
-      >&#10218;$&#10219;</a
-      ><a name="1078"
+      ><a name="1073" class="Symbol"
+      >{</a
+      ><a name="1074" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1074" class="Bound"
+      >A</a
+      ><a name="1075"
       > </a
-      ><a name="1079" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1067" class="Bound"
-      >a</a
-      ><a name="1080" class="Symbol"
-      >)</a
-      ><a name="1081"
+      ><a name="1076" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1076" class="Bound"
+      >B</a
+      ><a name="1077"
       > </a
-      ><a name="1082" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#936" class="Function Operator"
-      >&#10218;$&#10219;</a
-      ><a name="1085"
+      ><a name="1078" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1078" class="Bound"
+      >C</a
+      ><a name="1079" class="Symbol"
+      >}</a
+      ><a name="1080"
       > </a
-      ><a name="1086" class="Symbol"
-      >(</a
-      ><a name="1087" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1064" class="Bound"
-      >s&#8322;</a
-      ><a name="1089"
+      ><a name="1081" class="Symbol"
+      >&#8594;</a
+      ><a name="1082"
       > </a
-      ><a name="1090" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#936" class="Function Operator"
-      >&#10218;$&#10219;</a
-      ><a name="1093"
+      ><a name="1083" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="1084"
       > </a
-      ><a name="1094" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1067" class="Bound"
-      >a</a
+      ><a name="1085" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1074" class="Bound"
+      >A</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1076" class="Bound"
+      >B</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1092"
+      > </a
+      ><a name="1093" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1078" class="Bound"
+      >C</a
+      ><a name="1094"
+      > </a
       ><a name="1095" class="Symbol"
-      >)</a
+      >&#8594;</a
       ><a name="1096"
-      >
-
-
-  </a
-      ><a name="1101" class="Comment"
-      >-- Forcing in a particular model, for sequents.</a
-      ><a name="1148"
-      >
-
-  </a
-      ><a name="1152" class="Keyword"
-      >module</a
-      ><a name="1158"
       > </a
-      ><a name="1159" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1159" class="Module"
-      >_</a
-      ><a name="1160"
+      ><a name="1097" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="1098"
       > </a
-      ><a name="1161" class="Symbol"
-      >{{</a
-      ><a name="1163" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1163" class="Bound"
-      >_</a
-      ><a name="1164"
+      ><a name="1099" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1074" class="Bound"
+      >A</a
+      ><a name="1100"
       > </a
-      ><a name="1165" class="Symbol"
-      >:</a
-      ><a name="1166"
+      ><a name="1101" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1102"
       > </a
-      ><a name="1167" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#268" class="Record"
-      >Model</a
-      ><a name="1172" class="Symbol"
-      >}}</a
-      ><a name="1174"
+      ><a name="1103" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1076" class="Bound"
+      >B</a
+      ><a name="1104"
       > </a
-      ><a name="1175" class="Keyword"
-      >where</a
-      ><a name="1180"
+      ><a name="1105" class="Symbol"
+      >&#8594;</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1074" class="Bound"
+      >A</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" class="Symbol"
+      >&#8594;</a
+      ><a name="1112"
+      > </a
+      ><a name="1113" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
+      ><a name="1114"
+      > </a
+      ><a name="1115" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1078" class="Bound"
+      >C</a
+      ><a name="1116"
       >
     </a
-      ><a name="1185" class="Keyword"
-      >infix</a
-      ><a name="1190"
+      ><a name="1121" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1065" class="Function"
+      >&#10218;S&#10219;</a
+      ><a name="1124"
       > </a
-      ><a name="1191" class="Number"
+      ><a name="1125" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1125" class="Bound"
+      >s&#8321;</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1128" class="Bound"
+      >s&#8322;</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1131" class="Bound"
+      >a</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" class="Symbol"
+      >=</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" class="Symbol"
+      >(</a
+      ><a name="1136" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1125" class="Bound"
+      >s&#8321;</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1000" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1131" class="Bound"
+      >a</a
+      ><a name="1144" class="Symbol"
+      >)</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1000" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" class="Symbol"
+      >(</a
+      ><a name="1151" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1128" class="Bound"
+      >s&#8322;</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1000" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="1157"
+      > </a
+      ><a name="1158" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1131" class="Bound"
+      >a</a
+      ><a name="1159" class="Symbol"
+      >)</a
+      ><a name="1160"
+      >
+
+
+  </a
+      ><a name="1165" class="Comment"
+      >-- Forcing in a particular model, for sequents.</a
+      ><a name="1212"
+      >
+
+  </a
+      ><a name="1216" class="Keyword"
+      >module</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1223" class="Module"
+      >_</a
+      ><a name="1224"
+      > </a
+      ><a name="1225" class="Symbol"
+      >{{</a
+      ><a name="1227" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1227" class="Bound"
+      >_</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" class="Symbol"
+      >:</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#332" class="Record"
+      >Model</a
+      ><a name="1236" class="Symbol"
+      >}}</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" class="Keyword"
+      >where</a
+      ><a name="1244"
+      >
+    </a
+      ><a name="1249" class="Keyword"
+      >infix</a
+      ><a name="1254"
+      > </a
+      ><a name="1255" class="Number"
       >3</a
-      ><a name="1192"
+      ><a name="1256"
       > &#8873;_&#8658;_
     </a
-      ><a name="1202" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
+      ><a name="1266" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
       >&#8873;_&#8658;_</a
-      ><a name="1206"
+      ><a name="1270"
       > </a
-      ><a name="1207" class="Symbol"
+      ><a name="1271" class="Symbol"
       >:</a
-      ><a name="1208"
+      ><a name="1272"
       > </a
-      ><a name="1209" href="Common.Context.html#77" class="Datatype"
+      ><a name="1273" href="Common.Context.html#77" class="Datatype"
       >Cx</a
-      ><a name="1211"
+      ><a name="1275"
       > </a
-      ><a name="1212" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      ><a name="1276" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
       >Ty</a
-      ><a name="1214"
+      ><a name="1278"
       > </a
-      ><a name="1215" class="Symbol"
+      ><a name="1279" class="Symbol"
       >&#8594;</a
-      ><a name="1216"
+      ><a name="1280"
       > </a
-      ><a name="1217" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
+      ><a name="1281" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
       >Ty</a
-      ><a name="1219"
+      ><a name="1283"
       > </a
-      ><a name="1220" class="Symbol"
+      ><a name="1284" class="Symbol"
       >&#8594;</a
-      ><a name="1221"
+      ><a name="1285"
       > </a
-      ><a name="1222" class="PrimitiveType"
+      ><a name="1286" class="PrimitiveType"
       >Set</a
-      ><a name="1225"
-      >
-    </a
-      ><a name="1230" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="1231"
-      > </a
-      ><a name="1232" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1232" class="Bound"
-      >&#915;</a
-      ><a name="1233"
-      > </a
-      ><a name="1234" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1235"
-      > </a
-      ><a name="1236" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1236" class="Bound"
-      >A</a
-      ><a name="1237"
-      > </a
-      ><a name="1238" class="Symbol"
-      >=</a
-      ><a name="1239"
-      > </a
-      ><a name="1240" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#697" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="1242"
-      > </a
-      ><a name="1243" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1232" class="Bound"
-      >&#915;</a
-      ><a name="1244"
-      > </a
-      ><a name="1245" class="Symbol"
-      >&#8594;</a
-      ><a name="1246"
-      > </a
-      ><a name="1247" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#540" class="Function Operator"
-      >&#8873;</a
-      ><a name="1248"
-      > </a
-      ><a name="1249" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1236" class="Bound"
-      >A</a
-      ><a name="1250"
-      >
-
-    </a
-      ><a name="1256" class="Keyword"
-      >infix</a
-      ><a name="1261"
-      > </a
-      ><a name="1262" class="Number"
-      >3</a
-      ><a name="1263"
-      > &#8873;_&#8658;&#8902;_
-    </a
-      ><a name="1274" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1274" class="Function Operator"
-      >&#8873;_&#8658;&#8902;_</a
-      ><a name="1279"
-      > </a
-      ><a name="1280" class="Symbol"
-      >:</a
-      ><a name="1281"
-      > </a
-      ><a name="1282" href="Common.Context.html#77" class="Datatype"
-      >Cx</a
-      ><a name="1284"
-      > </a
-      ><a name="1285" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1287"
-      > </a
-      ><a name="1288" class="Symbol"
-      >&#8594;</a
       ><a name="1289"
-      > </a
-      ><a name="1290" href="Common.Context.html#77" class="Datatype"
-      >Cx</a
-      ><a name="1292"
-      > </a
-      ><a name="1293" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
+      >
+    </a
+      ><a name="1294" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
       ><a name="1295"
       > </a
-      ><a name="1296" class="Symbol"
-      >&#8594;</a
+      ><a name="1296" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1296" class="Bound"
+      >&#915;</a
       ><a name="1297"
       > </a
-      ><a name="1298" class="PrimitiveType"
-      >Set</a
+      ><a name="1298" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="1299"
+      > </a
+      ><a name="1300" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1300" class="Bound"
+      >A</a
       ><a name="1301"
-      >
-    </a
-      ><a name="1306" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1274" class="Function Operator"
-      >&#8873;</a
-      ><a name="1307"
       > </a
-      ><a name="1308" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1308" class="Bound"
+      ><a name="1302" class="Symbol"
+      >=</a
+      ><a name="1303"
+      > </a
+      ><a name="1304" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#761" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1306"
+      > </a
+      ><a name="1307" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1296" class="Bound"
       >&#915;</a
-      ><a name="1309"
+      ><a name="1308"
       > </a
-      ><a name="1310" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1274" class="Function Operator"
-      >&#8658;&#8902;</a
+      ><a name="1309" class="Symbol"
+      >&#8594;</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#604" class="Function Operator"
+      >&#8873;</a
       ><a name="1312"
       > </a
-      ><a name="1313" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1313" class="Bound"
-      >&#926;</a
-      ><a name="1314"
-      > </a
-      ><a name="1315" class="Symbol"
-      >=</a
-      ><a name="1316"
-      > </a
-      ><a name="1317" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#697" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="1319"
-      > </a
-      ><a name="1320" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1308" class="Bound"
-      >&#915;</a
-      ><a name="1321"
-      > </a
-      ><a name="1322" class="Symbol"
-      >&#8594;</a
-      ><a name="1323"
-      > </a
-      ><a name="1324" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#697" class="Function Operator"
-      >&#8873;&#8902;</a
-      ><a name="1326"
-      > </a
-      ><a name="1327" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1313" class="Bound"
-      >&#926;</a
-      ><a name="1328"
-      >
-
-
-  </a
-      ><a name="1333" class="Comment"
-      >-- Entailment, or forcing in all models, for sequents.</a
-      ><a name="1387"
-      >
-
-  </a
-      ><a name="1391" class="Keyword"
-      >infix</a
-      ><a name="1396"
-      > </a
-      ><a name="1397" class="Number"
-      >3</a
-      ><a name="1398"
-      > _&#8872;_
-  </a
-      ><a name="1405" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1405" class="Function Operator"
-      >_&#8872;_</a
-      ><a name="1408"
-      > </a
-      ><a name="1409" class="Symbol"
-      >:</a
-      ><a name="1410"
-      > </a
-      ><a name="1411" href="Common.Context.html#77" class="Datatype"
-      >Cx</a
-      ><a name="1413"
-      > </a
-      ><a name="1414" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1416"
-      > </a
-      ><a name="1417" class="Symbol"
-      >&#8594;</a
-      ><a name="1418"
-      > </a
-      ><a name="1419" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1421"
-      > </a
-      ><a name="1422" class="Symbol"
-      >&#8594;</a
-      ><a name="1423"
-      > </a
-      ><a name="1424" class="PrimitiveType"
-      >Set&#8321;</a
-      ><a name="1428"
-      >
-  </a
-      ><a name="1431" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1431" class="Bound"
-      >&#915;</a
-      ><a name="1432"
-      > </a
-      ><a name="1433" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1405" class="Function Operator"
-      >&#8872;</a
-      ><a name="1434"
-      > </a
-      ><a name="1435" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1435" class="Bound"
+      ><a name="1313" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1300" class="Bound"
       >A</a
-      ><a name="1436"
+      ><a name="1314"
+      >
+
+    </a
+      ><a name="1320" class="Keyword"
+      >infix</a
+      ><a name="1325"
       > </a
-      ><a name="1437" class="Symbol"
-      >=</a
-      ><a name="1438"
+      ><a name="1326" class="Number"
+      >3</a
+      ><a name="1327"
+      > &#8873;_&#8658;&#8902;_
+    </a
+      ><a name="1338" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1338" class="Function Operator"
+      >&#8873;_&#8658;&#8902;_</a
+      ><a name="1343"
       > </a
-      ><a name="1439" class="Symbol"
-      >&#8704;</a
-      ><a name="1440"
-      > </a
-      ><a name="1441" class="Symbol"
-      >{{</a
-      ><a name="1443" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1443" class="Bound"
-      >_</a
-      ><a name="1444"
-      > </a
-      ><a name="1445" class="Symbol"
+      ><a name="1344" class="Symbol"
       >:</a
-      ><a name="1446"
+      ><a name="1345"
       > </a
-      ><a name="1447" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#268" class="Record"
-      >Model</a
-      ><a name="1452" class="Symbol"
-      >}}</a
-      ><a name="1454"
+      ><a name="1346" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1348"
       > </a
-      ><a name="1455" class="Symbol"
+      ><a name="1349" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1351"
+      > </a
+      ><a name="1352" class="Symbol"
       >&#8594;</a
-      ><a name="1456"
+      ><a name="1353"
       > </a
-      ><a name="1457" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
+      ><a name="1354" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1356"
+      > </a
+      ><a name="1357" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" class="Symbol"
+      >&#8594;</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" class="PrimitiveType"
+      >Set</a
+      ><a name="1365"
+      >
+    </a
+      ><a name="1370" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1338" class="Function Operator"
       >&#8873;</a
-      ><a name="1458"
+      ><a name="1371"
       > </a
-      ><a name="1459" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1431" class="Bound"
+      ><a name="1372" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1372" class="Bound"
       >&#915;</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1338" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1377" class="Bound"
+      >&#926;</a
+      ><a name="1378"
+      > </a
+      ><a name="1379" class="Symbol"
+      >=</a
+      ><a name="1380"
+      > </a
+      ><a name="1381" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#761" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1383"
+      > </a
+      ><a name="1384" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1372" class="Bound"
+      >&#915;</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" class="Symbol"
+      >&#8594;</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#761" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1377" class="Bound"
+      >&#926;</a
+      ><a name="1392"
+      >
+
+
+  </a
+      ><a name="1397" class="Comment"
+      >-- Entailment, or forcing in all models, for sequents.</a
+      ><a name="1451"
+      >
+
+  </a
+      ><a name="1455" class="Keyword"
+      >infix</a
       ><a name="1460"
       > </a
-      ><a name="1461" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1462"
-      > </a
-      ><a name="1463" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1435" class="Bound"
-      >A</a
-      ><a name="1464"
-      >
-
-  </a
-      ><a name="1468" class="Keyword"
-      >infix</a
-      ><a name="1473"
-      > </a
-      ><a name="1474" class="Number"
+      ><a name="1461" class="Number"
       >3</a
-      ><a name="1475"
-      > _&#8872;&#8902;_
+      ><a name="1462"
+      > _&#8872;_
   </a
-      ><a name="1483" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1483" class="Function Operator"
-      >_&#8872;&#8902;_</a
+      ><a name="1469" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1469" class="Function Operator"
+      >_&#8872;_</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" class="Symbol"
+      >:</a
+      ><a name="1474"
+      > </a
+      ><a name="1475" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1477"
+      > </a
+      ><a name="1478" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1480"
+      > </a
+      ><a name="1481" class="Symbol"
+      >&#8594;</a
+      ><a name="1482"
+      > </a
+      ><a name="1483" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" class="Symbol"
+      >&#8594;</a
       ><a name="1487"
       > </a
-      ><a name="1488" class="Symbol"
-      >:</a
-      ><a name="1489"
-      > </a
-      ><a name="1490" href="Common.Context.html#77" class="Datatype"
-      >Cx</a
+      ><a name="1488" class="PrimitiveType"
+      >Set&#8321;</a
       ><a name="1492"
+      >
+  </a
+      ><a name="1495" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1495" class="Bound"
+      >&#915;</a
+      ><a name="1496"
       > </a
-      ><a name="1493" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1495"
+      ><a name="1497" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1469" class="Function Operator"
+      >&#8872;</a
+      ><a name="1498"
       > </a
-      ><a name="1496" class="Symbol"
-      >&#8594;</a
-      ><a name="1497"
-      > </a
-      ><a name="1498" href="Common.Context.html#77" class="Datatype"
-      >Cx</a
+      ><a name="1499" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1499" class="Bound"
+      >A</a
       ><a name="1500"
       > </a
-      ><a name="1501" href="BasicIPC.Syntax.Common.html#152" class="Datatype"
-      >Ty</a
-      ><a name="1503"
-      > </a
-      ><a name="1504" class="Symbol"
-      >&#8594;</a
-      ><a name="1505"
-      > </a
-      ><a name="1506" class="PrimitiveType"
-      >Set&#8321;</a
-      ><a name="1510"
-      >
-  </a
-      ><a name="1513" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1513" class="Bound"
-      >&#915;</a
-      ><a name="1514"
-      > </a
-      ><a name="1515" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1483" class="Function Operator"
-      >&#8872;&#8902;</a
-      ><a name="1517"
-      > </a
-      ><a name="1518" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1518" class="Bound"
-      >&#926;</a
-      ><a name="1519"
-      > </a
-      ><a name="1520" class="Symbol"
+      ><a name="1501" class="Symbol"
       >=</a
-      ><a name="1521"
+      ><a name="1502"
       > </a
-      ><a name="1522" class="Symbol"
+      ><a name="1503" class="Symbol"
       >&#8704;</a
-      ><a name="1523"
+      ><a name="1504"
       > </a
-      ><a name="1524" class="Symbol"
+      ><a name="1505" class="Symbol"
       >{{</a
-      ><a name="1526" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1526" class="Bound"
+      ><a name="1507" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1507" class="Bound"
       >_</a
-      ><a name="1527"
+      ><a name="1508"
       > </a
-      ><a name="1528" class="Symbol"
+      ><a name="1509" class="Symbol"
       >:</a
-      ><a name="1529"
+      ><a name="1510"
       > </a
-      ><a name="1530" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#268" class="Record"
+      ><a name="1511" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#332" class="Record"
       >Model</a
-      ><a name="1535" class="Symbol"
+      ><a name="1516" class="Symbol"
       >}}</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" class="Symbol"
+      >&#8594;</a
+      ><a name="1520"
+      > </a
+      ><a name="1521" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1495" class="Bound"
+      >&#915;</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="1526"
+      > </a
+      ><a name="1527" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1499" class="Bound"
+      >A</a
+      ><a name="1528"
+      >
+
+  </a
+      ><a name="1532" class="Keyword"
+      >infix</a
       ><a name="1537"
       > </a
-      ><a name="1538" class="Symbol"
-      >&#8594;</a
+      ><a name="1538" class="Number"
+      >3</a
       ><a name="1539"
+      > _&#8872;&#8902;_
+  </a
+      ><a name="1547" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1547" class="Function Operator"
+      >_&#8872;&#8902;_</a
+      ><a name="1551"
       > </a
-      ><a name="1540" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1274" class="Function Operator"
-      >&#8873;</a
-      ><a name="1541"
+      ><a name="1552" class="Symbol"
+      >:</a
+      ><a name="1553"
       > </a
-      ><a name="1542" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1513" class="Bound"
+      ><a name="1554" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1559"
+      > </a
+      ><a name="1560" class="Symbol"
+      >&#8594;</a
+      ><a name="1561"
+      > </a
+      ><a name="1562" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1564"
+      > </a
+      ><a name="1565" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1567"
+      > </a
+      ><a name="1568" class="Symbol"
+      >&#8594;</a
+      ><a name="1569"
+      > </a
+      ><a name="1570" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="1574"
+      >
+  </a
+      ><a name="1577" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1577" class="Bound"
       >&#915;</a
-      ><a name="1543"
+      ><a name="1578"
       > </a
-      ><a name="1544" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1274" class="Function Operator"
-      >&#8658;&#8902;</a
-      ><a name="1546"
+      ><a name="1579" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1547" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1581"
       > </a
-      ><a name="1547" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1518" class="Bound"
+      ><a name="1582" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1582" class="Bound"
       >&#926;</a
-      ><a name="1548"
-      >
-
-
-  </a
-      ><a name="1553" class="Comment"
-      >-- Additional useful equipment, for sequents.</a
-      ><a name="1598"
-      >
-
-  </a
-      ><a name="1602" class="Keyword"
-      >module</a
-      ><a name="1608"
+      ><a name="1583"
       > </a
-      ><a name="1609" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1609" class="Module"
+      ><a name="1584" class="Symbol"
+      >=</a
+      ><a name="1585"
+      > </a
+      ><a name="1586" class="Symbol"
+      >&#8704;</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" class="Symbol"
+      >{{</a
+      ><a name="1590" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1590" class="Bound"
       >_</a
+      ><a name="1591"
+      > </a
+      ><a name="1592" class="Symbol"
+      >:</a
+      ><a name="1593"
+      > </a
+      ><a name="1594" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#332" class="Record"
+      >Model</a
+      ><a name="1599" class="Symbol"
+      >}}</a
+      ><a name="1601"
+      > </a
+      ><a name="1602" class="Symbol"
+      >&#8594;</a
+      ><a name="1603"
+      > </a
+      ><a name="1604" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1338" class="Function Operator"
+      >&#8873;</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1577" class="Bound"
+      >&#915;</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1338" class="Function Operator"
+      >&#8658;&#8902;</a
       ><a name="1610"
       > </a
-      ><a name="1611" class="Symbol"
-      >{{</a
-      ><a name="1613" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1613" class="Bound"
-      >_</a
-      ><a name="1614"
-      > </a
-      ><a name="1615" class="Symbol"
-      >:</a
-      ><a name="1616"
-      > </a
-      ><a name="1617" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#268" class="Record"
-      >Model</a
-      ><a name="1622" class="Symbol"
-      >}}</a
-      ><a name="1624"
-      > </a
-      ><a name="1625" class="Keyword"
-      >where</a
-      ><a name="1630"
-      >
-    </a
-      ><a name="1635" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1635" class="Function"
-      >lookup</a
-      ><a name="1641"
-      > </a
-      ><a name="1642" class="Symbol"
-      >:</a
-      ><a name="1643"
-      > </a
-      ><a name="1644" class="Symbol"
-      >&#8704;</a
-      ><a name="1645"
-      > </a
-      ><a name="1646" class="Symbol"
-      >{</a
-      ><a name="1647" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1647" class="Bound"
-      >A</a
-      ><a name="1648"
-      > </a
-      ><a name="1649" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1649" class="Bound"
-      >&#915;</a
-      ><a name="1650" class="Symbol"
-      >}</a
-      ><a name="1651"
-      > </a
-      ><a name="1652" class="Symbol"
-      >&#8594;</a
-      ><a name="1653"
-      > </a
-      ><a name="1654" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1647" class="Bound"
-      >A</a
-      ><a name="1655"
-      > </a
-      ><a name="1656" href="Common.Context.html#1110" class="Datatype Operator"
-      >&#8712;</a
-      ><a name="1657"
-      > </a
-      ><a name="1658" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1649" class="Bound"
-      >&#915;</a
-      ><a name="1659"
-      > </a
-      ><a name="1660" class="Symbol"
-      >&#8594;</a
-      ><a name="1661"
-      > </a
-      ><a name="1662" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="1663"
-      > </a
-      ><a name="1664" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1649" class="Bound"
-      >&#915;</a
-      ><a name="1665"
-      > </a
-      ><a name="1666" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1667"
-      > </a
-      ><a name="1668" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1647" class="Bound"
-      >A</a
-      ><a name="1669"
-      >
-    </a
-      ><a name="1674" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1635" class="Function"
-      >lookup</a
-      ><a name="1680"
-      > </a
-      ><a name="1681" href="Common.Context.html#1160" class="InductiveConstructor"
-      >top</a
-      ><a name="1684"
-      >     </a
-      ><a name="1689" class="Symbol"
-      >(</a
-      ><a name="1690" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1690" class="Bound"
-      >&#947;</a
-      ><a name="1691"
-      > </a
-      ><a name="1692" href="Common.html#1396" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1693"
-      > </a
-      ><a name="1694" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1694" class="Bound"
-      >a</a
-      ><a name="1695" class="Symbol"
-      >)</a
-      ><a name="1696"
-      > </a
-      ><a name="1697" class="Symbol"
-      >=</a
-      ><a name="1698"
-      > </a
-      ><a name="1699" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1694" class="Bound"
-      >a</a
-      ><a name="1700"
-      >
-    </a
-      ><a name="1705" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1635" class="Function"
-      >lookup</a
-      ><a name="1711"
-      > </a
-      ><a name="1712" class="Symbol"
-      >(</a
-      ><a name="1713" href="Common.Context.html#1190" class="InductiveConstructor"
-      >pop</a
-      ><a name="1716"
-      > </a
-      ><a name="1717" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1717" class="Bound"
-      >i</a
-      ><a name="1718" class="Symbol"
-      >)</a
-      ><a name="1719"
-      > </a
-      ><a name="1720" class="Symbol"
-      >(</a
-      ><a name="1721" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1721" class="Bound"
-      >&#947;</a
-      ><a name="1722"
-      > </a
-      ><a name="1723" href="Common.html#1396" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="1724"
-      > </a
-      ><a name="1725" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1725" class="Bound"
-      >b</a
-      ><a name="1726" class="Symbol"
-      >)</a
-      ><a name="1727"
-      > </a
-      ><a name="1728" class="Symbol"
-      >=</a
-      ><a name="1729"
-      > </a
-      ><a name="1730" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1635" class="Function"
-      >lookup</a
-      ><a name="1736"
-      > </a
-      ><a name="1737" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1717" class="Bound"
-      >i</a
-      ><a name="1738"
-      > </a
-      ><a name="1739" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1721" class="Bound"
-      >&#947;</a
-      ><a name="1740"
+      ><a name="1611" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1582" class="Bound"
+      >&#926;</a
+      ><a name="1612"
       >
 
-    </a
-      ><a name="1746" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1746" class="Function"
-      >&#10214;&#955;&#10215;</a
-      ><a name="1749"
+
+  </a
+      ><a name="1617" class="Comment"
+      >-- Additional useful equipment, for sequents.</a
+      ><a name="1662"
+      >
+
+  </a
+      ><a name="1666" class="Keyword"
+      >module</a
+      ><a name="1672"
       > </a
-      ><a name="1750" class="Symbol"
+      ><a name="1673" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1673" class="Module"
+      >_</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" class="Symbol"
+      >{{</a
+      ><a name="1677" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1677" class="Bound"
+      >_</a
+      ><a name="1678"
+      > </a
+      ><a name="1679" class="Symbol"
       >:</a
-      ><a name="1751"
+      ><a name="1680"
       > </a
-      ><a name="1752" class="Symbol"
+      ><a name="1681" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#332" class="Record"
+      >Model</a
+      ><a name="1686" class="Symbol"
+      >}}</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" class="Keyword"
+      >where</a
+      ><a name="1694"
+      >
+    </a
+      ><a name="1699" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1699" class="Function"
+      >lookup</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" class="Symbol"
+      >:</a
+      ><a name="1707"
+      > </a
+      ><a name="1708" class="Symbol"
       >&#8704;</a
-      ><a name="1753"
+      ><a name="1709"
       > </a
-      ><a name="1754" class="Symbol"
+      ><a name="1710" class="Symbol"
       >{</a
-      ><a name="1755" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1755" class="Bound"
+      ><a name="1711" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1711" class="Bound"
       >A</a
-      ><a name="1756"
+      ><a name="1712"
       > </a
-      ><a name="1757" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1757" class="Bound"
-      >B</a
-      ><a name="1758"
-      > </a
-      ><a name="1759" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1759" class="Bound"
+      ><a name="1713" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1713" class="Bound"
       >&#915;</a
-      ><a name="1760" class="Symbol"
+      ><a name="1714" class="Symbol"
       >}</a
-      ><a name="1761"
+      ><a name="1715"
       > </a
-      ><a name="1762" class="Symbol"
+      ><a name="1716" class="Symbol"
       >&#8594;</a
-      ><a name="1763"
+      ><a name="1717"
       > </a
-      ><a name="1764" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#426" class="Bound Operator"
-      >[&#8866;]</a
-      ><a name="1767"
-      > </a
-      ><a name="1768" class="Symbol"
-      >(</a
-      ><a name="1769" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1755" class="Bound"
+      ><a name="1718" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1711" class="Bound"
       >A</a
-      ><a name="1770"
+      ><a name="1719"
       > </a
-      ><a name="1771" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1772"
+      ><a name="1720" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="1721"
       > </a
-      ><a name="1773" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1757" class="Bound"
-      >B</a
-      ><a name="1774" class="Symbol"
+      ><a name="1722" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1713" class="Bound"
+      >&#915;</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" class="Symbol"
+      >&#8594;</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1713" class="Bound"
+      >&#915;</a
+      ><a name="1729"
+      > </a
+      ><a name="1730" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="1731"
+      > </a
+      ><a name="1732" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1711" class="Bound"
+      >A</a
+      ><a name="1733"
+      >
+    </a
+      ><a name="1738" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1699" class="Function"
+      >lookup</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" href="Common.Context.html#1160" class="InductiveConstructor"
+      >top</a
+      ><a name="1748"
+      >     </a
+      ><a name="1753" class="Symbol"
+      >(</a
+      ><a name="1754" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1754" class="Bound"
+      >&#947;</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1758" class="Bound"
+      >a</a
+      ><a name="1759" class="Symbol"
       >)</a
+      ><a name="1760"
+      > </a
+      ><a name="1761" class="Symbol"
+      >=</a
+      ><a name="1762"
+      > </a
+      ><a name="1763" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1758" class="Bound"
+      >a</a
+      ><a name="1764"
+      >
+    </a
+      ><a name="1769" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1699" class="Function"
+      >lookup</a
       ><a name="1775"
       > </a
       ><a name="1776" class="Symbol"
-      >&#8594;</a
-      ><a name="1777"
+      >(</a
+      ><a name="1777" href="Common.Context.html#1190" class="InductiveConstructor"
+      >pop</a
+      ><a name="1780"
       > </a
-      ><a name="1778" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="1779"
-      > </a
-      ><a name="1780" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1759" class="Bound"
-      >&#915;</a
-      ><a name="1781"
-      > </a
-      ><a name="1782" href="Common.Context.html#117" class="InductiveConstructor Operator"
-      >,</a
+      ><a name="1781" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1781" class="Bound"
+      >i</a
+      ><a name="1782" class="Symbol"
+      >)</a
       ><a name="1783"
       > </a
-      ><a name="1784" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1755" class="Bound"
-      >A</a
-      ><a name="1785"
+      ><a name="1784" class="Symbol"
+      >(</a
+      ><a name="1785" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1785" class="Bound"
+      >&#947;</a
+      ><a name="1786"
       > </a
-      ><a name="1786" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1787"
+      ><a name="1787" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1788"
       > </a
-      ><a name="1788" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1757" class="Bound"
-      >B</a
-      ><a name="1789"
-      > </a
+      ><a name="1789" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1789" class="Bound"
+      >b</a
       ><a name="1790" class="Symbol"
-      >&#8594;</a
+      >)</a
       ><a name="1791"
       > </a
-      ><a name="1792" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
+      ><a name="1792" class="Symbol"
+      >=</a
       ><a name="1793"
       > </a
-      ><a name="1794" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1759" class="Bound"
-      >&#915;</a
-      ><a name="1795"
+      ><a name="1794" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1699" class="Function"
+      >lookup</a
+      ><a name="1800"
       > </a
-      ><a name="1796" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1797"
+      ><a name="1801" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1781" class="Bound"
+      >i</a
+      ><a name="1802"
       > </a
-      ><a name="1798" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1755" class="Bound"
-      >A</a
-      ><a name="1799"
-      > </a
-      ><a name="1800" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1801"
-      > </a
-      ><a name="1802" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1757" class="Bound"
-      >B</a
-      ><a name="1803"
+      ><a name="1803" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1785" class="Bound"
+      >&#947;</a
+      ><a name="1804"
       >
+
     </a
-      ><a name="1808" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1746" class="Function"
+      ><a name="1810" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1810" class="Function"
       >&#10214;&#955;&#10215;</a
-      ><a name="1811"
-      > </a
-      ><a name="1812" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1812" class="Bound"
-      >t</a
       ><a name="1813"
       > </a
-      ><a name="1814" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1814" class="Bound"
-      >s</a
+      ><a name="1814" class="Symbol"
+      >:</a
       ><a name="1815"
       > </a
-      ><a name="1816" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1816" class="Bound"
-      >&#947;</a
+      ><a name="1816" class="Symbol"
+      >&#8704;</a
       ><a name="1817"
       > </a
       ><a name="1818" class="Symbol"
-      >=</a
-      ><a name="1819"
+      >{</a
+      ><a name="1819" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1819" class="Bound"
+      >A</a
+      ><a name="1820"
       > </a
-      ><a name="1820" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1812" class="Bound"
-      >t</a
-      ><a name="1821"
+      ><a name="1821" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1821" class="Bound"
+      >B</a
+      ><a name="1822"
       > </a
-      ><a name="1822" href="Common.Semantics.html#168" class="InductiveConstructor Operator"
-      >&#8523;</a
-      ><a name="1823"
-      > </a
+      ><a name="1823" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1823" class="Bound"
+      >&#915;</a
       ><a name="1824" class="Symbol"
-      >&#955;</a
+      >}</a
       ><a name="1825"
       > </a
-      ><a name="1826" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1826" class="Bound"
-      >a</a
+      ><a name="1826" class="Symbol"
+      >&#8594;</a
       ><a name="1827"
       > </a
-      ><a name="1828" class="Symbol"
-      >&#8594;</a
-      ><a name="1829"
-      > </a
-      ><a name="1830" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1814" class="Bound"
-      >s</a
+      ><a name="1828" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#490" class="Bound Operator"
+      >[&#8866;]</a
       ><a name="1831"
       > </a
       ><a name="1832" class="Symbol"
       >(</a
-      ><a name="1833" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1816" class="Bound"
-      >&#947;</a
+      ><a name="1833" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1819" class="Bound"
+      >A</a
       ><a name="1834"
       > </a
-      ><a name="1835" href="Common.html#1396" class="InductiveConstructor Operator"
-      >,</a
+      ><a name="1835" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="1836"
       > </a
-      ><a name="1837" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1826" class="Bound"
-      >a</a
+      ><a name="1837" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1821" class="Bound"
+      >B</a
       ><a name="1838" class="Symbol"
       >)</a
       ><a name="1839"
+      > </a
+      ><a name="1840" class="Symbol"
+      >&#8594;</a
+      ><a name="1841"
+      > </a
+      ><a name="1842" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="1843"
+      > </a
+      ><a name="1844" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1823" class="Bound"
+      >&#915;</a
+      ><a name="1845"
+      > </a
+      ><a name="1846" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1847"
+      > </a
+      ><a name="1848" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1819" class="Bound"
+      >A</a
+      ><a name="1849"
+      > </a
+      ><a name="1850" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="1851"
+      > </a
+      ><a name="1852" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1821" class="Bound"
+      >B</a
+      ><a name="1853"
+      > </a
+      ><a name="1854" class="Symbol"
+      >&#8594;</a
+      ><a name="1855"
+      > </a
+      ><a name="1856" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="1857"
+      > </a
+      ><a name="1858" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1823" class="Bound"
+      >&#915;</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1819" class="Bound"
+      >A</a
+      ><a name="1863"
+      > </a
+      ><a name="1864" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1865"
+      > </a
+      ><a name="1866" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1821" class="Bound"
+      >B</a
+      ><a name="1867"
+      >
+    </a
+      ><a name="1872" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1810" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="1875"
+      > </a
+      ><a name="1876" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1876" class="Bound"
+      >t</a
+      ><a name="1877"
+      > </a
+      ><a name="1878" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1878" class="Bound"
+      >s</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1880" class="Bound"
+      >&#947;</a
+      ><a name="1881"
+      > </a
+      ><a name="1882" class="Symbol"
+      >=</a
+      ><a name="1883"
+      > </a
+      ><a name="1884" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1876" class="Bound"
+      >t</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" href="Common.Semantics.html#168" class="InductiveConstructor Operator"
+      >&#8523;</a
+      ><a name="1887"
+      > </a
+      ><a name="1888" class="Symbol"
+      >&#955;</a
+      ><a name="1889"
+      > </a
+      ><a name="1890" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1890" class="Bound"
+      >a</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" class="Symbol"
+      >&#8594;</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1878" class="Bound"
+      >s</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" class="Symbol"
+      >(</a
+      ><a name="1897" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1880" class="Bound"
+      >&#947;</a
+      ><a name="1898"
+      > </a
+      ><a name="1899" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1900"
+      > </a
+      ><a name="1901" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1890" class="Bound"
+      >a</a
+      ><a name="1902" class="Symbol"
+      >)</a
+      ><a name="1903"
       >
 
     </a
-      ><a name="1845" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1845" class="Function Operator"
+      ><a name="1909" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1909" class="Function Operator"
       >_&#10214;$&#10215;_</a
-      ><a name="1850"
-      > </a
-      ><a name="1851" class="Symbol"
-      >:</a
-      ><a name="1852"
-      > </a
-      ><a name="1853" class="Symbol"
-      >&#8704;</a
-      ><a name="1854"
-      > </a
-      ><a name="1855" class="Symbol"
-      >{</a
-      ><a name="1856" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1856" class="Bound"
-      >A</a
-      ><a name="1857"
-      > </a
-      ><a name="1858" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1858" class="Bound"
-      >B</a
-      ><a name="1859"
-      > </a
-      ><a name="1860" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1860" class="Bound"
-      >&#915;</a
-      ><a name="1861" class="Symbol"
-      >}</a
-      ><a name="1862"
-      > </a
-      ><a name="1863" class="Symbol"
-      >&#8594;</a
-      ><a name="1864"
-      > </a
-      ><a name="1865" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="1866"
-      > </a
-      ><a name="1867" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1860" class="Bound"
-      >&#915;</a
-      ><a name="1868"
-      > </a
-      ><a name="1869" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1870"
-      > </a
-      ><a name="1871" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1856" class="Bound"
-      >A</a
-      ><a name="1872"
-      > </a
-      ><a name="1873" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1874"
-      > </a
-      ><a name="1875" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1858" class="Bound"
-      >B</a
-      ><a name="1876"
-      > </a
-      ><a name="1877" class="Symbol"
-      >&#8594;</a
-      ><a name="1878"
-      > </a
-      ><a name="1879" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="1880"
-      > </a
-      ><a name="1881" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1860" class="Bound"
-      >&#915;</a
-      ><a name="1882"
-      > </a
-      ><a name="1883" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1884"
-      > </a
-      ><a name="1885" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1856" class="Bound"
-      >A</a
-      ><a name="1886"
-      > </a
-      ><a name="1887" class="Symbol"
-      >&#8594;</a
-      ><a name="1888"
-      > </a
-      ><a name="1889" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="1890"
-      > </a
-      ><a name="1891" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1860" class="Bound"
-      >&#915;</a
-      ><a name="1892"
-      > </a
-      ><a name="1893" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1894"
-      > </a
-      ><a name="1895" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1858" class="Bound"
-      >B</a
-      ><a name="1896"
-      >
-    </a
-      ><a name="1901" class="Symbol"
-      >(</a
-      ><a name="1902" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1902" class="Bound"
-      >s&#8321;</a
-      ><a name="1904"
-      > </a
-      ><a name="1905" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1845" class="Function Operator"
-      >&#10214;$&#10215;</a
-      ><a name="1908"
-      > </a
-      ><a name="1909" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1909" class="Bound"
-      >s&#8322;</a
-      ><a name="1911" class="Symbol"
-      >)</a
-      ><a name="1912"
-      > </a
-      ><a name="1913" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1913" class="Bound"
-      >&#947;</a
       ><a name="1914"
       > </a
       ><a name="1915" class="Symbol"
-      >=</a
+      >:</a
       ><a name="1916"
       > </a
-      ><a name="1917" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1902" class="Bound"
-      >s&#8321;</a
-      ><a name="1919"
+      ><a name="1917" class="Symbol"
+      >&#8704;</a
+      ><a name="1918"
       > </a
-      ><a name="1920" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1913" class="Bound"
-      >&#947;</a
+      ><a name="1919" class="Symbol"
+      >{</a
+      ><a name="1920" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1920" class="Bound"
+      >A</a
       ><a name="1921"
       > </a
-      ><a name="1922" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#936" class="Function Operator"
-      >&#10218;$&#10219;</a
-      ><a name="1925"
+      ><a name="1922" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1922" class="Bound"
+      >B</a
+      ><a name="1923"
       > </a
-      ><a name="1926" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1909" class="Bound"
-      >s&#8322;</a
+      ><a name="1924" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1924" class="Bound"
+      >&#915;</a
+      ><a name="1925" class="Symbol"
+      >}</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" class="Symbol"
+      >&#8594;</a
       ><a name="1928"
       > </a
-      ><a name="1929" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1913" class="Bound"
-      >&#947;</a
+      ><a name="1929" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
       ><a name="1930"
-      >
-
-    </a
-      ><a name="1936" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1936" class="Function"
-      >&#10214;S&#10215;</a
-      ><a name="1939"
       > </a
-      ><a name="1940" class="Symbol"
-      >:</a
-      ><a name="1941"
+      ><a name="1931" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1924" class="Bound"
+      >&#915;</a
+      ><a name="1932"
       > </a
-      ><a name="1942" class="Symbol"
-      >&#8704;</a
-      ><a name="1943"
+      ><a name="1933" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="1934"
       > </a
-      ><a name="1944" class="Symbol"
-      >{</a
-      ><a name="1945" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1945" class="Bound"
+      ><a name="1935" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1920" class="Bound"
       >A</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1938"
+      > </a
+      ><a name="1939" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1922" class="Bound"
+      >B</a
+      ><a name="1940"
+      > </a
+      ><a name="1941" class="Symbol"
+      >&#8594;</a
+      ><a name="1942"
+      > </a
+      ><a name="1943" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="1944"
+      > </a
+      ><a name="1945" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1924" class="Bound"
+      >&#915;</a
       ><a name="1946"
       > </a
-      ><a name="1947" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1947" class="Bound"
-      >B</a
+      ><a name="1947" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
       ><a name="1948"
       > </a
-      ><a name="1949" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1949" class="Bound"
-      >C</a
+      ><a name="1949" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1920" class="Bound"
+      >A</a
       ><a name="1950"
       > </a
-      ><a name="1951" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1951" class="Bound"
-      >&#915;</a
-      ><a name="1952" class="Symbol"
-      >}</a
-      ><a name="1953"
-      > </a
-      ><a name="1954" class="Symbol"
+      ><a name="1951" class="Symbol"
       >&#8594;</a
-      ><a name="1955"
+      ><a name="1952"
       > </a
-      ><a name="1956" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
+      ><a name="1953" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
       >&#8873;</a
-      ><a name="1957"
+      ><a name="1954"
       > </a
-      ><a name="1958" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1951" class="Bound"
+      ><a name="1955" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1924" class="Bound"
       >&#915;</a
-      ><a name="1959"
+      ><a name="1956"
       > </a
-      ><a name="1960" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
+      ><a name="1957" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
       >&#8658;</a
-      ><a name="1961"
+      ><a name="1958"
       > </a
-      ><a name="1962" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1945" class="Bound"
-      >A</a
-      ><a name="1963"
-      > </a
-      ><a name="1964" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1965"
-      > </a
-      ><a name="1966" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1947" class="Bound"
+      ><a name="1959" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1922" class="Bound"
       >B</a
-      ><a name="1967"
+      ><a name="1960"
+      >
+    </a
+      ><a name="1965" class="Symbol"
+      >(</a
+      ><a name="1966" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1966" class="Bound"
+      >s&#8321;</a
+      ><a name="1968"
       > </a
-      ><a name="1968" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
-      ><a name="1969"
+      ><a name="1969" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1909" class="Function Operator"
+      >&#10214;$&#10215;</a
+      ><a name="1972"
       > </a
-      ><a name="1970" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1949" class="Bound"
-      >C</a
-      ><a name="1971"
+      ><a name="1973" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1973" class="Bound"
+      >s&#8322;</a
+      ><a name="1975" class="Symbol"
+      >)</a
+      ><a name="1976"
       > </a
-      ><a name="1972" class="Symbol"
-      >&#8594;</a
-      ><a name="1973"
+      ><a name="1977" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1977" class="Bound"
+      >&#947;</a
+      ><a name="1978"
       > </a
-      ><a name="1974" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="1975"
+      ><a name="1979" class="Symbol"
+      >=</a
+      ><a name="1980"
       > </a
-      ><a name="1976" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1951" class="Bound"
-      >&#915;</a
-      ><a name="1977"
-      > </a
-      ><a name="1978" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1979"
-      > </a
-      ><a name="1980" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1945" class="Bound"
-      >A</a
-      ><a name="1981"
-      > </a
-      ><a name="1982" href="BasicIPC.Syntax.Common.html#187" class="InductiveConstructor Operator"
-      >&#9659;</a
+      ><a name="1981" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1966" class="Bound"
+      >s&#8321;</a
       ><a name="1983"
       > </a
-      ><a name="1984" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1947" class="Bound"
-      >B</a
+      ><a name="1984" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1977" class="Bound"
+      >&#947;</a
       ><a name="1985"
       > </a
-      ><a name="1986" class="Symbol"
-      >&#8594;</a
-      ><a name="1987"
-      > </a
-      ><a name="1988" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
+      ><a name="1986" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1000" class="Function Operator"
+      >&#10218;$&#10219;</a
       ><a name="1989"
       > </a
-      ><a name="1990" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1951" class="Bound"
-      >&#915;</a
-      ><a name="1991"
+      ><a name="1990" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1973" class="Bound"
+      >s&#8322;</a
+      ><a name="1992"
       > </a
-      ><a name="1992" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="1993"
-      > </a
-      ><a name="1994" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1945" class="Bound"
-      >A</a
-      ><a name="1995"
-      > </a
-      ><a name="1996" class="Symbol"
-      >&#8594;</a
-      ><a name="1997"
-      > </a
-      ><a name="1998" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="1999"
-      > </a
-      ><a name="2000" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1951" class="Bound"
-      >&#915;</a
-      ><a name="2001"
-      > </a
-      ><a name="2002" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
+      ><a name="1993" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1977" class="Bound"
+      >&#947;</a
+      ><a name="1994"
+      >
+
+    </a
+      ><a name="2000" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2000" class="Function"
+      >&#10214;S&#10215;</a
       ><a name="2003"
       > </a
-      ><a name="2004" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1949" class="Bound"
-      >C</a
+      ><a name="2004" class="Symbol"
+      >:</a
       ><a name="2005"
-      >
-    </a
-      ><a name="2010" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1936" class="Function"
-      >&#10214;S&#10215;</a
-      ><a name="2013"
       > </a
-      ><a name="2014" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2014" class="Bound"
-      >s&#8321;</a
-      ><a name="2016"
+      ><a name="2006" class="Symbol"
+      >&#8704;</a
+      ><a name="2007"
       > </a
-      ><a name="2017" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2017" class="Bound"
-      >s&#8322;</a
+      ><a name="2008" class="Symbol"
+      >{</a
+      ><a name="2009" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2009" class="Bound"
+      >A</a
+      ><a name="2010"
+      > </a
+      ><a name="2011" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2011" class="Bound"
+      >B</a
+      ><a name="2012"
+      > </a
+      ><a name="2013" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2013" class="Bound"
+      >C</a
+      ><a name="2014"
+      > </a
+      ><a name="2015" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2015" class="Bound"
+      >&#915;</a
+      ><a name="2016" class="Symbol"
+      >}</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" class="Symbol"
+      >&#8594;</a
       ><a name="2019"
       > </a
-      ><a name="2020" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2020" class="Bound"
-      >a</a
+      ><a name="2020" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
       ><a name="2021"
       > </a
-      ><a name="2022" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2022" class="Bound"
-      >&#947;</a
+      ><a name="2022" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2015" class="Bound"
+      >&#915;</a
       ><a name="2023"
       > </a
-      ><a name="2024" class="Symbol"
-      >=</a
+      ><a name="2024" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
       ><a name="2025"
       > </a
-      ><a name="2026" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1001" class="Function"
-      >&#10218;S&#10219;</a
+      ><a name="2026" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2009" class="Bound"
+      >A</a
+      ><a name="2027"
+      > </a
+      ><a name="2028" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="2029"
       > </a
-      ><a name="2030" class="Symbol"
-      >(</a
-      ><a name="2031" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2014" class="Bound"
-      >s&#8321;</a
+      ><a name="2030" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2011" class="Bound"
+      >B</a
+      ><a name="2031"
+      > </a
+      ><a name="2032" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
       ><a name="2033"
       > </a
-      ><a name="2034" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2022" class="Bound"
-      >&#947;</a
-      ><a name="2035" class="Symbol"
-      >)</a
-      ><a name="2036"
+      ><a name="2034" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2013" class="Bound"
+      >C</a
+      ><a name="2035"
       > </a
-      ><a name="2037" class="Symbol"
-      >(</a
-      ><a name="2038" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2017" class="Bound"
-      >s&#8322;</a
-      ><a name="2040"
+      ><a name="2036" class="Symbol"
+      >&#8594;</a
+      ><a name="2037"
       > </a
-      ><a name="2041" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2022" class="Bound"
-      >&#947;</a
-      ><a name="2042" class="Symbol"
-      >)</a
+      ><a name="2038" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="2039"
+      > </a
+      ><a name="2040" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2015" class="Bound"
+      >&#915;</a
+      ><a name="2041"
+      > </a
+      ><a name="2042" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
       ><a name="2043"
       > </a
-      ><a name="2044" class="Symbol"
-      >(</a
-      ><a name="2045" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2020" class="Bound"
-      >a</a
-      ><a name="2046"
-      > </a
-      ><a name="2047" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2022" class="Bound"
-      >&#947;</a
-      ><a name="2048" class="Symbol"
-      >)</a
-      ><a name="2049"
-      >
-
-    </a
-      ><a name="2055" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2055" class="Function Operator"
-      >_&#10214;,&#10215;_</a
-      ><a name="2060"
-      > </a
-      ><a name="2061" class="Symbol"
-      >:</a
-      ><a name="2062"
-      > </a
-      ><a name="2063" class="Symbol"
-      >&#8704;</a
-      ><a name="2064"
-      > </a
-      ><a name="2065" class="Symbol"
-      >{</a
-      ><a name="2066" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2066" class="Bound"
+      ><a name="2044" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2009" class="Bound"
       >A</a
+      ><a name="2045"
+      > </a
+      ><a name="2046" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2011" class="Bound"
+      >B</a
+      ><a name="2049"
+      > </a
+      ><a name="2050" class="Symbol"
+      >&#8594;</a
+      ><a name="2051"
+      > </a
+      ><a name="2052" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="2053"
+      > </a
+      ><a name="2054" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2015" class="Bound"
+      >&#915;</a
+      ><a name="2055"
+      > </a
+      ><a name="2056" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="2057"
+      > </a
+      ><a name="2058" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2009" class="Bound"
+      >A</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" class="Symbol"
+      >&#8594;</a
+      ><a name="2061"
+      > </a
+      ><a name="2062" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="2063"
+      > </a
+      ><a name="2064" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2015" class="Bound"
+      >&#915;</a
+      ><a name="2065"
+      > </a
+      ><a name="2066" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
       ><a name="2067"
       > </a
-      ><a name="2068" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2068" class="Bound"
-      >B</a
+      ><a name="2068" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2013" class="Bound"
+      >C</a
       ><a name="2069"
-      > </a
-      ><a name="2070" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2070" class="Bound"
-      >&#915;</a
-      ><a name="2071" class="Symbol"
-      >}</a
-      ><a name="2072"
-      > </a
-      ><a name="2073" class="Symbol"
-      >&#8594;</a
-      ><a name="2074"
-      > </a
-      ><a name="2075" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="2076"
-      > </a
-      ><a name="2077" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2070" class="Bound"
-      >&#915;</a
-      ><a name="2078"
-      > </a
-      ><a name="2079" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="2080"
-      > </a
-      ><a name="2081" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2066" class="Bound"
-      >A</a
-      ><a name="2082"
-      > </a
-      ><a name="2083" class="Symbol"
-      >&#8594;</a
-      ><a name="2084"
-      > </a
-      ><a name="2085" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="2086"
-      > </a
-      ><a name="2087" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2070" class="Bound"
-      >&#915;</a
-      ><a name="2088"
-      > </a
-      ><a name="2089" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="2090"
-      > </a
-      ><a name="2091" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2068" class="Bound"
-      >B</a
-      ><a name="2092"
-      > </a
-      ><a name="2093" class="Symbol"
-      >&#8594;</a
-      ><a name="2094"
-      > </a
-      ><a name="2095" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="2096"
-      > </a
-      ><a name="2097" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2070" class="Bound"
-      >&#915;</a
-      ><a name="2098"
-      > </a
-      ><a name="2099" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="2100"
-      > </a
-      ><a name="2101" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2066" class="Bound"
-      >A</a
-      ><a name="2102"
-      > </a
-      ><a name="2103" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
-      >&#8743;</a
-      ><a name="2104"
-      > </a
-      ><a name="2105" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2068" class="Bound"
-      >B</a
-      ><a name="2106"
       >
     </a
-      ><a name="2111" class="Symbol"
-      >(</a
-      ><a name="2112" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2112" class="Bound"
+      ><a name="2074" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2000" class="Function"
+      >&#10214;S&#10215;</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2078" class="Bound"
+      >s&#8321;</a
+      ><a name="2080"
+      > </a
+      ><a name="2081" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2081" class="Bound"
+      >s&#8322;</a
+      ><a name="2083"
+      > </a
+      ><a name="2084" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2084" class="Bound"
       >a</a
-      ><a name="2113"
+      ><a name="2085"
       > </a
-      ><a name="2114" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2055" class="Function Operator"
-      >&#10214;,&#10215;</a
-      ><a name="2117"
-      > </a
-      ><a name="2118" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2118" class="Bound"
-      >b</a
-      ><a name="2119" class="Symbol"
-      >)</a
-      ><a name="2120"
-      > </a
-      ><a name="2121" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2121" class="Bound"
+      ><a name="2086" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2086" class="Bound"
       >&#947;</a
-      ><a name="2122"
+      ><a name="2087"
       > </a
-      ><a name="2123" class="Symbol"
+      ><a name="2088" class="Symbol"
       >=</a
-      ><a name="2124"
+      ><a name="2089"
       > </a
-      ><a name="2125" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2112" class="Bound"
+      ><a name="2090" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1065" class="Function"
+      >&#10218;S&#10219;</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" class="Symbol"
+      >(</a
+      ><a name="2095" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2078" class="Bound"
+      >s&#8321;</a
+      ><a name="2097"
+      > </a
+      ><a name="2098" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2086" class="Bound"
+      >&#947;</a
+      ><a name="2099" class="Symbol"
+      >)</a
+      ><a name="2100"
+      > </a
+      ><a name="2101" class="Symbol"
+      >(</a
+      ><a name="2102" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2081" class="Bound"
+      >s&#8322;</a
+      ><a name="2104"
+      > </a
+      ><a name="2105" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2086" class="Bound"
+      >&#947;</a
+      ><a name="2106" class="Symbol"
+      >)</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" class="Symbol"
+      >(</a
+      ><a name="2109" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2084" class="Bound"
       >a</a
-      ><a name="2126"
+      ><a name="2110"
       > </a
-      ><a name="2127" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2121" class="Bound"
+      ><a name="2111" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2086" class="Bound"
       >&#947;</a
-      ><a name="2128"
-      > </a
-      ><a name="2129" href="Common.html#1396" class="InductiveConstructor Operator"
-      >,</a
-      ><a name="2130"
-      > </a
-      ><a name="2131" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2118" class="Bound"
-      >b</a
-      ><a name="2132"
-      > </a
-      ><a name="2133" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2121" class="Bound"
-      >&#947;</a
-      ><a name="2134"
+      ><a name="2112" class="Symbol"
+      >)</a
+      ><a name="2113"
       >
 
     </a
-      ><a name="2140" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2140" class="Function"
-      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="2119" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2119" class="Function Operator"
+      >_&#10214;,&#10215;_</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" class="Symbol"
+      >:</a
+      ><a name="2126"
+      > </a
+      ><a name="2127" class="Symbol"
+      >&#8704;</a
+      ><a name="2128"
+      > </a
+      ><a name="2129" class="Symbol"
+      >{</a
+      ><a name="2130" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2130" class="Bound"
+      >A</a
+      ><a name="2131"
+      > </a
+      ><a name="2132" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2132" class="Bound"
+      >B</a
+      ><a name="2133"
+      > </a
+      ><a name="2134" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2134" class="Bound"
+      >&#915;</a
+      ><a name="2135" class="Symbol"
+      >}</a
+      ><a name="2136"
+      > </a
+      ><a name="2137" class="Symbol"
+      >&#8594;</a
+      ><a name="2138"
+      > </a
+      ><a name="2139" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="2140"
+      > </a
+      ><a name="2141" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2134" class="Bound"
+      >&#915;</a
+      ><a name="2142"
+      > </a
+      ><a name="2143" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
       ><a name="2144"
       > </a
-      ><a name="2145" class="Symbol"
-      >:</a
+      ><a name="2145" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2130" class="Bound"
+      >A</a
       ><a name="2146"
       > </a
       ><a name="2147" class="Symbol"
-      >&#8704;</a
+      >&#8594;</a
       ><a name="2148"
       > </a
-      ><a name="2149" class="Symbol"
-      >{</a
-      ><a name="2150" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2150" class="Bound"
-      >A</a
-      ><a name="2151"
+      ><a name="2149" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="2150"
       > </a
-      ><a name="2152" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2152" class="Bound"
-      >B</a
-      ><a name="2153"
-      > </a
-      ><a name="2154" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2154" class="Bound"
+      ><a name="2151" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2134" class="Bound"
       >&#915;</a
-      ><a name="2155" class="Symbol"
-      >}</a
+      ><a name="2152"
+      > </a
+      ><a name="2153" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="2154"
+      > </a
+      ><a name="2155" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2132" class="Bound"
+      >B</a
       ><a name="2156"
       > </a
       ><a name="2157" class="Symbol"
       >&#8594;</a
       ><a name="2158"
       > </a
-      ><a name="2159" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
+      ><a name="2159" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
       >&#8873;</a
       ><a name="2160"
       > </a
-      ><a name="2161" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2154" class="Bound"
+      ><a name="2161" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2134" class="Bound"
       >&#915;</a
       ><a name="2162"
       > </a
-      ><a name="2163" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
+      ><a name="2163" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
       >&#8658;</a
       ><a name="2164"
       > </a
-      ><a name="2165" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2150" class="Bound"
+      ><a name="2165" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2130" class="Bound"
       >A</a
       ><a name="2166"
       > </a
-      ><a name="2167" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
+      ><a name="2167" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
       >&#8743;</a
       ><a name="2168"
       > </a
-      ><a name="2169" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2152" class="Bound"
+      ><a name="2169" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2132" class="Bound"
       >B</a
       ><a name="2170"
-      > </a
-      ><a name="2171" class="Symbol"
-      >&#8594;</a
-      ><a name="2172"
-      > </a
-      ><a name="2173" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
-      ><a name="2174"
-      > </a
-      ><a name="2175" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2154" class="Bound"
-      >&#915;</a
-      ><a name="2176"
-      > </a
-      ><a name="2177" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="2178"
-      > </a
-      ><a name="2179" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2150" class="Bound"
-      >A</a
-      ><a name="2180"
       >
     </a
-      ><a name="2185" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2140" class="Function"
-      >&#10214;&#960;&#8321;&#10215;</a
-      ><a name="2189"
-      > </a
-      ><a name="2190" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2190" class="Bound"
-      >s</a
-      ><a name="2191"
-      > </a
-      ><a name="2192" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2192" class="Bound"
-      >&#947;</a
-      ><a name="2193"
-      > </a
-      ><a name="2194" class="Symbol"
-      >=</a
-      ><a name="2195"
-      > </a
-      ><a name="2196" href="Common.html#1412" class="Field"
-      >&#960;&#8321;</a
-      ><a name="2198"
-      > </a
-      ><a name="2199" class="Symbol"
+      ><a name="2175" class="Symbol"
       >(</a
-      ><a name="2200" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2190" class="Bound"
-      >s</a
-      ><a name="2201"
+      ><a name="2176" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2176" class="Bound"
+      >a</a
+      ><a name="2177"
       > </a
-      ><a name="2202" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2192" class="Bound"
-      >&#947;</a
-      ><a name="2203" class="Symbol"
+      ><a name="2178" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2119" class="Function Operator"
+      >&#10214;,&#10215;</a
+      ><a name="2181"
+      > </a
+      ><a name="2182" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2182" class="Bound"
+      >b</a
+      ><a name="2183" class="Symbol"
       >)</a
-      ><a name="2204"
+      ><a name="2184"
+      > </a
+      ><a name="2185" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2185" class="Bound"
+      >&#947;</a
+      ><a name="2186"
+      > </a
+      ><a name="2187" class="Symbol"
+      >=</a
+      ><a name="2188"
+      > </a
+      ><a name="2189" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2176" class="Bound"
+      >a</a
+      ><a name="2190"
+      > </a
+      ><a name="2191" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2185" class="Bound"
+      >&#947;</a
+      ><a name="2192"
+      > </a
+      ><a name="2193" href="Common.html#1396" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2194"
+      > </a
+      ><a name="2195" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2182" class="Bound"
+      >b</a
+      ><a name="2196"
+      > </a
+      ><a name="2197" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2185" class="Bound"
+      >&#947;</a
+      ><a name="2198"
       >
 
     </a
-      ><a name="2210" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2210" class="Function"
-      >&#10214;&#960;&#8322;&#10215;</a
-      ><a name="2214"
+      ><a name="2204" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2204" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="2208"
       > </a
-      ><a name="2215" class="Symbol"
+      ><a name="2209" class="Symbol"
       >:</a
-      ><a name="2216"
+      ><a name="2210"
       > </a
-      ><a name="2217" class="Symbol"
+      ><a name="2211" class="Symbol"
       >&#8704;</a
-      ><a name="2218"
+      ><a name="2212"
       > </a
-      ><a name="2219" class="Symbol"
+      ><a name="2213" class="Symbol"
       >{</a
-      ><a name="2220" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2220" class="Bound"
+      ><a name="2214" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2214" class="Bound"
       >A</a
-      ><a name="2221"
+      ><a name="2215"
       > </a
-      ><a name="2222" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2222" class="Bound"
+      ><a name="2216" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2216" class="Bound"
       >B</a
-      ><a name="2223"
+      ><a name="2217"
       > </a
-      ><a name="2224" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2224" class="Bound"
+      ><a name="2218" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2218" class="Bound"
       >&#915;</a
-      ><a name="2225" class="Symbol"
+      ><a name="2219" class="Symbol"
       >}</a
+      ><a name="2220"
+      > </a
+      ><a name="2221" class="Symbol"
+      >&#8594;</a
+      ><a name="2222"
+      > </a
+      ><a name="2223" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="2224"
+      > </a
+      ><a name="2225" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2218" class="Bound"
+      >&#915;</a
       ><a name="2226"
       > </a
-      ><a name="2227" class="Symbol"
-      >&#8594;</a
+      ><a name="2227" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
       ><a name="2228"
       > </a
-      ><a name="2229" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
+      ><a name="2229" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2214" class="Bound"
+      >A</a
       ><a name="2230"
       > </a
-      ><a name="2231" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2224" class="Bound"
-      >&#915;</a
+      ><a name="2231" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
       ><a name="2232"
       > </a
-      ><a name="2233" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
+      ><a name="2233" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2216" class="Bound"
+      >B</a
       ><a name="2234"
       > </a
-      ><a name="2235" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2220" class="Bound"
-      >A</a
+      ><a name="2235" class="Symbol"
+      >&#8594;</a
       ><a name="2236"
       > </a
-      ><a name="2237" href="BasicIPC.Syntax.Common.html#208" class="InductiveConstructor Operator"
-      >&#8743;</a
+      ><a name="2237" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
       ><a name="2238"
       > </a
-      ><a name="2239" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2222" class="Bound"
-      >B</a
+      ><a name="2239" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2218" class="Bound"
+      >&#915;</a
       ><a name="2240"
       > </a
-      ><a name="2241" class="Symbol"
-      >&#8594;</a
+      ><a name="2241" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
       ><a name="2242"
       > </a
-      ><a name="2243" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8873;</a
+      ><a name="2243" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2214" class="Bound"
+      >A</a
       ><a name="2244"
-      > </a
-      ><a name="2245" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2224" class="Bound"
-      >&#915;</a
-      ><a name="2246"
-      > </a
-      ><a name="2247" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1202" class="Function Operator"
-      >&#8658;</a
-      ><a name="2248"
-      > </a
-      ><a name="2249" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2222" class="Bound"
-      >B</a
-      ><a name="2250"
       >
     </a
-      ><a name="2255" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2210" class="Function"
-      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="2249" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2204" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="2253"
+      > </a
+      ><a name="2254" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2254" class="Bound"
+      >s</a
+      ><a name="2255"
+      > </a
+      ><a name="2256" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2256" class="Bound"
+      >&#947;</a
+      ><a name="2257"
+      > </a
+      ><a name="2258" class="Symbol"
+      >=</a
       ><a name="2259"
       > </a
-      ><a name="2260" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2260" class="Bound"
+      ><a name="2260" href="Common.html#1412" class="Field"
+      >&#960;&#8321;</a
+      ><a name="2262"
+      > </a
+      ><a name="2263" class="Symbol"
+      >(</a
+      ><a name="2264" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2254" class="Bound"
       >s</a
-      ><a name="2261"
-      > </a
-      ><a name="2262" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2262" class="Bound"
-      >&#947;</a
-      ><a name="2263"
-      > </a
-      ><a name="2264" class="Symbol"
-      >=</a
       ><a name="2265"
       > </a
-      ><a name="2266" href="Common.html#1423" class="Field"
-      >&#960;&#8322;</a
-      ><a name="2268"
-      > </a
-      ><a name="2269" class="Symbol"
-      >(</a
-      ><a name="2270" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2260" class="Bound"
-      >s</a
-      ><a name="2271"
-      > </a
-      ><a name="2272" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2262" class="Bound"
+      ><a name="2266" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2256" class="Bound"
       >&#947;</a
-      ><a name="2273" class="Symbol"
+      ><a name="2267" class="Symbol"
       >)</a
-      ><a name="2274"
+      ><a name="2268"
+      >
+
+    </a
+      ><a name="2274" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2274" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="2278"
+      > </a
+      ><a name="2279" class="Symbol"
+      >:</a
+      ><a name="2280"
+      > </a
+      ><a name="2281" class="Symbol"
+      >&#8704;</a
+      ><a name="2282"
+      > </a
+      ><a name="2283" class="Symbol"
+      >{</a
+      ><a name="2284" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2284" class="Bound"
+      >A</a
+      ><a name="2285"
+      > </a
+      ><a name="2286" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2286" class="Bound"
+      >B</a
+      ><a name="2287"
+      > </a
+      ><a name="2288" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2288" class="Bound"
+      >&#915;</a
+      ><a name="2289" class="Symbol"
+      >}</a
+      ><a name="2290"
+      > </a
+      ><a name="2291" class="Symbol"
+      >&#8594;</a
+      ><a name="2292"
+      > </a
+      ><a name="2293" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="2294"
+      > </a
+      ><a name="2295" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2288" class="Bound"
+      >&#915;</a
+      ><a name="2296"
+      > </a
+      ><a name="2297" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="2298"
+      > </a
+      ><a name="2299" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2284" class="Bound"
+      >A</a
+      ><a name="2300"
+      > </a
+      ><a name="2301" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2302"
+      > </a
+      ><a name="2303" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2286" class="Bound"
+      >B</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" class="Symbol"
+      >&#8594;</a
+      ><a name="2306"
+      > </a
+      ><a name="2307" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8873;</a
+      ><a name="2308"
+      > </a
+      ><a name="2309" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2288" class="Bound"
+      >&#915;</a
+      ><a name="2310"
+      > </a
+      ><a name="2311" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#1266" class="Function Operator"
+      >&#8658;</a
+      ><a name="2312"
+      > </a
+      ><a name="2313" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2286" class="Bound"
+      >B</a
+      ><a name="2314"
+      >
+    </a
+      ><a name="2319" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2274" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="2323"
+      > </a
+      ><a name="2324" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2324" class="Bound"
+      >s</a
+      ><a name="2325"
+      > </a
+      ><a name="2326" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2326" class="Bound"
+      >&#947;</a
+      ><a name="2327"
+      > </a
+      ><a name="2328" class="Symbol"
+      >=</a
+      ><a name="2329"
+      > </a
+      ><a name="2330" href="Common.html#1423" class="Field"
+      >&#960;&#8322;</a
+      ><a name="2332"
+      > </a
+      ><a name="2333" class="Symbol"
+      >(</a
+      ><a name="2334" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2324" class="Bound"
+      >s</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" href="BasicIPC.Semantics.TarskiClosedGluedImplicit.html#2326" class="Bound"
+      >&#947;</a
+      ><a name="2337" class="Symbol"
+      >)</a
+      ><a name="2338"
       >
 </a
       ></pre
