@@ -1,0 +1,1990 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicT.Semantics.BasicTarski</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- TODO</a
+      ><a name="8"
+      >
+</a
+      ><a name="9" class="Comment"
+      >-- Basic Tarski-style semantics, for soundness only.</a
+      ><a name="61"
+      >
+
+</a
+      ><a name="63" class="Keyword"
+      >module</a
+      ><a name="69"
+      > </a
+      ><a name="70" href="BasicT.Semantics.BasicTarski.html#1" class="Module"
+      >BasicT.Semantics.BasicTarski</a
+      ><a name="98"
+      > </a
+      ><a name="99" class="Keyword"
+      >where</a
+      ><a name="104"
+      >
+
+</a
+      ><a name="106" class="Keyword"
+      >open</a
+      ><a name="110"
+      > </a
+      ><a name="111" class="Keyword"
+      >import</a
+      ><a name="117"
+      > </a
+      ><a name="118" href="BasicT.Syntax.Common.html#1" class="Module"
+      >BasicT.Syntax.Common</a
+      ><a name="138"
+      > </a
+      ><a name="139" class="Keyword"
+      >public</a
+      ><a name="145"
+      >
+
+
+</a
+      ><a name="148" class="Comment"
+      >-- Tarski models.</a
+      ><a name="165"
+      >
+
+</a
+      ><a name="167" class="Keyword"
+      >record</a
+      ><a name="173"
+      > </a
+      ><a name="174" href="BasicT.Semantics.BasicTarski.html#174" class="Record"
+      >Model</a
+      ><a name="179"
+      > </a
+      ><a name="180" class="Symbol"
+      >:</a
+      ><a name="181"
+      > </a
+      ><a name="182" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="186"
+      > </a
+      ><a name="187" class="Keyword"
+      >where</a
+      ><a name="192"
+      >
+  </a
+      ><a name="195" class="Keyword"
+      >infix</a
+      ><a name="200"
+      > </a
+      ><a name="201" class="Number"
+      >3</a
+      ><a name="202"
+      > &#8873;&#7493;_
+  </a
+      ><a name="209" class="Keyword"
+      >field</a
+      ><a name="214"
+      >
+    </a
+      ><a name="219" class="Comment"
+      >-- Forcing for atomic propositions.</a
+      ><a name="254"
+      >
+    </a
+      ><a name="259" href="BasicT.Semantics.BasicTarski.html#259" class="Field Operator"
+      >&#8873;&#7493;_</a
+      ><a name="262"
+      > </a
+      ><a name="263" class="Symbol"
+      >:</a
+      ><a name="264"
+      > </a
+      ><a name="265" href="Common.html#1239" class="Function"
+      >Atom</a
+      ><a name="269"
+      > </a
+      ><a name="270" class="Symbol"
+      >&#8594;</a
+      ><a name="271"
+      > </a
+      ><a name="272" class="PrimitiveType"
+      >Set</a
+      ><a name="275"
+      >
+
+</a
+      ><a name="277" class="Keyword"
+      >open</a
+      ><a name="281"
+      > </a
+      ><a name="282" href="BasicT.Semantics.BasicTarski.html#174" class="Module"
+      >Model</a
+      ><a name="287"
+      > </a
+      ><a name="288" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="293"
+      > </a
+      ><a name="294" class="Keyword"
+      >public</a
+      ><a name="300"
+      >
+
+
+</a
+      ><a name="303" class="Comment"
+      >-- Forcing in a particular model.</a
+      ><a name="336"
+      >
+
+</a
+      ><a name="338" class="Keyword"
+      >module</a
+      ><a name="344"
+      > </a
+      ><a name="345" href="BasicT.Semantics.BasicTarski.html#345" class="Module"
+      >_</a
+      ><a name="346"
+      > </a
+      ><a name="347" class="Symbol"
+      >{{</a
+      ><a name="349" href="BasicT.Semantics.BasicTarski.html#349" class="Bound"
+      >_</a
+      ><a name="350"
+      > </a
+      ><a name="351" class="Symbol"
+      >:</a
+      ><a name="352"
+      > </a
+      ><a name="353" href="BasicT.Semantics.BasicTarski.html#174" class="Record"
+      >Model</a
+      ><a name="358" class="Symbol"
+      >}}</a
+      ><a name="360"
+      > </a
+      ><a name="361" class="Keyword"
+      >where</a
+      ><a name="366"
+      >
+  </a
+      ><a name="369" class="Keyword"
+      >infix</a
+      ><a name="374"
+      > </a
+      ><a name="375" class="Number"
+      >3</a
+      ><a name="376"
+      > &#8873;_
+  </a
+      ><a name="382" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;_</a
+      ><a name="384"
+      > </a
+      ><a name="385" class="Symbol"
+      >:</a
+      ><a name="386"
+      > </a
+      ><a name="387" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="389"
+      > </a
+      ><a name="390" class="Symbol"
+      >&#8594;</a
+      ><a name="391"
+      > </a
+      ><a name="392" class="PrimitiveType"
+      >Set</a
+      ><a name="395"
+      >
+  </a
+      ><a name="398" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="399"
+      > </a
+      ><a name="400" href="BasicT.Syntax.Common.html#175" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="401"
+      > </a
+      ><a name="402" href="BasicT.Semantics.BasicTarski.html#402" class="Bound"
+      >P</a
+      ><a name="403"
+      >   </a
+      ><a name="406" class="Symbol"
+      >=</a
+      ><a name="407"
+      > </a
+      ><a name="408" href="BasicT.Semantics.BasicTarski.html#259" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="410"
+      > </a
+      ><a name="411" href="BasicT.Semantics.BasicTarski.html#402" class="Bound"
+      >P</a
+      ><a name="412"
+      >
+  </a
+      ><a name="415" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="416"
+      > </a
+      ><a name="417" href="BasicT.Semantics.BasicTarski.html#417" class="Bound"
+      >A</a
+      ><a name="418"
+      > </a
+      ><a name="419" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="420"
+      > </a
+      ><a name="421" href="BasicT.Semantics.BasicTarski.html#421" class="Bound"
+      >B</a
+      ><a name="422"
+      > </a
+      ><a name="423" class="Symbol"
+      >=</a
+      ><a name="424"
+      > </a
+      ><a name="425" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="426"
+      > </a
+      ><a name="427" href="BasicT.Semantics.BasicTarski.html#417" class="Bound"
+      >A</a
+      ><a name="428"
+      > </a
+      ><a name="429" class="Symbol"
+      >&#8594;</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="BasicT.Semantics.BasicTarski.html#421" class="Bound"
+      >B</a
+      ><a name="434"
+      >
+  </a
+      ><a name="437" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="438"
+      > </a
+      ><a name="439" href="BasicT.Semantics.BasicTarski.html#439" class="Bound"
+      >A</a
+      ><a name="440"
+      > </a
+      ><a name="441" href="BasicT.Syntax.Common.html#216" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="442"
+      > </a
+      ><a name="443" href="BasicT.Semantics.BasicTarski.html#443" class="Bound"
+      >B</a
+      ><a name="444"
+      > </a
+      ><a name="445" class="Symbol"
+      >=</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="448"
+      > </a
+      ><a name="449" href="BasicT.Semantics.BasicTarski.html#439" class="Bound"
+      >A</a
+      ><a name="450"
+      > </a
+      ><a name="451" href="Common.html#1570" class="Function Operator"
+      >&#215;</a
+      ><a name="452"
+      > </a
+      ><a name="453" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="454"
+      > </a
+      ><a name="455" href="BasicT.Semantics.BasicTarski.html#443" class="Bound"
+      >B</a
+      ><a name="456"
+      >
+  </a
+      ><a name="459" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="460"
+      > </a
+      ><a name="461" href="BasicT.Syntax.Common.html#238" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="462"
+      >    </a
+      ><a name="466" class="Symbol"
+      >=</a
+      ><a name="467"
+      > </a
+      ><a name="468" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="469"
+      >
+  </a
+      ><a name="472" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="BasicT.Syntax.Common.html#249" class="InductiveConstructor"
+      >BOOL</a
+      ><a name="478"
+      >  </a
+      ><a name="480" class="Symbol"
+      >=</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="Agda.Builtin.Bool.html#39" class="Datatype"
+      >&#120121;</a
+      ><a name="483"
+      >
+  </a
+      ><a name="486" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="487"
+      > </a
+      ><a name="488" href="BasicT.Syntax.Common.html#261" class="InductiveConstructor"
+      >NAT</a
+      ><a name="491"
+      >   </a
+      ><a name="494" class="Symbol"
+      >=</a
+      ><a name="495"
+      > </a
+      ><a name="496" href="Agda.Builtin.Nat.html#69" class="Datatype"
+      >&#8469;</a
+      ><a name="497"
+      >
+
+  </a
+      ><a name="501" class="Keyword"
+      >infix</a
+      ><a name="506"
+      > </a
+      ><a name="507" class="Number"
+      >3</a
+      ><a name="508"
+      > &#8873;&#8902;_
+  </a
+      ><a name="515" href="BasicT.Semantics.BasicTarski.html#515" class="Function Operator"
+      >&#8873;&#8902;_</a
+      ><a name="518"
+      > </a
+      ><a name="519" class="Symbol"
+      >:</a
+      ><a name="520"
+      > </a
+      ><a name="521" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="523"
+      > </a
+      ><a name="524" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="526"
+      > </a
+      ><a name="527" class="Symbol"
+      >&#8594;</a
+      ><a name="528"
+      > </a
+      ><a name="529" class="PrimitiveType"
+      >Set</a
+      ><a name="532"
+      >
+  </a
+      ><a name="535" href="BasicT.Semantics.BasicTarski.html#515" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="537"
+      > </a
+      ><a name="538" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="539"
+      >     </a
+      ><a name="544" class="Symbol"
+      >=</a
+      ><a name="545"
+      > </a
+      ><a name="546" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="547"
+      >
+  </a
+      ><a name="550" href="BasicT.Semantics.BasicTarski.html#515" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="552"
+      > </a
+      ><a name="553" href="BasicT.Semantics.BasicTarski.html#553" class="Bound"
+      >&#926;</a
+      ><a name="554"
+      > </a
+      ><a name="555" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="556"
+      > </a
+      ><a name="557" href="BasicT.Semantics.BasicTarski.html#557" class="Bound"
+      >A</a
+      ><a name="558"
+      > </a
+      ><a name="559" class="Symbol"
+      >=</a
+      ><a name="560"
+      > </a
+      ><a name="561" href="BasicT.Semantics.BasicTarski.html#515" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="BasicT.Semantics.BasicTarski.html#553" class="Bound"
+      >&#926;</a
+      ><a name="565"
+      > </a
+      ><a name="566" href="Common.html#1570" class="Function Operator"
+      >&#215;</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="BasicT.Semantics.BasicTarski.html#557" class="Bound"
+      >A</a
+      ><a name="571"
+      >
+
+
+</a
+      ><a name="574" class="Comment"
+      >-- Entailment, or forcing in all models.</a
+      ><a name="614"
+      >
+
+</a
+      ><a name="616" class="Keyword"
+      >infix</a
+      ><a name="621"
+      > </a
+      ><a name="622" class="Number"
+      >3</a
+      ><a name="623"
+      > &#8872;_
+</a
+      ><a name="627" href="BasicT.Semantics.BasicTarski.html#627" class="Function Operator"
+      >&#8872;_</a
+      ><a name="629"
+      > </a
+      ><a name="630" class="Symbol"
+      >:</a
+      ><a name="631"
+      > </a
+      ><a name="632" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="634"
+      > </a
+      ><a name="635" class="Symbol"
+      >&#8594;</a
+      ><a name="636"
+      > </a
+      ><a name="637" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="641"
+      >
+</a
+      ><a name="642" href="BasicT.Semantics.BasicTarski.html#627" class="Function Operator"
+      >&#8872;</a
+      ><a name="643"
+      > </a
+      ><a name="644" href="BasicT.Semantics.BasicTarski.html#644" class="Bound"
+      >A</a
+      ><a name="645"
+      > </a
+      ><a name="646" class="Symbol"
+      >=</a
+      ><a name="647"
+      > </a
+      ><a name="648" class="Symbol"
+      >&#8704;</a
+      ><a name="649"
+      > </a
+      ><a name="650" class="Symbol"
+      >{{</a
+      ><a name="652" href="BasicT.Semantics.BasicTarski.html#652" class="Bound"
+      >_</a
+      ><a name="653"
+      > </a
+      ><a name="654" class="Symbol"
+      >:</a
+      ><a name="655"
+      > </a
+      ><a name="656" href="BasicT.Semantics.BasicTarski.html#174" class="Record"
+      >Model</a
+      ><a name="661" class="Symbol"
+      >}}</a
+      ><a name="663"
+      > </a
+      ><a name="664" class="Symbol"
+      >&#8594;</a
+      ><a name="665"
+      > </a
+      ><a name="666" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="667"
+      > </a
+      ><a name="668" href="BasicT.Semantics.BasicTarski.html#644" class="Bound"
+      >A</a
+      ><a name="669"
+      >
+
+
+</a
+      ><a name="672" class="Comment"
+      >-- Forcing in a particular model, for sequents.</a
+      ><a name="719"
+      >
+
+</a
+      ><a name="721" class="Keyword"
+      >module</a
+      ><a name="727"
+      > </a
+      ><a name="728" href="BasicT.Semantics.BasicTarski.html#728" class="Module"
+      >_</a
+      ><a name="729"
+      > </a
+      ><a name="730" class="Symbol"
+      >{{</a
+      ><a name="732" href="BasicT.Semantics.BasicTarski.html#732" class="Bound"
+      >_</a
+      ><a name="733"
+      > </a
+      ><a name="734" class="Symbol"
+      >:</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="BasicT.Semantics.BasicTarski.html#174" class="Record"
+      >Model</a
+      ><a name="741" class="Symbol"
+      >}}</a
+      ><a name="743"
+      > </a
+      ><a name="744" class="Keyword"
+      >where</a
+      ><a name="749"
+      >
+  </a
+      ><a name="752" class="Keyword"
+      >infix</a
+      ><a name="757"
+      > </a
+      ><a name="758" class="Number"
+      >3</a
+      ><a name="759"
+      > &#8873;_&#8658;_
+  </a
+      ><a name="767" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;_&#8658;_</a
+      ><a name="771"
+      > </a
+      ><a name="772" class="Symbol"
+      >:</a
+      ><a name="773"
+      > </a
+      ><a name="774" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="776"
+      > </a
+      ><a name="777" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="779"
+      > </a
+      ><a name="780" class="Symbol"
+      >&#8594;</a
+      ><a name="781"
+      > </a
+      ><a name="782" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="784"
+      > </a
+      ><a name="785" class="Symbol"
+      >&#8594;</a
+      ><a name="786"
+      > </a
+      ><a name="787" class="PrimitiveType"
+      >Set</a
+      ><a name="790"
+      >
+  </a
+      ><a name="793" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="794"
+      > </a
+      ><a name="795" href="BasicT.Semantics.BasicTarski.html#795" class="Bound"
+      >&#915;</a
+      ><a name="796"
+      > </a
+      ><a name="797" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="798"
+      > </a
+      ><a name="799" href="BasicT.Semantics.BasicTarski.html#799" class="Bound"
+      >A</a
+      ><a name="800"
+      > </a
+      ><a name="801" class="Symbol"
+      >=</a
+      ><a name="802"
+      > </a
+      ><a name="803" href="BasicT.Semantics.BasicTarski.html#515" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="805"
+      > </a
+      ><a name="806" href="BasicT.Semantics.BasicTarski.html#795" class="Bound"
+      >&#915;</a
+      ><a name="807"
+      > </a
+      ><a name="808" class="Symbol"
+      >&#8594;</a
+      ><a name="809"
+      > </a
+      ><a name="810" href="BasicT.Semantics.BasicTarski.html#382" class="Function Operator"
+      >&#8873;</a
+      ><a name="811"
+      > </a
+      ><a name="812" href="BasicT.Semantics.BasicTarski.html#799" class="Bound"
+      >A</a
+      ><a name="813"
+      >
+
+  </a
+      ><a name="817" class="Keyword"
+      >infix</a
+      ><a name="822"
+      > </a
+      ><a name="823" class="Number"
+      >3</a
+      ><a name="824"
+      > &#8873;_&#8658;&#8902;_
+  </a
+      ><a name="833" href="BasicT.Semantics.BasicTarski.html#833" class="Function Operator"
+      >&#8873;_&#8658;&#8902;_</a
+      ><a name="838"
+      > </a
+      ><a name="839" class="Symbol"
+      >:</a
+      ><a name="840"
+      > </a
+      ><a name="841" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="843"
+      > </a
+      ><a name="844" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="846"
+      > </a
+      ><a name="847" class="Symbol"
+      >&#8594;</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="851"
+      > </a
+      ><a name="852" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="854"
+      > </a
+      ><a name="855" class="Symbol"
+      >&#8594;</a
+      ><a name="856"
+      > </a
+      ><a name="857" class="PrimitiveType"
+      >Set</a
+      ><a name="860"
+      >
+  </a
+      ><a name="863" href="BasicT.Semantics.BasicTarski.html#833" class="Function Operator"
+      >&#8873;</a
+      ><a name="864"
+      > </a
+      ><a name="865" href="BasicT.Semantics.BasicTarski.html#865" class="Bound"
+      >&#915;</a
+      ><a name="866"
+      > </a
+      ><a name="867" href="BasicT.Semantics.BasicTarski.html#833" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="869"
+      > </a
+      ><a name="870" href="BasicT.Semantics.BasicTarski.html#870" class="Bound"
+      >&#926;</a
+      ><a name="871"
+      > </a
+      ><a name="872" class="Symbol"
+      >=</a
+      ><a name="873"
+      > </a
+      ><a name="874" href="BasicT.Semantics.BasicTarski.html#515" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="876"
+      > </a
+      ><a name="877" href="BasicT.Semantics.BasicTarski.html#865" class="Bound"
+      >&#915;</a
+      ><a name="878"
+      > </a
+      ><a name="879" class="Symbol"
+      >&#8594;</a
+      ><a name="880"
+      > </a
+      ><a name="881" href="BasicT.Semantics.BasicTarski.html#515" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="BasicT.Semantics.BasicTarski.html#870" class="Bound"
+      >&#926;</a
+      ><a name="885"
+      >
+
+
+</a
+      ><a name="888" class="Comment"
+      >-- Entailment, or forcing in all models, for sequents.</a
+      ><a name="942"
+      >
+
+</a
+      ><a name="944" class="Keyword"
+      >infix</a
+      ><a name="949"
+      > </a
+      ><a name="950" class="Number"
+      >3</a
+      ><a name="951"
+      > _&#8872;_
+</a
+      ><a name="956" href="BasicT.Semantics.BasicTarski.html#956" class="Function Operator"
+      >_&#8872;_</a
+      ><a name="959"
+      > </a
+      ><a name="960" class="Symbol"
+      >:</a
+      ><a name="961"
+      > </a
+      ><a name="962" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="964"
+      > </a
+      ><a name="965" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="967"
+      > </a
+      ><a name="968" class="Symbol"
+      >&#8594;</a
+      ><a name="969"
+      > </a
+      ><a name="970" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="972"
+      > </a
+      ><a name="973" class="Symbol"
+      >&#8594;</a
+      ><a name="974"
+      > </a
+      ><a name="975" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="979"
+      >
+</a
+      ><a name="980" href="BasicT.Semantics.BasicTarski.html#980" class="Bound"
+      >&#915;</a
+      ><a name="981"
+      > </a
+      ><a name="982" href="BasicT.Semantics.BasicTarski.html#956" class="Function Operator"
+      >&#8872;</a
+      ><a name="983"
+      > </a
+      ><a name="984" href="BasicT.Semantics.BasicTarski.html#984" class="Bound"
+      >A</a
+      ><a name="985"
+      > </a
+      ><a name="986" class="Symbol"
+      >=</a
+      ><a name="987"
+      > </a
+      ><a name="988" class="Symbol"
+      >&#8704;</a
+      ><a name="989"
+      > </a
+      ><a name="990" class="Symbol"
+      >{{</a
+      ><a name="992" href="BasicT.Semantics.BasicTarski.html#992" class="Bound"
+      >_</a
+      ><a name="993"
+      > </a
+      ><a name="994" class="Symbol"
+      >:</a
+      ><a name="995"
+      > </a
+      ><a name="996" href="BasicT.Semantics.BasicTarski.html#174" class="Record"
+      >Model</a
+      ><a name="1001" class="Symbol"
+      >}}</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" class="Symbol"
+      >&#8594;</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" href="BasicT.Semantics.BasicTarski.html#980" class="Bound"
+      >&#915;</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1011"
+      > </a
+      ><a name="1012" href="BasicT.Semantics.BasicTarski.html#984" class="Bound"
+      >A</a
+      ><a name="1013"
+      >
+
+</a
+      ><a name="1015" class="Keyword"
+      >infix</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" class="Number"
+      >3</a
+      ><a name="1022"
+      > _&#8872;&#8902;_
+</a
+      ><a name="1028" href="BasicT.Semantics.BasicTarski.html#1028" class="Function Operator"
+      >_&#8872;&#8902;_</a
+      ><a name="1032"
+      > </a
+      ><a name="1033" class="Symbol"
+      >:</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1037"
+      > </a
+      ><a name="1038" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="1040"
+      > </a
+      ><a name="1041" class="Symbol"
+      >&#8594;</a
+      ><a name="1042"
+      > </a
+      ><a name="1043" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1045"
+      > </a
+      ><a name="1046" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" class="Symbol"
+      >&#8594;</a
+      ><a name="1050"
+      > </a
+      ><a name="1051" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="1055"
+      >
+</a
+      ><a name="1056" href="BasicT.Semantics.BasicTarski.html#1056" class="Bound"
+      >&#915;</a
+      ><a name="1057"
+      > </a
+      ><a name="1058" href="BasicT.Semantics.BasicTarski.html#1028" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="1060"
+      > </a
+      ><a name="1061" href="BasicT.Semantics.BasicTarski.html#1061" class="Bound"
+      >&#926;</a
+      ><a name="1062"
+      > </a
+      ><a name="1063" class="Symbol"
+      >=</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" class="Symbol"
+      >&#8704;</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" class="Symbol"
+      >{{</a
+      ><a name="1069" href="BasicT.Semantics.BasicTarski.html#1069" class="Bound"
+      >_</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" class="Symbol"
+      >:</a
+      ><a name="1072"
+      > </a
+      ><a name="1073" href="BasicT.Semantics.BasicTarski.html#174" class="Record"
+      >Model</a
+      ><a name="1078" class="Symbol"
+      >}}</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" class="Symbol"
+      >&#8594;</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" href="BasicT.Semantics.BasicTarski.html#833" class="Function Operator"
+      >&#8873;</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="BasicT.Semantics.BasicTarski.html#1056" class="Bound"
+      >&#915;</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" href="BasicT.Semantics.BasicTarski.html#833" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="1089"
+      > </a
+      ><a name="1090" href="BasicT.Semantics.BasicTarski.html#1061" class="Bound"
+      >&#926;</a
+      ><a name="1091"
+      >
+
+
+</a
+      ><a name="1094" class="Comment"
+      >-- Additional useful equipment, for sequents.</a
+      ><a name="1139"
+      >
+
+</a
+      ><a name="1141" class="Keyword"
+      >module</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" href="BasicT.Semantics.BasicTarski.html#1148" class="Module"
+      >_</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" class="Symbol"
+      >{{</a
+      ><a name="1152" href="BasicT.Semantics.BasicTarski.html#1152" class="Bound"
+      >_</a
+      ><a name="1153"
+      > </a
+      ><a name="1154" class="Symbol"
+      >:</a
+      ><a name="1155"
+      > </a
+      ><a name="1156" href="BasicT.Semantics.BasicTarski.html#174" class="Record"
+      >Model</a
+      ><a name="1161" class="Symbol"
+      >}}</a
+      ><a name="1163"
+      > </a
+      ><a name="1164" class="Keyword"
+      >where</a
+      ><a name="1169"
+      >
+  </a
+      ><a name="1172" href="BasicT.Semantics.BasicTarski.html#1172" class="Function"
+      >lookup</a
+      ><a name="1178"
+      > </a
+      ><a name="1179" class="Symbol"
+      >:</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" class="Symbol"
+      >&#8704;</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" class="Symbol"
+      >{</a
+      ><a name="1184" href="BasicT.Semantics.BasicTarski.html#1184" class="Bound"
+      >A</a
+      ><a name="1185"
+      > </a
+      ><a name="1186" href="BasicT.Semantics.BasicTarski.html#1186" class="Bound"
+      >&#915;</a
+      ><a name="1187" class="Symbol"
+      >}</a
+      ><a name="1188"
+      > </a
+      ><a name="1189" class="Symbol"
+      >&#8594;</a
+      ><a name="1190"
+      > </a
+      ><a name="1191" href="BasicT.Semantics.BasicTarski.html#1184" class="Bound"
+      >A</a
+      ><a name="1192"
+      > </a
+      ><a name="1193" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="1194"
+      > </a
+      ><a name="1195" href="BasicT.Semantics.BasicTarski.html#1186" class="Bound"
+      >&#915;</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" class="Symbol"
+      >&#8594;</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" href="BasicT.Semantics.BasicTarski.html#1186" class="Bound"
+      >&#915;</a
+      ><a name="1202"
+      > </a
+      ><a name="1203" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1204"
+      > </a
+      ><a name="1205" href="BasicT.Semantics.BasicTarski.html#1184" class="Bound"
+      >A</a
+      ><a name="1206"
+      >
+  </a
+      ><a name="1209" href="BasicT.Semantics.BasicTarski.html#1172" class="Function"
+      >lookup</a
+      ><a name="1215"
+      > </a
+      ><a name="1216" href="Common.Context.html#1160" class="InductiveConstructor"
+      >top</a
+      ><a name="1219"
+      >     </a
+      ><a name="1224" class="Symbol"
+      >(</a
+      ><a name="1225" href="BasicT.Semantics.BasicTarski.html#1225" class="Bound"
+      >&#947;</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" href="BasicT.Semantics.BasicTarski.html#1229" class="Bound"
+      >a</a
+      ><a name="1230" class="Symbol"
+      >)</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" class="Symbol"
+      >=</a
+      ><a name="1233"
+      > </a
+      ><a name="1234" href="BasicT.Semantics.BasicTarski.html#1229" class="Bound"
+      >a</a
+      ><a name="1235"
+      >
+  </a
+      ><a name="1238" href="BasicT.Semantics.BasicTarski.html#1172" class="Function"
+      >lookup</a
+      ><a name="1244"
+      > </a
+      ><a name="1245" class="Symbol"
+      >(</a
+      ><a name="1246" href="Common.Context.html#1190" class="InductiveConstructor"
+      >pop</a
+      ><a name="1249"
+      > </a
+      ><a name="1250" href="BasicT.Semantics.BasicTarski.html#1250" class="Bound"
+      >i</a
+      ><a name="1251" class="Symbol"
+      >)</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" class="Symbol"
+      >(</a
+      ><a name="1254" href="BasicT.Semantics.BasicTarski.html#1254" class="Bound"
+      >&#947;</a
+      ><a name="1255"
+      > </a
+      ><a name="1256" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1257"
+      > </a
+      ><a name="1258" href="BasicT.Semantics.BasicTarski.html#1258" class="Bound"
+      >b</a
+      ><a name="1259" class="Symbol"
+      >)</a
+      ><a name="1260"
+      > </a
+      ><a name="1261" class="Symbol"
+      >=</a
+      ><a name="1262"
+      > </a
+      ><a name="1263" href="BasicT.Semantics.BasicTarski.html#1172" class="Function"
+      >lookup</a
+      ><a name="1269"
+      > </a
+      ><a name="1270" href="BasicT.Semantics.BasicTarski.html#1250" class="Bound"
+      >i</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" href="BasicT.Semantics.BasicTarski.html#1254" class="Bound"
+      >&#947;</a
+      ><a name="1273"
+      >
+
+  </a
+      ><a name="1277" href="BasicT.Semantics.BasicTarski.html#1277" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="1280"
+      > </a
+      ><a name="1281" class="Symbol"
+      >:</a
+      ><a name="1282"
+      > </a
+      ><a name="1283" class="Symbol"
+      >&#8704;</a
+      ><a name="1284"
+      > </a
+      ><a name="1285" class="Symbol"
+      >{</a
+      ><a name="1286" href="BasicT.Semantics.BasicTarski.html#1286" class="Bound"
+      >A</a
+      ><a name="1287"
+      > </a
+      ><a name="1288" href="BasicT.Semantics.BasicTarski.html#1288" class="Bound"
+      >B</a
+      ><a name="1289"
+      > </a
+      ><a name="1290" href="BasicT.Semantics.BasicTarski.html#1290" class="Bound"
+      >&#915;</a
+      ><a name="1291" class="Symbol"
+      >}</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" class="Symbol"
+      >&#8594;</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" href="BasicT.Semantics.BasicTarski.html#1290" class="Bound"
+      >&#915;</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="BasicT.Semantics.BasicTarski.html#1286" class="Bound"
+      >A</a
+      ><a name="1302"
+      > </a
+      ><a name="1303" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1304"
+      > </a
+      ><a name="1305" href="BasicT.Semantics.BasicTarski.html#1288" class="Bound"
+      >B</a
+      ><a name="1306"
+      > </a
+      ><a name="1307" class="Symbol"
+      >&#8594;</a
+      ><a name="1308"
+      > </a
+      ><a name="1309" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1310"
+      > </a
+      ><a name="1311" href="BasicT.Semantics.BasicTarski.html#1290" class="Bound"
+      >&#915;</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" href="BasicT.Semantics.BasicTarski.html#1286" class="Bound"
+      >A</a
+      ><a name="1316"
+      > </a
+      ><a name="1317" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1318"
+      > </a
+      ><a name="1319" href="BasicT.Semantics.BasicTarski.html#1288" class="Bound"
+      >B</a
+      ><a name="1320"
+      >
+  </a
+      ><a name="1323" href="BasicT.Semantics.BasicTarski.html#1277" class="Function"
+      >&#10214;&#955;&#10215;</a
+      ><a name="1326"
+      > </a
+      ><a name="1327" href="BasicT.Semantics.BasicTarski.html#1327" class="Bound"
+      >f</a
+      ><a name="1328"
+      > </a
+      ><a name="1329" href="BasicT.Semantics.BasicTarski.html#1329" class="Bound"
+      >&#947;</a
+      ><a name="1330"
+      > </a
+      ><a name="1331" class="Symbol"
+      >=</a
+      ><a name="1332"
+      > </a
+      ><a name="1333" class="Symbol"
+      >&#955;</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" href="BasicT.Semantics.BasicTarski.html#1335" class="Bound"
+      >a</a
+      ><a name="1336"
+      > </a
+      ><a name="1337" class="Symbol"
+      >&#8594;</a
+      ><a name="1338"
+      > </a
+      ><a name="1339" href="BasicT.Semantics.BasicTarski.html#1327" class="Bound"
+      >f</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" class="Symbol"
+      >(</a
+      ><a name="1342" href="BasicT.Semantics.BasicTarski.html#1329" class="Bound"
+      >&#947;</a
+      ><a name="1343"
+      > </a
+      ><a name="1344" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1345"
+      > </a
+      ><a name="1346" href="BasicT.Semantics.BasicTarski.html#1335" class="Bound"
+      >a</a
+      ><a name="1347" class="Symbol"
+      >)</a
+      ><a name="1348"
+      >
+
+  </a
+      ><a name="1352" href="BasicT.Semantics.BasicTarski.html#1352" class="Function Operator"
+      >_&#10214;$&#10215;_</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" class="Symbol"
+      >:</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" class="Symbol"
+      >&#8704;</a
+      ><a name="1361"
+      > </a
+      ><a name="1362" class="Symbol"
+      >{</a
+      ><a name="1363" href="BasicT.Semantics.BasicTarski.html#1363" class="Bound"
+      >A</a
+      ><a name="1364"
+      > </a
+      ><a name="1365" href="BasicT.Semantics.BasicTarski.html#1365" class="Bound"
+      >B</a
+      ><a name="1366"
+      > </a
+      ><a name="1367" href="BasicT.Semantics.BasicTarski.html#1367" class="Bound"
+      >&#915;</a
+      ><a name="1368" class="Symbol"
+      >}</a
+      ><a name="1369"
+      > </a
+      ><a name="1370" class="Symbol"
+      >&#8594;</a
+      ><a name="1371"
+      > </a
+      ><a name="1372" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1373"
+      > </a
+      ><a name="1374" href="BasicT.Semantics.BasicTarski.html#1367" class="Bound"
+      >&#915;</a
+      ><a name="1375"
+      > </a
+      ><a name="1376" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1377"
+      > </a
+      ><a name="1378" href="BasicT.Semantics.BasicTarski.html#1363" class="Bound"
+      >A</a
+      ><a name="1379"
+      > </a
+      ><a name="1380" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1381"
+      > </a
+      ><a name="1382" href="BasicT.Semantics.BasicTarski.html#1365" class="Bound"
+      >B</a
+      ><a name="1383"
+      > </a
+      ><a name="1384" class="Symbol"
+      >&#8594;</a
+      ><a name="1385"
+      > </a
+      ><a name="1386" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" href="BasicT.Semantics.BasicTarski.html#1367" class="Bound"
+      >&#915;</a
+      ><a name="1389"
+      > </a
+      ><a name="1390" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1391"
+      > </a
+      ><a name="1392" href="BasicT.Semantics.BasicTarski.html#1363" class="Bound"
+      >A</a
+      ><a name="1393"
+      > </a
+      ><a name="1394" class="Symbol"
+      >&#8594;</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" href="BasicT.Semantics.BasicTarski.html#1367" class="Bound"
+      >&#915;</a
+      ><a name="1399"
+      > </a
+      ><a name="1400" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1401"
+      > </a
+      ><a name="1402" href="BasicT.Semantics.BasicTarski.html#1365" class="Bound"
+      >B</a
+      ><a name="1403"
+      >
+  </a
+      ><a name="1406" class="Symbol"
+      >(</a
+      ><a name="1407" href="BasicT.Semantics.BasicTarski.html#1407" class="Bound"
+      >f</a
+      ><a name="1408"
+      > </a
+      ><a name="1409" href="BasicT.Semantics.BasicTarski.html#1352" class="Function Operator"
+      >&#10214;$&#10215;</a
+      ><a name="1412"
+      > </a
+      ><a name="1413" href="BasicT.Semantics.BasicTarski.html#1413" class="Bound"
+      >g</a
+      ><a name="1414" class="Symbol"
+      >)</a
+      ><a name="1415"
+      > </a
+      ><a name="1416" href="BasicT.Semantics.BasicTarski.html#1416" class="Bound"
+      >&#947;</a
+      ><a name="1417"
+      > </a
+      ><a name="1418" class="Symbol"
+      >=</a
+      ><a name="1419"
+      > </a
+      ><a name="1420" href="BasicT.Semantics.BasicTarski.html#1407" class="Bound"
+      >f</a
+      ><a name="1421"
+      > </a
+      ><a name="1422" href="BasicT.Semantics.BasicTarski.html#1416" class="Bound"
+      >&#947;</a
+      ><a name="1423"
+      > </a
+      ><a name="1424" href="Function.html#1835" class="Function Operator"
+      >$</a
+      ><a name="1425"
+      > </a
+      ><a name="1426" href="BasicT.Semantics.BasicTarski.html#1413" class="Bound"
+      >g</a
+      ><a name="1427"
+      > </a
+      ><a name="1428" href="BasicT.Semantics.BasicTarski.html#1416" class="Bound"
+      >&#947;</a
+      ><a name="1429"
+      >
+
+  </a
+      ><a name="1433" href="BasicT.Semantics.BasicTarski.html#1433" class="Function"
+      >&#10214;S&#10215;</a
+      ><a name="1436"
+      > </a
+      ><a name="1437" class="Symbol"
+      >:</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" class="Symbol"
+      >&#8704;</a
+      ><a name="1440"
+      > </a
+      ><a name="1441" class="Symbol"
+      >{</a
+      ><a name="1442" href="BasicT.Semantics.BasicTarski.html#1442" class="Bound"
+      >A</a
+      ><a name="1443"
+      > </a
+      ><a name="1444" href="BasicT.Semantics.BasicTarski.html#1444" class="Bound"
+      >B</a
+      ><a name="1445"
+      > </a
+      ><a name="1446" href="BasicT.Semantics.BasicTarski.html#1446" class="Bound"
+      >C</a
+      ><a name="1447"
+      > </a
+      ><a name="1448" href="BasicT.Semantics.BasicTarski.html#1448" class="Bound"
+      >&#915;</a
+      ><a name="1449" class="Symbol"
+      >}</a
+      ><a name="1450"
+      > </a
+      ><a name="1451" class="Symbol"
+      >&#8594;</a
+      ><a name="1452"
+      > </a
+      ><a name="1453" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1454"
+      > </a
+      ><a name="1455" href="BasicT.Semantics.BasicTarski.html#1448" class="Bound"
+      >&#915;</a
+      ><a name="1456"
+      > </a
+      ><a name="1457" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" href="BasicT.Semantics.BasicTarski.html#1442" class="Bound"
+      >A</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1462"
+      > </a
+      ><a name="1463" href="BasicT.Semantics.BasicTarski.html#1444" class="Bound"
+      >B</a
+      ><a name="1464"
+      > </a
+      ><a name="1465" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1466"
+      > </a
+      ><a name="1467" href="BasicT.Semantics.BasicTarski.html#1446" class="Bound"
+      >C</a
+      ><a name="1468"
+      > </a
+      ><a name="1469" class="Symbol"
+      >&#8594;</a
+      ><a name="1470"
+      > </a
+      ><a name="1471" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1472"
+      > </a
+      ><a name="1473" href="BasicT.Semantics.BasicTarski.html#1448" class="Bound"
+      >&#915;</a
+      ><a name="1474"
+      > </a
+      ><a name="1475" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1476"
+      > </a
+      ><a name="1477" href="BasicT.Semantics.BasicTarski.html#1442" class="Bound"
+      >A</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1480"
+      > </a
+      ><a name="1481" href="BasicT.Semantics.BasicTarski.html#1444" class="Bound"
+      >B</a
+      ><a name="1482"
+      > </a
+      ><a name="1483" class="Symbol"
+      >&#8594;</a
+      ><a name="1484"
+      > </a
+      ><a name="1485" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1486"
+      > </a
+      ><a name="1487" href="BasicT.Semantics.BasicTarski.html#1448" class="Bound"
+      >&#915;</a
+      ><a name="1488"
+      > </a
+      ><a name="1489" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1490"
+      > </a
+      ><a name="1491" href="BasicT.Semantics.BasicTarski.html#1442" class="Bound"
+      >A</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" class="Symbol"
+      >&#8594;</a
+      ><a name="1494"
+      > </a
+      ><a name="1495" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1496"
+      > </a
+      ><a name="1497" href="BasicT.Semantics.BasicTarski.html#1448" class="Bound"
+      >&#915;</a
+      ><a name="1498"
+      > </a
+      ><a name="1499" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1500"
+      > </a
+      ><a name="1501" href="BasicT.Semantics.BasicTarski.html#1446" class="Bound"
+      >C</a
+      ><a name="1502"
+      >
+  </a
+      ><a name="1505" href="BasicT.Semantics.BasicTarski.html#1433" class="Function"
+      >&#10214;S&#10215;</a
+      ><a name="1508"
+      > </a
+      ><a name="1509" href="BasicT.Semantics.BasicTarski.html#1509" class="Bound"
+      >f</a
+      ><a name="1510"
+      > </a
+      ><a name="1511" href="BasicT.Semantics.BasicTarski.html#1511" class="Bound"
+      >g</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" href="BasicT.Semantics.BasicTarski.html#1513" class="Bound"
+      >a</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" href="BasicT.Semantics.BasicTarski.html#1515" class="Bound"
+      >&#947;</a
+      ><a name="1516"
+      > </a
+      ><a name="1517" class="Symbol"
+      >=</a
+      ><a name="1518"
+      > </a
+      ><a name="1519" href="Function.html#1281" class="Function"
+      >S</a
+      ><a name="1520"
+      > </a
+      ><a name="1521" class="Symbol"
+      >(</a
+      ><a name="1522" href="BasicT.Semantics.BasicTarski.html#1509" class="Bound"
+      >f</a
+      ><a name="1523"
+      > </a
+      ><a name="1524" href="BasicT.Semantics.BasicTarski.html#1515" class="Bound"
+      >&#947;</a
+      ><a name="1525" class="Symbol"
+      >)</a
+      ><a name="1526"
+      > </a
+      ><a name="1527" class="Symbol"
+      >(</a
+      ><a name="1528" href="BasicT.Semantics.BasicTarski.html#1511" class="Bound"
+      >g</a
+      ><a name="1529"
+      > </a
+      ><a name="1530" href="BasicT.Semantics.BasicTarski.html#1515" class="Bound"
+      >&#947;</a
+      ><a name="1531" class="Symbol"
+      >)</a
+      ><a name="1532"
+      > </a
+      ><a name="1533" class="Symbol"
+      >(</a
+      ><a name="1534" href="BasicT.Semantics.BasicTarski.html#1513" class="Bound"
+      >a</a
+      ><a name="1535"
+      > </a
+      ><a name="1536" href="BasicT.Semantics.BasicTarski.html#1515" class="Bound"
+      >&#947;</a
+      ><a name="1537" class="Symbol"
+      >)</a
+      ><a name="1538"
+      >
+
+  </a
+      ><a name="1542" href="BasicT.Semantics.BasicTarski.html#1542" class="Function Operator"
+      >_&#10214;,&#10215;_</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" class="Symbol"
+      >:</a
+      ><a name="1549"
+      > </a
+      ><a name="1550" class="Symbol"
+      >&#8704;</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" class="Symbol"
+      >{</a
+      ><a name="1553" href="BasicT.Semantics.BasicTarski.html#1553" class="Bound"
+      >A</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="BasicT.Semantics.BasicTarski.html#1555" class="Bound"
+      >B</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" href="BasicT.Semantics.BasicTarski.html#1557" class="Bound"
+      >&#915;</a
+      ><a name="1558" class="Symbol"
+      >}</a
+      ><a name="1559"
+      > </a
+      ><a name="1560" class="Symbol"
+      >&#8594;</a
+      ><a name="1561"
+      > </a
+      ><a name="1562" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1563"
+      > </a
+      ><a name="1564" href="BasicT.Semantics.BasicTarski.html#1557" class="Bound"
+      >&#915;</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1567"
+      > </a
+      ><a name="1568" href="BasicT.Semantics.BasicTarski.html#1553" class="Bound"
+      >A</a
+      ><a name="1569"
+      > </a
+      ><a name="1570" class="Symbol"
+      >&#8594;</a
+      ><a name="1571"
+      > </a
+      ><a name="1572" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1573"
+      > </a
+      ><a name="1574" href="BasicT.Semantics.BasicTarski.html#1557" class="Bound"
+      >&#915;</a
+      ><a name="1575"
+      > </a
+      ><a name="1576" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1577"
+      > </a
+      ><a name="1578" href="BasicT.Semantics.BasicTarski.html#1555" class="Bound"
+      >B</a
+      ><a name="1579"
+      > </a
+      ><a name="1580" class="Symbol"
+      >&#8594;</a
+      ><a name="1581"
+      > </a
+      ><a name="1582" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1583"
+      > </a
+      ><a name="1584" href="BasicT.Semantics.BasicTarski.html#1557" class="Bound"
+      >&#915;</a
+      ><a name="1585"
+      > </a
+      ><a name="1586" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" href="BasicT.Semantics.BasicTarski.html#1553" class="Bound"
+      >A</a
+      ><a name="1589"
+      > </a
+      ><a name="1590" href="BasicT.Syntax.Common.html#216" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1591"
+      > </a
+      ><a name="1592" href="BasicT.Semantics.BasicTarski.html#1555" class="Bound"
+      >B</a
+      ><a name="1593"
+      >
+  </a
+      ><a name="1596" class="Symbol"
+      >(</a
+      ><a name="1597" href="BasicT.Semantics.BasicTarski.html#1597" class="Bound"
+      >a</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" href="BasicT.Semantics.BasicTarski.html#1542" class="Function Operator"
+      >&#10214;,&#10215;</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" href="BasicT.Semantics.BasicTarski.html#1603" class="Bound"
+      >b</a
+      ><a name="1604" class="Symbol"
+      >)</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" href="BasicT.Semantics.BasicTarski.html#1606" class="Bound"
+      >&#947;</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" class="Symbol"
+      >=</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" href="BasicT.Semantics.BasicTarski.html#1597" class="Bound"
+      >a</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" href="BasicT.Semantics.BasicTarski.html#1606" class="Bound"
+      >&#947;</a
+      ><a name="1613"
+      > </a
+      ><a name="1614" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" href="BasicT.Semantics.BasicTarski.html#1603" class="Bound"
+      >b</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" href="BasicT.Semantics.BasicTarski.html#1606" class="Bound"
+      >&#947;</a
+      ><a name="1619"
+      >
+
+  </a
+      ><a name="1623" href="BasicT.Semantics.BasicTarski.html#1623" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="1627"
+      > </a
+      ><a name="1628" class="Symbol"
+      >:</a
+      ><a name="1629"
+      > </a
+      ><a name="1630" class="Symbol"
+      >&#8704;</a
+      ><a name="1631"
+      > </a
+      ><a name="1632" class="Symbol"
+      >{</a
+      ><a name="1633" href="BasicT.Semantics.BasicTarski.html#1633" class="Bound"
+      >A</a
+      ><a name="1634"
+      > </a
+      ><a name="1635" href="BasicT.Semantics.BasicTarski.html#1635" class="Bound"
+      >B</a
+      ><a name="1636"
+      > </a
+      ><a name="1637" href="BasicT.Semantics.BasicTarski.html#1637" class="Bound"
+      >&#915;</a
+      ><a name="1638" class="Symbol"
+      >}</a
+      ><a name="1639"
+      > </a
+      ><a name="1640" class="Symbol"
+      >&#8594;</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" href="BasicT.Semantics.BasicTarski.html#1637" class="Bound"
+      >&#915;</a
+      ><a name="1645"
+      > </a
+      ><a name="1646" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1647"
+      > </a
+      ><a name="1648" href="BasicT.Semantics.BasicTarski.html#1633" class="Bound"
+      >A</a
+      ><a name="1649"
+      > </a
+      ><a name="1650" href="BasicT.Syntax.Common.html#216" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" href="BasicT.Semantics.BasicTarski.html#1635" class="Bound"
+      >B</a
+      ><a name="1653"
+      > </a
+      ><a name="1654" class="Symbol"
+      >&#8594;</a
+      ><a name="1655"
+      > </a
+      ><a name="1656" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1657"
+      > </a
+      ><a name="1658" href="BasicT.Semantics.BasicTarski.html#1637" class="Bound"
+      >&#915;</a
+      ><a name="1659"
+      > </a
+      ><a name="1660" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1661"
+      > </a
+      ><a name="1662" href="BasicT.Semantics.BasicTarski.html#1633" class="Bound"
+      >A</a
+      ><a name="1663"
+      >
+  </a
+      ><a name="1666" href="BasicT.Semantics.BasicTarski.html#1623" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="1670"
+      > </a
+      ><a name="1671" href="BasicT.Semantics.BasicTarski.html#1671" class="Bound"
+      >s</a
+      ><a name="1672"
+      > </a
+      ><a name="1673" href="BasicT.Semantics.BasicTarski.html#1673" class="Bound"
+      >&#947;</a
+      ><a name="1674"
+      > </a
+      ><a name="1675" class="Symbol"
+      >=</a
+      ><a name="1676"
+      > </a
+      ><a name="1677" href="Common.html#1459" class="Field"
+      >&#960;&#8321;</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" class="Symbol"
+      >(</a
+      ><a name="1681" href="BasicT.Semantics.BasicTarski.html#1671" class="Bound"
+      >s</a
+      ><a name="1682"
+      > </a
+      ><a name="1683" href="BasicT.Semantics.BasicTarski.html#1673" class="Bound"
+      >&#947;</a
+      ><a name="1684" class="Symbol"
+      >)</a
+      ><a name="1685"
+      >
+
+  </a
+      ><a name="1689" href="BasicT.Semantics.BasicTarski.html#1689" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="1693"
+      > </a
+      ><a name="1694" class="Symbol"
+      >:</a
+      ><a name="1695"
+      > </a
+      ><a name="1696" class="Symbol"
+      >&#8704;</a
+      ><a name="1697"
+      > </a
+      ><a name="1698" class="Symbol"
+      >{</a
+      ><a name="1699" href="BasicT.Semantics.BasicTarski.html#1699" class="Bound"
+      >A</a
+      ><a name="1700"
+      > </a
+      ><a name="1701" href="BasicT.Semantics.BasicTarski.html#1701" class="Bound"
+      >B</a
+      ><a name="1702"
+      > </a
+      ><a name="1703" href="BasicT.Semantics.BasicTarski.html#1703" class="Bound"
+      >&#915;</a
+      ><a name="1704" class="Symbol"
+      >}</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" class="Symbol"
+      >&#8594;</a
+      ><a name="1707"
+      > </a
+      ><a name="1708" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" href="BasicT.Semantics.BasicTarski.html#1703" class="Bound"
+      >&#915;</a
+      ><a name="1711"
+      > </a
+      ><a name="1712" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1713"
+      > </a
+      ><a name="1714" href="BasicT.Semantics.BasicTarski.html#1699" class="Bound"
+      >A</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="BasicT.Syntax.Common.html#216" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" href="BasicT.Semantics.BasicTarski.html#1701" class="Bound"
+      >B</a
+      ><a name="1719"
+      > </a
+      ><a name="1720" class="Symbol"
+      >&#8594;</a
+      ><a name="1721"
+      > </a
+      ><a name="1722" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8873;</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" href="BasicT.Semantics.BasicTarski.html#1703" class="Bound"
+      >&#915;</a
+      ><a name="1725"
+      > </a
+      ><a name="1726" href="BasicT.Semantics.BasicTarski.html#767" class="Function Operator"
+      >&#8658;</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" href="BasicT.Semantics.BasicTarski.html#1701" class="Bound"
+      >B</a
+      ><a name="1729"
+      >
+  </a
+      ><a name="1732" href="BasicT.Semantics.BasicTarski.html#1689" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="1736"
+      > </a
+      ><a name="1737" href="BasicT.Semantics.BasicTarski.html#1737" class="Bound"
+      >s</a
+      ><a name="1738"
+      > </a
+      ><a name="1739" href="BasicT.Semantics.BasicTarski.html#1739" class="Bound"
+      >&#947;</a
+      ><a name="1740"
+      > </a
+      ><a name="1741" class="Symbol"
+      >=</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" href="Common.html#1470" class="Field"
+      >&#960;&#8322;</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" class="Symbol"
+      >(</a
+      ><a name="1747" href="BasicT.Semantics.BasicTarski.html#1737" class="Bound"
+      >s</a
+      ><a name="1748"
+      > </a
+      ><a name="1749" href="BasicT.Semantics.BasicTarski.html#1739" class="Bound"
+      >&#947;</a
+      ><a name="1750" class="Symbol"
+      >)</a
+      ><a name="1751"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

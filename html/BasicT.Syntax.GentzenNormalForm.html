@@ -1,0 +1,3708 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicT.Syntax.GentzenNormalForm</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- TODO</a
+      ><a name="8"
+      >
+</a
+      ><a name="9" class="Comment"
+      >-- Gentzen-style formalisation of syntax.</a
+      ><a name="50"
+      >
+</a
+      ><a name="51" class="Comment"
+      >-- Normal forms and neutrals.</a
+      ><a name="80"
+      >
+
+</a
+      ><a name="82" class="Keyword"
+      >module</a
+      ><a name="88"
+      > </a
+      ><a name="89" href="BasicT.Syntax.GentzenNormalForm.html#1" class="Module"
+      >BasicT.Syntax.GentzenNormalForm</a
+      ><a name="120"
+      > </a
+      ><a name="121" class="Keyword"
+      >where</a
+      ><a name="126"
+      >
+
+</a
+      ><a name="128" class="Keyword"
+      >open</a
+      ><a name="132"
+      > </a
+      ><a name="133" class="Keyword"
+      >import</a
+      ><a name="139"
+      > </a
+      ><a name="140" href="BasicT.Syntax.Gentzen.html#1" class="Module"
+      >BasicT.Syntax.Gentzen</a
+      ><a name="161"
+      > </a
+      ><a name="162" class="Keyword"
+      >public</a
+      ><a name="168"
+      >
+
+
+</a
+      ><a name="171" class="Comment"
+      >-- Derivations.</a
+      ><a name="186"
+      >
+
+</a
+      ><a name="188" class="Keyword"
+      >mutual</a
+      ><a name="194"
+      >
+  </a
+      ><a name="197" class="Comment"
+      >-- Normal forms, or introductions.</a
+      ><a name="231"
+      >
+  </a
+      ><a name="234" class="Keyword"
+      >infix</a
+      ><a name="239"
+      > </a
+      ><a name="240" class="Number"
+      >3</a
+      ><a name="241"
+      > _&#8866;&#8319;&#7584;_
+  </a
+      ><a name="250" class="Keyword"
+      >data</a
+      ><a name="254"
+      > </a
+      ><a name="255" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >_&#8866;&#8319;&#7584;_</a
+      ><a name="260"
+      > </a
+      ><a name="261" class="Symbol"
+      >(</a
+      ><a name="262" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="263"
+      > </a
+      ><a name="264" class="Symbol"
+      >:</a
+      ><a name="265"
+      > </a
+      ><a name="266" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="268"
+      > </a
+      ><a name="269" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="271" class="Symbol"
+      >)</a
+      ><a name="272"
+      > </a
+      ><a name="273" class="Symbol"
+      >:</a
+      ><a name="274"
+      > </a
+      ><a name="275" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="277"
+      > </a
+      ><a name="278" class="Symbol"
+      >&#8594;</a
+      ><a name="279"
+      > </a
+      ><a name="280" class="PrimitiveType"
+      >Set</a
+      ><a name="283"
+      > </a
+      ><a name="284" class="Keyword"
+      >where</a
+      ><a name="289"
+      >
+    </a
+      ><a name="294" href="BasicT.Syntax.GentzenNormalForm.html#294" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="298"
+      >    </a
+      ><a name="302" class="Symbol"
+      >:</a
+      ><a name="303"
+      > </a
+      ><a name="304" class="Symbol"
+      >&#8704;</a
+      ><a name="305"
+      > </a
+      ><a name="306" class="Symbol"
+      >{</a
+      ><a name="307" href="BasicT.Syntax.GentzenNormalForm.html#307" class="Bound"
+      >A</a
+      ><a name="308" class="Symbol"
+      >}</a
+      ><a name="309"
+      >   </a
+      ><a name="312" class="Symbol"
+      >&#8594;</a
+      ><a name="313"
+      > </a
+      ><a name="314" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="315"
+      > </a
+      ><a name="316" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="319"
+      > </a
+      ><a name="320" href="BasicT.Syntax.GentzenNormalForm.html#307" class="Bound"
+      >A</a
+      ><a name="321"
+      > </a
+      ><a name="322" class="Symbol"
+      >&#8594;</a
+      ><a name="323"
+      > </a
+      ><a name="324" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="329"
+      > </a
+      ><a name="330" href="BasicT.Syntax.GentzenNormalForm.html#307" class="Bound"
+      >A</a
+      ><a name="331"
+      >
+    </a
+      ><a name="336" href="BasicT.Syntax.GentzenNormalForm.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="341"
+      >   </a
+      ><a name="344" class="Symbol"
+      >:</a
+      ><a name="345"
+      > </a
+      ><a name="346" class="Symbol"
+      >&#8704;</a
+      ><a name="347"
+      > </a
+      ><a name="348" class="Symbol"
+      >{</a
+      ><a name="349" href="BasicT.Syntax.GentzenNormalForm.html#349" class="Bound"
+      >A</a
+      ><a name="350"
+      > </a
+      ><a name="351" href="BasicT.Syntax.GentzenNormalForm.html#351" class="Bound"
+      >B</a
+      ><a name="352" class="Symbol"
+      >}</a
+      ><a name="353"
+      > </a
+      ><a name="354" class="Symbol"
+      >&#8594;</a
+      ><a name="355"
+      > </a
+      ><a name="356" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="357"
+      > </a
+      ><a name="358" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="359"
+      > </a
+      ><a name="360" href="BasicT.Syntax.GentzenNormalForm.html#349" class="Bound"
+      >A</a
+      ><a name="361"
+      > </a
+      ><a name="362" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="365"
+      > </a
+      ><a name="366" href="BasicT.Syntax.GentzenNormalForm.html#351" class="Bound"
+      >B</a
+      ><a name="367"
+      > </a
+      ><a name="368" class="Symbol"
+      >&#8594;</a
+      ><a name="369"
+      > </a
+      ><a name="370" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="371"
+      > </a
+      ><a name="372" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="375"
+      > </a
+      ><a name="376" href="BasicT.Syntax.GentzenNormalForm.html#349" class="Bound"
+      >A</a
+      ><a name="377"
+      > </a
+      ><a name="378" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="379"
+      > </a
+      ><a name="380" href="BasicT.Syntax.GentzenNormalForm.html#351" class="Bound"
+      >B</a
+      ><a name="381"
+      >
+    </a
+      ><a name="386" href="BasicT.Syntax.GentzenNormalForm.html#386" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="392"
+      >  </a
+      ><a name="394" class="Symbol"
+      >:</a
+      ><a name="395"
+      > </a
+      ><a name="396" class="Symbol"
+      >&#8704;</a
+      ><a name="397"
+      > </a
+      ><a name="398" class="Symbol"
+      >{</a
+      ><a name="399" href="BasicT.Syntax.GentzenNormalForm.html#399" class="Bound"
+      >A</a
+      ><a name="400"
+      > </a
+      ><a name="401" href="BasicT.Syntax.GentzenNormalForm.html#401" class="Bound"
+      >B</a
+      ><a name="402" class="Symbol"
+      >}</a
+      ><a name="403"
+      > </a
+      ><a name="404" class="Symbol"
+      >&#8594;</a
+      ><a name="405"
+      > </a
+      ><a name="406" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="407"
+      > </a
+      ><a name="408" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="411"
+      > </a
+      ><a name="412" href="BasicT.Syntax.GentzenNormalForm.html#399" class="Bound"
+      >A</a
+      ><a name="413"
+      > </a
+      ><a name="414" class="Symbol"
+      >&#8594;</a
+      ><a name="415"
+      > </a
+      ><a name="416" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="417"
+      > </a
+      ><a name="418" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="421"
+      > </a
+      ><a name="422" href="BasicT.Syntax.GentzenNormalForm.html#401" class="Bound"
+      >B</a
+      ><a name="423"
+      > </a
+      ><a name="424" class="Symbol"
+      >&#8594;</a
+      ><a name="425"
+      > </a
+      ><a name="426" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="427"
+      > </a
+      ><a name="428" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="431"
+      > </a
+      ><a name="432" href="BasicT.Syntax.GentzenNormalForm.html#399" class="Bound"
+      >A</a
+      ><a name="433"
+      > </a
+      ><a name="434" href="BasicT.Syntax.Common.html#216" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="435"
+      > </a
+      ><a name="436" href="BasicT.Syntax.GentzenNormalForm.html#401" class="Bound"
+      >B</a
+      ><a name="437"
+      >
+    </a
+      ><a name="442" href="BasicT.Syntax.GentzenNormalForm.html#442" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="448"
+      >  </a
+      ><a name="450" class="Symbol"
+      >:</a
+      ><a name="451"
+      > </a
+      ><a name="452" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="453"
+      > </a
+      ><a name="454" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="457"
+      > </a
+      ><a name="458" href="BasicT.Syntax.Common.html#238" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="459"
+      >
+    </a
+      ><a name="464" href="BasicT.Syntax.GentzenNormalForm.html#464" class="InductiveConstructor"
+      >true&#8319;&#7584;</a
+      ><a name="470"
+      >  </a
+      ><a name="472" class="Symbol"
+      >:</a
+      ><a name="473"
+      > </a
+      ><a name="474" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="479"
+      > </a
+      ><a name="480" href="BasicT.Syntax.Common.html#249" class="InductiveConstructor"
+      >BOOL</a
+      ><a name="484"
+      >
+    </a
+      ><a name="489" href="BasicT.Syntax.GentzenNormalForm.html#489" class="InductiveConstructor"
+      >false&#8319;&#7584;</a
+      ><a name="496"
+      > </a
+      ><a name="497" class="Symbol"
+      >:</a
+      ><a name="498"
+      > </a
+      ><a name="499" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="500"
+      > </a
+      ><a name="501" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="504"
+      > </a
+      ><a name="505" href="BasicT.Syntax.Common.html#249" class="InductiveConstructor"
+      >BOOL</a
+      ><a name="509"
+      >
+    </a
+      ><a name="514" href="BasicT.Syntax.GentzenNormalForm.html#514" class="InductiveConstructor"
+      >zero&#8319;&#7584;</a
+      ><a name="520"
+      >  </a
+      ><a name="522" class="Symbol"
+      >:</a
+      ><a name="523"
+      > </a
+      ><a name="524" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="525"
+      > </a
+      ><a name="526" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="529"
+      > </a
+      ><a name="530" href="BasicT.Syntax.Common.html#261" class="InductiveConstructor"
+      >NAT</a
+      ><a name="533"
+      >
+    </a
+      ><a name="538" href="BasicT.Syntax.GentzenNormalForm.html#538" class="InductiveConstructor"
+      >suc&#8319;&#7584;</a
+      ><a name="543"
+      >   </a
+      ><a name="546" class="Symbol"
+      >:</a
+      ><a name="547"
+      > </a
+      ><a name="548" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="549"
+      > </a
+      ><a name="550" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="553"
+      > </a
+      ><a name="554" href="BasicT.Syntax.Common.html#261" class="InductiveConstructor"
+      >NAT</a
+      ><a name="557"
+      > </a
+      ><a name="558" class="Symbol"
+      >&#8594;</a
+      ><a name="559"
+      > </a
+      ><a name="560" href="BasicT.Syntax.GentzenNormalForm.html#262" class="Bound"
+      >&#915;</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="565"
+      > </a
+      ><a name="566" href="BasicT.Syntax.Common.html#261" class="InductiveConstructor"
+      >NAT</a
+      ><a name="569"
+      >
+
+  </a
+      ><a name="573" class="Comment"
+      >-- Neutrals, or eliminations.</a
+      ><a name="602"
+      >
+  </a
+      ><a name="605" class="Keyword"
+      >infix</a
+      ><a name="610"
+      > </a
+      ><a name="611" class="Number"
+      >3</a
+      ><a name="612"
+      > _&#8866;&#8319;&#7497;_
+  </a
+      ><a name="621" class="Keyword"
+      >data</a
+      ><a name="625"
+      > </a
+      ><a name="626" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >_&#8866;&#8319;&#7497;_</a
+      ><a name="631"
+      > </a
+      ><a name="632" class="Symbol"
+      >(</a
+      ><a name="633" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="634"
+      > </a
+      ><a name="635" class="Symbol"
+      >:</a
+      ><a name="636"
+      > </a
+      ><a name="637" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="642" class="Symbol"
+      >)</a
+      ><a name="643"
+      > </a
+      ><a name="644" class="Symbol"
+      >:</a
+      ><a name="645"
+      > </a
+      ><a name="646" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="648"
+      > </a
+      ><a name="649" class="Symbol"
+      >&#8594;</a
+      ><a name="650"
+      > </a
+      ><a name="651" class="PrimitiveType"
+      >Set</a
+      ><a name="654"
+      > </a
+      ><a name="655" class="Keyword"
+      >where</a
+      ><a name="660"
+      >
+    </a
+      ><a name="665" href="BasicT.Syntax.GentzenNormalForm.html#665" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="670"
+      > </a
+      ><a name="671" class="Symbol"
+      >:</a
+      ><a name="672"
+      > </a
+      ><a name="673" class="Symbol"
+      >&#8704;</a
+      ><a name="674"
+      > </a
+      ><a name="675" class="Symbol"
+      >{</a
+      ><a name="676" href="BasicT.Syntax.GentzenNormalForm.html#676" class="Bound"
+      >A</a
+      ><a name="677" class="Symbol"
+      >}</a
+      ><a name="678"
+      >   </a
+      ><a name="681" class="Symbol"
+      >&#8594;</a
+      ><a name="682"
+      > </a
+      ><a name="683" href="BasicT.Syntax.GentzenNormalForm.html#676" class="Bound"
+      >A</a
+      ><a name="684"
+      > </a
+      ><a name="685" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="686"
+      > </a
+      ><a name="687" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="688"
+      > </a
+      ><a name="689" class="Symbol"
+      >&#8594;</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="692"
+      > </a
+      ><a name="693" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="696"
+      > </a
+      ><a name="697" href="BasicT.Syntax.GentzenNormalForm.html#676" class="Bound"
+      >A</a
+      ><a name="698"
+      >
+    </a
+      ><a name="703" href="BasicT.Syntax.GentzenNormalForm.html#703" class="InductiveConstructor"
+      >app&#8319;&#7497;</a
+      ><a name="708"
+      > </a
+      ><a name="709" class="Symbol"
+      >:</a
+      ><a name="710"
+      > </a
+      ><a name="711" class="Symbol"
+      >&#8704;</a
+      ><a name="712"
+      > </a
+      ><a name="713" class="Symbol"
+      >{</a
+      ><a name="714" href="BasicT.Syntax.GentzenNormalForm.html#714" class="Bound"
+      >A</a
+      ><a name="715"
+      > </a
+      ><a name="716" href="BasicT.Syntax.GentzenNormalForm.html#716" class="Bound"
+      >B</a
+      ><a name="717" class="Symbol"
+      >}</a
+      ><a name="718"
+      > </a
+      ><a name="719" class="Symbol"
+      >&#8594;</a
+      ><a name="720"
+      > </a
+      ><a name="721" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="722"
+      > </a
+      ><a name="723" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="726"
+      > </a
+      ><a name="727" href="BasicT.Syntax.GentzenNormalForm.html#714" class="Bound"
+      >A</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="BasicT.Syntax.GentzenNormalForm.html#716" class="Bound"
+      >B</a
+      ><a name="732"
+      > </a
+      ><a name="733" class="Symbol"
+      >&#8594;</a
+      ><a name="734"
+      > </a
+      ><a name="735" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="736"
+      > </a
+      ><a name="737" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="BasicT.Syntax.GentzenNormalForm.html#714" class="Bound"
+      >A</a
+      ><a name="742"
+      > </a
+      ><a name="743" class="Symbol"
+      >&#8594;</a
+      ><a name="744"
+      > </a
+      ><a name="745" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="746"
+      > </a
+      ><a name="747" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="BasicT.Syntax.GentzenNormalForm.html#716" class="Bound"
+      >B</a
+      ><a name="752"
+      >
+    </a
+      ><a name="757" href="BasicT.Syntax.GentzenNormalForm.html#757" class="InductiveConstructor"
+      >fst&#8319;&#7497;</a
+      ><a name="762"
+      > </a
+      ><a name="763" class="Symbol"
+      >:</a
+      ><a name="764"
+      > </a
+      ><a name="765" class="Symbol"
+      >&#8704;</a
+      ><a name="766"
+      > </a
+      ><a name="767" class="Symbol"
+      >{</a
+      ><a name="768" href="BasicT.Syntax.GentzenNormalForm.html#768" class="Bound"
+      >A</a
+      ><a name="769"
+      > </a
+      ><a name="770" href="BasicT.Syntax.GentzenNormalForm.html#770" class="Bound"
+      >B</a
+      ><a name="771" class="Symbol"
+      >}</a
+      ><a name="772"
+      > </a
+      ><a name="773" class="Symbol"
+      >&#8594;</a
+      ><a name="774"
+      > </a
+      ><a name="775" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="776"
+      > </a
+      ><a name="777" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="780"
+      > </a
+      ><a name="781" href="BasicT.Syntax.GentzenNormalForm.html#768" class="Bound"
+      >A</a
+      ><a name="782"
+      > </a
+      ><a name="783" href="BasicT.Syntax.Common.html#216" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="784"
+      > </a
+      ><a name="785" href="BasicT.Syntax.GentzenNormalForm.html#770" class="Bound"
+      >B</a
+      ><a name="786"
+      > </a
+      ><a name="787" class="Symbol"
+      >&#8594;</a
+      ><a name="788"
+      > </a
+      ><a name="789" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="790"
+      > </a
+      ><a name="791" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="794"
+      > </a
+      ><a name="795" href="BasicT.Syntax.GentzenNormalForm.html#768" class="Bound"
+      >A</a
+      ><a name="796"
+      >
+    </a
+      ><a name="801" href="BasicT.Syntax.GentzenNormalForm.html#801" class="InductiveConstructor"
+      >snd&#8319;&#7497;</a
+      ><a name="806"
+      > </a
+      ><a name="807" class="Symbol"
+      >:</a
+      ><a name="808"
+      > </a
+      ><a name="809" class="Symbol"
+      >&#8704;</a
+      ><a name="810"
+      > </a
+      ><a name="811" class="Symbol"
+      >{</a
+      ><a name="812" href="BasicT.Syntax.GentzenNormalForm.html#812" class="Bound"
+      >A</a
+      ><a name="813"
+      > </a
+      ><a name="814" href="BasicT.Syntax.GentzenNormalForm.html#814" class="Bound"
+      >B</a
+      ><a name="815" class="Symbol"
+      >}</a
+      ><a name="816"
+      > </a
+      ><a name="817" class="Symbol"
+      >&#8594;</a
+      ><a name="818"
+      > </a
+      ><a name="819" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="820"
+      > </a
+      ><a name="821" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="824"
+      > </a
+      ><a name="825" href="BasicT.Syntax.GentzenNormalForm.html#812" class="Bound"
+      >A</a
+      ><a name="826"
+      > </a
+      ><a name="827" href="BasicT.Syntax.Common.html#216" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="828"
+      > </a
+      ><a name="829" href="BasicT.Syntax.GentzenNormalForm.html#814" class="Bound"
+      >B</a
+      ><a name="830"
+      > </a
+      ><a name="831" class="Symbol"
+      >&#8594;</a
+      ><a name="832"
+      > </a
+      ><a name="833" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="834"
+      > </a
+      ><a name="835" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="838"
+      > </a
+      ><a name="839" href="BasicT.Syntax.GentzenNormalForm.html#814" class="Bound"
+      >B</a
+      ><a name="840"
+      >
+    </a
+      ><a name="845" href="BasicT.Syntax.GentzenNormalForm.html#845" class="InductiveConstructor"
+      >if&#8319;&#7497;</a
+      ><a name="849"
+      >  </a
+      ><a name="851" class="Symbol"
+      >:</a
+      ><a name="852"
+      > </a
+      ><a name="853" class="Symbol"
+      >&#8704;</a
+      ><a name="854"
+      > </a
+      ><a name="855" class="Symbol"
+      >{</a
+      ><a name="856" href="BasicT.Syntax.GentzenNormalForm.html#856" class="Bound"
+      >C</a
+      ><a name="857" class="Symbol"
+      >}</a
+      ><a name="858"
+      >   </a
+      ><a name="861" class="Symbol"
+      >&#8594;</a
+      ><a name="862"
+      > </a
+      ><a name="863" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="864"
+      > </a
+      ><a name="865" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="868"
+      > </a
+      ><a name="869" href="BasicT.Syntax.Common.html#249" class="InductiveConstructor"
+      >BOOL</a
+      ><a name="873"
+      > </a
+      ><a name="874" class="Symbol"
+      >&#8594;</a
+      ><a name="875"
+      > </a
+      ><a name="876" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="881"
+      > </a
+      ><a name="882" href="BasicT.Syntax.GentzenNormalForm.html#856" class="Bound"
+      >C</a
+      ><a name="883"
+      > </a
+      ><a name="884" class="Symbol"
+      >&#8594;</a
+      ><a name="885"
+      > </a
+      ><a name="886" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="BasicT.Syntax.GentzenNormalForm.html#856" class="Bound"
+      >C</a
+      ><a name="893"
+      > </a
+      ><a name="894" class="Symbol"
+      >&#8594;</a
+      ><a name="895"
+      > </a
+      ><a name="896" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="901"
+      > </a
+      ><a name="902" href="BasicT.Syntax.GentzenNormalForm.html#856" class="Bound"
+      >C</a
+      ><a name="903"
+      >
+    </a
+      ><a name="908" href="BasicT.Syntax.GentzenNormalForm.html#908" class="InductiveConstructor"
+      >it&#8319;&#7497;</a
+      ><a name="912"
+      >  </a
+      ><a name="914" class="Symbol"
+      >:</a
+      ><a name="915"
+      > </a
+      ><a name="916" class="Symbol"
+      >&#8704;</a
+      ><a name="917"
+      > </a
+      ><a name="918" class="Symbol"
+      >{</a
+      ><a name="919" href="BasicT.Syntax.GentzenNormalForm.html#919" class="Bound"
+      >C</a
+      ><a name="920" class="Symbol"
+      >}</a
+      ><a name="921"
+      >   </a
+      ><a name="924" class="Symbol"
+      >&#8594;</a
+      ><a name="925"
+      > </a
+      ><a name="926" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="927"
+      > </a
+      ><a name="928" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="931"
+      > </a
+      ><a name="932" href="BasicT.Syntax.Common.html#261" class="InductiveConstructor"
+      >NAT</a
+      ><a name="935"
+      > </a
+      ><a name="936" class="Symbol"
+      >&#8594;</a
+      ><a name="937"
+      > </a
+      ><a name="938" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="939"
+      > </a
+      ><a name="940" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="943"
+      > </a
+      ><a name="944" href="BasicT.Syntax.GentzenNormalForm.html#919" class="Bound"
+      >C</a
+      ><a name="945"
+      > </a
+      ><a name="946" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="947"
+      > </a
+      ><a name="948" href="BasicT.Syntax.GentzenNormalForm.html#919" class="Bound"
+      >C</a
+      ><a name="949"
+      > </a
+      ><a name="950" class="Symbol"
+      >&#8594;</a
+      ><a name="951"
+      > </a
+      ><a name="952" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="953"
+      > </a
+      ><a name="954" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="957"
+      > </a
+      ><a name="958" href="BasicT.Syntax.GentzenNormalForm.html#919" class="Bound"
+      >C</a
+      ><a name="959"
+      > </a
+      ><a name="960" class="Symbol"
+      >&#8594;</a
+      ><a name="961"
+      > </a
+      ><a name="962" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="963"
+      > </a
+      ><a name="964" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="967"
+      > </a
+      ><a name="968" href="BasicT.Syntax.GentzenNormalForm.html#919" class="Bound"
+      >C</a
+      ><a name="969"
+      >
+    </a
+      ><a name="974" href="BasicT.Syntax.GentzenNormalForm.html#974" class="InductiveConstructor"
+      >rec&#8319;&#7497;</a
+      ><a name="979"
+      > </a
+      ><a name="980" class="Symbol"
+      >:</a
+      ><a name="981"
+      > </a
+      ><a name="982" class="Symbol"
+      >&#8704;</a
+      ><a name="983"
+      > </a
+      ><a name="984" class="Symbol"
+      >{</a
+      ><a name="985" href="BasicT.Syntax.GentzenNormalForm.html#985" class="Bound"
+      >C</a
+      ><a name="986" class="Symbol"
+      >}</a
+      ><a name="987"
+      >   </a
+      ><a name="990" class="Symbol"
+      >&#8594;</a
+      ><a name="991"
+      > </a
+      ><a name="992" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="993"
+      > </a
+      ><a name="994" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="997"
+      > </a
+      ><a name="998" href="BasicT.Syntax.Common.html#261" class="InductiveConstructor"
+      >NAT</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" class="Symbol"
+      >&#8594;</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1009"
+      > </a
+      ><a name="1010" href="BasicT.Syntax.Common.html#261" class="InductiveConstructor"
+      >NAT</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" href="BasicT.Syntax.GentzenNormalForm.html#985" class="Bound"
+      >C</a
+      ><a name="1017"
+      > </a
+      ><a name="1018" href="BasicT.Syntax.Common.html#194" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1019"
+      > </a
+      ><a name="1020" href="BasicT.Syntax.GentzenNormalForm.html#985" class="Bound"
+      >C</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" class="Symbol"
+      >&#8594;</a
+      ><a name="1023"
+      > </a
+      ><a name="1024" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="1025"
+      > </a
+      ><a name="1026" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="BasicT.Syntax.GentzenNormalForm.html#985" class="Bound"
+      >C</a
+      ><a name="1031"
+      > </a
+      ><a name="1032" class="Symbol"
+      >&#8594;</a
+      ><a name="1033"
+      > </a
+      ><a name="1034" href="BasicT.Syntax.GentzenNormalForm.html#633" class="Bound"
+      >&#915;</a
+      ><a name="1035"
+      > </a
+      ><a name="1036" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="1039"
+      > </a
+      ><a name="1040" href="BasicT.Syntax.GentzenNormalForm.html#985" class="Bound"
+      >C</a
+      ><a name="1041"
+      >
+
+</a
+      ><a name="1043" class="Keyword"
+      >infix</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" class="Number"
+      >3</a
+      ><a name="1050"
+      > _&#8866;&#8902;&#8319;&#7584;_
+</a
+      ><a name="1058" href="BasicT.Syntax.GentzenNormalForm.html#1058" class="Function Operator"
+      >_&#8866;&#8902;&#8319;&#7584;_</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" class="Symbol"
+      >:</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="1072"
+      > </a
+      ><a name="1073" class="Symbol"
+      >&#8594;</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" class="Symbol"
+      >&#8594;</a
+      ><a name="1082"
+      > </a
+      ><a name="1083" class="PrimitiveType"
+      >Set</a
+      ><a name="1086"
+      >
+</a
+      ><a name="1087" href="BasicT.Syntax.GentzenNormalForm.html#1087" class="Bound"
+      >&#915;</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" href="BasicT.Syntax.GentzenNormalForm.html#1058" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1095"
+      >     </a
+      ><a name="1100" class="Symbol"
+      >=</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1103"
+      >
+</a
+      ><a name="1104" href="BasicT.Syntax.GentzenNormalForm.html#1104" class="Bound"
+      >&#915;</a
+      ><a name="1105"
+      > </a
+      ><a name="1106" href="BasicT.Syntax.GentzenNormalForm.html#1058" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="1110"
+      > </a
+      ><a name="1111" href="BasicT.Syntax.GentzenNormalForm.html#1111" class="Bound"
+      >&#926;</a
+      ><a name="1112"
+      > </a
+      ><a name="1113" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1114"
+      > </a
+      ><a name="1115" href="BasicT.Syntax.GentzenNormalForm.html#1115" class="Bound"
+      >A</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" class="Symbol"
+      >=</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" href="BasicT.Syntax.GentzenNormalForm.html#1104" class="Bound"
+      >&#915;</a
+      ><a name="1120"
+      > </a
+      ><a name="1121" href="BasicT.Syntax.GentzenNormalForm.html#1058" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="1125"
+      > </a
+      ><a name="1126" href="BasicT.Syntax.GentzenNormalForm.html#1111" class="Bound"
+      >&#926;</a
+      ><a name="1127"
+      > </a
+      ><a name="1128" href="Common.html#1570" class="Function Operator"
+      >&#215;</a
+      ><a name="1129"
+      > </a
+      ><a name="1130" href="BasicT.Syntax.GentzenNormalForm.html#1104" class="Bound"
+      >&#915;</a
+      ><a name="1131"
+      > </a
+      ><a name="1132" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1135"
+      > </a
+      ><a name="1136" href="BasicT.Syntax.GentzenNormalForm.html#1115" class="Bound"
+      >A</a
+      ><a name="1137"
+      >
+
+</a
+      ><a name="1139" class="Keyword"
+      >infix</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" class="Number"
+      >3</a
+      ><a name="1146"
+      > _&#8866;&#8902;&#8319;&#7497;_
+</a
+      ><a name="1154" href="BasicT.Syntax.GentzenNormalForm.html#1154" class="Function Operator"
+      >_&#8866;&#8902;&#8319;&#7497;_</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" class="Symbol"
+      >:</a
+      ><a name="1162"
+      > </a
+      ><a name="1163" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="1168"
+      > </a
+      ><a name="1169" class="Symbol"
+      >&#8594;</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1173"
+      > </a
+      ><a name="1174" href="BasicT.Syntax.Common.html#158" class="Datatype"
+      >Ty</a
+      ><a name="1176"
+      > </a
+      ><a name="1177" class="Symbol"
+      >&#8594;</a
+      ><a name="1178"
+      > </a
+      ><a name="1179" class="PrimitiveType"
+      >Set</a
+      ><a name="1182"
+      >
+</a
+      ><a name="1183" href="BasicT.Syntax.GentzenNormalForm.html#1183" class="Bound"
+      >&#915;</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" href="BasicT.Syntax.GentzenNormalForm.html#1154" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1191"
+      >     </a
+      ><a name="1196" class="Symbol"
+      >=</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1199"
+      >
+</a
+      ><a name="1200" href="BasicT.Syntax.GentzenNormalForm.html#1200" class="Bound"
+      >&#915;</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" href="BasicT.Syntax.GentzenNormalForm.html#1154" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="1206"
+      > </a
+      ><a name="1207" href="BasicT.Syntax.GentzenNormalForm.html#1207" class="Bound"
+      >&#926;</a
+      ><a name="1208"
+      > </a
+      ><a name="1209" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1210"
+      > </a
+      ><a name="1211" href="BasicT.Syntax.GentzenNormalForm.html#1211" class="Bound"
+      >A</a
+      ><a name="1212"
+      > </a
+      ><a name="1213" class="Symbol"
+      >=</a
+      ><a name="1214"
+      > </a
+      ><a name="1215" href="BasicT.Syntax.GentzenNormalForm.html#1200" class="Bound"
+      >&#915;</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" href="BasicT.Syntax.GentzenNormalForm.html#1154" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="1221"
+      > </a
+      ><a name="1222" href="BasicT.Syntax.GentzenNormalForm.html#1207" class="Bound"
+      >&#926;</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" href="Common.html#1570" class="Function Operator"
+      >&#215;</a
+      ><a name="1225"
+      > </a
+      ><a name="1226" href="BasicT.Syntax.GentzenNormalForm.html#1200" class="Bound"
+      >&#915;</a
+      ><a name="1227"
+      > </a
+      ><a name="1228" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="1231"
+      > </a
+      ><a name="1232" href="BasicT.Syntax.GentzenNormalForm.html#1211" class="Bound"
+      >A</a
+      ><a name="1233"
+      >
+
+
+</a
+      ><a name="1236" class="Comment"
+      >-- Translation to simple terms.</a
+      ><a name="1267"
+      >
+
+</a
+      ><a name="1269" class="Keyword"
+      >mutual</a
+      ><a name="1275"
+      >
+  </a
+      ><a name="1278" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" class="Symbol"
+      >:</a
+      ><a name="1285"
+      > </a
+      ><a name="1286" class="Symbol"
+      >&#8704;</a
+      ><a name="1287"
+      > </a
+      ><a name="1288" class="Symbol"
+      >{</a
+      ><a name="1289" href="BasicT.Syntax.GentzenNormalForm.html#1289" class="Bound"
+      >A</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" href="BasicT.Syntax.GentzenNormalForm.html#1291" class="Bound"
+      >&#915;</a
+      ><a name="1292" class="Symbol"
+      >}</a
+      ><a name="1293"
+      > </a
+      ><a name="1294" class="Symbol"
+      >&#8594;</a
+      ><a name="1295"
+      > </a
+      ><a name="1296" href="BasicT.Syntax.GentzenNormalForm.html#1291" class="Bound"
+      >&#915;</a
+      ><a name="1297"
+      > </a
+      ><a name="1298" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1301"
+      > </a
+      ><a name="1302" href="BasicT.Syntax.GentzenNormalForm.html#1289" class="Bound"
+      >A</a
+      ><a name="1303"
+      > </a
+      ><a name="1304" class="Symbol"
+      >&#8594;</a
+      ><a name="1305"
+      > </a
+      ><a name="1306" href="BasicT.Syntax.GentzenNormalForm.html#1291" class="Bound"
+      >&#915;</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" href="BasicT.Syntax.Gentzen.html#181" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" href="BasicT.Syntax.GentzenNormalForm.html#1289" class="Bound"
+      >A</a
+      ><a name="1311"
+      >
+  </a
+      ><a name="1314" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1319"
+      > </a
+      ><a name="1320" class="Symbol"
+      >(</a
+      ><a name="1321" href="BasicT.Syntax.GentzenNormalForm.html#294" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="1325"
+      > </a
+      ><a name="1326" href="BasicT.Syntax.GentzenNormalForm.html#1326" class="Bound"
+      >t</a
+      ><a name="1327" class="Symbol"
+      >)</a
+      ><a name="1328"
+      >     </a
+      ><a name="1333" class="Symbol"
+      >=</a
+      ><a name="1334"
+      > </a
+      ><a name="1335" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" href="BasicT.Syntax.GentzenNormalForm.html#1326" class="Bound"
+      >t</a
+      ><a name="1342"
+      >
+  </a
+      ><a name="1345" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" class="Symbol"
+      >(</a
+      ><a name="1352" href="BasicT.Syntax.GentzenNormalForm.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" href="BasicT.Syntax.GentzenNormalForm.html#1358" class="Bound"
+      >t</a
+      ><a name="1359" class="Symbol"
+      >)</a
+      ><a name="1360"
+      >    </a
+      ><a name="1364" class="Symbol"
+      >=</a
+      ><a name="1365"
+      > </a
+      ><a name="1366" href="BasicT.Syntax.Gentzen.html#250" class="InductiveConstructor"
+      >lam</a
+      ><a name="1369"
+      > </a
+      ><a name="1370" class="Symbol"
+      >(</a
+      ><a name="1371" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" href="BasicT.Syntax.GentzenNormalForm.html#1358" class="Bound"
+      >t</a
+      ><a name="1378" class="Symbol"
+      >)</a
+      ><a name="1379"
+      >
+  </a
+      ><a name="1382" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1387"
+      > </a
+      ><a name="1388" class="Symbol"
+      >(</a
+      ><a name="1389" href="BasicT.Syntax.GentzenNormalForm.html#386" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="1395"
+      > </a
+      ><a name="1396" href="BasicT.Syntax.GentzenNormalForm.html#1396" class="Bound"
+      >t</a
+      ><a name="1397"
+      > </a
+      ><a name="1398" href="BasicT.Syntax.GentzenNormalForm.html#1398" class="Bound"
+      >u</a
+      ><a name="1399" class="Symbol"
+      >)</a
+      ><a name="1400"
+      > </a
+      ><a name="1401" class="Symbol"
+      >=</a
+      ><a name="1402"
+      > </a
+      ><a name="1403" href="BasicT.Syntax.Gentzen.html#338" class="InductiveConstructor"
+      >pair</a
+      ><a name="1407"
+      > </a
+      ><a name="1408" class="Symbol"
+      >(</a
+      ><a name="1409" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1414"
+      > </a
+      ><a name="1415" href="BasicT.Syntax.GentzenNormalForm.html#1396" class="Bound"
+      >t</a
+      ><a name="1416" class="Symbol"
+      >)</a
+      ><a name="1417"
+      > </a
+      ><a name="1418" class="Symbol"
+      >(</a
+      ><a name="1419" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1424"
+      > </a
+      ><a name="1425" href="BasicT.Syntax.GentzenNormalForm.html#1398" class="Bound"
+      >u</a
+      ><a name="1426" class="Symbol"
+      >)</a
+      ><a name="1427"
+      >
+  </a
+      ><a name="1430" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1435"
+      > </a
+      ><a name="1436" href="BasicT.Syntax.GentzenNormalForm.html#442" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="1442"
+      >       </a
+      ><a name="1449" class="Symbol"
+      >=</a
+      ><a name="1450"
+      > </a
+      ><a name="1451" href="BasicT.Syntax.Gentzen.html#460" class="InductiveConstructor"
+      >unit</a
+      ><a name="1455"
+      >
+  </a
+      ><a name="1458" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" href="BasicT.Syntax.GentzenNormalForm.html#464" class="InductiveConstructor"
+      >true&#8319;&#7584;</a
+      ><a name="1470"
+      >       </a
+      ><a name="1477" class="Symbol"
+      >=</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" href="BasicT.Syntax.Gentzen.html#476" class="InductiveConstructor"
+      >true</a
+      ><a name="1483"
+      >
+  </a
+      ><a name="1486" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" href="BasicT.Syntax.GentzenNormalForm.html#489" class="InductiveConstructor"
+      >false&#8319;&#7584;</a
+      ><a name="1499"
+      >      </a
+      ><a name="1505" class="Symbol"
+      >=</a
+      ><a name="1506"
+      > </a
+      ><a name="1507" href="BasicT.Syntax.Gentzen.html#476" class="InductiveConstructor"
+      >true</a
+      ><a name="1511"
+      >
+  </a
+      ><a name="1514" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1519"
+      > </a
+      ><a name="1520" href="BasicT.Syntax.GentzenNormalForm.html#514" class="InductiveConstructor"
+      >zero&#8319;&#7584;</a
+      ><a name="1526"
+      >       </a
+      ><a name="1533" class="Symbol"
+      >=</a
+      ><a name="1534"
+      > </a
+      ><a name="1535" href="BasicT.Syntax.Gentzen.html#567" class="InductiveConstructor"
+      >zero</a
+      ><a name="1539"
+      >
+  </a
+      ><a name="1542" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" class="Symbol"
+      >(</a
+      ><a name="1549" href="BasicT.Syntax.GentzenNormalForm.html#538" class="InductiveConstructor"
+      >suc&#8319;&#7584;</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="BasicT.Syntax.GentzenNormalForm.html#1555" class="Bound"
+      >t</a
+      ><a name="1556" class="Symbol"
+      >)</a
+      ><a name="1557"
+      >    </a
+      ><a name="1561" class="Symbol"
+      >=</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" href="BasicT.Syntax.Gentzen.html#585" class="InductiveConstructor"
+      >suc</a
+      ><a name="1566"
+      > </a
+      ><a name="1567" class="Symbol"
+      >(</a
+      ><a name="1568" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1573"
+      > </a
+      ><a name="1574" href="BasicT.Syntax.GentzenNormalForm.html#1555" class="Bound"
+      >t</a
+      ><a name="1575" class="Symbol"
+      >)</a
+      ><a name="1576"
+      >
+
+  </a
+      ><a name="1580" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1585"
+      > </a
+      ><a name="1586" class="Symbol"
+      >:</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" class="Symbol"
+      >&#8704;</a
+      ><a name="1589"
+      > </a
+      ><a name="1590" class="Symbol"
+      >{</a
+      ><a name="1591" href="BasicT.Syntax.GentzenNormalForm.html#1591" class="Bound"
+      >A</a
+      ><a name="1592"
+      > </a
+      ><a name="1593" href="BasicT.Syntax.GentzenNormalForm.html#1593" class="Bound"
+      >&#915;</a
+      ><a name="1594" class="Symbol"
+      >}</a
+      ><a name="1595"
+      > </a
+      ><a name="1596" class="Symbol"
+      >&#8594;</a
+      ><a name="1597"
+      > </a
+      ><a name="1598" href="BasicT.Syntax.GentzenNormalForm.html#1593" class="Bound"
+      >&#915;</a
+      ><a name="1599"
+      > </a
+      ><a name="1600" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="1603"
+      > </a
+      ><a name="1604" href="BasicT.Syntax.GentzenNormalForm.html#1591" class="Bound"
+      >A</a
+      ><a name="1605"
+      > </a
+      ><a name="1606" class="Symbol"
+      >&#8594;</a
+      ><a name="1607"
+      > </a
+      ><a name="1608" href="BasicT.Syntax.GentzenNormalForm.html#1593" class="Bound"
+      >&#915;</a
+      ><a name="1609"
+      > </a
+      ><a name="1610" href="BasicT.Syntax.Gentzen.html#181" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" href="BasicT.Syntax.GentzenNormalForm.html#1591" class="Bound"
+      >A</a
+      ><a name="1613"
+      >
+  </a
+      ><a name="1616" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1621"
+      > </a
+      ><a name="1622" class="Symbol"
+      >(</a
+      ><a name="1623" href="BasicT.Syntax.GentzenNormalForm.html#665" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="1628"
+      > </a
+      ><a name="1629" href="BasicT.Syntax.GentzenNormalForm.html#1629" class="Bound"
+      >i</a
+      ><a name="1630" class="Symbol"
+      >)</a
+      ><a name="1631"
+      >     </a
+      ><a name="1636" class="Symbol"
+      >=</a
+      ><a name="1637"
+      > </a
+      ><a name="1638" href="BasicT.Syntax.Gentzen.html#216" class="InductiveConstructor"
+      >var</a
+      ><a name="1641"
+      > </a
+      ><a name="1642" href="BasicT.Syntax.GentzenNormalForm.html#1629" class="Bound"
+      >i</a
+      ><a name="1643"
+      >
+  </a
+      ><a name="1646" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1651"
+      > </a
+      ><a name="1652" class="Symbol"
+      >(</a
+      ><a name="1653" href="BasicT.Syntax.GentzenNormalForm.html#703" class="InductiveConstructor"
+      >app&#8319;&#7497;</a
+      ><a name="1658"
+      > </a
+      ><a name="1659" href="BasicT.Syntax.GentzenNormalForm.html#1659" class="Bound"
+      >t</a
+      ><a name="1660"
+      > </a
+      ><a name="1661" href="BasicT.Syntax.GentzenNormalForm.html#1661" class="Bound"
+      >u</a
+      ><a name="1662" class="Symbol"
+      >)</a
+      ><a name="1663"
+      >   </a
+      ><a name="1666" class="Symbol"
+      >=</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" href="BasicT.Syntax.Gentzen.html#292" class="InductiveConstructor"
+      >app</a
+      ><a name="1671"
+      > </a
+      ><a name="1672" class="Symbol"
+      >(</a
+      ><a name="1673" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1678"
+      > </a
+      ><a name="1679" href="BasicT.Syntax.GentzenNormalForm.html#1659" class="Bound"
+      >t</a
+      ><a name="1680" class="Symbol"
+      >)</a
+      ><a name="1681"
+      > </a
+      ><a name="1682" class="Symbol"
+      >(</a
+      ><a name="1683" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" href="BasicT.Syntax.GentzenNormalForm.html#1661" class="Bound"
+      >u</a
+      ><a name="1690" class="Symbol"
+      >)</a
+      ><a name="1691"
+      >
+  </a
+      ><a name="1694" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1699"
+      > </a
+      ><a name="1700" class="Symbol"
+      >(</a
+      ><a name="1701" href="BasicT.Syntax.GentzenNormalForm.html#757" class="InductiveConstructor"
+      >fst&#8319;&#7497;</a
+      ><a name="1706"
+      > </a
+      ><a name="1707" href="BasicT.Syntax.GentzenNormalForm.html#1707" class="Bound"
+      >t</a
+      ><a name="1708" class="Symbol"
+      >)</a
+      ><a name="1709"
+      >     </a
+      ><a name="1714" class="Symbol"
+      >=</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="BasicT.Syntax.Gentzen.html#384" class="InductiveConstructor"
+      >fst</a
+      ><a name="1719"
+      > </a
+      ><a name="1720" class="Symbol"
+      >(</a
+      ><a name="1721" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1726"
+      > </a
+      ><a name="1727" href="BasicT.Syntax.GentzenNormalForm.html#1707" class="Bound"
+      >t</a
+      ><a name="1728" class="Symbol"
+      >)</a
+      ><a name="1729"
+      >
+  </a
+      ><a name="1732" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" class="Symbol"
+      >(</a
+      ><a name="1739" href="BasicT.Syntax.GentzenNormalForm.html#801" class="InductiveConstructor"
+      >snd&#8319;&#7497;</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" href="BasicT.Syntax.GentzenNormalForm.html#1745" class="Bound"
+      >t</a
+      ><a name="1746" class="Symbol"
+      >)</a
+      ><a name="1747"
+      >     </a
+      ><a name="1752" class="Symbol"
+      >=</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="BasicT.Syntax.Gentzen.html#422" class="InductiveConstructor"
+      >snd</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" class="Symbol"
+      >(</a
+      ><a name="1759" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1764"
+      > </a
+      ><a name="1765" href="BasicT.Syntax.GentzenNormalForm.html#1745" class="Bound"
+      >t</a
+      ><a name="1766" class="Symbol"
+      >)</a
+      ><a name="1767"
+      >
+  </a
+      ><a name="1770" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1775"
+      > </a
+      ><a name="1776" class="Symbol"
+      >(</a
+      ><a name="1777" href="BasicT.Syntax.GentzenNormalForm.html#845" class="InductiveConstructor"
+      >if&#8319;&#7497;</a
+      ><a name="1781"
+      > </a
+      ><a name="1782" href="BasicT.Syntax.GentzenNormalForm.html#1782" class="Bound"
+      >t</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" href="BasicT.Syntax.GentzenNormalForm.html#1784" class="Bound"
+      >u</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" href="BasicT.Syntax.GentzenNormalForm.html#1786" class="Bound"
+      >v</a
+      ><a name="1787" class="Symbol"
+      >)</a
+      ><a name="1788"
+      >  </a
+      ><a name="1790" class="Symbol"
+      >=</a
+      ><a name="1791"
+      > </a
+      ><a name="1792" href="BasicT.Syntax.Gentzen.html#514" class="InductiveConstructor"
+      >if</a
+      ><a name="1794"
+      > </a
+      ><a name="1795" class="Symbol"
+      >(</a
+      ><a name="1796" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1801"
+      > </a
+      ><a name="1802" href="BasicT.Syntax.GentzenNormalForm.html#1782" class="Bound"
+      >t</a
+      ><a name="1803" class="Symbol"
+      >)</a
+      ><a name="1804"
+      > </a
+      ><a name="1805" class="Symbol"
+      >(</a
+      ><a name="1806" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1811"
+      > </a
+      ><a name="1812" href="BasicT.Syntax.GentzenNormalForm.html#1784" class="Bound"
+      >u</a
+      ><a name="1813" class="Symbol"
+      >)</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" class="Symbol"
+      >(</a
+      ><a name="1816" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" href="BasicT.Syntax.GentzenNormalForm.html#1786" class="Bound"
+      >v</a
+      ><a name="1823" class="Symbol"
+      >)</a
+      ><a name="1824"
+      >
+  </a
+      ><a name="1827" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1832"
+      > </a
+      ><a name="1833" class="Symbol"
+      >(</a
+      ><a name="1834" href="BasicT.Syntax.GentzenNormalForm.html#908" class="InductiveConstructor"
+      >it&#8319;&#7497;</a
+      ><a name="1838"
+      > </a
+      ><a name="1839" href="BasicT.Syntax.GentzenNormalForm.html#1839" class="Bound"
+      >t</a
+      ><a name="1840"
+      > </a
+      ><a name="1841" href="BasicT.Syntax.GentzenNormalForm.html#1841" class="Bound"
+      >u</a
+      ><a name="1842"
+      > </a
+      ><a name="1843" href="BasicT.Syntax.GentzenNormalForm.html#1843" class="Bound"
+      >v</a
+      ><a name="1844" class="Symbol"
+      >)</a
+      ><a name="1845"
+      >  </a
+      ><a name="1847" class="Symbol"
+      >=</a
+      ><a name="1848"
+      > </a
+      ><a name="1849" href="BasicT.Syntax.Gentzen.html#613" class="InductiveConstructor"
+      >it</a
+      ><a name="1851"
+      > </a
+      ><a name="1852" class="Symbol"
+      >(</a
+      ><a name="1853" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1858"
+      > </a
+      ><a name="1859" href="BasicT.Syntax.GentzenNormalForm.html#1839" class="Bound"
+      >t</a
+      ><a name="1860" class="Symbol"
+      >)</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" class="Symbol"
+      >(</a
+      ><a name="1863" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1868"
+      > </a
+      ><a name="1869" href="BasicT.Syntax.GentzenNormalForm.html#1841" class="Bound"
+      >u</a
+      ><a name="1870" class="Symbol"
+      >)</a
+      ><a name="1871"
+      > </a
+      ><a name="1872" class="Symbol"
+      >(</a
+      ><a name="1873" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1878"
+      > </a
+      ><a name="1879" href="BasicT.Syntax.GentzenNormalForm.html#1843" class="Bound"
+      >v</a
+      ><a name="1880" class="Symbol"
+      >)</a
+      ><a name="1881"
+      >
+  </a
+      ><a name="1884" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1889"
+      > </a
+      ><a name="1890" class="Symbol"
+      >(</a
+      ><a name="1891" href="BasicT.Syntax.GentzenNormalForm.html#974" class="InductiveConstructor"
+      >rec&#8319;&#7497;</a
+      ><a name="1896"
+      > </a
+      ><a name="1897" href="BasicT.Syntax.GentzenNormalForm.html#1897" class="Bound"
+      >t</a
+      ><a name="1898"
+      > </a
+      ><a name="1899" href="BasicT.Syntax.GentzenNormalForm.html#1899" class="Bound"
+      >u</a
+      ><a name="1900"
+      > </a
+      ><a name="1901" href="BasicT.Syntax.GentzenNormalForm.html#1901" class="Bound"
+      >v</a
+      ><a name="1902" class="Symbol"
+      >)</a
+      ><a name="1903"
+      > </a
+      ><a name="1904" class="Symbol"
+      >=</a
+      ><a name="1905"
+      > </a
+      ><a name="1906" href="BasicT.Syntax.Gentzen.html#669" class="InductiveConstructor"
+      >rec</a
+      ><a name="1909"
+      > </a
+      ><a name="1910" class="Symbol"
+      >(</a
+      ><a name="1911" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1916"
+      > </a
+      ><a name="1917" href="BasicT.Syntax.GentzenNormalForm.html#1897" class="Bound"
+      >t</a
+      ><a name="1918" class="Symbol"
+      >)</a
+      ><a name="1919"
+      > </a
+      ><a name="1920" class="Symbol"
+      >(</a
+      ><a name="1921" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1926"
+      > </a
+      ><a name="1927" href="BasicT.Syntax.GentzenNormalForm.html#1899" class="Bound"
+      >u</a
+      ><a name="1928" class="Symbol"
+      >)</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" class="Symbol"
+      >(</a
+      ><a name="1931" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1936"
+      > </a
+      ><a name="1937" href="BasicT.Syntax.GentzenNormalForm.html#1901" class="Bound"
+      >v</a
+      ><a name="1938" class="Symbol"
+      >)</a
+      ><a name="1939"
+      >
+
+</a
+      ><a name="1941" href="BasicT.Syntax.GentzenNormalForm.html#1941" class="Function"
+      >nf&#8594;tm&#8902;</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" class="Symbol"
+      >:</a
+      ><a name="1949"
+      > </a
+      ><a name="1950" class="Symbol"
+      >&#8704;</a
+      ><a name="1951"
+      > </a
+      ><a name="1952" class="Symbol"
+      >{</a
+      ><a name="1953" href="BasicT.Syntax.GentzenNormalForm.html#1953" class="Bound"
+      >&#926;</a
+      ><a name="1954"
+      > </a
+      ><a name="1955" href="BasicT.Syntax.GentzenNormalForm.html#1955" class="Bound"
+      >&#915;</a
+      ><a name="1956" class="Symbol"
+      >}</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" class="Symbol"
+      >&#8594;</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" href="BasicT.Syntax.GentzenNormalForm.html#1955" class="Bound"
+      >&#915;</a
+      ><a name="1961"
+      > </a
+      ><a name="1962" href="BasicT.Syntax.GentzenNormalForm.html#1058" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="1966"
+      > </a
+      ><a name="1967" href="BasicT.Syntax.GentzenNormalForm.html#1953" class="Bound"
+      >&#926;</a
+      ><a name="1968"
+      > </a
+      ><a name="1969" class="Symbol"
+      >&#8594;</a
+      ><a name="1970"
+      > </a
+      ><a name="1971" href="BasicT.Syntax.GentzenNormalForm.html#1955" class="Bound"
+      >&#915;</a
+      ><a name="1972"
+      > </a
+      ><a name="1973" href="BasicT.Syntax.Gentzen.html#743" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1975"
+      > </a
+      ><a name="1976" href="BasicT.Syntax.GentzenNormalForm.html#1953" class="Bound"
+      >&#926;</a
+      ><a name="1977"
+      >
+</a
+      ><a name="1978" href="BasicT.Syntax.GentzenNormalForm.html#1941" class="Function"
+      >nf&#8594;tm&#8902;</a
+      ><a name="1984"
+      > </a
+      ><a name="1985" class="Symbol"
+      >{</a
+      ><a name="1986" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1987" class="Symbol"
+      >}</a
+      ><a name="1988"
+      >     </a
+      ><a name="1993" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1994"
+      >        </a
+      ><a name="2002" class="Symbol"
+      >=</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2005"
+      >
+</a
+      ><a name="2006" href="BasicT.Syntax.GentzenNormalForm.html#1941" class="Function"
+      >nf&#8594;tm&#8902;</a
+      ><a name="2012"
+      > </a
+      ><a name="2013" class="Symbol"
+      >{</a
+      ><a name="2014" href="BasicT.Syntax.GentzenNormalForm.html#2014" class="Bound"
+      >&#926;</a
+      ><a name="2015"
+      > </a
+      ><a name="2016" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" href="BasicT.Syntax.GentzenNormalForm.html#2018" class="Bound"
+      >A</a
+      ><a name="2019" class="Symbol"
+      >}</a
+      ><a name="2020"
+      > </a
+      ><a name="2021" class="Symbol"
+      >(</a
+      ><a name="2022" href="BasicT.Syntax.GentzenNormalForm.html#2022" class="Bound"
+      >ts</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2026"
+      > </a
+      ><a name="2027" href="BasicT.Syntax.GentzenNormalForm.html#2027" class="Bound"
+      >t</a
+      ><a name="2028" class="Symbol"
+      >)</a
+      ><a name="2029"
+      > </a
+      ><a name="2030" class="Symbol"
+      >=</a
+      ><a name="2031"
+      > </a
+      ><a name="2032" href="BasicT.Syntax.GentzenNormalForm.html#1941" class="Function"
+      >nf&#8594;tm&#8902;</a
+      ><a name="2038"
+      > </a
+      ><a name="2039" href="BasicT.Syntax.GentzenNormalForm.html#2022" class="Bound"
+      >ts</a
+      ><a name="2041"
+      > </a
+      ><a name="2042" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" href="BasicT.Syntax.GentzenNormalForm.html#1278" class="Function"
+      >nf&#8594;tm</a
+      ><a name="2049"
+      > </a
+      ><a name="2050" href="BasicT.Syntax.GentzenNormalForm.html#2027" class="Bound"
+      >t</a
+      ><a name="2051"
+      >
+
+</a
+      ><a name="2053" href="BasicT.Syntax.GentzenNormalForm.html#2053" class="Function"
+      >ne&#8594;tm&#8902;</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" class="Symbol"
+      >:</a
+      ><a name="2061"
+      > </a
+      ><a name="2062" class="Symbol"
+      >&#8704;</a
+      ><a name="2063"
+      > </a
+      ><a name="2064" class="Symbol"
+      >{</a
+      ><a name="2065" href="BasicT.Syntax.GentzenNormalForm.html#2065" class="Bound"
+      >&#926;</a
+      ><a name="2066"
+      > </a
+      ><a name="2067" href="BasicT.Syntax.GentzenNormalForm.html#2067" class="Bound"
+      >&#915;</a
+      ><a name="2068" class="Symbol"
+      >}</a
+      ><a name="2069"
+      > </a
+      ><a name="2070" class="Symbol"
+      >&#8594;</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" href="BasicT.Syntax.GentzenNormalForm.html#2067" class="Bound"
+      >&#915;</a
+      ><a name="2073"
+      > </a
+      ><a name="2074" href="BasicT.Syntax.GentzenNormalForm.html#1154" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="2078"
+      > </a
+      ><a name="2079" href="BasicT.Syntax.GentzenNormalForm.html#2065" class="Bound"
+      >&#926;</a
+      ><a name="2080"
+      > </a
+      ><a name="2081" class="Symbol"
+      >&#8594;</a
+      ><a name="2082"
+      > </a
+      ><a name="2083" href="BasicT.Syntax.GentzenNormalForm.html#2067" class="Bound"
+      >&#915;</a
+      ><a name="2084"
+      > </a
+      ><a name="2085" href="BasicT.Syntax.Gentzen.html#743" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="2087"
+      > </a
+      ><a name="2088" href="BasicT.Syntax.GentzenNormalForm.html#2065" class="Bound"
+      >&#926;</a
+      ><a name="2089"
+      >
+</a
+      ><a name="2090" href="BasicT.Syntax.GentzenNormalForm.html#2053" class="Function"
+      >ne&#8594;tm&#8902;</a
+      ><a name="2096"
+      > </a
+      ><a name="2097" class="Symbol"
+      >{</a
+      ><a name="2098" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="2099" class="Symbol"
+      >}</a
+      ><a name="2100"
+      >     </a
+      ><a name="2105" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2106"
+      >        </a
+      ><a name="2114" class="Symbol"
+      >=</a
+      ><a name="2115"
+      > </a
+      ><a name="2116" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2117"
+      >
+</a
+      ><a name="2118" href="BasicT.Syntax.GentzenNormalForm.html#2053" class="Function"
+      >ne&#8594;tm&#8902;</a
+      ><a name="2124"
+      > </a
+      ><a name="2125" class="Symbol"
+      >{</a
+      ><a name="2126" href="BasicT.Syntax.GentzenNormalForm.html#2126" class="Bound"
+      >&#926;</a
+      ><a name="2127"
+      > </a
+      ><a name="2128" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2129"
+      > </a
+      ><a name="2130" href="BasicT.Syntax.GentzenNormalForm.html#2130" class="Bound"
+      >A</a
+      ><a name="2131" class="Symbol"
+      >}</a
+      ><a name="2132"
+      > </a
+      ><a name="2133" class="Symbol"
+      >(</a
+      ><a name="2134" href="BasicT.Syntax.GentzenNormalForm.html#2134" class="Bound"
+      >ts</a
+      ><a name="2136"
+      > </a
+      ><a name="2137" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2138"
+      > </a
+      ><a name="2139" href="BasicT.Syntax.GentzenNormalForm.html#2139" class="Bound"
+      >t</a
+      ><a name="2140" class="Symbol"
+      >)</a
+      ><a name="2141"
+      > </a
+      ><a name="2142" class="Symbol"
+      >=</a
+      ><a name="2143"
+      > </a
+      ><a name="2144" href="BasicT.Syntax.GentzenNormalForm.html#2053" class="Function"
+      >ne&#8594;tm&#8902;</a
+      ><a name="2150"
+      > </a
+      ><a name="2151" href="BasicT.Syntax.GentzenNormalForm.html#2134" class="Bound"
+      >ts</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2155"
+      > </a
+      ><a name="2156" href="BasicT.Syntax.GentzenNormalForm.html#1580" class="Function"
+      >ne&#8594;tm</a
+      ><a name="2161"
+      > </a
+      ><a name="2162" href="BasicT.Syntax.GentzenNormalForm.html#2139" class="Bound"
+      >t</a
+      ><a name="2163"
+      >
+
+
+</a
+      ><a name="2166" class="Comment"
+      >-- Monotonicity with respect to context inclusion.</a
+      ><a name="2216"
+      >
+
+</a
+      ><a name="2218" class="Keyword"
+      >mutual</a
+      ><a name="2224"
+      >
+  </a
+      ><a name="2227" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" class="Symbol"
+      >:</a
+      ><a name="2236"
+      > </a
+      ><a name="2237" class="Symbol"
+      >&#8704;</a
+      ><a name="2238"
+      > </a
+      ><a name="2239" class="Symbol"
+      >{</a
+      ><a name="2240" href="BasicT.Syntax.GentzenNormalForm.html#2240" class="Bound"
+      >A</a
+      ><a name="2241"
+      > </a
+      ><a name="2242" href="BasicT.Syntax.GentzenNormalForm.html#2242" class="Bound"
+      >&#915;</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" href="BasicT.Syntax.GentzenNormalForm.html#2244" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2246" class="Symbol"
+      >}</a
+      ><a name="2247"
+      > </a
+      ><a name="2248" class="Symbol"
+      >&#8594;</a
+      ><a name="2249"
+      > </a
+      ><a name="2250" href="BasicT.Syntax.GentzenNormalForm.html#2242" class="Bound"
+      >&#915;</a
+      ><a name="2251"
+      > </a
+      ><a name="2252" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2253"
+      > </a
+      ><a name="2254" href="BasicT.Syntax.GentzenNormalForm.html#2244" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2256"
+      > </a
+      ><a name="2257" class="Symbol"
+      >&#8594;</a
+      ><a name="2258"
+      > </a
+      ><a name="2259" href="BasicT.Syntax.GentzenNormalForm.html#2242" class="Bound"
+      >&#915;</a
+      ><a name="2260"
+      > </a
+      ><a name="2261" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2264"
+      > </a
+      ><a name="2265" href="BasicT.Syntax.GentzenNormalForm.html#2240" class="Bound"
+      >A</a
+      ><a name="2266"
+      > </a
+      ><a name="2267" class="Symbol"
+      >&#8594;</a
+      ><a name="2268"
+      > </a
+      ><a name="2269" href="BasicT.Syntax.GentzenNormalForm.html#2244" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2271"
+      > </a
+      ><a name="2272" href="BasicT.Syntax.GentzenNormalForm.html#255" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2275"
+      > </a
+      ><a name="2276" href="BasicT.Syntax.GentzenNormalForm.html#2240" class="Bound"
+      >A</a
+      ><a name="2277"
+      >
+  </a
+      ><a name="2280" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2287"
+      > </a
+      ><a name="2288" href="BasicT.Syntax.GentzenNormalForm.html#2288" class="Bound"
+      >&#951;</a
+      ><a name="2289"
+      > </a
+      ><a name="2290" class="Symbol"
+      >(</a
+      ><a name="2291" href="BasicT.Syntax.GentzenNormalForm.html#294" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2295"
+      > </a
+      ><a name="2296" href="BasicT.Syntax.GentzenNormalForm.html#2296" class="Bound"
+      >t</a
+      ><a name="2297" class="Symbol"
+      >)</a
+      ><a name="2298"
+      >     </a
+      ><a name="2303" class="Symbol"
+      >=</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" href="BasicT.Syntax.GentzenNormalForm.html#294" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2309"
+      > </a
+      ><a name="2310" class="Symbol"
+      >(</a
+      ><a name="2311" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" href="BasicT.Syntax.GentzenNormalForm.html#2288" class="Bound"
+      >&#951;</a
+      ><a name="2320"
+      > </a
+      ><a name="2321" href="BasicT.Syntax.GentzenNormalForm.html#2296" class="Bound"
+      >t</a
+      ><a name="2322" class="Symbol"
+      >)</a
+      ><a name="2323"
+      >
+  </a
+      ><a name="2326" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2333"
+      > </a
+      ><a name="2334" href="BasicT.Syntax.GentzenNormalForm.html#2334" class="Bound"
+      >&#951;</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" class="Symbol"
+      >(</a
+      ><a name="2337" href="BasicT.Syntax.GentzenNormalForm.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="2342"
+      > </a
+      ><a name="2343" href="BasicT.Syntax.GentzenNormalForm.html#2343" class="Bound"
+      >t</a
+      ><a name="2344" class="Symbol"
+      >)</a
+      ><a name="2345"
+      >    </a
+      ><a name="2349" class="Symbol"
+      >=</a
+      ><a name="2350"
+      > </a
+      ><a name="2351" href="BasicT.Syntax.GentzenNormalForm.html#336" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="2356"
+      > </a
+      ><a name="2357" class="Symbol"
+      >(</a
+      ><a name="2358" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2365"
+      > </a
+      ><a name="2366" class="Symbol"
+      >(</a
+      ><a name="2367" href="Common.Context.html#1725" class="InductiveConstructor"
+      >keep</a
+      ><a name="2371"
+      > </a
+      ><a name="2372" href="BasicT.Syntax.GentzenNormalForm.html#2334" class="Bound"
+      >&#951;</a
+      ><a name="2373" class="Symbol"
+      >)</a
+      ><a name="2374"
+      > </a
+      ><a name="2375" href="BasicT.Syntax.GentzenNormalForm.html#2343" class="Bound"
+      >t</a
+      ><a name="2376" class="Symbol"
+      >)</a
+      ><a name="2377"
+      >
+  </a
+      ><a name="2380" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2387"
+      > </a
+      ><a name="2388" href="BasicT.Syntax.GentzenNormalForm.html#2388" class="Bound"
+      >&#951;</a
+      ><a name="2389"
+      > </a
+      ><a name="2390" class="Symbol"
+      >(</a
+      ><a name="2391" href="BasicT.Syntax.GentzenNormalForm.html#386" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="2397"
+      > </a
+      ><a name="2398" href="BasicT.Syntax.GentzenNormalForm.html#2398" class="Bound"
+      >t</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" href="BasicT.Syntax.GentzenNormalForm.html#2400" class="Bound"
+      >u</a
+      ><a name="2401" class="Symbol"
+      >)</a
+      ><a name="2402"
+      > </a
+      ><a name="2403" class="Symbol"
+      >=</a
+      ><a name="2404"
+      > </a
+      ><a name="2405" href="BasicT.Syntax.GentzenNormalForm.html#386" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="2411"
+      > </a
+      ><a name="2412" class="Symbol"
+      >(</a
+      ><a name="2413" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2420"
+      > </a
+      ><a name="2421" href="BasicT.Syntax.GentzenNormalForm.html#2388" class="Bound"
+      >&#951;</a
+      ><a name="2422"
+      > </a
+      ><a name="2423" href="BasicT.Syntax.GentzenNormalForm.html#2398" class="Bound"
+      >t</a
+      ><a name="2424" class="Symbol"
+      >)</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" class="Symbol"
+      >(</a
+      ><a name="2427" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2434"
+      > </a
+      ><a name="2435" href="BasicT.Syntax.GentzenNormalForm.html#2388" class="Bound"
+      >&#951;</a
+      ><a name="2436"
+      > </a
+      ><a name="2437" href="BasicT.Syntax.GentzenNormalForm.html#2400" class="Bound"
+      >u</a
+      ><a name="2438" class="Symbol"
+      >)</a
+      ><a name="2439"
+      >
+  </a
+      ><a name="2442" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2449"
+      > </a
+      ><a name="2450" href="BasicT.Syntax.GentzenNormalForm.html#2450" class="Bound"
+      >&#951;</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" href="BasicT.Syntax.GentzenNormalForm.html#442" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="2458"
+      >       </a
+      ><a name="2465" class="Symbol"
+      >=</a
+      ><a name="2466"
+      > </a
+      ><a name="2467" href="BasicT.Syntax.GentzenNormalForm.html#442" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="2473"
+      >
+  </a
+      ><a name="2476" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" href="BasicT.Syntax.GentzenNormalForm.html#2484" class="Bound"
+      >&#951;</a
+      ><a name="2485"
+      > </a
+      ><a name="2486" href="BasicT.Syntax.GentzenNormalForm.html#464" class="InductiveConstructor"
+      >true&#8319;&#7584;</a
+      ><a name="2492"
+      >       </a
+      ><a name="2499" class="Symbol"
+      >=</a
+      ><a name="2500"
+      > </a
+      ><a name="2501" href="BasicT.Syntax.GentzenNormalForm.html#464" class="InductiveConstructor"
+      >true&#8319;&#7584;</a
+      ><a name="2507"
+      >
+  </a
+      ><a name="2510" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="BasicT.Syntax.GentzenNormalForm.html#2518" class="Bound"
+      >&#951;</a
+      ><a name="2519"
+      > </a
+      ><a name="2520" href="BasicT.Syntax.GentzenNormalForm.html#489" class="InductiveConstructor"
+      >false&#8319;&#7584;</a
+      ><a name="2527"
+      >      </a
+      ><a name="2533" class="Symbol"
+      >=</a
+      ><a name="2534"
+      > </a
+      ><a name="2535" href="BasicT.Syntax.GentzenNormalForm.html#464" class="InductiveConstructor"
+      >true&#8319;&#7584;</a
+      ><a name="2541"
+      >
+  </a
+      ><a name="2544" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2551"
+      > </a
+      ><a name="2552" href="BasicT.Syntax.GentzenNormalForm.html#2552" class="Bound"
+      >&#951;</a
+      ><a name="2553"
+      > </a
+      ><a name="2554" href="BasicT.Syntax.GentzenNormalForm.html#514" class="InductiveConstructor"
+      >zero&#8319;&#7584;</a
+      ><a name="2560"
+      >       </a
+      ><a name="2567" class="Symbol"
+      >=</a
+      ><a name="2568"
+      > </a
+      ><a name="2569" href="BasicT.Syntax.GentzenNormalForm.html#514" class="InductiveConstructor"
+      >zero&#8319;&#7584;</a
+      ><a name="2575"
+      >
+  </a
+      ><a name="2578" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2585"
+      > </a
+      ><a name="2586" href="BasicT.Syntax.GentzenNormalForm.html#2586" class="Bound"
+      >&#951;</a
+      ><a name="2587"
+      > </a
+      ><a name="2588" class="Symbol"
+      >(</a
+      ><a name="2589" href="BasicT.Syntax.GentzenNormalForm.html#538" class="InductiveConstructor"
+      >suc&#8319;&#7584;</a
+      ><a name="2594"
+      > </a
+      ><a name="2595" href="BasicT.Syntax.GentzenNormalForm.html#2595" class="Bound"
+      >t</a
+      ><a name="2596" class="Symbol"
+      >)</a
+      ><a name="2597"
+      >    </a
+      ><a name="2601" class="Symbol"
+      >=</a
+      ><a name="2602"
+      > </a
+      ><a name="2603" href="BasicT.Syntax.GentzenNormalForm.html#538" class="InductiveConstructor"
+      >suc&#8319;&#7584;</a
+      ><a name="2608"
+      > </a
+      ><a name="2609" class="Symbol"
+      >(</a
+      ><a name="2610" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2617"
+      > </a
+      ><a name="2618" href="BasicT.Syntax.GentzenNormalForm.html#2586" class="Bound"
+      >&#951;</a
+      ><a name="2619"
+      > </a
+      ><a name="2620" href="BasicT.Syntax.GentzenNormalForm.html#2595" class="Bound"
+      >t</a
+      ><a name="2621" class="Symbol"
+      >)</a
+      ><a name="2622"
+      >
+
+  </a
+      ><a name="2626" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2633"
+      > </a
+      ><a name="2634" class="Symbol"
+      >:</a
+      ><a name="2635"
+      > </a
+      ><a name="2636" class="Symbol"
+      >&#8704;</a
+      ><a name="2637"
+      > </a
+      ><a name="2638" class="Symbol"
+      >{</a
+      ><a name="2639" href="BasicT.Syntax.GentzenNormalForm.html#2639" class="Bound"
+      >A</a
+      ><a name="2640"
+      > </a
+      ><a name="2641" href="BasicT.Syntax.GentzenNormalForm.html#2641" class="Bound"
+      >&#915;</a
+      ><a name="2642"
+      > </a
+      ><a name="2643" href="BasicT.Syntax.GentzenNormalForm.html#2643" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2645" class="Symbol"
+      >}</a
+      ><a name="2646"
+      > </a
+      ><a name="2647" class="Symbol"
+      >&#8594;</a
+      ><a name="2648"
+      > </a
+      ><a name="2649" href="BasicT.Syntax.GentzenNormalForm.html#2641" class="Bound"
+      >&#915;</a
+      ><a name="2650"
+      > </a
+      ><a name="2651" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2652"
+      > </a
+      ><a name="2653" href="BasicT.Syntax.GentzenNormalForm.html#2643" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2655"
+      > </a
+      ><a name="2656" class="Symbol"
+      >&#8594;</a
+      ><a name="2657"
+      > </a
+      ><a name="2658" href="BasicT.Syntax.GentzenNormalForm.html#2641" class="Bound"
+      >&#915;</a
+      ><a name="2659"
+      > </a
+      ><a name="2660" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="2663"
+      > </a
+      ><a name="2664" href="BasicT.Syntax.GentzenNormalForm.html#2639" class="Bound"
+      >A</a
+      ><a name="2665"
+      > </a
+      ><a name="2666" class="Symbol"
+      >&#8594;</a
+      ><a name="2667"
+      > </a
+      ><a name="2668" href="BasicT.Syntax.GentzenNormalForm.html#2643" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2670"
+      > </a
+      ><a name="2671" href="BasicT.Syntax.GentzenNormalForm.html#626" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="2674"
+      > </a
+      ><a name="2675" href="BasicT.Syntax.GentzenNormalForm.html#2639" class="Bound"
+      >A</a
+      ><a name="2676"
+      >
+  </a
+      ><a name="2679" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2686"
+      > </a
+      ><a name="2687" href="BasicT.Syntax.GentzenNormalForm.html#2687" class="Bound"
+      >&#951;</a
+      ><a name="2688"
+      > </a
+      ><a name="2689" class="Symbol"
+      >(</a
+      ><a name="2690" href="BasicT.Syntax.GentzenNormalForm.html#665" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="2695"
+      > </a
+      ><a name="2696" href="BasicT.Syntax.GentzenNormalForm.html#2696" class="Bound"
+      >i</a
+      ><a name="2697" class="Symbol"
+      >)</a
+      ><a name="2698"
+      >     </a
+      ><a name="2703" class="Symbol"
+      >=</a
+      ><a name="2704"
+      > </a
+      ><a name="2705" href="BasicT.Syntax.GentzenNormalForm.html#665" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="2710"
+      > </a
+      ><a name="2711" class="Symbol"
+      >(</a
+      ><a name="2712" href="Common.Context.html#2751" class="Function"
+      >mono&#8712;</a
+      ><a name="2717"
+      > </a
+      ><a name="2718" href="BasicT.Syntax.GentzenNormalForm.html#2687" class="Bound"
+      >&#951;</a
+      ><a name="2719"
+      > </a
+      ><a name="2720" href="BasicT.Syntax.GentzenNormalForm.html#2696" class="Bound"
+      >i</a
+      ><a name="2721" class="Symbol"
+      >)</a
+      ><a name="2722"
+      >
+  </a
+      ><a name="2725" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2732"
+      > </a
+      ><a name="2733" href="BasicT.Syntax.GentzenNormalForm.html#2733" class="Bound"
+      >&#951;</a
+      ><a name="2734"
+      > </a
+      ><a name="2735" class="Symbol"
+      >(</a
+      ><a name="2736" href="BasicT.Syntax.GentzenNormalForm.html#703" class="InductiveConstructor"
+      >app&#8319;&#7497;</a
+      ><a name="2741"
+      > </a
+      ><a name="2742" href="BasicT.Syntax.GentzenNormalForm.html#2742" class="Bound"
+      >t</a
+      ><a name="2743"
+      > </a
+      ><a name="2744" href="BasicT.Syntax.GentzenNormalForm.html#2744" class="Bound"
+      >u</a
+      ><a name="2745" class="Symbol"
+      >)</a
+      ><a name="2746"
+      >   </a
+      ><a name="2749" class="Symbol"
+      >=</a
+      ><a name="2750"
+      > </a
+      ><a name="2751" href="BasicT.Syntax.GentzenNormalForm.html#703" class="InductiveConstructor"
+      >app&#8319;&#7497;</a
+      ><a name="2756"
+      > </a
+      ><a name="2757" class="Symbol"
+      >(</a
+      ><a name="2758" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2765"
+      > </a
+      ><a name="2766" href="BasicT.Syntax.GentzenNormalForm.html#2733" class="Bound"
+      >&#951;</a
+      ><a name="2767"
+      > </a
+      ><a name="2768" href="BasicT.Syntax.GentzenNormalForm.html#2742" class="Bound"
+      >t</a
+      ><a name="2769" class="Symbol"
+      >)</a
+      ><a name="2770"
+      > </a
+      ><a name="2771" class="Symbol"
+      >(</a
+      ><a name="2772" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2779"
+      > </a
+      ><a name="2780" href="BasicT.Syntax.GentzenNormalForm.html#2733" class="Bound"
+      >&#951;</a
+      ><a name="2781"
+      > </a
+      ><a name="2782" href="BasicT.Syntax.GentzenNormalForm.html#2744" class="Bound"
+      >u</a
+      ><a name="2783" class="Symbol"
+      >)</a
+      ><a name="2784"
+      >
+  </a
+      ><a name="2787" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2794"
+      > </a
+      ><a name="2795" href="BasicT.Syntax.GentzenNormalForm.html#2795" class="Bound"
+      >&#951;</a
+      ><a name="2796"
+      > </a
+      ><a name="2797" class="Symbol"
+      >(</a
+      ><a name="2798" href="BasicT.Syntax.GentzenNormalForm.html#757" class="InductiveConstructor"
+      >fst&#8319;&#7497;</a
+      ><a name="2803"
+      > </a
+      ><a name="2804" href="BasicT.Syntax.GentzenNormalForm.html#2804" class="Bound"
+      >t</a
+      ><a name="2805" class="Symbol"
+      >)</a
+      ><a name="2806"
+      >     </a
+      ><a name="2811" class="Symbol"
+      >=</a
+      ><a name="2812"
+      > </a
+      ><a name="2813" href="BasicT.Syntax.GentzenNormalForm.html#757" class="InductiveConstructor"
+      >fst&#8319;&#7497;</a
+      ><a name="2818"
+      > </a
+      ><a name="2819" class="Symbol"
+      >(</a
+      ><a name="2820" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2827"
+      > </a
+      ><a name="2828" href="BasicT.Syntax.GentzenNormalForm.html#2795" class="Bound"
+      >&#951;</a
+      ><a name="2829"
+      > </a
+      ><a name="2830" href="BasicT.Syntax.GentzenNormalForm.html#2804" class="Bound"
+      >t</a
+      ><a name="2831" class="Symbol"
+      >)</a
+      ><a name="2832"
+      >
+  </a
+      ><a name="2835" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2842"
+      > </a
+      ><a name="2843" href="BasicT.Syntax.GentzenNormalForm.html#2843" class="Bound"
+      >&#951;</a
+      ><a name="2844"
+      > </a
+      ><a name="2845" class="Symbol"
+      >(</a
+      ><a name="2846" href="BasicT.Syntax.GentzenNormalForm.html#801" class="InductiveConstructor"
+      >snd&#8319;&#7497;</a
+      ><a name="2851"
+      > </a
+      ><a name="2852" href="BasicT.Syntax.GentzenNormalForm.html#2852" class="Bound"
+      >t</a
+      ><a name="2853" class="Symbol"
+      >)</a
+      ><a name="2854"
+      >     </a
+      ><a name="2859" class="Symbol"
+      >=</a
+      ><a name="2860"
+      > </a
+      ><a name="2861" href="BasicT.Syntax.GentzenNormalForm.html#801" class="InductiveConstructor"
+      >snd&#8319;&#7497;</a
+      ><a name="2866"
+      > </a
+      ><a name="2867" class="Symbol"
+      >(</a
+      ><a name="2868" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2875"
+      > </a
+      ><a name="2876" href="BasicT.Syntax.GentzenNormalForm.html#2843" class="Bound"
+      >&#951;</a
+      ><a name="2877"
+      > </a
+      ><a name="2878" href="BasicT.Syntax.GentzenNormalForm.html#2852" class="Bound"
+      >t</a
+      ><a name="2879" class="Symbol"
+      >)</a
+      ><a name="2880"
+      >
+  </a
+      ><a name="2883" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2890"
+      > </a
+      ><a name="2891" href="BasicT.Syntax.GentzenNormalForm.html#2891" class="Bound"
+      >&#951;</a
+      ><a name="2892"
+      > </a
+      ><a name="2893" class="Symbol"
+      >(</a
+      ><a name="2894" href="BasicT.Syntax.GentzenNormalForm.html#845" class="InductiveConstructor"
+      >if&#8319;&#7497;</a
+      ><a name="2898"
+      > </a
+      ><a name="2899" href="BasicT.Syntax.GentzenNormalForm.html#2899" class="Bound"
+      >t</a
+      ><a name="2900"
+      > </a
+      ><a name="2901" href="BasicT.Syntax.GentzenNormalForm.html#2901" class="Bound"
+      >u</a
+      ><a name="2902"
+      > </a
+      ><a name="2903" href="BasicT.Syntax.GentzenNormalForm.html#2903" class="Bound"
+      >v</a
+      ><a name="2904" class="Symbol"
+      >)</a
+      ><a name="2905"
+      >  </a
+      ><a name="2907" class="Symbol"
+      >=</a
+      ><a name="2908"
+      > </a
+      ><a name="2909" href="BasicT.Syntax.GentzenNormalForm.html#845" class="InductiveConstructor"
+      >if&#8319;&#7497;</a
+      ><a name="2913"
+      > </a
+      ><a name="2914" class="Symbol"
+      >(</a
+      ><a name="2915" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2922"
+      > </a
+      ><a name="2923" href="BasicT.Syntax.GentzenNormalForm.html#2891" class="Bound"
+      >&#951;</a
+      ><a name="2924"
+      > </a
+      ><a name="2925" href="BasicT.Syntax.GentzenNormalForm.html#2899" class="Bound"
+      >t</a
+      ><a name="2926" class="Symbol"
+      >)</a
+      ><a name="2927"
+      > </a
+      ><a name="2928" class="Symbol"
+      >(</a
+      ><a name="2929" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2936"
+      > </a
+      ><a name="2937" href="BasicT.Syntax.GentzenNormalForm.html#2891" class="Bound"
+      >&#951;</a
+      ><a name="2938"
+      > </a
+      ><a name="2939" href="BasicT.Syntax.GentzenNormalForm.html#2901" class="Bound"
+      >u</a
+      ><a name="2940" class="Symbol"
+      >)</a
+      ><a name="2941"
+      > </a
+      ><a name="2942" class="Symbol"
+      >(</a
+      ><a name="2943" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2950"
+      > </a
+      ><a name="2951" href="BasicT.Syntax.GentzenNormalForm.html#2891" class="Bound"
+      >&#951;</a
+      ><a name="2952"
+      > </a
+      ><a name="2953" href="BasicT.Syntax.GentzenNormalForm.html#2903" class="Bound"
+      >v</a
+      ><a name="2954" class="Symbol"
+      >)</a
+      ><a name="2955"
+      >
+  </a
+      ><a name="2958" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2965"
+      > </a
+      ><a name="2966" href="BasicT.Syntax.GentzenNormalForm.html#2966" class="Bound"
+      >&#951;</a
+      ><a name="2967"
+      > </a
+      ><a name="2968" class="Symbol"
+      >(</a
+      ><a name="2969" href="BasicT.Syntax.GentzenNormalForm.html#908" class="InductiveConstructor"
+      >it&#8319;&#7497;</a
+      ><a name="2973"
+      > </a
+      ><a name="2974" href="BasicT.Syntax.GentzenNormalForm.html#2974" class="Bound"
+      >t</a
+      ><a name="2975"
+      > </a
+      ><a name="2976" href="BasicT.Syntax.GentzenNormalForm.html#2976" class="Bound"
+      >u</a
+      ><a name="2977"
+      > </a
+      ><a name="2978" href="BasicT.Syntax.GentzenNormalForm.html#2978" class="Bound"
+      >v</a
+      ><a name="2979" class="Symbol"
+      >)</a
+      ><a name="2980"
+      >  </a
+      ><a name="2982" class="Symbol"
+      >=</a
+      ><a name="2983"
+      > </a
+      ><a name="2984" href="BasicT.Syntax.GentzenNormalForm.html#908" class="InductiveConstructor"
+      >it&#8319;&#7497;</a
+      ><a name="2988"
+      > </a
+      ><a name="2989" class="Symbol"
+      >(</a
+      ><a name="2990" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2997"
+      > </a
+      ><a name="2998" href="BasicT.Syntax.GentzenNormalForm.html#2966" class="Bound"
+      >&#951;</a
+      ><a name="2999"
+      > </a
+      ><a name="3000" href="BasicT.Syntax.GentzenNormalForm.html#2974" class="Bound"
+      >t</a
+      ><a name="3001" class="Symbol"
+      >)</a
+      ><a name="3002"
+      > </a
+      ><a name="3003" class="Symbol"
+      >(</a
+      ><a name="3004" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="3011"
+      > </a
+      ><a name="3012" href="BasicT.Syntax.GentzenNormalForm.html#2966" class="Bound"
+      >&#951;</a
+      ><a name="3013"
+      > </a
+      ><a name="3014" href="BasicT.Syntax.GentzenNormalForm.html#2976" class="Bound"
+      >u</a
+      ><a name="3015" class="Symbol"
+      >)</a
+      ><a name="3016"
+      > </a
+      ><a name="3017" class="Symbol"
+      >(</a
+      ><a name="3018" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="3025"
+      > </a
+      ><a name="3026" href="BasicT.Syntax.GentzenNormalForm.html#2966" class="Bound"
+      >&#951;</a
+      ><a name="3027"
+      > </a
+      ><a name="3028" href="BasicT.Syntax.GentzenNormalForm.html#2978" class="Bound"
+      >v</a
+      ><a name="3029" class="Symbol"
+      >)</a
+      ><a name="3030"
+      >
+  </a
+      ><a name="3033" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="3040"
+      > </a
+      ><a name="3041" href="BasicT.Syntax.GentzenNormalForm.html#3041" class="Bound"
+      >&#951;</a
+      ><a name="3042"
+      > </a
+      ><a name="3043" class="Symbol"
+      >(</a
+      ><a name="3044" href="BasicT.Syntax.GentzenNormalForm.html#974" class="InductiveConstructor"
+      >rec&#8319;&#7497;</a
+      ><a name="3049"
+      > </a
+      ><a name="3050" href="BasicT.Syntax.GentzenNormalForm.html#3050" class="Bound"
+      >t</a
+      ><a name="3051"
+      > </a
+      ><a name="3052" href="BasicT.Syntax.GentzenNormalForm.html#3052" class="Bound"
+      >u</a
+      ><a name="3053"
+      > </a
+      ><a name="3054" href="BasicT.Syntax.GentzenNormalForm.html#3054" class="Bound"
+      >v</a
+      ><a name="3055" class="Symbol"
+      >)</a
+      ><a name="3056"
+      > </a
+      ><a name="3057" class="Symbol"
+      >=</a
+      ><a name="3058"
+      > </a
+      ><a name="3059" href="BasicT.Syntax.GentzenNormalForm.html#974" class="InductiveConstructor"
+      >rec&#8319;&#7497;</a
+      ><a name="3064"
+      > </a
+      ><a name="3065" class="Symbol"
+      >(</a
+      ><a name="3066" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="3073"
+      > </a
+      ><a name="3074" href="BasicT.Syntax.GentzenNormalForm.html#3041" class="Bound"
+      >&#951;</a
+      ><a name="3075"
+      > </a
+      ><a name="3076" href="BasicT.Syntax.GentzenNormalForm.html#3050" class="Bound"
+      >t</a
+      ><a name="3077" class="Symbol"
+      >)</a
+      ><a name="3078"
+      > </a
+      ><a name="3079" class="Symbol"
+      >(</a
+      ><a name="3080" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="3087"
+      > </a
+      ><a name="3088" href="BasicT.Syntax.GentzenNormalForm.html#3041" class="Bound"
+      >&#951;</a
+      ><a name="3089"
+      > </a
+      ><a name="3090" href="BasicT.Syntax.GentzenNormalForm.html#3052" class="Bound"
+      >u</a
+      ><a name="3091" class="Symbol"
+      >)</a
+      ><a name="3092"
+      > </a
+      ><a name="3093" class="Symbol"
+      >(</a
+      ><a name="3094" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="3101"
+      > </a
+      ><a name="3102" href="BasicT.Syntax.GentzenNormalForm.html#3041" class="Bound"
+      >&#951;</a
+      ><a name="3103"
+      > </a
+      ><a name="3104" href="BasicT.Syntax.GentzenNormalForm.html#3054" class="Bound"
+      >v</a
+      ><a name="3105" class="Symbol"
+      >)</a
+      ><a name="3106"
+      >
+
+</a
+      ><a name="3108" href="BasicT.Syntax.GentzenNormalForm.html#3108" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="3116"
+      > </a
+      ><a name="3117" class="Symbol"
+      >:</a
+      ><a name="3118"
+      > </a
+      ><a name="3119" class="Symbol"
+      >&#8704;</a
+      ><a name="3120"
+      > </a
+      ><a name="3121" class="Symbol"
+      >{</a
+      ><a name="3122" href="BasicT.Syntax.GentzenNormalForm.html#3122" class="Bound"
+      >&#926;</a
+      ><a name="3123"
+      > </a
+      ><a name="3124" href="BasicT.Syntax.GentzenNormalForm.html#3124" class="Bound"
+      >&#915;</a
+      ><a name="3125"
+      > </a
+      ><a name="3126" href="BasicT.Syntax.GentzenNormalForm.html#3126" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3128" class="Symbol"
+      >}</a
+      ><a name="3129"
+      > </a
+      ><a name="3130" class="Symbol"
+      >&#8594;</a
+      ><a name="3131"
+      > </a
+      ><a name="3132" href="BasicT.Syntax.GentzenNormalForm.html#3124" class="Bound"
+      >&#915;</a
+      ><a name="3133"
+      > </a
+      ><a name="3134" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="3135"
+      > </a
+      ><a name="3136" href="BasicT.Syntax.GentzenNormalForm.html#3126" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3138"
+      > </a
+      ><a name="3139" class="Symbol"
+      >&#8594;</a
+      ><a name="3140"
+      > </a
+      ><a name="3141" href="BasicT.Syntax.GentzenNormalForm.html#3124" class="Bound"
+      >&#915;</a
+      ><a name="3142"
+      > </a
+      ><a name="3143" href="BasicT.Syntax.GentzenNormalForm.html#1058" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="3147"
+      > </a
+      ><a name="3148" href="BasicT.Syntax.GentzenNormalForm.html#3122" class="Bound"
+      >&#926;</a
+      ><a name="3149"
+      > </a
+      ><a name="3150" class="Symbol"
+      >&#8594;</a
+      ><a name="3151"
+      > </a
+      ><a name="3152" href="BasicT.Syntax.GentzenNormalForm.html#3126" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3154"
+      > </a
+      ><a name="3155" href="BasicT.Syntax.GentzenNormalForm.html#1058" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="3159"
+      > </a
+      ><a name="3160" href="BasicT.Syntax.GentzenNormalForm.html#3122" class="Bound"
+      >&#926;</a
+      ><a name="3161"
+      >
+</a
+      ><a name="3162" href="BasicT.Syntax.GentzenNormalForm.html#3108" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="3170"
+      > </a
+      ><a name="3171" class="Symbol"
+      >{</a
+      ><a name="3172" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="3173" class="Symbol"
+      >}</a
+      ><a name="3174"
+      >     </a
+      ><a name="3179" href="BasicT.Syntax.GentzenNormalForm.html#3179" class="Bound"
+      >&#951;</a
+      ><a name="3180"
+      > </a
+      ><a name="3181" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3182"
+      >        </a
+      ><a name="3190" class="Symbol"
+      >=</a
+      ><a name="3191"
+      > </a
+      ><a name="3192" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3193"
+      >
+</a
+      ><a name="3194" href="BasicT.Syntax.GentzenNormalForm.html#3108" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="3202"
+      > </a
+      ><a name="3203" class="Symbol"
+      >{</a
+      ><a name="3204" href="BasicT.Syntax.GentzenNormalForm.html#3204" class="Bound"
+      >&#926;</a
+      ><a name="3205"
+      > </a
+      ><a name="3206" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3207"
+      > </a
+      ><a name="3208" href="BasicT.Syntax.GentzenNormalForm.html#3208" class="Bound"
+      >A</a
+      ><a name="3209" class="Symbol"
+      >}</a
+      ><a name="3210"
+      > </a
+      ><a name="3211" href="BasicT.Syntax.GentzenNormalForm.html#3211" class="Bound"
+      >&#951;</a
+      ><a name="3212"
+      > </a
+      ><a name="3213" class="Symbol"
+      >(</a
+      ><a name="3214" href="BasicT.Syntax.GentzenNormalForm.html#3214" class="Bound"
+      >ts</a
+      ><a name="3216"
+      > </a
+      ><a name="3217" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3218"
+      > </a
+      ><a name="3219" href="BasicT.Syntax.GentzenNormalForm.html#3219" class="Bound"
+      >t</a
+      ><a name="3220" class="Symbol"
+      >)</a
+      ><a name="3221"
+      > </a
+      ><a name="3222" class="Symbol"
+      >=</a
+      ><a name="3223"
+      > </a
+      ><a name="3224" href="BasicT.Syntax.GentzenNormalForm.html#3108" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="3232"
+      > </a
+      ><a name="3233" href="BasicT.Syntax.GentzenNormalForm.html#3211" class="Bound"
+      >&#951;</a
+      ><a name="3234"
+      > </a
+      ><a name="3235" href="BasicT.Syntax.GentzenNormalForm.html#3214" class="Bound"
+      >ts</a
+      ><a name="3237"
+      > </a
+      ><a name="3238" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3239"
+      > </a
+      ><a name="3240" href="BasicT.Syntax.GentzenNormalForm.html#2227" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="3247"
+      > </a
+      ><a name="3248" href="BasicT.Syntax.GentzenNormalForm.html#3211" class="Bound"
+      >&#951;</a
+      ><a name="3249"
+      > </a
+      ><a name="3250" href="BasicT.Syntax.GentzenNormalForm.html#3219" class="Bound"
+      >t</a
+      ><a name="3251"
+      >
+
+</a
+      ><a name="3253" href="BasicT.Syntax.GentzenNormalForm.html#3253" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3261"
+      > </a
+      ><a name="3262" class="Symbol"
+      >:</a
+      ><a name="3263"
+      > </a
+      ><a name="3264" class="Symbol"
+      >&#8704;</a
+      ><a name="3265"
+      > </a
+      ><a name="3266" class="Symbol"
+      >{</a
+      ><a name="3267" href="BasicT.Syntax.GentzenNormalForm.html#3267" class="Bound"
+      >&#926;</a
+      ><a name="3268"
+      > </a
+      ><a name="3269" href="BasicT.Syntax.GentzenNormalForm.html#3269" class="Bound"
+      >&#915;</a
+      ><a name="3270"
+      > </a
+      ><a name="3271" href="BasicT.Syntax.GentzenNormalForm.html#3271" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3273" class="Symbol"
+      >}</a
+      ><a name="3274"
+      > </a
+      ><a name="3275" class="Symbol"
+      >&#8594;</a
+      ><a name="3276"
+      > </a
+      ><a name="3277" href="BasicT.Syntax.GentzenNormalForm.html#3269" class="Bound"
+      >&#915;</a
+      ><a name="3278"
+      > </a
+      ><a name="3279" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="3280"
+      > </a
+      ><a name="3281" href="BasicT.Syntax.GentzenNormalForm.html#3271" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3283"
+      > </a
+      ><a name="3284" class="Symbol"
+      >&#8594;</a
+      ><a name="3285"
+      > </a
+      ><a name="3286" href="BasicT.Syntax.GentzenNormalForm.html#3269" class="Bound"
+      >&#915;</a
+      ><a name="3287"
+      > </a
+      ><a name="3288" href="BasicT.Syntax.GentzenNormalForm.html#1154" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3292"
+      > </a
+      ><a name="3293" href="BasicT.Syntax.GentzenNormalForm.html#3267" class="Bound"
+      >&#926;</a
+      ><a name="3294"
+      > </a
+      ><a name="3295" class="Symbol"
+      >&#8594;</a
+      ><a name="3296"
+      > </a
+      ><a name="3297" href="BasicT.Syntax.GentzenNormalForm.html#3271" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3299"
+      > </a
+      ><a name="3300" href="BasicT.Syntax.GentzenNormalForm.html#1154" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3304"
+      > </a
+      ><a name="3305" href="BasicT.Syntax.GentzenNormalForm.html#3267" class="Bound"
+      >&#926;</a
+      ><a name="3306"
+      >
+</a
+      ><a name="3307" href="BasicT.Syntax.GentzenNormalForm.html#3253" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3315"
+      > </a
+      ><a name="3316" class="Symbol"
+      >{</a
+      ><a name="3317" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="3318" class="Symbol"
+      >}</a
+      ><a name="3319"
+      >     </a
+      ><a name="3324" href="BasicT.Syntax.GentzenNormalForm.html#3324" class="Bound"
+      >&#951;</a
+      ><a name="3325"
+      > </a
+      ><a name="3326" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3327"
+      >        </a
+      ><a name="3335" class="Symbol"
+      >=</a
+      ><a name="3336"
+      > </a
+      ><a name="3337" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3338"
+      >
+</a
+      ><a name="3339" href="BasicT.Syntax.GentzenNormalForm.html#3253" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3347"
+      > </a
+      ><a name="3348" class="Symbol"
+      >{</a
+      ><a name="3349" href="BasicT.Syntax.GentzenNormalForm.html#3349" class="Bound"
+      >&#926;</a
+      ><a name="3350"
+      > </a
+      ><a name="3351" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3352"
+      > </a
+      ><a name="3353" href="BasicT.Syntax.GentzenNormalForm.html#3353" class="Bound"
+      >A</a
+      ><a name="3354" class="Symbol"
+      >}</a
+      ><a name="3355"
+      > </a
+      ><a name="3356" href="BasicT.Syntax.GentzenNormalForm.html#3356" class="Bound"
+      >&#951;</a
+      ><a name="3357"
+      > </a
+      ><a name="3358" class="Symbol"
+      >(</a
+      ><a name="3359" href="BasicT.Syntax.GentzenNormalForm.html#3359" class="Bound"
+      >ts</a
+      ><a name="3361"
+      > </a
+      ><a name="3362" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3363"
+      > </a
+      ><a name="3364" href="BasicT.Syntax.GentzenNormalForm.html#3364" class="Bound"
+      >t</a
+      ><a name="3365" class="Symbol"
+      >)</a
+      ><a name="3366"
+      > </a
+      ><a name="3367" class="Symbol"
+      >=</a
+      ><a name="3368"
+      > </a
+      ><a name="3369" href="BasicT.Syntax.GentzenNormalForm.html#3253" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3377"
+      > </a
+      ><a name="3378" href="BasicT.Syntax.GentzenNormalForm.html#3356" class="Bound"
+      >&#951;</a
+      ><a name="3379"
+      > </a
+      ><a name="3380" href="BasicT.Syntax.GentzenNormalForm.html#3359" class="Bound"
+      >ts</a
+      ><a name="3382"
+      > </a
+      ><a name="3383" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3384"
+      > </a
+      ><a name="3385" href="BasicT.Syntax.GentzenNormalForm.html#2626" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="3392"
+      > </a
+      ><a name="3393" href="BasicT.Syntax.GentzenNormalForm.html#3356" class="Bound"
+      >&#951;</a
+      ><a name="3394"
+      > </a
+      ><a name="3395" href="BasicT.Syntax.GentzenNormalForm.html#3364" class="Bound"
+      >t</a
+      ><a name="3396"
+      >
+
+
+</a
+      ><a name="3399" class="Comment"
+      >-- Reflexivity.</a
+      ><a name="3414"
+      >
+
+</a
+      ><a name="3416" href="BasicT.Syntax.GentzenNormalForm.html#3416" class="Function"
+      >refl&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3424"
+      > </a
+      ><a name="3425" class="Symbol"
+      >:</a
+      ><a name="3426"
+      > </a
+      ><a name="3427" class="Symbol"
+      >&#8704;</a
+      ><a name="3428"
+      > </a
+      ><a name="3429" class="Symbol"
+      >{</a
+      ><a name="3430" href="BasicT.Syntax.GentzenNormalForm.html#3430" class="Bound"
+      >&#915;</a
+      ><a name="3431" class="Symbol"
+      >}</a
+      ><a name="3432"
+      > </a
+      ><a name="3433" class="Symbol"
+      >&#8594;</a
+      ><a name="3434"
+      > </a
+      ><a name="3435" href="BasicT.Syntax.GentzenNormalForm.html#3430" class="Bound"
+      >&#915;</a
+      ><a name="3436"
+      > </a
+      ><a name="3437" href="BasicT.Syntax.GentzenNormalForm.html#1154" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3441"
+      > </a
+      ><a name="3442" href="BasicT.Syntax.GentzenNormalForm.html#3430" class="Bound"
+      >&#915;</a
+      ><a name="3443"
+      >
+</a
+      ><a name="3444" href="BasicT.Syntax.GentzenNormalForm.html#3416" class="Function"
+      >refl&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3452"
+      > </a
+      ><a name="3453" class="Symbol"
+      >{</a
+      ><a name="3454" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="3455" class="Symbol"
+      >}</a
+      ><a name="3456"
+      >     </a
+      ><a name="3461" class="Symbol"
+      >=</a
+      ><a name="3462"
+      > </a
+      ><a name="3463" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3464"
+      >
+</a
+      ><a name="3465" href="BasicT.Syntax.GentzenNormalForm.html#3416" class="Function"
+      >refl&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3473"
+      > </a
+      ><a name="3474" class="Symbol"
+      >{</a
+      ><a name="3475" href="BasicT.Syntax.GentzenNormalForm.html#3475" class="Bound"
+      >&#915;</a
+      ><a name="3476"
+      > </a
+      ><a name="3477" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3478"
+      > </a
+      ><a name="3479" href="BasicT.Syntax.GentzenNormalForm.html#3479" class="Bound"
+      >A</a
+      ><a name="3480" class="Symbol"
+      >}</a
+      ><a name="3481"
+      > </a
+      ><a name="3482" class="Symbol"
+      >=</a
+      ><a name="3483"
+      > </a
+      ><a name="3484" href="BasicT.Syntax.GentzenNormalForm.html#3253" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3492"
+      > </a
+      ><a name="3493" href="Common.Context.html#2465" class="Function"
+      >weak&#8838;</a
+      ><a name="3498"
+      > </a
+      ><a name="3499" href="BasicT.Syntax.GentzenNormalForm.html#3416" class="Function"
+      >refl&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3507"
+      > </a
+      ><a name="3508" href="Common.html#1443" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3509"
+      > </a
+      ><a name="3510" href="BasicT.Syntax.GentzenNormalForm.html#665" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="3515"
+      > </a
+      ><a name="3516" href="Common.Context.html#1160" class="InductiveConstructor"
+      >top</a
+      ><a name="3519"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
