@@ -1,0 +1,3438 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >IPC.Syntax.GentzenSpinalNormalForm</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Intuitionistic propositional calculus.</a
+      ><a name="42"
+      >
+</a
+      ><a name="43" class="Comment"
+      >-- Gentzen-style formalisation of syntax.</a
+      ><a name="84"
+      >
+</a
+      ><a name="85" class="Comment"
+      >-- Normal forms, neutrals, and spines.</a
+      ><a name="123"
+      >
+
+</a
+      ><a name="125" class="Keyword"
+      >module</a
+      ><a name="131"
+      > </a
+      ><a name="132" href="IPC.Syntax.GentzenSpinalNormalForm.html#1" class="Module"
+      >IPC.Syntax.GentzenSpinalNormalForm</a
+      ><a name="166"
+      > </a
+      ><a name="167" class="Keyword"
+      >where</a
+      ><a name="172"
+      >
+
+</a
+      ><a name="174" class="Keyword"
+      >open</a
+      ><a name="178"
+      > </a
+      ><a name="179" class="Keyword"
+      >import</a
+      ><a name="185"
+      > </a
+      ><a name="186" href="IPC.Syntax.Gentzen.html#1" class="Module"
+      >IPC.Syntax.Gentzen</a
+      ><a name="204"
+      > </a
+      ><a name="205" class="Keyword"
+      >public</a
+      ><a name="211"
+      >
+
+
+</a
+      ><a name="214" class="Comment"
+      >-- Commuting propositions for neutrals.</a
+      ><a name="253"
+      >
+
+</a
+      ><a name="255" class="Keyword"
+      >data</a
+      ><a name="259"
+      > </a
+      ><a name="260" href="IPC.Syntax.GentzenSpinalNormalForm.html#260" class="Datatype"
+      >Ty&#8319;&#7497;</a
+      ><a name="264"
+      > </a
+      ><a name="265" class="Symbol"
+      >:</a
+      ><a name="266"
+      > </a
+      ><a name="267" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="269"
+      > </a
+      ><a name="270" class="Symbol"
+      >&#8594;</a
+      ><a name="271"
+      > </a
+      ><a name="272" class="PrimitiveType"
+      >Set</a
+      ><a name="275"
+      > </a
+      ><a name="276" class="Keyword"
+      >where</a
+      ><a name="281"
+      >
+  </a
+      ><a name="284" href="IPC.Syntax.GentzenSpinalNormalForm.html#284" class="InductiveConstructor Operator"
+      >&#945;_</a
+      ><a name="286"
+      >  </a
+      ><a name="288" class="Symbol"
+      >:</a
+      ><a name="289"
+      > </a
+      ><a name="290" class="Symbol"
+      >(</a
+      ><a name="291" href="IPC.Syntax.GentzenSpinalNormalForm.html#291" class="Bound"
+      >P</a
+      ><a name="292"
+      > </a
+      ><a name="293" class="Symbol"
+      >:</a
+      ><a name="294"
+      > </a
+      ><a name="295" href="Common.html#1295" class="Function"
+      >Atom</a
+      ><a name="299" class="Symbol"
+      >)</a
+      ><a name="300"
+      > </a
+      ><a name="301" class="Symbol"
+      >&#8594;</a
+      ><a name="302"
+      > </a
+      ><a name="303" href="IPC.Syntax.GentzenSpinalNormalForm.html#260" class="Datatype"
+      >Ty&#8319;&#7497;</a
+      ><a name="307"
+      > </a
+      ><a name="308" class="Symbol"
+      >(</a
+      ><a name="309" href="IPC.Syntax.Common.html#219" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="310"
+      > </a
+      ><a name="311" href="IPC.Syntax.GentzenSpinalNormalForm.html#291" class="Bound"
+      >P</a
+      ><a name="312" class="Symbol"
+      >)</a
+      ><a name="313"
+      >
+  </a
+      ><a name="316" href="IPC.Syntax.GentzenSpinalNormalForm.html#316" class="InductiveConstructor"
+      >&#8869;</a
+      ><a name="317"
+      >  </a
+      ><a name="319" class="Symbol"
+      >:</a
+      ><a name="320"
+      > </a
+      ><a name="321" href="IPC.Syntax.GentzenSpinalNormalForm.html#260" class="Datatype"
+      >Ty&#8319;&#7497;</a
+      ><a name="325"
+      > </a
+      ><a name="326" href="IPC.Syntax.Common.html#289" class="InductiveConstructor"
+      >&#8869;</a
+      ><a name="327"
+      >
+  </a
+      ><a name="330" href="IPC.Syntax.GentzenSpinalNormalForm.html#330" class="InductiveConstructor Operator"
+      >_&#8744;_</a
+      ><a name="333"
+      > </a
+      ><a name="334" class="Symbol"
+      >:</a
+      ><a name="335"
+      > </a
+      ><a name="336" class="Symbol"
+      >(</a
+      ><a name="337" href="IPC.Syntax.GentzenSpinalNormalForm.html#337" class="Bound"
+      >A</a
+      ><a name="338"
+      > </a
+      ><a name="339" href="IPC.Syntax.GentzenSpinalNormalForm.html#339" class="Bound"
+      >B</a
+      ><a name="340"
+      > </a
+      ><a name="341" class="Symbol"
+      >:</a
+      ><a name="342"
+      > </a
+      ><a name="343" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="345" class="Symbol"
+      >)</a
+      ><a name="346"
+      > </a
+      ><a name="347" class="Symbol"
+      >&#8594;</a
+      ><a name="348"
+      > </a
+      ><a name="349" href="IPC.Syntax.GentzenSpinalNormalForm.html#260" class="Datatype"
+      >Ty&#8319;&#7497;</a
+      ><a name="353"
+      > </a
+      ><a name="354" class="Symbol"
+      >(</a
+      ><a name="355" href="IPC.Syntax.GentzenSpinalNormalForm.html#337" class="Bound"
+      >A</a
+      ><a name="356"
+      > </a
+      ><a name="357" href="IPC.Syntax.Common.html#299" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="358"
+      > </a
+      ><a name="359" href="IPC.Syntax.GentzenSpinalNormalForm.html#339" class="Bound"
+      >B</a
+      ><a name="360" class="Symbol"
+      >)</a
+      ><a name="361"
+      >
+
+
+</a
+      ><a name="364" class="Comment"
+      >-- Derivations.</a
+      ><a name="379"
+      >
+
+</a
+      ><a name="381" class="Keyword"
+      >mutual</a
+      ><a name="387"
+      >
+  </a
+      ><a name="390" class="Comment"
+      >-- Normal forms, or introductions.</a
+      ><a name="424"
+      >
+  </a
+      ><a name="427" class="Keyword"
+      >infix</a
+      ><a name="432"
+      > </a
+      ><a name="433" class="Number"
+      >3</a
+      ><a name="434"
+      > _&#8866;&#8319;&#7584;_
+  </a
+      ><a name="443" class="Keyword"
+      >data</a
+      ><a name="447"
+      > </a
+      ><a name="448" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >_&#8866;&#8319;&#7584;_</a
+      ><a name="453"
+      > </a
+      ><a name="454" class="Symbol"
+      >(</a
+      ><a name="455" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="456"
+      > </a
+      ><a name="457" class="Symbol"
+      >:</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="461"
+      > </a
+      ><a name="462" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="464" class="Symbol"
+      >)</a
+      ><a name="465"
+      > </a
+      ><a name="466" class="Symbol"
+      >:</a
+      ><a name="467"
+      > </a
+      ><a name="468" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="470"
+      > </a
+      ><a name="471" class="Symbol"
+      >&#8594;</a
+      ><a name="472"
+      > </a
+      ><a name="473" class="PrimitiveType"
+      >Set</a
+      ><a name="476"
+      > </a
+      ><a name="477" class="Keyword"
+      >where</a
+      ><a name="482"
+      >
+    </a
+      ><a name="487" href="IPC.Syntax.GentzenSpinalNormalForm.html#487" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="491"
+      >   </a
+      ><a name="494" class="Symbol"
+      >:</a
+      ><a name="495"
+      > </a
+      ><a name="496" class="Symbol"
+      >&#8704;</a
+      ><a name="497"
+      > </a
+      ><a name="498" class="Symbol"
+      >{</a
+      ><a name="499" href="IPC.Syntax.GentzenSpinalNormalForm.html#499" class="Bound"
+      >A</a
+      ><a name="500" class="Symbol"
+      >}</a
+      ><a name="501"
+      >   </a
+      ><a name="504" class="Symbol"
+      >&#8594;</a
+      ><a name="505"
+      > </a
+      ><a name="506" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="507"
+      > </a
+      ><a name="508" href="IPC.Syntax.GentzenSpinalNormalForm.html#812" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="511"
+      > </a
+      ><a name="512" href="IPC.Syntax.GentzenSpinalNormalForm.html#499" class="Bound"
+      >A</a
+      ><a name="513"
+      > </a
+      ><a name="514" class="Symbol"
+      >&#8594;</a
+      ><a name="515"
+      > </a
+      ><a name="516" class="Symbol"
+      >{{</a
+      ><a name="518" href="IPC.Syntax.GentzenSpinalNormalForm.html#518" class="Bound"
+      >_</a
+      ><a name="519"
+      > </a
+      ><a name="520" class="Symbol"
+      >:</a
+      ><a name="521"
+      > </a
+      ><a name="522" href="IPC.Syntax.GentzenSpinalNormalForm.html#260" class="Datatype"
+      >Ty&#8319;&#7497;</a
+      ><a name="526"
+      > </a
+      ><a name="527" href="IPC.Syntax.GentzenSpinalNormalForm.html#499" class="Bound"
+      >A</a
+      ><a name="528" class="Symbol"
+      >}}</a
+      ><a name="530"
+      > </a
+      ><a name="531" class="Symbol"
+      >&#8594;</a
+      ><a name="532"
+      > </a
+      ><a name="533" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="534"
+      > </a
+      ><a name="535" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="538"
+      > </a
+      ><a name="539" href="IPC.Syntax.GentzenSpinalNormalForm.html#499" class="Bound"
+      >A</a
+      ><a name="540"
+      >
+    </a
+      ><a name="545" href="IPC.Syntax.GentzenSpinalNormalForm.html#545" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="550"
+      >  </a
+      ><a name="552" class="Symbol"
+      >:</a
+      ><a name="553"
+      > </a
+      ><a name="554" class="Symbol"
+      >&#8704;</a
+      ><a name="555"
+      > </a
+      ><a name="556" class="Symbol"
+      >{</a
+      ><a name="557" href="IPC.Syntax.GentzenSpinalNormalForm.html#557" class="Bound"
+      >A</a
+      ><a name="558"
+      > </a
+      ><a name="559" href="IPC.Syntax.GentzenSpinalNormalForm.html#559" class="Bound"
+      >B</a
+      ><a name="560" class="Symbol"
+      >}</a
+      ><a name="561"
+      > </a
+      ><a name="562" class="Symbol"
+      >&#8594;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="565"
+      > </a
+      ><a name="566" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="IPC.Syntax.GentzenSpinalNormalForm.html#557" class="Bound"
+      >A</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="573"
+      > </a
+      ><a name="574" href="IPC.Syntax.GentzenSpinalNormalForm.html#559" class="Bound"
+      >B</a
+      ><a name="575"
+      > </a
+      ><a name="576" class="Symbol"
+      >&#8594;</a
+      ><a name="577"
+      > </a
+      ><a name="578" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="579"
+      > </a
+      ><a name="580" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="IPC.Syntax.GentzenSpinalNormalForm.html#557" class="Bound"
+      >A</a
+      ><a name="585"
+      > </a
+      ><a name="586" href="IPC.Syntax.Common.html#237" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="587"
+      > </a
+      ><a name="588" href="IPC.Syntax.GentzenSpinalNormalForm.html#559" class="Bound"
+      >B</a
+      ><a name="589"
+      >
+    </a
+      ><a name="594" href="IPC.Syntax.GentzenSpinalNormalForm.html#594" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="600"
+      > </a
+      ><a name="601" class="Symbol"
+      >:</a
+      ><a name="602"
+      > </a
+      ><a name="603" class="Symbol"
+      >&#8704;</a
+      ><a name="604"
+      > </a
+      ><a name="605" class="Symbol"
+      >{</a
+      ><a name="606" href="IPC.Syntax.GentzenSpinalNormalForm.html#606" class="Bound"
+      >A</a
+      ><a name="607"
+      > </a
+      ><a name="608" href="IPC.Syntax.GentzenSpinalNormalForm.html#608" class="Bound"
+      >B</a
+      ><a name="609" class="Symbol"
+      >}</a
+      ><a name="610"
+      > </a
+      ><a name="611" class="Symbol"
+      >&#8594;</a
+      ><a name="612"
+      > </a
+      ><a name="613" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="614"
+      > </a
+      ><a name="615" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="618"
+      > </a
+      ><a name="619" href="IPC.Syntax.GentzenSpinalNormalForm.html#606" class="Bound"
+      >A</a
+      ><a name="620"
+      > </a
+      ><a name="621" class="Symbol"
+      >&#8594;</a
+      ><a name="622"
+      > </a
+      ><a name="623" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="624"
+      > </a
+      ><a name="625" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="628"
+      > </a
+      ><a name="629" href="IPC.Syntax.GentzenSpinalNormalForm.html#608" class="Bound"
+      >B</a
+      ><a name="630"
+      > </a
+      ><a name="631" class="Symbol"
+      >&#8594;</a
+      ><a name="632"
+      > </a
+      ><a name="633" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="634"
+      > </a
+      ><a name="635" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="638"
+      > </a
+      ><a name="639" href="IPC.Syntax.GentzenSpinalNormalForm.html#606" class="Bound"
+      >A</a
+      ><a name="640"
+      > </a
+      ><a name="641" href="IPC.Syntax.Common.html#258" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="642"
+      > </a
+      ><a name="643" href="IPC.Syntax.GentzenSpinalNormalForm.html#608" class="Bound"
+      >B</a
+      ><a name="644"
+      >
+    </a
+      ><a name="649" href="IPC.Syntax.GentzenSpinalNormalForm.html#649" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="655"
+      > </a
+      ><a name="656" class="Symbol"
+      >:</a
+      ><a name="657"
+      > </a
+      ><a name="658" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="659"
+      > </a
+      ><a name="660" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="663"
+      > </a
+      ><a name="664" href="IPC.Syntax.Common.html#279" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="665"
+      >
+    </a
+      ><a name="670" href="IPC.Syntax.GentzenSpinalNormalForm.html#670" class="InductiveConstructor"
+      >inl&#8319;&#7584;</a
+      ><a name="675"
+      >  </a
+      ><a name="677" class="Symbol"
+      >:</a
+      ><a name="678"
+      > </a
+      ><a name="679" class="Symbol"
+      >&#8704;</a
+      ><a name="680"
+      > </a
+      ><a name="681" class="Symbol"
+      >{</a
+      ><a name="682" href="IPC.Syntax.GentzenSpinalNormalForm.html#682" class="Bound"
+      >A</a
+      ><a name="683"
+      > </a
+      ><a name="684" href="IPC.Syntax.GentzenSpinalNormalForm.html#684" class="Bound"
+      >B</a
+      ><a name="685" class="Symbol"
+      >}</a
+      ><a name="686"
+      > </a
+      ><a name="687" class="Symbol"
+      >&#8594;</a
+      ><a name="688"
+      > </a
+      ><a name="689" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="690"
+      > </a
+      ><a name="691" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="694"
+      > </a
+      ><a name="695" href="IPC.Syntax.GentzenSpinalNormalForm.html#682" class="Bound"
+      >A</a
+      ><a name="696"
+      > </a
+      ><a name="697" class="Symbol"
+      >&#8594;</a
+      ><a name="698"
+      > </a
+      ><a name="699" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="700"
+      > </a
+      ><a name="701" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="704"
+      > </a
+      ><a name="705" href="IPC.Syntax.GentzenSpinalNormalForm.html#682" class="Bound"
+      >A</a
+      ><a name="706"
+      > </a
+      ><a name="707" href="IPC.Syntax.Common.html#299" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="708"
+      > </a
+      ><a name="709" href="IPC.Syntax.GentzenSpinalNormalForm.html#684" class="Bound"
+      >B</a
+      ><a name="710"
+      >
+    </a
+      ><a name="715" href="IPC.Syntax.GentzenSpinalNormalForm.html#715" class="InductiveConstructor"
+      >inr&#8319;&#7584;</a
+      ><a name="720"
+      >  </a
+      ><a name="722" class="Symbol"
+      >:</a
+      ><a name="723"
+      > </a
+      ><a name="724" class="Symbol"
+      >&#8704;</a
+      ><a name="725"
+      > </a
+      ><a name="726" class="Symbol"
+      >{</a
+      ><a name="727" href="IPC.Syntax.GentzenSpinalNormalForm.html#727" class="Bound"
+      >A</a
+      ><a name="728"
+      > </a
+      ><a name="729" href="IPC.Syntax.GentzenSpinalNormalForm.html#729" class="Bound"
+      >B</a
+      ><a name="730" class="Symbol"
+      >}</a
+      ><a name="731"
+      > </a
+      ><a name="732" class="Symbol"
+      >&#8594;</a
+      ><a name="733"
+      > </a
+      ><a name="734" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="735"
+      > </a
+      ><a name="736" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="739"
+      > </a
+      ><a name="740" href="IPC.Syntax.GentzenSpinalNormalForm.html#729" class="Bound"
+      >B</a
+      ><a name="741"
+      > </a
+      ><a name="742" class="Symbol"
+      >&#8594;</a
+      ><a name="743"
+      > </a
+      ><a name="744" href="IPC.Syntax.GentzenSpinalNormalForm.html#455" class="Bound"
+      >&#915;</a
+      ><a name="745"
+      > </a
+      ><a name="746" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="749"
+      > </a
+      ><a name="750" href="IPC.Syntax.GentzenSpinalNormalForm.html#727" class="Bound"
+      >A</a
+      ><a name="751"
+      > </a
+      ><a name="752" href="IPC.Syntax.Common.html#299" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="753"
+      > </a
+      ><a name="754" href="IPC.Syntax.GentzenSpinalNormalForm.html#729" class="Bound"
+      >B</a
+      ><a name="755"
+      >
+
+  </a
+      ><a name="759" class="Comment"
+      >-- Neutrals, or eliminations.</a
+      ><a name="788"
+      >
+  </a
+      ><a name="791" class="Keyword"
+      >infix</a
+      ><a name="796"
+      > </a
+      ><a name="797" class="Number"
+      >3</a
+      ><a name="798"
+      > _&#8866;&#8319;&#7497;_
+  </a
+      ><a name="807" class="Keyword"
+      >data</a
+      ><a name="811"
+      > </a
+      ><a name="812" href="IPC.Syntax.GentzenSpinalNormalForm.html#812" class="Datatype Operator"
+      >_&#8866;&#8319;&#7497;_</a
+      ><a name="817"
+      > </a
+      ><a name="818" class="Symbol"
+      >(</a
+      ><a name="819" href="IPC.Syntax.GentzenSpinalNormalForm.html#819" class="Bound"
+      >&#915;</a
+      ><a name="820"
+      > </a
+      ><a name="821" class="Symbol"
+      >:</a
+      ><a name="822"
+      > </a
+      ><a name="823" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="825"
+      > </a
+      ><a name="826" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="828" class="Symbol"
+      >)</a
+      ><a name="829"
+      > </a
+      ><a name="830" class="Symbol"
+      >:</a
+      ><a name="831"
+      > </a
+      ><a name="832" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="834"
+      > </a
+      ><a name="835" class="Symbol"
+      >&#8594;</a
+      ><a name="836"
+      > </a
+      ><a name="837" class="PrimitiveType"
+      >Set</a
+      ><a name="840"
+      > </a
+      ><a name="841" class="Keyword"
+      >where</a
+      ><a name="846"
+      >
+    </a
+      ><a name="851" href="IPC.Syntax.GentzenSpinalNormalForm.html#851" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="855"
+      > </a
+      ><a name="856" class="Symbol"
+      >:</a
+      ><a name="857"
+      > </a
+      ><a name="858" class="Symbol"
+      >&#8704;</a
+      ><a name="859"
+      > </a
+      ><a name="860" class="Symbol"
+      >{</a
+      ><a name="861" href="IPC.Syntax.GentzenSpinalNormalForm.html#861" class="Bound"
+      >A</a
+      ><a name="862"
+      > </a
+      ><a name="863" href="IPC.Syntax.GentzenSpinalNormalForm.html#863" class="Bound"
+      >B</a
+      ><a name="864"
+      > </a
+      ><a name="865" href="IPC.Syntax.GentzenSpinalNormalForm.html#865" class="Bound"
+      >C</a
+      ><a name="866" class="Symbol"
+      >}</a
+      ><a name="867"
+      > </a
+      ><a name="868" class="Symbol"
+      >&#8594;</a
+      ><a name="869"
+      > </a
+      ><a name="870" href="IPC.Syntax.GentzenSpinalNormalForm.html#861" class="Bound"
+      >A</a
+      ><a name="871"
+      > </a
+      ><a name="872" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="873"
+      > </a
+      ><a name="874" href="IPC.Syntax.GentzenSpinalNormalForm.html#819" class="Bound"
+      >&#915;</a
+      ><a name="875"
+      > </a
+      ><a name="876" class="Symbol"
+      >&#8594;</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="IPC.Syntax.GentzenSpinalNormalForm.html#819" class="Bound"
+      >&#915;</a
+      ><a name="879"
+      > </a
+      ><a name="880" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="IPC.Syntax.GentzenSpinalNormalForm.html#861" class="Bound"
+      >A</a
+      ><a name="885"
+      > </a
+      ><a name="886" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="IPC.Syntax.GentzenSpinalNormalForm.html#863" class="Bound"
+      >B</a
+      ><a name="889"
+      > </a
+      ><a name="890" class="Symbol"
+      >&#8594;</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="IPC.Syntax.GentzenSpinalNormalForm.html#819" class="Bound"
+      >&#915;</a
+      ><a name="893"
+      > </a
+      ><a name="894" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#8866;&#7511;&#7510;</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="IPC.Syntax.GentzenSpinalNormalForm.html#863" class="Bound"
+      >B</a
+      ><a name="899"
+      > </a
+      ><a name="900" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="901"
+      > </a
+      ><a name="902" href="IPC.Syntax.GentzenSpinalNormalForm.html#865" class="Bound"
+      >C</a
+      ><a name="903"
+      > </a
+      ><a name="904" class="Symbol"
+      >&#8594;</a
+      ><a name="905"
+      > </a
+      ><a name="906" href="IPC.Syntax.GentzenSpinalNormalForm.html#819" class="Bound"
+      >&#915;</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="IPC.Syntax.GentzenSpinalNormalForm.html#812" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="IPC.Syntax.GentzenSpinalNormalForm.html#865" class="Bound"
+      >C</a
+      ><a name="913"
+      >
+
+  </a
+      ><a name="917" class="Comment"
+      >-- Spines.</a
+      ><a name="927"
+      >
+  </a
+      ><a name="930" class="Keyword"
+      >infix</a
+      ><a name="935"
+      > </a
+      ><a name="936" class="Number"
+      >3</a
+      ><a name="937"
+      > _&#8866;&#738;&#7510;_&#10649;_
+  </a
+      ><a name="948" class="Keyword"
+      >data</a
+      ><a name="952"
+      > </a
+      ><a name="953" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >_&#8866;&#738;&#7510;_&#10649;_</a
+      ><a name="960"
+      > </a
+      ><a name="961" class="Symbol"
+      >(</a
+      ><a name="962" href="IPC.Syntax.GentzenSpinalNormalForm.html#962" class="Bound"
+      >&#915;</a
+      ><a name="963"
+      > </a
+      ><a name="964" class="Symbol"
+      >:</a
+      ><a name="965"
+      > </a
+      ><a name="966" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="968"
+      > </a
+      ><a name="969" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="971" class="Symbol"
+      >)</a
+      ><a name="972"
+      > </a
+      ><a name="973" class="Symbol"
+      >:</a
+      ><a name="974"
+      > </a
+      ><a name="975" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="977"
+      > </a
+      ><a name="978" class="Symbol"
+      >&#8594;</a
+      ><a name="979"
+      > </a
+      ><a name="980" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="982"
+      > </a
+      ><a name="983" class="Symbol"
+      >&#8594;</a
+      ><a name="984"
+      > </a
+      ><a name="985" class="PrimitiveType"
+      >Set</a
+      ><a name="988"
+      > </a
+      ><a name="989" class="Keyword"
+      >where</a
+      ><a name="994"
+      >
+    </a
+      ><a name="999" href="IPC.Syntax.GentzenSpinalNormalForm.html#999" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="1004"
+      > </a
+      ><a name="1005" class="Symbol"
+      >:</a
+      ><a name="1006"
+      > </a
+      ><a name="1007" class="Symbol"
+      >&#8704;</a
+      ><a name="1008"
+      > </a
+      ><a name="1009" class="Symbol"
+      >{</a
+      ><a name="1010" href="IPC.Syntax.GentzenSpinalNormalForm.html#1010" class="Bound"
+      >C</a
+      ><a name="1011" class="Symbol"
+      >}</a
+      ><a name="1012"
+      >     </a
+      ><a name="1017" class="Symbol"
+      >&#8594;</a
+      ><a name="1018"
+      > </a
+      ><a name="1019" href="IPC.Syntax.GentzenSpinalNormalForm.html#962" class="Bound"
+      >&#915;</a
+      ><a name="1020"
+      > </a
+      ><a name="1021" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" href="IPC.Syntax.GentzenSpinalNormalForm.html#1010" class="Bound"
+      >C</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1028"
+      > </a
+      ><a name="1029" href="IPC.Syntax.GentzenSpinalNormalForm.html#1010" class="Bound"
+      >C</a
+      ><a name="1030"
+      >
+    </a
+      ><a name="1035" href="IPC.Syntax.GentzenSpinalNormalForm.html#1035" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="1040"
+      > </a
+      ><a name="1041" class="Symbol"
+      >:</a
+      ><a name="1042"
+      > </a
+      ><a name="1043" class="Symbol"
+      >&#8704;</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" class="Symbol"
+      >{</a
+      ><a name="1046" href="IPC.Syntax.GentzenSpinalNormalForm.html#1046" class="Bound"
+      >A</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" href="IPC.Syntax.GentzenSpinalNormalForm.html#1048" class="Bound"
+      >B</a
+      ><a name="1049"
+      > </a
+      ><a name="1050" href="IPC.Syntax.GentzenSpinalNormalForm.html#1050" class="Bound"
+      >C</a
+      ><a name="1051" class="Symbol"
+      >}</a
+      ><a name="1052"
+      > </a
+      ><a name="1053" class="Symbol"
+      >&#8594;</a
+      ><a name="1054"
+      > </a
+      ><a name="1055" href="IPC.Syntax.GentzenSpinalNormalForm.html#962" class="Bound"
+      >&#915;</a
+      ><a name="1056"
+      > </a
+      ><a name="1057" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1060"
+      > </a
+      ><a name="1061" href="IPC.Syntax.GentzenSpinalNormalForm.html#1048" class="Bound"
+      >B</a
+      ><a name="1062"
+      > </a
+      ><a name="1063" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" href="IPC.Syntax.GentzenSpinalNormalForm.html#1050" class="Bound"
+      >C</a
+      ><a name="1066"
+      > </a
+      ><a name="1067" class="Symbol"
+      >&#8594;</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" href="IPC.Syntax.GentzenSpinalNormalForm.html#962" class="Bound"
+      >&#915;</a
+      ><a name="1070"
+      > </a
+      ><a name="1071" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1074"
+      > </a
+      ><a name="1075" href="IPC.Syntax.GentzenSpinalNormalForm.html#1046" class="Bound"
+      >A</a
+      ><a name="1076"
+      > </a
+      ><a name="1077" class="Symbol"
+      >&#8594;</a
+      ><a name="1078"
+      > </a
+      ><a name="1079" href="IPC.Syntax.GentzenSpinalNormalForm.html#962" class="Bound"
+      >&#915;</a
+      ><a name="1080"
+      > </a
+      ><a name="1081" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1084"
+      > </a
+      ><a name="1085" href="IPC.Syntax.GentzenSpinalNormalForm.html#1046" class="Bound"
+      >A</a
+      ><a name="1086"
+      > </a
+      ><a name="1087" href="IPC.Syntax.Common.html#237" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1088"
+      > </a
+      ><a name="1089" href="IPC.Syntax.GentzenSpinalNormalForm.html#1048" class="Bound"
+      >B</a
+      ><a name="1090"
+      > </a
+      ><a name="1091" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1092"
+      > </a
+      ><a name="1093" href="IPC.Syntax.GentzenSpinalNormalForm.html#1050" class="Bound"
+      >C</a
+      ><a name="1094"
+      >
+    </a
+      ><a name="1099" href="IPC.Syntax.GentzenSpinalNormalForm.html#1099" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="1104"
+      > </a
+      ><a name="1105" class="Symbol"
+      >:</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" class="Symbol"
+      >&#8704;</a
+      ><a name="1108"
+      > </a
+      ><a name="1109" class="Symbol"
+      >{</a
+      ><a name="1110" href="IPC.Syntax.GentzenSpinalNormalForm.html#1110" class="Bound"
+      >A</a
+      ><a name="1111"
+      > </a
+      ><a name="1112" href="IPC.Syntax.GentzenSpinalNormalForm.html#1112" class="Bound"
+      >B</a
+      ><a name="1113"
+      > </a
+      ><a name="1114" href="IPC.Syntax.GentzenSpinalNormalForm.html#1114" class="Bound"
+      >C</a
+      ><a name="1115" class="Symbol"
+      >}</a
+      ><a name="1116"
+      > </a
+      ><a name="1117" class="Symbol"
+      >&#8594;</a
+      ><a name="1118"
+      > </a
+      ><a name="1119" href="IPC.Syntax.GentzenSpinalNormalForm.html#962" class="Bound"
+      >&#915;</a
+      ><a name="1120"
+      > </a
+      ><a name="1121" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1124"
+      > </a
+      ><a name="1125" href="IPC.Syntax.GentzenSpinalNormalForm.html#1110" class="Bound"
+      >A</a
+      ><a name="1126"
+      > </a
+      ><a name="1127" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1128"
+      > </a
+      ><a name="1129" href="IPC.Syntax.GentzenSpinalNormalForm.html#1114" class="Bound"
+      >C</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" class="Symbol"
+      >&#8594;</a
+      ><a name="1132"
+      > </a
+      ><a name="1133" href="IPC.Syntax.GentzenSpinalNormalForm.html#962" class="Bound"
+      >&#915;</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1138"
+      > </a
+      ><a name="1139" href="IPC.Syntax.GentzenSpinalNormalForm.html#1110" class="Bound"
+      >A</a
+      ><a name="1140"
+      > </a
+      ><a name="1141" href="IPC.Syntax.Common.html#258" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1142"
+      > </a
+      ><a name="1143" href="IPC.Syntax.GentzenSpinalNormalForm.html#1112" class="Bound"
+      >B</a
+      ><a name="1144"
+      > </a
+      ><a name="1145" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1146"
+      > </a
+      ><a name="1147" href="IPC.Syntax.GentzenSpinalNormalForm.html#1114" class="Bound"
+      >C</a
+      ><a name="1148"
+      >
+    </a
+      ><a name="1153" href="IPC.Syntax.GentzenSpinalNormalForm.html#1153" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" class="Symbol"
+      >:</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" class="Symbol"
+      >&#8704;</a
+      ><a name="1162"
+      > </a
+      ><a name="1163" class="Symbol"
+      >{</a
+      ><a name="1164" href="IPC.Syntax.GentzenSpinalNormalForm.html#1164" class="Bound"
+      >A</a
+      ><a name="1165"
+      > </a
+      ><a name="1166" href="IPC.Syntax.GentzenSpinalNormalForm.html#1166" class="Bound"
+      >B</a
+      ><a name="1167"
+      > </a
+      ><a name="1168" href="IPC.Syntax.GentzenSpinalNormalForm.html#1168" class="Bound"
+      >C</a
+      ><a name="1169" class="Symbol"
+      >}</a
+      ><a name="1170"
+      > </a
+      ><a name="1171" class="Symbol"
+      >&#8594;</a
+      ><a name="1172"
+      > </a
+      ><a name="1173" href="IPC.Syntax.GentzenSpinalNormalForm.html#962" class="Bound"
+      >&#915;</a
+      ><a name="1174"
+      > </a
+      ><a name="1175" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1178"
+      > </a
+      ><a name="1179" href="IPC.Syntax.GentzenSpinalNormalForm.html#1166" class="Bound"
+      >B</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" href="IPC.Syntax.GentzenSpinalNormalForm.html#1168" class="Bound"
+      >C</a
+      ><a name="1184"
+      > </a
+      ><a name="1185" class="Symbol"
+      >&#8594;</a
+      ><a name="1186"
+      > </a
+      ><a name="1187" href="IPC.Syntax.GentzenSpinalNormalForm.html#962" class="Bound"
+      >&#915;</a
+      ><a name="1188"
+      > </a
+      ><a name="1189" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1192"
+      > </a
+      ><a name="1193" href="IPC.Syntax.GentzenSpinalNormalForm.html#1164" class="Bound"
+      >A</a
+      ><a name="1194"
+      > </a
+      ><a name="1195" href="IPC.Syntax.Common.html#258" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1196"
+      > </a
+      ><a name="1197" href="IPC.Syntax.GentzenSpinalNormalForm.html#1166" class="Bound"
+      >B</a
+      ><a name="1198"
+      > </a
+      ><a name="1199" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1200"
+      > </a
+      ><a name="1201" href="IPC.Syntax.GentzenSpinalNormalForm.html#1168" class="Bound"
+      >C</a
+      ><a name="1202"
+      >
+
+  </a
+      ><a name="1206" class="Comment"
+      >-- Spine tips.</a
+      ><a name="1220"
+      >
+  </a
+      ><a name="1223" class="Keyword"
+      >infix</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" class="Number"
+      >3</a
+      ><a name="1230"
+      > _&#8866;&#7511;&#7510;_&#10649;_
+  </a
+      ><a name="1241" class="Keyword"
+      >data</a
+      ><a name="1245"
+      > </a
+      ><a name="1246" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >_&#8866;&#7511;&#7510;_&#10649;_</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" class="Symbol"
+      >(</a
+      ><a name="1255" href="IPC.Syntax.GentzenSpinalNormalForm.html#1255" class="Bound"
+      >&#915;</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" class="Symbol"
+      >:</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1261"
+      > </a
+      ><a name="1262" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="1264" class="Symbol"
+      >)</a
+      ><a name="1265"
+      > </a
+      ><a name="1266" class="Symbol"
+      >:</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="1270"
+      > </a
+      ><a name="1271" class="Symbol"
+      >&#8594;</a
+      ><a name="1272"
+      > </a
+      ><a name="1273" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="1275"
+      > </a
+      ><a name="1276" class="Symbol"
+      >&#8594;</a
+      ><a name="1277"
+      > </a
+      ><a name="1278" class="PrimitiveType"
+      >Set</a
+      ><a name="1281"
+      > </a
+      ><a name="1282" class="Keyword"
+      >where</a
+      ><a name="1287"
+      >
+    </a
+      ><a name="1292" href="IPC.Syntax.GentzenSpinalNormalForm.html#1292" class="InductiveConstructor"
+      >nil&#7511;&#7510;</a
+      ><a name="1297"
+      >  </a
+      ><a name="1299" class="Symbol"
+      >:</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" class="Symbol"
+      >&#8704;</a
+      ><a name="1302"
+      > </a
+      ><a name="1303" class="Symbol"
+      >{</a
+      ><a name="1304" href="IPC.Syntax.GentzenSpinalNormalForm.html#1304" class="Bound"
+      >C</a
+      ><a name="1305" class="Symbol"
+      >}</a
+      ><a name="1306"
+      >     </a
+      ><a name="1311" class="Symbol"
+      >&#8594;</a
+      ><a name="1312"
+      > </a
+      ><a name="1313" href="IPC.Syntax.GentzenSpinalNormalForm.html#1255" class="Bound"
+      >&#915;</a
+      ><a name="1314"
+      > </a
+      ><a name="1315" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#8866;&#7511;&#7510;</a
+      ><a name="1318"
+      > </a
+      ><a name="1319" href="IPC.Syntax.GentzenSpinalNormalForm.html#1304" class="Bound"
+      >C</a
+      ><a name="1320"
+      > </a
+      ><a name="1321" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1322"
+      > </a
+      ><a name="1323" href="IPC.Syntax.GentzenSpinalNormalForm.html#1304" class="Bound"
+      >C</a
+      ><a name="1324"
+      >
+    </a
+      ><a name="1329" href="IPC.Syntax.GentzenSpinalNormalForm.html#1329" class="InductiveConstructor"
+      >boom&#7511;&#7510;</a
+      ><a name="1335"
+      > </a
+      ><a name="1336" class="Symbol"
+      >:</a
+      ><a name="1337"
+      > </a
+      ><a name="1338" class="Symbol"
+      >&#8704;</a
+      ><a name="1339"
+      > </a
+      ><a name="1340" class="Symbol"
+      >{</a
+      ><a name="1341" href="IPC.Syntax.GentzenSpinalNormalForm.html#1341" class="Bound"
+      >C</a
+      ><a name="1342" class="Symbol"
+      >}</a
+      ><a name="1343"
+      >     </a
+      ><a name="1348" class="Symbol"
+      >&#8594;</a
+      ><a name="1349"
+      > </a
+      ><a name="1350" href="IPC.Syntax.GentzenSpinalNormalForm.html#1255" class="Bound"
+      >&#915;</a
+      ><a name="1351"
+      > </a
+      ><a name="1352" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#8866;&#7511;&#7510;</a
+      ><a name="1355"
+      > </a
+      ><a name="1356" href="IPC.Syntax.Common.html#289" class="InductiveConstructor"
+      >&#8869;</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1359"
+      > </a
+      ><a name="1360" href="IPC.Syntax.GentzenSpinalNormalForm.html#1341" class="Bound"
+      >C</a
+      ><a name="1361"
+      >
+    </a
+      ><a name="1366" href="IPC.Syntax.GentzenSpinalNormalForm.html#1366" class="InductiveConstructor"
+      >case&#7511;&#7510;</a
+      ><a name="1372"
+      > </a
+      ><a name="1373" class="Symbol"
+      >:</a
+      ><a name="1374"
+      > </a
+      ><a name="1375" class="Symbol"
+      >&#8704;</a
+      ><a name="1376"
+      > </a
+      ><a name="1377" class="Symbol"
+      >{</a
+      ><a name="1378" href="IPC.Syntax.GentzenSpinalNormalForm.html#1378" class="Bound"
+      >A</a
+      ><a name="1379"
+      > </a
+      ><a name="1380" href="IPC.Syntax.GentzenSpinalNormalForm.html#1380" class="Bound"
+      >B</a
+      ><a name="1381"
+      > </a
+      ><a name="1382" href="IPC.Syntax.GentzenSpinalNormalForm.html#1382" class="Bound"
+      >C</a
+      ><a name="1383" class="Symbol"
+      >}</a
+      ><a name="1384"
+      > </a
+      ><a name="1385" class="Symbol"
+      >&#8594;</a
+      ><a name="1386"
+      > </a
+      ><a name="1387" href="IPC.Syntax.GentzenSpinalNormalForm.html#1255" class="Bound"
+      >&#915;</a
+      ><a name="1388"
+      > </a
+      ><a name="1389" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1390"
+      > </a
+      ><a name="1391" href="IPC.Syntax.GentzenSpinalNormalForm.html#1378" class="Bound"
+      >A</a
+      ><a name="1392"
+      > </a
+      ><a name="1393" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" href="IPC.Syntax.GentzenSpinalNormalForm.html#1382" class="Bound"
+      >C</a
+      ><a name="1398"
+      > </a
+      ><a name="1399" class="Symbol"
+      >&#8594;</a
+      ><a name="1400"
+      > </a
+      ><a name="1401" href="IPC.Syntax.GentzenSpinalNormalForm.html#1255" class="Bound"
+      >&#915;</a
+      ><a name="1402"
+      > </a
+      ><a name="1403" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1404"
+      > </a
+      ><a name="1405" href="IPC.Syntax.GentzenSpinalNormalForm.html#1380" class="Bound"
+      >B</a
+      ><a name="1406"
+      > </a
+      ><a name="1407" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1410"
+      > </a
+      ><a name="1411" href="IPC.Syntax.GentzenSpinalNormalForm.html#1382" class="Bound"
+      >C</a
+      ><a name="1412"
+      > </a
+      ><a name="1413" class="Symbol"
+      >&#8594;</a
+      ><a name="1414"
+      > </a
+      ><a name="1415" href="IPC.Syntax.GentzenSpinalNormalForm.html#1255" class="Bound"
+      >&#915;</a
+      ><a name="1416"
+      > </a
+      ><a name="1417" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#8866;&#7511;&#7510;</a
+      ><a name="1420"
+      > </a
+      ><a name="1421" href="IPC.Syntax.GentzenSpinalNormalForm.html#1378" class="Bound"
+      >A</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" href="IPC.Syntax.Common.html#299" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="1424"
+      > </a
+      ><a name="1425" href="IPC.Syntax.GentzenSpinalNormalForm.html#1380" class="Bound"
+      >B</a
+      ><a name="1426"
+      > </a
+      ><a name="1427" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1428"
+      > </a
+      ><a name="1429" href="IPC.Syntax.GentzenSpinalNormalForm.html#1382" class="Bound"
+      >C</a
+      ><a name="1430"
+      >
+
+
+</a
+      ><a name="1433" class="Comment"
+      >-- Translation to simple terms.</a
+      ><a name="1464"
+      >
+
+</a
+      ><a name="1466" class="Keyword"
+      >mutual</a
+      ><a name="1472"
+      >
+  </a
+      ><a name="1475" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1480"
+      > </a
+      ><a name="1481" class="Symbol"
+      >:</a
+      ><a name="1482"
+      > </a
+      ><a name="1483" class="Symbol"
+      >&#8704;</a
+      ><a name="1484"
+      > </a
+      ><a name="1485" class="Symbol"
+      >{</a
+      ><a name="1486" href="IPC.Syntax.GentzenSpinalNormalForm.html#1486" class="Bound"
+      >A</a
+      ><a name="1487"
+      > </a
+      ><a name="1488" href="IPC.Syntax.GentzenSpinalNormalForm.html#1488" class="Bound"
+      >&#915;</a
+      ><a name="1489" class="Symbol"
+      >}</a
+      ><a name="1490"
+      > </a
+      ><a name="1491" class="Symbol"
+      >&#8594;</a
+      ><a name="1492"
+      > </a
+      ><a name="1493" href="IPC.Syntax.GentzenSpinalNormalForm.html#1488" class="Bound"
+      >&#915;</a
+      ><a name="1494"
+      > </a
+      ><a name="1495" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1498"
+      > </a
+      ><a name="1499" href="IPC.Syntax.GentzenSpinalNormalForm.html#1486" class="Bound"
+      >A</a
+      ><a name="1500"
+      > </a
+      ><a name="1501" class="Symbol"
+      >&#8594;</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" href="IPC.Syntax.GentzenSpinalNormalForm.html#1488" class="Bound"
+      >&#915;</a
+      ><a name="1504"
+      > </a
+      ><a name="1505" href="IPC.Syntax.Gentzen.html#209" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1506"
+      > </a
+      ><a name="1507" href="IPC.Syntax.GentzenSpinalNormalForm.html#1486" class="Bound"
+      >A</a
+      ><a name="1508"
+      >
+  </a
+      ><a name="1511" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1516"
+      > </a
+      ><a name="1517" class="Symbol"
+      >(</a
+      ><a name="1518" href="IPC.Syntax.GentzenSpinalNormalForm.html#487" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" href="IPC.Syntax.GentzenSpinalNormalForm.html#1523" class="Bound"
+      >t</a
+      ><a name="1524" class="Symbol"
+      >)</a
+      ><a name="1525"
+      >     </a
+      ><a name="1530" class="Symbol"
+      >=</a
+      ><a name="1531"
+      > </a
+      ><a name="1532" href="IPC.Syntax.GentzenSpinalNormalForm.html#1730" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" href="IPC.Syntax.GentzenSpinalNormalForm.html#1523" class="Bound"
+      >t</a
+      ><a name="1539"
+      >
+  </a
+      ><a name="1542" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" class="Symbol"
+      >(</a
+      ><a name="1549" href="IPC.Syntax.GentzenSpinalNormalForm.html#545" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="IPC.Syntax.GentzenSpinalNormalForm.html#1555" class="Bound"
+      >t</a
+      ><a name="1556" class="Symbol"
+      >)</a
+      ><a name="1557"
+      >    </a
+      ><a name="1561" class="Symbol"
+      >=</a
+      ><a name="1562"
+      > </a
+      ><a name="1563" href="IPC.Syntax.Gentzen.html#279" class="InductiveConstructor"
+      >lam</a
+      ><a name="1566"
+      > </a
+      ><a name="1567" class="Symbol"
+      >(</a
+      ><a name="1568" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1573"
+      > </a
+      ><a name="1574" href="IPC.Syntax.GentzenSpinalNormalForm.html#1555" class="Bound"
+      >t</a
+      ><a name="1575" class="Symbol"
+      >)</a
+      ><a name="1576"
+      >
+  </a
+      ><a name="1579" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1584"
+      > </a
+      ><a name="1585" class="Symbol"
+      >(</a
+      ><a name="1586" href="IPC.Syntax.GentzenSpinalNormalForm.html#594" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="1592"
+      > </a
+      ><a name="1593" href="IPC.Syntax.GentzenSpinalNormalForm.html#1593" class="Bound"
+      >t</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" href="IPC.Syntax.GentzenSpinalNormalForm.html#1595" class="Bound"
+      >u</a
+      ><a name="1596" class="Symbol"
+      >)</a
+      ><a name="1597"
+      > </a
+      ><a name="1598" class="Symbol"
+      >=</a
+      ><a name="1599"
+      > </a
+      ><a name="1600" href="IPC.Syntax.Gentzen.html#369" class="InductiveConstructor"
+      >pair</a
+      ><a name="1604"
+      > </a
+      ><a name="1605" class="Symbol"
+      >(</a
+      ><a name="1606" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1611"
+      > </a
+      ><a name="1612" href="IPC.Syntax.GentzenSpinalNormalForm.html#1593" class="Bound"
+      >t</a
+      ><a name="1613" class="Symbol"
+      >)</a
+      ><a name="1614"
+      > </a
+      ><a name="1615" class="Symbol"
+      >(</a
+      ><a name="1616" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1621"
+      > </a
+      ><a name="1622" href="IPC.Syntax.GentzenSpinalNormalForm.html#1595" class="Bound"
+      >u</a
+      ><a name="1623" class="Symbol"
+      >)</a
+      ><a name="1624"
+      >
+  </a
+      ><a name="1627" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1632"
+      > </a
+      ><a name="1633" href="IPC.Syntax.GentzenSpinalNormalForm.html#649" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="1639"
+      >       </a
+      ><a name="1646" class="Symbol"
+      >=</a
+      ><a name="1647"
+      > </a
+      ><a name="1648" href="IPC.Syntax.Gentzen.html#494" class="InductiveConstructor"
+      >unit</a
+      ><a name="1652"
+      >
+  </a
+      ><a name="1655" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1660"
+      > </a
+      ><a name="1661" class="Symbol"
+      >(</a
+      ><a name="1662" href="IPC.Syntax.GentzenSpinalNormalForm.html#670" class="InductiveConstructor"
+      >inl&#8319;&#7584;</a
+      ><a name="1667"
+      > </a
+      ><a name="1668" href="IPC.Syntax.GentzenSpinalNormalForm.html#1668" class="Bound"
+      >t</a
+      ><a name="1669" class="Symbol"
+      >)</a
+      ><a name="1670"
+      >    </a
+      ><a name="1674" class="Symbol"
+      >=</a
+      ><a name="1675"
+      > </a
+      ><a name="1676" href="IPC.Syntax.Gentzen.html#544" class="InductiveConstructor"
+      >inl</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" class="Symbol"
+      >(</a
+      ><a name="1681" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1686"
+      > </a
+      ><a name="1687" href="IPC.Syntax.GentzenSpinalNormalForm.html#1668" class="Bound"
+      >t</a
+      ><a name="1688" class="Symbol"
+      >)</a
+      ><a name="1689"
+      >
+  </a
+      ><a name="1692" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1697"
+      > </a
+      ><a name="1698" class="Symbol"
+      >(</a
+      ><a name="1699" href="IPC.Syntax.GentzenSpinalNormalForm.html#715" class="InductiveConstructor"
+      >inr&#8319;&#7584;</a
+      ><a name="1704"
+      > </a
+      ><a name="1705" href="IPC.Syntax.GentzenSpinalNormalForm.html#1705" class="Bound"
+      >t</a
+      ><a name="1706" class="Symbol"
+      >)</a
+      ><a name="1707"
+      >    </a
+      ><a name="1711" class="Symbol"
+      >=</a
+      ><a name="1712"
+      > </a
+      ><a name="1713" href="IPC.Syntax.Gentzen.html#583" class="InductiveConstructor"
+      >inr</a
+      ><a name="1716"
+      > </a
+      ><a name="1717" class="Symbol"
+      >(</a
+      ><a name="1718" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1723"
+      > </a
+      ><a name="1724" href="IPC.Syntax.GentzenSpinalNormalForm.html#1705" class="Bound"
+      >t</a
+      ><a name="1725" class="Symbol"
+      >)</a
+      ><a name="1726"
+      >
+
+  </a
+      ><a name="1730" href="IPC.Syntax.GentzenSpinalNormalForm.html#1730" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1735"
+      > </a
+      ><a name="1736" class="Symbol"
+      >:</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" class="Symbol"
+      >&#8704;</a
+      ><a name="1739"
+      > </a
+      ><a name="1740" class="Symbol"
+      >{</a
+      ><a name="1741" href="IPC.Syntax.GentzenSpinalNormalForm.html#1741" class="Bound"
+      >A</a
+      ><a name="1742"
+      > </a
+      ><a name="1743" href="IPC.Syntax.GentzenSpinalNormalForm.html#1743" class="Bound"
+      >&#915;</a
+      ><a name="1744" class="Symbol"
+      >}</a
+      ><a name="1745"
+      > </a
+      ><a name="1746" class="Symbol"
+      >&#8594;</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" href="IPC.Syntax.GentzenSpinalNormalForm.html#1743" class="Bound"
+      >&#915;</a
+      ><a name="1749"
+      > </a
+      ><a name="1750" href="IPC.Syntax.GentzenSpinalNormalForm.html#812" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="1753"
+      > </a
+      ><a name="1754" href="IPC.Syntax.GentzenSpinalNormalForm.html#1741" class="Bound"
+      >A</a
+      ><a name="1755"
+      > </a
+      ><a name="1756" class="Symbol"
+      >&#8594;</a
+      ><a name="1757"
+      > </a
+      ><a name="1758" href="IPC.Syntax.GentzenSpinalNormalForm.html#1743" class="Bound"
+      >&#915;</a
+      ><a name="1759"
+      > </a
+      ><a name="1760" href="IPC.Syntax.Gentzen.html#209" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1761"
+      > </a
+      ><a name="1762" href="IPC.Syntax.GentzenSpinalNormalForm.html#1741" class="Bound"
+      >A</a
+      ><a name="1763"
+      >
+  </a
+      ><a name="1766" href="IPC.Syntax.GentzenSpinalNormalForm.html#1730" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1771"
+      > </a
+      ><a name="1772" class="Symbol"
+      >(</a
+      ><a name="1773" href="IPC.Syntax.GentzenSpinalNormalForm.html#851" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" href="IPC.Syntax.GentzenSpinalNormalForm.html#1778" class="Bound"
+      >i</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" href="IPC.Syntax.GentzenSpinalNormalForm.html#1780" class="Bound"
+      >xs</a
+      ><a name="1782"
+      > </a
+      ><a name="1783" href="IPC.Syntax.GentzenSpinalNormalForm.html#1783" class="Bound"
+      >y</a
+      ><a name="1784" class="Symbol"
+      >)</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" class="Symbol"
+      >=</a
+      ><a name="1787"
+      > </a
+      ><a name="1788" href="IPC.Syntax.GentzenSpinalNormalForm.html#2024" class="Function"
+      >tp&#8594;tm</a
+      ><a name="1793"
+      > </a
+      ><a name="1794" class="Symbol"
+      >(</a
+      ><a name="1795" href="IPC.Syntax.Gentzen.html#244" class="InductiveConstructor"
+      >var</a
+      ><a name="1798"
+      > </a
+      ><a name="1799" href="IPC.Syntax.GentzenSpinalNormalForm.html#1778" class="Bound"
+      >i</a
+      ><a name="1800" class="Symbol"
+      >)</a
+      ><a name="1801"
+      > </a
+      ><a name="1802" href="IPC.Syntax.GentzenSpinalNormalForm.html#1780" class="Bound"
+      >xs</a
+      ><a name="1804"
+      > </a
+      ><a name="1805" href="IPC.Syntax.GentzenSpinalNormalForm.html#1783" class="Bound"
+      >y</a
+      ><a name="1806"
+      >
+
+  </a
+      ><a name="1810" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1815"
+      > </a
+      ><a name="1816" class="Symbol"
+      >:</a
+      ><a name="1817"
+      > </a
+      ><a name="1818" class="Symbol"
+      >&#8704;</a
+      ><a name="1819"
+      > </a
+      ><a name="1820" class="Symbol"
+      >{</a
+      ><a name="1821" href="IPC.Syntax.GentzenSpinalNormalForm.html#1821" class="Bound"
+      >A</a
+      ><a name="1822"
+      > </a
+      ><a name="1823" href="IPC.Syntax.GentzenSpinalNormalForm.html#1823" class="Bound"
+      >C</a
+      ><a name="1824"
+      > </a
+      ><a name="1825" href="IPC.Syntax.GentzenSpinalNormalForm.html#1825" class="Bound"
+      >&#915;</a
+      ><a name="1826" class="Symbol"
+      >}</a
+      ><a name="1827"
+      > </a
+      ><a name="1828" class="Symbol"
+      >&#8594;</a
+      ><a name="1829"
+      > </a
+      ><a name="1830" href="IPC.Syntax.GentzenSpinalNormalForm.html#1825" class="Bound"
+      >&#915;</a
+      ><a name="1831"
+      > </a
+      ><a name="1832" href="IPC.Syntax.Gentzen.html#209" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1833"
+      > </a
+      ><a name="1834" href="IPC.Syntax.GentzenSpinalNormalForm.html#1821" class="Bound"
+      >A</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" class="Symbol"
+      >&#8594;</a
+      ><a name="1837"
+      > </a
+      ><a name="1838" href="IPC.Syntax.GentzenSpinalNormalForm.html#1825" class="Bound"
+      >&#915;</a
+      ><a name="1839"
+      > </a
+      ><a name="1840" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="1843"
+      > </a
+      ><a name="1844" href="IPC.Syntax.GentzenSpinalNormalForm.html#1821" class="Bound"
+      >A</a
+      ><a name="1845"
+      > </a
+      ><a name="1846" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="1847"
+      > </a
+      ><a name="1848" href="IPC.Syntax.GentzenSpinalNormalForm.html#1823" class="Bound"
+      >C</a
+      ><a name="1849"
+      > </a
+      ><a name="1850" class="Symbol"
+      >&#8594;</a
+      ><a name="1851"
+      > </a
+      ><a name="1852" href="IPC.Syntax.GentzenSpinalNormalForm.html#1825" class="Bound"
+      >&#915;</a
+      ><a name="1853"
+      > </a
+      ><a name="1854" href="IPC.Syntax.Gentzen.html#209" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1855"
+      > </a
+      ><a name="1856" href="IPC.Syntax.GentzenSpinalNormalForm.html#1823" class="Bound"
+      >C</a
+      ><a name="1857"
+      >
+  </a
+      ><a name="1860" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1865"
+      > </a
+      ><a name="1866" href="IPC.Syntax.GentzenSpinalNormalForm.html#1866" class="Bound"
+      >t</a
+      ><a name="1867"
+      > </a
+      ><a name="1868" href="IPC.Syntax.GentzenSpinalNormalForm.html#999" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="1873"
+      >        </a
+      ><a name="1881" class="Symbol"
+      >=</a
+      ><a name="1882"
+      > </a
+      ><a name="1883" href="IPC.Syntax.GentzenSpinalNormalForm.html#1866" class="Bound"
+      >t</a
+      ><a name="1884"
+      >
+  </a
+      ><a name="1887" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1892"
+      > </a
+      ><a name="1893" href="IPC.Syntax.GentzenSpinalNormalForm.html#1893" class="Bound"
+      >t</a
+      ><a name="1894"
+      > </a
+      ><a name="1895" class="Symbol"
+      >(</a
+      ><a name="1896" href="IPC.Syntax.GentzenSpinalNormalForm.html#1035" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" href="IPC.Syntax.GentzenSpinalNormalForm.html#1902" class="Bound"
+      >xs</a
+      ><a name="1904"
+      > </a
+      ><a name="1905" href="IPC.Syntax.GentzenSpinalNormalForm.html#1905" class="Bound"
+      >u</a
+      ><a name="1906" class="Symbol"
+      >)</a
+      ><a name="1907"
+      > </a
+      ><a name="1908" class="Symbol"
+      >=</a
+      ><a name="1909"
+      > </a
+      ><a name="1910" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1915"
+      > </a
+      ><a name="1916" class="Symbol"
+      >(</a
+      ><a name="1917" href="IPC.Syntax.Gentzen.html#322" class="InductiveConstructor"
+      >app</a
+      ><a name="1920"
+      > </a
+      ><a name="1921" href="IPC.Syntax.GentzenSpinalNormalForm.html#1893" class="Bound"
+      >t</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" class="Symbol"
+      >(</a
+      ><a name="1924" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1929"
+      > </a
+      ><a name="1930" href="IPC.Syntax.GentzenSpinalNormalForm.html#1905" class="Bound"
+      >u</a
+      ><a name="1931" class="Symbol"
+      >))</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="IPC.Syntax.GentzenSpinalNormalForm.html#1902" class="Bound"
+      >xs</a
+      ><a name="1936"
+      >
+  </a
+      ><a name="1939" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1944"
+      > </a
+      ><a name="1945" href="IPC.Syntax.GentzenSpinalNormalForm.html#1945" class="Bound"
+      >t</a
+      ><a name="1946"
+      > </a
+      ><a name="1947" class="Symbol"
+      >(</a
+      ><a name="1948" href="IPC.Syntax.GentzenSpinalNormalForm.html#1099" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="1953"
+      > </a
+      ><a name="1954" href="IPC.Syntax.GentzenSpinalNormalForm.html#1954" class="Bound"
+      >xs</a
+      ><a name="1956" class="Symbol"
+      >)</a
+      ><a name="1957"
+      >   </a
+      ><a name="1960" class="Symbol"
+      >=</a
+      ><a name="1961"
+      > </a
+      ><a name="1962" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1967"
+      > </a
+      ><a name="1968" class="Symbol"
+      >(</a
+      ><a name="1969" href="IPC.Syntax.Gentzen.html#416" class="InductiveConstructor"
+      >fst</a
+      ><a name="1972"
+      > </a
+      ><a name="1973" href="IPC.Syntax.GentzenSpinalNormalForm.html#1945" class="Bound"
+      >t</a
+      ><a name="1974" class="Symbol"
+      >)</a
+      ><a name="1975"
+      > </a
+      ><a name="1976" href="IPC.Syntax.GentzenSpinalNormalForm.html#1954" class="Bound"
+      >xs</a
+      ><a name="1978"
+      >
+  </a
+      ><a name="1981" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="1986"
+      > </a
+      ><a name="1987" href="IPC.Syntax.GentzenSpinalNormalForm.html#1987" class="Bound"
+      >t</a
+      ><a name="1988"
+      > </a
+      ><a name="1989" class="Symbol"
+      >(</a
+      ><a name="1990" href="IPC.Syntax.GentzenSpinalNormalForm.html#1153" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="1995"
+      > </a
+      ><a name="1996" href="IPC.Syntax.GentzenSpinalNormalForm.html#1996" class="Bound"
+      >xs</a
+      ><a name="1998" class="Symbol"
+      >)</a
+      ><a name="1999"
+      >   </a
+      ><a name="2002" class="Symbol"
+      >=</a
+      ><a name="2003"
+      > </a
+      ><a name="2004" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="2009"
+      > </a
+      ><a name="2010" class="Symbol"
+      >(</a
+      ><a name="2011" href="IPC.Syntax.Gentzen.html#455" class="InductiveConstructor"
+      >snd</a
+      ><a name="2014"
+      > </a
+      ><a name="2015" href="IPC.Syntax.GentzenSpinalNormalForm.html#1987" class="Bound"
+      >t</a
+      ><a name="2016" class="Symbol"
+      >)</a
+      ><a name="2017"
+      > </a
+      ><a name="2018" href="IPC.Syntax.GentzenSpinalNormalForm.html#1996" class="Bound"
+      >xs</a
+      ><a name="2020"
+      >
+
+  </a
+      ><a name="2024" href="IPC.Syntax.GentzenSpinalNormalForm.html#2024" class="Function"
+      >tp&#8594;tm</a
+      ><a name="2029"
+      > </a
+      ><a name="2030" class="Symbol"
+      >:</a
+      ><a name="2031"
+      > </a
+      ><a name="2032" class="Symbol"
+      >&#8704;</a
+      ><a name="2033"
+      > </a
+      ><a name="2034" class="Symbol"
+      >{</a
+      ><a name="2035" href="IPC.Syntax.GentzenSpinalNormalForm.html#2035" class="Bound"
+      >A</a
+      ><a name="2036"
+      > </a
+      ><a name="2037" href="IPC.Syntax.GentzenSpinalNormalForm.html#2037" class="Bound"
+      >B</a
+      ><a name="2038"
+      > </a
+      ><a name="2039" href="IPC.Syntax.GentzenSpinalNormalForm.html#2039" class="Bound"
+      >C</a
+      ><a name="2040"
+      > </a
+      ><a name="2041" href="IPC.Syntax.GentzenSpinalNormalForm.html#2041" class="Bound"
+      >&#915;</a
+      ><a name="2042" class="Symbol"
+      >}</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" class="Symbol"
+      >&#8594;</a
+      ><a name="2045"
+      > </a
+      ><a name="2046" href="IPC.Syntax.GentzenSpinalNormalForm.html#2041" class="Bound"
+      >&#915;</a
+      ><a name="2047"
+      > </a
+      ><a name="2048" href="IPC.Syntax.Gentzen.html#209" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2049"
+      > </a
+      ><a name="2050" href="IPC.Syntax.GentzenSpinalNormalForm.html#2035" class="Bound"
+      >A</a
+      ><a name="2051"
+      > </a
+      ><a name="2052" class="Symbol"
+      >&#8594;</a
+      ><a name="2053"
+      > </a
+      ><a name="2054" href="IPC.Syntax.GentzenSpinalNormalForm.html#2041" class="Bound"
+      >&#915;</a
+      ><a name="2055"
+      > </a
+      ><a name="2056" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" href="IPC.Syntax.GentzenSpinalNormalForm.html#2035" class="Bound"
+      >A</a
+      ><a name="2061"
+      > </a
+      ><a name="2062" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="2063"
+      > </a
+      ><a name="2064" href="IPC.Syntax.GentzenSpinalNormalForm.html#2037" class="Bound"
+      >B</a
+      ><a name="2065"
+      > </a
+      ><a name="2066" class="Symbol"
+      >&#8594;</a
+      ><a name="2067"
+      > </a
+      ><a name="2068" href="IPC.Syntax.GentzenSpinalNormalForm.html#2041" class="Bound"
+      >&#915;</a
+      ><a name="2069"
+      > </a
+      ><a name="2070" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#8866;&#7511;&#7510;</a
+      ><a name="2073"
+      > </a
+      ><a name="2074" href="IPC.Syntax.GentzenSpinalNormalForm.html#2037" class="Bound"
+      >B</a
+      ><a name="2075"
+      > </a
+      ><a name="2076" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="2077"
+      > </a
+      ><a name="2078" href="IPC.Syntax.GentzenSpinalNormalForm.html#2039" class="Bound"
+      >C</a
+      ><a name="2079"
+      > </a
+      ><a name="2080" class="Symbol"
+      >&#8594;</a
+      ><a name="2081"
+      > </a
+      ><a name="2082" href="IPC.Syntax.GentzenSpinalNormalForm.html#2041" class="Bound"
+      >&#915;</a
+      ><a name="2083"
+      > </a
+      ><a name="2084" href="IPC.Syntax.Gentzen.html#209" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="2085"
+      > </a
+      ><a name="2086" href="IPC.Syntax.GentzenSpinalNormalForm.html#2039" class="Bound"
+      >C</a
+      ><a name="2087"
+      >
+  </a
+      ><a name="2090" href="IPC.Syntax.GentzenSpinalNormalForm.html#2024" class="Function"
+      >tp&#8594;tm</a
+      ><a name="2095"
+      > </a
+      ><a name="2096" href="IPC.Syntax.GentzenSpinalNormalForm.html#2096" class="Bound"
+      >t</a
+      ><a name="2097"
+      > </a
+      ><a name="2098" href="IPC.Syntax.GentzenSpinalNormalForm.html#2098" class="Bound"
+      >xs</a
+      ><a name="2100"
+      > </a
+      ><a name="2101" href="IPC.Syntax.GentzenSpinalNormalForm.html#1292" class="InductiveConstructor"
+      >nil&#7511;&#7510;</a
+      ><a name="2106"
+      >        </a
+      ><a name="2114" class="Symbol"
+      >=</a
+      ><a name="2115"
+      > </a
+      ><a name="2116" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="2121"
+      > </a
+      ><a name="2122" href="IPC.Syntax.GentzenSpinalNormalForm.html#2096" class="Bound"
+      >t</a
+      ><a name="2123"
+      > </a
+      ><a name="2124" href="IPC.Syntax.GentzenSpinalNormalForm.html#2098" class="Bound"
+      >xs</a
+      ><a name="2126"
+      >
+  </a
+      ><a name="2129" href="IPC.Syntax.GentzenSpinalNormalForm.html#2024" class="Function"
+      >tp&#8594;tm</a
+      ><a name="2134"
+      > </a
+      ><a name="2135" href="IPC.Syntax.GentzenSpinalNormalForm.html#2135" class="Bound"
+      >t</a
+      ><a name="2136"
+      > </a
+      ><a name="2137" href="IPC.Syntax.GentzenSpinalNormalForm.html#2137" class="Bound"
+      >xs</a
+      ><a name="2139"
+      > </a
+      ><a name="2140" href="IPC.Syntax.GentzenSpinalNormalForm.html#1329" class="InductiveConstructor"
+      >boom&#7511;&#7510;</a
+      ><a name="2146"
+      >       </a
+      ><a name="2153" class="Symbol"
+      >=</a
+      ><a name="2154"
+      > </a
+      ><a name="2155" href="IPC.Syntax.Gentzen.html#509" class="InductiveConstructor"
+      >boom</a
+      ><a name="2159"
+      > </a
+      ><a name="2160" class="Symbol"
+      >(</a
+      ><a name="2161" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="2166"
+      > </a
+      ><a name="2167" href="IPC.Syntax.GentzenSpinalNormalForm.html#2135" class="Bound"
+      >t</a
+      ><a name="2168"
+      > </a
+      ><a name="2169" href="IPC.Syntax.GentzenSpinalNormalForm.html#2137" class="Bound"
+      >xs</a
+      ><a name="2171" class="Symbol"
+      >)</a
+      ><a name="2172"
+      >
+  </a
+      ><a name="2175" href="IPC.Syntax.GentzenSpinalNormalForm.html#2024" class="Function"
+      >tp&#8594;tm</a
+      ><a name="2180"
+      > </a
+      ><a name="2181" href="IPC.Syntax.GentzenSpinalNormalForm.html#2181" class="Bound"
+      >t</a
+      ><a name="2182"
+      > </a
+      ><a name="2183" href="IPC.Syntax.GentzenSpinalNormalForm.html#2183" class="Bound"
+      >xs</a
+      ><a name="2185"
+      > </a
+      ><a name="2186" class="Symbol"
+      >(</a
+      ><a name="2187" href="IPC.Syntax.GentzenSpinalNormalForm.html#1366" class="InductiveConstructor"
+      >case&#7511;&#7510;</a
+      ><a name="2193"
+      > </a
+      ><a name="2194" href="IPC.Syntax.GentzenSpinalNormalForm.html#2194" class="Bound"
+      >u</a
+      ><a name="2195"
+      > </a
+      ><a name="2196" href="IPC.Syntax.GentzenSpinalNormalForm.html#2196" class="Bound"
+      >v</a
+      ><a name="2197" class="Symbol"
+      >)</a
+      ><a name="2198"
+      > </a
+      ><a name="2199" class="Symbol"
+      >=</a
+      ><a name="2200"
+      > </a
+      ><a name="2201" href="IPC.Syntax.Gentzen.html#622" class="InductiveConstructor"
+      >case</a
+      ><a name="2205"
+      > </a
+      ><a name="2206" class="Symbol"
+      >(</a
+      ><a name="2207" href="IPC.Syntax.GentzenSpinalNormalForm.html#1810" class="Function"
+      >sp&#8594;tm</a
+      ><a name="2212"
+      > </a
+      ><a name="2213" href="IPC.Syntax.GentzenSpinalNormalForm.html#2181" class="Bound"
+      >t</a
+      ><a name="2214"
+      > </a
+      ><a name="2215" href="IPC.Syntax.GentzenSpinalNormalForm.html#2183" class="Bound"
+      >xs</a
+      ><a name="2217" class="Symbol"
+      >)</a
+      ><a name="2218"
+      > </a
+      ><a name="2219" class="Symbol"
+      >(</a
+      ><a name="2220" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="2225"
+      > </a
+      ><a name="2226" href="IPC.Syntax.GentzenSpinalNormalForm.html#2194" class="Bound"
+      >u</a
+      ><a name="2227" class="Symbol"
+      >)</a
+      ><a name="2228"
+      > </a
+      ><a name="2229" class="Symbol"
+      >(</a
+      ><a name="2230" href="IPC.Syntax.GentzenSpinalNormalForm.html#1475" class="Function"
+      >nf&#8594;tm</a
+      ><a name="2235"
+      > </a
+      ><a name="2236" href="IPC.Syntax.GentzenSpinalNormalForm.html#2196" class="Bound"
+      >v</a
+      ><a name="2237" class="Symbol"
+      >)</a
+      ><a name="2238"
+      >
+
+
+</a
+      ><a name="2241" class="Comment"
+      >-- Monotonicity with respect to context inclusion.</a
+      ><a name="2291"
+      >
+
+</a
+      ><a name="2293" class="Keyword"
+      >mutual</a
+      ><a name="2299"
+      >
+  </a
+      ><a name="2302" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2309"
+      > </a
+      ><a name="2310" class="Symbol"
+      >:</a
+      ><a name="2311"
+      > </a
+      ><a name="2312" class="Symbol"
+      >&#8704;</a
+      ><a name="2313"
+      > </a
+      ><a name="2314" class="Symbol"
+      >{</a
+      ><a name="2315" href="IPC.Syntax.GentzenSpinalNormalForm.html#2315" class="Bound"
+      >A</a
+      ><a name="2316"
+      > </a
+      ><a name="2317" href="IPC.Syntax.GentzenSpinalNormalForm.html#2317" class="Bound"
+      >&#915;</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" href="IPC.Syntax.GentzenSpinalNormalForm.html#2319" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2321" class="Symbol"
+      >}</a
+      ><a name="2322"
+      > </a
+      ><a name="2323" class="Symbol"
+      >&#8594;</a
+      ><a name="2324"
+      > </a
+      ><a name="2325" href="IPC.Syntax.GentzenSpinalNormalForm.html#2317" class="Bound"
+      >&#915;</a
+      ><a name="2326"
+      > </a
+      ><a name="2327" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2328"
+      > </a
+      ><a name="2329" href="IPC.Syntax.GentzenSpinalNormalForm.html#2319" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2331"
+      > </a
+      ><a name="2332" class="Symbol"
+      >&#8594;</a
+      ><a name="2333"
+      > </a
+      ><a name="2334" href="IPC.Syntax.GentzenSpinalNormalForm.html#2317" class="Bound"
+      >&#915;</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2339"
+      > </a
+      ><a name="2340" href="IPC.Syntax.GentzenSpinalNormalForm.html#2315" class="Bound"
+      >A</a
+      ><a name="2341"
+      > </a
+      ><a name="2342" class="Symbol"
+      >&#8594;</a
+      ><a name="2343"
+      > </a
+      ><a name="2344" href="IPC.Syntax.GentzenSpinalNormalForm.html#2319" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" href="IPC.Syntax.GentzenSpinalNormalForm.html#448" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2350"
+      > </a
+      ><a name="2351" href="IPC.Syntax.GentzenSpinalNormalForm.html#2315" class="Bound"
+      >A</a
+      ><a name="2352"
+      >
+  </a
+      ><a name="2355" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2362"
+      > </a
+      ><a name="2363" href="IPC.Syntax.GentzenSpinalNormalForm.html#2363" class="Bound"
+      >&#951;</a
+      ><a name="2364"
+      > </a
+      ><a name="2365" class="Symbol"
+      >(</a
+      ><a name="2366" href="IPC.Syntax.GentzenSpinalNormalForm.html#487" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2370"
+      > </a
+      ><a name="2371" href="IPC.Syntax.GentzenSpinalNormalForm.html#2371" class="Bound"
+      >t</a
+      ><a name="2372" class="Symbol"
+      >)</a
+      ><a name="2373"
+      >     </a
+      ><a name="2378" class="Symbol"
+      >=</a
+      ><a name="2379"
+      > </a
+      ><a name="2380" href="IPC.Syntax.GentzenSpinalNormalForm.html#487" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2384"
+      > </a
+      ><a name="2385" class="Symbol"
+      >(</a
+      ><a name="2386" href="IPC.Syntax.GentzenSpinalNormalForm.html#2646" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2393"
+      > </a
+      ><a name="2394" href="IPC.Syntax.GentzenSpinalNormalForm.html#2363" class="Bound"
+      >&#951;</a
+      ><a name="2395"
+      > </a
+      ><a name="2396" href="IPC.Syntax.GentzenSpinalNormalForm.html#2371" class="Bound"
+      >t</a
+      ><a name="2397" class="Symbol"
+      >)</a
+      ><a name="2398"
+      >
+  </a
+      ><a name="2401" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2408"
+      > </a
+      ><a name="2409" href="IPC.Syntax.GentzenSpinalNormalForm.html#2409" class="Bound"
+      >&#951;</a
+      ><a name="2410"
+      > </a
+      ><a name="2411" class="Symbol"
+      >(</a
+      ><a name="2412" href="IPC.Syntax.GentzenSpinalNormalForm.html#545" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" href="IPC.Syntax.GentzenSpinalNormalForm.html#2418" class="Bound"
+      >t</a
+      ><a name="2419" class="Symbol"
+      >)</a
+      ><a name="2420"
+      >    </a
+      ><a name="2424" class="Symbol"
+      >=</a
+      ><a name="2425"
+      > </a
+      ><a name="2426" href="IPC.Syntax.GentzenSpinalNormalForm.html#545" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="2431"
+      > </a
+      ><a name="2432" class="Symbol"
+      >(</a
+      ><a name="2433" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2440"
+      > </a
+      ><a name="2441" class="Symbol"
+      >(</a
+      ><a name="2442" href="Common.Context.html#1725" class="InductiveConstructor"
+      >keep</a
+      ><a name="2446"
+      > </a
+      ><a name="2447" href="IPC.Syntax.GentzenSpinalNormalForm.html#2409" class="Bound"
+      >&#951;</a
+      ><a name="2448" class="Symbol"
+      >)</a
+      ><a name="2449"
+      > </a
+      ><a name="2450" href="IPC.Syntax.GentzenSpinalNormalForm.html#2418" class="Bound"
+      >t</a
+      ><a name="2451" class="Symbol"
+      >)</a
+      ><a name="2452"
+      >
+  </a
+      ><a name="2455" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2462"
+      > </a
+      ><a name="2463" href="IPC.Syntax.GentzenSpinalNormalForm.html#2463" class="Bound"
+      >&#951;</a
+      ><a name="2464"
+      > </a
+      ><a name="2465" class="Symbol"
+      >(</a
+      ><a name="2466" href="IPC.Syntax.GentzenSpinalNormalForm.html#594" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="2472"
+      > </a
+      ><a name="2473" href="IPC.Syntax.GentzenSpinalNormalForm.html#2473" class="Bound"
+      >t</a
+      ><a name="2474"
+      > </a
+      ><a name="2475" href="IPC.Syntax.GentzenSpinalNormalForm.html#2475" class="Bound"
+      >u</a
+      ><a name="2476" class="Symbol"
+      >)</a
+      ><a name="2477"
+      > </a
+      ><a name="2478" class="Symbol"
+      >=</a
+      ><a name="2479"
+      > </a
+      ><a name="2480" href="IPC.Syntax.GentzenSpinalNormalForm.html#594" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="2486"
+      > </a
+      ><a name="2487" class="Symbol"
+      >(</a
+      ><a name="2488" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2495"
+      > </a
+      ><a name="2496" href="IPC.Syntax.GentzenSpinalNormalForm.html#2463" class="Bound"
+      >&#951;</a
+      ><a name="2497"
+      > </a
+      ><a name="2498" href="IPC.Syntax.GentzenSpinalNormalForm.html#2473" class="Bound"
+      >t</a
+      ><a name="2499" class="Symbol"
+      >)</a
+      ><a name="2500"
+      > </a
+      ><a name="2501" class="Symbol"
+      >(</a
+      ><a name="2502" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2509"
+      > </a
+      ><a name="2510" href="IPC.Syntax.GentzenSpinalNormalForm.html#2463" class="Bound"
+      >&#951;</a
+      ><a name="2511"
+      > </a
+      ><a name="2512" href="IPC.Syntax.GentzenSpinalNormalForm.html#2475" class="Bound"
+      >u</a
+      ><a name="2513" class="Symbol"
+      >)</a
+      ><a name="2514"
+      >
+  </a
+      ><a name="2517" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2524"
+      > </a
+      ><a name="2525" href="IPC.Syntax.GentzenSpinalNormalForm.html#2525" class="Bound"
+      >&#951;</a
+      ><a name="2526"
+      > </a
+      ><a name="2527" href="IPC.Syntax.GentzenSpinalNormalForm.html#649" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="2533"
+      >       </a
+      ><a name="2540" class="Symbol"
+      >=</a
+      ><a name="2541"
+      > </a
+      ><a name="2542" href="IPC.Syntax.GentzenSpinalNormalForm.html#649" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="2548"
+      >
+  </a
+      ><a name="2551" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2558"
+      > </a
+      ><a name="2559" href="IPC.Syntax.GentzenSpinalNormalForm.html#2559" class="Bound"
+      >&#951;</a
+      ><a name="2560"
+      > </a
+      ><a name="2561" class="Symbol"
+      >(</a
+      ><a name="2562" href="IPC.Syntax.GentzenSpinalNormalForm.html#670" class="InductiveConstructor"
+      >inl&#8319;&#7584;</a
+      ><a name="2567"
+      > </a
+      ><a name="2568" href="IPC.Syntax.GentzenSpinalNormalForm.html#2568" class="Bound"
+      >t</a
+      ><a name="2569" class="Symbol"
+      >)</a
+      ><a name="2570"
+      >    </a
+      ><a name="2574" class="Symbol"
+      >=</a
+      ><a name="2575"
+      > </a
+      ><a name="2576" href="IPC.Syntax.GentzenSpinalNormalForm.html#670" class="InductiveConstructor"
+      >inl&#8319;&#7584;</a
+      ><a name="2581"
+      > </a
+      ><a name="2582" class="Symbol"
+      >(</a
+      ><a name="2583" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2590"
+      > </a
+      ><a name="2591" href="IPC.Syntax.GentzenSpinalNormalForm.html#2559" class="Bound"
+      >&#951;</a
+      ><a name="2592"
+      > </a
+      ><a name="2593" href="IPC.Syntax.GentzenSpinalNormalForm.html#2568" class="Bound"
+      >t</a
+      ><a name="2594" class="Symbol"
+      >)</a
+      ><a name="2595"
+      >
+  </a
+      ><a name="2598" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2605"
+      > </a
+      ><a name="2606" href="IPC.Syntax.GentzenSpinalNormalForm.html#2606" class="Bound"
+      >&#951;</a
+      ><a name="2607"
+      > </a
+      ><a name="2608" class="Symbol"
+      >(</a
+      ><a name="2609" href="IPC.Syntax.GentzenSpinalNormalForm.html#715" class="InductiveConstructor"
+      >inr&#8319;&#7584;</a
+      ><a name="2614"
+      > </a
+      ><a name="2615" href="IPC.Syntax.GentzenSpinalNormalForm.html#2615" class="Bound"
+      >t</a
+      ><a name="2616" class="Symbol"
+      >)</a
+      ><a name="2617"
+      >    </a
+      ><a name="2621" class="Symbol"
+      >=</a
+      ><a name="2622"
+      > </a
+      ><a name="2623" href="IPC.Syntax.GentzenSpinalNormalForm.html#715" class="InductiveConstructor"
+      >inr&#8319;&#7584;</a
+      ><a name="2628"
+      > </a
+      ><a name="2629" class="Symbol"
+      >(</a
+      ><a name="2630" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2637"
+      > </a
+      ><a name="2638" href="IPC.Syntax.GentzenSpinalNormalForm.html#2606" class="Bound"
+      >&#951;</a
+      ><a name="2639"
+      > </a
+      ><a name="2640" href="IPC.Syntax.GentzenSpinalNormalForm.html#2615" class="Bound"
+      >t</a
+      ><a name="2641" class="Symbol"
+      >)</a
+      ><a name="2642"
+      >
+
+  </a
+      ><a name="2646" href="IPC.Syntax.GentzenSpinalNormalForm.html#2646" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2653"
+      > </a
+      ><a name="2654" class="Symbol"
+      >:</a
+      ><a name="2655"
+      > </a
+      ><a name="2656" class="Symbol"
+      >&#8704;</a
+      ><a name="2657"
+      > </a
+      ><a name="2658" class="Symbol"
+      >{</a
+      ><a name="2659" href="IPC.Syntax.GentzenSpinalNormalForm.html#2659" class="Bound"
+      >A</a
+      ><a name="2660"
+      > </a
+      ><a name="2661" href="IPC.Syntax.GentzenSpinalNormalForm.html#2661" class="Bound"
+      >&#915;</a
+      ><a name="2662"
+      > </a
+      ><a name="2663" href="IPC.Syntax.GentzenSpinalNormalForm.html#2663" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2665" class="Symbol"
+      >}</a
+      ><a name="2666"
+      > </a
+      ><a name="2667" class="Symbol"
+      >&#8594;</a
+      ><a name="2668"
+      > </a
+      ><a name="2669" href="IPC.Syntax.GentzenSpinalNormalForm.html#2661" class="Bound"
+      >&#915;</a
+      ><a name="2670"
+      > </a
+      ><a name="2671" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2672"
+      > </a
+      ><a name="2673" href="IPC.Syntax.GentzenSpinalNormalForm.html#2663" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2675"
+      > </a
+      ><a name="2676" class="Symbol"
+      >&#8594;</a
+      ><a name="2677"
+      > </a
+      ><a name="2678" href="IPC.Syntax.GentzenSpinalNormalForm.html#2661" class="Bound"
+      >&#915;</a
+      ><a name="2679"
+      > </a
+      ><a name="2680" href="IPC.Syntax.GentzenSpinalNormalForm.html#812" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="2683"
+      > </a
+      ><a name="2684" href="IPC.Syntax.GentzenSpinalNormalForm.html#2659" class="Bound"
+      >A</a
+      ><a name="2685"
+      > </a
+      ><a name="2686" class="Symbol"
+      >&#8594;</a
+      ><a name="2687"
+      > </a
+      ><a name="2688" href="IPC.Syntax.GentzenSpinalNormalForm.html#2663" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2690"
+      > </a
+      ><a name="2691" href="IPC.Syntax.GentzenSpinalNormalForm.html#812" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="2694"
+      > </a
+      ><a name="2695" href="IPC.Syntax.GentzenSpinalNormalForm.html#2659" class="Bound"
+      >A</a
+      ><a name="2696"
+      >
+  </a
+      ><a name="2699" href="IPC.Syntax.GentzenSpinalNormalForm.html#2646" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2706"
+      > </a
+      ><a name="2707" href="IPC.Syntax.GentzenSpinalNormalForm.html#2707" class="Bound"
+      >&#951;</a
+      ><a name="2708"
+      > </a
+      ><a name="2709" class="Symbol"
+      >(</a
+      ><a name="2710" href="IPC.Syntax.GentzenSpinalNormalForm.html#851" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" href="IPC.Syntax.GentzenSpinalNormalForm.html#2715" class="Bound"
+      >i</a
+      ><a name="2716"
+      > </a
+      ><a name="2717" href="IPC.Syntax.GentzenSpinalNormalForm.html#2717" class="Bound"
+      >xs</a
+      ><a name="2719"
+      > </a
+      ><a name="2720" href="IPC.Syntax.GentzenSpinalNormalForm.html#2720" class="Bound"
+      >y</a
+      ><a name="2721" class="Symbol"
+      >)</a
+      ><a name="2722"
+      > </a
+      ><a name="2723" class="Symbol"
+      >=</a
+      ><a name="2724"
+      > </a
+      ><a name="2725" href="IPC.Syntax.GentzenSpinalNormalForm.html#851" class="InductiveConstructor"
+      >sp&#8319;&#7497;</a
+      ><a name="2729"
+      > </a
+      ><a name="2730" class="Symbol"
+      >(</a
+      ><a name="2731" href="Common.Context.html#2751" class="Function"
+      >mono&#8712;</a
+      ><a name="2736"
+      > </a
+      ><a name="2737" href="IPC.Syntax.GentzenSpinalNormalForm.html#2707" class="Bound"
+      >&#951;</a
+      ><a name="2738"
+      > </a
+      ><a name="2739" href="IPC.Syntax.GentzenSpinalNormalForm.html#2715" class="Bound"
+      >i</a
+      ><a name="2740" class="Symbol"
+      >)</a
+      ><a name="2741"
+      > </a
+      ><a name="2742" class="Symbol"
+      >(</a
+      ><a name="2743" href="IPC.Syntax.GentzenSpinalNormalForm.html#2774" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2750"
+      > </a
+      ><a name="2751" href="IPC.Syntax.GentzenSpinalNormalForm.html#2707" class="Bound"
+      >&#951;</a
+      ><a name="2752"
+      > </a
+      ><a name="2753" href="IPC.Syntax.GentzenSpinalNormalForm.html#2717" class="Bound"
+      >xs</a
+      ><a name="2755" class="Symbol"
+      >)</a
+      ><a name="2756"
+      > </a
+      ><a name="2757" class="Symbol"
+      >(</a
+      ><a name="2758" href="IPC.Syntax.GentzenSpinalNormalForm.html#3029" class="Function"
+      >mono&#8866;&#7511;&#7510;</a
+      ><a name="2765"
+      > </a
+      ><a name="2766" href="IPC.Syntax.GentzenSpinalNormalForm.html#2707" class="Bound"
+      >&#951;</a
+      ><a name="2767"
+      > </a
+      ><a name="2768" href="IPC.Syntax.GentzenSpinalNormalForm.html#2720" class="Bound"
+      >y</a
+      ><a name="2769" class="Symbol"
+      >)</a
+      ><a name="2770"
+      >
+
+  </a
+      ><a name="2774" href="IPC.Syntax.GentzenSpinalNormalForm.html#2774" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2781"
+      > </a
+      ><a name="2782" class="Symbol"
+      >:</a
+      ><a name="2783"
+      > </a
+      ><a name="2784" class="Symbol"
+      >&#8704;</a
+      ><a name="2785"
+      > </a
+      ><a name="2786" class="Symbol"
+      >{</a
+      ><a name="2787" href="IPC.Syntax.GentzenSpinalNormalForm.html#2787" class="Bound"
+      >A</a
+      ><a name="2788"
+      > </a
+      ><a name="2789" href="IPC.Syntax.GentzenSpinalNormalForm.html#2789" class="Bound"
+      >C</a
+      ><a name="2790"
+      > </a
+      ><a name="2791" href="IPC.Syntax.GentzenSpinalNormalForm.html#2791" class="Bound"
+      >&#915;</a
+      ><a name="2792"
+      > </a
+      ><a name="2793" href="IPC.Syntax.GentzenSpinalNormalForm.html#2793" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2795" class="Symbol"
+      >}</a
+      ><a name="2796"
+      > </a
+      ><a name="2797" class="Symbol"
+      >&#8594;</a
+      ><a name="2798"
+      > </a
+      ><a name="2799" href="IPC.Syntax.GentzenSpinalNormalForm.html#2791" class="Bound"
+      >&#915;</a
+      ><a name="2800"
+      > </a
+      ><a name="2801" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2802"
+      > </a
+      ><a name="2803" href="IPC.Syntax.GentzenSpinalNormalForm.html#2793" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2805"
+      > </a
+      ><a name="2806" class="Symbol"
+      >&#8594;</a
+      ><a name="2807"
+      > </a
+      ><a name="2808" href="IPC.Syntax.GentzenSpinalNormalForm.html#2791" class="Bound"
+      >&#915;</a
+      ><a name="2809"
+      > </a
+      ><a name="2810" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="2813"
+      > </a
+      ><a name="2814" href="IPC.Syntax.GentzenSpinalNormalForm.html#2787" class="Bound"
+      >A</a
+      ><a name="2815"
+      > </a
+      ><a name="2816" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="2817"
+      > </a
+      ><a name="2818" href="IPC.Syntax.GentzenSpinalNormalForm.html#2789" class="Bound"
+      >C</a
+      ><a name="2819"
+      > </a
+      ><a name="2820" class="Symbol"
+      >&#8594;</a
+      ><a name="2821"
+      > </a
+      ><a name="2822" href="IPC.Syntax.GentzenSpinalNormalForm.html#2793" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2824"
+      > </a
+      ><a name="2825" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#8866;&#738;&#7510;</a
+      ><a name="2828"
+      > </a
+      ><a name="2829" href="IPC.Syntax.GentzenSpinalNormalForm.html#2787" class="Bound"
+      >A</a
+      ><a name="2830"
+      > </a
+      ><a name="2831" href="IPC.Syntax.GentzenSpinalNormalForm.html#953" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="2832"
+      > </a
+      ><a name="2833" href="IPC.Syntax.GentzenSpinalNormalForm.html#2789" class="Bound"
+      >C</a
+      ><a name="2834"
+      >
+  </a
+      ><a name="2837" href="IPC.Syntax.GentzenSpinalNormalForm.html#2774" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2844"
+      > </a
+      ><a name="2845" href="IPC.Syntax.GentzenSpinalNormalForm.html#2845" class="Bound"
+      >&#951;</a
+      ><a name="2846"
+      > </a
+      ><a name="2847" href="IPC.Syntax.GentzenSpinalNormalForm.html#999" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="2852"
+      >        </a
+      ><a name="2860" class="Symbol"
+      >=</a
+      ><a name="2861"
+      > </a
+      ><a name="2862" href="IPC.Syntax.GentzenSpinalNormalForm.html#999" class="InductiveConstructor"
+      >nil&#738;&#7510;</a
+      ><a name="2867"
+      >
+  </a
+      ><a name="2870" href="IPC.Syntax.GentzenSpinalNormalForm.html#2774" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2877"
+      > </a
+      ><a name="2878" href="IPC.Syntax.GentzenSpinalNormalForm.html#2878" class="Bound"
+      >&#951;</a
+      ><a name="2879"
+      > </a
+      ><a name="2880" class="Symbol"
+      >(</a
+      ><a name="2881" href="IPC.Syntax.GentzenSpinalNormalForm.html#1035" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="2886"
+      > </a
+      ><a name="2887" href="IPC.Syntax.GentzenSpinalNormalForm.html#2887" class="Bound"
+      >xs</a
+      ><a name="2889"
+      > </a
+      ><a name="2890" href="IPC.Syntax.GentzenSpinalNormalForm.html#2890" class="Bound"
+      >u</a
+      ><a name="2891" class="Symbol"
+      >)</a
+      ><a name="2892"
+      > </a
+      ><a name="2893" class="Symbol"
+      >=</a
+      ><a name="2894"
+      > </a
+      ><a name="2895" href="IPC.Syntax.GentzenSpinalNormalForm.html#1035" class="InductiveConstructor"
+      >app&#738;&#7510;</a
+      ><a name="2900"
+      > </a
+      ><a name="2901" class="Symbol"
+      >(</a
+      ><a name="2902" href="IPC.Syntax.GentzenSpinalNormalForm.html#2774" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2909"
+      > </a
+      ><a name="2910" href="IPC.Syntax.GentzenSpinalNormalForm.html#2878" class="Bound"
+      >&#951;</a
+      ><a name="2911"
+      > </a
+      ><a name="2912" href="IPC.Syntax.GentzenSpinalNormalForm.html#2887" class="Bound"
+      >xs</a
+      ><a name="2914" class="Symbol"
+      >)</a
+      ><a name="2915"
+      > </a
+      ><a name="2916" class="Symbol"
+      >(</a
+      ><a name="2917" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2924"
+      > </a
+      ><a name="2925" href="IPC.Syntax.GentzenSpinalNormalForm.html#2878" class="Bound"
+      >&#951;</a
+      ><a name="2926"
+      > </a
+      ><a name="2927" href="IPC.Syntax.GentzenSpinalNormalForm.html#2890" class="Bound"
+      >u</a
+      ><a name="2928" class="Symbol"
+      >)</a
+      ><a name="2929"
+      >
+  </a
+      ><a name="2932" href="IPC.Syntax.GentzenSpinalNormalForm.html#2774" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2939"
+      > </a
+      ><a name="2940" href="IPC.Syntax.GentzenSpinalNormalForm.html#2940" class="Bound"
+      >&#951;</a
+      ><a name="2941"
+      > </a
+      ><a name="2942" class="Symbol"
+      >(</a
+      ><a name="2943" href="IPC.Syntax.GentzenSpinalNormalForm.html#1099" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="2948"
+      > </a
+      ><a name="2949" href="IPC.Syntax.GentzenSpinalNormalForm.html#2949" class="Bound"
+      >xs</a
+      ><a name="2951" class="Symbol"
+      >)</a
+      ><a name="2952"
+      >   </a
+      ><a name="2955" class="Symbol"
+      >=</a
+      ><a name="2956"
+      > </a
+      ><a name="2957" href="IPC.Syntax.GentzenSpinalNormalForm.html#1099" class="InductiveConstructor"
+      >fst&#738;&#7510;</a
+      ><a name="2962"
+      > </a
+      ><a name="2963" class="Symbol"
+      >(</a
+      ><a name="2964" href="IPC.Syntax.GentzenSpinalNormalForm.html#2774" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2971"
+      > </a
+      ><a name="2972" href="IPC.Syntax.GentzenSpinalNormalForm.html#2940" class="Bound"
+      >&#951;</a
+      ><a name="2973"
+      > </a
+      ><a name="2974" href="IPC.Syntax.GentzenSpinalNormalForm.html#2949" class="Bound"
+      >xs</a
+      ><a name="2976" class="Symbol"
+      >)</a
+      ><a name="2977"
+      >
+  </a
+      ><a name="2980" href="IPC.Syntax.GentzenSpinalNormalForm.html#2774" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" href="IPC.Syntax.GentzenSpinalNormalForm.html#2988" class="Bound"
+      >&#951;</a
+      ><a name="2989"
+      > </a
+      ><a name="2990" class="Symbol"
+      >(</a
+      ><a name="2991" href="IPC.Syntax.GentzenSpinalNormalForm.html#1153" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="2996"
+      > </a
+      ><a name="2997" href="IPC.Syntax.GentzenSpinalNormalForm.html#2997" class="Bound"
+      >xs</a
+      ><a name="2999" class="Symbol"
+      >)</a
+      ><a name="3000"
+      >   </a
+      ><a name="3003" class="Symbol"
+      >=</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" href="IPC.Syntax.GentzenSpinalNormalForm.html#1153" class="InductiveConstructor"
+      >snd&#738;&#7510;</a
+      ><a name="3010"
+      > </a
+      ><a name="3011" class="Symbol"
+      >(</a
+      ><a name="3012" href="IPC.Syntax.GentzenSpinalNormalForm.html#2774" class="Function"
+      >mono&#8866;&#738;&#7510;</a
+      ><a name="3019"
+      > </a
+      ><a name="3020" href="IPC.Syntax.GentzenSpinalNormalForm.html#2988" class="Bound"
+      >&#951;</a
+      ><a name="3021"
+      > </a
+      ><a name="3022" href="IPC.Syntax.GentzenSpinalNormalForm.html#2997" class="Bound"
+      >xs</a
+      ><a name="3024" class="Symbol"
+      >)</a
+      ><a name="3025"
+      >
+
+  </a
+      ><a name="3029" href="IPC.Syntax.GentzenSpinalNormalForm.html#3029" class="Function"
+      >mono&#8866;&#7511;&#7510;</a
+      ><a name="3036"
+      > </a
+      ><a name="3037" class="Symbol"
+      >:</a
+      ><a name="3038"
+      > </a
+      ><a name="3039" class="Symbol"
+      >&#8704;</a
+      ><a name="3040"
+      > </a
+      ><a name="3041" class="Symbol"
+      >{</a
+      ><a name="3042" href="IPC.Syntax.GentzenSpinalNormalForm.html#3042" class="Bound"
+      >A</a
+      ><a name="3043"
+      > </a
+      ><a name="3044" href="IPC.Syntax.GentzenSpinalNormalForm.html#3044" class="Bound"
+      >C</a
+      ><a name="3045"
+      > </a
+      ><a name="3046" href="IPC.Syntax.GentzenSpinalNormalForm.html#3046" class="Bound"
+      >&#915;</a
+      ><a name="3047"
+      > </a
+      ><a name="3048" href="IPC.Syntax.GentzenSpinalNormalForm.html#3048" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3050" class="Symbol"
+      >}</a
+      ><a name="3051"
+      > </a
+      ><a name="3052" class="Symbol"
+      >&#8594;</a
+      ><a name="3053"
+      > </a
+      ><a name="3054" href="IPC.Syntax.GentzenSpinalNormalForm.html#3046" class="Bound"
+      >&#915;</a
+      ><a name="3055"
+      > </a
+      ><a name="3056" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="3057"
+      > </a
+      ><a name="3058" href="IPC.Syntax.GentzenSpinalNormalForm.html#3048" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3060"
+      > </a
+      ><a name="3061" class="Symbol"
+      >&#8594;</a
+      ><a name="3062"
+      > </a
+      ><a name="3063" href="IPC.Syntax.GentzenSpinalNormalForm.html#3046" class="Bound"
+      >&#915;</a
+      ><a name="3064"
+      > </a
+      ><a name="3065" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#8866;&#7511;&#7510;</a
+      ><a name="3068"
+      > </a
+      ><a name="3069" href="IPC.Syntax.GentzenSpinalNormalForm.html#3042" class="Bound"
+      >A</a
+      ><a name="3070"
+      > </a
+      ><a name="3071" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="3072"
+      > </a
+      ><a name="3073" href="IPC.Syntax.GentzenSpinalNormalForm.html#3044" class="Bound"
+      >C</a
+      ><a name="3074"
+      > </a
+      ><a name="3075" class="Symbol"
+      >&#8594;</a
+      ><a name="3076"
+      > </a
+      ><a name="3077" href="IPC.Syntax.GentzenSpinalNormalForm.html#3048" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="3079"
+      > </a
+      ><a name="3080" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#8866;&#7511;&#7510;</a
+      ><a name="3083"
+      > </a
+      ><a name="3084" href="IPC.Syntax.GentzenSpinalNormalForm.html#3042" class="Bound"
+      >A</a
+      ><a name="3085"
+      > </a
+      ><a name="3086" href="IPC.Syntax.GentzenSpinalNormalForm.html#1246" class="Datatype Operator"
+      >&#10649;</a
+      ><a name="3087"
+      > </a
+      ><a name="3088" href="IPC.Syntax.GentzenSpinalNormalForm.html#3044" class="Bound"
+      >C</a
+      ><a name="3089"
+      >
+  </a
+      ><a name="3092" href="IPC.Syntax.GentzenSpinalNormalForm.html#3029" class="Function"
+      >mono&#8866;&#7511;&#7510;</a
+      ><a name="3099"
+      > </a
+      ><a name="3100" href="IPC.Syntax.GentzenSpinalNormalForm.html#3100" class="Bound"
+      >&#951;</a
+      ><a name="3101"
+      > </a
+      ><a name="3102" href="IPC.Syntax.GentzenSpinalNormalForm.html#1292" class="InductiveConstructor"
+      >nil&#7511;&#7510;</a
+      ><a name="3107"
+      >        </a
+      ><a name="3115" class="Symbol"
+      >=</a
+      ><a name="3116"
+      > </a
+      ><a name="3117" href="IPC.Syntax.GentzenSpinalNormalForm.html#1292" class="InductiveConstructor"
+      >nil&#7511;&#7510;</a
+      ><a name="3122"
+      >
+  </a
+      ><a name="3125" href="IPC.Syntax.GentzenSpinalNormalForm.html#3029" class="Function"
+      >mono&#8866;&#7511;&#7510;</a
+      ><a name="3132"
+      > </a
+      ><a name="3133" href="IPC.Syntax.GentzenSpinalNormalForm.html#3133" class="Bound"
+      >&#951;</a
+      ><a name="3134"
+      > </a
+      ><a name="3135" href="IPC.Syntax.GentzenSpinalNormalForm.html#1329" class="InductiveConstructor"
+      >boom&#7511;&#7510;</a
+      ><a name="3141"
+      >       </a
+      ><a name="3148" class="Symbol"
+      >=</a
+      ><a name="3149"
+      > </a
+      ><a name="3150" href="IPC.Syntax.GentzenSpinalNormalForm.html#1329" class="InductiveConstructor"
+      >boom&#7511;&#7510;</a
+      ><a name="3156"
+      >
+  </a
+      ><a name="3159" href="IPC.Syntax.GentzenSpinalNormalForm.html#3029" class="Function"
+      >mono&#8866;&#7511;&#7510;</a
+      ><a name="3166"
+      > </a
+      ><a name="3167" href="IPC.Syntax.GentzenSpinalNormalForm.html#3167" class="Bound"
+      >&#951;</a
+      ><a name="3168"
+      > </a
+      ><a name="3169" class="Symbol"
+      >(</a
+      ><a name="3170" href="IPC.Syntax.GentzenSpinalNormalForm.html#1366" class="InductiveConstructor"
+      >case&#7511;&#7510;</a
+      ><a name="3176"
+      > </a
+      ><a name="3177" href="IPC.Syntax.GentzenSpinalNormalForm.html#3177" class="Bound"
+      >u</a
+      ><a name="3178"
+      > </a
+      ><a name="3179" href="IPC.Syntax.GentzenSpinalNormalForm.html#3179" class="Bound"
+      >v</a
+      ><a name="3180" class="Symbol"
+      >)</a
+      ><a name="3181"
+      > </a
+      ><a name="3182" class="Symbol"
+      >=</a
+      ><a name="3183"
+      > </a
+      ><a name="3184" href="IPC.Syntax.GentzenSpinalNormalForm.html#1366" class="InductiveConstructor"
+      >case&#7511;&#7510;</a
+      ><a name="3190"
+      > </a
+      ><a name="3191" class="Symbol"
+      >(</a
+      ><a name="3192" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="3199"
+      > </a
+      ><a name="3200" class="Symbol"
+      >(</a
+      ><a name="3201" href="Common.Context.html#1725" class="InductiveConstructor"
+      >keep</a
+      ><a name="3205"
+      > </a
+      ><a name="3206" href="IPC.Syntax.GentzenSpinalNormalForm.html#3167" class="Bound"
+      >&#951;</a
+      ><a name="3207" class="Symbol"
+      >)</a
+      ><a name="3208"
+      > </a
+      ><a name="3209" href="IPC.Syntax.GentzenSpinalNormalForm.html#3177" class="Bound"
+      >u</a
+      ><a name="3210" class="Symbol"
+      >)</a
+      ><a name="3211"
+      > </a
+      ><a name="3212" class="Symbol"
+      >(</a
+      ><a name="3213" href="IPC.Syntax.GentzenSpinalNormalForm.html#2302" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="3220"
+      > </a
+      ><a name="3221" class="Symbol"
+      >(</a
+      ><a name="3222" href="Common.Context.html#1725" class="InductiveConstructor"
+      >keep</a
+      ><a name="3226"
+      > </a
+      ><a name="3227" href="IPC.Syntax.GentzenSpinalNormalForm.html#3167" class="Bound"
+      >&#951;</a
+      ><a name="3228" class="Symbol"
+      >)</a
+      ><a name="3229"
+      > </a
+      ><a name="3230" href="IPC.Syntax.GentzenSpinalNormalForm.html#3179" class="Bound"
+      >v</a
+      ><a name="3231" class="Symbol"
+      >)</a
+      ><a name="3232"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>

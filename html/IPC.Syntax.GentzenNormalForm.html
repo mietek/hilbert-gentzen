@@ -1,0 +1,3387 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >IPC.Syntax.GentzenNormalForm</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Intuitionistic propositional calculus.</a
+      ><a name="42"
+      >
+</a
+      ><a name="43" class="Comment"
+      >-- Gentzen-style formalisation of syntax.</a
+      ><a name="84"
+      >
+</a
+      ><a name="85" class="Comment"
+      >-- Normal forms and neutrals.</a
+      ><a name="114"
+      >
+
+</a
+      ><a name="116" class="Keyword"
+      >module</a
+      ><a name="122"
+      > </a
+      ><a name="123" href="IPC.Syntax.GentzenNormalForm.html#1" class="Module"
+      >IPC.Syntax.GentzenNormalForm</a
+      ><a name="151"
+      > </a
+      ><a name="152" class="Keyword"
+      >where</a
+      ><a name="157"
+      >
+
+</a
+      ><a name="159" class="Keyword"
+      >open</a
+      ><a name="163"
+      > </a
+      ><a name="164" class="Keyword"
+      >import</a
+      ><a name="170"
+      > </a
+      ><a name="171" href="IPC.Syntax.Gentzen.html#1" class="Module"
+      >IPC.Syntax.Gentzen</a
+      ><a name="189"
+      > </a
+      ><a name="190" class="Keyword"
+      >public</a
+      ><a name="196"
+      >
+
+
+</a
+      ><a name="199" class="Comment"
+      >-- Derivations.</a
+      ><a name="214"
+      >
+
+</a
+      ><a name="216" class="Keyword"
+      >mutual</a
+      ><a name="222"
+      >
+  </a
+      ><a name="225" class="Comment"
+      >-- Normal forms, or introductions.</a
+      ><a name="259"
+      >
+  </a
+      ><a name="262" class="Keyword"
+      >infix</a
+      ><a name="267"
+      > </a
+      ><a name="268" class="Number"
+      >3</a
+      ><a name="269"
+      > _&#8866;&#8319;&#7584;_
+  </a
+      ><a name="278" class="Keyword"
+      >data</a
+      ><a name="282"
+      > </a
+      ><a name="283" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >_&#8866;&#8319;&#7584;_</a
+      ><a name="288"
+      > </a
+      ><a name="289" class="Symbol"
+      >(</a
+      ><a name="290" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="291"
+      > </a
+      ><a name="292" class="Symbol"
+      >:</a
+      ><a name="293"
+      > </a
+      ><a name="294" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="296"
+      > </a
+      ><a name="297" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="299" class="Symbol"
+      >)</a
+      ><a name="300"
+      > </a
+      ><a name="301" class="Symbol"
+      >:</a
+      ><a name="302"
+      > </a
+      ><a name="303" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="305"
+      > </a
+      ><a name="306" class="Symbol"
+      >&#8594;</a
+      ><a name="307"
+      > </a
+      ><a name="308" class="PrimitiveType"
+      >Set</a
+      ><a name="311"
+      > </a
+      ><a name="312" class="Keyword"
+      >where</a
+      ><a name="317"
+      >
+    </a
+      ><a name="322" href="IPC.Syntax.GentzenNormalForm.html#322" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="326"
+      >   </a
+      ><a name="329" class="Symbol"
+      >:</a
+      ><a name="330"
+      > </a
+      ><a name="331" class="Symbol"
+      >&#8704;</a
+      ><a name="332"
+      > </a
+      ><a name="333" class="Symbol"
+      >{</a
+      ><a name="334" href="IPC.Syntax.GentzenNormalForm.html#334" class="Bound"
+      >A</a
+      ><a name="335" class="Symbol"
+      >}</a
+      ><a name="336"
+      >   </a
+      ><a name="339" class="Symbol"
+      >&#8594;</a
+      ><a name="340"
+      > </a
+      ><a name="341" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="342"
+      > </a
+      ><a name="343" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="346"
+      > </a
+      ><a name="347" href="IPC.Syntax.GentzenNormalForm.html#334" class="Bound"
+      >A</a
+      ><a name="348"
+      > </a
+      ><a name="349" class="Symbol"
+      >&#8594;</a
+      ><a name="350"
+      > </a
+      ><a name="351" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="352"
+      > </a
+      ><a name="353" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="356"
+      > </a
+      ><a name="357" href="IPC.Syntax.GentzenNormalForm.html#334" class="Bound"
+      >A</a
+      ><a name="358"
+      >
+    </a
+      ><a name="363" href="IPC.Syntax.GentzenNormalForm.html#363" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="368"
+      >  </a
+      ><a name="370" class="Symbol"
+      >:</a
+      ><a name="371"
+      > </a
+      ><a name="372" class="Symbol"
+      >&#8704;</a
+      ><a name="373"
+      > </a
+      ><a name="374" class="Symbol"
+      >{</a
+      ><a name="375" href="IPC.Syntax.GentzenNormalForm.html#375" class="Bound"
+      >A</a
+      ><a name="376"
+      > </a
+      ><a name="377" href="IPC.Syntax.GentzenNormalForm.html#377" class="Bound"
+      >B</a
+      ><a name="378" class="Symbol"
+      >}</a
+      ><a name="379"
+      > </a
+      ><a name="380" class="Symbol"
+      >&#8594;</a
+      ><a name="381"
+      > </a
+      ><a name="382" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="383"
+      > </a
+      ><a name="384" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="385"
+      > </a
+      ><a name="386" href="IPC.Syntax.GentzenNormalForm.html#375" class="Bound"
+      >A</a
+      ><a name="387"
+      > </a
+      ><a name="388" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="391"
+      > </a
+      ><a name="392" href="IPC.Syntax.GentzenNormalForm.html#377" class="Bound"
+      >B</a
+      ><a name="393"
+      > </a
+      ><a name="394" class="Symbol"
+      >&#8594;</a
+      ><a name="395"
+      > </a
+      ><a name="396" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="397"
+      > </a
+      ><a name="398" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="401"
+      > </a
+      ><a name="402" href="IPC.Syntax.GentzenNormalForm.html#375" class="Bound"
+      >A</a
+      ><a name="403"
+      > </a
+      ><a name="404" href="IPC.Syntax.Common.html#237" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="405"
+      > </a
+      ><a name="406" href="IPC.Syntax.GentzenNormalForm.html#377" class="Bound"
+      >B</a
+      ><a name="407"
+      >
+    </a
+      ><a name="412" href="IPC.Syntax.GentzenNormalForm.html#412" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="418"
+      > </a
+      ><a name="419" class="Symbol"
+      >:</a
+      ><a name="420"
+      > </a
+      ><a name="421" class="Symbol"
+      >&#8704;</a
+      ><a name="422"
+      > </a
+      ><a name="423" class="Symbol"
+      >{</a
+      ><a name="424" href="IPC.Syntax.GentzenNormalForm.html#424" class="Bound"
+      >A</a
+      ><a name="425"
+      > </a
+      ><a name="426" href="IPC.Syntax.GentzenNormalForm.html#426" class="Bound"
+      >B</a
+      ><a name="427" class="Symbol"
+      >}</a
+      ><a name="428"
+      > </a
+      ><a name="429" class="Symbol"
+      >&#8594;</a
+      ><a name="430"
+      > </a
+      ><a name="431" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="432"
+      > </a
+      ><a name="433" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="436"
+      > </a
+      ><a name="437" href="IPC.Syntax.GentzenNormalForm.html#424" class="Bound"
+      >A</a
+      ><a name="438"
+      > </a
+      ><a name="439" class="Symbol"
+      >&#8594;</a
+      ><a name="440"
+      > </a
+      ><a name="441" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="442"
+      > </a
+      ><a name="443" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="446"
+      > </a
+      ><a name="447" href="IPC.Syntax.GentzenNormalForm.html#426" class="Bound"
+      >B</a
+      ><a name="448"
+      > </a
+      ><a name="449" class="Symbol"
+      >&#8594;</a
+      ><a name="450"
+      > </a
+      ><a name="451" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="452"
+      > </a
+      ><a name="453" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="456"
+      > </a
+      ><a name="457" href="IPC.Syntax.GentzenNormalForm.html#424" class="Bound"
+      >A</a
+      ><a name="458"
+      > </a
+      ><a name="459" href="IPC.Syntax.Common.html#258" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="460"
+      > </a
+      ><a name="461" href="IPC.Syntax.GentzenNormalForm.html#426" class="Bound"
+      >B</a
+      ><a name="462"
+      >
+    </a
+      ><a name="467" href="IPC.Syntax.GentzenNormalForm.html#467" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="473"
+      > </a
+      ><a name="474" class="Symbol"
+      >:</a
+      ><a name="475"
+      > </a
+      ><a name="476" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="477"
+      > </a
+      ><a name="478" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="481"
+      > </a
+      ><a name="482" href="IPC.Syntax.Common.html#279" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="483"
+      >
+    </a
+      ><a name="488" href="IPC.Syntax.GentzenNormalForm.html#488" class="InductiveConstructor"
+      >inl&#8319;&#7584;</a
+      ><a name="493"
+      >  </a
+      ><a name="495" class="Symbol"
+      >:</a
+      ><a name="496"
+      > </a
+      ><a name="497" class="Symbol"
+      >&#8704;</a
+      ><a name="498"
+      > </a
+      ><a name="499" class="Symbol"
+      >{</a
+      ><a name="500" href="IPC.Syntax.GentzenNormalForm.html#500" class="Bound"
+      >A</a
+      ><a name="501"
+      > </a
+      ><a name="502" href="IPC.Syntax.GentzenNormalForm.html#502" class="Bound"
+      >B</a
+      ><a name="503" class="Symbol"
+      >}</a
+      ><a name="504"
+      > </a
+      ><a name="505" class="Symbol"
+      >&#8594;</a
+      ><a name="506"
+      > </a
+      ><a name="507" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="508"
+      > </a
+      ><a name="509" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="512"
+      > </a
+      ><a name="513" href="IPC.Syntax.GentzenNormalForm.html#500" class="Bound"
+      >A</a
+      ><a name="514"
+      > </a
+      ><a name="515" class="Symbol"
+      >&#8594;</a
+      ><a name="516"
+      > </a
+      ><a name="517" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="518"
+      > </a
+      ><a name="519" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="522"
+      > </a
+      ><a name="523" href="IPC.Syntax.GentzenNormalForm.html#500" class="Bound"
+      >A</a
+      ><a name="524"
+      > </a
+      ><a name="525" href="IPC.Syntax.Common.html#299" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="526"
+      > </a
+      ><a name="527" href="IPC.Syntax.GentzenNormalForm.html#502" class="Bound"
+      >B</a
+      ><a name="528"
+      >
+    </a
+      ><a name="533" href="IPC.Syntax.GentzenNormalForm.html#533" class="InductiveConstructor"
+      >inr&#8319;&#7584;</a
+      ><a name="538"
+      >  </a
+      ><a name="540" class="Symbol"
+      >:</a
+      ><a name="541"
+      > </a
+      ><a name="542" class="Symbol"
+      >&#8704;</a
+      ><a name="543"
+      > </a
+      ><a name="544" class="Symbol"
+      >{</a
+      ><a name="545" href="IPC.Syntax.GentzenNormalForm.html#545" class="Bound"
+      >A</a
+      ><a name="546"
+      > </a
+      ><a name="547" href="IPC.Syntax.GentzenNormalForm.html#547" class="Bound"
+      >B</a
+      ><a name="548" class="Symbol"
+      >}</a
+      ><a name="549"
+      > </a
+      ><a name="550" class="Symbol"
+      >&#8594;</a
+      ><a name="551"
+      > </a
+      ><a name="552" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="553"
+      > </a
+      ><a name="554" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="557"
+      > </a
+      ><a name="558" href="IPC.Syntax.GentzenNormalForm.html#547" class="Bound"
+      >B</a
+      ><a name="559"
+      > </a
+      ><a name="560" class="Symbol"
+      >&#8594;</a
+      ><a name="561"
+      > </a
+      ><a name="562" href="IPC.Syntax.GentzenNormalForm.html#290" class="Bound"
+      >&#915;</a
+      ><a name="563"
+      > </a
+      ><a name="564" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="567"
+      > </a
+      ><a name="568" href="IPC.Syntax.GentzenNormalForm.html#545" class="Bound"
+      >A</a
+      ><a name="569"
+      > </a
+      ><a name="570" href="IPC.Syntax.Common.html#299" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="571"
+      > </a
+      ><a name="572" href="IPC.Syntax.GentzenNormalForm.html#547" class="Bound"
+      >B</a
+      ><a name="573"
+      >
+
+  </a
+      ><a name="577" class="Comment"
+      >-- Neutrals, or eliminations.</a
+      ><a name="606"
+      >
+  </a
+      ><a name="609" class="Keyword"
+      >infix</a
+      ><a name="614"
+      > </a
+      ><a name="615" class="Number"
+      >3</a
+      ><a name="616"
+      > _&#8866;&#8319;&#7497;_
+  </a
+      ><a name="625" class="Keyword"
+      >data</a
+      ><a name="629"
+      > </a
+      ><a name="630" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >_&#8866;&#8319;&#7497;_</a
+      ><a name="635"
+      > </a
+      ><a name="636" class="Symbol"
+      >(</a
+      ><a name="637" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="638"
+      > </a
+      ><a name="639" class="Symbol"
+      >:</a
+      ><a name="640"
+      > </a
+      ><a name="641" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="643"
+      > </a
+      ><a name="644" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="646" class="Symbol"
+      >)</a
+      ><a name="647"
+      > </a
+      ><a name="648" class="Symbol"
+      >:</a
+      ><a name="649"
+      > </a
+      ><a name="650" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="652"
+      > </a
+      ><a name="653" class="Symbol"
+      >&#8594;</a
+      ><a name="654"
+      > </a
+      ><a name="655" class="PrimitiveType"
+      >Set</a
+      ><a name="658"
+      > </a
+      ><a name="659" class="Keyword"
+      >where</a
+      ><a name="664"
+      >
+    </a
+      ><a name="669" href="IPC.Syntax.GentzenNormalForm.html#669" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="674"
+      >  </a
+      ><a name="676" class="Symbol"
+      >:</a
+      ><a name="677"
+      > </a
+      ><a name="678" class="Symbol"
+      >&#8704;</a
+      ><a name="679"
+      > </a
+      ><a name="680" class="Symbol"
+      >{</a
+      ><a name="681" href="IPC.Syntax.GentzenNormalForm.html#681" class="Bound"
+      >A</a
+      ><a name="682" class="Symbol"
+      >}</a
+      ><a name="683"
+      >     </a
+      ><a name="688" class="Symbol"
+      >&#8594;</a
+      ><a name="689"
+      > </a
+      ><a name="690" href="IPC.Syntax.GentzenNormalForm.html#681" class="Bound"
+      >A</a
+      ><a name="691"
+      > </a
+      ><a name="692" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="693"
+      > </a
+      ><a name="694" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="695"
+      > </a
+      ><a name="696" class="Symbol"
+      >&#8594;</a
+      ><a name="697"
+      > </a
+      ><a name="698" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="699"
+      > </a
+      ><a name="700" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="703"
+      > </a
+      ><a name="704" href="IPC.Syntax.GentzenNormalForm.html#681" class="Bound"
+      >A</a
+      ><a name="705"
+      >
+    </a
+      ><a name="710" href="IPC.Syntax.GentzenNormalForm.html#710" class="InductiveConstructor"
+      >app&#8319;&#7497;</a
+      ><a name="715"
+      >  </a
+      ><a name="717" class="Symbol"
+      >:</a
+      ><a name="718"
+      > </a
+      ><a name="719" class="Symbol"
+      >&#8704;</a
+      ><a name="720"
+      > </a
+      ><a name="721" class="Symbol"
+      >{</a
+      ><a name="722" href="IPC.Syntax.GentzenNormalForm.html#722" class="Bound"
+      >A</a
+      ><a name="723"
+      > </a
+      ><a name="724" href="IPC.Syntax.GentzenNormalForm.html#724" class="Bound"
+      >B</a
+      ><a name="725" class="Symbol"
+      >}</a
+      ><a name="726"
+      >   </a
+      ><a name="729" class="Symbol"
+      >&#8594;</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="736"
+      > </a
+      ><a name="737" href="IPC.Syntax.GentzenNormalForm.html#722" class="Bound"
+      >A</a
+      ><a name="738"
+      > </a
+      ><a name="739" href="IPC.Syntax.Common.html#237" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="IPC.Syntax.GentzenNormalForm.html#724" class="Bound"
+      >B</a
+      ><a name="742"
+      > </a
+      ><a name="743" class="Symbol"
+      >&#8594;</a
+      ><a name="744"
+      > </a
+      ><a name="745" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="746"
+      > </a
+      ><a name="747" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="IPC.Syntax.GentzenNormalForm.html#722" class="Bound"
+      >A</a
+      ><a name="752"
+      > </a
+      ><a name="753" class="Symbol"
+      >&#8594;</a
+      ><a name="754"
+      > </a
+      ><a name="755" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="760"
+      > </a
+      ><a name="761" href="IPC.Syntax.GentzenNormalForm.html#724" class="Bound"
+      >B</a
+      ><a name="762"
+      >
+    </a
+      ><a name="767" href="IPC.Syntax.GentzenNormalForm.html#767" class="InductiveConstructor"
+      >fst&#8319;&#7497;</a
+      ><a name="772"
+      >  </a
+      ><a name="774" class="Symbol"
+      >:</a
+      ><a name="775"
+      > </a
+      ><a name="776" class="Symbol"
+      >&#8704;</a
+      ><a name="777"
+      > </a
+      ><a name="778" class="Symbol"
+      >{</a
+      ><a name="779" href="IPC.Syntax.GentzenNormalForm.html#779" class="Bound"
+      >A</a
+      ><a name="780"
+      > </a
+      ><a name="781" href="IPC.Syntax.GentzenNormalForm.html#781" class="Bound"
+      >B</a
+      ><a name="782" class="Symbol"
+      >}</a
+      ><a name="783"
+      >   </a
+      ><a name="786" class="Symbol"
+      >&#8594;</a
+      ><a name="787"
+      > </a
+      ><a name="788" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="789"
+      > </a
+      ><a name="790" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="793"
+      > </a
+      ><a name="794" href="IPC.Syntax.GentzenNormalForm.html#779" class="Bound"
+      >A</a
+      ><a name="795"
+      > </a
+      ><a name="796" href="IPC.Syntax.Common.html#258" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="797"
+      > </a
+      ><a name="798" href="IPC.Syntax.GentzenNormalForm.html#781" class="Bound"
+      >B</a
+      ><a name="799"
+      > </a
+      ><a name="800" class="Symbol"
+      >&#8594;</a
+      ><a name="801"
+      > </a
+      ><a name="802" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="803"
+      > </a
+      ><a name="804" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="807"
+      > </a
+      ><a name="808" href="IPC.Syntax.GentzenNormalForm.html#779" class="Bound"
+      >A</a
+      ><a name="809"
+      >
+    </a
+      ><a name="814" href="IPC.Syntax.GentzenNormalForm.html#814" class="InductiveConstructor"
+      >snd&#8319;&#7497;</a
+      ><a name="819"
+      >  </a
+      ><a name="821" class="Symbol"
+      >:</a
+      ><a name="822"
+      > </a
+      ><a name="823" class="Symbol"
+      >&#8704;</a
+      ><a name="824"
+      > </a
+      ><a name="825" class="Symbol"
+      >{</a
+      ><a name="826" href="IPC.Syntax.GentzenNormalForm.html#826" class="Bound"
+      >A</a
+      ><a name="827"
+      > </a
+      ><a name="828" href="IPC.Syntax.GentzenNormalForm.html#828" class="Bound"
+      >B</a
+      ><a name="829" class="Symbol"
+      >}</a
+      ><a name="830"
+      >   </a
+      ><a name="833" class="Symbol"
+      >&#8594;</a
+      ><a name="834"
+      > </a
+      ><a name="835" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="836"
+      > </a
+      ><a name="837" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="840"
+      > </a
+      ><a name="841" href="IPC.Syntax.GentzenNormalForm.html#826" class="Bound"
+      >A</a
+      ><a name="842"
+      > </a
+      ><a name="843" href="IPC.Syntax.Common.html#258" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="844"
+      > </a
+      ><a name="845" href="IPC.Syntax.GentzenNormalForm.html#828" class="Bound"
+      >B</a
+      ><a name="846"
+      > </a
+      ><a name="847" class="Symbol"
+      >&#8594;</a
+      ><a name="848"
+      > </a
+      ><a name="849" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="850"
+      > </a
+      ><a name="851" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="854"
+      > </a
+      ><a name="855" href="IPC.Syntax.GentzenNormalForm.html#828" class="Bound"
+      >B</a
+      ><a name="856"
+      >
+    </a
+      ><a name="861" href="IPC.Syntax.GentzenNormalForm.html#861" class="InductiveConstructor"
+      >boom&#8319;&#7497;</a
+      ><a name="867"
+      > </a
+      ><a name="868" class="Symbol"
+      >:</a
+      ><a name="869"
+      > </a
+      ><a name="870" class="Symbol"
+      >&#8704;</a
+      ><a name="871"
+      > </a
+      ><a name="872" class="Symbol"
+      >{</a
+      ><a name="873" href="IPC.Syntax.GentzenNormalForm.html#873" class="Bound"
+      >C</a
+      ><a name="874" class="Symbol"
+      >}</a
+      ><a name="875"
+      >     </a
+      ><a name="880" class="Symbol"
+      >&#8594;</a
+      ><a name="881"
+      > </a
+      ><a name="882" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="883"
+      > </a
+      ><a name="884" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="887"
+      > </a
+      ><a name="888" href="IPC.Syntax.Common.html#289" class="InductiveConstructor"
+      >&#8869;</a
+      ><a name="889"
+      > </a
+      ><a name="890" class="Symbol"
+      >&#8594;</a
+      ><a name="891"
+      > </a
+      ><a name="892" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="893"
+      > </a
+      ><a name="894" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="897"
+      > </a
+      ><a name="898" href="IPC.Syntax.GentzenNormalForm.html#873" class="Bound"
+      >C</a
+      ><a name="899"
+      >
+    </a
+      ><a name="904" href="IPC.Syntax.GentzenNormalForm.html#904" class="InductiveConstructor"
+      >case&#8319;&#7497;</a
+      ><a name="910"
+      > </a
+      ><a name="911" class="Symbol"
+      >:</a
+      ><a name="912"
+      > </a
+      ><a name="913" class="Symbol"
+      >&#8704;</a
+      ><a name="914"
+      > </a
+      ><a name="915" class="Symbol"
+      >{</a
+      ><a name="916" href="IPC.Syntax.GentzenNormalForm.html#916" class="Bound"
+      >A</a
+      ><a name="917"
+      > </a
+      ><a name="918" href="IPC.Syntax.GentzenNormalForm.html#918" class="Bound"
+      >B</a
+      ><a name="919"
+      > </a
+      ><a name="920" href="IPC.Syntax.GentzenNormalForm.html#920" class="Bound"
+      >C</a
+      ><a name="921" class="Symbol"
+      >}</a
+      ><a name="922"
+      > </a
+      ><a name="923" class="Symbol"
+      >&#8594;</a
+      ><a name="924"
+      > </a
+      ><a name="925" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="926"
+      > </a
+      ><a name="927" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="930"
+      > </a
+      ><a name="931" href="IPC.Syntax.GentzenNormalForm.html#916" class="Bound"
+      >A</a
+      ><a name="932"
+      > </a
+      ><a name="933" href="IPC.Syntax.Common.html#299" class="InductiveConstructor Operator"
+      >&#8744;</a
+      ><a name="934"
+      > </a
+      ><a name="935" href="IPC.Syntax.GentzenNormalForm.html#918" class="Bound"
+      >B</a
+      ><a name="936"
+      > </a
+      ><a name="937" class="Symbol"
+      >&#8594;</a
+      ><a name="938"
+      > </a
+      ><a name="939" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="940"
+      > </a
+      ><a name="941" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="942"
+      > </a
+      ><a name="943" href="IPC.Syntax.GentzenNormalForm.html#916" class="Bound"
+      >A</a
+      ><a name="944"
+      > </a
+      ><a name="945" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="948"
+      > </a
+      ><a name="949" href="IPC.Syntax.GentzenNormalForm.html#920" class="Bound"
+      >C</a
+      ><a name="950"
+      > </a
+      ><a name="951" class="Symbol"
+      >&#8594;</a
+      ><a name="952"
+      > </a
+      ><a name="953" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="954"
+      > </a
+      ><a name="955" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="956"
+      > </a
+      ><a name="957" href="IPC.Syntax.GentzenNormalForm.html#918" class="Bound"
+      >B</a
+      ><a name="958"
+      > </a
+      ><a name="959" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="962"
+      > </a
+      ><a name="963" href="IPC.Syntax.GentzenNormalForm.html#920" class="Bound"
+      >C</a
+      ><a name="964"
+      > </a
+      ><a name="965" class="Symbol"
+      >&#8594;</a
+      ><a name="966"
+      > </a
+      ><a name="967" href="IPC.Syntax.GentzenNormalForm.html#637" class="Bound"
+      >&#915;</a
+      ><a name="968"
+      > </a
+      ><a name="969" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="972"
+      > </a
+      ><a name="973" href="IPC.Syntax.GentzenNormalForm.html#920" class="Bound"
+      >C</a
+      ><a name="974"
+      >
+
+</a
+      ><a name="976" class="Keyword"
+      >infix</a
+      ><a name="981"
+      > </a
+      ><a name="982" class="Number"
+      >3</a
+      ><a name="983"
+      > _&#8866;&#8902;&#8319;&#7584;_
+</a
+      ><a name="991" href="IPC.Syntax.GentzenNormalForm.html#991" class="Function Operator"
+      >_&#8866;&#8902;&#8319;&#7584;_</a
+      ><a name="997"
+      > </a
+      ><a name="998" class="Symbol"
+      >:</a
+      ><a name="999"
+      > </a
+      ><a name="1000" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1002"
+      > </a
+      ><a name="1003" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" class="Symbol"
+      >&#8594;</a
+      ><a name="1007"
+      > </a
+      ><a name="1008" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1010"
+      > </a
+      ><a name="1011" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="1013"
+      > </a
+      ><a name="1014" class="Symbol"
+      >&#8594;</a
+      ><a name="1015"
+      > </a
+      ><a name="1016" class="PrimitiveType"
+      >Set</a
+      ><a name="1019"
+      >
+</a
+      ><a name="1020" href="IPC.Syntax.GentzenNormalForm.html#1020" class="Bound"
+      >&#915;</a
+      ><a name="1021"
+      > </a
+      ><a name="1022" href="IPC.Syntax.GentzenNormalForm.html#991" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="1026"
+      > </a
+      ><a name="1027" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1028"
+      >     </a
+      ><a name="1033" class="Symbol"
+      >=</a
+      ><a name="1034"
+      > </a
+      ><a name="1035" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1036"
+      >
+</a
+      ><a name="1037" href="IPC.Syntax.GentzenNormalForm.html#1037" class="Bound"
+      >&#915;</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" href="IPC.Syntax.GentzenNormalForm.html#991" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="1043"
+      > </a
+      ><a name="1044" href="IPC.Syntax.GentzenNormalForm.html#1044" class="Bound"
+      >&#926;</a
+      ><a name="1045"
+      > </a
+      ><a name="1046" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1047"
+      > </a
+      ><a name="1048" href="IPC.Syntax.GentzenNormalForm.html#1048" class="Bound"
+      >A</a
+      ><a name="1049"
+      > </a
+      ><a name="1050" class="Symbol"
+      >=</a
+      ><a name="1051"
+      > </a
+      ><a name="1052" href="IPC.Syntax.GentzenNormalForm.html#1037" class="Bound"
+      >&#915;</a
+      ><a name="1053"
+      > </a
+      ><a name="1054" href="IPC.Syntax.GentzenNormalForm.html#991" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="1058"
+      > </a
+      ><a name="1059" href="IPC.Syntax.GentzenNormalForm.html#1044" class="Bound"
+      >&#926;</a
+      ><a name="1060"
+      > </a
+      ><a name="1061" href="Common.html#1626" class="Function Operator"
+      >&#215;</a
+      ><a name="1062"
+      > </a
+      ><a name="1063" href="IPC.Syntax.GentzenNormalForm.html#1037" class="Bound"
+      >&#915;</a
+      ><a name="1064"
+      > </a
+      ><a name="1065" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1068"
+      > </a
+      ><a name="1069" href="IPC.Syntax.GentzenNormalForm.html#1048" class="Bound"
+      >A</a
+      ><a name="1070"
+      >
+
+</a
+      ><a name="1072" class="Keyword"
+      >infix</a
+      ><a name="1077"
+      > </a
+      ><a name="1078" class="Number"
+      >3</a
+      ><a name="1079"
+      > _&#8866;&#8902;&#8319;&#7497;_
+</a
+      ><a name="1087" href="IPC.Syntax.GentzenNormalForm.html#1087" class="Function Operator"
+      >_&#8866;&#8902;&#8319;&#7497;_</a
+      ><a name="1093"
+      > </a
+      ><a name="1094" class="Symbol"
+      >:</a
+      ><a name="1095"
+      > </a
+      ><a name="1096" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1098"
+      > </a
+      ><a name="1099" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="1101"
+      > </a
+      ><a name="1102" class="Symbol"
+      >&#8594;</a
+      ><a name="1103"
+      > </a
+      ><a name="1104" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1106"
+      > </a
+      ><a name="1107" href="IPC.Syntax.Common.html#202" class="Datatype"
+      >Ty</a
+      ><a name="1109"
+      > </a
+      ><a name="1110" class="Symbol"
+      >&#8594;</a
+      ><a name="1111"
+      > </a
+      ><a name="1112" class="PrimitiveType"
+      >Set</a
+      ><a name="1115"
+      >
+</a
+      ><a name="1116" href="IPC.Syntax.GentzenNormalForm.html#1116" class="Bound"
+      >&#915;</a
+      ><a name="1117"
+      > </a
+      ><a name="1118" href="IPC.Syntax.GentzenNormalForm.html#1087" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="1122"
+      > </a
+      ><a name="1123" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1124"
+      >     </a
+      ><a name="1129" class="Symbol"
+      >=</a
+      ><a name="1130"
+      > </a
+      ><a name="1131" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1132"
+      >
+</a
+      ><a name="1133" href="IPC.Syntax.GentzenNormalForm.html#1133" class="Bound"
+      >&#915;</a
+      ><a name="1134"
+      > </a
+      ><a name="1135" href="IPC.Syntax.GentzenNormalForm.html#1087" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="1139"
+      > </a
+      ><a name="1140" href="IPC.Syntax.GentzenNormalForm.html#1140" class="Bound"
+      >&#926;</a
+      ><a name="1141"
+      > </a
+      ><a name="1142" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1143"
+      > </a
+      ><a name="1144" href="IPC.Syntax.GentzenNormalForm.html#1144" class="Bound"
+      >A</a
+      ><a name="1145"
+      > </a
+      ><a name="1146" class="Symbol"
+      >=</a
+      ><a name="1147"
+      > </a
+      ><a name="1148" href="IPC.Syntax.GentzenNormalForm.html#1133" class="Bound"
+      >&#915;</a
+      ><a name="1149"
+      > </a
+      ><a name="1150" href="IPC.Syntax.GentzenNormalForm.html#1087" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="1154"
+      > </a
+      ><a name="1155" href="IPC.Syntax.GentzenNormalForm.html#1140" class="Bound"
+      >&#926;</a
+      ><a name="1156"
+      > </a
+      ><a name="1157" href="Common.html#1626" class="Function Operator"
+      >&#215;</a
+      ><a name="1158"
+      > </a
+      ><a name="1159" href="IPC.Syntax.GentzenNormalForm.html#1133" class="Bound"
+      >&#915;</a
+      ><a name="1160"
+      > </a
+      ><a name="1161" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="1164"
+      > </a
+      ><a name="1165" href="IPC.Syntax.GentzenNormalForm.html#1144" class="Bound"
+      >A</a
+      ><a name="1166"
+      >
+
+
+</a
+      ><a name="1169" class="Comment"
+      >-- Translation to simple terms.</a
+      ><a name="1200"
+      >
+
+</a
+      ><a name="1202" class="Keyword"
+      >mutual</a
+      ><a name="1208"
+      >
+  </a
+      ><a name="1211" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1216"
+      > </a
+      ><a name="1217" class="Symbol"
+      >:</a
+      ><a name="1218"
+      > </a
+      ><a name="1219" class="Symbol"
+      >&#8704;</a
+      ><a name="1220"
+      > </a
+      ><a name="1221" class="Symbol"
+      >{</a
+      ><a name="1222" href="IPC.Syntax.GentzenNormalForm.html#1222" class="Bound"
+      >A</a
+      ><a name="1223"
+      > </a
+      ><a name="1224" href="IPC.Syntax.GentzenNormalForm.html#1224" class="Bound"
+      >&#915;</a
+      ><a name="1225" class="Symbol"
+      >}</a
+      ><a name="1226"
+      > </a
+      ><a name="1227" class="Symbol"
+      >&#8594;</a
+      ><a name="1228"
+      > </a
+      ><a name="1229" href="IPC.Syntax.GentzenNormalForm.html#1224" class="Bound"
+      >&#915;</a
+      ><a name="1230"
+      > </a
+      ><a name="1231" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="1234"
+      > </a
+      ><a name="1235" href="IPC.Syntax.GentzenNormalForm.html#1222" class="Bound"
+      >A</a
+      ><a name="1236"
+      > </a
+      ><a name="1237" class="Symbol"
+      >&#8594;</a
+      ><a name="1238"
+      > </a
+      ><a name="1239" href="IPC.Syntax.GentzenNormalForm.html#1224" class="Bound"
+      >&#915;</a
+      ><a name="1240"
+      > </a
+      ><a name="1241" href="IPC.Syntax.Gentzen.html#209" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" href="IPC.Syntax.GentzenNormalForm.html#1222" class="Bound"
+      >A</a
+      ><a name="1244"
+      >
+  </a
+      ><a name="1247" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1252"
+      > </a
+      ><a name="1253" class="Symbol"
+      >(</a
+      ><a name="1254" href="IPC.Syntax.GentzenNormalForm.html#322" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" href="IPC.Syntax.GentzenNormalForm.html#1259" class="Bound"
+      >t</a
+      ><a name="1260" class="Symbol"
+      >)</a
+      ><a name="1261"
+      >     </a
+      ><a name="1266" class="Symbol"
+      >=</a
+      ><a name="1267"
+      > </a
+      ><a name="1268" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1273"
+      > </a
+      ><a name="1274" href="IPC.Syntax.GentzenNormalForm.html#1259" class="Bound"
+      >t</a
+      ><a name="1275"
+      >
+  </a
+      ><a name="1278" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1283"
+      > </a
+      ><a name="1284" class="Symbol"
+      >(</a
+      ><a name="1285" href="IPC.Syntax.GentzenNormalForm.html#363" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" href="IPC.Syntax.GentzenNormalForm.html#1291" class="Bound"
+      >t</a
+      ><a name="1292" class="Symbol"
+      >)</a
+      ><a name="1293"
+      >    </a
+      ><a name="1297" class="Symbol"
+      >=</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" href="IPC.Syntax.Gentzen.html#279" class="InductiveConstructor"
+      >lam</a
+      ><a name="1302"
+      > </a
+      ><a name="1303" class="Symbol"
+      >(</a
+      ><a name="1304" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" href="IPC.Syntax.GentzenNormalForm.html#1291" class="Bound"
+      >t</a
+      ><a name="1311" class="Symbol"
+      >)</a
+      ><a name="1312"
+      >
+  </a
+      ><a name="1315" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1320"
+      > </a
+      ><a name="1321" class="Symbol"
+      >(</a
+      ><a name="1322" href="IPC.Syntax.GentzenNormalForm.html#412" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="1328"
+      > </a
+      ><a name="1329" href="IPC.Syntax.GentzenNormalForm.html#1329" class="Bound"
+      >t</a
+      ><a name="1330"
+      > </a
+      ><a name="1331" href="IPC.Syntax.GentzenNormalForm.html#1331" class="Bound"
+      >u</a
+      ><a name="1332" class="Symbol"
+      >)</a
+      ><a name="1333"
+      > </a
+      ><a name="1334" class="Symbol"
+      >=</a
+      ><a name="1335"
+      > </a
+      ><a name="1336" href="IPC.Syntax.Gentzen.html#369" class="InductiveConstructor"
+      >pair</a
+      ><a name="1340"
+      > </a
+      ><a name="1341" class="Symbol"
+      >(</a
+      ><a name="1342" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1347"
+      > </a
+      ><a name="1348" href="IPC.Syntax.GentzenNormalForm.html#1329" class="Bound"
+      >t</a
+      ><a name="1349" class="Symbol"
+      >)</a
+      ><a name="1350"
+      > </a
+      ><a name="1351" class="Symbol"
+      >(</a
+      ><a name="1352" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1357"
+      > </a
+      ><a name="1358" href="IPC.Syntax.GentzenNormalForm.html#1331" class="Bound"
+      >u</a
+      ><a name="1359" class="Symbol"
+      >)</a
+      ><a name="1360"
+      >
+  </a
+      ><a name="1363" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1368"
+      > </a
+      ><a name="1369" href="IPC.Syntax.GentzenNormalForm.html#467" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="1375"
+      >       </a
+      ><a name="1382" class="Symbol"
+      >=</a
+      ><a name="1383"
+      > </a
+      ><a name="1384" href="IPC.Syntax.Gentzen.html#494" class="InductiveConstructor"
+      >unit</a
+      ><a name="1388"
+      >
+  </a
+      ><a name="1391" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1396"
+      > </a
+      ><a name="1397" class="Symbol"
+      >(</a
+      ><a name="1398" href="IPC.Syntax.GentzenNormalForm.html#488" class="InductiveConstructor"
+      >inl&#8319;&#7584;</a
+      ><a name="1403"
+      > </a
+      ><a name="1404" href="IPC.Syntax.GentzenNormalForm.html#1404" class="Bound"
+      >t</a
+      ><a name="1405" class="Symbol"
+      >)</a
+      ><a name="1406"
+      >    </a
+      ><a name="1410" class="Symbol"
+      >=</a
+      ><a name="1411"
+      > </a
+      ><a name="1412" href="IPC.Syntax.Gentzen.html#544" class="InductiveConstructor"
+      >inl</a
+      ><a name="1415"
+      > </a
+      ><a name="1416" class="Symbol"
+      >(</a
+      ><a name="1417" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1422"
+      > </a
+      ><a name="1423" href="IPC.Syntax.GentzenNormalForm.html#1404" class="Bound"
+      >t</a
+      ><a name="1424" class="Symbol"
+      >)</a
+      ><a name="1425"
+      >
+  </a
+      ><a name="1428" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1433"
+      > </a
+      ><a name="1434" class="Symbol"
+      >(</a
+      ><a name="1435" href="IPC.Syntax.GentzenNormalForm.html#533" class="InductiveConstructor"
+      >inr&#8319;&#7584;</a
+      ><a name="1440"
+      > </a
+      ><a name="1441" href="IPC.Syntax.GentzenNormalForm.html#1441" class="Bound"
+      >t</a
+      ><a name="1442" class="Symbol"
+      >)</a
+      ><a name="1443"
+      >    </a
+      ><a name="1447" class="Symbol"
+      >=</a
+      ><a name="1448"
+      > </a
+      ><a name="1449" href="IPC.Syntax.Gentzen.html#583" class="InductiveConstructor"
+      >inr</a
+      ><a name="1452"
+      > </a
+      ><a name="1453" class="Symbol"
+      >(</a
+      ><a name="1454" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1459"
+      > </a
+      ><a name="1460" href="IPC.Syntax.GentzenNormalForm.html#1441" class="Bound"
+      >t</a
+      ><a name="1461" class="Symbol"
+      >)</a
+      ><a name="1462"
+      >
+
+  </a
+      ><a name="1466" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1471"
+      > </a
+      ><a name="1472" class="Symbol"
+      >:</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" class="Symbol"
+      >&#8704;</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" class="Symbol"
+      >{</a
+      ><a name="1477" href="IPC.Syntax.GentzenNormalForm.html#1477" class="Bound"
+      >A</a
+      ><a name="1478"
+      > </a
+      ><a name="1479" href="IPC.Syntax.GentzenNormalForm.html#1479" class="Bound"
+      >&#915;</a
+      ><a name="1480" class="Symbol"
+      >}</a
+      ><a name="1481"
+      > </a
+      ><a name="1482" class="Symbol"
+      >&#8594;</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" href="IPC.Syntax.GentzenNormalForm.html#1479" class="Bound"
+      >&#915;</a
+      ><a name="1485"
+      > </a
+      ><a name="1486" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="1489"
+      > </a
+      ><a name="1490" href="IPC.Syntax.GentzenNormalForm.html#1477" class="Bound"
+      >A</a
+      ><a name="1491"
+      > </a
+      ><a name="1492" class="Symbol"
+      >&#8594;</a
+      ><a name="1493"
+      > </a
+      ><a name="1494" href="IPC.Syntax.GentzenNormalForm.html#1479" class="Bound"
+      >&#915;</a
+      ><a name="1495"
+      > </a
+      ><a name="1496" href="IPC.Syntax.Gentzen.html#209" class="Datatype Operator"
+      >&#8866;</a
+      ><a name="1497"
+      > </a
+      ><a name="1498" href="IPC.Syntax.GentzenNormalForm.html#1477" class="Bound"
+      >A</a
+      ><a name="1499"
+      >
+  </a
+      ><a name="1502" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1507"
+      > </a
+      ><a name="1508" class="Symbol"
+      >(</a
+      ><a name="1509" href="IPC.Syntax.GentzenNormalForm.html#669" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="1514"
+      > </a
+      ><a name="1515" href="IPC.Syntax.GentzenNormalForm.html#1515" class="Bound"
+      >i</a
+      ><a name="1516" class="Symbol"
+      >)</a
+      ><a name="1517"
+      >      </a
+      ><a name="1523" class="Symbol"
+      >=</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" href="IPC.Syntax.Gentzen.html#244" class="InductiveConstructor"
+      >var</a
+      ><a name="1528"
+      > </a
+      ><a name="1529" href="IPC.Syntax.GentzenNormalForm.html#1515" class="Bound"
+      >i</a
+      ><a name="1530"
+      >
+  </a
+      ><a name="1533" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1538"
+      > </a
+      ><a name="1539" class="Symbol"
+      >(</a
+      ><a name="1540" href="IPC.Syntax.GentzenNormalForm.html#710" class="InductiveConstructor"
+      >app&#8319;&#7497;</a
+      ><a name="1545"
+      > </a
+      ><a name="1546" href="IPC.Syntax.GentzenNormalForm.html#1546" class="Bound"
+      >t</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" href="IPC.Syntax.GentzenNormalForm.html#1548" class="Bound"
+      >u</a
+      ><a name="1549" class="Symbol"
+      >)</a
+      ><a name="1550"
+      >    </a
+      ><a name="1554" class="Symbol"
+      >=</a
+      ><a name="1555"
+      > </a
+      ><a name="1556" href="IPC.Syntax.Gentzen.html#322" class="InductiveConstructor"
+      >app</a
+      ><a name="1559"
+      > </a
+      ><a name="1560" class="Symbol"
+      >(</a
+      ><a name="1561" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1566"
+      > </a
+      ><a name="1567" href="IPC.Syntax.GentzenNormalForm.html#1546" class="Bound"
+      >t</a
+      ><a name="1568" class="Symbol"
+      >)</a
+      ><a name="1569"
+      > </a
+      ><a name="1570" class="Symbol"
+      >(</a
+      ><a name="1571" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1576"
+      > </a
+      ><a name="1577" href="IPC.Syntax.GentzenNormalForm.html#1548" class="Bound"
+      >u</a
+      ><a name="1578" class="Symbol"
+      >)</a
+      ><a name="1579"
+      >
+  </a
+      ><a name="1582" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1587"
+      > </a
+      ><a name="1588" class="Symbol"
+      >(</a
+      ><a name="1589" href="IPC.Syntax.GentzenNormalForm.html#767" class="InductiveConstructor"
+      >fst&#8319;&#7497;</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" href="IPC.Syntax.GentzenNormalForm.html#1595" class="Bound"
+      >t</a
+      ><a name="1596" class="Symbol"
+      >)</a
+      ><a name="1597"
+      >      </a
+      ><a name="1603" class="Symbol"
+      >=</a
+      ><a name="1604"
+      > </a
+      ><a name="1605" href="IPC.Syntax.Gentzen.html#416" class="InductiveConstructor"
+      >fst</a
+      ><a name="1608"
+      > </a
+      ><a name="1609" class="Symbol"
+      >(</a
+      ><a name="1610" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1615"
+      > </a
+      ><a name="1616" href="IPC.Syntax.GentzenNormalForm.html#1595" class="Bound"
+      >t</a
+      ><a name="1617" class="Symbol"
+      >)</a
+      ><a name="1618"
+      >
+  </a
+      ><a name="1621" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1626"
+      > </a
+      ><a name="1627" class="Symbol"
+      >(</a
+      ><a name="1628" href="IPC.Syntax.GentzenNormalForm.html#814" class="InductiveConstructor"
+      >snd&#8319;&#7497;</a
+      ><a name="1633"
+      > </a
+      ><a name="1634" href="IPC.Syntax.GentzenNormalForm.html#1634" class="Bound"
+      >t</a
+      ><a name="1635" class="Symbol"
+      >)</a
+      ><a name="1636"
+      >      </a
+      ><a name="1642" class="Symbol"
+      >=</a
+      ><a name="1643"
+      > </a
+      ><a name="1644" href="IPC.Syntax.Gentzen.html#455" class="InductiveConstructor"
+      >snd</a
+      ><a name="1647"
+      > </a
+      ><a name="1648" class="Symbol"
+      >(</a
+      ><a name="1649" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1654"
+      > </a
+      ><a name="1655" href="IPC.Syntax.GentzenNormalForm.html#1634" class="Bound"
+      >t</a
+      ><a name="1656" class="Symbol"
+      >)</a
+      ><a name="1657"
+      >
+  </a
+      ><a name="1660" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1665"
+      > </a
+      ><a name="1666" class="Symbol"
+      >(</a
+      ><a name="1667" href="IPC.Syntax.GentzenNormalForm.html#861" class="InductiveConstructor"
+      >boom&#8319;&#7497;</a
+      ><a name="1673"
+      > </a
+      ><a name="1674" href="IPC.Syntax.GentzenNormalForm.html#1674" class="Bound"
+      >t</a
+      ><a name="1675" class="Symbol"
+      >)</a
+      ><a name="1676"
+      >     </a
+      ><a name="1681" class="Symbol"
+      >=</a
+      ><a name="1682"
+      > </a
+      ><a name="1683" href="IPC.Syntax.Gentzen.html#509" class="InductiveConstructor"
+      >boom</a
+      ><a name="1687"
+      > </a
+      ><a name="1688" class="Symbol"
+      >(</a
+      ><a name="1689" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1694"
+      > </a
+      ><a name="1695" href="IPC.Syntax.GentzenNormalForm.html#1674" class="Bound"
+      >t</a
+      ><a name="1696" class="Symbol"
+      >)</a
+      ><a name="1697"
+      >
+  </a
+      ><a name="1700" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" class="Symbol"
+      >(</a
+      ><a name="1707" href="IPC.Syntax.GentzenNormalForm.html#904" class="InductiveConstructor"
+      >case&#8319;&#7497;</a
+      ><a name="1713"
+      > </a
+      ><a name="1714" href="IPC.Syntax.GentzenNormalForm.html#1714" class="Bound"
+      >t</a
+      ><a name="1715"
+      > </a
+      ><a name="1716" href="IPC.Syntax.GentzenNormalForm.html#1716" class="Bound"
+      >u</a
+      ><a name="1717"
+      > </a
+      ><a name="1718" href="IPC.Syntax.GentzenNormalForm.html#1718" class="Bound"
+      >v</a
+      ><a name="1719" class="Symbol"
+      >)</a
+      ><a name="1720"
+      > </a
+      ><a name="1721" class="Symbol"
+      >=</a
+      ><a name="1722"
+      > </a
+      ><a name="1723" href="IPC.Syntax.Gentzen.html#622" class="InductiveConstructor"
+      >case</a
+      ><a name="1727"
+      > </a
+      ><a name="1728" class="Symbol"
+      >(</a
+      ><a name="1729" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1734"
+      > </a
+      ><a name="1735" href="IPC.Syntax.GentzenNormalForm.html#1714" class="Bound"
+      >t</a
+      ><a name="1736" class="Symbol"
+      >)</a
+      ><a name="1737"
+      > </a
+      ><a name="1738" class="Symbol"
+      >(</a
+      ><a name="1739" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1744"
+      > </a
+      ><a name="1745" href="IPC.Syntax.GentzenNormalForm.html#1716" class="Bound"
+      >u</a
+      ><a name="1746" class="Symbol"
+      >)</a
+      ><a name="1747"
+      > </a
+      ><a name="1748" class="Symbol"
+      >(</a
+      ><a name="1749" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1754"
+      > </a
+      ><a name="1755" href="IPC.Syntax.GentzenNormalForm.html#1718" class="Bound"
+      >v</a
+      ><a name="1756" class="Symbol"
+      >)</a
+      ><a name="1757"
+      >
+
+</a
+      ><a name="1759" href="IPC.Syntax.GentzenNormalForm.html#1759" class="Function"
+      >nf&#8594;tm&#8902;</a
+      ><a name="1765"
+      > </a
+      ><a name="1766" class="Symbol"
+      >:</a
+      ><a name="1767"
+      > </a
+      ><a name="1768" class="Symbol"
+      >&#8704;</a
+      ><a name="1769"
+      > </a
+      ><a name="1770" class="Symbol"
+      >{</a
+      ><a name="1771" href="IPC.Syntax.GentzenNormalForm.html#1771" class="Bound"
+      >&#926;</a
+      ><a name="1772"
+      > </a
+      ><a name="1773" href="IPC.Syntax.GentzenNormalForm.html#1773" class="Bound"
+      >&#915;</a
+      ><a name="1774" class="Symbol"
+      >}</a
+      ><a name="1775"
+      > </a
+      ><a name="1776" class="Symbol"
+      >&#8594;</a
+      ><a name="1777"
+      > </a
+      ><a name="1778" href="IPC.Syntax.GentzenNormalForm.html#1773" class="Bound"
+      >&#915;</a
+      ><a name="1779"
+      > </a
+      ><a name="1780" href="IPC.Syntax.GentzenNormalForm.html#991" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="1784"
+      > </a
+      ><a name="1785" href="IPC.Syntax.GentzenNormalForm.html#1771" class="Bound"
+      >&#926;</a
+      ><a name="1786"
+      > </a
+      ><a name="1787" class="Symbol"
+      >&#8594;</a
+      ><a name="1788"
+      > </a
+      ><a name="1789" href="IPC.Syntax.GentzenNormalForm.html#1773" class="Bound"
+      >&#915;</a
+      ><a name="1790"
+      > </a
+      ><a name="1791" href="IPC.Syntax.Gentzen.html#697" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1793"
+      > </a
+      ><a name="1794" href="IPC.Syntax.GentzenNormalForm.html#1771" class="Bound"
+      >&#926;</a
+      ><a name="1795"
+      >
+</a
+      ><a name="1796" href="IPC.Syntax.GentzenNormalForm.html#1759" class="Function"
+      >nf&#8594;tm&#8902;</a
+      ><a name="1802"
+      > </a
+      ><a name="1803" class="Symbol"
+      >{</a
+      ><a name="1804" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1805" class="Symbol"
+      >}</a
+      ><a name="1806"
+      >     </a
+      ><a name="1811" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1812"
+      >        </a
+      ><a name="1820" class="Symbol"
+      >=</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1823"
+      >
+</a
+      ><a name="1824" href="IPC.Syntax.GentzenNormalForm.html#1759" class="Function"
+      >nf&#8594;tm&#8902;</a
+      ><a name="1830"
+      > </a
+      ><a name="1831" class="Symbol"
+      >{</a
+      ><a name="1832" href="IPC.Syntax.GentzenNormalForm.html#1832" class="Bound"
+      >&#926;</a
+      ><a name="1833"
+      > </a
+      ><a name="1834" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1835"
+      > </a
+      ><a name="1836" href="IPC.Syntax.GentzenNormalForm.html#1836" class="Bound"
+      >A</a
+      ><a name="1837" class="Symbol"
+      >}</a
+      ><a name="1838"
+      > </a
+      ><a name="1839" class="Symbol"
+      >(</a
+      ><a name="1840" href="IPC.Syntax.GentzenNormalForm.html#1840" class="Bound"
+      >ts</a
+      ><a name="1842"
+      > </a
+      ><a name="1843" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1844"
+      > </a
+      ><a name="1845" href="IPC.Syntax.GentzenNormalForm.html#1845" class="Bound"
+      >t</a
+      ><a name="1846" class="Symbol"
+      >)</a
+      ><a name="1847"
+      > </a
+      ><a name="1848" class="Symbol"
+      >=</a
+      ><a name="1849"
+      > </a
+      ><a name="1850" href="IPC.Syntax.GentzenNormalForm.html#1759" class="Function"
+      >nf&#8594;tm&#8902;</a
+      ><a name="1856"
+      > </a
+      ><a name="1857" href="IPC.Syntax.GentzenNormalForm.html#1840" class="Bound"
+      >ts</a
+      ><a name="1859"
+      > </a
+      ><a name="1860" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="IPC.Syntax.GentzenNormalForm.html#1211" class="Function"
+      >nf&#8594;tm</a
+      ><a name="1867"
+      > </a
+      ><a name="1868" href="IPC.Syntax.GentzenNormalForm.html#1845" class="Bound"
+      >t</a
+      ><a name="1869"
+      >
+
+</a
+      ><a name="1871" href="IPC.Syntax.GentzenNormalForm.html#1871" class="Function"
+      >ne&#8594;tm&#8902;</a
+      ><a name="1877"
+      > </a
+      ><a name="1878" class="Symbol"
+      >:</a
+      ><a name="1879"
+      > </a
+      ><a name="1880" class="Symbol"
+      >&#8704;</a
+      ><a name="1881"
+      > </a
+      ><a name="1882" class="Symbol"
+      >{</a
+      ><a name="1883" href="IPC.Syntax.GentzenNormalForm.html#1883" class="Bound"
+      >&#926;</a
+      ><a name="1884"
+      > </a
+      ><a name="1885" href="IPC.Syntax.GentzenNormalForm.html#1885" class="Bound"
+      >&#915;</a
+      ><a name="1886" class="Symbol"
+      >}</a
+      ><a name="1887"
+      > </a
+      ><a name="1888" class="Symbol"
+      >&#8594;</a
+      ><a name="1889"
+      > </a
+      ><a name="1890" href="IPC.Syntax.GentzenNormalForm.html#1885" class="Bound"
+      >&#915;</a
+      ><a name="1891"
+      > </a
+      ><a name="1892" href="IPC.Syntax.GentzenNormalForm.html#1087" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="1896"
+      > </a
+      ><a name="1897" href="IPC.Syntax.GentzenNormalForm.html#1883" class="Bound"
+      >&#926;</a
+      ><a name="1898"
+      > </a
+      ><a name="1899" class="Symbol"
+      >&#8594;</a
+      ><a name="1900"
+      > </a
+      ><a name="1901" href="IPC.Syntax.GentzenNormalForm.html#1885" class="Bound"
+      >&#915;</a
+      ><a name="1902"
+      > </a
+      ><a name="1903" href="IPC.Syntax.Gentzen.html#697" class="Function Operator"
+      >&#8866;&#8902;</a
+      ><a name="1905"
+      > </a
+      ><a name="1906" href="IPC.Syntax.GentzenNormalForm.html#1883" class="Bound"
+      >&#926;</a
+      ><a name="1907"
+      >
+</a
+      ><a name="1908" href="IPC.Syntax.GentzenNormalForm.html#1871" class="Function"
+      >ne&#8594;tm&#8902;</a
+      ><a name="1914"
+      > </a
+      ><a name="1915" class="Symbol"
+      >{</a
+      ><a name="1916" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1917" class="Symbol"
+      >}</a
+      ><a name="1918"
+      >     </a
+      ><a name="1923" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1924"
+      >        </a
+      ><a name="1932" class="Symbol"
+      >=</a
+      ><a name="1933"
+      > </a
+      ><a name="1934" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="1935"
+      >
+</a
+      ><a name="1936" href="IPC.Syntax.GentzenNormalForm.html#1871" class="Function"
+      >ne&#8594;tm&#8902;</a
+      ><a name="1942"
+      > </a
+      ><a name="1943" class="Symbol"
+      >{</a
+      ><a name="1944" href="IPC.Syntax.GentzenNormalForm.html#1944" class="Bound"
+      >&#926;</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1947"
+      > </a
+      ><a name="1948" href="IPC.Syntax.GentzenNormalForm.html#1948" class="Bound"
+      >A</a
+      ><a name="1949" class="Symbol"
+      >}</a
+      ><a name="1950"
+      > </a
+      ><a name="1951" class="Symbol"
+      >(</a
+      ><a name="1952" href="IPC.Syntax.GentzenNormalForm.html#1952" class="Bound"
+      >ts</a
+      ><a name="1954"
+      > </a
+      ><a name="1955" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1956"
+      > </a
+      ><a name="1957" href="IPC.Syntax.GentzenNormalForm.html#1957" class="Bound"
+      >t</a
+      ><a name="1958" class="Symbol"
+      >)</a
+      ><a name="1959"
+      > </a
+      ><a name="1960" class="Symbol"
+      >=</a
+      ><a name="1961"
+      > </a
+      ><a name="1962" href="IPC.Syntax.GentzenNormalForm.html#1871" class="Function"
+      >ne&#8594;tm&#8902;</a
+      ><a name="1968"
+      > </a
+      ><a name="1969" href="IPC.Syntax.GentzenNormalForm.html#1952" class="Bound"
+      >ts</a
+      ><a name="1971"
+      > </a
+      ><a name="1972" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1973"
+      > </a
+      ><a name="1974" href="IPC.Syntax.GentzenNormalForm.html#1466" class="Function"
+      >ne&#8594;tm</a
+      ><a name="1979"
+      > </a
+      ><a name="1980" href="IPC.Syntax.GentzenNormalForm.html#1957" class="Bound"
+      >t</a
+      ><a name="1981"
+      >
+
+
+</a
+      ><a name="1984" class="Comment"
+      >-- Monotonicity with respect to context inclusion.</a
+      ><a name="2034"
+      >
+
+</a
+      ><a name="2036" class="Keyword"
+      >mutual</a
+      ><a name="2042"
+      >
+  </a
+      ><a name="2045" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" class="Symbol"
+      >:</a
+      ><a name="2054"
+      > </a
+      ><a name="2055" class="Symbol"
+      >&#8704;</a
+      ><a name="2056"
+      > </a
+      ><a name="2057" class="Symbol"
+      >{</a
+      ><a name="2058" href="IPC.Syntax.GentzenNormalForm.html#2058" class="Bound"
+      >A</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" href="IPC.Syntax.GentzenNormalForm.html#2060" class="Bound"
+      >&#915;</a
+      ><a name="2061"
+      > </a
+      ><a name="2062" href="IPC.Syntax.GentzenNormalForm.html#2062" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2064" class="Symbol"
+      >}</a
+      ><a name="2065"
+      > </a
+      ><a name="2066" class="Symbol"
+      >&#8594;</a
+      ><a name="2067"
+      > </a
+      ><a name="2068" href="IPC.Syntax.GentzenNormalForm.html#2060" class="Bound"
+      >&#915;</a
+      ><a name="2069"
+      > </a
+      ><a name="2070" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" href="IPC.Syntax.GentzenNormalForm.html#2062" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2074"
+      > </a
+      ><a name="2075" class="Symbol"
+      >&#8594;</a
+      ><a name="2076"
+      > </a
+      ><a name="2077" href="IPC.Syntax.GentzenNormalForm.html#2060" class="Bound"
+      >&#915;</a
+      ><a name="2078"
+      > </a
+      ><a name="2079" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2082"
+      > </a
+      ><a name="2083" href="IPC.Syntax.GentzenNormalForm.html#2058" class="Bound"
+      >A</a
+      ><a name="2084"
+      > </a
+      ><a name="2085" class="Symbol"
+      >&#8594;</a
+      ><a name="2086"
+      > </a
+      ><a name="2087" href="IPC.Syntax.GentzenNormalForm.html#2062" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2089"
+      > </a
+      ><a name="2090" href="IPC.Syntax.GentzenNormalForm.html#283" class="Datatype Operator"
+      >&#8866;&#8319;&#7584;</a
+      ><a name="2093"
+      > </a
+      ><a name="2094" href="IPC.Syntax.GentzenNormalForm.html#2058" class="Bound"
+      >A</a
+      ><a name="2095"
+      >
+  </a
+      ><a name="2098" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" href="IPC.Syntax.GentzenNormalForm.html#2106" class="Bound"
+      >&#951;</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" class="Symbol"
+      >(</a
+      ><a name="2109" href="IPC.Syntax.GentzenNormalForm.html#322" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2113"
+      > </a
+      ><a name="2114" href="IPC.Syntax.GentzenNormalForm.html#2114" class="Bound"
+      >t</a
+      ><a name="2115" class="Symbol"
+      >)</a
+      ><a name="2116"
+      >     </a
+      ><a name="2121" class="Symbol"
+      >=</a
+      ><a name="2122"
+      > </a
+      ><a name="2123" href="IPC.Syntax.GentzenNormalForm.html#322" class="InductiveConstructor"
+      >ne&#8319;&#7584;</a
+      ><a name="2127"
+      > </a
+      ><a name="2128" class="Symbol"
+      >(</a
+      ><a name="2129" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2136"
+      > </a
+      ><a name="2137" href="IPC.Syntax.GentzenNormalForm.html#2106" class="Bound"
+      >&#951;</a
+      ><a name="2138"
+      > </a
+      ><a name="2139" href="IPC.Syntax.GentzenNormalForm.html#2114" class="Bound"
+      >t</a
+      ><a name="2140" class="Symbol"
+      >)</a
+      ><a name="2141"
+      >
+  </a
+      ><a name="2144" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2151"
+      > </a
+      ><a name="2152" href="IPC.Syntax.GentzenNormalForm.html#2152" class="Bound"
+      >&#951;</a
+      ><a name="2153"
+      > </a
+      ><a name="2154" class="Symbol"
+      >(</a
+      ><a name="2155" href="IPC.Syntax.GentzenNormalForm.html#363" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="2160"
+      > </a
+      ><a name="2161" href="IPC.Syntax.GentzenNormalForm.html#2161" class="Bound"
+      >t</a
+      ><a name="2162" class="Symbol"
+      >)</a
+      ><a name="2163"
+      >    </a
+      ><a name="2167" class="Symbol"
+      >=</a
+      ><a name="2168"
+      > </a
+      ><a name="2169" href="IPC.Syntax.GentzenNormalForm.html#363" class="InductiveConstructor"
+      >lam&#8319;&#7584;</a
+      ><a name="2174"
+      > </a
+      ><a name="2175" class="Symbol"
+      >(</a
+      ><a name="2176" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2183"
+      > </a
+      ><a name="2184" class="Symbol"
+      >(</a
+      ><a name="2185" href="Common.Context.html#1725" class="InductiveConstructor"
+      >keep</a
+      ><a name="2189"
+      > </a
+      ><a name="2190" href="IPC.Syntax.GentzenNormalForm.html#2152" class="Bound"
+      >&#951;</a
+      ><a name="2191" class="Symbol"
+      >)</a
+      ><a name="2192"
+      > </a
+      ><a name="2193" href="IPC.Syntax.GentzenNormalForm.html#2161" class="Bound"
+      >t</a
+      ><a name="2194" class="Symbol"
+      >)</a
+      ><a name="2195"
+      >
+  </a
+      ><a name="2198" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2205"
+      > </a
+      ><a name="2206" href="IPC.Syntax.GentzenNormalForm.html#2206" class="Bound"
+      >&#951;</a
+      ><a name="2207"
+      > </a
+      ><a name="2208" class="Symbol"
+      >(</a
+      ><a name="2209" href="IPC.Syntax.GentzenNormalForm.html#412" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="2215"
+      > </a
+      ><a name="2216" href="IPC.Syntax.GentzenNormalForm.html#2216" class="Bound"
+      >t</a
+      ><a name="2217"
+      > </a
+      ><a name="2218" href="IPC.Syntax.GentzenNormalForm.html#2218" class="Bound"
+      >u</a
+      ><a name="2219" class="Symbol"
+      >)</a
+      ><a name="2220"
+      > </a
+      ><a name="2221" class="Symbol"
+      >=</a
+      ><a name="2222"
+      > </a
+      ><a name="2223" href="IPC.Syntax.GentzenNormalForm.html#412" class="InductiveConstructor"
+      >pair&#8319;&#7584;</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" class="Symbol"
+      >(</a
+      ><a name="2231" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2238"
+      > </a
+      ><a name="2239" href="IPC.Syntax.GentzenNormalForm.html#2206" class="Bound"
+      >&#951;</a
+      ><a name="2240"
+      > </a
+      ><a name="2241" href="IPC.Syntax.GentzenNormalForm.html#2216" class="Bound"
+      >t</a
+      ><a name="2242" class="Symbol"
+      >)</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" class="Symbol"
+      >(</a
+      ><a name="2245" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2252"
+      > </a
+      ><a name="2253" href="IPC.Syntax.GentzenNormalForm.html#2206" class="Bound"
+      >&#951;</a
+      ><a name="2254"
+      > </a
+      ><a name="2255" href="IPC.Syntax.GentzenNormalForm.html#2218" class="Bound"
+      >u</a
+      ><a name="2256" class="Symbol"
+      >)</a
+      ><a name="2257"
+      >
+  </a
+      ><a name="2260" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2267"
+      > </a
+      ><a name="2268" href="IPC.Syntax.GentzenNormalForm.html#2268" class="Bound"
+      >&#951;</a
+      ><a name="2269"
+      > </a
+      ><a name="2270" href="IPC.Syntax.GentzenNormalForm.html#467" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="2276"
+      >       </a
+      ><a name="2283" class="Symbol"
+      >=</a
+      ><a name="2284"
+      > </a
+      ><a name="2285" href="IPC.Syntax.GentzenNormalForm.html#467" class="InductiveConstructor"
+      >unit&#8319;&#7584;</a
+      ><a name="2291"
+      >
+  </a
+      ><a name="2294" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2301"
+      > </a
+      ><a name="2302" href="IPC.Syntax.GentzenNormalForm.html#2302" class="Bound"
+      >&#951;</a
+      ><a name="2303"
+      > </a
+      ><a name="2304" class="Symbol"
+      >(</a
+      ><a name="2305" href="IPC.Syntax.GentzenNormalForm.html#488" class="InductiveConstructor"
+      >inl&#8319;&#7584;</a
+      ><a name="2310"
+      > </a
+      ><a name="2311" href="IPC.Syntax.GentzenNormalForm.html#2311" class="Bound"
+      >t</a
+      ><a name="2312" class="Symbol"
+      >)</a
+      ><a name="2313"
+      >    </a
+      ><a name="2317" class="Symbol"
+      >=</a
+      ><a name="2318"
+      > </a
+      ><a name="2319" href="IPC.Syntax.GentzenNormalForm.html#488" class="InductiveConstructor"
+      >inl&#8319;&#7584;</a
+      ><a name="2324"
+      > </a
+      ><a name="2325" class="Symbol"
+      >(</a
+      ><a name="2326" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2333"
+      > </a
+      ><a name="2334" href="IPC.Syntax.GentzenNormalForm.html#2302" class="Bound"
+      >&#951;</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" href="IPC.Syntax.GentzenNormalForm.html#2311" class="Bound"
+      >t</a
+      ><a name="2337" class="Symbol"
+      >)</a
+      ><a name="2338"
+      >
+  </a
+      ><a name="2341" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2348"
+      > </a
+      ><a name="2349" href="IPC.Syntax.GentzenNormalForm.html#2349" class="Bound"
+      >&#951;</a
+      ><a name="2350"
+      > </a
+      ><a name="2351" class="Symbol"
+      >(</a
+      ><a name="2352" href="IPC.Syntax.GentzenNormalForm.html#533" class="InductiveConstructor"
+      >inr&#8319;&#7584;</a
+      ><a name="2357"
+      > </a
+      ><a name="2358" href="IPC.Syntax.GentzenNormalForm.html#2358" class="Bound"
+      >t</a
+      ><a name="2359" class="Symbol"
+      >)</a
+      ><a name="2360"
+      >    </a
+      ><a name="2364" class="Symbol"
+      >=</a
+      ><a name="2365"
+      > </a
+      ><a name="2366" href="IPC.Syntax.GentzenNormalForm.html#533" class="InductiveConstructor"
+      >inr&#8319;&#7584;</a
+      ><a name="2371"
+      > </a
+      ><a name="2372" class="Symbol"
+      >(</a
+      ><a name="2373" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2380"
+      > </a
+      ><a name="2381" href="IPC.Syntax.GentzenNormalForm.html#2349" class="Bound"
+      >&#951;</a
+      ><a name="2382"
+      > </a
+      ><a name="2383" href="IPC.Syntax.GentzenNormalForm.html#2358" class="Bound"
+      >t</a
+      ><a name="2384" class="Symbol"
+      >)</a
+      ><a name="2385"
+      >
+
+  </a
+      ><a name="2389" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2396"
+      > </a
+      ><a name="2397" class="Symbol"
+      >:</a
+      ><a name="2398"
+      > </a
+      ><a name="2399" class="Symbol"
+      >&#8704;</a
+      ><a name="2400"
+      > </a
+      ><a name="2401" class="Symbol"
+      >{</a
+      ><a name="2402" href="IPC.Syntax.GentzenNormalForm.html#2402" class="Bound"
+      >A</a
+      ><a name="2403"
+      > </a
+      ><a name="2404" href="IPC.Syntax.GentzenNormalForm.html#2404" class="Bound"
+      >&#915;</a
+      ><a name="2405"
+      > </a
+      ><a name="2406" href="IPC.Syntax.GentzenNormalForm.html#2406" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2408" class="Symbol"
+      >}</a
+      ><a name="2409"
+      > </a
+      ><a name="2410" class="Symbol"
+      >&#8594;</a
+      ><a name="2411"
+      > </a
+      ><a name="2412" href="IPC.Syntax.GentzenNormalForm.html#2404" class="Bound"
+      >&#915;</a
+      ><a name="2413"
+      > </a
+      ><a name="2414" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2415"
+      > </a
+      ><a name="2416" href="IPC.Syntax.GentzenNormalForm.html#2406" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2418"
+      > </a
+      ><a name="2419" class="Symbol"
+      >&#8594;</a
+      ><a name="2420"
+      > </a
+      ><a name="2421" href="IPC.Syntax.GentzenNormalForm.html#2404" class="Bound"
+      >&#915;</a
+      ><a name="2422"
+      > </a
+      ><a name="2423" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="2426"
+      > </a
+      ><a name="2427" href="IPC.Syntax.GentzenNormalForm.html#2402" class="Bound"
+      >A</a
+      ><a name="2428"
+      > </a
+      ><a name="2429" class="Symbol"
+      >&#8594;</a
+      ><a name="2430"
+      > </a
+      ><a name="2431" href="IPC.Syntax.GentzenNormalForm.html#2406" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" href="IPC.Syntax.GentzenNormalForm.html#630" class="Datatype Operator"
+      >&#8866;&#8319;&#7497;</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" href="IPC.Syntax.GentzenNormalForm.html#2402" class="Bound"
+      >A</a
+      ><a name="2439"
+      >
+  </a
+      ><a name="2442" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2449"
+      > </a
+      ><a name="2450" href="IPC.Syntax.GentzenNormalForm.html#2450" class="Bound"
+      >&#951;</a
+      ><a name="2451"
+      > </a
+      ><a name="2452" class="Symbol"
+      >(</a
+      ><a name="2453" href="IPC.Syntax.GentzenNormalForm.html#669" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="2458"
+      > </a
+      ><a name="2459" href="IPC.Syntax.GentzenNormalForm.html#2459" class="Bound"
+      >i</a
+      ><a name="2460" class="Symbol"
+      >)</a
+      ><a name="2461"
+      >      </a
+      ><a name="2467" class="Symbol"
+      >=</a
+      ><a name="2468"
+      > </a
+      ><a name="2469" href="IPC.Syntax.GentzenNormalForm.html#669" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="2474"
+      > </a
+      ><a name="2475" class="Symbol"
+      >(</a
+      ><a name="2476" href="Common.Context.html#2751" class="Function"
+      >mono&#8712;</a
+      ><a name="2481"
+      > </a
+      ><a name="2482" href="IPC.Syntax.GentzenNormalForm.html#2450" class="Bound"
+      >&#951;</a
+      ><a name="2483"
+      > </a
+      ><a name="2484" href="IPC.Syntax.GentzenNormalForm.html#2459" class="Bound"
+      >i</a
+      ><a name="2485" class="Symbol"
+      >)</a
+      ><a name="2486"
+      >
+  </a
+      ><a name="2489" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2496"
+      > </a
+      ><a name="2497" href="IPC.Syntax.GentzenNormalForm.html#2497" class="Bound"
+      >&#951;</a
+      ><a name="2498"
+      > </a
+      ><a name="2499" class="Symbol"
+      >(</a
+      ><a name="2500" href="IPC.Syntax.GentzenNormalForm.html#710" class="InductiveConstructor"
+      >app&#8319;&#7497;</a
+      ><a name="2505"
+      > </a
+      ><a name="2506" href="IPC.Syntax.GentzenNormalForm.html#2506" class="Bound"
+      >t</a
+      ><a name="2507"
+      > </a
+      ><a name="2508" href="IPC.Syntax.GentzenNormalForm.html#2508" class="Bound"
+      >u</a
+      ><a name="2509" class="Symbol"
+      >)</a
+      ><a name="2510"
+      >    </a
+      ><a name="2514" class="Symbol"
+      >=</a
+      ><a name="2515"
+      > </a
+      ><a name="2516" href="IPC.Syntax.GentzenNormalForm.html#710" class="InductiveConstructor"
+      >app&#8319;&#7497;</a
+      ><a name="2521"
+      > </a
+      ><a name="2522" class="Symbol"
+      >(</a
+      ><a name="2523" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2530"
+      > </a
+      ><a name="2531" href="IPC.Syntax.GentzenNormalForm.html#2497" class="Bound"
+      >&#951;</a
+      ><a name="2532"
+      > </a
+      ><a name="2533" href="IPC.Syntax.GentzenNormalForm.html#2506" class="Bound"
+      >t</a
+      ><a name="2534" class="Symbol"
+      >)</a
+      ><a name="2535"
+      > </a
+      ><a name="2536" class="Symbol"
+      >(</a
+      ><a name="2537" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2544"
+      > </a
+      ><a name="2545" href="IPC.Syntax.GentzenNormalForm.html#2497" class="Bound"
+      >&#951;</a
+      ><a name="2546"
+      > </a
+      ><a name="2547" href="IPC.Syntax.GentzenNormalForm.html#2508" class="Bound"
+      >u</a
+      ><a name="2548" class="Symbol"
+      >)</a
+      ><a name="2549"
+      >
+  </a
+      ><a name="2552" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2559"
+      > </a
+      ><a name="2560" href="IPC.Syntax.GentzenNormalForm.html#2560" class="Bound"
+      >&#951;</a
+      ><a name="2561"
+      > </a
+      ><a name="2562" class="Symbol"
+      >(</a
+      ><a name="2563" href="IPC.Syntax.GentzenNormalForm.html#767" class="InductiveConstructor"
+      >fst&#8319;&#7497;</a
+      ><a name="2568"
+      > </a
+      ><a name="2569" href="IPC.Syntax.GentzenNormalForm.html#2569" class="Bound"
+      >t</a
+      ><a name="2570" class="Symbol"
+      >)</a
+      ><a name="2571"
+      >      </a
+      ><a name="2577" class="Symbol"
+      >=</a
+      ><a name="2578"
+      > </a
+      ><a name="2579" href="IPC.Syntax.GentzenNormalForm.html#767" class="InductiveConstructor"
+      >fst&#8319;&#7497;</a
+      ><a name="2584"
+      > </a
+      ><a name="2585" class="Symbol"
+      >(</a
+      ><a name="2586" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2593"
+      > </a
+      ><a name="2594" href="IPC.Syntax.GentzenNormalForm.html#2560" class="Bound"
+      >&#951;</a
+      ><a name="2595"
+      > </a
+      ><a name="2596" href="IPC.Syntax.GentzenNormalForm.html#2569" class="Bound"
+      >t</a
+      ><a name="2597" class="Symbol"
+      >)</a
+      ><a name="2598"
+      >
+  </a
+      ><a name="2601" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2608"
+      > </a
+      ><a name="2609" href="IPC.Syntax.GentzenNormalForm.html#2609" class="Bound"
+      >&#951;</a
+      ><a name="2610"
+      > </a
+      ><a name="2611" class="Symbol"
+      >(</a
+      ><a name="2612" href="IPC.Syntax.GentzenNormalForm.html#814" class="InductiveConstructor"
+      >snd&#8319;&#7497;</a
+      ><a name="2617"
+      > </a
+      ><a name="2618" href="IPC.Syntax.GentzenNormalForm.html#2618" class="Bound"
+      >t</a
+      ><a name="2619" class="Symbol"
+      >)</a
+      ><a name="2620"
+      >      </a
+      ><a name="2626" class="Symbol"
+      >=</a
+      ><a name="2627"
+      > </a
+      ><a name="2628" href="IPC.Syntax.GentzenNormalForm.html#814" class="InductiveConstructor"
+      >snd&#8319;&#7497;</a
+      ><a name="2633"
+      > </a
+      ><a name="2634" class="Symbol"
+      >(</a
+      ><a name="2635" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2642"
+      > </a
+      ><a name="2643" href="IPC.Syntax.GentzenNormalForm.html#2609" class="Bound"
+      >&#951;</a
+      ><a name="2644"
+      > </a
+      ><a name="2645" href="IPC.Syntax.GentzenNormalForm.html#2618" class="Bound"
+      >t</a
+      ><a name="2646" class="Symbol"
+      >)</a
+      ><a name="2647"
+      >
+  </a
+      ><a name="2650" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2657"
+      > </a
+      ><a name="2658" href="IPC.Syntax.GentzenNormalForm.html#2658" class="Bound"
+      >&#951;</a
+      ><a name="2659"
+      > </a
+      ><a name="2660" class="Symbol"
+      >(</a
+      ><a name="2661" href="IPC.Syntax.GentzenNormalForm.html#861" class="InductiveConstructor"
+      >boom&#8319;&#7497;</a
+      ><a name="2667"
+      > </a
+      ><a name="2668" href="IPC.Syntax.GentzenNormalForm.html#2668" class="Bound"
+      >t</a
+      ><a name="2669" class="Symbol"
+      >)</a
+      ><a name="2670"
+      >     </a
+      ><a name="2675" class="Symbol"
+      >=</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" href="IPC.Syntax.GentzenNormalForm.html#861" class="InductiveConstructor"
+      >boom&#8319;&#7497;</a
+      ><a name="2683"
+      > </a
+      ><a name="2684" class="Symbol"
+      >(</a
+      ><a name="2685" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2692"
+      > </a
+      ><a name="2693" href="IPC.Syntax.GentzenNormalForm.html#2658" class="Bound"
+      >&#951;</a
+      ><a name="2694"
+      > </a
+      ><a name="2695" href="IPC.Syntax.GentzenNormalForm.html#2668" class="Bound"
+      >t</a
+      ><a name="2696" class="Symbol"
+      >)</a
+      ><a name="2697"
+      >
+  </a
+      ><a name="2700" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2707"
+      > </a
+      ><a name="2708" href="IPC.Syntax.GentzenNormalForm.html#2708" class="Bound"
+      >&#951;</a
+      ><a name="2709"
+      > </a
+      ><a name="2710" class="Symbol"
+      >(</a
+      ><a name="2711" href="IPC.Syntax.GentzenNormalForm.html#904" class="InductiveConstructor"
+      >case&#8319;&#7497;</a
+      ><a name="2717"
+      > </a
+      ><a name="2718" href="IPC.Syntax.GentzenNormalForm.html#2718" class="Bound"
+      >t</a
+      ><a name="2719"
+      > </a
+      ><a name="2720" href="IPC.Syntax.GentzenNormalForm.html#2720" class="Bound"
+      >u</a
+      ><a name="2721"
+      > </a
+      ><a name="2722" href="IPC.Syntax.GentzenNormalForm.html#2722" class="Bound"
+      >v</a
+      ><a name="2723" class="Symbol"
+      >)</a
+      ><a name="2724"
+      > </a
+      ><a name="2725" class="Symbol"
+      >=</a
+      ><a name="2726"
+      > </a
+      ><a name="2727" href="IPC.Syntax.GentzenNormalForm.html#904" class="InductiveConstructor"
+      >case&#8319;&#7497;</a
+      ><a name="2733"
+      > </a
+      ><a name="2734" class="Symbol"
+      >(</a
+      ><a name="2735" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="2742"
+      > </a
+      ><a name="2743" href="IPC.Syntax.GentzenNormalForm.html#2708" class="Bound"
+      >&#951;</a
+      ><a name="2744"
+      > </a
+      ><a name="2745" href="IPC.Syntax.GentzenNormalForm.html#2718" class="Bound"
+      >t</a
+      ><a name="2746" class="Symbol"
+      >)</a
+      ><a name="2747"
+      > </a
+      ><a name="2748" class="Symbol"
+      >(</a
+      ><a name="2749" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2756"
+      > </a
+      ><a name="2757" class="Symbol"
+      >(</a
+      ><a name="2758" href="Common.Context.html#1725" class="InductiveConstructor"
+      >keep</a
+      ><a name="2762"
+      > </a
+      ><a name="2763" href="IPC.Syntax.GentzenNormalForm.html#2708" class="Bound"
+      >&#951;</a
+      ><a name="2764" class="Symbol"
+      >)</a
+      ><a name="2765"
+      > </a
+      ><a name="2766" href="IPC.Syntax.GentzenNormalForm.html#2720" class="Bound"
+      >u</a
+      ><a name="2767" class="Symbol"
+      >)</a
+      ><a name="2768"
+      > </a
+      ><a name="2769" class="Symbol"
+      >(</a
+      ><a name="2770" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2777"
+      > </a
+      ><a name="2778" class="Symbol"
+      >(</a
+      ><a name="2779" href="Common.Context.html#1725" class="InductiveConstructor"
+      >keep</a
+      ><a name="2783"
+      > </a
+      ><a name="2784" href="IPC.Syntax.GentzenNormalForm.html#2708" class="Bound"
+      >&#951;</a
+      ><a name="2785" class="Symbol"
+      >)</a
+      ><a name="2786"
+      > </a
+      ><a name="2787" href="IPC.Syntax.GentzenNormalForm.html#2722" class="Bound"
+      >v</a
+      ><a name="2788" class="Symbol"
+      >)</a
+      ><a name="2789"
+      >
+
+</a
+      ><a name="2791" href="IPC.Syntax.GentzenNormalForm.html#2791" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="2799"
+      > </a
+      ><a name="2800" class="Symbol"
+      >:</a
+      ><a name="2801"
+      > </a
+      ><a name="2802" class="Symbol"
+      >&#8704;</a
+      ><a name="2803"
+      > </a
+      ><a name="2804" class="Symbol"
+      >{</a
+      ><a name="2805" href="IPC.Syntax.GentzenNormalForm.html#2805" class="Bound"
+      >&#926;</a
+      ><a name="2806"
+      > </a
+      ><a name="2807" href="IPC.Syntax.GentzenNormalForm.html#2807" class="Bound"
+      >&#915;</a
+      ><a name="2808"
+      > </a
+      ><a name="2809" href="IPC.Syntax.GentzenNormalForm.html#2809" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2811" class="Symbol"
+      >}</a
+      ><a name="2812"
+      > </a
+      ><a name="2813" class="Symbol"
+      >&#8594;</a
+      ><a name="2814"
+      > </a
+      ><a name="2815" href="IPC.Syntax.GentzenNormalForm.html#2807" class="Bound"
+      >&#915;</a
+      ><a name="2816"
+      > </a
+      ><a name="2817" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2818"
+      > </a
+      ><a name="2819" href="IPC.Syntax.GentzenNormalForm.html#2809" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2821"
+      > </a
+      ><a name="2822" class="Symbol"
+      >&#8594;</a
+      ><a name="2823"
+      > </a
+      ><a name="2824" href="IPC.Syntax.GentzenNormalForm.html#2807" class="Bound"
+      >&#915;</a
+      ><a name="2825"
+      > </a
+      ><a name="2826" href="IPC.Syntax.GentzenNormalForm.html#991" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="2830"
+      > </a
+      ><a name="2831" href="IPC.Syntax.GentzenNormalForm.html#2805" class="Bound"
+      >&#926;</a
+      ><a name="2832"
+      > </a
+      ><a name="2833" class="Symbol"
+      >&#8594;</a
+      ><a name="2834"
+      > </a
+      ><a name="2835" href="IPC.Syntax.GentzenNormalForm.html#2809" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2837"
+      > </a
+      ><a name="2838" href="IPC.Syntax.GentzenNormalForm.html#991" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="2842"
+      > </a
+      ><a name="2843" href="IPC.Syntax.GentzenNormalForm.html#2805" class="Bound"
+      >&#926;</a
+      ><a name="2844"
+      >
+</a
+      ><a name="2845" href="IPC.Syntax.GentzenNormalForm.html#2791" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="2853"
+      > </a
+      ><a name="2854" class="Symbol"
+      >{</a
+      ><a name="2855" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="2856" class="Symbol"
+      >}</a
+      ><a name="2857"
+      >     </a
+      ><a name="2862" href="IPC.Syntax.GentzenNormalForm.html#2862" class="Bound"
+      >&#951;</a
+      ><a name="2863"
+      > </a
+      ><a name="2864" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2865"
+      >        </a
+      ><a name="2873" class="Symbol"
+      >=</a
+      ><a name="2874"
+      > </a
+      ><a name="2875" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2876"
+      >
+</a
+      ><a name="2877" href="IPC.Syntax.GentzenNormalForm.html#2791" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="2885"
+      > </a
+      ><a name="2886" class="Symbol"
+      >{</a
+      ><a name="2887" href="IPC.Syntax.GentzenNormalForm.html#2887" class="Bound"
+      >&#926;</a
+      ><a name="2888"
+      > </a
+      ><a name="2889" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2890"
+      > </a
+      ><a name="2891" href="IPC.Syntax.GentzenNormalForm.html#2891" class="Bound"
+      >A</a
+      ><a name="2892" class="Symbol"
+      >}</a
+      ><a name="2893"
+      > </a
+      ><a name="2894" href="IPC.Syntax.GentzenNormalForm.html#2894" class="Bound"
+      >&#951;</a
+      ><a name="2895"
+      > </a
+      ><a name="2896" class="Symbol"
+      >(</a
+      ><a name="2897" href="IPC.Syntax.GentzenNormalForm.html#2897" class="Bound"
+      >ts</a
+      ><a name="2899"
+      > </a
+      ><a name="2900" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2901"
+      > </a
+      ><a name="2902" href="IPC.Syntax.GentzenNormalForm.html#2902" class="Bound"
+      >t</a
+      ><a name="2903" class="Symbol"
+      >)</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" class="Symbol"
+      >=</a
+      ><a name="2906"
+      > </a
+      ><a name="2907" href="IPC.Syntax.GentzenNormalForm.html#2791" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7584;</a
+      ><a name="2915"
+      > </a
+      ><a name="2916" href="IPC.Syntax.GentzenNormalForm.html#2894" class="Bound"
+      >&#951;</a
+      ><a name="2917"
+      > </a
+      ><a name="2918" href="IPC.Syntax.GentzenNormalForm.html#2897" class="Bound"
+      >ts</a
+      ><a name="2920"
+      > </a
+      ><a name="2921" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2922"
+      > </a
+      ><a name="2923" href="IPC.Syntax.GentzenNormalForm.html#2045" class="Function"
+      >mono&#8866;&#8319;&#7584;</a
+      ><a name="2930"
+      > </a
+      ><a name="2931" href="IPC.Syntax.GentzenNormalForm.html#2894" class="Bound"
+      >&#951;</a
+      ><a name="2932"
+      > </a
+      ><a name="2933" href="IPC.Syntax.GentzenNormalForm.html#2902" class="Bound"
+      >t</a
+      ><a name="2934"
+      >
+
+</a
+      ><a name="2936" href="IPC.Syntax.GentzenNormalForm.html#2936" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="2944"
+      > </a
+      ><a name="2945" class="Symbol"
+      >:</a
+      ><a name="2946"
+      > </a
+      ><a name="2947" class="Symbol"
+      >&#8704;</a
+      ><a name="2948"
+      > </a
+      ><a name="2949" class="Symbol"
+      >{</a
+      ><a name="2950" href="IPC.Syntax.GentzenNormalForm.html#2950" class="Bound"
+      >&#926;</a
+      ><a name="2951"
+      > </a
+      ><a name="2952" href="IPC.Syntax.GentzenNormalForm.html#2952" class="Bound"
+      >&#915;</a
+      ><a name="2953"
+      > </a
+      ><a name="2954" href="IPC.Syntax.GentzenNormalForm.html#2954" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2956" class="Symbol"
+      >}</a
+      ><a name="2957"
+      > </a
+      ><a name="2958" class="Symbol"
+      >&#8594;</a
+      ><a name="2959"
+      > </a
+      ><a name="2960" href="IPC.Syntax.GentzenNormalForm.html#2952" class="Bound"
+      >&#915;</a
+      ><a name="2961"
+      > </a
+      ><a name="2962" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="2963"
+      > </a
+      ><a name="2964" href="IPC.Syntax.GentzenNormalForm.html#2954" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2966"
+      > </a
+      ><a name="2967" class="Symbol"
+      >&#8594;</a
+      ><a name="2968"
+      > </a
+      ><a name="2969" href="IPC.Syntax.GentzenNormalForm.html#2952" class="Bound"
+      >&#915;</a
+      ><a name="2970"
+      > </a
+      ><a name="2971" href="IPC.Syntax.GentzenNormalForm.html#1087" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="2975"
+      > </a
+      ><a name="2976" href="IPC.Syntax.GentzenNormalForm.html#2950" class="Bound"
+      >&#926;</a
+      ><a name="2977"
+      > </a
+      ><a name="2978" class="Symbol"
+      >&#8594;</a
+      ><a name="2979"
+      > </a
+      ><a name="2980" href="IPC.Syntax.GentzenNormalForm.html#2954" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="2982"
+      > </a
+      ><a name="2983" href="IPC.Syntax.GentzenNormalForm.html#1087" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="2987"
+      > </a
+      ><a name="2988" href="IPC.Syntax.GentzenNormalForm.html#2950" class="Bound"
+      >&#926;</a
+      ><a name="2989"
+      >
+</a
+      ><a name="2990" href="IPC.Syntax.GentzenNormalForm.html#2936" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="2998"
+      > </a
+      ><a name="2999" class="Symbol"
+      >{</a
+      ><a name="3000" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="3001" class="Symbol"
+      >}</a
+      ><a name="3002"
+      >     </a
+      ><a name="3007" href="IPC.Syntax.GentzenNormalForm.html#3007" class="Bound"
+      >&#951;</a
+      ><a name="3008"
+      > </a
+      ><a name="3009" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3010"
+      >        </a
+      ><a name="3018" class="Symbol"
+      >=</a
+      ><a name="3019"
+      > </a
+      ><a name="3020" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3021"
+      >
+</a
+      ><a name="3022" href="IPC.Syntax.GentzenNormalForm.html#2936" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3030"
+      > </a
+      ><a name="3031" class="Symbol"
+      >{</a
+      ><a name="3032" href="IPC.Syntax.GentzenNormalForm.html#3032" class="Bound"
+      >&#926;</a
+      ><a name="3033"
+      > </a
+      ><a name="3034" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3035"
+      > </a
+      ><a name="3036" href="IPC.Syntax.GentzenNormalForm.html#3036" class="Bound"
+      >A</a
+      ><a name="3037" class="Symbol"
+      >}</a
+      ><a name="3038"
+      > </a
+      ><a name="3039" href="IPC.Syntax.GentzenNormalForm.html#3039" class="Bound"
+      >&#951;</a
+      ><a name="3040"
+      > </a
+      ><a name="3041" class="Symbol"
+      >(</a
+      ><a name="3042" href="IPC.Syntax.GentzenNormalForm.html#3042" class="Bound"
+      >ts</a
+      ><a name="3044"
+      > </a
+      ><a name="3045" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3046"
+      > </a
+      ><a name="3047" href="IPC.Syntax.GentzenNormalForm.html#3047" class="Bound"
+      >t</a
+      ><a name="3048" class="Symbol"
+      >)</a
+      ><a name="3049"
+      > </a
+      ><a name="3050" class="Symbol"
+      >=</a
+      ><a name="3051"
+      > </a
+      ><a name="3052" href="IPC.Syntax.GentzenNormalForm.html#2936" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3060"
+      > </a
+      ><a name="3061" href="IPC.Syntax.GentzenNormalForm.html#3039" class="Bound"
+      >&#951;</a
+      ><a name="3062"
+      > </a
+      ><a name="3063" href="IPC.Syntax.GentzenNormalForm.html#3042" class="Bound"
+      >ts</a
+      ><a name="3065"
+      > </a
+      ><a name="3066" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3067"
+      > </a
+      ><a name="3068" href="IPC.Syntax.GentzenNormalForm.html#2389" class="Function"
+      >mono&#8866;&#8319;&#7497;</a
+      ><a name="3075"
+      > </a
+      ><a name="3076" href="IPC.Syntax.GentzenNormalForm.html#3039" class="Bound"
+      >&#951;</a
+      ><a name="3077"
+      > </a
+      ><a name="3078" href="IPC.Syntax.GentzenNormalForm.html#3047" class="Bound"
+      >t</a
+      ><a name="3079"
+      >
+
+
+</a
+      ><a name="3082" class="Comment"
+      >-- Reflexivity.</a
+      ><a name="3097"
+      >
+
+</a
+      ><a name="3099" href="IPC.Syntax.GentzenNormalForm.html#3099" class="Function"
+      >refl&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3107"
+      > </a
+      ><a name="3108" class="Symbol"
+      >:</a
+      ><a name="3109"
+      > </a
+      ><a name="3110" class="Symbol"
+      >&#8704;</a
+      ><a name="3111"
+      > </a
+      ><a name="3112" class="Symbol"
+      >{</a
+      ><a name="3113" href="IPC.Syntax.GentzenNormalForm.html#3113" class="Bound"
+      >&#915;</a
+      ><a name="3114" class="Symbol"
+      >}</a
+      ><a name="3115"
+      > </a
+      ><a name="3116" class="Symbol"
+      >&#8594;</a
+      ><a name="3117"
+      > </a
+      ><a name="3118" href="IPC.Syntax.GentzenNormalForm.html#3113" class="Bound"
+      >&#915;</a
+      ><a name="3119"
+      > </a
+      ><a name="3120" href="IPC.Syntax.GentzenNormalForm.html#1087" class="Function Operator"
+      >&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3124"
+      > </a
+      ><a name="3125" href="IPC.Syntax.GentzenNormalForm.html#3113" class="Bound"
+      >&#915;</a
+      ><a name="3126"
+      >
+</a
+      ><a name="3127" href="IPC.Syntax.GentzenNormalForm.html#3099" class="Function"
+      >refl&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3135"
+      > </a
+      ><a name="3136" class="Symbol"
+      >{</a
+      ><a name="3137" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="3138" class="Symbol"
+      >}</a
+      ><a name="3139"
+      >     </a
+      ><a name="3144" class="Symbol"
+      >=</a
+      ><a name="3145"
+      > </a
+      ><a name="3146" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="3147"
+      >
+</a
+      ><a name="3148" href="IPC.Syntax.GentzenNormalForm.html#3099" class="Function"
+      >refl&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3156"
+      > </a
+      ><a name="3157" class="Symbol"
+      >{</a
+      ><a name="3158" href="IPC.Syntax.GentzenNormalForm.html#3158" class="Bound"
+      >&#915;</a
+      ><a name="3159"
+      > </a
+      ><a name="3160" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3161"
+      > </a
+      ><a name="3162" href="IPC.Syntax.GentzenNormalForm.html#3162" class="Bound"
+      >A</a
+      ><a name="3163" class="Symbol"
+      >}</a
+      ><a name="3164"
+      > </a
+      ><a name="3165" class="Symbol"
+      >=</a
+      ><a name="3166"
+      > </a
+      ><a name="3167" href="IPC.Syntax.GentzenNormalForm.html#2936" class="Function"
+      >mono&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3175"
+      > </a
+      ><a name="3176" href="Common.Context.html#2465" class="Function"
+      >weak&#8838;</a
+      ><a name="3181"
+      > </a
+      ><a name="3182" href="IPC.Syntax.GentzenNormalForm.html#3099" class="Function"
+      >refl&#8866;&#8902;&#8319;&#7497;</a
+      ><a name="3190"
+      > </a
+      ><a name="3191" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3192"
+      > </a
+      ><a name="3193" href="IPC.Syntax.GentzenNormalForm.html#669" class="InductiveConstructor"
+      >var&#8319;&#7497;</a
+      ><a name="3198"
+      > </a
+      ><a name="3199" href="Common.Context.html#1160" class="InductiveConstructor"
+      >top</a
+      ><a name="3202"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
