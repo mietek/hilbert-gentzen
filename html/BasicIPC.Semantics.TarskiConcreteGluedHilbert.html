@@ -1,0 +1,4955 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+><head
+  ><title
+    >BasicIPC.Semantics.TarskiConcreteGluedHilbert</title
+    ><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"
+     /><meta http-equiv="Content-Style-Type" content="text/css"
+     /><link href="Agda.css" rel="stylesheet" type="text/css"
+     /></head
+  ><body
+  ><pre
+    ><a name="1" class="Comment"
+      >-- Basic intuitionistic propositional calculus, without &#8744; or &#8869;.</a
+      ><a name="64"
+      >
+</a
+      ><a name="65" class="Comment"
+      >-- Tarski-style semantics with contexts as concrete worlds, and glueing for &#945; and &#9659;.</a
+      ><a name="149"
+      >
+</a
+      ><a name="150" class="Comment"
+      >-- Hilbert-style syntax.</a
+      ><a name="174"
+      >
+
+</a
+      ><a name="176" class="Keyword"
+      >module</a
+      ><a name="182"
+      > </a
+      ><a name="183" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1" class="Module"
+      >BasicIPC.Semantics.TarskiConcreteGluedHilbert</a
+      ><a name="228"
+      > </a
+      ><a name="229" class="Keyword"
+      >where</a
+      ><a name="234"
+      >
+
+</a
+      ><a name="236" class="Keyword"
+      >open</a
+      ><a name="240"
+      > </a
+      ><a name="241" class="Keyword"
+      >import</a
+      ><a name="247"
+      > </a
+      ><a name="248" href="BasicIPC.Syntax.Common.html#1" class="Module"
+      >BasicIPC.Syntax.Common</a
+      ><a name="270"
+      > </a
+      ><a name="271" class="Keyword"
+      >public</a
+      ><a name="277"
+      >
+</a
+      ><a name="278" class="Keyword"
+      >open</a
+      ><a name="282"
+      > </a
+      ><a name="283" class="Keyword"
+      >import</a
+      ><a name="289"
+      > </a
+      ><a name="290" href="Common.Semantics.html#1" class="Module"
+      >Common.Semantics</a
+      ><a name="306"
+      > </a
+      ><a name="307" class="Keyword"
+      >public</a
+      ><a name="313"
+      >
+
+</a
+      ><a name="315" class="Keyword"
+      >open</a
+      ><a name="319"
+      > </a
+      ><a name="320" href="Common.Semantics.html#276" class="Module"
+      >ConcreteWorlds</a
+      ><a name="334"
+      > </a
+      ><a name="335" class="Symbol"
+      >(</a
+      ><a name="336" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="338" class="Symbol"
+      >)</a
+      ><a name="339"
+      > </a
+      ><a name="340" class="Keyword"
+      >public</a
+      ><a name="346"
+      >
+
+
+</a
+      ><a name="349" class="Comment"
+      >-- Tarski models with explicit syntax.</a
+      ><a name="387"
+      >
+
+</a
+      ><a name="389" class="Keyword"
+      >record</a
+      ><a name="395"
+      > </a
+      ><a name="396" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Record"
+      >Model</a
+      ><a name="401"
+      > </a
+      ><a name="402" class="Symbol"
+      >:</a
+      ><a name="403"
+      > </a
+      ><a name="404" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="408"
+      > </a
+      ><a name="409" class="Keyword"
+      >where</a
+      ><a name="414"
+      >
+  </a
+      ><a name="417" class="Keyword"
+      >infix</a
+      ><a name="422"
+      > </a
+      ><a name="423" class="Number"
+      >3</a
+      ><a name="424"
+      > _&#8873;&#7493;_ _[&#8866;]_
+  </a
+      ><a name="438" class="Keyword"
+      >field</a
+      ><a name="443"
+      >
+    </a
+      ><a name="448" class="Comment"
+      >-- Forcing for atomic propositions.</a
+      ><a name="483"
+      >
+    </a
+      ><a name="488" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#488" class="Field Operator"
+      >_&#8873;&#7493;_</a
+      ><a name="492"
+      > </a
+      ><a name="493" class="Symbol"
+      >:</a
+      ><a name="494"
+      > </a
+      ><a name="495" href="Common.Semantics.html#316" class="Record"
+      >World</a
+      ><a name="500"
+      > </a
+      ><a name="501" class="Symbol"
+      >&#8594;</a
+      ><a name="502"
+      > </a
+      ><a name="503" href="Common.html#1295" class="Function"
+      >Atom</a
+      ><a name="507"
+      > </a
+      ><a name="508" class="Symbol"
+      >&#8594;</a
+      ><a name="509"
+      > </a
+      ><a name="510" class="PrimitiveType"
+      >Set</a
+      ><a name="513"
+      >
+
+    </a
+      ><a name="519" class="Comment"
+      >-- Hilbert-style syntax representation; monotonic;</a
+      ><a name="569"
+      >
+    </a
+      ><a name="574" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >_[&#8866;]_</a
+      ><a name="579"
+      >   </a
+      ><a name="582" class="Symbol"
+      >:</a
+      ><a name="583"
+      > </a
+      ><a name="584" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="586"
+      > </a
+      ><a name="587" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="589"
+      > </a
+      ><a name="590" class="Symbol"
+      >&#8594;</a
+      ><a name="591"
+      > </a
+      ><a name="592" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="594"
+      > </a
+      ><a name="595" class="Symbol"
+      >&#8594;</a
+      ><a name="596"
+      > </a
+      ><a name="597" class="PrimitiveType"
+      >Set</a
+      ><a name="600"
+      >
+    </a
+      ><a name="605" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#605" class="Field"
+      >mono[&#8866;]</a
+      ><a name="612"
+      > </a
+      ><a name="613" class="Symbol"
+      >:</a
+      ><a name="614"
+      > </a
+      ><a name="615" class="Symbol"
+      >&#8704;</a
+      ><a name="616"
+      > </a
+      ><a name="617" class="Symbol"
+      >{</a
+      ><a name="618" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#618" class="Bound"
+      >A</a
+      ><a name="619"
+      > </a
+      ><a name="620" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#620" class="Bound"
+      >&#915;</a
+      ><a name="621"
+      > </a
+      ><a name="622" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#622" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="624" class="Symbol"
+      >}</a
+      ><a name="625"
+      >  </a
+      ><a name="627" class="Symbol"
+      >&#8594;</a
+      ><a name="628"
+      > </a
+      ><a name="629" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#620" class="Bound"
+      >&#915;</a
+      ><a name="630"
+      > </a
+      ><a name="631" href="Common.Context.html#1611" class="Datatype Operator"
+      >&#8838;</a
+      ><a name="632"
+      > </a
+      ><a name="633" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#622" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="635"
+      > </a
+      ><a name="636" class="Symbol"
+      >&#8594;</a
+      ><a name="637"
+      > </a
+      ><a name="638" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#620" class="Bound"
+      >&#915;</a
+      ><a name="639"
+      > </a
+      ><a name="640" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="643"
+      > </a
+      ><a name="644" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#618" class="Bound"
+      >A</a
+      ><a name="645"
+      > </a
+      ><a name="646" class="Symbol"
+      >&#8594;</a
+      ><a name="647"
+      > </a
+      ><a name="648" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#622" class="Bound"
+      >&#915;&#8242;</a
+      ><a name="650"
+      > </a
+      ><a name="651" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="654"
+      > </a
+      ><a name="655" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#618" class="Bound"
+      >A</a
+      ><a name="656"
+      >
+    </a
+      ><a name="661" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#661" class="Field"
+      >[var]</a
+      ><a name="666"
+      >    </a
+      ><a name="670" class="Symbol"
+      >:</a
+      ><a name="671"
+      > </a
+      ><a name="672" class="Symbol"
+      >&#8704;</a
+      ><a name="673"
+      > </a
+      ><a name="674" class="Symbol"
+      >{</a
+      ><a name="675" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#675" class="Bound"
+      >A</a
+      ><a name="676"
+      > </a
+      ><a name="677" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#677" class="Bound"
+      >&#915;</a
+      ><a name="678" class="Symbol"
+      >}</a
+      ><a name="679"
+      >     </a
+      ><a name="684" class="Symbol"
+      >&#8594;</a
+      ><a name="685"
+      > </a
+      ><a name="686" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#675" class="Bound"
+      >A</a
+      ><a name="687"
+      > </a
+      ><a name="688" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="689"
+      > </a
+      ><a name="690" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#677" class="Bound"
+      >&#915;</a
+      ><a name="691"
+      > </a
+      ><a name="692" class="Symbol"
+      >&#8594;</a
+      ><a name="693"
+      > </a
+      ><a name="694" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#677" class="Bound"
+      >&#915;</a
+      ><a name="695"
+      > </a
+      ><a name="696" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="699"
+      > </a
+      ><a name="700" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#675" class="Bound"
+      >A</a
+      ><a name="701"
+      >
+    </a
+      ><a name="706" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="711"
+      >    </a
+      ><a name="715" class="Symbol"
+      >:</a
+      ><a name="716"
+      > </a
+      ><a name="717" class="Symbol"
+      >&#8704;</a
+      ><a name="718"
+      > </a
+      ><a name="719" class="Symbol"
+      >{</a
+      ><a name="720" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#720" class="Bound"
+      >A</a
+      ><a name="721"
+      > </a
+      ><a name="722" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#722" class="Bound"
+      >B</a
+      ><a name="723"
+      > </a
+      ><a name="724" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#724" class="Bound"
+      >&#915;</a
+      ><a name="725" class="Symbol"
+      >}</a
+      ><a name="726"
+      >   </a
+      ><a name="729" class="Symbol"
+      >&#8594;</a
+      ><a name="730"
+      > </a
+      ><a name="731" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#724" class="Bound"
+      >&#915;</a
+      ><a name="732"
+      > </a
+      ><a name="733" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="736"
+      > </a
+      ><a name="737" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#720" class="Bound"
+      >A</a
+      ><a name="738"
+      > </a
+      ><a name="739" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="740"
+      > </a
+      ><a name="741" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#722" class="Bound"
+      >B</a
+      ><a name="742"
+      > </a
+      ><a name="743" class="Symbol"
+      >&#8594;</a
+      ><a name="744"
+      > </a
+      ><a name="745" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#724" class="Bound"
+      >&#915;</a
+      ><a name="746"
+      > </a
+      ><a name="747" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="750"
+      > </a
+      ><a name="751" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#720" class="Bound"
+      >A</a
+      ><a name="752"
+      > </a
+      ><a name="753" class="Symbol"
+      >&#8594;</a
+      ><a name="754"
+      > </a
+      ><a name="755" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#724" class="Bound"
+      >&#915;</a
+      ><a name="756"
+      > </a
+      ><a name="757" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="760"
+      > </a
+      ><a name="761" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#722" class="Bound"
+      >B</a
+      ><a name="762"
+      >
+    </a
+      ><a name="767" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#767" class="Field"
+      >[ci]</a
+      ><a name="771"
+      >     </a
+      ><a name="776" class="Symbol"
+      >:</a
+      ><a name="777"
+      > </a
+      ><a name="778" class="Symbol"
+      >&#8704;</a
+      ><a name="779"
+      > </a
+      ><a name="780" class="Symbol"
+      >{</a
+      ><a name="781" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#781" class="Bound"
+      >A</a
+      ><a name="782"
+      > </a
+      ><a name="783" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#783" class="Bound"
+      >&#915;</a
+      ><a name="784" class="Symbol"
+      >}</a
+      ><a name="785"
+      >     </a
+      ><a name="790" class="Symbol"
+      >&#8594;</a
+      ><a name="791"
+      > </a
+      ><a name="792" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#783" class="Bound"
+      >&#915;</a
+      ><a name="793"
+      > </a
+      ><a name="794" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="797"
+      > </a
+      ><a name="798" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#781" class="Bound"
+      >A</a
+      ><a name="799"
+      > </a
+      ><a name="800" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="801"
+      > </a
+      ><a name="802" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#781" class="Bound"
+      >A</a
+      ><a name="803"
+      >
+    </a
+      ><a name="808" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#808" class="Field"
+      >[ck]</a
+      ><a name="812"
+      >     </a
+      ><a name="817" class="Symbol"
+      >:</a
+      ><a name="818"
+      > </a
+      ><a name="819" class="Symbol"
+      >&#8704;</a
+      ><a name="820"
+      > </a
+      ><a name="821" class="Symbol"
+      >{</a
+      ><a name="822" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#822" class="Bound"
+      >A</a
+      ><a name="823"
+      > </a
+      ><a name="824" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#824" class="Bound"
+      >B</a
+      ><a name="825"
+      > </a
+      ><a name="826" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#826" class="Bound"
+      >&#915;</a
+      ><a name="827" class="Symbol"
+      >}</a
+      ><a name="828"
+      >   </a
+      ><a name="831" class="Symbol"
+      >&#8594;</a
+      ><a name="832"
+      > </a
+      ><a name="833" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#826" class="Bound"
+      >&#915;</a
+      ><a name="834"
+      > </a
+      ><a name="835" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="838"
+      > </a
+      ><a name="839" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#822" class="Bound"
+      >A</a
+      ><a name="840"
+      > </a
+      ><a name="841" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="842"
+      > </a
+      ><a name="843" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#824" class="Bound"
+      >B</a
+      ><a name="844"
+      > </a
+      ><a name="845" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="846"
+      > </a
+      ><a name="847" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#822" class="Bound"
+      >A</a
+      ><a name="848"
+      >
+    </a
+      ><a name="853" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#853" class="Field"
+      >[cs]</a
+      ><a name="857"
+      >     </a
+      ><a name="862" class="Symbol"
+      >:</a
+      ><a name="863"
+      > </a
+      ><a name="864" class="Symbol"
+      >&#8704;</a
+      ><a name="865"
+      > </a
+      ><a name="866" class="Symbol"
+      >{</a
+      ><a name="867" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#867" class="Bound"
+      >A</a
+      ><a name="868"
+      > </a
+      ><a name="869" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#869" class="Bound"
+      >B</a
+      ><a name="870"
+      > </a
+      ><a name="871" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#871" class="Bound"
+      >C</a
+      ><a name="872"
+      > </a
+      ><a name="873" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#873" class="Bound"
+      >&#915;</a
+      ><a name="874" class="Symbol"
+      >}</a
+      ><a name="875"
+      > </a
+      ><a name="876" class="Symbol"
+      >&#8594;</a
+      ><a name="877"
+      > </a
+      ><a name="878" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#873" class="Bound"
+      >&#915;</a
+      ><a name="879"
+      > </a
+      ><a name="880" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="883"
+      > </a
+      ><a name="884" class="Symbol"
+      >(</a
+      ><a name="885" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#867" class="Bound"
+      >A</a
+      ><a name="886"
+      > </a
+      ><a name="887" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="888"
+      > </a
+      ><a name="889" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#869" class="Bound"
+      >B</a
+      ><a name="890"
+      > </a
+      ><a name="891" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="892"
+      > </a
+      ><a name="893" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#871" class="Bound"
+      >C</a
+      ><a name="894" class="Symbol"
+      >)</a
+      ><a name="895"
+      > </a
+      ><a name="896" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="897"
+      > </a
+      ><a name="898" class="Symbol"
+      >(</a
+      ><a name="899" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#867" class="Bound"
+      >A</a
+      ><a name="900"
+      > </a
+      ><a name="901" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="902"
+      > </a
+      ><a name="903" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#869" class="Bound"
+      >B</a
+      ><a name="904" class="Symbol"
+      >)</a
+      ><a name="905"
+      > </a
+      ><a name="906" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="907"
+      > </a
+      ><a name="908" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#867" class="Bound"
+      >A</a
+      ><a name="909"
+      > </a
+      ><a name="910" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="911"
+      > </a
+      ><a name="912" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#871" class="Bound"
+      >C</a
+      ><a name="913"
+      >
+    </a
+      ><a name="918" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#918" class="Field"
+      >[cpair]</a
+      ><a name="925"
+      >  </a
+      ><a name="927" class="Symbol"
+      >:</a
+      ><a name="928"
+      > </a
+      ><a name="929" class="Symbol"
+      >&#8704;</a
+      ><a name="930"
+      > </a
+      ><a name="931" class="Symbol"
+      >{</a
+      ><a name="932" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#932" class="Bound"
+      >A</a
+      ><a name="933"
+      > </a
+      ><a name="934" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#934" class="Bound"
+      >B</a
+      ><a name="935"
+      > </a
+      ><a name="936" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#936" class="Bound"
+      >&#915;</a
+      ><a name="937" class="Symbol"
+      >}</a
+      ><a name="938"
+      >   </a
+      ><a name="941" class="Symbol"
+      >&#8594;</a
+      ><a name="942"
+      > </a
+      ><a name="943" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#936" class="Bound"
+      >&#915;</a
+      ><a name="944"
+      > </a
+      ><a name="945" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="948"
+      > </a
+      ><a name="949" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#932" class="Bound"
+      >A</a
+      ><a name="950"
+      > </a
+      ><a name="951" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="952"
+      > </a
+      ><a name="953" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#934" class="Bound"
+      >B</a
+      ><a name="954"
+      > </a
+      ><a name="955" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="956"
+      > </a
+      ><a name="957" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#932" class="Bound"
+      >A</a
+      ><a name="958"
+      > </a
+      ><a name="959" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="960"
+      > </a
+      ><a name="961" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#934" class="Bound"
+      >B</a
+      ><a name="962"
+      >
+    </a
+      ><a name="967" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#967" class="Field"
+      >[cfst]</a
+      ><a name="973"
+      >   </a
+      ><a name="976" class="Symbol"
+      >:</a
+      ><a name="977"
+      > </a
+      ><a name="978" class="Symbol"
+      >&#8704;</a
+      ><a name="979"
+      > </a
+      ><a name="980" class="Symbol"
+      >{</a
+      ><a name="981" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#981" class="Bound"
+      >A</a
+      ><a name="982"
+      > </a
+      ><a name="983" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#983" class="Bound"
+      >B</a
+      ><a name="984"
+      > </a
+      ><a name="985" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#985" class="Bound"
+      >&#915;</a
+      ><a name="986" class="Symbol"
+      >}</a
+      ><a name="987"
+      >   </a
+      ><a name="990" class="Symbol"
+      >&#8594;</a
+      ><a name="991"
+      > </a
+      ><a name="992" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#985" class="Bound"
+      >&#915;</a
+      ><a name="993"
+      > </a
+      ><a name="994" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="997"
+      > </a
+      ><a name="998" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#981" class="Bound"
+      >A</a
+      ><a name="999"
+      > </a
+      ><a name="1000" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1001"
+      > </a
+      ><a name="1002" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#983" class="Bound"
+      >B</a
+      ><a name="1003"
+      > </a
+      ><a name="1004" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1005"
+      > </a
+      ><a name="1006" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#981" class="Bound"
+      >A</a
+      ><a name="1007"
+      >
+    </a
+      ><a name="1012" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1012" class="Field"
+      >[csnd]</a
+      ><a name="1018"
+      >   </a
+      ><a name="1021" class="Symbol"
+      >:</a
+      ><a name="1022"
+      > </a
+      ><a name="1023" class="Symbol"
+      >&#8704;</a
+      ><a name="1024"
+      > </a
+      ><a name="1025" class="Symbol"
+      >{</a
+      ><a name="1026" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1026" class="Bound"
+      >A</a
+      ><a name="1027"
+      > </a
+      ><a name="1028" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1028" class="Bound"
+      >B</a
+      ><a name="1029"
+      > </a
+      ><a name="1030" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1030" class="Bound"
+      >&#915;</a
+      ><a name="1031" class="Symbol"
+      >}</a
+      ><a name="1032"
+      >   </a
+      ><a name="1035" class="Symbol"
+      >&#8594;</a
+      ><a name="1036"
+      > </a
+      ><a name="1037" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1030" class="Bound"
+      >&#915;</a
+      ><a name="1038"
+      > </a
+      ><a name="1039" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="1042"
+      > </a
+      ><a name="1043" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1026" class="Bound"
+      >A</a
+      ><a name="1044"
+      > </a
+      ><a name="1045" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1046"
+      > </a
+      ><a name="1047" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1028" class="Bound"
+      >B</a
+      ><a name="1048"
+      > </a
+      ><a name="1049" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1050"
+      > </a
+      ><a name="1051" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1028" class="Bound"
+      >B</a
+      ><a name="1052"
+      >
+    </a
+      ><a name="1057" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1057" class="Field"
+      >[unit]</a
+      ><a name="1063"
+      >   </a
+      ><a name="1066" class="Symbol"
+      >:</a
+      ><a name="1067"
+      > </a
+      ><a name="1068" class="Symbol"
+      >&#8704;</a
+      ><a name="1069"
+      > </a
+      ><a name="1070" class="Symbol"
+      >{</a
+      ><a name="1071" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1071" class="Bound"
+      >&#915;</a
+      ><a name="1072" class="Symbol"
+      >}</a
+      ><a name="1073"
+      >       </a
+      ><a name="1080" class="Symbol"
+      >&#8594;</a
+      ><a name="1081"
+      > </a
+      ><a name="1082" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1071" class="Bound"
+      >&#915;</a
+      ><a name="1083"
+      > </a
+      ><a name="1084" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="1087"
+      > </a
+      ><a name="1088" href="BasicIPC.Syntax.Common.html#293" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1089"
+      >
+
+    </a
+      ><a name="1095" class="Comment"
+      >-- NOTE: [lam] is necessary to give meaning to Gentzen-style syntax.</a
+      ><a name="1163"
+      >
+    </a
+      ><a name="1168" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1168" class="Field"
+      >[lam]</a
+      ><a name="1173"
+      > </a
+      ><a name="1174" class="Symbol"
+      >:</a
+      ><a name="1175"
+      > </a
+      ><a name="1176" class="Symbol"
+      >&#8704;</a
+      ><a name="1177"
+      > </a
+      ><a name="1178" class="Symbol"
+      >{</a
+      ><a name="1179" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1179" class="Bound"
+      >A</a
+      ><a name="1180"
+      > </a
+      ><a name="1181" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1181" class="Bound"
+      >B</a
+      ><a name="1182"
+      > </a
+      ><a name="1183" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1183" class="Bound"
+      >&#915;</a
+      ><a name="1184" class="Symbol"
+      >}</a
+      ><a name="1185"
+      > </a
+      ><a name="1186" class="Symbol"
+      >&#8594;</a
+      ><a name="1187"
+      > </a
+      ><a name="1188" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1183" class="Bound"
+      >&#915;</a
+      ><a name="1189"
+      > </a
+      ><a name="1190" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1191"
+      > </a
+      ><a name="1192" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1179" class="Bound"
+      >A</a
+      ><a name="1193"
+      > </a
+      ><a name="1194" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="1197"
+      > </a
+      ><a name="1198" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1181" class="Bound"
+      >B</a
+      ><a name="1199"
+      > </a
+      ><a name="1200" class="Symbol"
+      >&#8594;</a
+      ><a name="1201"
+      > </a
+      ><a name="1202" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1183" class="Bound"
+      >&#915;</a
+      ><a name="1203"
+      > </a
+      ><a name="1204" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="1207"
+      > </a
+      ><a name="1208" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1179" class="Bound"
+      >A</a
+      ><a name="1209"
+      > </a
+      ><a name="1210" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1211"
+      > </a
+      ><a name="1212" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1181" class="Bound"
+      >B</a
+      ><a name="1213"
+      >
+
+  </a
+      ><a name="1217" class="Keyword"
+      >infix</a
+      ><a name="1222"
+      > </a
+      ><a name="1223" class="Number"
+      >3</a
+      ><a name="1224"
+      > _[&#8866;]&#8902;_
+  </a
+      ><a name="1234" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1234" class="Function Operator"
+      >_[&#8866;]&#8902;_</a
+      ><a name="1240"
+      > </a
+      ><a name="1241" class="Symbol"
+      >:</a
+      ><a name="1242"
+      > </a
+      ><a name="1243" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1245"
+      > </a
+      ><a name="1246" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1248"
+      > </a
+      ><a name="1249" class="Symbol"
+      >&#8594;</a
+      ><a name="1250"
+      > </a
+      ><a name="1251" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1253"
+      > </a
+      ><a name="1254" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1256"
+      > </a
+      ><a name="1257" class="Symbol"
+      >&#8594;</a
+      ><a name="1258"
+      > </a
+      ><a name="1259" class="PrimitiveType"
+      >Set</a
+      ><a name="1262"
+      >
+  </a
+      ><a name="1265" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1265" class="Bound"
+      >&#915;</a
+      ><a name="1266"
+      > </a
+      ><a name="1267" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1234" class="Function Operator"
+      >[&#8866;]&#8902;</a
+      ><a name="1271"
+      > </a
+      ><a name="1272" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1273"
+      >     </a
+      ><a name="1278" class="Symbol"
+      >=</a
+      ><a name="1279"
+      > </a
+      ><a name="1280" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1281"
+      >
+  </a
+      ><a name="1284" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1284" class="Bound"
+      >&#915;</a
+      ><a name="1285"
+      > </a
+      ><a name="1286" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1234" class="Function Operator"
+      >[&#8866;]&#8902;</a
+      ><a name="1290"
+      > </a
+      ><a name="1291" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1291" class="Bound"
+      >&#926;</a
+      ><a name="1292"
+      > </a
+      ><a name="1293" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1294"
+      > </a
+      ><a name="1295" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1295" class="Bound"
+      >A</a
+      ><a name="1296"
+      > </a
+      ><a name="1297" class="Symbol"
+      >=</a
+      ><a name="1298"
+      > </a
+      ><a name="1299" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1284" class="Bound"
+      >&#915;</a
+      ><a name="1300"
+      > </a
+      ><a name="1301" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1234" class="Function Operator"
+      >[&#8866;]&#8902;</a
+      ><a name="1305"
+      > </a
+      ><a name="1306" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1291" class="Bound"
+      >&#926;</a
+      ><a name="1307"
+      > </a
+      ><a name="1308" href="Common.html#1626" class="Function Operator"
+      >&#215;</a
+      ><a name="1309"
+      > </a
+      ><a name="1310" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1284" class="Bound"
+      >&#915;</a
+      ><a name="1311"
+      > </a
+      ><a name="1312" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="1315"
+      > </a
+      ><a name="1316" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1295" class="Bound"
+      >A</a
+      ><a name="1317"
+      >
+
+</a
+      ><a name="1319" class="Keyword"
+      >open</a
+      ><a name="1323"
+      > </a
+      ><a name="1324" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Module"
+      >Model</a
+      ><a name="1329"
+      > </a
+      ><a name="1330" class="Symbol"
+      >{{&#8230;}}</a
+      ><a name="1335"
+      > </a
+      ><a name="1336" class="Keyword"
+      >public</a
+      ><a name="1342"
+      >
+
+
+</a
+      ><a name="1345" class="Comment"
+      >-- Forcing in a particular world of a particular model.</a
+      ><a name="1400"
+      >
+
+</a
+      ><a name="1402" class="Keyword"
+      >module</a
+      ><a name="1408"
+      > </a
+      ><a name="1409" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1409" class="Module"
+      >_</a
+      ><a name="1410"
+      > </a
+      ><a name="1411" class="Symbol"
+      >{{</a
+      ><a name="1413" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1413" class="Bound"
+      >_</a
+      ><a name="1414"
+      > </a
+      ><a name="1415" class="Symbol"
+      >:</a
+      ><a name="1416"
+      > </a
+      ><a name="1417" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Record"
+      >Model</a
+      ><a name="1422" class="Symbol"
+      >}}</a
+      ><a name="1424"
+      > </a
+      ><a name="1425" class="Keyword"
+      >where</a
+      ><a name="1430"
+      >
+  </a
+      ><a name="1433" class="Keyword"
+      >infix</a
+      ><a name="1438"
+      > </a
+      ><a name="1439" class="Number"
+      >3</a
+      ><a name="1440"
+      > _&#8873;_
+  </a
+      ><a name="1447" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >_&#8873;_</a
+      ><a name="1450"
+      > </a
+      ><a name="1451" class="Symbol"
+      >:</a
+      ><a name="1452"
+      > </a
+      ><a name="1453" href="Common.Semantics.html#316" class="Record"
+      >World</a
+      ><a name="1458"
+      > </a
+      ><a name="1459" class="Symbol"
+      >&#8594;</a
+      ><a name="1460"
+      > </a
+      ><a name="1461" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1463"
+      > </a
+      ><a name="1464" class="Symbol"
+      >&#8594;</a
+      ><a name="1465"
+      > </a
+      ><a name="1466" class="PrimitiveType"
+      >Set</a
+      ><a name="1469"
+      >
+  </a
+      ><a name="1472" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1472" class="Bound"
+      >w</a
+      ><a name="1473"
+      > </a
+      ><a name="1474" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1475"
+      > </a
+      ><a name="1476" href="BasicIPC.Syntax.Common.html#233" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1477"
+      > </a
+      ><a name="1478" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1478" class="Bound"
+      >P</a
+      ><a name="1479"
+      >   </a
+      ><a name="1482" class="Symbol"
+      >=</a
+      ><a name="1483"
+      > </a
+      ><a name="1484" href="Common.Semantics.html#121" class="Record"
+      >Glue</a
+      ><a name="1488"
+      > </a
+      ><a name="1489" class="Symbol"
+      >(</a
+      ><a name="1490" href="Common.Semantics.html#383" class="Function"
+      >unwrap</a
+      ><a name="1496"
+      > </a
+      ><a name="1497" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1472" class="Bound"
+      >w</a
+      ><a name="1498"
+      > </a
+      ><a name="1499" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="1502"
+      > </a
+      ><a name="1503" class="Symbol"
+      >(</a
+      ><a name="1504" href="BasicIPC.Syntax.Common.html#233" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1505"
+      > </a
+      ><a name="1506" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1478" class="Bound"
+      >P</a
+      ><a name="1507" class="Symbol"
+      >))</a
+      ><a name="1509"
+      > </a
+      ><a name="1510" class="Symbol"
+      >(</a
+      ><a name="1511" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1472" class="Bound"
+      >w</a
+      ><a name="1512"
+      > </a
+      ><a name="1513" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#488" class="Field Operator"
+      >&#8873;&#7493;</a
+      ><a name="1515"
+      > </a
+      ><a name="1516" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1478" class="Bound"
+      >P</a
+      ><a name="1517" class="Symbol"
+      >)</a
+      ><a name="1518"
+      >
+  </a
+      ><a name="1521" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1521" class="Bound"
+      >w</a
+      ><a name="1522"
+      > </a
+      ><a name="1523" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1524"
+      > </a
+      ><a name="1525" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1525" class="Bound"
+      >A</a
+      ><a name="1526"
+      > </a
+      ><a name="1527" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1528"
+      > </a
+      ><a name="1529" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1529" class="Bound"
+      >B</a
+      ><a name="1530"
+      > </a
+      ><a name="1531" class="Symbol"
+      >=</a
+      ><a name="1532"
+      > </a
+      ><a name="1533" href="Common.Semantics.html#121" class="Record"
+      >Glue</a
+      ><a name="1537"
+      > </a
+      ><a name="1538" class="Symbol"
+      >(</a
+      ><a name="1539" href="Common.Semantics.html#383" class="Function"
+      >unwrap</a
+      ><a name="1545"
+      > </a
+      ><a name="1546" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1521" class="Bound"
+      >w</a
+      ><a name="1547"
+      > </a
+      ><a name="1548" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="1551"
+      > </a
+      ><a name="1552" class="Symbol"
+      >(</a
+      ><a name="1553" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1525" class="Bound"
+      >A</a
+      ><a name="1554"
+      > </a
+      ><a name="1555" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1556"
+      > </a
+      ><a name="1557" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1529" class="Bound"
+      >B</a
+      ><a name="1558" class="Symbol"
+      >))</a
+      ><a name="1560"
+      > </a
+      ><a name="1561" class="Symbol"
+      >(</a
+      ><a name="1562" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1521" class="Bound"
+      >w</a
+      ><a name="1563"
+      > </a
+      ><a name="1564" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1565"
+      > </a
+      ><a name="1566" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1525" class="Bound"
+      >A</a
+      ><a name="1567"
+      > </a
+      ><a name="1568" class="Symbol"
+      >&#8594;</a
+      ><a name="1569"
+      > </a
+      ><a name="1570" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1521" class="Bound"
+      >w</a
+      ><a name="1571"
+      > </a
+      ><a name="1572" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1573"
+      > </a
+      ><a name="1574" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1529" class="Bound"
+      >B</a
+      ><a name="1575" class="Symbol"
+      >)</a
+      ><a name="1576"
+      >
+  </a
+      ><a name="1579" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1579" class="Bound"
+      >w</a
+      ><a name="1580"
+      > </a
+      ><a name="1581" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1582"
+      > </a
+      ><a name="1583" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1583" class="Bound"
+      >A</a
+      ><a name="1584"
+      > </a
+      ><a name="1585" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1586"
+      > </a
+      ><a name="1587" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1587" class="Bound"
+      >B</a
+      ><a name="1588"
+      > </a
+      ><a name="1589" class="Symbol"
+      >=</a
+      ><a name="1590"
+      > </a
+      ><a name="1591" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1579" class="Bound"
+      >w</a
+      ><a name="1592"
+      > </a
+      ><a name="1593" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1594"
+      > </a
+      ><a name="1595" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1583" class="Bound"
+      >A</a
+      ><a name="1596"
+      > </a
+      ><a name="1597" href="Common.html#1626" class="Function Operator"
+      >&#215;</a
+      ><a name="1598"
+      > </a
+      ><a name="1599" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1579" class="Bound"
+      >w</a
+      ><a name="1600"
+      > </a
+      ><a name="1601" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1602"
+      > </a
+      ><a name="1603" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1587" class="Bound"
+      >B</a
+      ><a name="1604"
+      >
+  </a
+      ><a name="1607" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1607" class="Bound"
+      >w</a
+      ><a name="1608"
+      > </a
+      ><a name="1609" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1610"
+      > </a
+      ><a name="1611" href="BasicIPC.Syntax.Common.html#293" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1612"
+      >    </a
+      ><a name="1616" class="Symbol"
+      >=</a
+      ><a name="1617"
+      > </a
+      ><a name="1618" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1619"
+      >
+
+  </a
+      ><a name="1623" class="Keyword"
+      >infix</a
+      ><a name="1628"
+      > </a
+      ><a name="1629" class="Number"
+      >3</a
+      ><a name="1630"
+      > _&#8873;&#8902;_
+  </a
+      ><a name="1638" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1638" class="Function Operator"
+      >_&#8873;&#8902;_</a
+      ><a name="1642"
+      > </a
+      ><a name="1643" class="Symbol"
+      >:</a
+      ><a name="1644"
+      > </a
+      ><a name="1645" href="Common.Semantics.html#316" class="Record"
+      >World</a
+      ><a name="1650"
+      > </a
+      ><a name="1651" class="Symbol"
+      >&#8594;</a
+      ><a name="1652"
+      > </a
+      ><a name="1653" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="1655"
+      > </a
+      ><a name="1656" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="1658"
+      > </a
+      ><a name="1659" class="Symbol"
+      >&#8594;</a
+      ><a name="1660"
+      > </a
+      ><a name="1661" class="PrimitiveType"
+      >Set</a
+      ><a name="1664"
+      >
+  </a
+      ><a name="1667" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1667" class="Bound"
+      >w</a
+      ><a name="1668"
+      > </a
+      ><a name="1669" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1638" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1671"
+      > </a
+      ><a name="1672" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="1673"
+      >     </a
+      ><a name="1678" class="Symbol"
+      >=</a
+      ><a name="1679"
+      > </a
+      ><a name="1680" href="Agda.Builtin.Unit.html#41" class="Record"
+      >&#120793;</a
+      ><a name="1681"
+      >
+  </a
+      ><a name="1684" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1684" class="Bound"
+      >w</a
+      ><a name="1685"
+      > </a
+      ><a name="1686" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1638" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1688"
+      > </a
+      ><a name="1689" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1689" class="Bound"
+      >&#926;</a
+      ><a name="1690"
+      > </a
+      ><a name="1691" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="1692"
+      > </a
+      ><a name="1693" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1693" class="Bound"
+      >A</a
+      ><a name="1694"
+      > </a
+      ><a name="1695" class="Symbol"
+      >=</a
+      ><a name="1696"
+      > </a
+      ><a name="1697" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1684" class="Bound"
+      >w</a
+      ><a name="1698"
+      > </a
+      ><a name="1699" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1638" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="1701"
+      > </a
+      ><a name="1702" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1689" class="Bound"
+      >&#926;</a
+      ><a name="1703"
+      > </a
+      ><a name="1704" href="Common.html#1626" class="Function Operator"
+      >&#215;</a
+      ><a name="1705"
+      > </a
+      ><a name="1706" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1684" class="Bound"
+      >w</a
+      ><a name="1707"
+      > </a
+      ><a name="1708" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1709"
+      > </a
+      ><a name="1710" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1693" class="Bound"
+      >A</a
+      ><a name="1711"
+      >
+
+
+</a
+      ><a name="1714" class="Comment"
+      >-- Extraction of syntax representation in a particular model.</a
+      ><a name="1775"
+      >
+
+</a
+      ><a name="1777" class="Keyword"
+      >module</a
+      ><a name="1783"
+      > </a
+      ><a name="1784" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1784" class="Module"
+      >_</a
+      ><a name="1785"
+      > </a
+      ><a name="1786" class="Symbol"
+      >{{</a
+      ><a name="1788" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1788" class="Bound"
+      >_</a
+      ><a name="1789"
+      > </a
+      ><a name="1790" class="Symbol"
+      >:</a
+      ><a name="1791"
+      > </a
+      ><a name="1792" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Record"
+      >Model</a
+      ><a name="1797" class="Symbol"
+      >}}</a
+      ><a name="1799"
+      > </a
+      ><a name="1800" class="Keyword"
+      >where</a
+      ><a name="1805"
+      >
+  </a
+      ><a name="1808" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="1814"
+      > </a
+      ><a name="1815" class="Symbol"
+      >:</a
+      ><a name="1816"
+      > </a
+      ><a name="1817" class="Symbol"
+      >&#8704;</a
+      ><a name="1818"
+      > </a
+      ><a name="1819" class="Symbol"
+      >{</a
+      ><a name="1820" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1820" class="Bound"
+      >A</a
+      ><a name="1821"
+      > </a
+      ><a name="1822" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1822" class="Bound"
+      >w</a
+      ><a name="1823" class="Symbol"
+      >}</a
+      ><a name="1824"
+      > </a
+      ><a name="1825" class="Symbol"
+      >&#8594;</a
+      ><a name="1826"
+      > </a
+      ><a name="1827" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1822" class="Bound"
+      >w</a
+      ><a name="1828"
+      > </a
+      ><a name="1829" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="1830"
+      > </a
+      ><a name="1831" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1820" class="Bound"
+      >A</a
+      ><a name="1832"
+      > </a
+      ><a name="1833" class="Symbol"
+      >&#8594;</a
+      ><a name="1834"
+      > </a
+      ><a name="1835" href="Common.Semantics.html#383" class="Function"
+      >unwrap</a
+      ><a name="1841"
+      > </a
+      ><a name="1842" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1822" class="Bound"
+      >w</a
+      ><a name="1843"
+      > </a
+      ><a name="1844" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="1847"
+      > </a
+      ><a name="1848" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1820" class="Bound"
+      >A</a
+      ><a name="1849"
+      >
+  </a
+      ><a name="1852" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="1858"
+      > </a
+      ><a name="1859" class="Symbol"
+      >{</a
+      ><a name="1860" href="BasicIPC.Syntax.Common.html#233" class="InductiveConstructor Operator"
+      >&#945;</a
+      ><a name="1861"
+      > </a
+      ><a name="1862" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1862" class="Bound"
+      >P</a
+      ><a name="1863" class="Symbol"
+      >}</a
+      ><a name="1864"
+      >   </a
+      ><a name="1867" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1867" class="Bound"
+      >s</a
+      ><a name="1868"
+      > </a
+      ><a name="1869" class="Symbol"
+      >=</a
+      ><a name="1870"
+      > </a
+      ><a name="1871" href="Common.Semantics.html#192" class="Field"
+      >syn</a
+      ><a name="1874"
+      > </a
+      ><a name="1875" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1867" class="Bound"
+      >s</a
+      ><a name="1876"
+      >
+  </a
+      ><a name="1879" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="1885"
+      > </a
+      ><a name="1886" class="Symbol"
+      >{</a
+      ><a name="1887" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1887" class="Bound"
+      >A</a
+      ><a name="1888"
+      > </a
+      ><a name="1889" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="1890"
+      > </a
+      ><a name="1891" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1891" class="Bound"
+      >B</a
+      ><a name="1892" class="Symbol"
+      >}</a
+      ><a name="1893"
+      > </a
+      ><a name="1894" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1894" class="Bound"
+      >s</a
+      ><a name="1895"
+      > </a
+      ><a name="1896" class="Symbol"
+      >=</a
+      ><a name="1897"
+      > </a
+      ><a name="1898" href="Common.Semantics.html#192" class="Field"
+      >syn</a
+      ><a name="1901"
+      > </a
+      ><a name="1902" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1894" class="Bound"
+      >s</a
+      ><a name="1903"
+      >
+  </a
+      ><a name="1906" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="1912"
+      > </a
+      ><a name="1913" class="Symbol"
+      >{</a
+      ><a name="1914" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1914" class="Bound"
+      >A</a
+      ><a name="1915"
+      > </a
+      ><a name="1916" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="1917"
+      > </a
+      ><a name="1918" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1918" class="Bound"
+      >B</a
+      ><a name="1919" class="Symbol"
+      >}</a
+      ><a name="1920"
+      > </a
+      ><a name="1921" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1921" class="Bound"
+      >s</a
+      ><a name="1922"
+      > </a
+      ><a name="1923" class="Symbol"
+      >=</a
+      ><a name="1924"
+      > </a
+      ><a name="1925" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="1930"
+      > </a
+      ><a name="1931" class="Symbol"
+      >(</a
+      ><a name="1932" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="1937"
+      > </a
+      ><a name="1938" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#918" class="Field"
+      >[cpair]</a
+      ><a name="1945"
+      > </a
+      ><a name="1946" class="Symbol"
+      >(</a
+      ><a name="1947" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="1953"
+      > </a
+      ><a name="1954" class="Symbol"
+      >{</a
+      ><a name="1955" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1914" class="Bound"
+      >A</a
+      ><a name="1956" class="Symbol"
+      >}</a
+      ><a name="1957"
+      > </a
+      ><a name="1958" class="Symbol"
+      >(</a
+      ><a name="1959" href="Common.html#1515" class="Field"
+      >&#960;&#8321;</a
+      ><a name="1961"
+      > </a
+      ><a name="1962" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1921" class="Bound"
+      >s</a
+      ><a name="1963" class="Symbol"
+      >)))</a
+      ><a name="1966"
+      > </a
+      ><a name="1967" class="Symbol"
+      >(</a
+      ><a name="1968" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="1974"
+      > </a
+      ><a name="1975" class="Symbol"
+      >{</a
+      ><a name="1976" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1918" class="Bound"
+      >B</a
+      ><a name="1977" class="Symbol"
+      >}</a
+      ><a name="1978"
+      > </a
+      ><a name="1979" class="Symbol"
+      >(</a
+      ><a name="1980" href="Common.html#1526" class="Field"
+      >&#960;&#8322;</a
+      ><a name="1982"
+      > </a
+      ><a name="1983" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1921" class="Bound"
+      >s</a
+      ><a name="1984" class="Symbol"
+      >))</a
+      ><a name="1986"
+      >
+  </a
+      ><a name="1989" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="1995"
+      > </a
+      ><a name="1996" class="Symbol"
+      >{</a
+      ><a name="1997" href="BasicIPC.Syntax.Common.html#293" class="InductiveConstructor"
+      >&#8868;</a
+      ><a name="1998" class="Symbol"
+      >}</a
+      ><a name="1999"
+      >    </a
+      ><a name="2003" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2003" class="Bound"
+      >s</a
+      ><a name="2004"
+      > </a
+      ><a name="2005" class="Symbol"
+      >=</a
+      ><a name="2006"
+      > </a
+      ><a name="2007" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1057" class="Field"
+      >[unit]</a
+      ><a name="2013"
+      >
+
+  </a
+      ><a name="2017" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2017" class="Function"
+      >reify&#691;&#8902;</a
+      ><a name="2024"
+      > </a
+      ><a name="2025" class="Symbol"
+      >:</a
+      ><a name="2026"
+      > </a
+      ><a name="2027" class="Symbol"
+      >&#8704;</a
+      ><a name="2028"
+      > </a
+      ><a name="2029" class="Symbol"
+      >{</a
+      ><a name="2030" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2030" class="Bound"
+      >&#926;</a
+      ><a name="2031"
+      > </a
+      ><a name="2032" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2032" class="Bound"
+      >w</a
+      ><a name="2033" class="Symbol"
+      >}</a
+      ><a name="2034"
+      > </a
+      ><a name="2035" class="Symbol"
+      >&#8594;</a
+      ><a name="2036"
+      > </a
+      ><a name="2037" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2032" class="Bound"
+      >w</a
+      ><a name="2038"
+      > </a
+      ><a name="2039" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1638" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="2041"
+      > </a
+      ><a name="2042" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2030" class="Bound"
+      >&#926;</a
+      ><a name="2043"
+      > </a
+      ><a name="2044" class="Symbol"
+      >&#8594;</a
+      ><a name="2045"
+      > </a
+      ><a name="2046" href="Common.Semantics.html#383" class="Function"
+      >unwrap</a
+      ><a name="2052"
+      > </a
+      ><a name="2053" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2032" class="Bound"
+      >w</a
+      ><a name="2054"
+      > </a
+      ><a name="2055" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1234" class="Function Operator"
+      >[&#8866;]&#8902;</a
+      ><a name="2059"
+      > </a
+      ><a name="2060" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2030" class="Bound"
+      >&#926;</a
+      ><a name="2061"
+      >
+  </a
+      ><a name="2064" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2017" class="Function"
+      >reify&#691;&#8902;</a
+      ><a name="2071"
+      > </a
+      ><a name="2072" class="Symbol"
+      >{</a
+      ><a name="2073" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="2074" class="Symbol"
+      >}</a
+      ><a name="2075"
+      >     </a
+      ><a name="2080" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2081"
+      >        </a
+      ><a name="2089" class="Symbol"
+      >=</a
+      ><a name="2090"
+      > </a
+      ><a name="2091" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2092"
+      >
+  </a
+      ><a name="2095" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2017" class="Function"
+      >reify&#691;&#8902;</a
+      ><a name="2102"
+      > </a
+      ><a name="2103" class="Symbol"
+      >{</a
+      ><a name="2104" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2104" class="Bound"
+      >&#926;</a
+      ><a name="2105"
+      > </a
+      ><a name="2106" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2107"
+      > </a
+      ><a name="2108" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2108" class="Bound"
+      >A</a
+      ><a name="2109" class="Symbol"
+      >}</a
+      ><a name="2110"
+      > </a
+      ><a name="2111" class="Symbol"
+      >(</a
+      ><a name="2112" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2112" class="Bound"
+      >ts</a
+      ><a name="2114"
+      > </a
+      ><a name="2115" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2116"
+      > </a
+      ><a name="2117" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2117" class="Bound"
+      >t</a
+      ><a name="2118" class="Symbol"
+      >)</a
+      ><a name="2119"
+      > </a
+      ><a name="2120" class="Symbol"
+      >=</a
+      ><a name="2121"
+      > </a
+      ><a name="2122" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2017" class="Function"
+      >reify&#691;&#8902;</a
+      ><a name="2129"
+      > </a
+      ><a name="2130" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2112" class="Bound"
+      >ts</a
+      ><a name="2132"
+      > </a
+      ><a name="2133" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2134"
+      > </a
+      ><a name="2135" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="2141"
+      > </a
+      ><a name="2142" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2117" class="Bound"
+      >t</a
+      ><a name="2143"
+      >
+
+
+</a
+      ><a name="2146" class="Comment"
+      >-- Useful theorems in functional form.</a
+      ><a name="2184"
+      >
+
+</a
+      ><a name="2186" class="Keyword"
+      >module</a
+      ><a name="2192"
+      > </a
+      ><a name="2193" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2193" class="Module"
+      >_</a
+      ><a name="2194"
+      > </a
+      ><a name="2195" class="Symbol"
+      >{{</a
+      ><a name="2197" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2197" class="Bound"
+      >_</a
+      ><a name="2198"
+      > </a
+      ><a name="2199" class="Symbol"
+      >:</a
+      ><a name="2200"
+      > </a
+      ><a name="2201" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Record"
+      >Model</a
+      ><a name="2206" class="Symbol"
+      >}}</a
+      ><a name="2208"
+      > </a
+      ><a name="2209" class="Keyword"
+      >where</a
+      ><a name="2214"
+      >
+  </a
+      ><a name="2217" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2217" class="Function"
+      >[multicut]</a
+      ><a name="2227"
+      > </a
+      ><a name="2228" class="Symbol"
+      >:</a
+      ><a name="2229"
+      > </a
+      ><a name="2230" class="Symbol"
+      >&#8704;</a
+      ><a name="2231"
+      > </a
+      ><a name="2232" class="Symbol"
+      >{</a
+      ><a name="2233" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2233" class="Bound"
+      >&#926;</a
+      ><a name="2234"
+      > </a
+      ><a name="2235" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2235" class="Bound"
+      >&#915;</a
+      ><a name="2236"
+      > </a
+      ><a name="2237" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2237" class="Bound"
+      >A</a
+      ><a name="2238" class="Symbol"
+      >}</a
+      ><a name="2239"
+      > </a
+      ><a name="2240" class="Symbol"
+      >&#8594;</a
+      ><a name="2241"
+      > </a
+      ><a name="2242" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2235" class="Bound"
+      >&#915;</a
+      ><a name="2243"
+      > </a
+      ><a name="2244" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1234" class="Function Operator"
+      >[&#8866;]&#8902;</a
+      ><a name="2248"
+      > </a
+      ><a name="2249" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2233" class="Bound"
+      >&#926;</a
+      ><a name="2250"
+      > </a
+      ><a name="2251" class="Symbol"
+      >&#8594;</a
+      ><a name="2252"
+      > </a
+      ><a name="2253" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2233" class="Bound"
+      >&#926;</a
+      ><a name="2254"
+      > </a
+      ><a name="2255" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="2258"
+      > </a
+      ><a name="2259" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2237" class="Bound"
+      >A</a
+      ><a name="2260"
+      > </a
+      ><a name="2261" class="Symbol"
+      >&#8594;</a
+      ><a name="2262"
+      > </a
+      ><a name="2263" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2235" class="Bound"
+      >&#915;</a
+      ><a name="2264"
+      > </a
+      ><a name="2265" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="2268"
+      > </a
+      ><a name="2269" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2237" class="Bound"
+      >A</a
+      ><a name="2270"
+      >
+  </a
+      ><a name="2273" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2217" class="Function"
+      >[multicut]</a
+      ><a name="2283"
+      > </a
+      ><a name="2284" class="Symbol"
+      >{</a
+      ><a name="2285" href="Common.Context.html#104" class="InductiveConstructor"
+      >&#8709;</a
+      ><a name="2286" class="Symbol"
+      >}</a
+      ><a name="2287"
+      >     </a
+      ><a name="2292" href="Agda.Builtin.Unit.html#78" class="InductiveConstructor"
+      >&#8729;</a
+      ><a name="2293"
+      >        </a
+      ><a name="2301" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2301" class="Bound"
+      >u</a
+      ><a name="2302"
+      > </a
+      ><a name="2303" class="Symbol"
+      >=</a
+      ><a name="2304"
+      > </a
+      ><a name="2305" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#605" class="Field"
+      >mono[&#8866;]</a
+      ><a name="2312"
+      > </a
+      ><a name="2313" href="Common.Context.html#2578" class="Function"
+      >bot&#8838;</a
+      ><a name="2317"
+      > </a
+      ><a name="2318" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2301" class="Bound"
+      >u</a
+      ><a name="2319"
+      >
+  </a
+      ><a name="2322" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2217" class="Function"
+      >[multicut]</a
+      ><a name="2332"
+      > </a
+      ><a name="2333" class="Symbol"
+      >{</a
+      ><a name="2334" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2334" class="Bound"
+      >&#926;</a
+      ><a name="2335"
+      > </a
+      ><a name="2336" href="Common.Context.html#117" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2337"
+      > </a
+      ><a name="2338" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2338" class="Bound"
+      >B</a
+      ><a name="2339" class="Symbol"
+      >}</a
+      ><a name="2340"
+      > </a
+      ><a name="2341" class="Symbol"
+      >(</a
+      ><a name="2342" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2342" class="Bound"
+      >ts</a
+      ><a name="2344"
+      > </a
+      ><a name="2345" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="2346"
+      > </a
+      ><a name="2347" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2347" class="Bound"
+      >t</a
+      ><a name="2348" class="Symbol"
+      >)</a
+      ><a name="2349"
+      > </a
+      ><a name="2350" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2350" class="Bound"
+      >u</a
+      ><a name="2351"
+      > </a
+      ><a name="2352" class="Symbol"
+      >=</a
+      ><a name="2353"
+      > </a
+      ><a name="2354" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="2359"
+      > </a
+      ><a name="2360" class="Symbol"
+      >(</a
+      ><a name="2361" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2217" class="Function"
+      >[multicut]</a
+      ><a name="2371"
+      > </a
+      ><a name="2372" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2342" class="Bound"
+      >ts</a
+      ><a name="2374"
+      > </a
+      ><a name="2375" class="Symbol"
+      >(</a
+      ><a name="2376" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1168" class="Field"
+      >[lam]</a
+      ><a name="2381"
+      > </a
+      ><a name="2382" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2350" class="Bound"
+      >u</a
+      ><a name="2383" class="Symbol"
+      >))</a
+      ><a name="2385"
+      > </a
+      ><a name="2386" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2347" class="Bound"
+      >t</a
+      ><a name="2387"
+      >
+
+  </a
+      ><a name="2391" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2391" class="Function"
+      >[pair]</a
+      ><a name="2397"
+      > </a
+      ><a name="2398" class="Symbol"
+      >:</a
+      ><a name="2399"
+      > </a
+      ><a name="2400" class="Symbol"
+      >&#8704;</a
+      ><a name="2401"
+      > </a
+      ><a name="2402" class="Symbol"
+      >{</a
+      ><a name="2403" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2403" class="Bound"
+      >A</a
+      ><a name="2404"
+      > </a
+      ><a name="2405" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2405" class="Bound"
+      >B</a
+      ><a name="2406"
+      > </a
+      ><a name="2407" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2407" class="Bound"
+      >&#915;</a
+      ><a name="2408" class="Symbol"
+      >}</a
+      ><a name="2409"
+      > </a
+      ><a name="2410" class="Symbol"
+      >&#8594;</a
+      ><a name="2411"
+      > </a
+      ><a name="2412" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2407" class="Bound"
+      >&#915;</a
+      ><a name="2413"
+      > </a
+      ><a name="2414" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="2417"
+      > </a
+      ><a name="2418" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2403" class="Bound"
+      >A</a
+      ><a name="2419"
+      > </a
+      ><a name="2420" class="Symbol"
+      >&#8594;</a
+      ><a name="2421"
+      > </a
+      ><a name="2422" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2407" class="Bound"
+      >&#915;</a
+      ><a name="2423"
+      > </a
+      ><a name="2424" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="2427"
+      > </a
+      ><a name="2428" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2405" class="Bound"
+      >B</a
+      ><a name="2429"
+      > </a
+      ><a name="2430" class="Symbol"
+      >&#8594;</a
+      ><a name="2431"
+      > </a
+      ><a name="2432" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2407" class="Bound"
+      >&#915;</a
+      ><a name="2433"
+      > </a
+      ><a name="2434" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="2437"
+      > </a
+      ><a name="2438" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2403" class="Bound"
+      >A</a
+      ><a name="2439"
+      > </a
+      ><a name="2440" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2441"
+      > </a
+      ><a name="2442" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2405" class="Bound"
+      >B</a
+      ><a name="2443"
+      >
+  </a
+      ><a name="2446" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2391" class="Function"
+      >[pair]</a
+      ><a name="2452"
+      > </a
+      ><a name="2453" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2453" class="Bound"
+      >t</a
+      ><a name="2454"
+      > </a
+      ><a name="2455" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2455" class="Bound"
+      >u</a
+      ><a name="2456"
+      > </a
+      ><a name="2457" class="Symbol"
+      >=</a
+      ><a name="2458"
+      > </a
+      ><a name="2459" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="2464"
+      > </a
+      ><a name="2465" class="Symbol"
+      >(</a
+      ><a name="2466" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="2471"
+      > </a
+      ><a name="2472" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#918" class="Field"
+      >[cpair]</a
+      ><a name="2479"
+      > </a
+      ><a name="2480" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2453" class="Bound"
+      >t</a
+      ><a name="2481" class="Symbol"
+      >)</a
+      ><a name="2482"
+      > </a
+      ><a name="2483" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2455" class="Bound"
+      >u</a
+      ><a name="2484"
+      >
+
+  </a
+      ><a name="2488" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2488" class="Function"
+      >[fst]</a
+      ><a name="2493"
+      > </a
+      ><a name="2494" class="Symbol"
+      >:</a
+      ><a name="2495"
+      > </a
+      ><a name="2496" class="Symbol"
+      >&#8704;</a
+      ><a name="2497"
+      > </a
+      ><a name="2498" class="Symbol"
+      >{</a
+      ><a name="2499" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2499" class="Bound"
+      >A</a
+      ><a name="2500"
+      > </a
+      ><a name="2501" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2501" class="Bound"
+      >B</a
+      ><a name="2502"
+      > </a
+      ><a name="2503" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2503" class="Bound"
+      >&#915;</a
+      ><a name="2504" class="Symbol"
+      >}</a
+      ><a name="2505"
+      > </a
+      ><a name="2506" class="Symbol"
+      >&#8594;</a
+      ><a name="2507"
+      > </a
+      ><a name="2508" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2503" class="Bound"
+      >&#915;</a
+      ><a name="2509"
+      > </a
+      ><a name="2510" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="2513"
+      > </a
+      ><a name="2514" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2499" class="Bound"
+      >A</a
+      ><a name="2515"
+      > </a
+      ><a name="2516" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2517"
+      > </a
+      ><a name="2518" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2501" class="Bound"
+      >B</a
+      ><a name="2519"
+      > </a
+      ><a name="2520" class="Symbol"
+      >&#8594;</a
+      ><a name="2521"
+      > </a
+      ><a name="2522" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2503" class="Bound"
+      >&#915;</a
+      ><a name="2523"
+      > </a
+      ><a name="2524" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="2527"
+      > </a
+      ><a name="2528" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2499" class="Bound"
+      >A</a
+      ><a name="2529"
+      >
+  </a
+      ><a name="2532" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2488" class="Function"
+      >[fst]</a
+      ><a name="2537"
+      > </a
+      ><a name="2538" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2538" class="Bound"
+      >t</a
+      ><a name="2539"
+      > </a
+      ><a name="2540" class="Symbol"
+      >=</a
+      ><a name="2541"
+      > </a
+      ><a name="2542" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="2547"
+      > </a
+      ><a name="2548" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#967" class="Field"
+      >[cfst]</a
+      ><a name="2554"
+      > </a
+      ><a name="2555" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2538" class="Bound"
+      >t</a
+      ><a name="2556"
+      >
+
+  </a
+      ><a name="2560" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2560" class="Function"
+      >[snd]</a
+      ><a name="2565"
+      > </a
+      ><a name="2566" class="Symbol"
+      >:</a
+      ><a name="2567"
+      > </a
+      ><a name="2568" class="Symbol"
+      >&#8704;</a
+      ><a name="2569"
+      > </a
+      ><a name="2570" class="Symbol"
+      >{</a
+      ><a name="2571" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2571" class="Bound"
+      >A</a
+      ><a name="2572"
+      > </a
+      ><a name="2573" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2573" class="Bound"
+      >B</a
+      ><a name="2574"
+      > </a
+      ><a name="2575" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2575" class="Bound"
+      >&#915;</a
+      ><a name="2576" class="Symbol"
+      >}</a
+      ><a name="2577"
+      > </a
+      ><a name="2578" class="Symbol"
+      >&#8594;</a
+      ><a name="2579"
+      > </a
+      ><a name="2580" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2575" class="Bound"
+      >&#915;</a
+      ><a name="2581"
+      > </a
+      ><a name="2582" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="2585"
+      > </a
+      ><a name="2586" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2571" class="Bound"
+      >A</a
+      ><a name="2587"
+      > </a
+      ><a name="2588" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="2589"
+      > </a
+      ><a name="2590" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2573" class="Bound"
+      >B</a
+      ><a name="2591"
+      > </a
+      ><a name="2592" class="Symbol"
+      >&#8594;</a
+      ><a name="2593"
+      > </a
+      ><a name="2594" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2575" class="Bound"
+      >&#915;</a
+      ><a name="2595"
+      > </a
+      ><a name="2596" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#574" class="Field Operator"
+      >[&#8866;]</a
+      ><a name="2599"
+      > </a
+      ><a name="2600" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2573" class="Bound"
+      >B</a
+      ><a name="2601"
+      >
+  </a
+      ><a name="2604" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2560" class="Function"
+      >[snd]</a
+      ><a name="2609"
+      > </a
+      ><a name="2610" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2610" class="Bound"
+      >t</a
+      ><a name="2611"
+      > </a
+      ><a name="2612" class="Symbol"
+      >=</a
+      ><a name="2613"
+      > </a
+      ><a name="2614" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="2619"
+      > </a
+      ><a name="2620" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1012" class="Field"
+      >[csnd]</a
+      ><a name="2626"
+      > </a
+      ><a name="2627" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2610" class="Bound"
+      >t</a
+      ><a name="2628"
+      >
+
+
+</a
+      ><a name="2631" class="Comment"
+      >-- Additional useful equipment.</a
+      ><a name="2662"
+      >
+
+</a
+      ><a name="2664" class="Keyword"
+      >module</a
+      ><a name="2670"
+      > </a
+      ><a name="2671" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2671" class="Module"
+      >_</a
+      ><a name="2672"
+      > </a
+      ><a name="2673" class="Symbol"
+      >{{</a
+      ><a name="2675" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2675" class="Bound"
+      >_</a
+      ><a name="2676"
+      > </a
+      ><a name="2677" class="Symbol"
+      >:</a
+      ><a name="2678"
+      > </a
+      ><a name="2679" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Record"
+      >Model</a
+      ><a name="2684" class="Symbol"
+      >}}</a
+      ><a name="2686"
+      > </a
+      ><a name="2687" class="Keyword"
+      >where</a
+      ><a name="2692"
+      >
+  </a
+      ><a name="2695" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2695" class="Function Operator"
+      >_&#10218;$&#10219;_</a
+      ><a name="2700"
+      > </a
+      ><a name="2701" class="Symbol"
+      >:</a
+      ><a name="2702"
+      > </a
+      ><a name="2703" class="Symbol"
+      >&#8704;</a
+      ><a name="2704"
+      > </a
+      ><a name="2705" class="Symbol"
+      >{</a
+      ><a name="2706" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2706" class="Bound"
+      >A</a
+      ><a name="2707"
+      > </a
+      ><a name="2708" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2708" class="Bound"
+      >B</a
+      ><a name="2709"
+      > </a
+      ><a name="2710" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2710" class="Bound"
+      >w</a
+      ><a name="2711" class="Symbol"
+      >}</a
+      ><a name="2712"
+      > </a
+      ><a name="2713" class="Symbol"
+      >&#8594;</a
+      ><a name="2714"
+      > </a
+      ><a name="2715" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2710" class="Bound"
+      >w</a
+      ><a name="2716"
+      > </a
+      ><a name="2717" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2718"
+      > </a
+      ><a name="2719" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2706" class="Bound"
+      >A</a
+      ><a name="2720"
+      > </a
+      ><a name="2721" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2722"
+      > </a
+      ><a name="2723" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2708" class="Bound"
+      >B</a
+      ><a name="2724"
+      > </a
+      ><a name="2725" class="Symbol"
+      >&#8594;</a
+      ><a name="2726"
+      > </a
+      ><a name="2727" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2710" class="Bound"
+      >w</a
+      ><a name="2728"
+      > </a
+      ><a name="2729" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2730"
+      > </a
+      ><a name="2731" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2706" class="Bound"
+      >A</a
+      ><a name="2732"
+      > </a
+      ><a name="2733" class="Symbol"
+      >&#8594;</a
+      ><a name="2734"
+      > </a
+      ><a name="2735" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2710" class="Bound"
+      >w</a
+      ><a name="2736"
+      > </a
+      ><a name="2737" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2738"
+      > </a
+      ><a name="2739" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2708" class="Bound"
+      >B</a
+      ><a name="2740"
+      >
+  </a
+      ><a name="2743" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2743" class="Bound"
+      >s</a
+      ><a name="2744"
+      > </a
+      ><a name="2745" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2695" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="2748"
+      > </a
+      ><a name="2749" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2749" class="Bound"
+      >a</a
+      ><a name="2750"
+      > </a
+      ><a name="2751" class="Symbol"
+      >=</a
+      ><a name="2752"
+      > </a
+      ><a name="2753" href="Common.Semantics.html#206" class="Field"
+      >sem</a
+      ><a name="2756"
+      > </a
+      ><a name="2757" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2743" class="Bound"
+      >s</a
+      ><a name="2758"
+      > </a
+      ><a name="2759" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2749" class="Bound"
+      >a</a
+      ><a name="2760"
+      >
+
+  </a
+      ><a name="2764" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2764" class="Function"
+      >&#10218;K&#10219;</a
+      ><a name="2767"
+      > </a
+      ><a name="2768" class="Symbol"
+      >:</a
+      ><a name="2769"
+      > </a
+      ><a name="2770" class="Symbol"
+      >&#8704;</a
+      ><a name="2771"
+      > </a
+      ><a name="2772" class="Symbol"
+      >{</a
+      ><a name="2773" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2773" class="Bound"
+      >A</a
+      ><a name="2774"
+      > </a
+      ><a name="2775" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2775" class="Bound"
+      >B</a
+      ><a name="2776"
+      > </a
+      ><a name="2777" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2777" class="Bound"
+      >w</a
+      ><a name="2778" class="Symbol"
+      >}</a
+      ><a name="2779"
+      > </a
+      ><a name="2780" class="Symbol"
+      >&#8594;</a
+      ><a name="2781"
+      > </a
+      ><a name="2782" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2777" class="Bound"
+      >w</a
+      ><a name="2783"
+      > </a
+      ><a name="2784" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2785"
+      > </a
+      ><a name="2786" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2773" class="Bound"
+      >A</a
+      ><a name="2787"
+      > </a
+      ><a name="2788" class="Symbol"
+      >&#8594;</a
+      ><a name="2789"
+      > </a
+      ><a name="2790" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2777" class="Bound"
+      >w</a
+      ><a name="2791"
+      > </a
+      ><a name="2792" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2793"
+      > </a
+      ><a name="2794" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2775" class="Bound"
+      >B</a
+      ><a name="2795"
+      > </a
+      ><a name="2796" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2797"
+      > </a
+      ><a name="2798" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2773" class="Bound"
+      >A</a
+      ><a name="2799"
+      >
+  </a
+      ><a name="2802" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2764" class="Function"
+      >&#10218;K&#10219;</a
+      ><a name="2805"
+      > </a
+      ><a name="2806" class="Symbol"
+      >{</a
+      ><a name="2807" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2807" class="Bound"
+      >A</a
+      ><a name="2808" class="Symbol"
+      >}</a
+      ><a name="2809"
+      > </a
+      ><a name="2810" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2810" class="Bound"
+      >a</a
+      ><a name="2811"
+      > </a
+      ><a name="2812" class="Symbol"
+      >=</a
+      ><a name="2813"
+      > </a
+      ><a name="2814" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="2819"
+      > </a
+      ><a name="2820" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#808" class="Field"
+      >[ck]</a
+      ><a name="2824"
+      > </a
+      ><a name="2825" class="Symbol"
+      >(</a
+      ><a name="2826" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="2832"
+      > </a
+      ><a name="2833" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2810" class="Bound"
+      >a</a
+      ><a name="2834" class="Symbol"
+      >)</a
+      ><a name="2835"
+      > </a
+      ><a name="2836" href="Common.Semantics.html#176" class="InductiveConstructor Operator"
+      >&#8523;</a
+      ><a name="2837"
+      > </a
+      ><a name="2838" href="Function.html#1053" class="Function"
+      >K</a
+      ><a name="2839"
+      > </a
+      ><a name="2840" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2810" class="Bound"
+      >a</a
+      ><a name="2841"
+      >
+
+  </a
+      ><a name="2845" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2845" class="Function"
+      >&#10218;S&#10219;</a
+      ><a name="2848"
+      > </a
+      ><a name="2849" class="Symbol"
+      >:</a
+      ><a name="2850"
+      > </a
+      ><a name="2851" class="Symbol"
+      >&#8704;</a
+      ><a name="2852"
+      > </a
+      ><a name="2853" class="Symbol"
+      >{</a
+      ><a name="2854" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2854" class="Bound"
+      >A</a
+      ><a name="2855"
+      > </a
+      ><a name="2856" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2856" class="Bound"
+      >B</a
+      ><a name="2857"
+      > </a
+      ><a name="2858" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2858" class="Bound"
+      >C</a
+      ><a name="2859"
+      > </a
+      ><a name="2860" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2860" class="Bound"
+      >w</a
+      ><a name="2861" class="Symbol"
+      >}</a
+      ><a name="2862"
+      > </a
+      ><a name="2863" class="Symbol"
+      >&#8594;</a
+      ><a name="2864"
+      > </a
+      ><a name="2865" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2860" class="Bound"
+      >w</a
+      ><a name="2866"
+      > </a
+      ><a name="2867" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2868"
+      > </a
+      ><a name="2869" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2854" class="Bound"
+      >A</a
+      ><a name="2870"
+      > </a
+      ><a name="2871" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2872"
+      > </a
+      ><a name="2873" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2856" class="Bound"
+      >B</a
+      ><a name="2874"
+      > </a
+      ><a name="2875" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2876"
+      > </a
+      ><a name="2877" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2858" class="Bound"
+      >C</a
+      ><a name="2878"
+      > </a
+      ><a name="2879" class="Symbol"
+      >&#8594;</a
+      ><a name="2880"
+      > </a
+      ><a name="2881" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2860" class="Bound"
+      >w</a
+      ><a name="2882"
+      > </a
+      ><a name="2883" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2884"
+      > </a
+      ><a name="2885" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2854" class="Bound"
+      >A</a
+      ><a name="2886"
+      > </a
+      ><a name="2887" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2888"
+      > </a
+      ><a name="2889" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2856" class="Bound"
+      >B</a
+      ><a name="2890"
+      > </a
+      ><a name="2891" class="Symbol"
+      >&#8594;</a
+      ><a name="2892"
+      > </a
+      ><a name="2893" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2860" class="Bound"
+      >w</a
+      ><a name="2894"
+      > </a
+      ><a name="2895" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2896"
+      > </a
+      ><a name="2897" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2854" class="Bound"
+      >A</a
+      ><a name="2898"
+      > </a
+      ><a name="2899" class="Symbol"
+      >&#8594;</a
+      ><a name="2900"
+      > </a
+      ><a name="2901" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2860" class="Bound"
+      >w</a
+      ><a name="2902"
+      > </a
+      ><a name="2903" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2904"
+      > </a
+      ><a name="2905" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2858" class="Bound"
+      >C</a
+      ><a name="2906"
+      >
+  </a
+      ><a name="2909" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2845" class="Function"
+      >&#10218;S&#10219;</a
+      ><a name="2912"
+      > </a
+      ><a name="2913" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2913" class="Bound"
+      >s&#8321;</a
+      ><a name="2915"
+      > </a
+      ><a name="2916" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2916" class="Bound"
+      >s&#8322;</a
+      ><a name="2918"
+      > </a
+      ><a name="2919" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2919" class="Bound"
+      >a</a
+      ><a name="2920"
+      > </a
+      ><a name="2921" class="Symbol"
+      >=</a
+      ><a name="2922"
+      > </a
+      ><a name="2923" class="Symbol"
+      >(</a
+      ><a name="2924" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2913" class="Bound"
+      >s&#8321;</a
+      ><a name="2926"
+      > </a
+      ><a name="2927" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2695" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="2930"
+      > </a
+      ><a name="2931" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2919" class="Bound"
+      >a</a
+      ><a name="2932" class="Symbol"
+      >)</a
+      ><a name="2933"
+      > </a
+      ><a name="2934" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2695" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="2937"
+      > </a
+      ><a name="2938" class="Symbol"
+      >(</a
+      ><a name="2939" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2916" class="Bound"
+      >s&#8322;</a
+      ><a name="2941"
+      > </a
+      ><a name="2942" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2695" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="2945"
+      > </a
+      ><a name="2946" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2919" class="Bound"
+      >a</a
+      ><a name="2947" class="Symbol"
+      >)</a
+      ><a name="2948"
+      >
+
+  </a
+      ><a name="2952" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2952" class="Function"
+      >&#10218;S&#10219;&#8242;</a
+      ><a name="2956"
+      > </a
+      ><a name="2957" class="Symbol"
+      >:</a
+      ><a name="2958"
+      > </a
+      ><a name="2959" class="Symbol"
+      >&#8704;</a
+      ><a name="2960"
+      > </a
+      ><a name="2961" class="Symbol"
+      >{</a
+      ><a name="2962" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2962" class="Bound"
+      >A</a
+      ><a name="2963"
+      > </a
+      ><a name="2964" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2964" class="Bound"
+      >B</a
+      ><a name="2965"
+      > </a
+      ><a name="2966" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2966" class="Bound"
+      >C</a
+      ><a name="2967"
+      > </a
+      ><a name="2968" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2968" class="Bound"
+      >w</a
+      ><a name="2969" class="Symbol"
+      >}</a
+      ><a name="2970"
+      > </a
+      ><a name="2971" class="Symbol"
+      >&#8594;</a
+      ><a name="2972"
+      > </a
+      ><a name="2973" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2968" class="Bound"
+      >w</a
+      ><a name="2974"
+      > </a
+      ><a name="2975" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2976"
+      > </a
+      ><a name="2977" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2962" class="Bound"
+      >A</a
+      ><a name="2978"
+      > </a
+      ><a name="2979" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2980"
+      > </a
+      ><a name="2981" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2964" class="Bound"
+      >B</a
+      ><a name="2982"
+      > </a
+      ><a name="2983" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2984"
+      > </a
+      ><a name="2985" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2966" class="Bound"
+      >C</a
+      ><a name="2986"
+      > </a
+      ><a name="2987" class="Symbol"
+      >&#8594;</a
+      ><a name="2988"
+      > </a
+      ><a name="2989" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2968" class="Bound"
+      >w</a
+      ><a name="2990"
+      > </a
+      ><a name="2991" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="2992"
+      > </a
+      ><a name="2993" class="Symbol"
+      >(</a
+      ><a name="2994" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2962" class="Bound"
+      >A</a
+      ><a name="2995"
+      > </a
+      ><a name="2996" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="2997"
+      > </a
+      ><a name="2998" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2964" class="Bound"
+      >B</a
+      ><a name="2999" class="Symbol"
+      >)</a
+      ><a name="3000"
+      > </a
+      ><a name="3001" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3002"
+      > </a
+      ><a name="3003" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2962" class="Bound"
+      >A</a
+      ><a name="3004"
+      > </a
+      ><a name="3005" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3006"
+      > </a
+      ><a name="3007" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2966" class="Bound"
+      >C</a
+      ><a name="3008"
+      >
+  </a
+      ><a name="3011" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2952" class="Function"
+      >&#10218;S&#10219;&#8242;</a
+      ><a name="3015"
+      > </a
+      ><a name="3016" class="Symbol"
+      >{</a
+      ><a name="3017" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3017" class="Bound"
+      >A</a
+      ><a name="3018" class="Symbol"
+      >}</a
+      ><a name="3019"
+      > </a
+      ><a name="3020" class="Symbol"
+      >{</a
+      ><a name="3021" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3021" class="Bound"
+      >B</a
+      ><a name="3022" class="Symbol"
+      >}</a
+      ><a name="3023"
+      > </a
+      ><a name="3024" class="Symbol"
+      >{</a
+      ><a name="3025" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3025" class="Bound"
+      >C</a
+      ><a name="3026" class="Symbol"
+      >}</a
+      ><a name="3027"
+      > </a
+      ><a name="3028" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3028" class="Bound"
+      >s&#8321;</a
+      ><a name="3030"
+      > </a
+      ><a name="3031" class="Symbol"
+      >=</a
+      ><a name="3032"
+      > </a
+      ><a name="3033" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="3038"
+      > </a
+      ><a name="3039" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#853" class="Field"
+      >[cs]</a
+      ><a name="3043"
+      > </a
+      ><a name="3044" class="Symbol"
+      >(</a
+      ><a name="3045" href="Common.Semantics.html#192" class="Field"
+      >syn</a
+      ><a name="3048"
+      > </a
+      ><a name="3049" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3028" class="Bound"
+      >s&#8321;</a
+      ><a name="3051" class="Symbol"
+      >)</a
+      ><a name="3052"
+      > </a
+      ><a name="3053" href="Common.Semantics.html#176" class="InductiveConstructor Operator"
+      >&#8523;</a
+      ><a name="3054"
+      > </a
+      ><a name="3055" class="Symbol"
+      >&#955;</a
+      ><a name="3056"
+      > </a
+      ><a name="3057" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3057" class="Bound"
+      >s&#8322;</a
+      ><a name="3059"
+      > </a
+      ><a name="3060" class="Symbol"
+      >&#8594;</a
+      ><a name="3061"
+      >
+                          </a
+      ><a name="3088" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="3093"
+      > </a
+      ><a name="3094" class="Symbol"
+      >(</a
+      ><a name="3095" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="3100"
+      > </a
+      ><a name="3101" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#853" class="Field"
+      >[cs]</a
+      ><a name="3105"
+      > </a
+      ><a name="3106" class="Symbol"
+      >(</a
+      ><a name="3107" href="Common.Semantics.html#192" class="Field"
+      >syn</a
+      ><a name="3110"
+      > </a
+      ><a name="3111" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3028" class="Bound"
+      >s&#8321;</a
+      ><a name="3113" class="Symbol"
+      >))</a
+      ><a name="3115"
+      > </a
+      ><a name="3116" class="Symbol"
+      >(</a
+      ><a name="3117" href="Common.Semantics.html#192" class="Field"
+      >syn</a
+      ><a name="3120"
+      > </a
+      ><a name="3121" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3057" class="Bound"
+      >s&#8322;</a
+      ><a name="3123" class="Symbol"
+      >)</a
+      ><a name="3124"
+      > </a
+      ><a name="3125" href="Common.Semantics.html#176" class="InductiveConstructor Operator"
+      >&#8523;</a
+      ><a name="3126"
+      > </a
+      ><a name="3127" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2845" class="Function"
+      >&#10218;S&#10219;</a
+      ><a name="3130"
+      > </a
+      ><a name="3131" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3028" class="Bound"
+      >s&#8321;</a
+      ><a name="3133"
+      > </a
+      ><a name="3134" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3057" class="Bound"
+      >s&#8322;</a
+      ><a name="3136"
+      >
+
+  </a
+      ><a name="3140" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3140" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="3146"
+      > </a
+      ><a name="3147" class="Symbol"
+      >:</a
+      ><a name="3148"
+      > </a
+      ><a name="3149" class="Symbol"
+      >&#8704;</a
+      ><a name="3150"
+      > </a
+      ><a name="3151" class="Symbol"
+      >{</a
+      ><a name="3152" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3152" class="Bound"
+      >A</a
+      ><a name="3153"
+      > </a
+      ><a name="3154" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3154" class="Bound"
+      >B</a
+      ><a name="3155"
+      > </a
+      ><a name="3156" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3156" class="Bound"
+      >w</a
+      ><a name="3157" class="Symbol"
+      >}</a
+      ><a name="3158"
+      > </a
+      ><a name="3159" class="Symbol"
+      >&#8594;</a
+      ><a name="3160"
+      > </a
+      ><a name="3161" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3156" class="Bound"
+      >w</a
+      ><a name="3162"
+      > </a
+      ><a name="3163" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="3164"
+      > </a
+      ><a name="3165" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3152" class="Bound"
+      >A</a
+      ><a name="3166"
+      > </a
+      ><a name="3167" class="Symbol"
+      >&#8594;</a
+      ><a name="3168"
+      > </a
+      ><a name="3169" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3156" class="Bound"
+      >w</a
+      ><a name="3170"
+      > </a
+      ><a name="3171" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="3172"
+      > </a
+      ><a name="3173" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3154" class="Bound"
+      >B</a
+      ><a name="3174"
+      > </a
+      ><a name="3175" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3176"
+      > </a
+      ><a name="3177" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3152" class="Bound"
+      >A</a
+      ><a name="3178"
+      > </a
+      ><a name="3179" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="3180"
+      > </a
+      ><a name="3181" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3154" class="Bound"
+      >B</a
+      ><a name="3182"
+      >
+  </a
+      ><a name="3185" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3140" class="Function Operator"
+      >_&#10218;,&#10219;&#8242;_</a
+      ><a name="3191"
+      > </a
+      ><a name="3192" class="Symbol"
+      >{</a
+      ><a name="3193" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3193" class="Bound"
+      >A</a
+      ><a name="3194" class="Symbol"
+      >}</a
+      ><a name="3195"
+      > </a
+      ><a name="3196" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3196" class="Bound"
+      >a</a
+      ><a name="3197"
+      > </a
+      ><a name="3198" class="Symbol"
+      >=</a
+      ><a name="3199"
+      > </a
+      ><a name="3200" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#706" class="Field"
+      >[app]</a
+      ><a name="3205"
+      > </a
+      ><a name="3206" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#918" class="Field"
+      >[cpair]</a
+      ><a name="3213"
+      > </a
+      ><a name="3214" class="Symbol"
+      >(</a
+      ><a name="3215" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1808" class="Function"
+      >reify&#691;</a
+      ><a name="3221"
+      > </a
+      ><a name="3222" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3196" class="Bound"
+      >a</a
+      ><a name="3223" class="Symbol"
+      >)</a
+      ><a name="3224"
+      > </a
+      ><a name="3225" href="Common.Semantics.html#176" class="InductiveConstructor Operator"
+      >&#8523;</a
+      ><a name="3226"
+      > </a
+      ><a name="3227" href="Common.html#1499" class="InductiveConstructor Operator"
+      >_,_</a
+      ><a name="3230"
+      > </a
+      ><a name="3231" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3196" class="Bound"
+      >a</a
+      ><a name="3232"
+      >
+
+
+</a
+      ><a name="3235" class="Comment"
+      >-- Forcing in a particular world of a particular model, for sequents.</a
+      ><a name="3304"
+      >
+
+</a
+      ><a name="3306" class="Keyword"
+      >module</a
+      ><a name="3312"
+      > </a
+      ><a name="3313" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3313" class="Module"
+      >_</a
+      ><a name="3314"
+      > </a
+      ><a name="3315" class="Symbol"
+      >{{</a
+      ><a name="3317" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3317" class="Bound"
+      >_</a
+      ><a name="3318"
+      > </a
+      ><a name="3319" class="Symbol"
+      >:</a
+      ><a name="3320"
+      > </a
+      ><a name="3321" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Record"
+      >Model</a
+      ><a name="3326" class="Symbol"
+      >}}</a
+      ><a name="3328"
+      > </a
+      ><a name="3329" class="Keyword"
+      >where</a
+      ><a name="3334"
+      >
+  </a
+      ><a name="3337" class="Keyword"
+      >infix</a
+      ><a name="3342"
+      > </a
+      ><a name="3343" class="Number"
+      >3</a
+      ><a name="3344"
+      > _&#8873;_&#8658;_
+  </a
+      ><a name="3353" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >_&#8873;_&#8658;_</a
+      ><a name="3358"
+      > </a
+      ><a name="3359" class="Symbol"
+      >:</a
+      ><a name="3360"
+      > </a
+      ><a name="3361" href="Common.Semantics.html#316" class="Record"
+      >World</a
+      ><a name="3366"
+      > </a
+      ><a name="3367" class="Symbol"
+      >&#8594;</a
+      ><a name="3368"
+      > </a
+      ><a name="3369" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="3371"
+      > </a
+      ><a name="3372" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="3374"
+      > </a
+      ><a name="3375" class="Symbol"
+      >&#8594;</a
+      ><a name="3376"
+      > </a
+      ><a name="3377" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="3379"
+      > </a
+      ><a name="3380" class="Symbol"
+      >&#8594;</a
+      ><a name="3381"
+      > </a
+      ><a name="3382" class="PrimitiveType"
+      >Set</a
+      ><a name="3385"
+      >
+  </a
+      ><a name="3388" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3388" class="Bound"
+      >w</a
+      ><a name="3389"
+      > </a
+      ><a name="3390" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="3391"
+      > </a
+      ><a name="3392" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3392" class="Bound"
+      >&#915;</a
+      ><a name="3393"
+      > </a
+      ><a name="3394" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="3395"
+      > </a
+      ><a name="3396" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3396" class="Bound"
+      >A</a
+      ><a name="3397"
+      > </a
+      ><a name="3398" class="Symbol"
+      >=</a
+      ><a name="3399"
+      > </a
+      ><a name="3400" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3388" class="Bound"
+      >w</a
+      ><a name="3401"
+      > </a
+      ><a name="3402" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1638" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3404"
+      > </a
+      ><a name="3405" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3392" class="Bound"
+      >&#915;</a
+      ><a name="3406"
+      > </a
+      ><a name="3407" class="Symbol"
+      >&#8594;</a
+      ><a name="3408"
+      > </a
+      ><a name="3409" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3388" class="Bound"
+      >w</a
+      ><a name="3410"
+      > </a
+      ><a name="3411" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1447" class="Function Operator"
+      >&#8873;</a
+      ><a name="3412"
+      > </a
+      ><a name="3413" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3396" class="Bound"
+      >A</a
+      ><a name="3414"
+      >
+
+  </a
+      ><a name="3418" class="Keyword"
+      >infix</a
+      ><a name="3423"
+      > </a
+      ><a name="3424" class="Number"
+      >3</a
+      ><a name="3425"
+      > _&#8873;_&#8658;&#8902;_
+  </a
+      ><a name="3435" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3435" class="Function Operator"
+      >_&#8873;_&#8658;&#8902;_</a
+      ><a name="3441"
+      > </a
+      ><a name="3442" class="Symbol"
+      >:</a
+      ><a name="3443"
+      > </a
+      ><a name="3444" href="Common.Semantics.html#316" class="Record"
+      >World</a
+      ><a name="3449"
+      > </a
+      ><a name="3450" class="Symbol"
+      >&#8594;</a
+      ><a name="3451"
+      > </a
+      ><a name="3452" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="3454"
+      > </a
+      ><a name="3455" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="3457"
+      > </a
+      ><a name="3458" class="Symbol"
+      >&#8594;</a
+      ><a name="3459"
+      > </a
+      ><a name="3460" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="3462"
+      > </a
+      ><a name="3463" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="3465"
+      > </a
+      ><a name="3466" class="Symbol"
+      >&#8594;</a
+      ><a name="3467"
+      > </a
+      ><a name="3468" class="PrimitiveType"
+      >Set</a
+      ><a name="3471"
+      >
+  </a
+      ><a name="3474" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3474" class="Bound"
+      >w</a
+      ><a name="3475"
+      > </a
+      ><a name="3476" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3435" class="Function Operator"
+      >&#8873;</a
+      ><a name="3477"
+      > </a
+      ><a name="3478" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3478" class="Bound"
+      >&#915;</a
+      ><a name="3479"
+      > </a
+      ><a name="3480" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3435" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="3482"
+      > </a
+      ><a name="3483" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3483" class="Bound"
+      >&#926;</a
+      ><a name="3484"
+      > </a
+      ><a name="3485" class="Symbol"
+      >=</a
+      ><a name="3486"
+      > </a
+      ><a name="3487" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3474" class="Bound"
+      >w</a
+      ><a name="3488"
+      > </a
+      ><a name="3489" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1638" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3491"
+      > </a
+      ><a name="3492" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3478" class="Bound"
+      >&#915;</a
+      ><a name="3493"
+      > </a
+      ><a name="3494" class="Symbol"
+      >&#8594;</a
+      ><a name="3495"
+      > </a
+      ><a name="3496" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3474" class="Bound"
+      >w</a
+      ><a name="3497"
+      > </a
+      ><a name="3498" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#1638" class="Function Operator"
+      >&#8873;&#8902;</a
+      ><a name="3500"
+      > </a
+      ><a name="3501" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3483" class="Bound"
+      >&#926;</a
+      ><a name="3502"
+      >
+
+
+</a
+      ><a name="3505" class="Comment"
+      >-- Entailment, or forcing in all worlds of all models, for sequents.</a
+      ><a name="3573"
+      >
+
+</a
+      ><a name="3575" class="Keyword"
+      >infix</a
+      ><a name="3580"
+      > </a
+      ><a name="3581" class="Number"
+      >3</a
+      ><a name="3582"
+      > _&#8872;_
+</a
+      ><a name="3587" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3587" class="Function Operator"
+      >_&#8872;_</a
+      ><a name="3590"
+      > </a
+      ><a name="3591" class="Symbol"
+      >:</a
+      ><a name="3592"
+      > </a
+      ><a name="3593" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="3595"
+      > </a
+      ><a name="3596" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="3598"
+      > </a
+      ><a name="3599" class="Symbol"
+      >&#8594;</a
+      ><a name="3600"
+      > </a
+      ><a name="3601" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="3603"
+      > </a
+      ><a name="3604" class="Symbol"
+      >&#8594;</a
+      ><a name="3605"
+      > </a
+      ><a name="3606" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="3610"
+      >
+</a
+      ><a name="3611" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3611" class="Bound"
+      >&#915;</a
+      ><a name="3612"
+      > </a
+      ><a name="3613" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3587" class="Function Operator"
+      >&#8872;</a
+      ><a name="3614"
+      > </a
+      ><a name="3615" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3615" class="Bound"
+      >A</a
+      ><a name="3616"
+      > </a
+      ><a name="3617" class="Symbol"
+      >=</a
+      ><a name="3618"
+      > </a
+      ><a name="3619" class="Symbol"
+      >&#8704;</a
+      ><a name="3620"
+      > </a
+      ><a name="3621" class="Symbol"
+      >{{</a
+      ><a name="3623" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3623" class="Bound"
+      >_</a
+      ><a name="3624"
+      > </a
+      ><a name="3625" class="Symbol"
+      >:</a
+      ><a name="3626"
+      > </a
+      ><a name="3627" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Record"
+      >Model</a
+      ><a name="3632" class="Symbol"
+      >}}</a
+      ><a name="3634"
+      > </a
+      ><a name="3635" class="Symbol"
+      >{</a
+      ><a name="3636" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3636" class="Bound"
+      >w</a
+      ><a name="3637"
+      > </a
+      ><a name="3638" class="Symbol"
+      >:</a
+      ><a name="3639"
+      > </a
+      ><a name="3640" href="Common.Semantics.html#316" class="Record"
+      >World</a
+      ><a name="3645" class="Symbol"
+      >}</a
+      ><a name="3646"
+      > </a
+      ><a name="3647" class="Symbol"
+      >&#8594;</a
+      ><a name="3648"
+      > </a
+      ><a name="3649" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3636" class="Bound"
+      >w</a
+      ><a name="3650"
+      > </a
+      ><a name="3651" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="3652"
+      > </a
+      ><a name="3653" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3611" class="Bound"
+      >&#915;</a
+      ><a name="3654"
+      > </a
+      ><a name="3655" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="3656"
+      > </a
+      ><a name="3657" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3615" class="Bound"
+      >A</a
+      ><a name="3658"
+      >
+
+</a
+      ><a name="3660" class="Keyword"
+      >infix</a
+      ><a name="3665"
+      > </a
+      ><a name="3666" class="Number"
+      >3</a
+      ><a name="3667"
+      > _&#8872;&#8902;_
+</a
+      ><a name="3673" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3673" class="Function Operator"
+      >_&#8872;&#8902;_</a
+      ><a name="3677"
+      > </a
+      ><a name="3678" class="Symbol"
+      >:</a
+      ><a name="3679"
+      > </a
+      ><a name="3680" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="3682"
+      > </a
+      ><a name="3683" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="3685"
+      > </a
+      ><a name="3686" class="Symbol"
+      >&#8594;</a
+      ><a name="3687"
+      > </a
+      ><a name="3688" href="Common.Context.html#77" class="Datatype"
+      >Cx</a
+      ><a name="3690"
+      > </a
+      ><a name="3691" href="BasicIPC.Syntax.Common.html#216" class="Datatype"
+      >Ty</a
+      ><a name="3693"
+      > </a
+      ><a name="3694" class="Symbol"
+      >&#8594;</a
+      ><a name="3695"
+      > </a
+      ><a name="3696" class="PrimitiveType"
+      >Set&#8321;</a
+      ><a name="3700"
+      >
+</a
+      ><a name="3701" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3701" class="Bound"
+      >&#915;</a
+      ><a name="3702"
+      > </a
+      ><a name="3703" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3673" class="Function Operator"
+      >&#8872;&#8902;</a
+      ><a name="3705"
+      > </a
+      ><a name="3706" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3706" class="Bound"
+      >&#926;</a
+      ><a name="3707"
+      > </a
+      ><a name="3708" class="Symbol"
+      >=</a
+      ><a name="3709"
+      > </a
+      ><a name="3710" class="Symbol"
+      >&#8704;</a
+      ><a name="3711"
+      > </a
+      ><a name="3712" class="Symbol"
+      >{{</a
+      ><a name="3714" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3714" class="Bound"
+      >_</a
+      ><a name="3715"
+      > </a
+      ><a name="3716" class="Symbol"
+      >:</a
+      ><a name="3717"
+      > </a
+      ><a name="3718" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Record"
+      >Model</a
+      ><a name="3723" class="Symbol"
+      >}}</a
+      ><a name="3725"
+      > </a
+      ><a name="3726" class="Symbol"
+      >{</a
+      ><a name="3727" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3727" class="Bound"
+      >w</a
+      ><a name="3728"
+      > </a
+      ><a name="3729" class="Symbol"
+      >:</a
+      ><a name="3730"
+      > </a
+      ><a name="3731" href="Common.Semantics.html#316" class="Record"
+      >World</a
+      ><a name="3736" class="Symbol"
+      >}</a
+      ><a name="3737"
+      > </a
+      ><a name="3738" class="Symbol"
+      >&#8594;</a
+      ><a name="3739"
+      > </a
+      ><a name="3740" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3727" class="Bound"
+      >w</a
+      ><a name="3741"
+      > </a
+      ><a name="3742" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3435" class="Function Operator"
+      >&#8873;</a
+      ><a name="3743"
+      > </a
+      ><a name="3744" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3701" class="Bound"
+      >&#915;</a
+      ><a name="3745"
+      > </a
+      ><a name="3746" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3435" class="Function Operator"
+      >&#8658;&#8902;</a
+      ><a name="3748"
+      > </a
+      ><a name="3749" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3706" class="Bound"
+      >&#926;</a
+      ><a name="3750"
+      >
+
+
+</a
+      ><a name="3753" class="Comment"
+      >-- Additional useful equipment, for sequents.</a
+      ><a name="3798"
+      >
+
+</a
+      ><a name="3800" class="Keyword"
+      >module</a
+      ><a name="3806"
+      > </a
+      ><a name="3807" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3807" class="Module"
+      >_</a
+      ><a name="3808"
+      > </a
+      ><a name="3809" class="Symbol"
+      >{{</a
+      ><a name="3811" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3811" class="Bound"
+      >_</a
+      ><a name="3812"
+      > </a
+      ><a name="3813" class="Symbol"
+      >:</a
+      ><a name="3814"
+      > </a
+      ><a name="3815" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#396" class="Record"
+      >Model</a
+      ><a name="3820" class="Symbol"
+      >}}</a
+      ><a name="3822"
+      > </a
+      ><a name="3823" class="Keyword"
+      >where</a
+      ><a name="3828"
+      >
+  </a
+      ><a name="3831" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3831" class="Function"
+      >lookup</a
+      ><a name="3837"
+      > </a
+      ><a name="3838" class="Symbol"
+      >:</a
+      ><a name="3839"
+      > </a
+      ><a name="3840" class="Symbol"
+      >&#8704;</a
+      ><a name="3841"
+      > </a
+      ><a name="3842" class="Symbol"
+      >{</a
+      ><a name="3843" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3843" class="Bound"
+      >A</a
+      ><a name="3844"
+      > </a
+      ><a name="3845" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3845" class="Bound"
+      >&#915;</a
+      ><a name="3846"
+      > </a
+      ><a name="3847" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3847" class="Bound"
+      >w</a
+      ><a name="3848" class="Symbol"
+      >}</a
+      ><a name="3849"
+      > </a
+      ><a name="3850" class="Symbol"
+      >&#8594;</a
+      ><a name="3851"
+      > </a
+      ><a name="3852" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3843" class="Bound"
+      >A</a
+      ><a name="3853"
+      > </a
+      ><a name="3854" href="Common.Context.html#1110" class="Datatype Operator"
+      >&#8712;</a
+      ><a name="3855"
+      > </a
+      ><a name="3856" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3845" class="Bound"
+      >&#915;</a
+      ><a name="3857"
+      > </a
+      ><a name="3858" class="Symbol"
+      >&#8594;</a
+      ><a name="3859"
+      > </a
+      ><a name="3860" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3847" class="Bound"
+      >w</a
+      ><a name="3861"
+      > </a
+      ><a name="3862" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="3863"
+      > </a
+      ><a name="3864" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3845" class="Bound"
+      >&#915;</a
+      ><a name="3865"
+      > </a
+      ><a name="3866" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="3867"
+      > </a
+      ><a name="3868" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3843" class="Bound"
+      >A</a
+      ><a name="3869"
+      >
+  </a
+      ><a name="3872" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3831" class="Function"
+      >lookup</a
+      ><a name="3878"
+      > </a
+      ><a name="3879" href="Common.Context.html#1160" class="InductiveConstructor"
+      >top</a
+      ><a name="3882"
+      >     </a
+      ><a name="3887" class="Symbol"
+      >(</a
+      ><a name="3888" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3888" class="Bound"
+      >&#947;</a
+      ><a name="3889"
+      > </a
+      ><a name="3890" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3891"
+      > </a
+      ><a name="3892" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3892" class="Bound"
+      >a</a
+      ><a name="3893" class="Symbol"
+      >)</a
+      ><a name="3894"
+      > </a
+      ><a name="3895" class="Symbol"
+      >=</a
+      ><a name="3896"
+      > </a
+      ><a name="3897" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3892" class="Bound"
+      >a</a
+      ><a name="3898"
+      >
+  </a
+      ><a name="3901" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3831" class="Function"
+      >lookup</a
+      ><a name="3907"
+      > </a
+      ><a name="3908" class="Symbol"
+      >(</a
+      ><a name="3909" href="Common.Context.html#1190" class="InductiveConstructor"
+      >pop</a
+      ><a name="3912"
+      > </a
+      ><a name="3913" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3913" class="Bound"
+      >i</a
+      ><a name="3914" class="Symbol"
+      >)</a
+      ><a name="3915"
+      > </a
+      ><a name="3916" class="Symbol"
+      >(</a
+      ><a name="3917" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3917" class="Bound"
+      >&#947;</a
+      ><a name="3918"
+      > </a
+      ><a name="3919" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="3920"
+      > </a
+      ><a name="3921" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3921" class="Bound"
+      >b</a
+      ><a name="3922" class="Symbol"
+      >)</a
+      ><a name="3923"
+      > </a
+      ><a name="3924" class="Symbol"
+      >=</a
+      ><a name="3925"
+      > </a
+      ><a name="3926" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3831" class="Function"
+      >lookup</a
+      ><a name="3932"
+      > </a
+      ><a name="3933" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3913" class="Bound"
+      >i</a
+      ><a name="3934"
+      > </a
+      ><a name="3935" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3917" class="Bound"
+      >&#947;</a
+      ><a name="3936"
+      >
+
+  </a
+      ><a name="3940" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3940" class="Function Operator"
+      >_&#10214;$&#10215;_</a
+      ><a name="3945"
+      > </a
+      ><a name="3946" class="Symbol"
+      >:</a
+      ><a name="3947"
+      > </a
+      ><a name="3948" class="Symbol"
+      >&#8704;</a
+      ><a name="3949"
+      > </a
+      ><a name="3950" class="Symbol"
+      >{</a
+      ><a name="3951" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3951" class="Bound"
+      >A</a
+      ><a name="3952"
+      > </a
+      ><a name="3953" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3953" class="Bound"
+      >B</a
+      ><a name="3954"
+      > </a
+      ><a name="3955" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3955" class="Bound"
+      >&#915;</a
+      ><a name="3956"
+      > </a
+      ><a name="3957" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3957" class="Bound"
+      >w</a
+      ><a name="3958" class="Symbol"
+      >}</a
+      ><a name="3959"
+      > </a
+      ><a name="3960" class="Symbol"
+      >&#8594;</a
+      ><a name="3961"
+      > </a
+      ><a name="3962" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3957" class="Bound"
+      >w</a
+      ><a name="3963"
+      > </a
+      ><a name="3964" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="3965"
+      > </a
+      ><a name="3966" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3955" class="Bound"
+      >&#915;</a
+      ><a name="3967"
+      > </a
+      ><a name="3968" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="3969"
+      > </a
+      ><a name="3970" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3951" class="Bound"
+      >A</a
+      ><a name="3971"
+      > </a
+      ><a name="3972" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="3973"
+      > </a
+      ><a name="3974" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3953" class="Bound"
+      >B</a
+      ><a name="3975"
+      > </a
+      ><a name="3976" class="Symbol"
+      >&#8594;</a
+      ><a name="3977"
+      > </a
+      ><a name="3978" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3957" class="Bound"
+      >w</a
+      ><a name="3979"
+      > </a
+      ><a name="3980" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="3981"
+      > </a
+      ><a name="3982" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3955" class="Bound"
+      >&#915;</a
+      ><a name="3983"
+      > </a
+      ><a name="3984" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="3985"
+      > </a
+      ><a name="3986" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3951" class="Bound"
+      >A</a
+      ><a name="3987"
+      > </a
+      ><a name="3988" class="Symbol"
+      >&#8594;</a
+      ><a name="3989"
+      > </a
+      ><a name="3990" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3957" class="Bound"
+      >w</a
+      ><a name="3991"
+      > </a
+      ><a name="3992" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="3993"
+      > </a
+      ><a name="3994" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3955" class="Bound"
+      >&#915;</a
+      ><a name="3995"
+      > </a
+      ><a name="3996" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="3997"
+      > </a
+      ><a name="3998" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3953" class="Bound"
+      >B</a
+      ><a name="3999"
+      >
+  </a
+      ><a name="4002" class="Symbol"
+      >(</a
+      ><a name="4003" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4003" class="Bound"
+      >s&#8321;</a
+      ><a name="4005"
+      > </a
+      ><a name="4006" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3940" class="Function Operator"
+      >&#10214;$&#10215;</a
+      ><a name="4009"
+      > </a
+      ><a name="4010" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4010" class="Bound"
+      >s&#8322;</a
+      ><a name="4012" class="Symbol"
+      >)</a
+      ><a name="4013"
+      > </a
+      ><a name="4014" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4014" class="Bound"
+      >&#947;</a
+      ><a name="4015"
+      > </a
+      ><a name="4016" class="Symbol"
+      >=</a
+      ><a name="4017"
+      > </a
+      ><a name="4018" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4003" class="Bound"
+      >s&#8321;</a
+      ><a name="4020"
+      > </a
+      ><a name="4021" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4014" class="Bound"
+      >&#947;</a
+      ><a name="4022"
+      > </a
+      ><a name="4023" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2695" class="Function Operator"
+      >&#10218;$&#10219;</a
+      ><a name="4026"
+      > </a
+      ><a name="4027" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4010" class="Bound"
+      >s&#8322;</a
+      ><a name="4029"
+      > </a
+      ><a name="4030" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4014" class="Bound"
+      >&#947;</a
+      ><a name="4031"
+      >
+
+  </a
+      ><a name="4035" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4035" class="Function"
+      >&#10214;K&#10215;</a
+      ><a name="4038"
+      > </a
+      ><a name="4039" class="Symbol"
+      >:</a
+      ><a name="4040"
+      > </a
+      ><a name="4041" class="Symbol"
+      >&#8704;</a
+      ><a name="4042"
+      > </a
+      ><a name="4043" class="Symbol"
+      >{</a
+      ><a name="4044" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4044" class="Bound"
+      >A</a
+      ><a name="4045"
+      > </a
+      ><a name="4046" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4046" class="Bound"
+      >B</a
+      ><a name="4047"
+      > </a
+      ><a name="4048" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4048" class="Bound"
+      >&#915;</a
+      ><a name="4049"
+      > </a
+      ><a name="4050" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4050" class="Bound"
+      >w</a
+      ><a name="4051" class="Symbol"
+      >}</a
+      ><a name="4052"
+      > </a
+      ><a name="4053" class="Symbol"
+      >&#8594;</a
+      ><a name="4054"
+      > </a
+      ><a name="4055" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4050" class="Bound"
+      >w</a
+      ><a name="4056"
+      > </a
+      ><a name="4057" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4058"
+      > </a
+      ><a name="4059" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4048" class="Bound"
+      >&#915;</a
+      ><a name="4060"
+      > </a
+      ><a name="4061" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4062"
+      > </a
+      ><a name="4063" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4044" class="Bound"
+      >A</a
+      ><a name="4064"
+      > </a
+      ><a name="4065" class="Symbol"
+      >&#8594;</a
+      ><a name="4066"
+      > </a
+      ><a name="4067" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4050" class="Bound"
+      >w</a
+      ><a name="4068"
+      > </a
+      ><a name="4069" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4070"
+      > </a
+      ><a name="4071" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4048" class="Bound"
+      >&#915;</a
+      ><a name="4072"
+      > </a
+      ><a name="4073" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4074"
+      > </a
+      ><a name="4075" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4046" class="Bound"
+      >B</a
+      ><a name="4076"
+      > </a
+      ><a name="4077" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4078"
+      > </a
+      ><a name="4079" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4044" class="Bound"
+      >A</a
+      ><a name="4080"
+      >
+  </a
+      ><a name="4083" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4035" class="Function"
+      >&#10214;K&#10215;</a
+      ><a name="4086"
+      > </a
+      ><a name="4087" class="Symbol"
+      >{</a
+      ><a name="4088" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4088" class="Bound"
+      >A</a
+      ><a name="4089" class="Symbol"
+      >}</a
+      ><a name="4090"
+      > </a
+      ><a name="4091" class="Symbol"
+      >{</a
+      ><a name="4092" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4092" class="Bound"
+      >B</a
+      ><a name="4093" class="Symbol"
+      >}</a
+      ><a name="4094"
+      > </a
+      ><a name="4095" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4095" class="Bound"
+      >a</a
+      ><a name="4096"
+      > </a
+      ><a name="4097" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4097" class="Bound"
+      >&#947;</a
+      ><a name="4098"
+      > </a
+      ><a name="4099" class="Symbol"
+      >=</a
+      ><a name="4100"
+      > </a
+      ><a name="4101" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2764" class="Function"
+      >&#10218;K&#10219;</a
+      ><a name="4104"
+      > </a
+      ><a name="4105" class="Symbol"
+      >{</a
+      ><a name="4106" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4088" class="Bound"
+      >A</a
+      ><a name="4107" class="Symbol"
+      >}</a
+      ><a name="4108"
+      > </a
+      ><a name="4109" class="Symbol"
+      >{</a
+      ><a name="4110" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4092" class="Bound"
+      >B</a
+      ><a name="4111" class="Symbol"
+      >}</a
+      ><a name="4112"
+      > </a
+      ><a name="4113" class="Symbol"
+      >(</a
+      ><a name="4114" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4095" class="Bound"
+      >a</a
+      ><a name="4115"
+      > </a
+      ><a name="4116" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4097" class="Bound"
+      >&#947;</a
+      ><a name="4117" class="Symbol"
+      >)</a
+      ><a name="4118"
+      >
+
+  </a
+      ><a name="4122" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4122" class="Function"
+      >&#10214;S&#10215;</a
+      ><a name="4125"
+      > </a
+      ><a name="4126" class="Symbol"
+      >:</a
+      ><a name="4127"
+      > </a
+      ><a name="4128" class="Symbol"
+      >&#8704;</a
+      ><a name="4129"
+      > </a
+      ><a name="4130" class="Symbol"
+      >{</a
+      ><a name="4131" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4131" class="Bound"
+      >A</a
+      ><a name="4132"
+      > </a
+      ><a name="4133" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4133" class="Bound"
+      >B</a
+      ><a name="4134"
+      > </a
+      ><a name="4135" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4135" class="Bound"
+      >C</a
+      ><a name="4136"
+      > </a
+      ><a name="4137" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4137" class="Bound"
+      >&#915;</a
+      ><a name="4138"
+      > </a
+      ><a name="4139" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4139" class="Bound"
+      >w</a
+      ><a name="4140" class="Symbol"
+      >}</a
+      ><a name="4141"
+      > </a
+      ><a name="4142" class="Symbol"
+      >&#8594;</a
+      ><a name="4143"
+      > </a
+      ><a name="4144" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4139" class="Bound"
+      >w</a
+      ><a name="4145"
+      > </a
+      ><a name="4146" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4147"
+      > </a
+      ><a name="4148" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4137" class="Bound"
+      >&#915;</a
+      ><a name="4149"
+      > </a
+      ><a name="4150" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4151"
+      > </a
+      ><a name="4152" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4131" class="Bound"
+      >A</a
+      ><a name="4153"
+      > </a
+      ><a name="4154" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4155"
+      > </a
+      ><a name="4156" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4133" class="Bound"
+      >B</a
+      ><a name="4157"
+      > </a
+      ><a name="4158" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4159"
+      > </a
+      ><a name="4160" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4135" class="Bound"
+      >C</a
+      ><a name="4161"
+      > </a
+      ><a name="4162" class="Symbol"
+      >&#8594;</a
+      ><a name="4163"
+      > </a
+      ><a name="4164" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4139" class="Bound"
+      >w</a
+      ><a name="4165"
+      > </a
+      ><a name="4166" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4167"
+      > </a
+      ><a name="4168" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4137" class="Bound"
+      >&#915;</a
+      ><a name="4169"
+      > </a
+      ><a name="4170" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4171"
+      > </a
+      ><a name="4172" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4131" class="Bound"
+      >A</a
+      ><a name="4173"
+      > </a
+      ><a name="4174" href="BasicIPC.Syntax.Common.html#251" class="InductiveConstructor Operator"
+      >&#9659;</a
+      ><a name="4175"
+      > </a
+      ><a name="4176" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4133" class="Bound"
+      >B</a
+      ><a name="4177"
+      > </a
+      ><a name="4178" class="Symbol"
+      >&#8594;</a
+      ><a name="4179"
+      > </a
+      ><a name="4180" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4139" class="Bound"
+      >w</a
+      ><a name="4181"
+      > </a
+      ><a name="4182" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4183"
+      > </a
+      ><a name="4184" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4137" class="Bound"
+      >&#915;</a
+      ><a name="4185"
+      > </a
+      ><a name="4186" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4187"
+      > </a
+      ><a name="4188" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4131" class="Bound"
+      >A</a
+      ><a name="4189"
+      > </a
+      ><a name="4190" class="Symbol"
+      >&#8594;</a
+      ><a name="4191"
+      > </a
+      ><a name="4192" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4139" class="Bound"
+      >w</a
+      ><a name="4193"
+      > </a
+      ><a name="4194" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4195"
+      > </a
+      ><a name="4196" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4137" class="Bound"
+      >&#915;</a
+      ><a name="4197"
+      > </a
+      ><a name="4198" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4199"
+      > </a
+      ><a name="4200" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4135" class="Bound"
+      >C</a
+      ><a name="4201"
+      >
+  </a
+      ><a name="4204" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4122" class="Function"
+      >&#10214;S&#10215;</a
+      ><a name="4207"
+      > </a
+      ><a name="4208" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4208" class="Bound"
+      >s&#8321;</a
+      ><a name="4210"
+      > </a
+      ><a name="4211" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4211" class="Bound"
+      >s&#8322;</a
+      ><a name="4213"
+      > </a
+      ><a name="4214" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4214" class="Bound"
+      >a</a
+      ><a name="4215"
+      > </a
+      ><a name="4216" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4216" class="Bound"
+      >&#947;</a
+      ><a name="4217"
+      > </a
+      ><a name="4218" class="Symbol"
+      >=</a
+      ><a name="4219"
+      > </a
+      ><a name="4220" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#2845" class="Function"
+      >&#10218;S&#10219;</a
+      ><a name="4223"
+      > </a
+      ><a name="4224" class="Symbol"
+      >(</a
+      ><a name="4225" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4208" class="Bound"
+      >s&#8321;</a
+      ><a name="4227"
+      > </a
+      ><a name="4228" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4216" class="Bound"
+      >&#947;</a
+      ><a name="4229" class="Symbol"
+      >)</a
+      ><a name="4230"
+      > </a
+      ><a name="4231" class="Symbol"
+      >(</a
+      ><a name="4232" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4211" class="Bound"
+      >s&#8322;</a
+      ><a name="4234"
+      > </a
+      ><a name="4235" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4216" class="Bound"
+      >&#947;</a
+      ><a name="4236" class="Symbol"
+      >)</a
+      ><a name="4237"
+      > </a
+      ><a name="4238" class="Symbol"
+      >(</a
+      ><a name="4239" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4214" class="Bound"
+      >a</a
+      ><a name="4240"
+      > </a
+      ><a name="4241" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4216" class="Bound"
+      >&#947;</a
+      ><a name="4242" class="Symbol"
+      >)</a
+      ><a name="4243"
+      >
+
+  </a
+      ><a name="4247" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4247" class="Function Operator"
+      >_&#10214;,&#10215;_</a
+      ><a name="4252"
+      > </a
+      ><a name="4253" class="Symbol"
+      >:</a
+      ><a name="4254"
+      > </a
+      ><a name="4255" class="Symbol"
+      >&#8704;</a
+      ><a name="4256"
+      > </a
+      ><a name="4257" class="Symbol"
+      >{</a
+      ><a name="4258" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4258" class="Bound"
+      >A</a
+      ><a name="4259"
+      > </a
+      ><a name="4260" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4260" class="Bound"
+      >B</a
+      ><a name="4261"
+      > </a
+      ><a name="4262" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4262" class="Bound"
+      >&#915;</a
+      ><a name="4263"
+      > </a
+      ><a name="4264" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4264" class="Bound"
+      >w</a
+      ><a name="4265" class="Symbol"
+      >}</a
+      ><a name="4266"
+      > </a
+      ><a name="4267" class="Symbol"
+      >&#8594;</a
+      ><a name="4268"
+      > </a
+      ><a name="4269" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4264" class="Bound"
+      >w</a
+      ><a name="4270"
+      > </a
+      ><a name="4271" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4272"
+      > </a
+      ><a name="4273" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4262" class="Bound"
+      >&#915;</a
+      ><a name="4274"
+      > </a
+      ><a name="4275" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4276"
+      > </a
+      ><a name="4277" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4258" class="Bound"
+      >A</a
+      ><a name="4278"
+      > </a
+      ><a name="4279" class="Symbol"
+      >&#8594;</a
+      ><a name="4280"
+      > </a
+      ><a name="4281" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4264" class="Bound"
+      >w</a
+      ><a name="4282"
+      > </a
+      ><a name="4283" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4284"
+      > </a
+      ><a name="4285" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4262" class="Bound"
+      >&#915;</a
+      ><a name="4286"
+      > </a
+      ><a name="4287" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4288"
+      > </a
+      ><a name="4289" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4260" class="Bound"
+      >B</a
+      ><a name="4290"
+      > </a
+      ><a name="4291" class="Symbol"
+      >&#8594;</a
+      ><a name="4292"
+      > </a
+      ><a name="4293" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4264" class="Bound"
+      >w</a
+      ><a name="4294"
+      > </a
+      ><a name="4295" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4296"
+      > </a
+      ><a name="4297" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4262" class="Bound"
+      >&#915;</a
+      ><a name="4298"
+      > </a
+      ><a name="4299" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4300"
+      > </a
+      ><a name="4301" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4258" class="Bound"
+      >A</a
+      ><a name="4302"
+      > </a
+      ><a name="4303" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="4304"
+      > </a
+      ><a name="4305" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4260" class="Bound"
+      >B</a
+      ><a name="4306"
+      >
+  </a
+      ><a name="4309" class="Symbol"
+      >(</a
+      ><a name="4310" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4310" class="Bound"
+      >a</a
+      ><a name="4311"
+      > </a
+      ><a name="4312" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4247" class="Function Operator"
+      >&#10214;,&#10215;</a
+      ><a name="4315"
+      > </a
+      ><a name="4316" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4316" class="Bound"
+      >b</a
+      ><a name="4317" class="Symbol"
+      >)</a
+      ><a name="4318"
+      > </a
+      ><a name="4319" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4319" class="Bound"
+      >&#947;</a
+      ><a name="4320"
+      > </a
+      ><a name="4321" class="Symbol"
+      >=</a
+      ><a name="4322"
+      > </a
+      ><a name="4323" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4310" class="Bound"
+      >a</a
+      ><a name="4324"
+      > </a
+      ><a name="4325" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4319" class="Bound"
+      >&#947;</a
+      ><a name="4326"
+      > </a
+      ><a name="4327" href="Common.html#1499" class="InductiveConstructor Operator"
+      >,</a
+      ><a name="4328"
+      > </a
+      ><a name="4329" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4316" class="Bound"
+      >b</a
+      ><a name="4330"
+      > </a
+      ><a name="4331" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4319" class="Bound"
+      >&#947;</a
+      ><a name="4332"
+      >
+
+  </a
+      ><a name="4336" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4336" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="4340"
+      > </a
+      ><a name="4341" class="Symbol"
+      >:</a
+      ><a name="4342"
+      > </a
+      ><a name="4343" class="Symbol"
+      >&#8704;</a
+      ><a name="4344"
+      > </a
+      ><a name="4345" class="Symbol"
+      >{</a
+      ><a name="4346" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4346" class="Bound"
+      >A</a
+      ><a name="4347"
+      > </a
+      ><a name="4348" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4348" class="Bound"
+      >B</a
+      ><a name="4349"
+      > </a
+      ><a name="4350" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4350" class="Bound"
+      >&#915;</a
+      ><a name="4351"
+      > </a
+      ><a name="4352" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4352" class="Bound"
+      >w</a
+      ><a name="4353" class="Symbol"
+      >}</a
+      ><a name="4354"
+      > </a
+      ><a name="4355" class="Symbol"
+      >&#8594;</a
+      ><a name="4356"
+      > </a
+      ><a name="4357" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4352" class="Bound"
+      >w</a
+      ><a name="4358"
+      > </a
+      ><a name="4359" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4360"
+      > </a
+      ><a name="4361" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4350" class="Bound"
+      >&#915;</a
+      ><a name="4362"
+      > </a
+      ><a name="4363" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4364"
+      > </a
+      ><a name="4365" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4346" class="Bound"
+      >A</a
+      ><a name="4366"
+      > </a
+      ><a name="4367" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="4368"
+      > </a
+      ><a name="4369" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4348" class="Bound"
+      >B</a
+      ><a name="4370"
+      > </a
+      ><a name="4371" class="Symbol"
+      >&#8594;</a
+      ><a name="4372"
+      > </a
+      ><a name="4373" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4352" class="Bound"
+      >w</a
+      ><a name="4374"
+      > </a
+      ><a name="4375" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4376"
+      > </a
+      ><a name="4377" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4350" class="Bound"
+      >&#915;</a
+      ><a name="4378"
+      > </a
+      ><a name="4379" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4380"
+      > </a
+      ><a name="4381" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4346" class="Bound"
+      >A</a
+      ><a name="4382"
+      >
+  </a
+      ><a name="4385" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4336" class="Function"
+      >&#10214;&#960;&#8321;&#10215;</a
+      ><a name="4389"
+      > </a
+      ><a name="4390" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4390" class="Bound"
+      >s</a
+      ><a name="4391"
+      > </a
+      ><a name="4392" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4392" class="Bound"
+      >&#947;</a
+      ><a name="4393"
+      > </a
+      ><a name="4394" class="Symbol"
+      >=</a
+      ><a name="4395"
+      > </a
+      ><a name="4396" href="Common.html#1515" class="Field"
+      >&#960;&#8321;</a
+      ><a name="4398"
+      > </a
+      ><a name="4399" class="Symbol"
+      >(</a
+      ><a name="4400" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4390" class="Bound"
+      >s</a
+      ><a name="4401"
+      > </a
+      ><a name="4402" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4392" class="Bound"
+      >&#947;</a
+      ><a name="4403" class="Symbol"
+      >)</a
+      ><a name="4404"
+      >
+
+  </a
+      ><a name="4408" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4408" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="4412"
+      > </a
+      ><a name="4413" class="Symbol"
+      >:</a
+      ><a name="4414"
+      > </a
+      ><a name="4415" class="Symbol"
+      >&#8704;</a
+      ><a name="4416"
+      > </a
+      ><a name="4417" class="Symbol"
+      >{</a
+      ><a name="4418" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4418" class="Bound"
+      >A</a
+      ><a name="4419"
+      > </a
+      ><a name="4420" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4420" class="Bound"
+      >B</a
+      ><a name="4421"
+      > </a
+      ><a name="4422" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4422" class="Bound"
+      >&#915;</a
+      ><a name="4423"
+      > </a
+      ><a name="4424" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4424" class="Bound"
+      >w</a
+      ><a name="4425" class="Symbol"
+      >}</a
+      ><a name="4426"
+      > </a
+      ><a name="4427" class="Symbol"
+      >&#8594;</a
+      ><a name="4428"
+      > </a
+      ><a name="4429" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4424" class="Bound"
+      >w</a
+      ><a name="4430"
+      > </a
+      ><a name="4431" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4432"
+      > </a
+      ><a name="4433" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4422" class="Bound"
+      >&#915;</a
+      ><a name="4434"
+      > </a
+      ><a name="4435" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4436"
+      > </a
+      ><a name="4437" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4418" class="Bound"
+      >A</a
+      ><a name="4438"
+      > </a
+      ><a name="4439" href="BasicIPC.Syntax.Common.html#272" class="InductiveConstructor Operator"
+      >&#8743;</a
+      ><a name="4440"
+      > </a
+      ><a name="4441" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4420" class="Bound"
+      >B</a
+      ><a name="4442"
+      > </a
+      ><a name="4443" class="Symbol"
+      >&#8594;</a
+      ><a name="4444"
+      > </a
+      ><a name="4445" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4424" class="Bound"
+      >w</a
+      ><a name="4446"
+      > </a
+      ><a name="4447" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8873;</a
+      ><a name="4448"
+      > </a
+      ><a name="4449" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4422" class="Bound"
+      >&#915;</a
+      ><a name="4450"
+      > </a
+      ><a name="4451" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#3353" class="Function Operator"
+      >&#8658;</a
+      ><a name="4452"
+      > </a
+      ><a name="4453" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4420" class="Bound"
+      >B</a
+      ><a name="4454"
+      >
+  </a
+      ><a name="4457" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4408" class="Function"
+      >&#10214;&#960;&#8322;&#10215;</a
+      ><a name="4461"
+      > </a
+      ><a name="4462" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4462" class="Bound"
+      >s</a
+      ><a name="4463"
+      > </a
+      ><a name="4464" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4464" class="Bound"
+      >&#947;</a
+      ><a name="4465"
+      > </a
+      ><a name="4466" class="Symbol"
+      >=</a
+      ><a name="4467"
+      > </a
+      ><a name="4468" href="Common.html#1526" class="Field"
+      >&#960;&#8322;</a
+      ><a name="4470"
+      > </a
+      ><a name="4471" class="Symbol"
+      >(</a
+      ><a name="4472" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4462" class="Bound"
+      >s</a
+      ><a name="4473"
+      > </a
+      ><a name="4474" href="BasicIPC.Semantics.TarskiConcreteGluedHilbert.html#4464" class="Bound"
+      >&#947;</a
+      ><a name="4475" class="Symbol"
+      >)</a
+      ><a name="4476"
+      >
+</a
+      ></pre
+    ></body
+  ></html
+>
