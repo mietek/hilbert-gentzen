@@ -66,7 +66,7 @@ inv∧₂ : ∀ {A A′ B B′} → A ∧ B ≡ A′ ∧ B′ → B ≡ B′
 inv∧₂ refl = refl
 
 
--- Decidable equality on types.
+-- Decidable equality.
 
 _≟ᵀ_ : (A A′ : Ty) → Dec (A ≡ A′)
 (α P)   ≟ᵀ (α P′)    with P ≟ᵅ P′

@@ -66,6 +66,25 @@ module _ {U : Set} where
   [ pop i ]ⁱ = suc [ i ]ⁱ
 
 
+-- Inversion priciples for context membership.
+
+module _ {U : Set} where
+  invpop : ∀ {A B : U} {Γ} {i i′ : A ∈ Γ} → pop {B = B} i ≡ pop i′ → i ≡ i′
+  invpop refl = refl
+
+
+-- Decidable equality for context membership.
+
+module _ {U : Set} where
+  _≟ⁱ_ : ∀ {A : U} {Γ} → (i i′ : A ∈ Γ) → Dec (i ≡ i′)
+  top   ≟ⁱ top    = yes refl
+  top   ≟ⁱ pop i′ = no λ ()
+  pop i ≟ⁱ top    = no λ ()
+  pop i ≟ⁱ pop i′ with i ≟ⁱ i′
+  pop i ≟ⁱ pop .i | yes refl = yes refl
+  pop i ≟ⁱ pop i′ | no  i≢i′ = no (i≢i′ ∘ invpop)
+
+
 -- Context inclusion, or order-preserving embedding.
 
 module _ {U : Set} where
@@ -170,7 +189,7 @@ module _ {U : Set} where
   thin⊆ (pop i) = keep (thin⊆ i)
 
 
--- Decidable equality of context membership.
+-- Thinning-based decidable equality of context membership.
 
 module _ {U : Set} where
   data _=∈_ {A : U} {Γ} (i : A ∈ Γ) : ∀ {B} → B ∈ Γ → Set where
