@@ -15,7 +15,7 @@ mutual
   data _⊢ⁿᶠ_ : Cx² Ty Ty → Ty → Set where
     neⁿᶠ   : ∀ {A Γ Δ}   → Γ ⁏ Δ ⊢ⁿᵉ A → Γ ⁏ Δ ⊢ⁿᶠ A
     lamⁿᶠ  : ∀ {A B Γ Δ} → Γ , A ⁏ Δ ⊢ⁿᶠ B → Γ ⁏ Δ ⊢ⁿᶠ A ▻ B
-    boxⁿᶠ  : ∀ {A Γ Δ}   → ∅ ⁏ Δ ⊢ⁿᶠ A → Γ ⁏ Δ ⊢ⁿᶠ □ A
+    boxⁿᶠ  : ∀ {A Γ Δ}   → ∅ ⁏ Δ ⊢ A → Γ ⁏ Δ ⊢ⁿᶠ □ A
     pairⁿᶠ : ∀ {A B Γ Δ} → Γ ⁏ Δ ⊢ⁿᶠ A → Γ ⁏ Δ ⊢ⁿᶠ B → Γ ⁏ Δ ⊢ⁿᶠ A ∧ B
     unitⁿᶠ : ∀ {Γ Δ}     → Γ ⁏ Δ ⊢ⁿᶠ ⊤
 
@@ -46,7 +46,7 @@ mutual
   nf→tm : ∀ {A Γ Δ} → Γ ⁏ Δ ⊢ⁿᶠ A → Γ ⁏ Δ ⊢ A
   nf→tm (neⁿᶠ t)     = ne→tm t
   nf→tm (lamⁿᶠ t)    = lam (nf→tm t)
-  nf→tm (boxⁿᶠ t)    = box (nf→tm t)
+  nf→tm (boxⁿᶠ t)    = box t
   nf→tm (pairⁿᶠ t u) = pair (nf→tm t) (nf→tm u)
   nf→tm unitⁿᶠ       = unit
 
@@ -100,7 +100,7 @@ mutual
   mmono⊢ⁿᶠ : ∀ {A Γ Δ Δ′} → Δ ⊆ Δ′ → Γ ⁏ Δ ⊢ⁿᶠ A → Γ ⁏ Δ′ ⊢ⁿᶠ A
   mmono⊢ⁿᶠ θ (neⁿᶠ t)     = neⁿᶠ (mmono⊢ⁿᵉ θ t)
   mmono⊢ⁿᶠ θ (lamⁿᶠ t)    = lamⁿᶠ (mmono⊢ⁿᶠ θ t)
-  mmono⊢ⁿᶠ θ (boxⁿᶠ t)    = boxⁿᶠ (mmono⊢ⁿᶠ θ t)
+  mmono⊢ⁿᶠ θ (boxⁿᶠ t)    = boxⁿᶠ (mmono⊢ θ t)
   mmono⊢ⁿᶠ θ (pairⁿᶠ t u) = pairⁿᶠ (mmono⊢ⁿᶠ θ t) (mmono⊢ⁿᶠ θ u)
   mmono⊢ⁿᶠ θ unitⁿᶠ       = unitⁿᶠ
 

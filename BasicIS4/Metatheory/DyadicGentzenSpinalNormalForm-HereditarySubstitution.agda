@@ -33,7 +33,7 @@ mutual
   m[ i ≔ s ]ⁿᶠ neⁿᶠ (mspⁿᵉ .i xs y) | same   = reduce (mono⊢ⁿᶠ bot⊆ s) (m[ i ≔ s ]ˢᵖ xs) (m[ i ≔ s ]ᵗᵖ y)
   m[ i ≔ s ]ⁿᶠ neⁿᶠ (mspⁿᵉ ._ xs y) | diff j = neⁿᶠ (mspⁿᵉ j (m[ i ≔ s ]ˢᵖ xs) (m[ i ≔ s ]ᵗᵖ y))
   m[ i ≔ s ]ⁿᶠ lamⁿᶠ t              = lamⁿᶠ (m[ i ≔ s ]ⁿᶠ t)
-  m[ i ≔ s ]ⁿᶠ boxⁿᶠ t              = boxⁿᶠ (m[ i ≔ s ]ⁿᶠ t)
+  m[ i ≔ s ]ⁿᶠ boxⁿᶠ t              = boxⁿᶠ (m[ i ≔ nf→tm s ] t)
   m[ i ≔ s ]ⁿᶠ pairⁿᶠ t u           = pairⁿᶠ (m[ i ≔ s ]ⁿᶠ t) (m[ i ≔ s ]ⁿᶠ u)
   m[ i ≔ s ]ⁿᶠ unitⁿᶠ               = unitⁿᶠ
 
@@ -60,7 +60,7 @@ mutual
   reduce (neⁿᶠ t {{()}})                 (fstˢᵖ xs)   y
   reduce (neⁿᶠ t {{()}})                 (sndˢᵖ xs)   y
   reduce (lamⁿᶠ t)                       (appˢᵖ xs u) y           = reduce ([ top ≔ u ]ⁿᶠ t) xs y
-  reduce (boxⁿᶠ t)                       nilˢᵖ        (unboxᵗᵖ u) = m[ top ≔ t ]ⁿᶠ u
+  reduce (boxⁿᶠ t)                       nilˢᵖ        (unboxᵗᵖ u) = m[ top ≔ {!t!} ]ⁿᶠ u
   reduce (pairⁿᶠ t u)                    (fstˢᵖ xs)   y           = reduce t xs y
   reduce (pairⁿᶠ t u)                    (sndˢᵖ xs)   y           = reduce u xs y
 
@@ -151,7 +151,7 @@ mvarⁿᶠ i = expand (mvarⁿᵉ i)
 mutual
   unboxⁿᶠ : ∀ {A C Γ Δ} → Γ ⁏ Δ ⊢ⁿᶠ □ A → Γ ⁏ Δ , A ⊢ⁿᶠ C → Γ ⁏ Δ ⊢ⁿᶠ C
   unboxⁿᶠ (neⁿᶠ t)  u = expand (unboxⁿᵉ t u)
-  unboxⁿᶠ (boxⁿᶠ t) u = m[ top ≔ t ]ⁿᶠ u
+  unboxⁿᶠ (boxⁿᶠ t) u = m[ top ≔ {!t!} ]ⁿᶠ u
 
   unboxⁿᵉ : ∀ {A C Γ Δ} → Γ ⁏ Δ ⊢ⁿᵉ □ A → Γ ⁏ Δ , A ⊢ⁿᶠ C → Γ ⁏ Δ ⊢ⁿᵉ C
   unboxⁿᵉ (spⁿᵉ i xs nilᵗᵖ)        u = spⁿᵉ i xs (unboxᵗᵖ u)
@@ -169,7 +169,7 @@ tm→nf (var i)     = varⁿᶠ i
 tm→nf (lam t)     = lamⁿᶠ (tm→nf t)
 tm→nf (app t u)   = appⁿᶠ (tm→nf t) (tm→nf u)
 tm→nf (mvar i)    = mvarⁿᶠ i
-tm→nf (box t)     = boxⁿᶠ (tm→nf t)
+tm→nf (box t)     = boxⁿᶠ t
 tm→nf (unbox t u) = unboxⁿᶠ (tm→nf t) (tm→nf u)
 tm→nf (pair t u)  = pairⁿᶠ (tm→nf t) (tm→nf u)
 tm→nf (fst t)     = fstⁿᶠ (tm→nf t)
